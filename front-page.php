@@ -68,7 +68,7 @@ get_header();
 $div_1 = '
   <div class="mc_banderole">
     <h1><a href="http://www.france-banderole.com/banderoles/">Banderole</a></h1>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="banderoles">banderoles</a></h2>
     <h2><a href="banderole-publicitaire">banderole publicitaire</a></h2>
     <h2><a href="banderoles">banderole de</a></h2>
@@ -83,7 +83,7 @@ $div_1 = '
     <h2><a href="banderoles">banderole imprimée</a></h2>
     <h2><a href="banderoles">banderole évènementielle</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="banderoles">banderole foire</a></h2>
     <h2><a href="banderoles">banderole barrière</a></h2>
     <h2><a href="banderoles">banderole mairie</a></h2>
@@ -97,7 +97,7 @@ $div_1 = '
     <h2><a href="les-maquettes">banderole impression</a></h2>
     <h2><a href="banderoles">banderole de publicité</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="banderoles">banderole discount</a></h2>
     <h2><a href="accessoires">banderoles gratuite</a></h2>
     <h2><a href="banderoles">banderoles pas chère</a></h2>
@@ -112,7 +112,7 @@ $div_1 = '
     <h2><a href="banderoles">acheter banderole</a></h2>
     <h2><a href="banderoles">acheter banderoles</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="banderoles">impression de banderole</a></h2>
     <h2><a href="realisation">fabrication de banderole</a></h2>
     <h2><a href="banderoles">tarif banderoles</a></h2>
@@ -123,13 +123,13 @@ $div_1 = '
     <h2><a href="accessoires">banderole promotion</a></h2>
     <h2><a href="banderole-publicitaire">banderole publicitaire devis en ligne</a></h2>
     <h2><a href="banderoles">impression de banderoles</a></h2>
-    <h2><a href="banderoles">bâche grand format</a></h2> 
+    <h2><a href="banderoles">bâche grand format</a></h2>
 	</div>
   </div>';
   $div_2 = '
   <div class="mc_kakemono">
     <h1><a href="http://www.france-banderole.com/kakemonos/">Kakemono</a></h1>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="kakemonos">kakemonos</a></h2>
     <h2><a href="kakemonos">kakemono enrouleur</a></h2>
     <h2><a href="kakemonos">kakemono publicitaire</a></h2>
@@ -141,7 +141,7 @@ $div_1 = '
     <h2><a href="kakemonos">kakemono imprimé</a></h2>
     <h2><a href="kakemonos">kakemono prix</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="kakemonos">impression kakemono</a></h2>
     <h2><a href="kakemonos">kakemono intérieur</a></h2>
     <h2><a href="kakemonos">kakemono exterieur</a></h2>
@@ -153,16 +153,16 @@ $div_1 = '
     <h2><a href="kakemonos">prix kakemono</a></h2>
     <h2><a href="kakemonos">tarif kakemono</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="choisir-son-kakemono">roll-up salon</a></h2>
     <h2><a href="kakemonos">roll-up exposition</a></h2>
     <h2><a href="kakemonos">kakemono rollup</a></h2>
     <h2><a href="kakemonos">kakemono suspendu</a></h2>
-	</div> 
+	</div>
   </div> ';
   $div_3 = '
   <div class="mc_sticker" itemscope itemtype="http://schema.org/Product">
-    <div style="float:left; padding:10px">
+    <div class="home-keywords-col">
     <h1><a href="http://www.france-banderole.com/panneaux-akilux-forex-dibond/">panneau akilux</a></h1>
     <h2><a href="panneaux-akilux-3mm">panneaux akilux</a></h2>
     <h2><a href="panneaux-akilux-3mm">panneaux akilux pas cher</a></h2>
@@ -177,7 +177,7 @@ $div_1 = '
     <h2><a href="panneaux-akilux-3mm">panneaux akilux alvéolaire</a></h2>
     <h2><a href="panneaux-akilux-forex-dibond">panneaux pvc</a></h2>
 	</div>
-	    <div style="float:left; padding:10px">
+	    <div class="home-keywords-col">
     <h1><a href="http://www.france-banderole.com/panneaux-akilux-forex-dibond/">panneau Forex</a></h1>
     <h2><a href="panneaux-akilux-forex-dibond">panneaux Forex</a></h2>
     <h2><a href="panneaux-akilux-forex-dibond">panneaux PVC prix</a></h2>
@@ -192,7 +192,7 @@ $div_1 = '
     <h2><a href="panneaux-akilux-forex-dibond">panneaux signalisation</a></h2>
     <h2><a href="panneaux-akilux-forex-dibond">panneaux pvc rigide</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h1><a href="http://www.france-banderole.com/panneaux-akilux-forex-dibond/">enseigne Dibond</a></h1>
     <h2><a href="panneaux-dibond">enseignes rigide alu</a></h2>
     <h2><a href="panneaux-dibond">enseigne pas chère</a></h2>
@@ -207,7 +207,7 @@ $div_1 = '
     <h2><a href="panneaux-dibond">enseignes publicitaires personnalisees</a></h2>
     <h2><a href="panneaux-dibond">enseigne publicitaire pvc</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h1><a href="http://www.france-banderole.com/stickers/">stickers</a></h1>
     <h2><a href="stickers">sticker</a></h2>
     <h2><a href="stickers">vinyle</a></h2>
@@ -222,26 +222,26 @@ $div_1 = '
     <h2><a href="stickers">film adhésif découpé</a></h2>
     <h2><a href="stickers">magnet</a></h2>
     <h2><a href="stickers">magnets</a></h2>
-    <h2><a href="stickers">sticker magnetique</a></h2>  
-	</div>  
+    <h2><a href="stickers">sticker magnetique</a></h2>
+	</div>
   </div> ';
   $div_4 = '
   <div class="mc_papier">
     <h1><a href="http://www.france-banderole.com/depliants/">imprimerie-papier</a></h1>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="flyers">flyer pas cher</a></h2>
     <h2><a href="flyers">flyers</a></h2>
     <h2><a href="flyers">flyer discount</a></h2>
-    <h2><a href="flyers">flyer papier</a></h2> 
+    <h2><a href="flyers">flyer papier</a></h2>
     <h2><a href="flyers">imprimer flyer</a></h2>
-    <h2><a href="flyers">prospectus</a></h2> 
-    <h2><a href="flyers">prospectus pas cher</a></h2> 
-    <h2><a href="flyers">prix flyer</a></h2> 
-    <h2><a href="flyers">flyers gratuit</a></h2> 
+    <h2><a href="flyers">prospectus</a></h2>
+    <h2><a href="flyers">prospectus pas cher</a></h2>
+    <h2><a href="flyers">prix flyer</a></h2>
+    <h2><a href="flyers">flyers gratuit</a></h2>
     <h2><a href="flyers">flyer quantité</a></h2>
     <h2><a href="flyers">tarif flyers</a></h2>
-	</div> 
-	<div style="float:left; padding:10px">
+	</div>
+	<div class="home-keywords-col">
     <h2><a href="affiches">affiche</a></h2>
     <h2><a href="affiches">affiches pas cher</a></h2>
     <h2><a href="affiches">affiches</a></h2>
@@ -255,8 +255,8 @@ $div_1 = '
     <h2><a href="affiches">poster grand format</a></h2>
     <h2><a href="affiches">affiches grand format pas cher</a></h2>
     <h2><a href="affiches">impression affiche publicitaire</a></h2>
-	</div> 
-	<div style="float:left; padding:10px">
+	</div>
+	<div class="home-keywords-col">
     <h2><a href="cartes">carte de visite</a></h2>
     <h2><a href="cartes">cartes de visites</a></h2>
     <h2><a href="cartes">carte de visite gratuite</a></h2>
@@ -269,8 +269,8 @@ $div_1 = '
     <h2><a href="cartes">carte postale personnalisée</a></h2>
     <h2><a href="cartes">carte postale imprimée pas cher</a></h2>
     <h2><a href="cartes">carte postale pas cher</a></h2>
-	</div> 
-	<div style="float:left; padding:10px">
+	</div>
+	<div class="home-keywords-col">
     <h2><a href="depliants">dépliant</a></h2>
     <h2><a href="depliants">depliant</a></h2>
     <h2><a href="depliants">dépliants</a></h2>
@@ -294,7 +294,7 @@ $div_1 = '
   $div_5 = '
   <div class="mc_oriflammes">
     <h1><a href="http://www.france-banderole.com/oriflammes/">ORIFLAMMES - BEACHFLAG - WINDFLAG - FLYING BANNER - DRAPEAUX MANIFESTATION</a></h1>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="oriflammes">oriflamme</a></h2>
     <h2><a href="oriflammes">oriflamme publicitaire</a></h2>
     <h2><a href="oriflammes">oriflammes pas cher</a></h2>
@@ -309,7 +309,7 @@ $div_1 = '
     <h2><a href="oriflammes">oriflammes recto verso</a></h2>
     <h2><a href="oriflammes">oriflame tarif en ligne</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="oriflammes">beachflag en ligne pas cher</a></h2>
     <h2><a href="oriflammes">beach flag pas cher</a></h2>
     <h2><a href="oriflammes">beachflags rapide</a></h2>
@@ -324,7 +324,7 @@ $div_1 = '
     <h2><a href="oriflammes">beachflag.com</a></h2>
 	<h2><a href="oriflammes">meilleur beachflag</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="oriflammes">windflag discount</a></h2>
     <h2><a href="oriflammes">windflag rectangulaire</a></h2>
     <h2><a href="oriflammes">windflags pas cher</a></h2>
@@ -339,7 +339,7 @@ $div_1 = '
     <h2><a href="oriflammes">tarif en ligne windflag</a></h2>
     <h2><a href="oriflammes">impression rapide windflag</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="oriflammes">drapeau personnalisé</a></h2>
     <h2><a href="oriflammes">drapeau personnalisé pas cher</a></h2>
     <h2><a href="oriflammes">drapeau manifestation</a></h2>
@@ -350,7 +350,7 @@ $div_1 = '
     <h2><a href="oriflammes">imprimerie drapeaux rapide</a></h2>
     <h2><a href="oriflammes">imprimer drapeaux manifestation</a></h2>
     <h2><a href="oriflammes">imprimeur drapeaux rapide</a></h2>
-    <h2><a href="oriflammes">impression drapeaux manifestation</a></h2> 
+    <h2><a href="oriflammes">impression drapeaux manifestation</a></h2>
 	<h2><a href="oriflammes">drapeaux grand format</a></h2>
 	<h2><a href="oriflammes">drapeaux manifestations pas cher</a></h2>
 	</div>
@@ -358,7 +358,7 @@ $div_1 = '
     $div_6 = '
   <div class="mc_cadre-exterieur-bache">
     <h1><a href="http://www.france-banderole.com/cadre-exterieur-bache/">CADRE EXTERIEUR BACHE - SUPPORT BACHE TENSION</a></h1>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="cadre-exterieur-bache">cadre extérieur bâche</a></h2>
     <h2><a href="cadre-exterieur-bache">cadre pour bache publicitaire</a></h2>
     <h2><a href="cadre-exterieur-bache">support bache exterieur</a></h2>
@@ -370,7 +370,7 @@ $div_1 = '
     <h2><a href="cadre-exterieur-bache">support bache definitif</a></h2>
     <h2><a href="cadre-exterieur-bache">système de tension banderole</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="cadre-exterieur-bache">support exterieur pour banderole</a></h2>
     <h2><a href="cadre-exterieur-bache">cadre enrouleur bache</a></h2>
     <h2><a href="cadre-exterieur-bache">systeme Ix Tens tension bache</a></h2>
@@ -382,7 +382,7 @@ $div_1 = '
     <h2><a href="cadre-exterieur-bache">système de cadre exterieur</a></h2>
     <h2><a href="cadre-exterieur-bache">cadre bâche exterieur interieur</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="cadre-exterieur-bache">prix cadre exterieur</a></h2>
     <h2><a href="cadre-exterieur-bache">acheter cadre exterieur</a></h2>
     <h2><a href="cadre-exterieur-bache">fabricant cadre exterieur</a></h2>
@@ -394,7 +394,7 @@ $div_1 = '
     <h2><a href="cadre-exterieur-bache">cadre marketing point de vente</a></h2>
     <h2><a href="cadre-exterieur-bache">meilleur prix cadre exterieur</a></h2>
 	</div>
-	<div style="float:left; padding:10px">
+	<div class="home-keywords-col">
     <h2><a href="cadre-exterieur-bache">aménagement point vente</a></h2>
     <h2><a href="cadre-exterieur-bache">marketing point de vente</a></h2>
     <h2><a href="cadre-exterieur-bache">cadre extérieur enseignes</a></h2>
@@ -410,7 +410,7 @@ $div_1 = '
   echo ${'div_' . rand(1, 6)};
   ?>
   <div style="clear: both; height: 10px;"></div>
-  
+
 </div>
 <hr style="margin-bottom: 10px;" /><small>
 FRANCE BANDEROLE : Imprimeur numérique grand format <a href="/kakemonos/" title="KAKEMONO">Kakemono</a> &amp; Banderole, Réalisation/impression/façonnage réalisés en France métropolitaine
