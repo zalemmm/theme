@@ -5709,6 +5709,7 @@ stat2 {
 /* line 5190, sass/_layout.scss */
 #fbcart_rating td {
   background: #e1e8f2 url("images/bord4.png") top left no-repeat;
+  font-size: 11px;
   line-height: 17px;
   text-align: left;
   padding: 10px 10px 21px;
@@ -5717,7 +5718,7 @@ stat2 {
   width: 426px;
 }
 
-/* line 5199, sass/_layout.scss */
+/* line 5200, sass/_layout.scss */
 #fbcart_rating td.lefttd {
   background: #e1e8f2;
   text-align: left;
@@ -5726,7 +5727,7 @@ stat2 {
   font-size: 11px;
 }
 
-/* line 5207, sass/_layout.scss */
+/* line 5208, sass/_layout.scss */
 #fbcart_rating td.lefttd2 {
   background: #e1e8f2 url("images/bord4.png") top left no-repeat;
   text-align: left;
@@ -5734,7 +5735,7 @@ stat2 {
   font-size: 11px;
 }
 
-/* line 5216, sass/_layout.scss */
+/* line 5217, sass/_layout.scss */
 #rating_livre {
   position: relative;
   float: left;
@@ -5744,7 +5745,7 @@ stat2 {
   margin: 0 0 22px;
 }
 
-/* line 5225, sass/_layout.scss */
+/* line 5226, sass/_layout.scss */
 #vosavis {
   position: relative;
   float: left;
@@ -5754,7 +5755,7 @@ stat2 {
   background: url("images/rating1.jpg");
 }
 
-/* line 5234, sass/_layout.scss */
+/* line 5235, sass/_layout.scss */
 #rating_general {
   position: relative;
   float: right;
@@ -5765,12 +5766,12 @@ stat2 {
   margin-left: 5px;
 }
 
-/* line 5243, sass/_layout.scss */
+/* line 5244, sass/_layout.scss */
 #rating_general table {
   margin: 11px 94px 11px 60px;
 }
 
-/* line 5247, sass/_layout.scss */
+/* line 5248, sass/_layout.scss */
 #rating_general .rfirst {
   border-bottom: 1px solid #999;
   text-align: right;
@@ -5778,7 +5779,7 @@ stat2 {
   padding: 2px 8px 6px 0;
 }
 
-/* line 5254, sass/_layout.scss */
+/* line 5255, sass/_layout.scss */
 #rating_general .rfirst2 {
   border-bottom: 1px solid #999;
   text-align: right;
@@ -5788,13 +5789,13 @@ stat2 {
   font-weight: bold;
 }
 
-/* line 5263, sass/_layout.scss */
+/* line 5264, sass/_layout.scss */
 #rating_general .rsecond2 {
   border-bottom: 1px solid #999;
   padding: 2px 0 6px;
 }
 
-/* line 5269, sass/_layout.scss */
+/* line 5270, sass/_layout.scss */
 #rating_pagination {
   position: relative;
   float: right;
@@ -5802,7 +5803,7 @@ stat2 {
   margin: 4px 0;
 }
 
-/* line 5276, sass/_layout.scss */
+/* line 5277, sass/_layout.scss */
 #rating_pagination a:link {
   font-weight: bold;
   text-decoration: none;
@@ -5812,7 +5813,7 @@ stat2 {
   margin: 0 0 0 4px;
 }
 
-/* line 5285, sass/_layout.scss */
+/* line 5286, sass/_layout.scss */
 #rating_pagination a:visited {
   font-weight: bold;
   text-decoration: none;
@@ -5822,12 +5823,12 @@ stat2 {
   margin: 0 0 0 4px;
 }
 
-/* line 5294, sass/_layout.scss */
+/* line 5295, sass/_layout.scss */
 #rating_pagination a:hover {
   text-decoration: underline;
 }
 
-/* line 5299, sass/_layout.scss */
+/* line 5300, sass/_layout.scss */
 #rating_pagination span {
   background: #e1e8f2;
   padding: 4px 6px;
@@ -5837,7 +5838,7 @@ stat2 {
   color: #555a61;
 }
 
-/* line 5307, sass/_layout.scss */
+/* line 5308, sass/_layout.scss */
 #rating_pagination span.ratingpagpage {
   text-decoration: none;
   background: #e1e8f2;
@@ -5848,7 +5849,7 @@ stat2 {
   font-weight: bold;
 }
 
-/* line 5319, sass/_layout.scss */
+/* line 5320, sass/_layout.scss */
 .helpText {
   position: absolute;
   right: 20px;
@@ -5863,7 +5864,7 @@ stat2 {
   font-size: smaller;
 }
 
-/* line 5333, sass/_layout.scss */
+/* line 5334, sass/_layout.scss */
 #buying-cadre {
   position: relative;
   float: left;
@@ -5872,7 +5873,7 @@ stat2 {
   clear: left;
 }
 
-/* line 5341, sass/_layout.scss */
+/* line 5342, sass/_layout.scss */
 .jotform-form-cadre {
   float: left;
   display: inline;
@@ -5881,7 +5882,7 @@ stat2 {
   padding: 20px 10px;
 }
 
-/* line 5348, sass/_layout.scss */
+/* line 5349, sass/_layout.scss */
 .jotform-form-cadre select {
   float: left;
   display: inline;
@@ -5892,7 +5893,7 @@ stat2 {
   padding: 2px;
 }
 
-/* line 5359, sass/_layout.scss */
+/* line 5360, sass/_layout.scss */
 #preview-cadre_con {
   float: right;
   display: inline;
@@ -5900,7 +5901,7 @@ stat2 {
   clear: right;
 }
 
-/* line 5366, sass/_layout.scss */
+/* line 5367, sass/_layout.scss */
 #preview-cadre {
   float: right;
   display: inline;
@@ -5910,7 +5911,7 @@ stat2 {
   background-color: #e1e8f2;
 }
 
-/* line 5375, sass/_layout.scss */
+/* line 5376, sass/_layout.scss */
 #preview-cadre_name {
   float: right;
   display: inline;
@@ -5926,7 +5927,7 @@ stat2 {
   text-transform: uppercase;
 }
 
-/* line 5390, sass/_layout.scss */
+/* line 5391, sass/_layout.scss */
 #preview-cadre_info {
   float: right;
   display: inline;
@@ -5937,7 +5938,7 @@ stat2 {
   background: #f6f6f6;
 }
 
-/* line 5399, sass/_layout.scss */
+/* line 5400, sass/_layout.scss */
 #preview-cadre_info ul {
   float: left;
   display: inline;
@@ -5946,17 +5947,17 @@ stat2 {
   padding-left: 12px;
 }
 
-/* line 5408, sass/_layout.scss */
+/* line 5409, sass/_layout.scss */
 #preview-cadre_info li#iden1 {
   list-style-type: none;
 }
 
-/* line 5412, sass/_layout.scss */
+/* line 5413, sass/_layout.scss */
 #preview-cadre_info li#iden2 {
   list-style-type: none;
 }
 
-/* line 5418, sass/_layout.scss */
+/* line 5419, sass/_layout.scss */
 #preview-cadre_info_title {
   float: left;
   display: inline;
@@ -5969,7 +5970,7 @@ stat2 {
   text-transform: uppercase;
 }
 
-/* line 5430, sass/_layout.scss */
+/* line 5431, sass/_layout.scss */
 #preview-cadre_imag {
   float: left;
   display: inline-block;
@@ -5978,7 +5979,7 @@ stat2 {
   background-color: #e1e8f2;
 }
 
-/* line 5438, sass/_layout.scss */
+/* line 5439, sass/_layout.scss */
 .roundedImage {
   overflow: hidden;
   border-radius: 50px;
@@ -5992,7 +5993,7 @@ stat2 {
   color: #fff;
 }
 
-/* line 5452, sass/_layout.scss */
+/* line 5453, sass/_layout.scss */
 .cadre-bt {
   overflow: hidden;
   border-radius: 5px;
@@ -6006,7 +6007,7 @@ stat2 {
   behavior: url("http://www.france-banderole.com/wp-content/themes/fb/js2/PIE.js");
 }
 
-/* line 5466, sass/_layout.scss */
+/* line 5467, sass/_layout.scss */
 #form-button-error2-cadre {
   position: absolute;
   left: 0;
@@ -6019,7 +6020,7 @@ stat2 {
   top: 40px;
 }
 
-/* line 5478, sass/_layout.scss */
+/* line 5479, sass/_layout.scss */
 #wycena-cadre {
   position: relative;
   float: left;
@@ -6030,7 +6031,7 @@ stat2 {
   clear: left;
 }
 
-/* line 5488, sass/_layout.scss */
+/* line 5489, sass/_layout.scss */
 #wycena-cadre_nag {
   float: left;
   display: inline;
@@ -6042,7 +6043,7 @@ stat2 {
   font-size: 10px;
 }
 
-/* line 5499, sass/_layout.scss */
+/* line 5500, sass/_layout.scss */
 #wycena-cadre_suma {
   float: left;
   display: inline;
@@ -6052,7 +6053,7 @@ stat2 {
   font-size: 10px;
 }
 
-/* line 5508, sass/_layout.scss */
+/* line 5509, sass/_layout.scss */
 #dodaj_koszyk-cadre {
   float: left;
   display: inline;
@@ -6063,7 +6064,7 @@ stat2 {
   background: #e1e8f2;
 }
 
-/* line 5518, sass/_layout.scss */
+/* line 5519, sass/_layout.scss */
 .OptionFedex {
   border: 0 solid #000;
   width: 100%;
@@ -6071,7 +6072,7 @@ stat2 {
   clear: both;
 }
 
-/* line 5525, sass/_layout.scss */
+/* line 5526, sass/_layout.scss */
 .OptionTNT {
   border: 0 solid #000;
   width: 100%;
@@ -6079,70 +6080,70 @@ stat2 {
   clear: both;
 }
 
-/* line 5532, sass/_layout.scss */
+/* line 5533, sass/_layout.scss */
 #labelFEDEX {
   font-weight: bolder;
   color: #00901d;
 }
 
-/* line 5541, sass/_layout.scss */
+/* line 5542, sass/_layout.scss */
 .floatLeft {
   float: left;
 }
 
-/* line 5545, sass/_layout.scss */
+/* line 5546, sass/_layout.scss */
 .floatRight {
   float: right;
 }
 
-/* line 5549, sass/_layout.scss */
+/* line 5550, sass/_layout.scss */
 .posCenter {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-/* line 5555, sass/_layout.scss */
+/* line 5556, sass/_layout.scss */
 .select {
   float: left;
   width: 160px;
 }
 
-/* line 5560, sass/_layout.scss */
+/* line 5561, sass/_layout.scss */
 .select-alt {
   background-color: #e8e8e9;
 }
 
-/* line 5564, sass/_layout.scss */
+/* line 5565, sass/_layout.scss */
 .label-highlight {
   color: #3097c0;
   font-weight: bold;
   text-transform: capitalize;
 }
 
-/* line 5570, sass/_layout.scss */
+/* line 5571, sass/_layout.scss */
 .hide {
   visibility: hidden;
 }
 
-/* line 5574, sass/_layout.scss */
+/* line 5575, sass/_layout.scss */
 .highlight {
   color: #f00;
 }
 
-/* line 5578, sass/_layout.scss */
+/* line 5579, sass/_layout.scss */
 .flash-slide {
   position: relative;
   z-index: 100;
 }
 
-/* line 5583, sass/_layout.scss */
+/* line 5584, sass/_layout.scss */
 .helpImg {
   float: right;
   margin-top: 5px;
 }
 
-/* line 5588, sass/_layout.scss */
+/* line 5589, sass/_layout.scss */
 .break-line {
   width: 376px;
   height: 1px;
@@ -6151,26 +6152,26 @@ stat2 {
   margin-top: 5px;
 }
 
-/* line 5596, sass/_layout.scss */
+/* line 5597, sass/_layout.scss */
 .delivery-delay {
   float: left;
   width: 98px;
 }
 
-/* line 5601, sass/_layout.scss */
+/* line 5602, sass/_layout.scss */
 .delivery-date {
   color: #cc4068;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-/* line 5607, sass/_layout.scss */
+/* line 5608, sass/_layout.scss */
 .home-keywords-col {
   float: left;
   padding: 10px;
 }
 
-/* line 5612, sass/_layout.scss */
+/* line 5613, sass/_layout.scss */
 .footer-keywords {
   color: #555a61;
   font-size: 9px;
@@ -6179,19 +6180,19 @@ stat2 {
   padding: 0;
 }
 
-/* line 5620, sass/_layout.scss */
+/* line 5621, sass/_layout.scss */
 .marginTop {
   margin-top: 14px;
 }
 
-/* line 5628, sass/_layout.scss */
+/* line 5629, sass/_layout.scss */
 #box {
   width: 200px;
   height: 200px;
   background-color: #f00;
 }
 
-/* line 5634, sass/_layout.scss */
+/* line 5635, sass/_layout.scss */
 .production {
   width: 90px;
   height: 20px;
@@ -6206,40 +6207,40 @@ stat2 {
   cursor: pointer;
 }
 
-/* line 5648, sass/_layout.scss */
+/* line 5649, sass/_layout.scss */
 #p1 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5652, sass/_layout.scss */
+/* line 5653, sass/_layout.scss */
 #p1.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal2.png");
 }
 
-/* line 5657, sass/_layout.scss */
+/* line 5658, sass/_layout.scss */
 #p2 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5661, sass/_layout.scss */
+/* line 5662, sass/_layout.scss */
 #p2.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide2.png");
 }
 
-/* line 5666, sass/_layout.scss */
+/* line 5667, sass/_layout.scss */
 #p3 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5670, sass/_layout.scss */
+/* line 5671, sass/_layout.scss */
 #p3.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express2.png");
 }
 
-/* line 5675, sass/_layout.scss */
+/* line 5676, sass/_layout.scss */
 .delivery {
   width: 90px;
   height: 20px;
@@ -6254,40 +6255,40 @@ stat2 {
   cursor: pointer;
 }
 
-/* line 5689, sass/_layout.scss */
+/* line 5690, sass/_layout.scss */
 #l1 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5693, sass/_layout.scss */
+/* line 5694, sass/_layout.scss */
 #l1.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal2.png");
 }
 
-/* line 5698, sass/_layout.scss */
+/* line 5699, sass/_layout.scss */
 #l2 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5702, sass/_layout.scss */
+/* line 5703, sass/_layout.scss */
 #l2.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide2.png");
 }
 
-/* line 5707, sass/_layout.scss */
+/* line 5708, sass/_layout.scss */
 #l3 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5711, sass/_layout.scss */
+/* line 5712, sass/_layout.scss */
 #l3.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express2.png");
 }
 
-/* line 5716, sass/_layout.scss */
+/* line 5717, sass/_layout.scss */
 DIV.ProgressBar {
   float: left;
   width: 100px;
@@ -6302,7 +6303,7 @@ DIV.ProgressBar {
   margin-top: 2px;
 }
 
-/* line 5729, sass/_layout.scss */
+/* line 5730, sass/_layout.scss */
 DIV.ProgressBar DIV {
   float: left;
   display: inline;
@@ -6311,7 +6312,7 @@ DIV.ProgressBar DIV {
   height: 100%;
 }
 
-/* line 5738, sass/_layout.scss */
+/* line 5739, sass/_layout.scss */
 #regulamin .checkbox2 {
   position: absolute;
   top: 22px;
@@ -6320,7 +6321,7 @@ DIV.ProgressBar DIV {
   height: 35px;
 }
 
-/* line 5746, sass/_layout.scss */
+/* line 5747, sass/_layout.scss */
 #f00error {
   font-size: 16px;
   font-weight: bold;
@@ -6332,7 +6333,7 @@ DIV.ProgressBar DIV {
   text-align: center;
 }
 
-/* line 5757, sass/_layout.scss */
+/* line 5758, sass/_layout.scss */
 form#delfromvosdevis {
   margin-bottom: 10px;
   width: 183px;
@@ -6341,7 +6342,7 @@ form#delfromvosdevis {
   float: left;
 }
 
-/* line 5765, sass/_layout.scss */
+/* line 5766, sass/_layout.scss */
 .livraison-gratuite .starImg {
   width: 16px;
   padding: 2px;

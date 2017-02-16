@@ -52,7 +52,7 @@ body {
   margin: 0 auto;
   text-align: left;
   z-index: 100;
-  background-image: url('images/header_bg2.png');
+  background-image: url('../images/header_bg2.png');
   background-repeat: no-repeat;
   background-position: center top;
 }
@@ -88,7 +88,7 @@ a {
     text-align: center;
     width: 25px;
     height: 19px;
-    background: url('images/cart.png') bottom left no-repeat;
+    background: url('../images/cart.png') bottom left no-repeat;
     color: $color_1;
     font-size: 10px;
     line-height: 10px;
@@ -146,7 +146,7 @@ a {
   &.but_espace {
     width: 106px;
     height: 19px;
-    background: url('images/but_espace.png') no-repeat;
+    background: url('../images/but_espace.png') no-repeat;
     text-indent: -999em;
     overflow: hidden;
     border: none;
@@ -177,7 +177,7 @@ a {
     margin-left: 14px;
     width: 213px;
     height: 19px;
-    background: url('images/but_imprimerbon.png') no-repeat;
+    background: url('../images/but_imprimerbon.png') no-repeat;
     text-indent: -999em;
     overflow: hidden;
     border: none;
@@ -214,7 +214,7 @@ a {
     top: 110px;
     width: 168px;
     height: 19px;
-    background: url('images/v_modifier.png') no-repeat;
+    background: url('../images/v_modifier.png') no-repeat;
     text-indent: -999em;
     overflow: hidden;
     border: none;
@@ -227,7 +227,7 @@ a {
     top: 140px;
     width: 168px;
     height: 19px;
-    background: url('images/v_deconnecter.png') no-repeat;
+    background: url('../images/v_deconnecter.png') no-repeat;
     text-indent: -999em;
     overflow: hidden;
     border: none;
@@ -268,7 +268,7 @@ a {
     top: 16px;
     width: 15px;
     height: 15px;
-    background: url('images/pytajnik.jpg') no-repeat;
+    background: url('../images/pytajnik.jpg') no-repeat;
     text-decoration: none;
   }
 
@@ -286,7 +286,7 @@ a {
   position: relative;
   width: 910px;
   margin: 0 auto;
-  background: url('images/content_bg.png') repeat-y;
+  background: url('../images/content_bg.png') repeat-y;
 }
 
 #content_bg_top {
@@ -364,7 +364,7 @@ ul {
           margin-left: 2px;
 
           a#active_sub {
-            background: url('images/menu_sub_hover2.png') no-repeat;
+            background: url('../images/menu_sub_hover2.png') no-repeat;
             color: $color_1;
           }
         }
@@ -383,13 +383,13 @@ ul {
         }
 
         &:hover {
-          background: url('images/menu_sub_hover.png') no-repeat;
+          background: url('../images/menu_sub_hover.png') no-repeat;
           color: $color_1;
         }
       }
 
       &#active_sub {
-        background: url('images/menu_sub_hover.png') no-repeat;
+        background: url('../images/menu_sub_hover.png') no-repeat;
         color: $color_1;
       }
 
@@ -399,7 +399,7 @@ ul {
         }
 
         &:hover {
-          background: url('images/menu_sub_hover2.png') no-repeat;
+          background: url('../images/menu_sub_hover2.png') no-repeat;
           color: $color_1;
         }
       }
@@ -436,7 +436,7 @@ ul {
   &.grey {
     background: $color_7;
     padding-left: 20px;
-    list-style-image: url('images/arrow.png');
+    list-style-image: url('../images/arrow.png');
 
     li {
       padding: 8px 0;
@@ -619,7 +619,7 @@ ul {
               left: 150px;
               width: 15px;
               height: 15px;
-              background: url('images/interrogation-option.png') no-repeat;
+              background: url('../images/interrogation-option.png') no-repeat;
               text-decoration: none;
             }
 
@@ -635,7 +635,7 @@ ul {
               left: 150px;
               width: 15px;
               height: 15px;
-              background: url('images/interrogation-option.png') no-repeat;
+              background: url('../images/interrogation-option.png') no-repeat;
               text-decoration: none;
             }
           }
@@ -662,7 +662,7 @@ ul {
               right: 0;
               width: 15px;
               height: 15px;
-              background: url('images/interrogation-option.png') no-repeat;
+              background: url('../images/interrogation-option.png') no-repeat;
               text-decoration: none;
             }
 
@@ -672,7 +672,7 @@ ul {
               right: 0;
               width: 15px;
               height: 15px;
-              background: url('images/interrogation-option.png') no-repeat;
+              background: url('../images/interrogation-option.png') no-repeat;
               text-decoration: none;
             }
           }
@@ -779,7 +779,7 @@ ul {
               left: 150px;
               width: 15px;
               height: 15px;
-              background: url('images/pytajnik.jpg') no-repeat;
+              background: url('../images/pytajnik.jpg') no-repeat;
               text-decoration: none;
             }
 
@@ -789,7 +789,7 @@ ul {
               left: 150px;
               width: 15px;
               height: 15px;
-              background: url('images/pytajnik.jpg') no-repeat;
+              background: url('../images/pytajnik.jpg') no-repeat;
               text-decoration: none;
             }
           }
@@ -816,7 +816,7 @@ ul {
               right: 0;
               width: 15px;
               height: 15px;
-              background: url('images/pytajnik.jpg') no-repeat;
+              background: url('../images/pytajnik.jpg') no-repeat;
               text-decoration: none;
             }
 
@@ -826,7 +826,7 @@ ul {
               right: 0;
               width: 15px;
               height: 15px;
-              background: url('images/pytajnik.jpg') no-repeat;
+              background: url('../images/pytajnik.jpg') no-repeat;
               text-decoration: none;
             }
           }
@@ -933,7 +933,7 @@ ul {
   position: relative;
   width: 706px;
   margin: 0 auto;
-  background: url('images/footerbis.png') no-repeat;
+  background: url('../images/footerbis.png') no-repeat;
   height: 85px;
   padding: 25px 102px 0;
 }
@@ -949,14 +949,14 @@ ul {
   margin: 0 auto;
   height: 85px;
   padding: 132px 0 0;
-  background: url('images/content_bg.png') repeat-y;
+  background: url('../images/content_bg.png') repeat-y;
 }
 
 #footer3 {
   position: relative;
   width: 706px;
   margin: 0 auto;
-  background: url('images/footer.png') no-repeat;
+  background: url('../images/footer.png') no-repeat;
   height: 85px;
   padding: 25px 102px 0;
 }
@@ -983,7 +983,7 @@ ul {
     display: block;
     width: 180px;
     height: 24px;
-    background: url('images/livrebut.jpg') no-repeat;
+    background: url('../images/livrebut.jpg') no-repeat;
     margin: 8px 0 0;
   }
 }
@@ -1168,7 +1168,7 @@ span {
     width: 180px;
     color: $color_9;
     font-size: 11px;
-    background: url('images/contact_mail.png') top left no-repeat;
+    background: url('../images/contact_mail.png') top left no-repeat;
     padding-left: 25px;
     margin-top: 12px;
   }
@@ -1179,7 +1179,7 @@ span {
     width: 180px;
     color: $color_9;
     font-size: 11px;
-    background: url('images/contact_phone.png') top left no-repeat;
+    background: url('../images/contact_phone.png') top left no-repeat;
     padding-left: 25px;
     margin-top: 50px;
   }
@@ -1358,7 +1358,7 @@ span {
   position: relative;
   width: 708px;
   height: 134px;
-  background: url('images/frontpage.jpg') no-repeat;
+  background: url('../images/frontpage.jpg') no-repeat;
   margin-top: 0;
 }
 
@@ -1395,7 +1395,7 @@ div {
       font-size: 10px;
 
       &.contact_send {
-        background: url('images/button_send.png') no-repeat;
+        background: url('../images/button_send.png') no-repeat;
         width: 82px;
         height: 19px;
         position: absolute;
@@ -2209,7 +2209,7 @@ SPAN {
   width: 85px;
   height: 19px;
   cursor: pointer;
-  background: url('images/ajouter.jpg') no-repeat;
+  background: url('../images/ajouter.jpg') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -2286,7 +2286,7 @@ SPAN {
 .but_envoyer {
   width: 82px;
   height: 19px;
-  background: url('images/button_send.png') no-repeat;
+  background: url('../images/button_send.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -2391,7 +2391,7 @@ SPAN {
   bottom: 15px;
   width: 75px;
   height: 19px;
-  background: url('images/but_suivant.png') no-repeat;
+  background: url('../images/but_suivant.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -2405,7 +2405,7 @@ SPAN {
   left: 120px;
   width: 75px;
   height: 19px;
-  background: url('images/but_suivant.png') no-repeat;
+  background: url('../images/but_suivant.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -2638,7 +2638,7 @@ SPAN {
   margin-bottom: 10px;
   width: 147px;
   height: 19px;
-  background: url('images/but_continuer.png') no-repeat;
+  background: url('../images/but_continuer.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2650,7 +2650,7 @@ SPAN {
   margin-bottom: 10px;
   width: 102px;
   height: 19px;
-  background: url('images/but_conf_pay.png') no-repeat;
+  background: url('../images/but_conf_pay.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2663,7 +2663,7 @@ SPAN {
   margin-bottom: 10px;
   width: 138px;
   height: 19px;
-  background: url('images/but_imprimer.png') no-repeat;
+  background: url('../images/but_imprimer.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2675,7 +2675,7 @@ SPAN {
   margin-bottom: 10px;
   width: 180px;
   height: 19px;
-  background: url('images/but_imprimer_form.png') no-repeat;
+  background: url('../images/but_imprimer_form.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2687,7 +2687,7 @@ SPAN {
   margin-bottom: 10px;
   width: 138px;
   height: 19px;
-  background: url('images/but_imprimer_rib.png') no-repeat;
+  background: url('../images/but_imprimer_rib.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2699,7 +2699,7 @@ SPAN {
   margin-bottom: 10px;
   width: 142px;
   height: 19px;
-  background: url('images/but_bat.png') no-repeat;
+  background: url('../images/but_bat.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2711,7 +2711,7 @@ SPAN {
   margin-bottom: 10px;
   width: 174px;
   height: 19px;
-  background: url('images/but_voir_bat.png') no-repeat;
+  background: url('../images/but_voir_bat.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2723,7 +2723,7 @@ SPAN {
   margin-bottom: 10px;
   width: 177px;
   height: 19px;
-  background: url('images/but_rating.png') no-repeat;
+  background: url('../images/but_rating.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2735,7 +2735,7 @@ SPAN {
   margin-bottom: 10px;
   width: 142px;
   height: 19px;
-  background: url('images/but_retour.png') no-repeat;
+  background: url('../images/but_retour.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2747,7 +2747,7 @@ SPAN {
   margin-bottom: 10px;
   width: 70px;
   height: 19px;
-  background: url('images/but_retour2.png') no-repeat;
+  background: url('../images/but_retour2.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2759,7 +2759,7 @@ SPAN {
   margin-bottom: 10px;
   width: 145px;
   height: 19px;
-  background: url('images/but_supprimer.png') no-repeat;
+  background: url('../images/but_supprimer.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2771,7 +2771,7 @@ SPAN {
   margin-bottom: 10px;
   width: 147px;
   height: 19px;
-  background: url('images/but_ajouter.png') no-repeat;
+  background: url('../images/but_ajouter.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2783,7 +2783,7 @@ SPAN {
   margin-bottom: 10px;
   width: 136px;
   height: 19px;
-  background: url('images/but_annuler.png') no-repeat;
+  background: url('../images/but_annuler.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2795,7 +2795,7 @@ SPAN {
   margin-bottom: 10px;
   width: 137px;
   height: 19px;
-  background: url('images/but_modifier.png') no-repeat;
+  background: url('../images/but_modifier.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2815,7 +2815,7 @@ SPAN {
   margin-bottom: 10px;
   width: 130px;
   height: 19px;
-  background: url('images/but_validerdevis.png') no-repeat;
+  background: url('../images/but_validerdevis.png') no-repeat;
   overflow: hidden;
   border: none;
   display: block;
@@ -2894,7 +2894,7 @@ SPAN {
   }
 
   td {
-    background: $color_7 url('images/bord2.png') top left no-repeat;
+    background: $color_7 url('../images/bord2.png') top left no-repeat;
     line-height: 17px;
     text-align: center;
     padding: 10px 2px 21px;
@@ -2929,7 +2929,7 @@ SPAN {
   td {
     vertical-align: top;
     padding: 12px;
-    background: $color_7 url('images/bord2.png') top left no-repeat;
+    background: $color_7 url('../images/bord2.png') top left no-repeat;
     border-bottom: 4px solid $color_1;
     text-align: center;
 
@@ -2951,7 +2951,7 @@ SPAN {
     vertical-align: top;
     width: 65px;
     padding: 28px 6px 12px;
-    background: $color_7 url('images/bord5.png') top left no-repeat;
+    background: $color_7 url('../images/bord5.png') top left no-repeat;
     border-bottom: 4px solid $color_1;
     text-align: center;
 
@@ -2977,7 +2977,7 @@ SPAN {
       vertical-align: top;
       width: 171px;
       padding: 12px 6px;
-      background: $color_7 url('images/bord5.png') top left no-repeat;
+      background: $color_7 url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: center;
     }
@@ -2986,7 +2986,7 @@ SPAN {
       vertical-align: top;
       width: 171px;
       padding: 12px 6px;
-      background: $color_7 url('images/bord5.png') top left no-repeat;
+      background: $color_7 url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: center;
     }
@@ -2995,7 +2995,7 @@ SPAN {
       vertical-align: top;
       width: 360px;
       padding: 12px 6px;
-      background: $color_7 url('images/bord5.png') top left no-repeat;
+      background: $color_7 url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: center;
     }
@@ -3013,7 +3013,7 @@ SPAN {
       vertical-align: top;
       width: 171px;
       padding: 12px 6px;
-      background: $color_7 url('images/bord5.png') top left no-repeat;
+      background: $color_7 url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: center;
     }
@@ -3025,7 +3025,7 @@ SPAN {
       width: 150px;
       height: 140px;
       padding: 12px;
-      background: $color_7 url('images/bord5.png') top left no-repeat;
+      background: $color_7 url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: left;
 
@@ -3043,7 +3043,7 @@ SPAN {
       width: 183px;
       height: 164px;
       padding: 0;
-      background: $color_7 url('images/bord5.png') top left no-repeat;
+      background: $color_7 url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: left;
 
@@ -3054,7 +3054,7 @@ SPAN {
         width: 85px;
         height: 19px;
         cursor: pointer;
-        background: url('images/ajouter.jpg') no-repeat;
+        background: url('../images/ajouter.jpg') no-repeat;
         text-indent: -999em;
         overflow: hidden;
         border: none;
@@ -3074,7 +3074,7 @@ SPAN {
       vertical-align: top;
       width: 160px;
       padding: 10px;
-      background: $color_7 url('images/bord5.png') top left no-repeat;
+      background: $color_7 url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: left;
 
@@ -3085,7 +3085,7 @@ SPAN {
         width: 85px;
         height: 19px;
         cursor: pointer;
-        background: url('images/ajouter.jpg') no-repeat;
+        background: url('../images/ajouter.jpg') no-repeat;
         text-indent: -999em;
         overflow: hidden;
         border: none;
@@ -3098,7 +3098,7 @@ SPAN {
         width: 150px;
         height: 19px;
         cursor: pointer;
-        background: url('images/ajouter3.jpg') no-repeat;
+        background: url('../images/ajouter3.jpg') no-repeat;
         text-indent: -999em;
         overflow: hidden;
         border: none;
@@ -3111,7 +3111,7 @@ SPAN {
         width: 150px;
         height: 19px;
         cursor: pointer;
-        background: url('images/panier.jpg') no-repeat;
+        background: url('../images/panier.jpg') no-repeat;
         text-indent: -999em;
         overflow: hidden;
         border: none;
@@ -3134,7 +3134,7 @@ SPAN {
       width: 186px;
       height: 164px;
       padding: 0;
-      background: $color_7 url('images/bord5.png') top left no-repeat;
+      background: $color_7 url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: left;
 
@@ -3145,7 +3145,7 @@ SPAN {
         width: 150px;
         height: 19px;
         cursor: pointer;
-        background: url('images/ajouter2.jpg') no-repeat;
+        background: url('../images/ajouter2.jpg') no-repeat;
         text-indent: -999em;
         overflow: hidden;
         border: none;
@@ -3266,7 +3266,7 @@ SPAN {
       width: 160px;
       height: 200px;
       padding: 0;
-      background: url('images/bord5.png') top left no-repeat;
+      background: url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $color_1;
       text-align: left;
 
@@ -3276,7 +3276,7 @@ SPAN {
         width: 150px;
         height: 19px;
         cursor: pointer;
-        background: url('images/ajouter2.jpg') no-repeat;
+        background: url('../images/ajouter2.jpg') no-repeat;
         text-indent: -999em;
         overflow: hidden;
         border: none;
@@ -3289,7 +3289,7 @@ SPAN {
         width: 150px;
         height: 19px;
         cursor: pointer;
-        background: url('images/finalisermma.jpg') no-repeat;
+        background: url('../images/finalisermma.jpg') no-repeat;
         text-indent: -999em;
         overflow: hidden;
         border: none;
@@ -3336,7 +3336,7 @@ SPAN {
   div.imgtdmma {
     vertical-align: top;
     padding: 12px 6px;
-    background: url('images/bord5.png') top left no-repeat;
+    background: url('../images/bord5.png') top left no-repeat;
     text-align: center;
   }
 }
@@ -3393,7 +3393,7 @@ SPAN {
     width: 15px;
     height: 15px;
     margin-top: 2px;
-    background: url('images/pytajnik.jpg') no-repeat;
+    background: url('../images/pytajnik.jpg') no-repeat;
     text-decoration: none;
     display: block;
   }
@@ -3404,7 +3404,7 @@ SPAN {
     width: 15px;
     height: 15px;
     margin-top: 2px;
-    background: url('images/pytajnik.jpg') no-repeat;
+    background: url('../images/pytajnik.jpg') no-repeat;
     text-decoration: none;
     display: block;
   }
@@ -3444,7 +3444,7 @@ SPAN {
   height: 60px;
   margin-top: 190px;
   color: $color_28;
-  background: url('images/arr_down_det.gif') bottom left no-repeat;
+  background: url('../images/arr_down_det.gif') bottom left no-repeat;
 }
 
 .votre_tab_name {
@@ -3584,7 +3584,7 @@ SPAN {
 .but_details {
   width: 130px;
   height: 32px;
-  background: url('images/detailleddevisbutton.png') no-repeat;
+  background: url('../images/detailleddevisbutton.png') no-repeat;
   overflow: hidden;
   border: none;
   cursor: pointer;
@@ -3736,7 +3736,7 @@ stat2 {
     right: 10px;
     width: 118px;
     height: 19px;
-    background: url('images/but_address.png');
+    background: url('../images/but_address.png');
     display: block;
   }
 }
@@ -3787,7 +3787,7 @@ stat2 {
   }
 
   td {
-    background: $color_7 url('images/bord.png') top left no-repeat;
+    background: $color_7 url('../images/bord.png') top left no-repeat;
     text-align: center;
     padding: 13px 2px 21px;
     vertical-align: top;
@@ -3805,7 +3805,7 @@ stat2 {
   width: 16px;
   height: 16px;
   cursor: pointer;
-  background: url('images/del.png') no-repeat;
+  background: url('../images/del.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -3817,7 +3817,7 @@ stat2 {
   width: 16px;
   height: 16px;
   cursor: pointer;
-  background: url('images/del.png') no-repeat;
+  background: url('../images/del.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -3887,7 +3887,7 @@ stat2 {
   }
 
   td {
-    background: $color_7 url('images/bord2.png') top left no-repeat;
+    background: $color_7 url('../images/bord2.png') top left no-repeat;
     text-align: left;
     height: 19px;
     padding: 10px 2px 6px 8px;
@@ -3904,7 +3904,7 @@ stat2 {
     }
 
     &.lefttd2 {
-      background: $color_7 url('images/bord2.png') top left no-repeat;
+      background: $color_7 url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
       padding: 10px 2px 20px 8px;
@@ -3919,7 +3919,7 @@ stat2 {
     }
 
     &.lefttd2a {
-      background: $color_7 url('images/bord2.png') top left no-repeat;
+      background: $color_7 url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
       padding: 10px 2px 20px 8px;
@@ -3997,7 +3997,7 @@ stat2 {
   }
 
   td {
-    background: $color_7 url('images/bord2.png') top left no-repeat;
+    background: $color_7 url('../images/bord2.png') top left no-repeat;
     text-align: left;
     height: 19px;
     padding: 8px 2px 6px 8px;
@@ -4005,7 +4005,7 @@ stat2 {
     border-bottom: 4px solid $color_1;
 
     &.lefttd {
-      background: $color_7 url('images/wykrzyknik.png') top left no-repeat;
+      background: $color_7 url('../images/wykrzyknik.png') top left no-repeat;
       color: $color_9;
       font-size: 12px;
       text-align: left;
@@ -4015,7 +4015,7 @@ stat2 {
     }
 
     &.lefttd2 {
-      background: $color_7 url('images/wykrzyknik2.png') top left no-repeat;
+      background: $color_7 url('../images/wykrzyknik2.png') top left no-repeat;
       color: $color_9;
       font-size: 12px;
       text-align: left;
@@ -4075,7 +4075,7 @@ stat2 {
   }
 
   td {
-    background: $color_7 url('images/bord2.png') top left no-repeat;
+    background: $color_7 url('../images/bord2.png') top left no-repeat;
     text-align: left;
     height: 19px;
     padding: 8px 2px 6px 8px;
@@ -4083,7 +4083,7 @@ stat2 {
     border-bottom: 4px solid $color_1;
 
     &.lefttd {
-      background: $color_7 url('images/wykrzyknik.png') top left no-repeat;
+      background: $color_7 url('../images/wykrzyknik.png') top left no-repeat;
       color: $color_9;
       font-size: 12px;
       text-align: left;
@@ -4093,7 +4093,7 @@ stat2 {
     }
 
     &.lefttd2 {
-      background: $color_7 url('images/wykrzyknik2.png') top left no-repeat;
+      background: $color_7 url('../images/wykrzyknik2.png') top left no-repeat;
       color: $color_9;
       font-size: 12px;
       text-align: left;
@@ -4116,7 +4116,7 @@ stat2 {
   .fakeupload {
     width: 86px;
     height: 19px;
-    background: url('images/parcourir.png') no-repeat;
+    background: url('../images/parcourir.png') no-repeat;
     overflow: hidden;
     display: inline-block;
     float: left;
@@ -4138,7 +4138,7 @@ stat2 {
   margin-left: 4px;
   width: 106px;
   height: 19px;
-  background: url('images/but_telecharger.png') no-repeat;
+  background: url('../images/but_telecharger.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -4154,7 +4154,7 @@ stat2 {
   height: 19px;
   margin-left: 14px;
   margin-bottom: 10px;
-  background: url('images/but_annulercommande.png') no-repeat;
+  background: url('../images/but_annulercommande.png') no-repeat;
   overflow: hidden;
   border: none;
   cursor: pointer;
@@ -4167,7 +4167,7 @@ stat2 {
   margin-bottom: 10px;
   width: 162px;
   height: 19px;
-  background: url('images/but_comment.png') no-repeat;
+  background: url('../images/but_comment.png') no-repeat;
   overflow: hidden;
   border: none;
   cursor: pointer;
@@ -4180,7 +4180,7 @@ stat2 {
   margin-bottom: 10px;
   width: 122px;
   height: 19px;
-  background: url('images/but_suivre.png') no-repeat;
+  background: url('../images/but_suivre.png') no-repeat;
   overflow: hidden;
   border: none;
   cursor: pointer;
@@ -4193,7 +4193,7 @@ stat2 {
   margin-bottom: 10px;
   width: 153px;
   height: 19px;
-  background: url('images/but_imprimerfacture.png') no-repeat;
+  background: url('../images/but_imprimerfacture.png') no-repeat;
   overflow: hidden;
   border: none;
   cursor: pointer;
@@ -4206,7 +4206,7 @@ stat2 {
   margin-bottom: 10px;
   width: 153px;
   height: 19px;
-  background: url('images/voiremaquette.png') no-repeat;
+  background: url('../images/voiremaquette.png') no-repeat;
   overflow: hidden;
   border: none;
   cursor: pointer;
@@ -4231,7 +4231,7 @@ stat2 {
   margin-left: 14px;
   width: 150px;
   height: 19px;
-  background: url('images/but_payer.png') no-repeat;
+  background: url('../images/but_payer.png') no-repeat;
   overflow: hidden;
   border: none;
   cursor: pointer;
@@ -4327,7 +4327,7 @@ stat2 {
   position: absolute;
   bottom: 39px;
   left: 126px;
-  background: url('images/login.png') no-repeat;
+  background: url('../images/login.png') no-repeat;
   cursor: pointer;
   width: 95px;
   height: 19px;
@@ -4340,7 +4340,7 @@ stat2 {
   position: absolute;
   bottom: 39px;
   left: 126px;
-  background: url('images/contin.png') no-repeat;
+  background: url('../images/contin.png') no-repeat;
   cursor: pointer;
   width: 91px;
   height: 19px;
@@ -4354,7 +4354,7 @@ stat2 {
   bottom: 39px;
   left: 126px;
   cursor: pointer;
-  background: url('images/button_send.png') no-repeat;
+  background: url('../images/button_send.png') no-repeat;
   width: 82px;
   height: 19px;
   text-indent: -999em;
@@ -4451,7 +4451,7 @@ stat2 {
   width: 85px;
   height: 19px;
   cursor: pointer;
-  background: url('images/inscription.png') no-repeat;
+  background: url('../images/inscription.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -4463,7 +4463,7 @@ stat2 {
   width: 142px;
   height: 19px;
   cursor: pointer;
-  background: url('images/but_edit.png') no-repeat;
+  background: url('../images/but_edit.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -4475,7 +4475,7 @@ stat2 {
   width: 85px;
   height: 19px;
   cursor: pointer;
-  background: url('images/inscription2.png') no-repeat;
+  background: url('../images/inscription2.png') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -4713,7 +4713,7 @@ stat2 {
   width: 86px;
   height: 20px;
   cursor: pointer;
-  background: url('images/calculez.jpg') no-repeat;
+  background: url('../images/calculez.jpg') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -4828,7 +4828,7 @@ stat2 {
 .but_ratingsubmit {
   width: 116px;
   height: 19px;
-  background: url('images/rating_submit.jpg') no-repeat;
+  background: url('../images/rating_submit.jpg') no-repeat;
   text-indent: -999em;
   overflow: hidden;
   border: none;
@@ -4859,7 +4859,7 @@ stat2 {
   width: 100px;
   height: 20px;
   position: relative;
-  background: url('images/stars20.png') top left repeat-x;
+  background: url('../images/stars20.png') top left repeat-x;
 
   li {
     padding: 0;
@@ -4881,7 +4881,7 @@ stat2 {
       overflow: hidden;
 
       &:hover {
-        background: url('images/stars20.png') left center;
+        background: url('../images/stars20.png') left center;
         z-index: 2;
         left: 0;
         border: none;
@@ -4889,7 +4889,7 @@ stat2 {
     }
 
     &.current-rating {
-      background: url('images/stars20.png') left bottom;
+      background: url('../images/stars20.png') left bottom;
       position: absolute;
       height: 20px;
       display: block;
@@ -4948,7 +4948,7 @@ stat2 {
   width: 100px;
   height: 20px;
   position: relative;
-  background: url('images/stars20.png') top left repeat-x;
+  background: url('../images/stars20.png') top left repeat-x;
 
   li {
     padding: 0;
@@ -4971,7 +4971,7 @@ stat2 {
     }
 
     &.current-rating {
-      background: url('images/stars20.png') left bottom;
+      background: url('../images/stars20.png') left bottom;
       position: absolute;
       height: 20px;
       display: block;
@@ -5028,7 +5028,7 @@ stat2 {
   width: 150px;
   height: 30px;
   position: relative;
-  background: url('images/stars30.png') top left repeat-x;
+  background: url('../images/stars30.png') top left repeat-x;
 
   li {
     padding: 0;
@@ -5051,7 +5051,7 @@ stat2 {
     }
 
     &.current-rating {
-      background: url('images/stars30.png') left bottom;
+      background: url('../images/stars30.png') left bottom;
       position: absolute;
       height: 30px;
       display: block;
@@ -5108,7 +5108,7 @@ stat2 {
   width: 60px;
   height: 12px;
   position: relative;
-  background: url('images/stars12.png') top left repeat-x;
+  background: url('../images/stars12.png') top left repeat-x;
 
   li {
     padding: 0;
@@ -5131,7 +5131,7 @@ stat2 {
     }
 
     &.current-rating {
-      background: url('images/stars12.png') left bottom;
+      background: url('../images/stars12.png') left bottom;
       position: absolute;
       height: 12px;
       display: block;
@@ -5188,7 +5188,8 @@ stat2 {
   width: 100%;
 
   td {
-    background: $color_7 url('images/bord4.png') top left no-repeat;
+    background: $color_7 url('../images/bord4.png') top left no-repeat;
+    font-size: 11px;
     line-height: 17px;
     text-align: left;
     padding: 10px 10px 21px;
@@ -5205,7 +5206,7 @@ stat2 {
     }
 
     &.lefttd2 {
-      background: $color_7 url('images/bord4.png') top left no-repeat;
+      background: $color_7 url('../images/bord4.png') top left no-repeat;
       text-align: left;
       width: 100px;
       font-size: 11px;
@@ -5228,7 +5229,7 @@ stat2 {
   display: inline;
   width: 231px;
   height: 195px;
-  background: url('images/rating1.jpg');
+  background: url('../images/rating1.jpg');
 }
 
 #rating_general {
@@ -5237,7 +5238,7 @@ stat2 {
   display: inline;
   width: 470px;
   height: 195px;
-  background: url('images/rating2.jpg');
+  background: url('../images/rating2.jpg');
   margin-left: 5px;
 
   table {

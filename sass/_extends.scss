@@ -18,7 +18,7 @@
 	display: block;
 	width: 141px;
 	height: 26px;
-	background: url('images/menu_sub_normal.png') no-repeat;
+	background: url('../images/menu_sub_normal.png') no-repeat;
 	padding-top: 6px;
 	text-decoration: none;
 }
@@ -29,7 +29,7 @@
 	display: block;
 	width: 141px;
 	height: 38px;
-	background: url('images/menu_sub_normal2.png') repeat-y;
+	background: url('../images/menu_sub_normal2.png') repeat-y;
 	padding-top: 5px;
 	line-height: 18px;
 	text-decoration: none;
@@ -111,7 +111,7 @@
 	position: absolute;
 	left: 200px;
 	top: 0;
-	background: url('images/lastcomment.png') no-repeat;
+	background: url('../images/lastcomment.png') no-repeat;
 }
 
 //original selectors
@@ -165,7 +165,7 @@
 	position: absolute;
 	bottom: 39px;
 	left: 26px;
-	background: url('images/register.png') no-repeat;
+	background: url('../images/register.png') no-repeat;
 	width: 101px;
 	height: 19px;
 	cursor: pointer;
