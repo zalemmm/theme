@@ -6468,16 +6468,16 @@ form#delfromvosdevis {
   /* line 86, sass/_layout-mobile.scss */
   a#corner_button_cart {
     position: absolute;
-    right: 111px;
-    top: 192px;
-    padding: 0 0 0 6px;
+    right: 10%;
+    top: 10%;
+    padding: 0;
     text-align: center;
-    width: 25px;
-    height: 19px;
-    background: url("../images/cart.png") bottom left no-repeat;
+    width: 50px;
+    height: 30px;
+    background-image: none;
     color: #fff;
-    font-size: 10px;
-    line-height: 10px;
+    font-size: 28px;
+    line-height: 28px;
     text-decoration: none;
   }
   /* line 100, sass/_layout-mobile.scss */
