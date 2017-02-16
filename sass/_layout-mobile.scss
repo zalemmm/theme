@@ -967,7 +967,7 @@
     margin: 0 auto;
     background: none;
     height: 85px;
-    padding: 25px 102px 0;
+    padding: 25px 5% 0;
   }
 
   #main3 {
@@ -980,17 +980,17 @@
     width: auto;
     margin: 0 auto;
     height: 85px;
-    padding: 132px 0 0;
+    padding: 0 0 0;
     background: none;
   }
 
   #footer3 {
     position: relative;
-    width: 706px;
+    width: auto;
     margin: 0 auto;
     background: none;
-    height: 85px;
-    padding: 25px 102px 0;
+    height: auto;
+    padding: 25px 0 25px;
   }
 
   #flink2 {
@@ -1080,7 +1080,7 @@
     }
 
     &#footer_links {
-      position: absolute;
+      position: relative;
       top: 26px;
       right: 102px;
       width: 440px;
@@ -1100,9 +1100,9 @@
     }
 
     &#footer_links2 {
-      position: absolute;
-      top: 26px;
-      right: 102px;
+      position: relative;
+      top: auto;
+      right: auto;
       width: 706px;
       height: 40px;
       text-align: center;
@@ -1372,12 +1372,14 @@
   }
 
   #copy {
-    position: absolute;
-    bottom: -60px;
-    right: 0;
-    width: 900px;
+    position: relative;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    width: auto;
     height: 70px;
     text-align: center;
+    margin: 20px auto;
   }
 
   #under_footer {
@@ -1558,10 +1560,10 @@
 
   hr {
     position: relative;
-    float: left;
-    display: inline;
-    width: 706px;
-    margin: 3px 0 11px;
+    float: none;
+    display: block;
+    width: 98%;
+    margin: 3px auto;
     height: 1px;
     background: $text;
     border: none;
@@ -1569,7 +1571,7 @@
 
     &.contact {
       position: relative;
-      float: left;
+      float: none;
       display: inline;
       width: auto;
       margin: 3px 0 11px;
@@ -1661,13 +1663,14 @@
     }
   }
 
-  #mainnew {
-    float: left;
+  #mainnew,
+  #mainnew2 {
+    float: none;
     width: auto;
     background: $white;
     padding: 0;
-    margin: -10px 0 0;
-    padding: 0 0 6px;
+    margin: 10px 0 0;
+    padding: 0 0 0;
 
     h2 {
       color: $text;
@@ -1684,23 +1687,6 @@
       text-align: center;
       width: 900px;
       margin: 0 auto;
-    }
-  }
-
-  #mainnew2 {
-    float: left;
-    width: auto;
-    background: $color_13;
-    padding: 0;
-    margin: 70px 0 0;
-    padding: 0 0 6px;
-    display: block;
-
-    h2 {
-      color: $text;
-      font-size: 10px;
-      padding: 0;
-      margin: 0;
     }
   }
 
