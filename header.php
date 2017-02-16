@@ -15,6 +15,7 @@
 	<meta name="Copyright" content="france banderole" />
 
 	<link rel="icon" type="image/png" href="http://www.france-banderole.com/wp-content/themes/fb/images/favicon.png" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><![endif]-->
 
 	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
@@ -100,5 +101,6 @@
 				<input type="submit" id="submit_search" value="" />
 			</form>-->
 			<a href="<?php bloginfo('url'); ?>/vos-devis/" id="corner_button"></a>
-			<a href="<?php bloginfo('url'); ?>/votre-panier/" id="corner_button_cart"><?php echo getCartCount(); ?></a>
+			<a href="<?php bloginfo('url'); ?>/votre-panier/" id="corner_button_cart"><?php echo getCartCount(); ?><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+</a>
 		</div>

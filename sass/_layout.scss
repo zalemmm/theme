@@ -1,10 +1,10 @@
 body {
   font-size: 11px;
-  color: $color_0;
+  color: $text;
   font-family: $font-global;
   margin: 0 auto;
   line-height: 15px;
-  background-color: $color_1;
+  background-color: $white;
 }
 
 .logoprint {
@@ -36,11 +36,11 @@ body {
   font-size: 10px;
   line-height: 11px;
   padding-top: 4px;
-  color: $color_1;
+  color: $white;
   background-color: $color_2;
 
   &.a {
-    color: $color_1;
+    color: $white;
     text-decoration: underline;
   }
 }
@@ -89,7 +89,7 @@ a {
     width: 25px;
     height: 19px;
     background: url('../images/cart.png') bottom left no-repeat;
-    color: $color_1;
+    color: $white;
     font-size: 10px;
     line-height: 10px;
     text-decoration: none;
@@ -100,12 +100,12 @@ a {
   }
 
   &:link {
-    color: $color_0;
+    color: $text;
     text-decoration: underline;
   }
 
   &:visited {
-    color: $color_0;
+    color: $text;
     text-decoration: underline;
   }
 
@@ -115,11 +115,11 @@ a {
 
   &.invisible_link {
     &:link {
-      color: $color_1;
+      color: $white;
     }
 
     &:visited {
-      color: $color_1;
+      color: $white;
     }
 
     &:hover {
@@ -335,14 +335,14 @@ ul {
         	height: 20px;
         	font-size: 12px;
         	line-height: 20px;
-        	color: $color_3;
+        	color: $black;
         	text-align: center;
         	text-decoration: none;
         }
 
         &:hover,
         &#active {
-          color: $color_1;
+          color: $white;
         }
       }
     }
@@ -371,7 +371,7 @@ ul {
 
           a#active_sub {
             background: url('../images/menu_sub_hover2.png') no-repeat;
-            color: $color_1;
+            color: $white;
           }
         }
       }
@@ -400,13 +400,13 @@ ul {
 
         &:hover {
           background: url('../images/menu_sub_hover.png') no-repeat;
-          color: $color_1;
+          color: $white;
         }
       }
 
       &#active_sub {
         background: url('../images/menu_sub_hover.png') no-repeat;
-        color: $color_1;
+        color: $white;
       }
 
       &.menu_sub2 {
@@ -422,7 +422,7 @@ ul {
 
         &:hover {
           background: url('../images/menu_sub_hover2.png') no-repeat;
-          color: $color_1;
+          color: $white;
         }
       }
     }
@@ -1148,7 +1148,7 @@ span {
     left: 15px;
     width: 225px;
     height: 26px;
-    color: $color_0;
+    color: $text;
     font-size: 10px;
   }
 
@@ -1158,7 +1158,7 @@ span {
     left: 252px;
     width: 225px;
     height: 26px;
-    color: $color_0;
+    color: $text;
     font-size: 10px;
   }
 
@@ -1169,7 +1169,7 @@ span {
     width: 225px;
     height: 26px;
     line-height: 13px;
-    color: $color_0;
+    color: $text;
     font-size: 10px;
   }
 
@@ -1304,7 +1304,7 @@ span {
   	margin: 0 10px;
   	display: inline-block;
   	background: $color_12;
-  	color: $color_1;
+  	color: $white;
   	text-transform: uppercase;
   	border: none;
   	cursor: pointer;
@@ -1317,7 +1317,7 @@ span {
   	margin: 0 10px;
   	display: inline-block;
   	background: $color_12;
-  	color: $color_1;
+  	color: $white;
   	text-transform: uppercase;
   	border: none;
   	cursor: pointer;
@@ -1426,7 +1426,7 @@ div {
 
     input {
       border: 1px solid $color_8;
-      background: $color_1;
+      background: $white;
       width: 130px;
       height: 13px;
       font-size: 10px;
@@ -1444,7 +1444,7 @@ div {
 
     textarea {
       border: 1px solid $color_8;
-      background: $color_1;
+      background: $white;
       width: 167px;
       height: 74px;
       font-size: 10px;
@@ -1550,7 +1550,7 @@ hr {
   width: 706px;
   margin: 3px 0 11px;
   height: 1px;
-  background: $color_0;
+  background: $text;
   border: none;
   line-height: 1px;
 
@@ -1561,7 +1561,7 @@ hr {
     width: 100%;
     margin: 3px 0 11px;
     height: 1px;
-    background: $color_0;
+    background: $text;
     border: none;
     line-height: 1px;
   }
@@ -1604,7 +1604,7 @@ h1 {
   margin: 0;
   font-style: italic;
   font-weight: normal;
-  color: $color_0;
+  color: $text;
   font-family: $font-title;
 }
 
@@ -1613,7 +1613,7 @@ h2 {
   margin: 15px 0 0;
   font-style: italic;
   font-weight: normal;
-  color: $color_0;
+  color: $text;
   font-family: $font-title;
 
   &.categorytitle {
@@ -1651,20 +1651,20 @@ h4 {
 #mainnew {
   float: left;
   width: 100%;
-  background: $color_1;
+  background: $white;
   padding: 0;
   margin: -10px 0 0;
   padding: 0 0 6px;
 
   h2 {
-    color: $color_0;
+    color: $text;
     font-size: 10px;
     padding: 0;
     margin: 0;
   }
 
   a {
-    color: $color_0;
+    color: $text;
   }
 
   p {
@@ -1684,7 +1684,7 @@ h4 {
   display: block;
 
   h2 {
-    color: $color_0;
+    color: $text;
     font-size: 10px;
     padding: 0;
     margin: 0;
@@ -1700,12 +1700,12 @@ h4 {
   a {
     &:link {
       text-decoration: none;
-      color: $color_3;
+      color: $black;
     }
 
     &:visited {
       text-decoration: none;
-      color: $color_3;
+      color: $black;
     }
 
     &:hover {
@@ -1724,7 +1724,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1739,7 +1739,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1754,7 +1754,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1769,7 +1769,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1784,7 +1784,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1799,7 +1799,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1814,7 +1814,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1829,7 +1829,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1844,7 +1844,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -1859,7 +1859,7 @@ h4 {
   color: $color_14;
   text-transform: uppercase;
   text-align: center;
-  color: $color_3;
+  color: $black;
   line-height: 13px;
   display: table;
 }
@@ -2009,7 +2009,7 @@ SPAN {
   vertical-align: middle;
   padding: 1px 8px 0;
   background: $color_11;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   margin-bottom: 6px;
   text-transform: uppercase;
@@ -2050,7 +2050,7 @@ SPAN {
   width: 97px;
   height: 12px;
   font-size: 10px;
-  color: $color_1;
+  color: $white;
   background: $color_18;
   text-transform: uppercase;
 }
@@ -2080,7 +2080,7 @@ SPAN {
   vertical-align: middle;
   padding: 1px 8px 0;
   background: $color_11;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   margin-bottom: 6px;
 }
@@ -2108,7 +2108,7 @@ SPAN {
   width: 97px;
   height: 12px;
   font-size: 10px;
-  color: $color_1;
+  color: $white;
   background: $color_18;
   text-transform: uppercase;
 }
@@ -2137,7 +2137,7 @@ SPAN {
   vertical-align: middle;
   padding: 1px 8px 0;
   background: $color_11;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   margin-bottom: 6px;
 }
@@ -2165,7 +2165,7 @@ SPAN {
   width: 97px;
   height: 12px;
   font-size: 10px;
-  color: $color_1;
+  color: $white;
   background: $color_18;
   text-transform: uppercase;
 }
@@ -2283,7 +2283,7 @@ SPAN {
     line-height: 11px;
     border: 1px solid $color_8;
     font-size: 9px;
-    background: $color_1;
+    background: $white;
   }
 
   textarea {
@@ -2294,7 +2294,7 @@ SPAN {
     width: 100%;
     border: 1px solid $color_8;
     font-size: 9px;
-    background: $color_1;
+    background: $white;
     font-family: $font-input;
     font-size: 11px;
   }
@@ -2314,7 +2314,7 @@ SPAN {
   width: 315px;
   padding: 16px 16px 13px 20px;
   background: $color_23;
-  border-bottom: 5px solid $color_1;
+  border-bottom: 5px solid $white;
 }
 
 .comment_right2 {
@@ -2324,7 +2324,7 @@ SPAN {
   width: 315px;
   padding: 16px 16px 13px 20px;
   background: $color_7;
-  border-bottom: 5px solid $color_1;
+  border-bottom: 5px solid $white;
 }
 
 .but_envoyer {
@@ -2368,7 +2368,7 @@ SPAN {
 	height: 22px;
 	line-height: 23px;
 	background: $color_12;
-	color: $color_1;
+	color: $white;
 	font-size: 12px;
 	float: left;
 	display: inline;
@@ -2402,7 +2402,7 @@ SPAN {
   height: 22px;
   line-height: 23px;
   background: $color_12;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   float: right;
   display: inline;
@@ -2416,7 +2416,7 @@ SPAN {
   background: $color_7;
   float: right;
   display: inline;
-  border-bottom: 5px solid $color_1;
+  border-bottom: 5px solid $white;
 }
 
 .paiements_right_con_diff {
@@ -2427,7 +2427,7 @@ SPAN {
 
   float: right;
   display: inline;
-  border-bottom: 5px solid $color_1;
+  border-bottom: 5px solid $white;
 }
 
 .paiements_right_con2 {
@@ -2438,7 +2438,7 @@ SPAN {
   background: $color_7;
   float: right;
   display: inline;
-  border-bottom: 5px solid $color_1;
+  border-bottom: 5px solid $white;
   text-align: center;
 }
 
@@ -2475,7 +2475,7 @@ SPAN {
   height: 22px;
   line-height: 23px;
   background: $color_12;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   float: left;
   display: inline;
@@ -2489,7 +2489,7 @@ SPAN {
   height: 22px;
   line-height: 23px;
   background: $color_25;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   float: left;
   display: inline;
@@ -2524,7 +2524,7 @@ SPAN {
   float: left;
   display: inline;
   text-align: center;
-  color: $color_0;
+  color: $text;
 }
 
 .cheque_tab {
@@ -2533,7 +2533,7 @@ SPAN {
 
   th {
     width: 331px;
-    border-bottom: 1px solid $color_0;
+    border-bottom: 1px solid $text;
     text-align: left;
     font-size: 9px;
   }
@@ -2550,8 +2550,8 @@ SPAN {
   width: 675px;
 
   th {
-    border-bottom: 1px solid $color_0;
-    border-top: 1px solid $color_0;
+    border-bottom: 1px solid $text;
+    border-top: 1px solid $text;
     text-align: center;
     font-size: 9px;
     text-transform: uppercase;
@@ -2565,7 +2565,7 @@ SPAN {
   td {
     text-align: center;
     padding: 10px 0 15px;
-    border-bottom: 1px solid $color_0;
+    border-bottom: 1px solid $text;
     vertical-align: top;
 
     &.lefttd {
@@ -2598,20 +2598,20 @@ SPAN {
     width: 50%;
     text-align: right;
     font-size: 12px;
-    border-bottom: 1px solid $color_0;
+    border-bottom: 1px solid $text;
     padding: 2px 1px 2px 0;
 
     &.left {
       text-align: left;
       font-size: 10px;
-      border-bottom: 1px solid $color_0;
+      border-bottom: 1px solid $text;
     }
 
     &.lefttotal {
       text-align: left;
       font-size: 12px;
       padding: 15px 0;
-      border-bottom: 1px solid $color_0;
+      border-bottom: 1px solid $text;
       font-weight: bold;
     }
 
@@ -2619,7 +2619,7 @@ SPAN {
       text-align: right;
       font-size: 12px;
       padding: 15px 1px 15px 0;
-      border-bottom: 1px solid $color_0;
+      border-bottom: 1px solid $text;
       font-weight: bold;
     }
   }
@@ -2631,7 +2631,7 @@ SPAN {
   height: 22px;
   line-height: 23px;
   background: $color_26;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   float: left;
   display: inline;
@@ -2903,7 +2903,7 @@ SPAN {
   height: 22px;
   line-height: 23px;
   background: $color_26;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   float: left;
   display: inline;
@@ -2933,7 +2933,7 @@ SPAN {
     text-align: center;
     font-size: 10px;
     padding: 1px 0;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     text-transform: uppercase;
     color: $color_12;
     width: 88px;
@@ -2956,7 +2956,7 @@ SPAN {
     text-align: center;
     padding: 10px 2px 21px;
     vertical-align: top;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
 
     &.tddesc {
       text-align: left;
@@ -2987,7 +2987,7 @@ SPAN {
     vertical-align: top;
     padding: 12px;
     background: $color_7 url('../images/bord2.png') top left no-repeat;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     text-align: center;
 
     &.lefttd {
@@ -3009,7 +3009,7 @@ SPAN {
     width: 65px;
     padding: 28px 6px 12px;
     background: $color_7 url('../images/bord5.png') top left no-repeat;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     text-align: center;
 
     &.lefttd {
@@ -3017,7 +3017,7 @@ SPAN {
       width: 140px;
       padding: 12px;
       background: $color_7;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
     }
 
@@ -3026,7 +3026,7 @@ SPAN {
       width: 140px;
       padding: 12px;
       background: $color_7;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
     }
 
@@ -3035,7 +3035,7 @@ SPAN {
       width: 171px;
       padding: 12px 6px;
       background: $color_7 url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: center;
     }
 
@@ -3044,7 +3044,7 @@ SPAN {
       width: 171px;
       padding: 12px 6px;
       background: $color_7 url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: center;
     }
 
@@ -3053,7 +3053,7 @@ SPAN {
       width: 360px;
       padding: 12px 6px;
       background: $color_7 url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: center;
     }
 
@@ -3062,7 +3062,7 @@ SPAN {
       width: 287px;
       padding: 12px;
       background: $color_7;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
     }
 
@@ -3071,7 +3071,7 @@ SPAN {
       width: 171px;
       padding: 12px 6px;
       background: $color_7 url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: center;
     }
 
@@ -3083,12 +3083,12 @@ SPAN {
       height: 140px;
       padding: 12px;
       background: $color_7 url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
 
       span {
         font-size: 10px;
-        color: $color_3;
+        color: $black;
       }
     }
 
@@ -3101,7 +3101,7 @@ SPAN {
       height: 164px;
       padding: 0;
       background: $color_7 url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
 
       .prom_sub {
@@ -3132,7 +3132,7 @@ SPAN {
       width: 160px;
       padding: 10px;
       background: $color_7 url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
 
       .prom_sub {
@@ -3192,7 +3192,7 @@ SPAN {
       height: 164px;
       padding: 0;
       background: $color_7 url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
 
       .prom_sub2 {
@@ -3219,7 +3219,7 @@ SPAN {
   }
 
   .prom_price {
-    color: $color_1;
+    color: $white;
     background: $color_11;
     padding: 2px 4px;
     width: 143px;
@@ -3229,7 +3229,7 @@ SPAN {
   }
 
   .prom_price2 {
-    color: $color_1;
+    color: $white;
     background: $color_11;
     padding: 2px 4px;
     width: 335px;
@@ -3306,14 +3306,14 @@ SPAN {
     vertical-align: top;
     width: 65px;
     padding: 28px 6px 12px;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     text-align: center;
 
     &.lefttdmma {
       vertical-align: top;
       width: 155px;
       padding: 12px;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
     }
 
@@ -3324,7 +3324,7 @@ SPAN {
       height: 200px;
       padding: 0;
       background: url('../images/bord5.png') top left no-repeat;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-align: left;
 
       .prom_submma {
@@ -3368,12 +3368,12 @@ SPAN {
     width: 65px;
     background-color: $color_15;
     padding: 28px 6px 12px;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     text-align: center;
   }
 
   .prom_pricemma {
-    color: $color_1;
+    color: $white;
     background: $color_11;
     padding: 2px 4px;
     width: 142px;
@@ -3501,7 +3501,7 @@ SPAN {
   height: 22px;
   line-height: 23px;
   background: $color_12;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   float: left;
   display: inline;
@@ -3514,7 +3514,7 @@ SPAN {
   height: 22px;
   line-height: 23px;
   background: $color_12;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   float: left;
   display: inline;
@@ -3527,7 +3527,7 @@ SPAN {
   height: 22px;
   line-height: 23px;
   background: $color_12;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   float: left;
   display: inline;
@@ -3647,7 +3647,7 @@ SPAN {
   margin: 0 10px;
   display: inline-block;
   background: $color_29;
-  color: $color_1;
+  color: $white;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -3661,7 +3661,7 @@ SPAN {
   margin: 0 10px;
   display: inline-block;
   background: $color_30;
-  color: $color_1;
+  color: $white;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -3675,7 +3675,7 @@ SPAN {
 	margin: 0 10px;
 	display: inline-block;
 	background: $color_12;
-	color: $color_1;
+	color: $white;
 	text-transform: uppercase;
 	border: none;
 	cursor: pointer;
@@ -3688,7 +3688,7 @@ SPAN {
   margin: 0 10px;
   display: inline-block;
   background: $color_31;
-  color: $color_1;
+  color: $white;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -3702,7 +3702,7 @@ SPAN {
   margin: 0 10px;
   display: inline-block;
   background: $color_32;
-  color: $color_1;
+  color: $white;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -3716,7 +3716,7 @@ SPAN {
   margin: 0 10px;
   display: inline-block;
   background: $color_8;
-  color: $color_1;
+  color: $white;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -3729,8 +3729,8 @@ SPAN {
   padding-top: 1px;
   margin: 0 10px;
   display: inline-block;
-  background: $color_0;
-  color: $color_1;
+  background: $text;
+  color: $white;
   text-transform: uppercase;
   border: none;
   font-size: 11px;
@@ -3743,7 +3743,7 @@ SPAN {
   margin: 0 10px;
   display: inline-block;
   background: $color_24;
-  color: $color_1;
+  color: $white;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
@@ -3770,7 +3770,7 @@ stat2 {
     text-align: left;
 
     &.leftth {
-      border-right: 1px solid $color_1;
+      border-right: 1px solid $white;
     }
   }
 
@@ -3783,7 +3783,7 @@ stat2 {
     vertical-align: top;
 
     &.lefttd {
-      border-right: 1px solid $color_1;
+      border-right: 1px solid $white;
     }
   }
 
@@ -3821,7 +3821,7 @@ stat2 {
     background: $color_7;
     text-align: center;
     padding: 3px 20px;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     text-transform: uppercase;
     color: $color_12;
     width: 30px;
@@ -3832,7 +3832,7 @@ stat2 {
     }
 
     &.nobackground {
-      background: $color_1;
+      background: $white;
       width: 30px;
       padding: 0;
     }
@@ -3848,7 +3848,7 @@ stat2 {
     text-align: center;
     padding: 13px 2px 21px;
     vertical-align: top;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
 
     &.lefttd {
       background: $color_7;
@@ -3892,7 +3892,7 @@ stat2 {
     background: $color_7;
     text-align: left;
     padding: 3px 0;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     text-transform: uppercase;
     color: $color_12;
     width: 81px;
@@ -3901,7 +3901,7 @@ stat2 {
       background: $color_7;
       text-align: left;
       padding: 3px 20px;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
       width: 57px;
@@ -3911,7 +3911,7 @@ stat2 {
       background: $color_7;
       text-align: left;
       padding: 3px 20px 3px 0;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
       width: 67px;
@@ -3921,7 +3921,7 @@ stat2 {
       background: $color_7;
       text-align: left;
       padding: 3px 0;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
       width: 411px;
@@ -3931,14 +3931,14 @@ stat2 {
       background: $color_7;
       text-align: left;
       padding: 3px 0;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
       width: 31px;
     }
 
     &.nobackground {
-      background: $color_1;
+      background: $white;
       width: 30px;
     }
   }
@@ -3949,7 +3949,7 @@ stat2 {
     height: 19px;
     padding: 10px 2px 6px 8px;
     vertical-align: top;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
 
     &.lefttd {
       background: $color_7;
@@ -3957,7 +3957,7 @@ stat2 {
       height: 19px;
       padding: 10px 2px 20px 8px;
       vertical-align: top;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
     }
 
     &.lefttd2 {
@@ -3966,7 +3966,7 @@ stat2 {
       height: 19px;
       padding: 10px 2px 20px 8px;
       vertical-align: top;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       color: $color_26;
       font-weight: bold;
     }
@@ -3981,7 +3981,7 @@ stat2 {
       height: 19px;
       padding: 10px 2px 20px 8px;
       vertical-align: top;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       font-weight: bold;
     }
 
@@ -4032,7 +4032,7 @@ stat2 {
     background: $color_7;
     text-align: left;
     padding: 3px 0;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     text-transform: uppercase;
     color: $color_12;
     width: 491px;
@@ -4041,14 +4041,14 @@ stat2 {
       background: $color_7;
       text-align: left;
       padding: 3px 10px 3px 20px;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
       width: 160px;
     }
 
     &.nobackground {
-      background: $color_1;
+      background: $white;
       width: 30px;
     }
   }
@@ -4059,7 +4059,7 @@ stat2 {
     height: 19px;
     padding: 8px 2px 6px 8px;
     vertical-align: top;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
 
     &.lefttd {
       background: $color_7 url('../images/wykrzyknik.png') top left no-repeat;
@@ -4068,7 +4068,7 @@ stat2 {
       text-align: left;
       padding: 12px 2px 6px 44px;
       vertical-align: top;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
     }
 
     &.lefttd2 {
@@ -4078,7 +4078,7 @@ stat2 {
       text-align: left;
       padding: 12px 2px 6px 44px;
       vertical-align: top;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
     }
   }
 
@@ -4099,7 +4099,7 @@ stat2 {
       background: $color_7;
       text-align: left;
       padding: 3px 10px 3px 20px;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
       width: 160px;
@@ -4109,7 +4109,7 @@ stat2 {
       background: $color_7;
       text-align: left;
       padding: 3px 0;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
       width: 111px;
@@ -4119,14 +4119,14 @@ stat2 {
       background: $color_7;
       text-align: left;
       padding: 3px 0;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
       width: 351px;
     }
 
     &.nobackground {
-      background: $color_1;
+      background: $white;
       width: 30px;
     }
   }
@@ -4137,7 +4137,7 @@ stat2 {
     height: 19px;
     padding: 8px 2px 6px 8px;
     vertical-align: top;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
 
     &.lefttd {
       background: $color_7 url('../images/wykrzyknik.png') top left no-repeat;
@@ -4146,7 +4146,7 @@ stat2 {
       text-align: left;
       padding: 12px 2px 6px 44px;
       vertical-align: top;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
     }
 
     &.lefttd2 {
@@ -4156,7 +4156,7 @@ stat2 {
       text-align: left;
       padding: 12px 2px 6px 44px;
       vertical-align: top;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
     }
   }
 }
@@ -4310,8 +4310,8 @@ stat2 {
       padding-left: 5px;
       width: 125px;
       height: 18px;
-      border-left: 4px solid $color_1;
-      border-bottom: 4px solid $color_1;
+      border-left: 4px solid $white;
+      border-bottom: 4px solid $white;
     }
 
     &.toright {
@@ -4320,7 +4320,7 @@ stat2 {
       padding-right: 5px;
       width: 65px;
       height: 18px;
-      border-bottom: 4px solid $color_1;
+      border-bottom: 4px solid $white;
     }
   }
 }
@@ -4343,7 +4343,7 @@ stat2 {
   height: 22px;
   line-height: 23px;
   background: $color_26;
-  color: $color_1;
+  color: $white;
   margin: 6px 0;
   font-size: 12px;
 }
@@ -4376,7 +4376,7 @@ stat2 {
   display: inline;
   width: 132px;
   border: 1px solid $color_8;
-  background: $color_1;
+  background: $white;
   margin-bottom: 11px;
 }
 
@@ -4435,7 +4435,7 @@ stat2 {
   height: 22px;
   line-height: 23px;
   background: $color_12;
-  color: $color_1;
+  color: $white;
   margin: 6px 0;
   font-size: 12px;
 }
@@ -4455,7 +4455,7 @@ stat2 {
   width: 132px;
   font-size: 10px;
   border: 1px solid $color_8;
-  background: $color_1;
+  background: $white;
   margin-bottom: 8px;
 }
 
@@ -4576,15 +4576,15 @@ stat2 {
     }
 
     .option1 {
-      color: $color_3;
+      color: $black;
       background-color: $color_17;
       text-transform: capitalize;
       line-height: 10px;
     }
 
     .option2 {
-      color: $color_3;
-      background-color: $color_1;
+      color: $black;
+      background-color: $white;
       text-transform: capitalize;
       line-height: 10px;
     }
@@ -4607,7 +4607,7 @@ stat2 {
       line-height: 11px;
       border: 1px solid $color_8;
       font-size: 9px;
-      background: $color_1;
+      background: $white;
     }
   }
 
@@ -4617,7 +4617,7 @@ stat2 {
       width: 40px;
       line-height: 0;
       font-size: 11px;
-      background: $color_1;
+      background: $white;
       border: 0;
 
       border-radius: 3px;
@@ -4636,7 +4636,7 @@ stat2 {
       line-height: 0;
       border: 1px solid $color_8;
       font-size: inherit;
-      background: $color_1;
+      background: $white;
 
       border-radius: 3px;
       border: 0;
@@ -4877,7 +4877,7 @@ stat2 {
   width: 434px;
   border: 1px solid $color_8;
   font-size: 9px;
-  background: $color_1;
+  background: $white;
   font-family:  $font-input;
   font-size: 11px;
 }
@@ -5251,7 +5251,7 @@ stat2 {
     text-align: left;
     padding: 10px 10px 21px;
     vertical-align: top;
-    border-bottom: 4px solid $color_1;
+    border-bottom: 4px solid $white;
     width: 426px;
 
     &.lefttd {
@@ -5360,7 +5360,7 @@ stat2 {
     text-align: center;
     margin: 0 0 0 4px;
     text-decoration: underline;
-    color: $color_0;
+    color: $text;
 
     &.ratingpagpage {
       text-decoration: none;
@@ -5368,7 +5368,7 @@ stat2 {
       padding: 4px 6px;
       text-align: center;
       margin: 0 17px 0 4px;
-      color: $color_0;
+      color: $text;
       font-weight: bold;
     }
   }
@@ -5439,7 +5439,7 @@ stat2 {
   vertical-align: middle;
   padding: 1px 8px 0;
   background: $color_11;
-  color: $color_1;
+  color: $white;
   font-size: 12px;
   margin-bottom: 6px;
   text-transform: uppercase;
@@ -5480,7 +5480,7 @@ stat2 {
   width: 97px;
   height: 12px;
   font-size: 10px;
-  color: $color_1;
+  color: $white;
   background: $color_18;
   text-transform: uppercase;
 }
@@ -5504,7 +5504,7 @@ stat2 {
   padding: 0 5px;
   width: 248px;
   background-color: $color_12;
-  color: $color_1;
+  color: $white;
 }
 
 .cadre-bt {
@@ -5516,7 +5516,7 @@ stat2 {
   text-align: center;
   float: left;
   background-color: $color_12;
-  color: $color_1;
+  color: $white;
   margin: 2px;
   behavior: url('http://www.france-banderole.com/wp-content/themes/fb/js2/PIE.js');
 }
@@ -5574,14 +5574,14 @@ stat2 {
 }
 
 .OptionFedex {
-  border: 0 solid $color_3;
+  border: 0 solid $black;
   width: 100%;
   height: 100px;
   clear: both;
 }
 
 .OptionTNT {
-  border: 0 solid $color_3;
+  border: 0 solid $black;
   width: 100%;
   height: 100px;
   clear: both;
@@ -5668,7 +5668,7 @@ stat2 {
 }
 
 .footer-keywords {
-  color: $color_0;
+  color: $text;
   font-size: 9px;
   display: inline;
   margin: 0;
@@ -5775,7 +5775,7 @@ DIV.ProgressBar {
   float: left;
   width: 100px;
   padding: 0;
-  border: 1px solid $color_3;
+  border: 1px solid $black;
   margin-right: 1em;
   height: 12px;
   margin-left: 1em;
