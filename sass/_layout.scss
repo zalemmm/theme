@@ -488,90 +488,58 @@ ul {
       animation: fadein 1s;
 
       &.nobor {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 376px;
+        @extend %extend_18;
         height: 22px;
         padding-top: 13px;
-        color: $color_27;
         border-bottom: none !important;
       }
 
       &.sizehigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 376px;
+        @extend %extend_18;
         height: 32px;
         padding-top: 18px;
-        color: $color_27;
         border-bottom: 1px solid $color_5;
       }
 
       &#id_9a {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 376px;
+        @extend %extend_18;
         height: 32px !important;
         padding-top: 12px !important;
-        color: $color_27;
         border: none !important;
       }
 
       &#id_11a {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 376px;
+        @extend %extend_18;
         height: 32px !important;
         padding-top: 12px !important;
-        color: $color_27;
         border: none !important;
       }
 
       &.id_18 {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 376px;
+        @extend %extend_18;
         height: 32px !important;
         padding-top: 12px !important;
-        color: $color_27;
         border: none !important;
       }
 
       &#id_26a {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 376px;
+        @extend %extend_18;
         height: 32px !important;
         padding-top: 12px !important;
-        color: $color_27;
         border: none !important;
       }
 
       &.ceddreheigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 376px;
+        @extend %extend_18;
         height: 32px !important;
         padding-top: 12px !important;
-        color: $color_27;
         border: none !important;
       }
 
       &.id_17 {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 376px;
+        @extend %extend_18;
         height: 35px;
         padding-top: 12px;
-        color: $color_27;
       }
 
       &.optionsformline {
