@@ -4965,7 +4965,6 @@ stat2 {
 
 /* line 4501, sass/_layout.scss */
 .jotform-form select {
-  float: right;
   display: inline;
   padding-right: 2.5em;
   border: 0;
@@ -4983,13 +4982,13 @@ stat2 {
   cursor: pointer;
 }
 
-/* line 4518, sass/_layout.scss */
+/* line 4516, sass/_layout.scss */
 .jotform-form select .titre {
   font-weight: bold;
   text-transform: uppercase;
 }
 
-/* line 4523, sass/_layout.scss */
+/* line 4521, sass/_layout.scss */
 .jotform-form select .option1 {
   color: #000;
   background-color: #f6f6f6;
@@ -4997,7 +4996,7 @@ stat2 {
   line-height: 10px;
 }
 
-/* line 4530, sass/_layout.scss */
+/* line 4528, sass/_layout.scss */
 .jotform-form select .option2 {
   color: #000;
   background-color: #fff;
@@ -5005,19 +5004,19 @@ stat2 {
   line-height: 10px;
 }
 
-/* line 4537, sass/_layout.scss */
+/* line 4535, sass/_layout.scss */
 .jotform-form select.option3 {
   width: 200px;
   float: left;
 }
 
-/* line 4542, sass/_layout.scss */
+/* line 4540, sass/_layout.scss */
 .jotform-form select.option4 {
   width: 144px;
   float: left;
 }
 
-/* line 4547, sass/_layout.scss */
+/* line 4545, sass/_layout.scss */
 .jotform-form select.quan {
   float: right;
   display: inline;
@@ -5029,7 +5028,7 @@ stat2 {
   background: #fff;
 }
 
-/* line 4560, sass/_layout.scss */
+/* line 4558, sass/_layout.scss */
 .jotform-form input.form-textbox {
   display: inline;
   width: 40px;
@@ -5047,7 +5046,7 @@ stat2 {
   text-align: center;
 }
 
-/* line 4576, sass/_layout.scss */
+/* line 4574, sass/_layout.scss */
 .jotform-form input.form-textbox2 {
   position: absolute;
   top: 13px;
@@ -5067,7 +5066,7 @@ stat2 {
   text-align: center;
 }
 
-/* line 4595, sass/_layout.scss */
+/* line 4593, sass/_layout.scss */
 .jotform-form .heusepar {
   position: absolute;
   top: 18px;
@@ -5076,7 +5075,7 @@ stat2 {
   width: 10px;
 }
 
-/* line 4603, sass/_layout.scss */
+/* line 4601, sass/_layout.scss */
 .jotform-form .llar {
   position: absolute;
   top: 35px;
@@ -5088,7 +5087,7 @@ stat2 {
   color: #869da6;
 }
 
-/* line 4614, sass/_layout.scss */
+/* line 4612, sass/_layout.scss */
 .jotform-form .lhau {
   position: absolute;
   top: 35px;
@@ -5100,7 +5099,7 @@ stat2 {
   color: #869da6;
 }
 
-/* line 4625, sass/_layout.scss */
+/* line 4623, sass/_layout.scss */
 .jotform-form .llar2 {
   position: absolute;
   top: 35px;
@@ -5112,7 +5111,7 @@ stat2 {
   color: #869da6;
 }
 
-/* line 4636, sass/_layout.scss */
+/* line 4634, sass/_layout.scss */
 .jotform-form .lhau2 {
   position: absolute;
   top: 35px;
@@ -5146,7 +5145,7 @@ stat2 {
   }
 }
 
-/* line 4703, sass/_layout.scss */
+/* line 4701, sass/_layout.scss */
 .boxcheck {
   position: absolute;
   top: 8px;
@@ -5158,7 +5157,7 @@ stat2 {
   font-size: 10px;
 }
 
-/* line 4714, sass/_layout.scss */
+/* line 4712, sass/_layout.scss */
 .form-submit-button {
   width: 86px;
   height: 20px;
@@ -5171,18 +5170,18 @@ stat2 {
   display: inline;
 }
 
-/* line 4726, sass/_layout.scss */
+/* line 4724, sass/_layout.scss */
 .form-line-error {
   background: #faa;
   border: 1px solid #faa;
 }
 
-/* line 4731, sass/_layout.scss */
+/* line 4729, sass/_layout.scss */
 .form-validation-error {
   border: 1px solid #f00;
 }
 
-/* line 4735, sass/_layout.scss */
+/* line 4733, sass/_layout.scss */
 .form-error-message {
   z-index: 900;
   position: absolute;
@@ -5197,7 +5196,7 @@ stat2 {
   background: #fcc;
 }
 
-/* line 4749, sass/_layout.scss */
+/* line 4747, sass/_layout.scss */
 .comment_new {
   color: #f00;
   position: relative;
@@ -5210,7 +5209,7 @@ stat2 {
   font-weight: bold;
 }
 
-/* line 4761, sass/_layout.scss */
+/* line 4759, sass/_layout.scss */
 #rating {
   position: relative;
   float: left;
@@ -5218,7 +5217,7 @@ stat2 {
   width: 470px;
 }
 
-/* line 4768, sass/_layout.scss */
+/* line 4766, sass/_layout.scss */
 .rating_element {
   position: relative;
   float: left;
@@ -5229,7 +5228,7 @@ stat2 {
   margin: 0 0 4px;
 }
 
-/* line 4778, sass/_layout.scss */
+/* line 4776, sass/_layout.scss */
 .rating_element2 {
   position: relative;
   float: left;
@@ -5241,22 +5240,22 @@ stat2 {
   margin: 0 0 4px;
 }
 
-/* line 4791, sass/_layout.scss */
+/* line 4789, sass/_layout.scss */
 #raele1 {
   border: 1px solid #e1e8f2;
 }
 
-/* line 4795, sass/_layout.scss */
+/* line 4793, sass/_layout.scss */
 #raele2 {
   border: 1px solid #e1e8f2;
 }
 
-/* line 4799, sass/_layout.scss */
+/* line 4797, sass/_layout.scss */
 #raele3 {
   border: 1px solid #e1e8f2;
 }
 
-/* line 4803, sass/_layout.scss */
+/* line 4801, sass/_layout.scss */
 .rating_elcol1 {
   position: relative;
   float: left;
@@ -5264,7 +5263,7 @@ stat2 {
   width: 50%;
 }
 
-/* line 4810, sass/_layout.scss */
+/* line 4808, sass/_layout.scss */
 .rating_elcol2 {
   position: relative;
   float: left;
@@ -5272,7 +5271,7 @@ stat2 {
   width: 50%;
 }
 
-/* line 4817, sass/_layout.scss */
+/* line 4815, sass/_layout.scss */
 #textarearating {
   float: left;
   display: inline;
@@ -5286,7 +5285,7 @@ stat2 {
   font-size: 11px;
 }
 
-/* line 4830, sass/_layout.scss */
+/* line 4828, sass/_layout.scss */
 .but_ratingsubmit {
   width: 116px;
   height: 19px;
@@ -5299,7 +5298,7 @@ stat2 {
   margin: 4px auto;
 }
 
-/* line 4842, sass/_layout.scss */
+/* line 4840, sass/_layout.scss */
 .form-error-message-rating {
   z-index: 900;
   position: absolute;
@@ -5315,7 +5314,7 @@ stat2 {
   display: none;
 }
 
-/* line 4857, sass/_layout.scss */
+/* line 4855, sass/_layout.scss */
 .star-rating {
   list-style: none;
   margin: 7px 0 0;
@@ -5326,7 +5325,7 @@ stat2 {
   background: url("images/stars20.png") top left repeat-x;
 }
 
-/* line 4866, sass/_layout.scss */
+/* line 4864, sass/_layout.scss */
 .star-rating li {
   padding: 0;
   margin: 0;
@@ -5335,7 +5334,7 @@ stat2 {
   float: left;
 }
 
-/* line 4873, sass/_layout.scss */
+/* line 4871, sass/_layout.scss */
 .star-rating li a {
   display: block;
   width: 20px;
@@ -5349,7 +5348,7 @@ stat2 {
   overflow: hidden;
 }
 
-/* line 4885, sass/_layout.scss */
+/* line 4883, sass/_layout.scss */
 .star-rating li a:hover {
   background: url("images/stars20.png") left center;
   z-index: 2;
@@ -5357,7 +5356,7 @@ stat2 {
   border: none;
 }
 
-/* line 4893, sass/_layout.scss */
+/* line 4891, sass/_layout.scss */
 .star-rating li.current-rating {
   background: url("images/stars20.png") left bottom;
   position: absolute;
@@ -5367,57 +5366,57 @@ stat2 {
   z-index: 1;
 }
 
-/* line 4904, sass/_layout.scss */
+/* line 4902, sass/_layout.scss */
 .star-rating a.one-star {
   left: 0;
 }
 
-/* line 4907, sass/_layout.scss */
+/* line 4905, sass/_layout.scss */
 .star-rating a.one-star:hover {
   width: 20px;
 }
 
-/* line 4912, sass/_layout.scss */
+/* line 4910, sass/_layout.scss */
 .star-rating a.two-stars {
   left: 20px;
 }
 
-/* line 4915, sass/_layout.scss */
+/* line 4913, sass/_layout.scss */
 .star-rating a.two-stars:hover {
   width: 40px;
 }
 
-/* line 4920, sass/_layout.scss */
+/* line 4918, sass/_layout.scss */
 .star-rating a.three-stars {
   left: 40px;
 }
 
-/* line 4923, sass/_layout.scss */
+/* line 4921, sass/_layout.scss */
 .star-rating a.three-stars:hover {
   width: 60px;
 }
 
-/* line 4928, sass/_layout.scss */
+/* line 4926, sass/_layout.scss */
 .star-rating a.four-stars {
   left: 60px;
 }
 
-/* line 4931, sass/_layout.scss */
+/* line 4929, sass/_layout.scss */
 .star-rating a.four-stars:hover {
   width: 80px;
 }
 
-/* line 4936, sass/_layout.scss */
+/* line 4934, sass/_layout.scss */
 .star-rating a.five-stars {
   left: 80px;
 }
 
-/* line 4939, sass/_layout.scss */
+/* line 4937, sass/_layout.scss */
 .star-rating a.five-stars:hover {
   width: 100px;
 }
 
-/* line 4946, sass/_layout.scss */
+/* line 4944, sass/_layout.scss */
 .star-rating2 {
   list-style: none;
   margin: 0;
@@ -5428,7 +5427,7 @@ stat2 {
   background: url("images/stars20.png") top left repeat-x;
 }
 
-/* line 4955, sass/_layout.scss */
+/* line 4953, sass/_layout.scss */
 .star-rating2 li {
   padding: 0;
   margin: 0;
@@ -5437,7 +5436,7 @@ stat2 {
   float: left;
 }
 
-/* line 4962, sass/_layout.scss */
+/* line 4960, sass/_layout.scss */
 .star-rating2 li span {
   display: block;
   width: 20px;
@@ -5451,7 +5450,7 @@ stat2 {
   overflow: hidden;
 }
 
-/* line 4975, sass/_layout.scss */
+/* line 4973, sass/_layout.scss */
 .star-rating2 li.current-rating {
   background: url("images/stars20.png") left bottom;
   position: absolute;
@@ -5461,57 +5460,57 @@ stat2 {
   z-index: 1;
 }
 
-/* line 4985, sass/_layout.scss */
+/* line 4983, sass/_layout.scss */
 .star-rating2 .one-star {
   left: 0;
 }
 
-/* line 4988, sass/_layout.scss */
+/* line 4986, sass/_layout.scss */
 .star-rating2 .one-star:hover {
   width: 20px;
 }
 
-/* line 4993, sass/_layout.scss */
+/* line 4991, sass/_layout.scss */
 .star-rating2 .two-stars {
   left: 20px;
 }
 
-/* line 4996, sass/_layout.scss */
+/* line 4994, sass/_layout.scss */
 .star-rating2 .two-stars:hover {
   width: 40px;
 }
 
-/* line 5001, sass/_layout.scss */
+/* line 4999, sass/_layout.scss */
 .star-rating2 .three-stars {
   left: 40px;
 }
 
-/* line 5004, sass/_layout.scss */
+/* line 5002, sass/_layout.scss */
 .star-rating2 .three-stars:hover {
   width: 60px;
 }
 
-/* line 5009, sass/_layout.scss */
+/* line 5007, sass/_layout.scss */
 .star-rating2 .four-stars {
   left: 60px;
 }
 
-/* line 5012, sass/_layout.scss */
+/* line 5010, sass/_layout.scss */
 .star-rating2 .four-stars:hover {
   width: 80px;
 }
 
-/* line 5017, sass/_layout.scss */
+/* line 5015, sass/_layout.scss */
 .star-rating2 .five-stars {
   left: 80px;
 }
 
-/* line 5020, sass/_layout.scss */
+/* line 5018, sass/_layout.scss */
 .star-rating2 .five-stars:hover {
   width: 100px;
 }
 
-/* line 5026, sass/_layout.scss */
+/* line 5024, sass/_layout.scss */
 .star-rating3 {
   list-style: none;
   margin: 0;
@@ -5522,7 +5521,7 @@ stat2 {
   background: url("images/stars30.png") top left repeat-x;
 }
 
-/* line 5035, sass/_layout.scss */
+/* line 5033, sass/_layout.scss */
 .star-rating3 li {
   padding: 0;
   margin: 0;
@@ -5531,7 +5530,7 @@ stat2 {
   float: left;
 }
 
-/* line 5042, sass/_layout.scss */
+/* line 5040, sass/_layout.scss */
 .star-rating3 li span {
   display: block;
   width: 30px;
@@ -5545,7 +5544,7 @@ stat2 {
   overflow: hidden;
 }
 
-/* line 5055, sass/_layout.scss */
+/* line 5053, sass/_layout.scss */
 .star-rating3 li.current-rating {
   background: url("images/stars30.png") left bottom;
   position: absolute;
@@ -5555,57 +5554,57 @@ stat2 {
   z-index: 1;
 }
 
-/* line 5065, sass/_layout.scss */
+/* line 5063, sass/_layout.scss */
 .star-rating3 .one-star {
   left: 0;
 }
 
-/* line 5068, sass/_layout.scss */
+/* line 5066, sass/_layout.scss */
 .star-rating3 .one-star:hover {
   width: 30px;
 }
 
-/* line 5073, sass/_layout.scss */
+/* line 5071, sass/_layout.scss */
 .star-rating3 .two-stars {
   left: 30px;
 }
 
-/* line 5076, sass/_layout.scss */
+/* line 5074, sass/_layout.scss */
 .star-rating3 .two-stars:hover {
   width: 60px;
 }
 
-/* line 5081, sass/_layout.scss */
+/* line 5079, sass/_layout.scss */
 .star-rating3 .three-stars {
   left: 60px;
 }
 
-/* line 5084, sass/_layout.scss */
+/* line 5082, sass/_layout.scss */
 .star-rating3 .three-stars:hover {
   width: 90px;
 }
 
-/* line 5089, sass/_layout.scss */
+/* line 5087, sass/_layout.scss */
 .star-rating3 .four-stars {
   left: 90px;
 }
 
-/* line 5092, sass/_layout.scss */
+/* line 5090, sass/_layout.scss */
 .star-rating3 .four-stars:hover {
   width: 120px;
 }
 
-/* line 5097, sass/_layout.scss */
+/* line 5095, sass/_layout.scss */
 .star-rating3 .five-stars {
   left: 120px;
 }
 
-/* line 5100, sass/_layout.scss */
+/* line 5098, sass/_layout.scss */
 .star-rating3 .five-stars:hover {
   width: 150px;
 }
 
-/* line 5106, sass/_layout.scss */
+/* line 5104, sass/_layout.scss */
 .star-rating4 {
   list-style: none;
   margin: 0;
@@ -5616,7 +5615,7 @@ stat2 {
   background: url("images/stars12.png") top left repeat-x;
 }
 
-/* line 5115, sass/_layout.scss */
+/* line 5113, sass/_layout.scss */
 .star-rating4 li {
   padding: 0;
   margin: 0;
@@ -5625,7 +5624,7 @@ stat2 {
   float: left;
 }
 
-/* line 5122, sass/_layout.scss */
+/* line 5120, sass/_layout.scss */
 .star-rating4 li span {
   display: block;
   width: 12px;
@@ -5639,7 +5638,7 @@ stat2 {
   overflow: hidden;
 }
 
-/* line 5135, sass/_layout.scss */
+/* line 5133, sass/_layout.scss */
 .star-rating4 li.current-rating {
   background: url("images/stars12.png") left bottom;
   position: absolute;
@@ -5649,57 +5648,57 @@ stat2 {
   z-index: 1;
 }
 
-/* line 5145, sass/_layout.scss */
+/* line 5143, sass/_layout.scss */
 .star-rating4 .one-star {
   left: 0;
 }
 
-/* line 5148, sass/_layout.scss */
+/* line 5146, sass/_layout.scss */
 .star-rating4 .one-star:hover {
   width: 12px;
 }
 
-/* line 5153, sass/_layout.scss */
+/* line 5151, sass/_layout.scss */
 .star-rating4 .two-stars {
   left: 12px;
 }
 
-/* line 5156, sass/_layout.scss */
+/* line 5154, sass/_layout.scss */
 .star-rating4 .two-stars:hover {
   width: 240px;
 }
 
-/* line 5161, sass/_layout.scss */
+/* line 5159, sass/_layout.scss */
 .star-rating4 .three-stars {
   left: 24px;
 }
 
-/* line 5164, sass/_layout.scss */
+/* line 5162, sass/_layout.scss */
 .star-rating4 .three-stars:hover {
   width: 36px;
 }
 
-/* line 5169, sass/_layout.scss */
+/* line 5167, sass/_layout.scss */
 .star-rating4 .four-stars {
   left: 36px;
 }
 
-/* line 5172, sass/_layout.scss */
+/* line 5170, sass/_layout.scss */
 .star-rating4 .four-stars:hover {
   width: 48px;
 }
 
-/* line 5177, sass/_layout.scss */
+/* line 5175, sass/_layout.scss */
 .star-rating4 .five-stars {
   left: 48px;
 }
 
-/* line 5180, sass/_layout.scss */
+/* line 5178, sass/_layout.scss */
 .star-rating4 .five-stars:hover {
   width: 60px;
 }
 
-/* line 5186, sass/_layout.scss */
+/* line 5184, sass/_layout.scss */
 #fbcart_rating {
   position: relative;
   float: left;
@@ -5707,7 +5706,7 @@ stat2 {
   width: 100%;
 }
 
-/* line 5192, sass/_layout.scss */
+/* line 5190, sass/_layout.scss */
 #fbcart_rating td {
   background: #e1e8f2 url("images/bord4.png") top left no-repeat;
   line-height: 17px;
@@ -5718,7 +5717,7 @@ stat2 {
   width: 426px;
 }
 
-/* line 5201, sass/_layout.scss */
+/* line 5199, sass/_layout.scss */
 #fbcart_rating td.lefttd {
   background: #e1e8f2;
   text-align: left;
@@ -5727,7 +5726,7 @@ stat2 {
   font-size: 11px;
 }
 
-/* line 5209, sass/_layout.scss */
+/* line 5207, sass/_layout.scss */
 #fbcart_rating td.lefttd2 {
   background: #e1e8f2 url("images/bord4.png") top left no-repeat;
   text-align: left;
@@ -5735,7 +5734,7 @@ stat2 {
   font-size: 11px;
 }
 
-/* line 5218, sass/_layout.scss */
+/* line 5216, sass/_layout.scss */
 #rating_livre {
   position: relative;
   float: left;
@@ -5745,7 +5744,7 @@ stat2 {
   margin: 0 0 22px;
 }
 
-/* line 5227, sass/_layout.scss */
+/* line 5225, sass/_layout.scss */
 #vosavis {
   position: relative;
   float: left;
@@ -5755,7 +5754,7 @@ stat2 {
   background: url("images/rating1.jpg");
 }
 
-/* line 5236, sass/_layout.scss */
+/* line 5234, sass/_layout.scss */
 #rating_general {
   position: relative;
   float: right;
@@ -5766,12 +5765,12 @@ stat2 {
   margin-left: 5px;
 }
 
-/* line 5245, sass/_layout.scss */
+/* line 5243, sass/_layout.scss */
 #rating_general table {
   margin: 11px 94px 11px 60px;
 }
 
-/* line 5249, sass/_layout.scss */
+/* line 5247, sass/_layout.scss */
 #rating_general .rfirst {
   border-bottom: 1px solid #999;
   text-align: right;
@@ -5779,7 +5778,7 @@ stat2 {
   padding: 2px 8px 6px 0;
 }
 
-/* line 5256, sass/_layout.scss */
+/* line 5254, sass/_layout.scss */
 #rating_general .rfirst2 {
   border-bottom: 1px solid #999;
   text-align: right;
@@ -5789,13 +5788,13 @@ stat2 {
   font-weight: bold;
 }
 
-/* line 5265, sass/_layout.scss */
+/* line 5263, sass/_layout.scss */
 #rating_general .rsecond2 {
   border-bottom: 1px solid #999;
   padding: 2px 0 6px;
 }
 
-/* line 5271, sass/_layout.scss */
+/* line 5269, sass/_layout.scss */
 #rating_pagination {
   position: relative;
   float: right;
@@ -5803,7 +5802,7 @@ stat2 {
   margin: 4px 0;
 }
 
-/* line 5278, sass/_layout.scss */
+/* line 5276, sass/_layout.scss */
 #rating_pagination a:link {
   font-weight: bold;
   text-decoration: none;
@@ -5813,7 +5812,7 @@ stat2 {
   margin: 0 0 0 4px;
 }
 
-/* line 5287, sass/_layout.scss */
+/* line 5285, sass/_layout.scss */
 #rating_pagination a:visited {
   font-weight: bold;
   text-decoration: none;
@@ -5823,12 +5822,12 @@ stat2 {
   margin: 0 0 0 4px;
 }
 
-/* line 5296, sass/_layout.scss */
+/* line 5294, sass/_layout.scss */
 #rating_pagination a:hover {
   text-decoration: underline;
 }
 
-/* line 5301, sass/_layout.scss */
+/* line 5299, sass/_layout.scss */
 #rating_pagination span {
   background: #e1e8f2;
   padding: 4px 6px;
@@ -5838,7 +5837,7 @@ stat2 {
   color: #555a61;
 }
 
-/* line 5309, sass/_layout.scss */
+/* line 5307, sass/_layout.scss */
 #rating_pagination span.ratingpagpage {
   text-decoration: none;
   background: #e1e8f2;
@@ -5849,7 +5848,7 @@ stat2 {
   font-weight: bold;
 }
 
-/* line 5321, sass/_layout.scss */
+/* line 5319, sass/_layout.scss */
 .helpText {
   position: absolute;
   right: 20px;
@@ -5864,7 +5863,7 @@ stat2 {
   font-size: smaller;
 }
 
-/* line 5335, sass/_layout.scss */
+/* line 5333, sass/_layout.scss */
 #buying-cadre {
   position: relative;
   float: left;
@@ -5873,7 +5872,7 @@ stat2 {
   clear: left;
 }
 
-/* line 5343, sass/_layout.scss */
+/* line 5341, sass/_layout.scss */
 .jotform-form-cadre {
   float: left;
   display: inline;
@@ -5882,7 +5881,7 @@ stat2 {
   padding: 20px 10px;
 }
 
-/* line 5350, sass/_layout.scss */
+/* line 5348, sass/_layout.scss */
 .jotform-form-cadre select {
   float: left;
   display: inline;
@@ -5893,7 +5892,7 @@ stat2 {
   padding: 2px;
 }
 
-/* line 5361, sass/_layout.scss */
+/* line 5359, sass/_layout.scss */
 #preview-cadre_con {
   float: right;
   display: inline;
@@ -5901,7 +5900,7 @@ stat2 {
   clear: right;
 }
 
-/* line 5368, sass/_layout.scss */
+/* line 5366, sass/_layout.scss */
 #preview-cadre {
   float: right;
   display: inline;
@@ -5911,7 +5910,7 @@ stat2 {
   background-color: #e1e8f2;
 }
 
-/* line 5377, sass/_layout.scss */
+/* line 5375, sass/_layout.scss */
 #preview-cadre_name {
   float: right;
   display: inline;
@@ -5927,7 +5926,7 @@ stat2 {
   text-transform: uppercase;
 }
 
-/* line 5392, sass/_layout.scss */
+/* line 5390, sass/_layout.scss */
 #preview-cadre_info {
   float: right;
   display: inline;
@@ -5938,7 +5937,7 @@ stat2 {
   background: #f6f6f6;
 }
 
-/* line 5401, sass/_layout.scss */
+/* line 5399, sass/_layout.scss */
 #preview-cadre_info ul {
   float: left;
   display: inline;
@@ -5947,17 +5946,17 @@ stat2 {
   padding-left: 12px;
 }
 
-/* line 5410, sass/_layout.scss */
+/* line 5408, sass/_layout.scss */
 #preview-cadre_info li#iden1 {
   list-style-type: none;
 }
 
-/* line 5414, sass/_layout.scss */
+/* line 5412, sass/_layout.scss */
 #preview-cadre_info li#iden2 {
   list-style-type: none;
 }
 
-/* line 5420, sass/_layout.scss */
+/* line 5418, sass/_layout.scss */
 #preview-cadre_info_title {
   float: left;
   display: inline;
@@ -5970,7 +5969,7 @@ stat2 {
   text-transform: uppercase;
 }
 
-/* line 5432, sass/_layout.scss */
+/* line 5430, sass/_layout.scss */
 #preview-cadre_imag {
   float: left;
   display: inline-block;
@@ -5979,7 +5978,7 @@ stat2 {
   background-color: #e1e8f2;
 }
 
-/* line 5440, sass/_layout.scss */
+/* line 5438, sass/_layout.scss */
 .roundedImage {
   overflow: hidden;
   border-radius: 50px;
@@ -5993,7 +5992,7 @@ stat2 {
   color: #fff;
 }
 
-/* line 5454, sass/_layout.scss */
+/* line 5452, sass/_layout.scss */
 .cadre-bt {
   overflow: hidden;
   border-radius: 5px;
@@ -6007,7 +6006,7 @@ stat2 {
   behavior: url("http://www.france-banderole.com/wp-content/themes/fb/js2/PIE.js");
 }
 
-/* line 5468, sass/_layout.scss */
+/* line 5466, sass/_layout.scss */
 #form-button-error2-cadre {
   position: absolute;
   left: 0;
@@ -6020,7 +6019,7 @@ stat2 {
   top: 40px;
 }
 
-/* line 5480, sass/_layout.scss */
+/* line 5478, sass/_layout.scss */
 #wycena-cadre {
   position: relative;
   float: left;
@@ -6031,7 +6030,7 @@ stat2 {
   clear: left;
 }
 
-/* line 5490, sass/_layout.scss */
+/* line 5488, sass/_layout.scss */
 #wycena-cadre_nag {
   float: left;
   display: inline;
@@ -6043,7 +6042,7 @@ stat2 {
   font-size: 10px;
 }
 
-/* line 5501, sass/_layout.scss */
+/* line 5499, sass/_layout.scss */
 #wycena-cadre_suma {
   float: left;
   display: inline;
@@ -6053,7 +6052,7 @@ stat2 {
   font-size: 10px;
 }
 
-/* line 5510, sass/_layout.scss */
+/* line 5508, sass/_layout.scss */
 #dodaj_koszyk-cadre {
   float: left;
   display: inline;
@@ -6064,7 +6063,7 @@ stat2 {
   background: #e1e8f2;
 }
 
-/* line 5520, sass/_layout.scss */
+/* line 5518, sass/_layout.scss */
 .OptionFedex {
   border: 0 solid #000;
   width: 100%;
@@ -6072,7 +6071,7 @@ stat2 {
   clear: both;
 }
 
-/* line 5527, sass/_layout.scss */
+/* line 5525, sass/_layout.scss */
 .OptionTNT {
   border: 0 solid #000;
   width: 100%;
@@ -6080,70 +6079,70 @@ stat2 {
   clear: both;
 }
 
-/* line 5534, sass/_layout.scss */
+/* line 5532, sass/_layout.scss */
 #labelFEDEX {
   font-weight: bolder;
   color: #00901d;
 }
 
-/* line 5543, sass/_layout.scss */
+/* line 5541, sass/_layout.scss */
 .floatLeft {
   float: left;
 }
 
-/* line 5547, sass/_layout.scss */
+/* line 5545, sass/_layout.scss */
 .floatRight {
   float: right;
 }
 
-/* line 5551, sass/_layout.scss */
+/* line 5549, sass/_layout.scss */
 .posCenter {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-/* line 5557, sass/_layout.scss */
+/* line 5555, sass/_layout.scss */
 .select {
   float: left;
   width: 160px;
 }
 
-/* line 5562, sass/_layout.scss */
+/* line 5560, sass/_layout.scss */
 .select-alt {
   background-color: #e8e8e9;
 }
 
-/* line 5566, sass/_layout.scss */
+/* line 5564, sass/_layout.scss */
 .label-highlight {
   color: #3097c0;
   font-weight: bold;
   text-transform: capitalize;
 }
 
-/* line 5572, sass/_layout.scss */
+/* line 5570, sass/_layout.scss */
 .hide {
   visibility: hidden;
 }
 
-/* line 5576, sass/_layout.scss */
+/* line 5574, sass/_layout.scss */
 .highlight {
   color: #f00;
 }
 
-/* line 5580, sass/_layout.scss */
+/* line 5578, sass/_layout.scss */
 .flash-slide {
   position: relative;
   z-index: 100;
 }
 
-/* line 5585, sass/_layout.scss */
+/* line 5583, sass/_layout.scss */
 .helpImg {
   float: right;
   margin-top: 5px;
 }
 
-/* line 5590, sass/_layout.scss */
+/* line 5588, sass/_layout.scss */
 .break-line {
   width: 376px;
   height: 1px;
@@ -6152,26 +6151,26 @@ stat2 {
   margin-top: 5px;
 }
 
-/* line 5598, sass/_layout.scss */
+/* line 5596, sass/_layout.scss */
 .delivery-delay {
   float: left;
   width: 98px;
 }
 
-/* line 5603, sass/_layout.scss */
+/* line 5601, sass/_layout.scss */
 .delivery-date {
   color: #cc4068;
   text-transform: uppercase;
   font-weight: bold;
 }
 
-/* line 5609, sass/_layout.scss */
+/* line 5607, sass/_layout.scss */
 .home-keywords-col {
   float: left;
   padding: 10px;
 }
 
-/* line 5614, sass/_layout.scss */
+/* line 5612, sass/_layout.scss */
 .footer-keywords {
   color: #555a61;
   font-size: 9px;
@@ -6180,19 +6179,19 @@ stat2 {
   padding: 0;
 }
 
-/* line 5622, sass/_layout.scss */
+/* line 5620, sass/_layout.scss */
 .marginTop {
   margin-top: 14px;
 }
 
-/* line 5630, sass/_layout.scss */
+/* line 5628, sass/_layout.scss */
 #box {
   width: 200px;
   height: 200px;
   background-color: #f00;
 }
 
-/* line 5636, sass/_layout.scss */
+/* line 5634, sass/_layout.scss */
 .production {
   width: 90px;
   height: 20px;
@@ -6207,40 +6206,40 @@ stat2 {
   cursor: pointer;
 }
 
-/* line 5650, sass/_layout.scss */
+/* line 5648, sass/_layout.scss */
 #p1 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5654, sass/_layout.scss */
+/* line 5652, sass/_layout.scss */
 #p1.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal2.png");
 }
 
-/* line 5659, sass/_layout.scss */
+/* line 5657, sass/_layout.scss */
 #p2 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5663, sass/_layout.scss */
+/* line 5661, sass/_layout.scss */
 #p2.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide2.png");
 }
 
-/* line 5668, sass/_layout.scss */
+/* line 5666, sass/_layout.scss */
 #p3 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5672, sass/_layout.scss */
+/* line 5670, sass/_layout.scss */
 #p3.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express2.png");
 }
 
-/* line 5677, sass/_layout.scss */
+/* line 5675, sass/_layout.scss */
 .delivery {
   width: 90px;
   height: 20px;
@@ -6255,40 +6254,40 @@ stat2 {
   cursor: pointer;
 }
 
-/* line 5691, sass/_layout.scss */
+/* line 5689, sass/_layout.scss */
 #l1 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5695, sass/_layout.scss */
+/* line 5693, sass/_layout.scss */
 #l1.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal2.png");
 }
 
-/* line 5700, sass/_layout.scss */
+/* line 5698, sass/_layout.scss */
 #l2 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5704, sass/_layout.scss */
+/* line 5702, sass/_layout.scss */
 #l2.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide2.png");
 }
 
-/* line 5709, sass/_layout.scss */
+/* line 5707, sass/_layout.scss */
 #l3 {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express1.png");
   background-repeat: no-repeat;
 }
 
-/* line 5713, sass/_layout.scss */
+/* line 5711, sass/_layout.scss */
 #l3.active {
   background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express2.png");
 }
 
-/* line 5718, sass/_layout.scss */
+/* line 5716, sass/_layout.scss */
 DIV.ProgressBar {
   float: left;
   width: 100px;
@@ -6303,7 +6302,7 @@ DIV.ProgressBar {
   margin-top: 2px;
 }
 
-/* line 5731, sass/_layout.scss */
+/* line 5729, sass/_layout.scss */
 DIV.ProgressBar DIV {
   float: left;
   display: inline;
@@ -6312,7 +6311,7 @@ DIV.ProgressBar DIV {
   height: 100%;
 }
 
-/* line 5740, sass/_layout.scss */
+/* line 5738, sass/_layout.scss */
 #regulamin .checkbox2 {
   position: absolute;
   top: 22px;
@@ -6321,7 +6320,7 @@ DIV.ProgressBar DIV {
   height: 35px;
 }
 
-/* line 5748, sass/_layout.scss */
+/* line 5746, sass/_layout.scss */
 #f00error {
   font-size: 16px;
   font-weight: bold;
@@ -6333,7 +6332,7 @@ DIV.ProgressBar DIV {
   text-align: center;
 }
 
-/* line 5759, sass/_layout.scss */
+/* line 5757, sass/_layout.scss */
 form#delfromvosdevis {
   margin-bottom: 10px;
   width: 183px;
@@ -6342,7 +6341,7 @@ form#delfromvosdevis {
   float: left;
 }
 
-/* line 5767, sass/_layout.scss */
+/* line 5765, sass/_layout.scss */
 .livraison-gratuite .starImg {
   width: 16px;
   padding: 2px;
