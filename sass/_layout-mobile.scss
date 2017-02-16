@@ -1,6 +1,7 @@
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1200px) {
+
   body {
-    font-size: 11px;
+    font-size: 16px;
     color: $color_0;
     font-family: $font-global;
     margin: 0 auto;
@@ -20,11 +21,11 @@
   }
 
   #main {
-    width: 50%;
+    width: 100%;
   }
 
   #main2 {
-    width: 50%;
+    width: 100%;
     height: 172px;
   }
 
@@ -47,15 +48,16 @@
   }
 
   #header {
-    width: 910px;
+    width: 100%;
     height: 240px;
     position: relative;
     margin: 0 auto;
     text-align: left;
     z-index: 100;
-    background-image: url('../images/header_bg2.png');
+    background: url('../img/mobile480.png') repeat-y;
     background-repeat: no-repeat;
     background-position: center top;
+    background-size: cover;
   }
 
   #anim {
@@ -91,8 +93,8 @@
       height: 19px;
       background: url('../images/cart.png') bottom left no-repeat;
       color: $color_1;
-      font-size: 0.7rem;
-      line-height: 0.7rem;
+      font-size: 10px;
+      line-height: 10px;
       text-decoration: none;
 
       &:hover {
@@ -190,11 +192,11 @@
       &:visited,
       &:hover {
         width: 22px;
-      	height: 22px;
-      	position: absolute;
-      	left: 200px;
-      	top: 0;
-      	background: url('../images/lastcomment.png') no-repeat;
+        height: 22px;
+        position: absolute;
+        left: 200px;
+        top: 0;
+        background: url('../images/lastcomment.png') no-repeat;
       }
     }
 
@@ -238,12 +240,12 @@
       &:link,
       &:visited {
         position: absolute;
-        left: 126px;
-        bottom: 18px;
-        width: 140px;
-        height: 12px;
-        color: $color_12;
-        text-decoration: underline;
+      	left: 126px;
+      	bottom: 18px;
+      	width: 140px;
+      	height: 12px;
+      	color: $color_12;
+      	text-decoration: underline;
       }
 
       &:hover {
@@ -290,9 +292,9 @@
 
   #content {
     position: relative;
-    width: 910px;
+    width: 100%;
     margin: 0 auto;
-    background: url('../images/content_bg.png') repeat-y;
+    background: none;
   }
 
   #content_bg_top {
@@ -329,32 +331,19 @@
         z-index: 1;
 
         a {
-          &:link {
-            display: block;
-            width: 141px;
-            height: 20px;
-            font-size: 12px;
-            line-height: 20px;
-            color: $color_3;
-            text-align: center;
-            text-decoration: none;
-          }
-
+          &:link,
           &:visited {
             display: block;
-            width: 141px;
-            height: 20px;
-            font-size: 12px;
-            line-height: 20px;
-            color: $color_3;
-            text-align: center;
-            text-decoration: none;
+          	width: 141px;
+          	height: 20px;
+          	font-size: 12px;
+          	line-height: 20px;
+          	color: $color_3;
+          	text-align: center;
+          	text-decoration: none;
           }
 
-          &:hover {
-            color: $color_1;
-          }
-
+          &:hover,
           &#active {
             color: $color_1;
           }
@@ -395,27 +384,21 @@
         &.menu_sub {
           &:link {
             display: block;
-          	width: 141px;
-          	height: 26px;
-          	background: url('../images/menu_sub_normal.png') no-repeat;
-          	padding-top: 6px;
-          	text-decoration: none;
+            width: 141px;
+            height: 26px;
+            background: url('../images/menu_sub_normal.png') no-repeat;
+            padding-top: 6px;
+            text-decoration: none;
           }
 
           &:visited {
             display: block;
-          	width: 141px;
-          	height: 26px;
-          	background: url('../images/menu_sub_normal.png') no-repeat;
-          	padding-top: 6px;
-          	text-decoration: none;
-            display: block;
-          	width: 141px;
-          	height: 38px;
-          	background: url('../images/menu_sub_normal2.png') repeat-y;
-          	padding-top: 5px;
-          	line-height: 18px;
-          	text-decoration: none;
+            width: 141px;
+            height: 38px;
+            background: url('../images/menu_sub_normal2.png') repeat-y;
+            padding-top: 5px;
+            line-height: 18px;
+            text-decoration: none;
           }
 
           &:hover {
@@ -437,7 +420,7 @@
           	background: url('../images/menu_sub_normal2.png') repeat-y;
           	padding-top: 5px;
           	line-height: 18px;
-          	text-decoration: none;;
+          	text-decoration: none;
           }
 
           &:hover {
@@ -482,7 +465,7 @@
 
       li {
         padding: 8px 0;
-        font-size: 0.75rem;
+        font-size: 12px;
         font-weight: bold;
         text-transform: uppercase;
         line-height: 16px;
@@ -492,18 +475,18 @@
     &.regiform,
     &.regiform2 {
       margin: 0;
-      padding: 0;
-      float: left;
-      display: inline;
+    	padding: 0;
+    	float: left;
+    	display: inline;
 
       li {
         position: relative;
-        padding: 6px 88px 0 22px;
-        list-style-type: none;
-        float: left;
-        display: inline;
-        width: 237px;
-        height: 24px;
+      	padding: 6px 88px 0 22px;
+      	list-style-type: none;
+      	float: left;
+      	display: inline;
+      	width: 237px;
+      	height: 24px;
       }
 
       .form-error-message {
@@ -553,7 +536,7 @@
           float: left;
           display: inline;
           width: 376px;
-          color: $color_27;;
+          color: $color_27;
           height: 32px !important;
           padding-top: 12px !important;
           border: none !important;
@@ -984,7 +967,7 @@
 
   #footer2 {
     position: relative;
-    width: 910px;
+    width: 100%;
     margin: 0 auto;
     height: 85px;
     padding: 132px 0 0;
@@ -1050,7 +1033,7 @@
     display: block;
     width: 100%;
     height: 26px;
-    font-size: 0.75rem;
+    font-size: 11px;
     line-height: 13px;
     margin: 0 0 4px;
   }
@@ -1093,7 +1076,7 @@
       width: 440px;
       height: 40px;
       text-align: center;
-      font-size: 0.7rem;
+      font-size: 10px;
 
       a {
         &:link {
@@ -1113,7 +1096,7 @@
       width: 706px;
       height: 40px;
       text-align: center;
-      font-size: 0.7rem;
+      font-size: 10px;
 
       a {
         &:link {
@@ -1132,7 +1115,7 @@
       left: 15px;
       width: 225px;
       height: 70px;
-      font-size: 1.2rem;
+      font-size: 18px;
       font-weight: bold;
       line-height: 22px;
       color: $color_6;
@@ -1144,7 +1127,7 @@
       left: 252px;
       width: 200px;
       height: 70px;
-      font-size: 1.2rem;
+      font-size: 18px;
       font-weight: bold;
       line-height: 22px;
       color: $color_6;
@@ -1156,7 +1139,7 @@
       left: 479px;
       width: 220px;
       height: 70px;
-      font-size: 1.2rem;
+      font-size: 18px;
       font-weight: bold;
       line-height: 22px;
       color: $color_6;
@@ -1169,7 +1152,7 @@
       width: 225px;
       height: 26px;
       color: $color_0;
-      font-size: 0.7rem;
+      font-size: 10px;
     }
 
     &.fab2 {
@@ -1179,7 +1162,7 @@
       width: 225px;
       height: 26px;
       color: $color_0;
-      font-size: 0.7rem;
+      font-size: 10px;
     }
 
     &.fab3 {
@@ -1190,7 +1173,7 @@
       height: 26px;
       line-height: 13px;
       color: $color_0;
-      font-size: 0.7rem;
+      font-size: 10px;
     }
 
     &.contact_name {
@@ -1206,7 +1189,7 @@
       display: inline;
       width: 180px;
       color: $color_9;
-      font-size: 0.75rem;
+      font-size: 11px;
       background: url('../images/contact_mail.png') top left no-repeat;
       padding-left: 25px;
       margin-top: 12px;
@@ -1217,7 +1200,7 @@
       display: inline;
       width: 180px;
       color: $color_9;
-      font-size: 0.75rem;
+      font-size: 11px;
       background: url('../images/contact_phone.png') top left no-repeat;
       padding-left: 25px;
       margin-top: 50px;
@@ -1238,7 +1221,7 @@
       color: $color_11;
       font-weight: normal;
       text-transform: none;
-      font-size: 0.75rem;
+      font-size: 11px;
     }
 
     &.info_nag {
@@ -1319,28 +1302,28 @@
 
     &.stat3 {
       width: 121px;
-      height: 16px;
-      padding-top: 1px;
-      margin: 0 10px;
-      display: inline-block;
-      background: $color_12;
-      color: $color_1;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
+    	height: 16px;
+    	padding-top: 1px;
+    	margin: 0 10px;
+    	display: inline-block;
+    	background: $color_12;
+    	color: $color_1;
+    	text-transform: uppercase;
+    	border: none;
+    	cursor: pointer;
     }
 
     &.stat4 {
       width: 121px;
-      height: 16px;
-      padding-top: 1px;
-      margin: 0 10px;
-      display: inline-block;
-      background: $color_12;
-      color: $color_1;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
+    	height: 16px;
+    	padding-top: 1px;
+    	margin: 0 10px;
+    	display: inline-block;
+    	background: $color_12;
+    	color: $color_1;
+    	text-transform: uppercase;
+    	border: none;
+    	cursor: pointer;
     }
 
     &.deactive {
@@ -1397,13 +1380,7 @@
     text-align: center;
 
     a {
-      &:link {
-        color: $color_4;
-        font-size: 10px;
-        line-height: 12px;
-        text-decoration: none;
-      }
-
+      &:link,
       &:visited {
         color: $color_4;
         font-size: 10px;
@@ -1502,20 +1479,13 @@
     width: 418px;
   }
 
-  #contact_top {
-    position: relative;
-  	float: left;
-  	display: inline;
-  	width: 100%;
-  	margin-bottom: 20px;
-  }
-
+  #contact_top,
   #contact_bot {
     position: relative;
-  	float: left;
-  	display: inline;
-  	width: 100%;
-  	margin-bottom: 20px;
+    float: left;
+    display: inline;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   #search {
@@ -2382,15 +2352,7 @@
     position: relative;
   }
 
-  #paiements_left {
-    position: absolute;
-    left: 0;
-    top: 15px;
-    width: 315px;
-    float: left;
-    display: inline;
-  }
-
+  #paiements_left,
   #valid_bat_left {
     position: absolute;
     left: 0;
@@ -2419,12 +2381,12 @@
   #paiements_left_con,
   #valid_bat_left_con {
     position: relative;
-  	width: 315px;
-  	height: 120px;
-  	padding: 20px 16px 13px 20px;
-  	background: $color_7;
-  	float: left;
-  	display: inline;
+    width: 315px;
+    height: 120px;
+    padding: 20px 16px 13px 20px;
+    background: $color_7;
+    float: left;
+    display: inline;
   }
 
   #paiements_right {
@@ -3447,7 +3409,7 @@
     height: 90px;
   }
 
-  .plvmak1,
+  .plvmak,
   .plvmak1 {
     position: relative;
     width: 100%;
@@ -3458,14 +3420,10 @@
 
     input {
       position: absolute;
-    	top: 0;
-    	left: -20px;
-    	margin: 3px 3px 0 0;
+      top: 0;
+      left: -20px;
+      margin: 3px 3px 0 0;
     }
-  }
-
-  .plvmak {
-    margin: 0 0 5px;
   }
 
   .plvoptions {
@@ -3696,6 +3654,7 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+    font-size: 11px;
   }
 
   .stat1 {
@@ -3709,6 +3668,7 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+    font-size: 11px;
   }
 
   .stat2 {
@@ -3735,6 +3695,7 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+    font-size: 11px;
   }
 
   .stat4 {
@@ -3748,6 +3709,7 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+    font-size: 11px;
   }
 
   .stat5 {
@@ -3761,6 +3723,7 @@
     text-transform: uppercase;
     border: none;
     cursor: pointer;
+    font-size: 11px;
   }
 
   .stat6 {
@@ -3773,6 +3736,7 @@
     color: $color_1;
     text-transform: uppercase;
     border: none;
+    font-size: 11px;
   }
 
   .stat7 {
@@ -5865,4 +5829,5 @@
     display: inline-block;
     float: left;
   }
+
 }
