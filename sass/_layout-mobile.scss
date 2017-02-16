@@ -1,5 +1,7 @@
 @media screen and (max-width: 1200px) {
 
+  // LAYOUT
+
   body {
     font-size: 16px;
     color: $text;
@@ -7,6 +9,7 @@
     margin: 0 auto;
     line-height: 15px;
     background-color: $white;
+    width: 100%;
   }
 
   .logoprint {
@@ -65,6 +68,26 @@
     top: 1px;
     left: 20px;
   }
+
+  #content {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    background: none;
+  }
+
+  #content_bg_top {
+    position: relative;
+    //width: 706px;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 400px;
+    height: auto !important;
+    height: 755px;
+    padding: 0 5% 15px;
+  }
+
+  // LINKS
 
   a {
     &#logo {
@@ -204,9 +227,9 @@
       &:link,
       &:visited {
         position: relative;
-      	margin-top: 10px;
-      	float: right;
-      	display: inline;
+        margin-top: 10px;
+        float: right;
+        display: inline;
       }
     }
 
@@ -240,12 +263,12 @@
       &:link,
       &:visited {
         position: absolute;
-      	left: 126px;
-      	bottom: 18px;
-      	width: 140px;
-      	height: 12px;
-      	color: $color_12;
-      	text-decoration: underline;
+        left: 126px;
+        bottom: 18px;
+        width: 140px;
+        height: 12px;
+        color: $color_12;
+        text-decoration: underline;
       }
 
       &:hover {
@@ -258,15 +281,15 @@
       &:visited,
       &:hover {
         position: absolute;
-      	bottom: 39px;
-      	left: 26px;
-      	background: url('../images/register.png') no-repeat;
-      	width: 101px;
-      	height: 19px;
-      	cursor: pointer;
-      	text-indent: -999em;
-      	overflow: hidden;
-      	border: none;
+        bottom: 39px;
+        left: 26px;
+        background: url('../images/register.png') no-repeat;
+        width: 101px;
+        height: 19px;
+        cursor: pointer;
+        text-indent: -999em;
+        overflow: hidden;
+        border: none;
       }
     }
 
@@ -290,22 +313,7 @@
     }
   }
 
-  #content {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    background: none;
-  }
-
-  #content_bg_top {
-    position: relative;
-    width: 706px;
-    margin: 0 auto;
-    min-height: 400px;
-    height: auto !important;
-    height: 755px;
-    padding: 0 102px 15px;
-  }
+  // MENU TOP
 
   ul {
     padding-left: 15px;
@@ -316,7 +324,8 @@
       padding: 0;
       margin: 0;
       position: absolute;
-      width: 708px;
+      //width: 708px;
+      width: 100%;
       height: 22px;
       top: 193px;
       left: 101px;
@@ -953,9 +962,10 @@
 
   #footer {
     position: relative;
-    width: 706px;
+    //width: 706px;
+    width: 100%;
     margin: 0 auto;
-    background: url('../images/footerbis.png') no-repeat;
+    background: none;
     height: 85px;
     padding: 25px 102px 0;
   }
@@ -971,14 +981,14 @@
     margin: 0 auto;
     height: 85px;
     padding: 132px 0 0;
-    background: url('../images/content_bg.png') repeat-y;
+    background: none;
   }
 
   #footer3 {
     position: relative;
     width: 706px;
     margin: 0 auto;
-    background: url('../images/footer.png') no-repeat;
+    background: none;
     height: 85px;
     padding: 25px 102px 0;
   }
@@ -992,19 +1002,19 @@
   }
 
   #derniers {
-    position: absolute;
-    left: 274px;
-    top: 27px;
-    width: 240px;
-    height: 88px;
+    position: relative;
+    left: 10%;
+    top: 0;
+    width: 30%;
+    height: auto;
     text-transform: uppercase;
     font-weight: bold;
 
     a {
       float: left;
       display: block;
-      width: 180px;
-      height: 24px;
+      width: 100%;
+      height: auto;
       background: url('../images/livrebut.jpg') no-repeat;
       margin: 8px 0 0;
     }

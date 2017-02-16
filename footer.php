@@ -21,7 +21,9 @@ if (is_front_page() OR (1==1)) {
 <div id="main2">
   <div id="footer2">
     <hr class="bottom_hr" />
-    <div id="flink2"><a href="http://www.france-banderole.com/buralistes/"><img class="floatLeft"  src="<?php bloginfo('stylesheet_directory'); ?>/images/bt-buraliste2.png" alt="buraliste" /></a></div>
+
+    <!--<div id="flink2"><a href="http://www.france-banderole.com/buralistes/"><img class="floatLeft"  src="<?php bloginfo('stylesheet_directory'); ?>/images/bt-buraliste2.png" alt="buraliste" /></a></div>-->
+
     <div id="derniers">
       <?php /*?>
       Moyenne des avis sur France banderole :<br />
@@ -56,7 +58,7 @@ if (is_front_page() OR (1==1)) {
         </span><?php echo $strmoyenne2 . $strmoyenne3 . $strmoyenne4; ?>
 
 
-        <span class="star-note"><img src="<?php get_bloginfo("url"); ?>/wp-content/themes/fb/images/star-4_7.jpg" /></span><br />
+        <span class="star-note"><img src="<?php get_bloginfo("url"); ?>http://www.france-banderole.com/wp-content/themes/fb/images/star-4_7.jpg" /></span><br />
 
       </div>
 
