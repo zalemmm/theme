@@ -1,7 +1,7 @@
 body {
   font-size: 11px;
   color: $color_0;
-  font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
+  font-family: $font-global;
   margin: 0 auto;
   line-height: 15px;
   background-color: $color_1;
@@ -1567,7 +1567,7 @@ h1 {
   font-style: italic;
   font-weight: normal;
   color: $color_0;
-  font-family: 'Verdana', 'Arial', 'sans-serif';
+  font-family: $font-title;
 }
 
 h2 {
@@ -1576,7 +1576,7 @@ h2 {
   font-style: italic;
   font-weight: normal;
   color: $color_0;
-  font-family: 'Verdana', 'Arial', 'sans-serif';
+  font-family: $font-title;
 
   &.categorytitle {
     margin: 0;
@@ -1584,13 +1584,13 @@ h2 {
 }
 
 h5 {
-  font-family: 'Verdana', 'Arial', 'sans-serif';
+  font-family: $font-title;
   padding: 0;
   margin: 0;
 }
 
 h6 {
-  font-family: 'Verdana', 'Arial', 'sans-serif';
+  font-family: $font-title;
 }
 
 h4 {
@@ -2251,7 +2251,7 @@ SPAN {
     border: 1px solid $color_8;
     font-size: 9px;
     background: $color_1;
-    font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
+    font-family: $font-input;
     font-size: 11px;
   }
 }
@@ -4821,7 +4821,7 @@ stat2 {
   border: 1px solid $color_8;
   font-size: 9px;
   background: $color_1;
-  font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
+  font-family:  $font-input;
   font-size: 11px;
 }
 

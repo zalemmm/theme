@@ -181,7 +181,7 @@ ul.regiform li, ul.regiform2 li {
 body {
   font-size: 11px;
   color: #555a61;
-  font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
+  font-family: "Trebuchet MS", "Arial", "sans-serif";
   margin: 0 auto;
   line-height: 15px;
   background-color: #fff;
@@ -1787,7 +1787,7 @@ h1 {
   font-style: italic;
   font-weight: normal;
   color: #555a61;
-  font-family: 'Verdana', 'Arial', 'sans-serif';
+  font-family: "Verdana", "Arial", "sans-serif";
 }
 
 /* line 1573, sass/_layout.scss */
@@ -1797,7 +1797,7 @@ h2 {
   font-style: italic;
   font-weight: normal;
   color: #555a61;
-  font-family: 'Verdana', 'Arial', 'sans-serif';
+  font-family: "Verdana", "Arial", "sans-serif";
 }
 
 /* line 1581, sass/_layout.scss */
@@ -1807,14 +1807,14 @@ h2.categorytitle {
 
 /* line 1586, sass/_layout.scss */
 h5 {
-  font-family: 'Verdana', 'Arial', 'sans-serif';
+  font-family: "Verdana", "Arial", "sans-serif";
   padding: 0;
   margin: 0;
 }
 
 /* line 1592, sass/_layout.scss */
 h6 {
-  font-family: 'Verdana', 'Arial', 'sans-serif';
+  font-family: "Verdana", "Arial", "sans-serif";
 }
 
 /* line 1596, sass/_layout.scss */
@@ -2530,7 +2530,7 @@ SPAN.asyncUploader OBJECT {
   border: 1px solid #afb9c7;
   font-size: 9px;
   background: #fff;
-  font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
+  font-family: "Trebuchet MS", "Arial", "sans-serif";
   font-size: 11px;
 }
 
@@ -5281,7 +5281,7 @@ stat2 {
   border: 1px solid #afb9c7;
   font-size: 9px;
   background: #fff;
-  font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
+  font-family: "Trebuchet MS", "Arial", "sans-serif";
   font-size: 11px;
 }
 
