@@ -185,26 +185,25 @@ a {
   }
 
   &.lcomment {
-    &:link {
-      @extend %extend_10;
-    }
-
-    &:visited {
-      @extend %extend_10;
-    }
-
+    &:link,
+    &:visited,
     &:hover {
-      @extend %extend_10;
+      width: 22px;
+      height: 22px;
+      position: absolute;
+      left: 200px;
+      top: 0;
+      background: url('../images/lastcomment.png') no-repeat;
     }
   }
 
   &.lastcommentlink {
-    &:link {
-      @extend %extend_12;
-    }
-
+    &:link,
     &:visited {
-      @extend %extend_12;
+      position: relative;
+    	margin-top: 10px;
+    	float: right;
+    	display: inline;
     }
   }
 
@@ -235,12 +234,15 @@ a {
   }
 
   &.forgetpass {
-    &:link {
-      @extend %extend_14;
-    }
-
+    &:link,
     &:visited {
-      @extend %extend_14;
+      position: absolute;
+    	left: 126px;
+    	bottom: 18px;
+    	width: 140px;
+    	height: 12px;
+    	color: $color_12;
+    	text-decoration: underline;
     }
 
     &:hover {
@@ -249,16 +251,19 @@ a {
   }
 
   &.pleaseregister {
-    &:link {
-      @extend %extend_15;
-    }
-
-    &:visited {
-      @extend %extend_15;
-    }
-
+    &:link,
+    &:visited,
     &:hover {
-      @extend %extend_15;
+      position: absolute;
+    	bottom: 39px;
+    	left: 26px;
+    	background: url('../images/register.png') no-repeat;
+    	width: 101px;
+    	height: 19px;
+    	cursor: pointer;
+    	text-indent: -999em;
+    	overflow: hidden;
+    	border: none;
     }
   }
 
@@ -323,18 +328,19 @@ ul {
       z-index: 1;
 
       a {
-        &:link {
-          @extend %extend_1;
-        }
-
+        &:link,
         &:visited {
-          @extend %extend_1;
+          display: block;
+        	width: 141px;
+        	height: 20px;
+        	font-size: 12px;
+        	line-height: 20px;
+        	color: $color_3;
+        	text-align: center;
+        	text-decoration: none;
         }
 
-        &:hover {
-          color: $color_1;
-        }
-
+        &:hover,
         &#active {
           color: $color_1;
         }
@@ -374,12 +380,22 @@ ul {
     a {
       &.menu_sub {
         &:link {
-          @extend %extend_2;
+          display: block;
+          width: 141px;
+          height: 26px;
+          background: url('../images/menu_sub_normal.png') no-repeat;
+          padding-top: 6px;
+          text-decoration: none;
         }
 
         &:visited {
-          @extend %extend_2;
-          @extend %extend_3;
+          display: block;
+          width: 141px;
+          height: 38px;
+          background: url('../images/menu_sub_normal2.png') repeat-y;
+          padding-top: 5px;
+          line-height: 18px;
+          text-decoration: none;
         }
 
         &:hover {
@@ -395,7 +411,13 @@ ul {
 
       &.menu_sub2 {
         &:link {
-          @extend %extend_3;
+          display: block;
+        	width: 141px;
+        	height: 38px;
+        	background: url('../images/menu_sub_normal2.png') repeat-y;
+        	padding-top: 5px;
+        	line-height: 18px;
+        	text-decoration: none;
         }
 
         &:hover {
@@ -447,24 +469,21 @@ ul {
     }
   }
 
-  &.regiform {
-    @extend %extend_16;
-
-    li {
-      @extend %extend_17;
-    }
-
-    .form-error-message {
-      left: 351px;
-      line-height: 11px;
-    }
-  }
-
+  &.regiform,
   &.regiform2 {
-    @extend %extend_16;
+    margin: 0;
+  	padding: 0;
+  	float: left;
+  	display: inline;
 
     li {
-      @extend %extend_17;
+      position: relative;
+    	padding: 6px 88px 0 22px;
+    	list-style-type: none;
+    	float: left;
+    	display: inline;
+    	width: 237px;
+    	height: 24px;
     }
 
     .form-error-message {
@@ -488,56 +507,88 @@ ul {
       animation: fadein 1s;
 
       &.nobor {
-        @extend %extend_18;
+        position: relative;
+        float: left;
+        display: inline;
+        width: 376px;
+        color: $color_27;
         height: 22px;
         padding-top: 13px;
         border-bottom: none !important;
       }
 
       &.sizehigher {
-        @extend %extend_18;
+        position: relative;
+        float: left;
+        display: inline;
+        width: 376px;
+        color: $color_27;
         height: 32px;
         padding-top: 18px;
         border-bottom: 1px solid $color_5;
       }
 
       &#id_9a {
-        @extend %extend_18;
+        position: relative;
+        float: left;
+        display: inline;
+        width: 376px;
+        color: $color_27;
         height: 32px !important;
         padding-top: 12px !important;
         border: none !important;
       }
 
       &#id_11a {
-        @extend %extend_18;
+        position: relative;
+        float: left;
+        display: inline;
+        width: 376px;
+        color: $color_27;
         height: 32px !important;
         padding-top: 12px !important;
         border: none !important;
       }
 
       &.id_18 {
-        @extend %extend_18;
+        position: relative;
+        float: left;
+        display: inline;
+        width: 376px;
+        color: $color_27;
         height: 32px !important;
         padding-top: 12px !important;
         border: none !important;
       }
 
       &#id_26a {
-        @extend %extend_18;
+        position: relative;
+        float: left;
+        display: inline;
+        width: 376px;
+        color: $color_27;
         height: 32px !important;
         padding-top: 12px !important;
         border: none !important;
       }
 
       &.ceddreheigher {
-        @extend %extend_18;
+        position: relative;
+        float: left;
+        display: inline;
+        width: 376px;
+        color: $color_27;
         height: 32px !important;
         padding-top: 12px !important;
         border: none !important;
       }
 
       &.id_17 {
-        @extend %extend_18;
+        position: relative;
+        float: left;
+        display: inline;
+        width: 376px;
+        color: $color_27;
         height: 35px;
         padding-top: 12px;
       }
@@ -1247,11 +1298,29 @@ span {
   }
 
   &.stat3 {
-    @extend %extend_13;
+    width: 121px;
+  	height: 16px;
+  	padding-top: 1px;
+  	margin: 0 10px;
+  	display: inline-block;
+  	background: $color_12;
+  	color: $color_1;
+  	text-transform: uppercase;
+  	border: none;
+  	cursor: pointer;
   }
 
   &.stat4 {
-    @extend %extend_13;
+    width: 121px;
+  	height: 16px;
+  	padding-top: 1px;
+  	margin: 0 10px;
+  	display: inline-block;
+  	background: $color_12;
+  	color: $color_1;
+  	text-transform: uppercase;
+  	border: none;
+  	cursor: pointer;
   }
 
   &.deactive {
@@ -1308,12 +1377,12 @@ span {
   text-align: center;
 
   a {
-    &:link {
-      @extend %extend_4;
-    }
-
+    &:link,
     &:visited {
-      @extend %extend_4;
+      color: $color_4;
+      font-size: 10px;
+      line-height: 12px;
+      text-decoration: none;
     }
 
     &:hover {
@@ -1407,12 +1476,13 @@ div {
   width: 418px;
 }
 
-#contact_top {
-  @extend %extend_5;
-}
-
+#contact_top,
 #contact_bot {
-  @extend %extend_5;
+  position: relative;
+  float: left;
+  display: inline;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 #search {
@@ -1587,7 +1657,10 @@ h4 {
   padding: 0 0 6px;
 
   h2 {
-    @extend %extend_6;
+    color: $color_0;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
   }
 
   a {
@@ -1611,7 +1684,10 @@ h4 {
   display: block;
 
   h2 {
-    @extend %extend_6;
+    color: $color_0;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -2273,28 +2349,41 @@ SPAN {
   position: relative;
 }
 
-#paiements_left {
-  @extend %extend_7;
-}
-
+#paiements_left,
 #valid_bat_left {
-  @extend %extend_7;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  width: 315px;
+  float: left;
+  display: inline;
 }
 
-#paiements_left_tit {
-  @extend %extend_8;
-}
-
+#paiements_left_tit,
 #valid_bat_left_tit {
-  @extend %extend_8;
+  position: relative;
+	width: 333px;
+	text-transform: uppercase;
+	padding: 1px 0 0 18px;
+	height: 22px;
+	line-height: 23px;
+	background: $color_12;
+	color: $color_1;
+	font-size: 12px;
+	float: left;
+	display: inline;
+	margin: 0 0 5px 0;
 }
 
-#paiements_left_con {
-  @extend %extend_9;
-}
-
+#paiements_left_con,
 #valid_bat_left_con {
-  @extend %extend_9;
+  position: relative;
+  width: 315px;
+  height: 120px;
+  padding: 20px 16px 13px 20px;
+  background: $color_7;
+  float: left;
+  display: inline;
 }
 
 #paiements_right {
@@ -3317,19 +3406,7 @@ SPAN {
   height: 90px;
 }
 
-.plvmak {
-  position: relative;
-  width: 100%;
-  font-size: 10px;
-  color: $color_27;
-  line-height: 15px;
-  margin: 0 0 5px;
-
-  input {
-    @extend %extend_11;
-  }
-}
-
+.plvmak,
 .plvmak1 {
   position: relative;
   width: 100%;
@@ -3339,7 +3416,10 @@ SPAN {
   margin: 0;
 
   input {
-    @extend %extend_11;
+    position: absolute;
+    top: 0;
+    left: -20px;
+    margin: 3px 3px 0 0;
   }
 }
 
@@ -3589,7 +3669,16 @@ SPAN {
 }
 
 .stat2 {
-  @extend %extend_13;
+  width: 121px;
+	height: 16px;
+	padding-top: 1px;
+	margin: 0 10px;
+	display: inline-block;
+	background: $color_12;
+	color: $color_1;
+	text-transform: uppercase;
+	border: none;
+	cursor: pointer;
 }
 
 .stat3 {
