@@ -87,6 +87,40 @@
     padding: 0 5% 15px;
   }
 
+  #footer {
+    position: relative;
+    //width: 706px;
+    width: auto;
+    margin: 0 auto;
+    background: none;
+    height: auto;
+    padding: 25px 5% 0;
+  }
+
+  #main3 {
+    width: auto;
+    height: auto;
+  }
+
+  #footer2 {
+    position: relative;
+    width: auto;
+    margin: 0 auto;
+    height: auto;
+    padding: 0 0 0;
+    background: none;
+  }
+
+  #footer3 {
+    position: relative;
+    width: auto;
+    margin: 0 auto;
+    background: none;
+    height: auto;
+    padding: 25px 0 25px;
+  }
+
+
   // LINKS
 
   a {
@@ -960,52 +994,23 @@
     margin-top: 50px;
   }
 
-  #footer {
-    position: relative;
-    //width: 706px;
-    width: auto;
-    margin: 0 auto;
-    background: none;
-    height: 85px;
-    padding: 25px 5% 0;
-  }
 
-  #main3 {
-    width: auto;
-    height: 304px;
-  }
 
-  #footer2 {
-    position: relative;
-    width: auto;
-    margin: 0 auto;
-    height: 85px;
-    padding: 0 0 0;
-    background: none;
-  }
-
-  #footer3 {
-    position: relative;
-    width: auto;
-    margin: 0 auto;
-    background: none;
-    height: auto;
-    padding: 25px 0 25px;
-  }
+//----------------------------------------------------------------FOOTER MODULES
 
   #flink2 {
-    position: absolute;
-    left: 102px;
-    top: 21px;
-    width: 180px;
-    height: 50px;
+    position: relative;
+    left: auto;
+    top: auto;
+    width: auto;
+    height: auto;
   }
 
   #derniers {
     position: relative;
-    left: 10%;
-    top: 0;
-    width: 30%;
+    left: auto;
+    top: auto;
+    width: auto;
     height: auto;
     text-transform: uppercase;
     font-weight: bold;
@@ -1021,36 +1026,36 @@
   }
 
   #ratinghome {
-    position: absolute;
-    right: 102px;
-    top: 24px;
-    width: 280px;
-    height: 100px;
+    position: relative;
+    right: auto;
+    top: auto;
+    width: auto;
+    height: auto;
   }
 
   .singlerate {
     position: relative;
-    float: left;
+    float: none;
     display: block;
     width: auto;
     height: 51px;
-    margin: 0 0 3px;
+    margin: 0 0 5px;
   }
 
   .singlerate_content {
     position: relative;
-    float: left;
+    float: none;
     display: block;
     width: auto;
-    height: 26px;
+    height: auto;
     font-size: 11px;
     line-height: 13px;
-    margin: 0 0 4px;
+    margin: 0 0 5px;
   }
 
   .singlerate_rate {
     position: relative;
-    float: left;
+    float: none;
     display: block;
     width: 50%;
     height: 17px;
@@ -1059,7 +1064,7 @@
 
   .singlerate_date {
     position: relative;
-    float: right;
+    float: none;
     display: block;
     width: 50%;
     height: 17px;
@@ -1562,7 +1567,7 @@
     position: relative;
     float: none;
     display: block;
-    width: 98%;
+    width: 100%;
     margin: 3px auto;
     height: 1px;
     background: $text;
@@ -1582,9 +1587,10 @@
     }
 
     &.bottom_hr {
-      position: absolute;
-      top: 0;
-      left: 102px;
+      position: relative;
+      top: auto;
+      left: auto;
+      margin:10px 0;
     }
   }
 
@@ -1665,6 +1671,7 @@
 
   #mainnew,
   #mainnew2 {
+    position: relative;
     float: none;
     width: auto;
     background: $white;
