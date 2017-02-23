@@ -3,6 +3,7 @@
   // LAYOUT
 
   body {
+    @include container (100%);
     font-size: 16px;
     color: $text;
     font-family: $font-global;
@@ -1608,7 +1609,7 @@
 
   p {
     margin-top: 0;
-
+    
     &.sujet {
       margin: 10px 0;
       width: auto;
@@ -1912,16 +1913,17 @@
     }
   }
 
-  #top_images {
-    position: relative;
-    width: 706px;
+  // -------------------------------------- Module Description produit top prod pages
 
+  #top_images {
+    @include span(4);
+    position: relative;
     margin-top: 4px;
     height: 10px;
   }
 
   #top_info {
-    position: relative;
+    @include span(8);
     width: auto;
     height: 165px;
     margin-top: 10px;
@@ -1929,7 +1931,7 @@
   }
 
   #top_info_info {
-    position: absolute;
+    @include span(12);
     width: 284px;
     height: 129px;
     top: 24px;
