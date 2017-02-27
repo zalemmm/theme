@@ -7,6 +7,9 @@
 @import 'layout-mobile';
 
 $susy: (
-  columns: 12,   // On indique à Susy d'utiliser 12 colonnes
-  global-box-sizing: border-box   // Utiliser border-box
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
 );
