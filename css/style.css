@@ -7896,7 +7896,7 @@ form#delfromvosdevis {
     width: 100%;
     margin: 3px auto;
     height: 1px;
-    background: #555a61;
+    background: transparent;
     border: none;
     line-height: 1px;
   }
