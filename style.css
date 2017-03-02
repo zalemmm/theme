@@ -6,6 +6,7 @@ Version: 1.0
 Author:
 */
 
+
 /* ==========================================================================
                                        LAYOUT
    ========================================================================== */
@@ -5627,21 +5628,24 @@ ul.form-section li.optionsformline .options_single span.optionsleft.livraison-gr
   margin-top: 14px;
 }
 
+
 /* ==========================================================================
                                                           SLIDER
    ========================================================================== */
 
-   .theme-default .nivoSlider {
-    position: relative;
-    width: 822px;
-    left: auto;
-    right: auto;
-    margin-left: -57px;
+.theme-default .nivoSlider {
+  width: 824px;
+  top: 0px;
+  margin-left: -58px;
+  z-index: 3000;
 }
 
-
-
-
+.effect2::before{
+  margin-left: -65px
+  }
+.effect2::after {
+  margin-right: -65px
+}
 
 
 /* ==========================================================================
