@@ -5627,6 +5627,22 @@ ul.form-section li.optionsformline .options_single span.optionsleft.livraison-gr
   margin-top: 14px;
 }
 
+/* ==========================================================================
+                                                          SLIDER
+   ========================================================================== */
+
+   .theme-default .nivoSlider {
+    position: relative;
+    width: 822px;
+    left: auto;
+    right: auto;
+    margin-left: -57px;
+}
+
+
+
+
+
 
 /* ==========================================================================
                                   STYLES récupérés en haut des PROD PAGES

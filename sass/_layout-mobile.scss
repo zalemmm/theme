@@ -127,8 +127,8 @@
   a {
     &#logo {
       position: absolute;
-      top: 80px;
-      left: 160px;
+      top: 10px;
+      left: 10px;
       width: 325px;
       height: 70px;
     }
@@ -1916,14 +1916,13 @@
   // -------------------------------------- Module Description produit top prod pages
 
   #top_images {
-    @include span(4);
     position: relative;
     margin-top: 4px;
     height: 10px;
   }
 
   #top_info {
-    @include span(8);
+    position: relative;
     width: auto;
     height: 165px;
     margin-top: 10px;
@@ -1931,7 +1930,7 @@
   }
 
   #top_info_info {
-    @include span(12);
+    position: relative;
     width: 284px;
     height: 129px;
     top: 24px;
@@ -4558,7 +4557,7 @@
   .jotform-form {
     float: left;
     display: inline;
-    width: 376px;
+    width: auto;
     background: $color_7;
     padding: 22px 57px 5px 27px;
     animation: fadein 2s;
@@ -5533,7 +5532,7 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 270px;
+    width: auto;
     height: 30px;
     font-size: 11px;
     color: $color_14;
@@ -5547,14 +5546,14 @@
     display: inline;
     margin-top: 20px;
     margin-bottom: 40px;
-    width: 280px;
+    width: auto;
     clear: left;
   }
 
   #wycena-cadre_nag {
     float: left;
     display: inline;
-    width: 280px;
+    width: auto;
     height: 11px;
     background: $color_7;
     padding: 4px 0 6px;
@@ -5565,7 +5564,7 @@
   #wycena-cadre_suma {
     float: left;
     display: inline;
-    width: 280px;
+    width: auto;
     height: 11px;
     padding: 4px 0 6px;
     font-size: 10px;
@@ -5574,7 +5573,7 @@
   #dodaj_koszyk-cadre {
     float: left;
     display: inline;
-    width: 245px;
+    width: auto;
     padding: 6px 10px 6px 27px;
     height: 47px;
     margin-top: 24px;
