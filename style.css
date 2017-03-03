@@ -4139,7 +4139,6 @@ ul.form-section li.id_17 {
 }
 
 .jotform-form select {
-  float: right;
   display: inline;
   padding-right: 2.5em;
   /* accommodate with the pseudo elements for the dropdown arrow */
@@ -5634,9 +5633,9 @@ ul.form-section li.optionsformline .options_single span.optionsleft.livraison-gr
    ========================================================================== */
 
 .theme-default .nivoSlider {
-  width: 824px;
+  width: 822px;
   top: 0px;
-  margin-left: -58px;
+  margin-left: -57px;
   z-index: 3000;
 }
 
