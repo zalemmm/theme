@@ -1,4 +1,4 @@
-@import "susy";
+@import 'susy';
 @import 'variables';
 @import 'extends';
 @import 'mixins';
@@ -6,12 +6,13 @@
 @import 'layout';
 @import 'layout-mobile';
 
+
 $susy: (
   columns: 12,
   gutters: 1/4,
   math: fluid,
   output: float,
-  gutter-position: inside,
+  gutter-position: outside,
 );
 
 // @include border-box-sizing;

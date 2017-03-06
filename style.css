@@ -4139,6 +4139,7 @@ ul.form-section li.id_17 {
 }
 
 .jotform-form select {
+  float: right;
   display: inline;
   padding-right: 2.5em;
   /* accommodate with the pseudo elements for the dropdown arrow */

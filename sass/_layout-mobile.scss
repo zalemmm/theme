@@ -1,4 +1,4 @@
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1400px) {
 
   // LAYOUT
 
@@ -11,6 +11,10 @@
     line-height: 15px;
     background-color: $white;
     width: auto;
+  }
+
+  .storycontent{
+    @include container (96%);
   }
 
   .logoprint {
@@ -127,10 +131,12 @@
   a {
     &#logo {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      width: 325px;
-      height: 70px;
+      top: 60px;
+      left: 20px;
+      width: 70%;
+      height: 120px;
+      background: url(../img/logo.png) top left no-repeat;
+      background-size: contain;
     }
 
     &#corner_button {
@@ -1922,17 +1928,16 @@
   }
 
   #top_info {
-    position: relative;
     width: auto;
-    height: 165px;
+    float: none;
     margin-top: 10px;
     margin-bottom: 20px;
   }
 
   #top_info_info {
-    position: relative;
-    width: 284px;
-    height: 129px;
+    position: absolute;
+    width: 50%;
+    height: auto;
     top: 24px;
     left: 160px;
     background: $color_17;
@@ -1953,7 +1958,7 @@
     position: absolute;
     right: 0;
     top: 24px;
-    width: 238px;
+    width: 20%;
     height: 145px;
     overflow: hidden;
   }
@@ -1993,18 +1998,18 @@
     text-align: center;
   }
 
+
+  #preview {
+    width: 29%;
+    display: block;
+    visibility: hidden;
+    margin-bottom: 5px;
+  }
+
   #preview_con {
     float: right;
     display: inline;
     width: 247px;
-  }
-
-  #preview {
-    float: right;
-    display: inline;
-    width: 247px;
-    visibility: hidden;
-    margin-bottom: 5px;
   }
 
   #preview_name {
@@ -4548,13 +4553,13 @@
   }
 
   #buying {
+    width: 68%;
     position: relative;
-    float: left;
     display: inline;
-    width: 376px;
   }
 
   .jotform-form {
+    width: auto;
     float: left;
     display: inline;
     width: auto;
@@ -5598,6 +5603,25 @@
     font-weight: bolder;
     color: $color_16;
   }
+
+  /* ==========================================================================
+                                                            SLIDER
+     ========================================================================== */
+
+  .theme-default .nivoSlider {
+    width: 822px;
+    top: 0px;
+    margin-left: -57px;
+    z-index: 3000;
+  }
+
+  .effect2::before{
+    margin-left: -58px
+    }
+  .effect2::after {
+    margin-right: -58px
+  }
+
 
   // ==========================================================================
   //                             STYLES INLINE RAPATRIES
