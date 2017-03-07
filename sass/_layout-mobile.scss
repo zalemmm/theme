@@ -13,8 +13,23 @@
     width: auto;
   }
 
+  #content {
+    position: relative;
+    width: auto;
+    margin: 0 auto;
+    background: none;
+  }
+
+  #content_bg_top {
+    @include container (100%);
+    min-height: 400px;
+    height: auto !important;
+    height: 755px;
+    padding: 0 5% 15px;
+  }
+
   .storycontent{
-    @include container (96%);
+    @span include (full);
   }
 
   .logoprint {
@@ -74,23 +89,6 @@
     left: 20px;
   }
 
-  #content {
-    position: relative;
-    width: auto;
-    margin: 0 auto;
-    background: none;
-  }
-
-  #content_bg_top {
-    position: relative;
-    //width: 706px;
-    width: auto;
-    margin: 0 auto;
-    min-height: 400px;
-    height: auto !important;
-    height: 755px;
-    padding: 0 5% 15px;
-  }
 
   #footer {
     position: relative;
@@ -1928,18 +1926,21 @@
   }
 
   #top_info {
-    width: auto;
+    @include container(100%);
     float: none;
     margin-top: 10px;
     margin-bottom: 20px;
   }
+  #top_info > img {
+    @include span(1 of 3);
+  }
 
   #top_info_info {
-    position: absolute;
-    width: 50%;
+    @include span(2 of 3 last);
+    position: relative;
+    top: 0;
+    left: 0;
     height: auto;
-    top: 24px;
-    left: 160px;
     background: $color_17;
     padding: 8px;
   }
@@ -1955,12 +1956,7 @@
   }
 
   #top_slideshow {
-    position: absolute;
-    right: 0;
-    top: 24px;
-    width: 20%;
-    height: 145px;
-    overflow: hidden;
+    display:none
   }
 
   #slideshowphotos {
@@ -4553,19 +4549,17 @@
   }
 
   #buying {
-    width: 68%;
+    @include container(100%);
     position: relative;
     display: inline;
   }
 
   .jotform-form {
-    width: auto;
-    float: left;
-    display: inline;
-    width: auto;
+    @include span(full);
     background: $color_7;
     padding: 22px 57px 5px 27px;
     animation: fadein 2s;
+    -webkit-animation: fadein 2s;
 
     select {
       display: inline;
