@@ -6403,13 +6403,43 @@ form#delfromvosdevis {
     clear: both;
   }
   /* line 16, sass/_layout-mobile.scss */
+  #main {
+    width: auto;
+  }
+  /* line 20, sass/_layout-mobile.scss */
+  #main2 {
+    width: auto;
+    height: 172px;
+  }
+  /* line 25, sass/_layout-mobile.scss */
+  #header {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 240px;
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    z-index: 100;
+    background: url("../img/mobile480.png") repeat-y;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+  }
+  /* line 12, node_modules/susy/sass/susy/output/support/_clearfix.scss */
+  #header:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 38, sass/_layout-mobile.scss */
   #content {
     position: relative;
     width: auto;
     margin: 0 auto;
     background: none;
   }
-  /* line 23, sass/_layout-mobile.scss */
+  /* line 45, sass/_layout-mobile.scss */
   #content_bg_top {
     max-width: 100%;
     margin-left: auto;
@@ -6425,31 +6455,22 @@ form#delfromvosdevis {
     display: block;
     clear: both;
   }
-  /* line 31, sass/_layout-mobile.scss */
+  /* line 53, sass/_layout-mobile.scss */
   .storycontent {
     @span include (full);
   }
-  /* line 35, sass/_layout-mobile.scss */
+  /* line 57, sass/_layout-mobile.scss */
   .logoprint {
     float: left;
     display: inline-block;
     width: 330px;
     height: 119px;
   }
-  /* line 42, sass/_layout-mobile.scss */
+  /* line 64, sass/_layout-mobile.scss */
   .onlyprint {
     display: none;
   }
-  /* line 46, sass/_layout-mobile.scss */
-  #main {
-    width: auto;
-  }
-  /* line 50, sass/_layout-mobile.scss */
-  #main2 {
-    width: auto;
-    height: 172px;
-  }
-  /* line 55, sass/_layout-mobile.scss */
+  /* line 70, sass/_layout-mobile.scss */
   #top {
     position: relative;
     width: auto;
@@ -6462,31 +6483,18 @@ form#delfromvosdevis {
     color: #fff;
     background-color: #656567;
   }
-  /* line 67, sass/_layout-mobile.scss */
+  /* line 82, sass/_layout-mobile.scss */
   #top.a {
     color: #fff;
     text-decoration: underline;
   }
-  /* line 73, sass/_layout-mobile.scss */
-  #header {
-    width: auto;
-    height: 240px;
-    position: relative;
-    margin: 0 auto;
-    text-align: left;
-    z-index: 100;
-    background: url("../img/mobile480.png") repeat-y;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-  }
-  /* line 86, sass/_layout-mobile.scss */
+  /* line 90, sass/_layout-mobile.scss */
   #anim {
     position: absolute;
     top: 1px;
     left: 20px;
   }
-  /* line 93, sass/_layout-mobile.scss */
+  /* line 97, sass/_layout-mobile.scss */
   #footer {
     position: relative;
     width: auto;
@@ -6495,12 +6503,12 @@ form#delfromvosdevis {
     height: auto;
     padding: 25px 5% 0;
   }
-  /* line 103, sass/_layout-mobile.scss */
+  /* line 107, sass/_layout-mobile.scss */
   #main3 {
     width: auto;
     height: auto;
   }
-  /* line 108, sass/_layout-mobile.scss */
+  /* line 112, sass/_layout-mobile.scss */
   #footer2 {
     position: relative;
     width: auto;
@@ -6509,7 +6517,7 @@ form#delfromvosdevis {
     padding: 0 0 0;
     background: none;
   }
-  /* line 117, sass/_layout-mobile.scss */
+  /* line 121, sass/_layout-mobile.scss */
   #footer3 {
     position: relative;
     width: auto;
@@ -6518,7 +6526,7 @@ form#delfromvosdevis {
     height: auto;
     padding: 25px 0 25px;
   }
-  /* line 130, sass/_layout-mobile.scss */
+  /* line 134, sass/_layout-mobile.scss */
   a#logo {
     position: absolute;
     top: 60px;
@@ -6528,7 +6536,7 @@ form#delfromvosdevis {
     background: url(../img/logo.png) top left no-repeat;
     background-size: contain;
   }
-  /* line 140, sass/_layout-mobile.scss */
+  /* line 144, sass/_layout-mobile.scss */
   a#corner_button {
     position: absolute;
     right: 40px;
@@ -6536,7 +6544,7 @@ form#delfromvosdevis {
     width: 75px;
     height: 35px;
   }
-  /* line 148, sass/_layout-mobile.scss */
+  /* line 152, sass/_layout-mobile.scss */
   a#corner_button_cart {
     position: absolute;
     right: 10%;
@@ -6551,51 +6559,51 @@ form#delfromvosdevis {
     line-height: 28px;
     text-decoration: none;
   }
-  /* line 162, sass/_layout-mobile.scss */
+  /* line 166, sass/_layout-mobile.scss */
   a#corner_button_cart:hover {
     text-decoration: underline;
   }
-  /* line 167, sass/_layout-mobile.scss */
+  /* line 171, sass/_layout-mobile.scss */
   a:link {
     color: #555a61;
     text-decoration: underline;
   }
-  /* line 172, sass/_layout-mobile.scss */
+  /* line 176, sass/_layout-mobile.scss */
   a:visited {
     color: #555a61;
     text-decoration: underline;
   }
-  /* line 177, sass/_layout-mobile.scss */
+  /* line 181, sass/_layout-mobile.scss */
   a:hover {
     color: #999;
   }
-  /* line 182, sass/_layout-mobile.scss */
+  /* line 186, sass/_layout-mobile.scss */
   a.invisible_link:link {
     color: #fff;
   }
-  /* line 186, sass/_layout-mobile.scss */
+  /* line 190, sass/_layout-mobile.scss */
   a.invisible_link:visited {
     color: #fff;
   }
-  /* line 190, sass/_layout-mobile.scss */
+  /* line 194, sass/_layout-mobile.scss */
   a.invisible_link:hover {
     color: #999;
   }
-  /* line 196, sass/_layout-mobile.scss */
+  /* line 200, sass/_layout-mobile.scss */
   a.pink_link:link {
     color: #cc4068;
     text-transform: none;
   }
-  /* line 201, sass/_layout-mobile.scss */
+  /* line 205, sass/_layout-mobile.scss */
   a.pink_link:visited {
     color: #cc4068;
     text-transform: none;
   }
-  /* line 206, sass/_layout-mobile.scss */
+  /* line 210, sass/_layout-mobile.scss */
   a.pink_link:hover {
     color: #999;
   }
-  /* line 211, sass/_layout-mobile.scss */
+  /* line 215, sass/_layout-mobile.scss */
   a.but_espace {
     width: 106px;
     height: 19px;
@@ -6608,19 +6616,19 @@ form#delfromvosdevis {
     cursor: pointer;
     margin-right: 14px;
   }
-  /* line 225, sass/_layout-mobile.scss */
+  /* line 229, sass/_layout-mobile.scss */
   a.conditio:link {
     color: #cc4068;
   }
-  /* line 229, sass/_layout-mobile.scss */
+  /* line 233, sass/_layout-mobile.scss */
   a.conditio:visited {
     color: #cc4068;
   }
-  /* line 233, sass/_layout-mobile.scss */
+  /* line 237, sass/_layout-mobile.scss */
   a.conditio:hover {
     color: #999;
   }
-  /* line 238, sass/_layout-mobile.scss */
+  /* line 242, sass/_layout-mobile.scss */
   a#but_imprimerbon {
     position: absolute;
     left: 240px;
@@ -6634,7 +6642,7 @@ form#delfromvosdevis {
     border: none;
     display: inline-block;
   }
-  /* line 253, sass/_layout-mobile.scss */
+  /* line 257, sass/_layout-mobile.scss */
   a.lcomment:link, a.lcomment:visited, a.lcomment:hover {
     width: 22px;
     height: 22px;
@@ -6643,14 +6651,14 @@ form#delfromvosdevis {
     top: 0;
     background: url("../images/lastcomment.png") no-repeat;
   }
-  /* line 266, sass/_layout-mobile.scss */
+  /* line 270, sass/_layout-mobile.scss */
   a.lastcommentlink:link, a.lastcommentlink:visited {
     position: relative;
     margin-top: 10px;
     float: right;
     display: inline;
   }
-  /* line 275, sass/_layout-mobile.scss */
+  /* line 279, sass/_layout-mobile.scss */
   a#votre_mod {
     position: absolute;
     left: 28px;
@@ -6663,7 +6671,7 @@ form#delfromvosdevis {
     border: none;
     display: inline-block;
   }
-  /* line 288, sass/_layout-mobile.scss */
+  /* line 292, sass/_layout-mobile.scss */
   a#votre_dec {
     position: absolute;
     left: 28px;
@@ -6676,7 +6684,7 @@ form#delfromvosdevis {
     border: none;
     display: inline-block;
   }
-  /* line 302, sass/_layout-mobile.scss */
+  /* line 306, sass/_layout-mobile.scss */
   a.forgetpass:link, a.forgetpass:visited {
     position: absolute;
     left: 126px;
@@ -6686,11 +6694,11 @@ form#delfromvosdevis {
     color: #008ebb;
     text-decoration: underline;
   }
-  /* line 313, sass/_layout-mobile.scss */
+  /* line 317, sass/_layout-mobile.scss */
   a.forgetpass:hover {
     color: #999;
   }
-  /* line 319, sass/_layout-mobile.scss */
+  /* line 323, sass/_layout-mobile.scss */
   a.pleaseregister:link, a.pleaseregister:visited, a.pleaseregister:hover {
     position: absolute;
     bottom: 39px;
@@ -6703,7 +6711,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 335, sass/_layout-mobile.scss */
+  /* line 339, sass/_layout-mobile.scss */
   a.pytajnik {
     position: absolute;
     right: 25px;
@@ -6713,21 +6721,35 @@ form#delfromvosdevis {
     background: url("../images/pytajnik.jpg") no-repeat;
     text-decoration: none;
   }
-  /* line 345, sass/_layout-mobile.scss */
+  /* line 349, sass/_layout-mobile.scss */
   a:active {
     outline: none;
   }
-  /* line 349, sass/_layout-mobile.scss */
+  /* line 353, sass/_layout-mobile.scss */
   a.linkUppercase {
     text-transform: uppercase;
     text-decoration: none;
   }
-  /* line 357, sass/_layout-mobile.scss */
+  /* line 361, sass/_layout-mobile.scss */
+  .responsive_menu select {
+    display: block;
+    width: 100%;
+    height: 36px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555555;
+    vertical-align: middle;
+    background-color: white;
+    background-image: none;
+    border: none;
+  }
+  /* line 375, sass/_layout-mobile.scss */
   ul {
     padding-left: 15px;
     margin-top: 0;
   }
-  /* line 361, sass/_layout-mobile.scss */
+  /* line 379, sass/_layout-mobile.scss */
   ul#menu_top {
     list-style-type: none;
     padding: 0;
@@ -6739,7 +6761,7 @@ form#delfromvosdevis {
     left: 101px;
     text-transform: uppercase;
   }
-  /* line 373, sass/_layout-mobile.scss */
+  /* line 391, sass/_layout-mobile.scss */
   ul#menu_top li {
     position: relative;
     float: left;
@@ -6748,7 +6770,7 @@ form#delfromvosdevis {
     height: 22px;
     z-index: 1;
   }
-  /* line 382, sass/_layout-mobile.scss */
+  /* line 400, sass/_layout-mobile.scss */
   ul#menu_top li a:link, ul#menu_top li a:visited {
     display: block;
     width: 141px;
@@ -6759,11 +6781,11 @@ form#delfromvosdevis {
     text-align: center;
     text-decoration: none;
   }
-  /* line 394, sass/_layout-mobile.scss */
+  /* line 412, sass/_layout-mobile.scss */
   ul#menu_top li a:hover, ul#menu_top li a#active {
     color: #fff;
   }
-  /* line 401, sass/_layout-mobile.scss */
+  /* line 419, sass/_layout-mobile.scss */
   ul#menu_top ul {
     padding: 0;
     margin: 0;
@@ -6774,26 +6796,26 @@ form#delfromvosdevis {
     padding-top: 3px;
     visibility: hidden;
   }
-  /* line 411, sass/_layout-mobile.scss */
+  /* line 429, sass/_layout-mobile.scss */
   ul#menu_top ul li {
     display: block;
     width: 141px;
     height: 28px;
     margin-left: 2px;
   }
-  /* line 417, sass/_layout-mobile.scss */
+  /* line 435, sass/_layout-mobile.scss */
   ul#menu_top ul li.highest {
     display: block;
     width: 141px;
     height: 44px;
     margin-left: 2px;
   }
-  /* line 423, sass/_layout-mobile.scss */
+  /* line 441, sass/_layout-mobile.scss */
   ul#menu_top ul li.highest a#active_sub {
     background: url("../images/menu_sub_hover2.png") no-repeat;
     color: #fff;
   }
-  /* line 433, sass/_layout-mobile.scss */
+  /* line 451, sass/_layout-mobile.scss */
   ul#menu_top a.menu_sub:link {
     display: block;
     width: 141px;
@@ -6802,7 +6824,7 @@ form#delfromvosdevis {
     padding-top: 6px;
     text-decoration: none;
   }
-  /* line 442, sass/_layout-mobile.scss */
+  /* line 460, sass/_layout-mobile.scss */
   ul#menu_top a.menu_sub:visited {
     display: block;
     width: 141px;
@@ -6812,17 +6834,17 @@ form#delfromvosdevis {
     line-height: 18px;
     text-decoration: none;
   }
-  /* line 452, sass/_layout-mobile.scss */
+  /* line 470, sass/_layout-mobile.scss */
   ul#menu_top a.menu_sub:hover {
     background: url("../images/menu_sub_hover.png") no-repeat;
     color: #fff;
   }
-  /* line 458, sass/_layout-mobile.scss */
+  /* line 476, sass/_layout-mobile.scss */
   ul#menu_top a#active_sub {
     background: url("../images/menu_sub_hover.png") no-repeat;
     color: #fff;
   }
-  /* line 464, sass/_layout-mobile.scss */
+  /* line 482, sass/_layout-mobile.scss */
   ul#menu_top a.menu_sub2:link {
     display: block;
     width: 141px;
@@ -6832,12 +6854,12 @@ form#delfromvosdevis {
     line-height: 18px;
     text-decoration: none;
   }
-  /* line 474, sass/_layout-mobile.scss */
+  /* line 492, sass/_layout-mobile.scss */
   ul#menu_top a.menu_sub2:hover {
     background: url("../images/menu_sub_hover2.png") no-repeat;
     color: #fff;
   }
-  /* line 482, sass/_layout-mobile.scss */
+  /* line 500, sass/_layout-mobile.scss */
   ul#tarifs {
     float: left;
     display: inline;
@@ -6845,7 +6867,7 @@ form#delfromvosdevis {
     margin: 0;
     padding: 0;
   }
-  /* line 489, sass/_layout-mobile.scss */
+  /* line 507, sass/_layout-mobile.scss */
   ul#tarifs li {
     float: left;
     display: inline;
@@ -6853,24 +6875,24 @@ form#delfromvosdevis {
     height: 160px;
     margin-bottom: 12px;
   }
-  /* line 496, sass/_layout-mobile.scss */
+  /* line 514, sass/_layout-mobile.scss */
   ul#tarifs li.separator_con {
     float: left;
     display: inline-block;
     width: 26px;
     height: 140px;
   }
-  /* line 503, sass/_layout-mobile.scss */
+  /* line 521, sass/_layout-mobile.scss */
   ul#tarifs li .micro a {
     text-decoration: none;
   }
-  /* line 509, sass/_layout-mobile.scss */
+  /* line 527, sass/_layout-mobile.scss */
   ul.grey {
     background: #e1e8f2;
     padding-left: 20px;
     list-style-image: url("../images/arrow.png");
   }
-  /* line 514, sass/_layout-mobile.scss */
+  /* line 532, sass/_layout-mobile.scss */
   ul.grey li {
     padding: 8px 0;
     font-size: 12px;
@@ -6878,14 +6900,14 @@ form#delfromvosdevis {
     text-transform: uppercase;
     line-height: 16px;
   }
-  /* line 523, sass/_layout-mobile.scss */
+  /* line 541, sass/_layout-mobile.scss */
   ul.regiform, ul.regiform2 {
     margin: 0;
     padding: 0;
     float: left;
     display: inline;
   }
-  /* line 530, sass/_layout-mobile.scss */
+  /* line 548, sass/_layout-mobile.scss */
   ul.regiform li, ul.regiform2 li {
     position: relative;
     padding: 6px 88px 0 22px;
@@ -6895,17 +6917,17 @@ form#delfromvosdevis {
     width: 237px;
     height: 24px;
   }
-  /* line 540, sass/_layout-mobile.scss */
+  /* line 558, sass/_layout-mobile.scss */
   ul.regiform .form-error-message, ul.regiform2 .form-error-message {
     left: 351px;
     line-height: 11px;
   }
-  /* line 546, sass/_layout-mobile.scss */
+  /* line 564, sass/_layout-mobile.scss */
   ul.form-section {
     margin: 0;
     padding: 0;
   }
-  /* line 550, sass/_layout-mobile.scss */
+  /* line 568, sass/_layout-mobile.scss */
   ul.form-section li {
     position: relative;
     float: left;
@@ -6917,7 +6939,7 @@ form#delfromvosdevis {
     -webkit-animation: fadein 1s;
             animation: fadein 1s;
   }
-  /* line 560, sass/_layout-mobile.scss */
+  /* line 578, sass/_layout-mobile.scss */
   ul.form-section li.nobor {
     position: relative;
     float: left;
@@ -6928,7 +6950,7 @@ form#delfromvosdevis {
     padding-top: 13px;
     border-bottom: none !important;
   }
-  /* line 571, sass/_layout-mobile.scss */
+  /* line 589, sass/_layout-mobile.scss */
   ul.form-section li.sizehigher {
     position: relative;
     float: left;
@@ -6939,7 +6961,7 @@ form#delfromvosdevis {
     padding-top: 18px;
     border-bottom: 1px solid #999;
   }
-  /* line 582, sass/_layout-mobile.scss */
+  /* line 600, sass/_layout-mobile.scss */
   ul.form-section li#id_9a {
     position: relative;
     float: left;
@@ -6950,7 +6972,7 @@ form#delfromvosdevis {
     padding-top: 12px !important;
     border: none !important;
   }
-  /* line 593, sass/_layout-mobile.scss */
+  /* line 611, sass/_layout-mobile.scss */
   ul.form-section li#id_11a {
     position: relative;
     float: left;
@@ -6961,7 +6983,7 @@ form#delfromvosdevis {
     padding-top: 12px !important;
     border: none !important;
   }
-  /* line 604, sass/_layout-mobile.scss */
+  /* line 622, sass/_layout-mobile.scss */
   ul.form-section li.id_18 {
     position: relative;
     float: left;
@@ -6972,7 +6994,7 @@ form#delfromvosdevis {
     padding-top: 12px !important;
     border: none !important;
   }
-  /* line 615, sass/_layout-mobile.scss */
+  /* line 633, sass/_layout-mobile.scss */
   ul.form-section li#id_26a {
     position: relative;
     float: left;
@@ -6983,7 +7005,7 @@ form#delfromvosdevis {
     padding-top: 12px !important;
     border: none !important;
   }
-  /* line 626, sass/_layout-mobile.scss */
+  /* line 644, sass/_layout-mobile.scss */
   ul.form-section li.ceddreheigher {
     position: relative;
     float: left;
@@ -6994,7 +7016,7 @@ form#delfromvosdevis {
     padding-top: 12px !important;
     border: none !important;
   }
-  /* line 637, sass/_layout-mobile.scss */
+  /* line 655, sass/_layout-mobile.scss */
   ul.form-section li.id_17 {
     position: relative;
     float: left;
@@ -7004,7 +7026,7 @@ form#delfromvosdevis {
     height: 35px;
     padding-top: 12px;
   }
-  /* line 647, sass/_layout-mobile.scss */
+  /* line 665, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline {
     height: 155px !important;
     position: relative;
@@ -7015,33 +7037,33 @@ form#delfromvosdevis {
     color: #272727;
     border: none !important;
   }
-  /* line 659, sass/_layout-mobile.scss */
+  /* line 677, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline span.title {
     position: relative;
     widht: 100%;
     display: block;
     text-align: center;
   }
-  /* line 666, sass/_layout-mobile.scss */
+  /* line 684, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline span.options_single {
     position: relative;
     widht: 100%;
     display: block;
     line-height: 22px;
   }
-  /* line 675, sass/_layout-mobile.scss */
+  /* line 693, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsleft {
     position: relative;
     float: left;
     width: 50%;
   }
-  /* line 680, sass/_layout-mobile.scss */
+  /* line 698, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsleft input {
     position: absolute;
     top: 3px;
     left: 125px;
   }
-  /* line 686, sass/_layout-mobile.scss */
+  /* line 704, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsleft .helpButton {
     position: absolute;
     top: 3px;
@@ -7051,13 +7073,13 @@ form#delfromvosdevis {
     background: url("../images/interrogation-option.png") no-repeat;
     text-decoration: none;
   }
-  /* line 696, sass/_layout-mobile.scss */
+  /* line 714, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsleft.livraison-gratuite {
     border: 1px solid #999;
     font-weight: bold;
     width: 48%;
   }
-  /* line 702, sass/_layout-mobile.scss */
+  /* line 720, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsleft a.options_pytajnik {
     position: absolute;
     top: 3px;
@@ -7067,24 +7089,24 @@ form#delfromvosdevis {
     background: url("../images/interrogation-option.png") no-repeat;
     text-decoration: none;
   }
-  /* line 713, sass/_layout-mobile.scss */
+  /* line 731, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsright {
     position: relative;
     float: right;
     width: 50%;
     text-align: right;
   }
-  /* line 719, sass/_layout-mobile.scss */
+  /* line 737, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsright input {
     position: absolute;
     top: 3px;
     right: 23px;
   }
-  /* line 725, sass/_layout-mobile.scss */
+  /* line 743, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsright label {
     padding-right: 50px;
   }
-  /* line 729, sass/_layout-mobile.scss */
+  /* line 747, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsright .helpButton {
     position: absolute;
     top: 3px;
@@ -7094,7 +7116,7 @@ form#delfromvosdevis {
     background: url("../images/interrogation-option.png") no-repeat;
     text-decoration: none;
   }
-  /* line 739, sass/_layout-mobile.scss */
+  /* line 757, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline .options_single span.optionsright a.options_pytajnik {
     position: absolute;
     top: 3px;
@@ -7104,7 +7126,7 @@ form#delfromvosdevis {
     background: url("../images/interrogation-option.png") no-repeat;
     text-decoration: none;
   }
-  /* line 752, sass/_layout-mobile.scss */
+  /* line 770, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline2 {
     position: relative;
     float: left;
@@ -7115,7 +7137,7 @@ form#delfromvosdevis {
     color: #272727;
     border-bottom: 1px solid #999;
   }
-  /* line 763, sass/_layout-mobile.scss */
+  /* line 781, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline4 {
     position: relative;
     float: left;
@@ -7123,7 +7145,7 @@ form#delfromvosdevis {
     width: 206px;
     height: 30px;
   }
-  /* line 771, sass/_layout-mobile.scss */
+  /* line 789, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline5 {
     position: relative;
     float: left;
@@ -7131,7 +7153,7 @@ form#delfromvosdevis {
     width: 156px;
     height: 30px;
   }
-  /* line 779, sass/_layout-mobile.scss */
+  /* line 797, sass/_layout-mobile.scss */
   ul.form-section li.optionsformline3 {
     position: relative;
     float: left;
@@ -7142,12 +7164,12 @@ form#delfromvosdevis {
     color: #272727;
     border-bottom: 1px solid #e1e8f2;
   }
-  /* line 792, sass/_layout-mobile.scss */
+  /* line 810, sass/_layout-mobile.scss */
   ul.form-section-cadre {
     margin: 0;
     padding: 0;
   }
-  /* line 796, sass/_layout-mobile.scss */
+  /* line 814, sass/_layout-mobile.scss */
   ul.form-section-cadre li {
     padding-top: 13px;
     padding-bottom: 5px;
@@ -7160,7 +7182,7 @@ form#delfromvosdevis {
     -webkit-animation: fadein 2s;
             animation: fadein 2s;
   }
-  /* line 807, sass/_layout-mobile.scss */
+  /* line 825, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline {
     position: relative;
     float: left;
@@ -7171,7 +7193,7 @@ form#delfromvosdevis {
     color: #272727;
     border: none !important;
   }
-  /* line 818, sass/_layout-mobile.scss */
+  /* line 836, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline span.title {
     position: relative;
     widht: 100%;
@@ -7179,26 +7201,26 @@ form#delfromvosdevis {
     font-weight: bold;
     margin-bottom: 5px;
   }
-  /* line 826, sass/_layout-mobile.scss */
+  /* line 844, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline span.options_single {
     position: relative;
     widht: 100%;
     display: block;
     line-height: 22px;
   }
-  /* line 835, sass/_layout-mobile.scss */
+  /* line 853, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsleft {
     position: relative;
     float: left;
     width: auto;
   }
-  /* line 840, sass/_layout-mobile.scss */
+  /* line 858, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsleft input {
     position: absolute;
     top: 3px;
     left: 125px;
   }
-  /* line 846, sass/_layout-mobile.scss */
+  /* line 864, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsleft .helpButton {
     position: absolute;
     top: 3px;
@@ -7208,7 +7230,7 @@ form#delfromvosdevis {
     background: url("../images/pytajnik.jpg") no-repeat;
     text-decoration: none;
   }
-  /* line 856, sass/_layout-mobile.scss */
+  /* line 874, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsleft a.options_pytajnik {
     position: absolute;
     top: 3px;
@@ -7218,24 +7240,24 @@ form#delfromvosdevis {
     background: url("../images/pytajnik.jpg") no-repeat;
     text-decoration: none;
   }
-  /* line 867, sass/_layout-mobile.scss */
+  /* line 885, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsright {
     position: relative;
     float: right;
     width: 50%;
     text-align: right;
   }
-  /* line 873, sass/_layout-mobile.scss */
+  /* line 891, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsright input {
     position: absolute;
     top: 3px;
     right: 23px;
   }
-  /* line 879, sass/_layout-mobile.scss */
+  /* line 897, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsright label {
     padding-right: 50px;
   }
-  /* line 883, sass/_layout-mobile.scss */
+  /* line 901, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsright .helpButton {
     position: absolute;
     top: 3px;
@@ -7245,7 +7267,7 @@ form#delfromvosdevis {
     background: url("../images/pytajnik.jpg") no-repeat;
     text-decoration: none;
   }
-  /* line 893, sass/_layout-mobile.scss */
+  /* line 911, sass/_layout-mobile.scss */
   ul.form-section-cadre li.optionsformline .options_single span.optionsright a.options_pytajnik {
     position: absolute;
     top: 3px;
@@ -7255,7 +7277,7 @@ form#delfromvosdevis {
     background: url("../images/pytajnik.jpg") no-repeat;
     text-decoration: none;
   }
-  /* line 906, sass/_layout-mobile.scss */
+  /* line 924, sass/_layout-mobile.scss */
   ul.form-section-cadre li.nobor {
     position: relative;
     float: left;
@@ -7266,7 +7288,7 @@ form#delfromvosdevis {
     color: #272727;
     border-bottom: none !important;
   }
-  /* line 917, sass/_layout-mobile.scss */
+  /* line 935, sass/_layout-mobile.scss */
   ul.form-section-cadre li.sizehigher {
     position: relative;
     float: left;
@@ -7277,7 +7299,7 @@ form#delfromvosdevis {
     color: #272727;
     border-bottom: 1px solid #999;
   }
-  /* line 928, sass/_layout-mobile.scss */
+  /* line 946, sass/_layout-mobile.scss */
   ul.form-section-cadre li#id_9a {
     position: relative;
     float: left;
@@ -7288,7 +7310,7 @@ form#delfromvosdevis {
     color: #272727;
     border: none !important;
   }
-  /* line 939, sass/_layout-mobile.scss */
+  /* line 957, sass/_layout-mobile.scss */
   ul.form-section-cadre li#id_11a {
     position: relative;
     float: left;
@@ -7299,7 +7321,7 @@ form#delfromvosdevis {
     color: #272727;
     border: none !important;
   }
-  /* line 950, sass/_layout-mobile.scss */
+  /* line 968, sass/_layout-mobile.scss */
   ul.form-section-cadre li.id_18 {
     position: relative;
     float: left;
@@ -7310,7 +7332,7 @@ form#delfromvosdevis {
     color: #272727;
     border: none !important;
   }
-  /* line 961, sass/_layout-mobile.scss */
+  /* line 979, sass/_layout-mobile.scss */
   ul.form-section-cadre li#id_26a {
     position: relative;
     float: left;
@@ -7321,7 +7343,7 @@ form#delfromvosdevis {
     color: #272727;
     border: none !important;
   }
-  /* line 972, sass/_layout-mobile.scss */
+  /* line 990, sass/_layout-mobile.scss */
   ul.form-section-cadre li.ceddreheigher {
     position: relative;
     float: left;
@@ -7332,7 +7354,7 @@ form#delfromvosdevis {
     color: #272727;
     border: none !important;
   }
-  /* line 983, sass/_layout-mobile.scss */
+  /* line 1001, sass/_layout-mobile.scss */
   ul.form-section-cadre li.id_17 {
     position: relative;
     float: left;
@@ -7342,13 +7364,13 @@ form#delfromvosdevis {
     padding-top: 12px;
     color: #272727;
   }
-  /* line 996, sass/_layout-mobile.scss */
+  /* line 1014, sass/_layout-mobile.scss */
   #frontpage_info {
     position: relative;
     font-weight: bold;
     margin-top: 50px;
   }
-  /* line 1006, sass/_layout-mobile.scss */
+  /* line 1024, sass/_layout-mobile.scss */
   #flink2 {
     position: relative;
     left: auto;
@@ -7356,7 +7378,7 @@ form#delfromvosdevis {
     width: auto;
     height: auto;
   }
-  /* line 1014, sass/_layout-mobile.scss */
+  /* line 1032, sass/_layout-mobile.scss */
   #derniers {
     position: relative;
     left: auto;
@@ -7366,7 +7388,7 @@ form#delfromvosdevis {
     text-transform: uppercase;
     font-weight: bold;
   }
-  /* line 1023, sass/_layout-mobile.scss */
+  /* line 1041, sass/_layout-mobile.scss */
   #derniers a {
     float: left;
     display: block;
@@ -7375,7 +7397,7 @@ form#delfromvosdevis {
     background: url("../images/livrebut.jpg") no-repeat;
     margin: 8px 0 0;
   }
-  /* line 1033, sass/_layout-mobile.scss */
+  /* line 1051, sass/_layout-mobile.scss */
   #ratinghome {
     position: relative;
     right: auto;
@@ -7383,7 +7405,7 @@ form#delfromvosdevis {
     width: auto;
     height: auto;
   }
-  /* line 1041, sass/_layout-mobile.scss */
+  /* line 1059, sass/_layout-mobile.scss */
   .singlerate {
     position: relative;
     float: none;
@@ -7392,7 +7414,7 @@ form#delfromvosdevis {
     height: 51px;
     margin: 0 0 5px;
   }
-  /* line 1050, sass/_layout-mobile.scss */
+  /* line 1068, sass/_layout-mobile.scss */
   .singlerate_content {
     position: relative;
     float: none;
@@ -7403,7 +7425,7 @@ form#delfromvosdevis {
     line-height: 13px;
     margin: 0 0 5px;
   }
-  /* line 1061, sass/_layout-mobile.scss */
+  /* line 1079, sass/_layout-mobile.scss */
   .singlerate_rate {
     position: relative;
     float: none;
@@ -7412,7 +7434,7 @@ form#delfromvosdevis {
     height: 17px;
     line-height: 17px;
   }
-  /* line 1070, sass/_layout-mobile.scss */
+  /* line 1088, sass/_layout-mobile.scss */
   .singlerate_date {
     position: relative;
     float: none;
@@ -7421,19 +7443,19 @@ form#delfromvosdevis {
     height: 17px;
     text-align: right;
   }
-  /* line 1080, sass/_layout-mobile.scss */
+  /* line 1098, sass/_layout-mobile.scss */
   span.footer_separ1 {
     display: inline-block;
     width: 12px;
     height: 37px;
   }
-  /* line 1086, sass/_layout-mobile.scss */
+  /* line 1104, sass/_layout-mobile.scss */
   span.footer_separ2 {
     display: inline-block;
     width: 18px;
     height: 37px;
   }
-  /* line 1092, sass/_layout-mobile.scss */
+  /* line 1110, sass/_layout-mobile.scss */
   span#footer_links {
     position: relative;
     top: 26px;
@@ -7443,15 +7465,15 @@ form#delfromvosdevis {
     text-align: center;
     font-size: 10px;
   }
-  /* line 1102, sass/_layout-mobile.scss */
+  /* line 1120, sass/_layout-mobile.scss */
   span#footer_links a:link {
     text-decoration: none;
   }
-  /* line 1106, sass/_layout-mobile.scss */
+  /* line 1124, sass/_layout-mobile.scss */
   span#footer_links a:visited {
     text-decoration: none;
   }
-  /* line 1112, sass/_layout-mobile.scss */
+  /* line 1130, sass/_layout-mobile.scss */
   span#footer_links2 {
     position: relative;
     top: auto;
@@ -7461,15 +7483,15 @@ form#delfromvosdevis {
     text-align: center;
     font-size: 10px;
   }
-  /* line 1122, sass/_layout-mobile.scss */
+  /* line 1140, sass/_layout-mobile.scss */
   span#footer_links2 a:link {
     text-decoration: none;
   }
-  /* line 1126, sass/_layout-mobile.scss */
+  /* line 1144, sass/_layout-mobile.scss */
   span#footer_links2 a:visited {
     text-decoration: none;
   }
-  /* line 1132, sass/_layout-mobile.scss */
+  /* line 1150, sass/_layout-mobile.scss */
   span.fa1 {
     position: absolute;
     top: 18px;
@@ -7481,7 +7503,7 @@ form#delfromvosdevis {
     line-height: 22px;
     color: #484b51;
   }
-  /* line 1144, sass/_layout-mobile.scss */
+  /* line 1162, sass/_layout-mobile.scss */
   span.fa2 {
     position: absolute;
     top: 18px;
@@ -7493,7 +7515,7 @@ form#delfromvosdevis {
     line-height: 22px;
     color: #484b51;
   }
-  /* line 1156, sass/_layout-mobile.scss */
+  /* line 1174, sass/_layout-mobile.scss */
   span.fa3 {
     position: absolute;
     top: 18px;
@@ -7505,7 +7527,7 @@ form#delfromvosdevis {
     line-height: 22px;
     color: #484b51;
   }
-  /* line 1168, sass/_layout-mobile.scss */
+  /* line 1186, sass/_layout-mobile.scss */
   span.fab1 {
     position: absolute;
     top: 108px;
@@ -7515,7 +7537,7 @@ form#delfromvosdevis {
     color: #555a61;
     font-size: 10px;
   }
-  /* line 1178, sass/_layout-mobile.scss */
+  /* line 1196, sass/_layout-mobile.scss */
   span.fab2 {
     position: absolute;
     top: 108px;
@@ -7525,7 +7547,7 @@ form#delfromvosdevis {
     color: #555a61;
     font-size: 10px;
   }
-  /* line 1188, sass/_layout-mobile.scss */
+  /* line 1206, sass/_layout-mobile.scss */
   span.fab3 {
     position: absolute;
     top: 108px;
@@ -7536,7 +7558,7 @@ form#delfromvosdevis {
     color: #555a61;
     font-size: 10px;
   }
-  /* line 1199, sass/_layout-mobile.scss */
+  /* line 1217, sass/_layout-mobile.scss */
   span.contact_name {
     padding-left: 13px;
     padding-right: 10px;
@@ -7544,7 +7566,7 @@ form#delfromvosdevis {
     display: inline-block;
     vertical-align: top;
   }
-  /* line 1207, sass/_layout-mobile.scss */
+  /* line 1225, sass/_layout-mobile.scss */
   span.contacter {
     float: left;
     display: inline;
@@ -7555,7 +7577,7 @@ form#delfromvosdevis {
     padding-left: 25px;
     margin-top: 12px;
   }
-  /* line 1218, sass/_layout-mobile.scss */
+  /* line 1236, sass/_layout-mobile.scss */
   span.contacter2 {
     float: left;
     display: inline;
@@ -7566,7 +7588,7 @@ form#delfromvosdevis {
     padding-left: 25px;
     margin-top: 50px;
   }
-  /* line 1229, sass/_layout-mobile.scss */
+  /* line 1247, sass/_layout-mobile.scss */
   span.print_button {
     position: relative;
     float: left;
@@ -7577,26 +7599,26 @@ form#delfromvosdevis {
     background: #e1e8f2;
     text-align: center;
   }
-  /* line 1240, sass/_layout-mobile.scss */
+  /* line 1258, sass/_layout-mobile.scss */
   span.pink {
     color: #cc4068;
     font-weight: normal;
     text-transform: none;
     font-size: 11px;
   }
-  /* line 1247, sass/_layout-mobile.scss */
+  /* line 1265, sass/_layout-mobile.scss */
   span.info_nag {
     color: #008ebb;
     font-weight: bold;
     padding-bottom: 2px;
   }
-  /* line 1253, sass/_layout-mobile.scss */
+  /* line 1271, sass/_layout-mobile.scss */
   span.info_mar {
     float: left;
     display: inline-block;
     margin-top: 8px;
   }
-  /* line 1259, sass/_layout-mobile.scss */
+  /* line 1277, sass/_layout-mobile.scss */
   span.wycena_poz {
     float: left;
     display: inline;
@@ -7604,7 +7626,7 @@ form#delfromvosdevis {
     width: 94px;
     text-align: center;
   }
-  /* line 1267, sass/_layout-mobile.scss */
+  /* line 1285, sass/_layout-mobile.scss */
   span.comm_title {
     float: left;
     display: inline;
@@ -7613,14 +7635,14 @@ form#delfromvosdevis {
     font-size: 10px;
     margin-bottom: 14px;
   }
-  /* line 1276, sass/_layout-mobile.scss */
+  /* line 1294, sass/_layout-mobile.scss */
   span.comm_title2 {
     color: #008ebb;
     text-transform: uppercase;
     font-size: 10px;
     margin-bottom: 14px;
   }
-  /* line 1283, sass/_layout-mobile.scss */
+  /* line 1301, sass/_layout-mobile.scss */
   span.comm_title3 {
     color: #008ebb;
     text-transform: uppercase;
@@ -7628,7 +7650,7 @@ form#delfromvosdevis {
     margin-bottom: 14px;
     margin-left: 15px;
   }
-  /* line 1291, sass/_layout-mobile.scss */
+  /* line 1309, sass/_layout-mobile.scss */
   span.payement_underline {
     width: 290px;
     display: inline-block;
@@ -7636,31 +7658,31 @@ form#delfromvosdevis {
     font-size: 12px;
     padding-bottom: 2px;
   }
-  /* line 1299, sass/_layout-mobile.scss */
+  /* line 1317, sass/_layout-mobile.scss */
   span.pay_image {
     display: block;
     margin: 5px 0 0 18px;
   }
-  /* line 1304, sass/_layout-mobile.scss */
+  /* line 1322, sass/_layout-mobile.scss */
   span.pay_image2 {
     display: block;
     margin: 0 0 0 18px;
   }
-  /* line 1309, sass/_layout-mobile.scss */
+  /* line 1327, sass/_layout-mobile.scss */
   span.pay_carte_info {
     display: block;
     margin: 5px 0 0 20px;
     font-size: 9px;
   }
-  /* line 1315, sass/_layout-mobile.scss */
+  /* line 1333, sass/_layout-mobile.scss */
   span.colblue {
     color: #008ebb;
   }
-  /* line 1319, sass/_layout-mobile.scss */
+  /* line 1337, sass/_layout-mobile.scss */
   span.subtitle {
     font-size: 11px;
   }
-  /* line 1323, sass/_layout-mobile.scss */
+  /* line 1341, sass/_layout-mobile.scss */
   span.stat3 {
     width: 121px;
     height: 16px;
@@ -7673,7 +7695,7 @@ form#delfromvosdevis {
     border: none;
     cursor: pointer;
   }
-  /* line 1336, sass/_layout-mobile.scss */
+  /* line 1354, sass/_layout-mobile.scss */
   span.stat4 {
     width: 121px;
     height: 16px;
@@ -7686,16 +7708,16 @@ form#delfromvosdevis {
     border: none;
     cursor: pointer;
   }
-  /* line 1349, sass/_layout-mobile.scss */
+  /* line 1367, sass/_layout-mobile.scss */
   span.deactive {
     cursor: default !important;
   }
-  /* line 1353, sass/_layout-mobile.scss */
+  /* line 1371, sass/_layout-mobile.scss */
   span.reg_info {
     font-size: 10px;
     color: #008ebb;
   }
-  /* line 1358, sass/_layout-mobile.scss */
+  /* line 1376, sass/_layout-mobile.scss */
   span.form-checkbox-item {
     position: absolute;
     top: 15px;
@@ -7704,7 +7726,7 @@ form#delfromvosdevis {
     height: 15px;
     line-height: 13px;
   }
-  /* line 1367, sass/_layout-mobile.scss */
+  /* line 1385, sass/_layout-mobile.scss */
   span.wycena-cadre_poz {
     float: left;
     display: inline;
@@ -7712,7 +7734,7 @@ form#delfromvosdevis {
     width: 130px;
     text-align: center;
   }
-  /* line 1375, sass/_layout-mobile.scss */
+  /* line 1393, sass/_layout-mobile.scss */
   span#notregiste#f00 {
     position: absolute;
     top: 64px;
@@ -7720,7 +7742,7 @@ form#delfromvosdevis {
     width: 200px;
     height: 40px;
   }
-  /* line 1384, sass/_layout-mobile.scss */
+  /* line 1402, sass/_layout-mobile.scss */
   #copy {
     position: relative;
     bottom: auto;
@@ -7731,7 +7753,7 @@ form#delfromvosdevis {
     text-align: center;
     margin: 20px auto;
   }
-  /* line 1395, sass/_layout-mobile.scss */
+  /* line 1413, sass/_layout-mobile.scss */
   #under_footer {
     position: relative;
     display: block;
@@ -7741,18 +7763,18 @@ form#delfromvosdevis {
     padding: 14px 45px 0;
     text-align: center;
   }
-  /* line 1405, sass/_layout-mobile.scss */
+  /* line 1423, sass/_layout-mobile.scss */
   #under_footer a:link, #under_footer a:visited {
     color: #282a2d;
     font-size: 10px;
     line-height: 12px;
     text-decoration: none;
   }
-  /* line 1413, sass/_layout-mobile.scss */
+  /* line 1431, sass/_layout-mobile.scss */
   #under_footer a:hover {
     color: #999;
   }
-  /* line 1419, sass/_layout-mobile.scss */
+  /* line 1437, sass/_layout-mobile.scss */
   #front_image {
     position: relative;
     width: 708px;
@@ -7760,19 +7782,19 @@ form#delfromvosdevis {
     background: url("../images/frontpage.jpg") no-repeat;
     margin-top: 0;
   }
-  /* line 1427, sass/_layout-mobile.scss */
+  /* line 1445, sass/_layout-mobile.scss */
   #contact1 {
     float: left;
     display: inline;
     width: 276px;
   }
-  /* line 1433, sass/_layout-mobile.scss */
+  /* line 1451, sass/_layout-mobile.scss */
   #contact3 {
     float: left;
     display: inline;
     width: 276px;
   }
-  /* line 1440, sass/_layout-mobile.scss */
+  /* line 1458, sass/_layout-mobile.scss */
   div.wpcf7 {
     position: relative;
     float: left;
@@ -7780,12 +7802,12 @@ form#delfromvosdevis {
     background: #e1e8f2;
     width: auto;
   }
-  /* line 1447, sass/_layout-mobile.scss */
+  /* line 1465, sass/_layout-mobile.scss */
   div.wpcf7 p {
     padding-top: 13px;
     margin: 0;
   }
-  /* line 1452, sass/_layout-mobile.scss */
+  /* line 1470, sass/_layout-mobile.scss */
   div.wpcf7 input {
     border: 1px solid #afb9c7;
     background: #fff;
@@ -7793,7 +7815,7 @@ form#delfromvosdevis {
     height: 13px;
     font-size: 10px;
   }
-  /* line 1459, sass/_layout-mobile.scss */
+  /* line 1477, sass/_layout-mobile.scss */
   div.wpcf7 input.contact_send {
     background: url("../images/button_send.png") no-repeat;
     width: 82px;
@@ -7803,7 +7825,7 @@ form#delfromvosdevis {
     right: 58px;
     border: none;
   }
-  /* line 1470, sass/_layout-mobile.scss */
+  /* line 1488, sass/_layout-mobile.scss */
   div.wpcf7 textarea {
     border: 1px solid #afb9c7;
     background: #fff;
@@ -7812,30 +7834,30 @@ form#delfromvosdevis {
     font-size: 10px;
     margin-bottom: 13px;
   }
-  /* line 1480, sass/_layout-mobile.scss */
+  /* line 1498, sass/_layout-mobile.scss */
   div.wpcf7-response-output {
     position: relative;
     display: block;
     left: 0;
     bottom: 30px;
   }
-  /* line 1487, sass/_layout-mobile.scss */
+  /* line 1505, sass/_layout-mobile.scss */
   div.aligncenter {
     margin: 0 auto;
   }
-  /* line 1492, sass/_layout-mobile.scss */
+  /* line 1510, sass/_layout-mobile.scss */
   #contact2 {
     float: right;
     display: inline;
     width: 418px;
   }
-  /* line 1498, sass/_layout-mobile.scss */
+  /* line 1516, sass/_layout-mobile.scss */
   #contact4 {
     float: right;
     display: inline;
     width: 418px;
   }
-  /* line 1504, sass/_layout-mobile.scss */
+  /* line 1522, sass/_layout-mobile.scss */
   #contact_top,
   #contact_bot {
     position: relative;
@@ -7844,7 +7866,7 @@ form#delfromvosdevis {
     width: auto;
     margin-bottom: 20px;
   }
-  /* line 1514, sass/_layout-mobile.scss */
+  /* line 1532, sass/_layout-mobile.scss */
   #search input {
     position: absolute;
     right: 130px;
@@ -7856,7 +7878,7 @@ form#delfromvosdevis {
     background: none;
     color: #e88c07;
   }
-  /* line 1526, sass/_layout-mobile.scss */
+  /* line 1544, sass/_layout-mobile.scss */
   #search #submit_search {
     position: absolute;
     right: 100px;
@@ -7869,7 +7891,7 @@ form#delfromvosdevis {
     color: #e88c07;
     cursor: pointer;
   }
-  /* line 1540, sass/_layout-mobile.scss */
+  /* line 1558, sass/_layout-mobile.scss */
   #slideshow {
     position: relative;
     float: left;
@@ -7877,7 +7899,7 @@ form#delfromvosdevis {
     width: 339px;
     height: 220px;
   }
-  /* line 1548, sass/_layout-mobile.scss */
+  /* line 1566, sass/_layout-mobile.scss */
   #banners {
     position: relative;
     float: right;
@@ -7885,22 +7907,22 @@ form#delfromvosdevis {
     width: 339px;
     height: 220px;
   }
-  /* line 1555, sass/_layout-mobile.scss */
+  /* line 1573, sass/_layout-mobile.scss */
   #banners .banner1 {
     margin-bottom: 4px;
     display: block;
     width: 339px;
     height: 105px;
   }
-  /* line 1563, sass/_layout-mobile.scss */
+  /* line 1581, sass/_layout-mobile.scss */
   img {
     border: 0;
   }
-  /* line 1567, sass/_layout-mobile.scss */
+  /* line 1585, sass/_layout-mobile.scss */
   dd {
     margin-left: 10px;
   }
-  /* line 1571, sass/_layout-mobile.scss */
+  /* line 1589, sass/_layout-mobile.scss */
   hr {
     position: relative;
     float: none;
@@ -7912,7 +7934,7 @@ form#delfromvosdevis {
     border: none;
     line-height: 1px;
   }
-  /* line 1582, sass/_layout-mobile.scss */
+  /* line 1600, sass/_layout-mobile.scss */
   hr.contact {
     position: relative;
     float: none;
@@ -7924,40 +7946,40 @@ form#delfromvosdevis {
     border: none;
     line-height: 1px;
   }
-  /* line 1594, sass/_layout-mobile.scss */
+  /* line 1612, sass/_layout-mobile.scss */
   hr.bottom_hr {
     position: relative;
     top: auto;
     left: auto;
     margin: 10px 0;
   }
-  /* line 1602, sass/_layout-mobile.scss */
+  /* line 1620, sass/_layout-mobile.scss */
   .aligncenter {
     margin: 0 auto;
   }
-  /* line 1606, sass/_layout-mobile.scss */
+  /* line 1624, sass/_layout-mobile.scss */
   .alignleft {
     float: left;
   }
-  /* line 1610, sass/_layout-mobile.scss */
+  /* line 1628, sass/_layout-mobile.scss */
   .alignright {
     float: right;
   }
-  /* line 1614, sass/_layout-mobile.scss */
+  /* line 1632, sass/_layout-mobile.scss */
   p {
     margin-top: 0;
   }
-  /* line 1617, sass/_layout-mobile.scss */
+  /* line 1635, sass/_layout-mobile.scss */
   p.sujet {
     margin: 10px 0;
     width: auto;
   }
-  /* line 1623, sass/_layout-mobile.scss */
+  /* line 1641, sass/_layout-mobile.scss */
   small {
     font-size: 10px;
     line-height: 12px;
   }
-  /* line 1628, sass/_layout-mobile.scss */
+  /* line 1646, sass/_layout-mobile.scss */
   h1 {
     font-size: 13px;
     margin: 0;
@@ -7966,7 +7988,7 @@ form#delfromvosdevis {
     color: #555a61;
     font-family: "Verdana", "Arial", "sans-serif";
   }
-  /* line 1637, sass/_layout-mobile.scss */
+  /* line 1655, sass/_layout-mobile.scss */
   h2 {
     font-size: 13px;
     margin: 15px 0 0;
@@ -7975,21 +7997,21 @@ form#delfromvosdevis {
     color: #555a61;
     font-family: "Verdana", "Arial", "sans-serif";
   }
-  /* line 1645, sass/_layout-mobile.scss */
+  /* line 1663, sass/_layout-mobile.scss */
   h2.categorytitle {
     margin: 0;
   }
-  /* line 1650, sass/_layout-mobile.scss */
+  /* line 1668, sass/_layout-mobile.scss */
   h5 {
     font-family: "Verdana", "Arial", "sans-serif";
     padding: 0;
     margin: 0;
   }
-  /* line 1656, sass/_layout-mobile.scss */
+  /* line 1674, sass/_layout-mobile.scss */
   h6 {
     font-family: "Verdana", "Arial", "sans-serif";
   }
-  /* line 1660, sass/_layout-mobile.scss */
+  /* line 1678, sass/_layout-mobile.scss */
   h4 {
     color: #008ebb;
     margin: 0;
@@ -8000,13 +8022,13 @@ form#delfromvosdevis {
     line-height: 12px;
     text-transform: uppercase;
   }
-  /* line 1670, sass/_layout-mobile.scss */
+  /* line 1688, sass/_layout-mobile.scss */
   h4.clients_reviews_titre {
     margin-top: 0;
     margin-bottom: 3px;
     font-size: 13px;
   }
-  /* line 1677, sass/_layout-mobile.scss */
+  /* line 1695, sass/_layout-mobile.scss */
   #mainnew,
   #mainnew2 {
     position: relative;
@@ -8017,7 +8039,7 @@ form#delfromvosdevis {
     margin: 10px 0 0;
     padding: 0 0 0;
   }
-  /* line 1687, sass/_layout-mobile.scss */
+  /* line 1705, sass/_layout-mobile.scss */
   #mainnew h2,
   #mainnew2 h2 {
     color: #555a61;
@@ -8025,40 +8047,40 @@ form#delfromvosdevis {
     padding: 0;
     margin: 0;
   }
-  /* line 1694, sass/_layout-mobile.scss */
+  /* line 1712, sass/_layout-mobile.scss */
   #mainnew a,
   #mainnew2 a {
     color: #555a61;
   }
-  /* line 1698, sass/_layout-mobile.scss */
+  /* line 1716, sass/_layout-mobile.scss */
   #mainnew p,
   #mainnew2 p {
     text-align: center;
     width: 900px;
     margin: 0 auto;
   }
-  /* line 1705, sass/_layout-mobile.scss */
+  /* line 1723, sass/_layout-mobile.scss */
   #ceddretopten {
     position: relative;
     width: 706px;
     height: 590px;
     margin-bottom: 50px;
   }
-  /* line 1712, sass/_layout-mobile.scss */
+  /* line 1730, sass/_layout-mobile.scss */
   #ceddretopten a:link {
     text-decoration: none;
     color: #000;
   }
-  /* line 1717, sass/_layout-mobile.scss */
+  /* line 1735, sass/_layout-mobile.scss */
   #ceddretopten a:visited {
     text-decoration: none;
     color: #000;
   }
-  /* line 1722, sass/_layout-mobile.scss */
+  /* line 1740, sass/_layout-mobile.scss */
   #ceddretopten a:hover {
     text-decoration: underline;
   }
-  /* line 1728, sass/_layout-mobile.scss */
+  /* line 1746, sass/_layout-mobile.scss */
   #ceddreplace1 {
     position: absolute;
     top: 352px;
@@ -8073,7 +8095,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1743, sass/_layout-mobile.scss */
+  /* line 1761, sass/_layout-mobile.scss */
   #ceddreplace2 {
     position: absolute;
     top: 352px;
@@ -8088,7 +8110,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1758, sass/_layout-mobile.scss */
+  /* line 1776, sass/_layout-mobile.scss */
   #ceddreplace3 {
     position: absolute;
     top: 352px;
@@ -8103,7 +8125,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1773, sass/_layout-mobile.scss */
+  /* line 1791, sass/_layout-mobile.scss */
   #ceddreplace4 {
     position: absolute;
     top: 352px;
@@ -8118,7 +8140,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1788, sass/_layout-mobile.scss */
+  /* line 1806, sass/_layout-mobile.scss */
   #ceddreplace5 {
     position: absolute;
     top: 352px;
@@ -8133,7 +8155,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1803, sass/_layout-mobile.scss */
+  /* line 1821, sass/_layout-mobile.scss */
   #ceddreplace6 {
     position: absolute;
     top: 521px;
@@ -8148,7 +8170,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1818, sass/_layout-mobile.scss */
+  /* line 1836, sass/_layout-mobile.scss */
   #ceddreplace7 {
     position: absolute;
     top: 521px;
@@ -8163,7 +8185,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1833, sass/_layout-mobile.scss */
+  /* line 1851, sass/_layout-mobile.scss */
   #ceddreplace8 {
     position: absolute;
     top: 521px;
@@ -8178,7 +8200,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1848, sass/_layout-mobile.scss */
+  /* line 1866, sass/_layout-mobile.scss */
   #ceddreplace9 {
     position: absolute;
     top: 521px;
@@ -8193,7 +8215,7 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1863, sass/_layout-mobile.scss */
+  /* line 1881, sass/_layout-mobile.scss */
   #ceddreplace10 {
     position: absolute;
     top: 521px;
@@ -8208,12 +8230,12 @@ form#delfromvosdevis {
     line-height: 13px;
     display: table;
   }
-  /* line 1878, sass/_layout-mobile.scss */
+  /* line 1896, sass/_layout-mobile.scss */
   .cedtab {
     display: table-cell;
     vertical-align: middle;
   }
-  /* line 1883, sass/_layout-mobile.scss */
+  /* line 1901, sass/_layout-mobile.scss */
   .clients_reviews {
     border: 2px solid #999;
     border-radius: 5px;
@@ -8222,38 +8244,38 @@ form#delfromvosdevis {
     padding-bottom: 5px;
     font-size: 18px;
   }
-  /* line 1893, sass/_layout-mobile.scss */
+  /* line 1911, sass/_layout-mobile.scss */
   .client_reviews_1 {
     font-size: 20px;
     font-weight: bold;
     color: #0c3;
   }
-  /* line 1900, sass/_layout-mobile.scss */
+  /* line 1918, sass/_layout-mobile.scss */
   SPAN#uploadfile_completedMessage {
     float: left;
     display: inline;
     margin-top: 2px;
   }
-  /* line 1906, sass/_layout-mobile.scss */
+  /* line 1924, sass/_layout-mobile.scss */
   SPAN#uploadfile_uploading {
     float: left;
     display: inline;
     margin-left: 10px;
     margin-top: 2px;
   }
-  /* line 1913, sass/_layout-mobile.scss */
+  /* line 1931, sass/_layout-mobile.scss */
   SPAN.asyncUploader OBJECT {
     position: relative;
     top: 2px;
     left: 10px;
   }
-  /* line 1922, sass/_layout-mobile.scss */
+  /* line 1940, sass/_layout-mobile.scss */
   #top_images {
     position: relative;
     margin-top: 4px;
     height: 10px;
   }
-  /* line 1928, sass/_layout-mobile.scss */
+  /* line 1946, sass/_layout-mobile.scss */
   #top_info {
     max-width: 100%;
     margin-left: auto;
@@ -8268,13 +8290,13 @@ form#delfromvosdevis {
     display: block;
     clear: both;
   }
-  /* line 1934, sass/_layout-mobile.scss */
+  /* line 1952, sass/_layout-mobile.scss */
   #top_info > img {
     width: 28.57143%;
     float: left;
     margin-right: 7.14286%;
   }
-  /* line 1938, sass/_layout-mobile.scss */
+  /* line 1956, sass/_layout-mobile.scss */
   #top_info_info {
     width: 64.28571%;
     float: right;
@@ -8286,7 +8308,7 @@ form#delfromvosdevis {
     background: #f6f6f6;
     padding: 8px;
   }
-  /* line 1948, sass/_layout-mobile.scss */
+  /* line 1966, sass/_layout-mobile.scss */
   #top_info_info2 {
     position: absolute;
     width: 284px;
@@ -8296,25 +8318,25 @@ form#delfromvosdevis {
     background: #f6f6f6;
     padding: 8px;
   }
-  /* line 1958, sass/_layout-mobile.scss */
+  /* line 1976, sass/_layout-mobile.scss */
   #top_slideshow {
     display: none;
   }
-  /* line 1962, sass/_layout-mobile.scss */
+  /* line 1980, sass/_layout-mobile.scss */
   #slideshowphotos {
     position: relative;
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  /* line 1968, sass/_layout-mobile.scss */
+  /* line 1986, sass/_layout-mobile.scss */
   #slideshowphotos li {
     position: relative;
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  /* line 1976, sass/_layout-mobile.scss */
+  /* line 1994, sass/_layout-mobile.scss */
   .adresfak {
     position: relative;
     float: left;
@@ -8322,11 +8344,11 @@ form#delfromvosdevis {
     width: 706px;
     margin-bottom: 40px;
   }
-  /* line 1983, sass/_layout-mobile.scss */
+  /* line 2001, sass/_layout-mobile.scss */
   .adresfak td {
     width: 50%;
   }
-  /* line 1988, sass/_layout-mobile.scss */
+  /* line 2006, sass/_layout-mobile.scss */
   .bottomfak {
     position: relative;
     float: left;
@@ -8335,20 +8357,20 @@ form#delfromvosdevis {
     margin-top: 10px;
     text-align: center;
   }
-  /* line 1998, sass/_layout-mobile.scss */
+  /* line 2016, sass/_layout-mobile.scss */
   #preview {
     width: 29%;
     display: block;
     visibility: hidden;
     margin-bottom: 5px;
   }
-  /* line 2005, sass/_layout-mobile.scss */
+  /* line 2023, sass/_layout-mobile.scss */
   #preview_con {
     float: right;
     display: inline;
     width: 247px;
   }
-  /* line 2011, sass/_layout-mobile.scss */
+  /* line 2029, sass/_layout-mobile.scss */
   #preview_name {
     float: right;
     display: inline;
@@ -8363,7 +8385,7 @@ form#delfromvosdevis {
     margin-bottom: 6px;
     text-transform: uppercase;
   }
-  /* line 2026, sass/_layout-mobile.scss */
+  /* line 2044, sass/_layout-mobile.scss */
   #preview_info {
     float: right;
     display: inline;
@@ -8373,7 +8395,7 @@ form#delfromvosdevis {
     min-height: 143px;
     background: #f6f6f6;
   }
-  /* line 2035, sass/_layout-mobile.scss */
+  /* line 2053, sass/_layout-mobile.scss */
   #preview_info ul {
     float: left;
     display: inline;
@@ -8381,15 +8403,15 @@ form#delfromvosdevis {
     font-size: 9px;
     padding-left: 12px;
   }
-  /* line 2044, sass/_layout-mobile.scss */
+  /* line 2062, sass/_layout-mobile.scss */
   #preview_info li#iden1 {
     list-style-type: none;
   }
-  /* line 2048, sass/_layout-mobile.scss */
+  /* line 2066, sass/_layout-mobile.scss */
   #preview_info li#iden2 {
     list-style-type: none;
   }
-  /* line 2054, sass/_layout-mobile.scss */
+  /* line 2072, sass/_layout-mobile.scss */
   #preview_info_title {
     float: left;
     display: inline;
@@ -8401,7 +8423,7 @@ form#delfromvosdevis {
     background: #565b62;
     text-transform: uppercase;
   }
-  /* line 2066, sass/_layout-mobile.scss */
+  /* line 2084, sass/_layout-mobile.scss */
   #preview_imag {
     float: left;
     display: inline-block;
@@ -8409,7 +8431,7 @@ form#delfromvosdevis {
     height: 380px;
     margin-left: 0;
   }
-  /* line 2074, sass/_layout-mobile.scss */
+  /* line 2092, sass/_layout-mobile.scss */
   #preview2 {
     position: relative;
     float: right;
@@ -8417,7 +8439,7 @@ form#delfromvosdevis {
     height: 175px;
     display: none;
   }
-  /* line 2082, sass/_layout-mobile.scss */
+  /* line 2100, sass/_layout-mobile.scss */
   #preview_name2 {
     float: right;
     display: inline;
@@ -8431,7 +8453,7 @@ form#delfromvosdevis {
     font-size: 12px;
     margin-bottom: 6px;
   }
-  /* line 2096, sass/_layout-mobile.scss */
+  /* line 2114, sass/_layout-mobile.scss */
   #preview_info2 {
     float: right;
     display: inline;
@@ -8439,7 +8461,7 @@ form#delfromvosdevis {
     height: 143px;
     background: #f6f6f6;
   }
-  /* line 2103, sass/_layout-mobile.scss */
+  /* line 2121, sass/_layout-mobile.scss */
   #preview_info2 ul {
     float: left;
     display: inline;
@@ -8447,7 +8469,7 @@ form#delfromvosdevis {
     font-size: 9px;
     padding-left: 12px;
   }
-  /* line 2112, sass/_layout-mobile.scss */
+  /* line 2130, sass/_layout-mobile.scss */
   #preview_info_title2 {
     float: left;
     display: inline;
@@ -8459,7 +8481,7 @@ form#delfromvosdevis {
     background: #565b62;
     text-transform: uppercase;
   }
-  /* line 2124, sass/_layout-mobile.scss */
+  /* line 2142, sass/_layout-mobile.scss */
   #preview_imag2 {
     float: left;
     display: inline-block;
@@ -8467,14 +8489,14 @@ form#delfromvosdevis {
     height: 142px;
     margin-left: 9px;
   }
-  /* line 2132, sass/_layout-mobile.scss */
+  /* line 2150, sass/_layout-mobile.scss */
   #preview3 {
     float: right;
     width: 247px;
     height: 175px;
     display: none;
   }
-  /* line 2139, sass/_layout-mobile.scss */
+  /* line 2157, sass/_layout-mobile.scss */
   #preview_name3 {
     float: right;
     display: inline;
@@ -8488,7 +8510,7 @@ form#delfromvosdevis {
     font-size: 12px;
     margin-bottom: 6px;
   }
-  /* line 2153, sass/_layout-mobile.scss */
+  /* line 2171, sass/_layout-mobile.scss */
   #preview_info3 {
     float: right;
     display: inline;
@@ -8496,7 +8518,7 @@ form#delfromvosdevis {
     height: 143px;
     background: #f6f6f6;
   }
-  /* line 2160, sass/_layout-mobile.scss */
+  /* line 2178, sass/_layout-mobile.scss */
   #preview_info3 ul {
     float: left;
     display: inline;
@@ -8504,7 +8526,7 @@ form#delfromvosdevis {
     font-size: 9px;
     padding-left: 12px;
   }
-  /* line 2169, sass/_layout-mobile.scss */
+  /* line 2187, sass/_layout-mobile.scss */
   #preview_info_title3 {
     float: left;
     display: inline;
@@ -8516,7 +8538,7 @@ form#delfromvosdevis {
     background: #565b62;
     text-transform: uppercase;
   }
-  /* line 2181, sass/_layout-mobile.scss */
+  /* line 2199, sass/_layout-mobile.scss */
   #preview_imag3 {
     float: left;
     display: inline-block;
@@ -8524,7 +8546,7 @@ form#delfromvosdevis {
     height: 142px;
     margin-left: 9px;
   }
-  /* line 2189, sass/_layout-mobile.scss */
+  /* line 2207, sass/_layout-mobile.scss */
   #preview_imag33 {
     float: left;
     display: inline-block;
@@ -8533,11 +8555,11 @@ form#delfromvosdevis {
     margin-left: 9px;
     text-align: center;
   }
-  /* line 2197, sass/_layout-mobile.scss */
+  /* line 2215, sass/_layout-mobile.scss */
   #preview_imag33 img {
     border: 1px solid #565b62;
   }
-  /* line 2202, sass/_layout-mobile.scss */
+  /* line 2220, sass/_layout-mobile.scss */
   .box_info {
     background-color: #e1e8f2;
     width: auto;
@@ -8546,7 +8568,7 @@ form#delfromvosdevis {
     border: 2px solid #125b17;
     background-color: #bdd6bf;
   }
-  /* line 2211, sass/_layout-mobile.scss */
+  /* line 2229, sass/_layout-mobile.scss */
   .box_warning {
     background-color: #e1e8f2;
     width: auto;
@@ -8556,7 +8578,7 @@ form#delfromvosdevis {
     border: 2px solid #f9b812;
     background-color: #fde799;
   }
-  /* line 2221, sass/_layout-mobile.scss */
+  /* line 2239, sass/_layout-mobile.scss */
   #wycena {
     position: relative;
     float: left;
@@ -8565,7 +8587,7 @@ form#delfromvosdevis {
     margin-bottom: 40px;
     width: 458px;
   }
-  /* line 2230, sass/_layout-mobile.scss */
+  /* line 2248, sass/_layout-mobile.scss */
   #wycena_nag {
     float: left;
     display: inline;
@@ -8576,7 +8598,7 @@ form#delfromvosdevis {
     color: #008ebb;
     font-size: 10px;
   }
-  /* line 2241, sass/_layout-mobile.scss */
+  /* line 2259, sass/_layout-mobile.scss */
   #wycena_suma {
     float: left;
     display: inline;
@@ -8585,7 +8607,7 @@ form#delfromvosdevis {
     padding: 4px 57px 6px 27px;
     font-size: 10px;
   }
-  /* line 2250, sass/_layout-mobile.scss */
+  /* line 2268, sass/_layout-mobile.scss */
   #dodaj_koszyk {
     float: left;
     display: inline;
@@ -8595,7 +8617,7 @@ form#delfromvosdevis {
     margin-top: 24px;
     background: #e1e8f2;
   }
-  /* line 2260, sass/_layout-mobile.scss */
+  /* line 2278, sass/_layout-mobile.scss */
   #submit_cart {
     width: 85px;
     height: 19px;
@@ -8608,12 +8630,12 @@ form#delfromvosdevis {
     display: inline;
     margin-top: 13px;
   }
-  /* line 2273, sass/_layout-mobile.scss */
+  /* line 2291, sass/_layout-mobile.scss */
   #comments {
     width: auto;
     position: relative;
   }
-  /* line 2278, sass/_layout-mobile.scss */
+  /* line 2296, sass/_layout-mobile.scss */
   #comment_left {
     position: relative;
     width: 315px;
@@ -8622,7 +8644,7 @@ form#delfromvosdevis {
     float: left;
     display: inline;
   }
-  /* line 2286, sass/_layout-mobile.scss */
+  /* line 2304, sass/_layout-mobile.scss */
   #comment_left select {
     float: right;
     display: inline;
@@ -8633,7 +8655,7 @@ form#delfromvosdevis {
     font-size: 9px;
     background: #fff;
   }
-  /* line 2297, sass/_layout-mobile.scss */
+  /* line 2315, sass/_layout-mobile.scss */
   #comment_left textarea {
     float: left;
     display: inline;
@@ -8646,14 +8668,14 @@ form#delfromvosdevis {
     font-family: "Trebuchet MS", "Arial", "sans-serif";
     font-size: 11px;
   }
-  /* line 2311, sass/_layout-mobile.scss */
+  /* line 2329, sass/_layout-mobile.scss */
   .com_list {
     position: relative;
     float: right;
     display: block;
     width: 351px;
   }
-  /* line 2318, sass/_layout-mobile.scss */
+  /* line 2336, sass/_layout-mobile.scss */
   .comment_right {
     position: relative;
     float: right;
@@ -8663,7 +8685,7 @@ form#delfromvosdevis {
     background: #f1f1f1;
     border-bottom: 5px solid #fff;
   }
-  /* line 2328, sass/_layout-mobile.scss */
+  /* line 2346, sass/_layout-mobile.scss */
   .comment_right2 {
     position: relative;
     float: right;
@@ -8673,7 +8695,7 @@ form#delfromvosdevis {
     background: #e1e8f2;
     border-bottom: 5px solid #fff;
   }
-  /* line 2338, sass/_layout-mobile.scss */
+  /* line 2356, sass/_layout-mobile.scss */
   .but_envoyer {
     width: 82px;
     height: 19px;
@@ -8685,17 +8707,17 @@ form#delfromvosdevis {
     cursor: pointer;
     float: right;
   }
-  /* line 2350, sass/_layout-mobile.scss */
+  /* line 2368, sass/_layout-mobile.scss */
   #paiements {
     width: auto;
     position: relative;
   }
-  /* line 2355, sass/_layout-mobile.scss */
+  /* line 2373, sass/_layout-mobile.scss */
   #valid_bat {
     width: auto;
     position: relative;
   }
-  /* line 2360, sass/_layout-mobile.scss */
+  /* line 2378, sass/_layout-mobile.scss */
   #paiements_left,
   #valid_bat_left {
     position: absolute;
@@ -8705,7 +8727,7 @@ form#delfromvosdevis {
     float: left;
     display: inline;
   }
-  /* line 2370, sass/_layout-mobile.scss */
+  /* line 2388, sass/_layout-mobile.scss */
   #paiements_left_tit,
   #valid_bat_left_tit {
     position: relative;
@@ -8721,7 +8743,7 @@ form#delfromvosdevis {
     display: inline;
     margin: 0 0 5px 0;
   }
-  /* line 2386, sass/_layout-mobile.scss */
+  /* line 2404, sass/_layout-mobile.scss */
   #paiements_left_con,
   #valid_bat_left_con {
     position: relative;
@@ -8732,7 +8754,7 @@ form#delfromvosdevis {
     float: left;
     display: inline;
   }
-  /* line 2397, sass/_layout-mobile.scss */
+  /* line 2415, sass/_layout-mobile.scss */
   #paiements_right {
     margin-left: 315px;
     width: 315px;
@@ -8740,7 +8762,7 @@ form#delfromvosdevis {
     display: inline;
     visibility: hidden;
   }
-  /* line 2405, sass/_layout-mobile.scss */
+  /* line 2423, sass/_layout-mobile.scss */
   #paiements_right_tit {
     position: relative;
     width: 333px;
@@ -8755,7 +8777,7 @@ form#delfromvosdevis {
     display: inline;
     margin: 0 0 5px;
   }
-  /* line 2420, sass/_layout-mobile.scss */
+  /* line 2438, sass/_layout-mobile.scss */
   .paiements_right_con {
     width: 315px;
     height: 120px;
@@ -8765,7 +8787,7 @@ form#delfromvosdevis {
     display: inline;
     border-bottom: 5px solid #fff;
   }
-  /* line 2430, sass/_layout-mobile.scss */
+  /* line 2448, sass/_layout-mobile.scss */
   .paiements_right_con_diff {
     width: 315px;
     height: 162px;
@@ -8775,7 +8797,7 @@ form#delfromvosdevis {
     display: inline;
     border-bottom: 5px solid #fff;
   }
-  /* line 2441, sass/_layout-mobile.scss */
+  /* line 2459, sass/_layout-mobile.scss */
   .paiements_right_con2 {
     position: relative;
     width: 315px;
@@ -8787,7 +8809,7 @@ form#delfromvosdevis {
     border-bottom: 5px solid #fff;
     text-align: center;
   }
-  /* line 2453, sass/_layout-mobile.scss */
+  /* line 2471, sass/_layout-mobile.scss */
   #suivant_reg {
     position: absolute;
     left: 45px;
@@ -8801,7 +8823,7 @@ form#delfromvosdevis {
     display: inline-block;
     cursor: pointer;
   }
-  /* line 2467, sass/_layout-mobile.scss */
+  /* line 2485, sass/_layout-mobile.scss */
   #but_suivant {
     position: absolute;
     top: 15px;
@@ -8814,7 +8836,7 @@ form#delfromvosdevis {
     border: none;
     cursor: pointer;
   }
-  /* line 2480, sass/_layout-mobile.scss */
+  /* line 2498, sass/_layout-mobile.scss */
   .cheque_tab_name {
     width: 237px;
     padding: 1px 0 0 18px;
@@ -8828,7 +8850,7 @@ form#delfromvosdevis {
     margin: 0 5px 5px 0;
     text-transform: uppercase;
   }
-  /* line 2494, sass/_layout-mobile.scss */
+  /* line 2512, sass/_layout-mobile.scss */
   .paydiff_tab_name {
     width: 237px;
     padding: 1px 0 0 18px;
@@ -8842,7 +8864,7 @@ form#delfromvosdevis {
     margin: 0 5px 5px 0;
     text-transform: uppercase;
   }
-  /* line 2508, sass/_layout-mobile.scss */
+  /* line 2526, sass/_layout-mobile.scss */
   .cheque_tab_con {
     position: relative;
     float: left;
@@ -8852,7 +8874,7 @@ form#delfromvosdevis {
     background: #e1e8f2;
     color: #464b4c;
   }
-  /* line 2518, sass/_layout-mobile.scss */
+  /* line 2536, sass/_layout-mobile.scss */
   .paydiff_tab_con {
     position: relative;
     float: left;
@@ -8862,7 +8884,7 @@ form#delfromvosdevis {
     background: #fbcfd0;
     color: #464b4c;
   }
-  /* line 2528, sass/_layout-mobile.scss */
+  /* line 2546, sass/_layout-mobile.scss */
   .cheque {
     width: auto;
     margin: 35px auto 0;
@@ -8872,30 +8894,30 @@ form#delfromvosdevis {
     text-align: center;
     color: #555a61;
   }
-  /* line 2538, sass/_layout-mobile.scss */
+  /* line 2556, sass/_layout-mobile.scss */
   .cheque_tab {
     margin-left: 15px;
     width: 675px;
   }
-  /* line 2542, sass/_layout-mobile.scss */
+  /* line 2560, sass/_layout-mobile.scss */
   .cheque_tab th {
     width: 331px;
     border-bottom: 1px solid #555a61;
     text-align: left;
     font-size: 9px;
   }
-  /* line 2549, sass/_layout-mobile.scss */
+  /* line 2567, sass/_layout-mobile.scss */
   .cheque_tab td {
     text-align: left;
     padding: 10px 0 20px;
     vertical-align: top;
   }
-  /* line 2556, sass/_layout-mobile.scss */
+  /* line 2574, sass/_layout-mobile.scss */
   .cheque_tab2 {
     margin-left: 15px;
     width: 675px;
   }
-  /* line 2560, sass/_layout-mobile.scss */
+  /* line 2578, sass/_layout-mobile.scss */
   .cheque_tab2 th {
     border-bottom: 1px solid #555a61;
     border-top: 1px solid #555a61;
@@ -8904,33 +8926,33 @@ form#delfromvosdevis {
     text-transform: uppercase;
     padding-top: 1px;
   }
-  /* line 2568, sass/_layout-mobile.scss */
+  /* line 2586, sass/_layout-mobile.scss */
   .cheque_tab2 th.leftth {
     text-align: left;
   }
-  /* line 2573, sass/_layout-mobile.scss */
+  /* line 2591, sass/_layout-mobile.scss */
   .cheque_tab2 td {
     text-align: center;
     padding: 10px 0 15px;
     border-bottom: 1px solid #555a61;
     vertical-align: top;
   }
-  /* line 2579, sass/_layout-mobile.scss */
+  /* line 2597, sass/_layout-mobile.scss */
   .cheque_tab2 td.lefttd {
     text-align: left;
   }
-  /* line 2585, sass/_layout-mobile.scss */
+  /* line 2603, sass/_layout-mobile.scss */
   .cheque_tab2 span.name {
     font-size: 12px;
     text-transform: uppercase;
     font-weight: bold;
   }
-  /* line 2591, sass/_layout-mobile.scss */
+  /* line 2609, sass/_layout-mobile.scss */
   .cheque_tab2 span.therest {
     font-size: 9px;
     line-height: 13px;
   }
-  /* line 2598, sass/_layout-mobile.scss */
+  /* line 2616, sass/_layout-mobile.scss */
   .cheque_tab3 {
     float: right;
     display: inline;
@@ -8938,7 +8960,7 @@ form#delfromvosdevis {
     margin-right: 16px;
     margin-top: 5px;
   }
-  /* line 2605, sass/_layout-mobile.scss */
+  /* line 2623, sass/_layout-mobile.scss */
   .cheque_tab3 td {
     width: 50%;
     text-align: right;
@@ -8946,13 +8968,13 @@ form#delfromvosdevis {
     border-bottom: 1px solid #555a61;
     padding: 2px 1px 2px 0;
   }
-  /* line 2612, sass/_layout-mobile.scss */
+  /* line 2630, sass/_layout-mobile.scss */
   .cheque_tab3 td.left {
     text-align: left;
     font-size: 10px;
     border-bottom: 1px solid #555a61;
   }
-  /* line 2618, sass/_layout-mobile.scss */
+  /* line 2636, sass/_layout-mobile.scss */
   .cheque_tab3 td.lefttotal {
     text-align: left;
     font-size: 12px;
@@ -8960,7 +8982,7 @@ form#delfromvosdevis {
     border-bottom: 1px solid #555a61;
     font-weight: bold;
   }
-  /* line 2626, sass/_layout-mobile.scss */
+  /* line 2644, sass/_layout-mobile.scss */
   .cheque_tab3 td.righttotal {
     text-align: right;
     font-size: 12px;
@@ -8968,7 +8990,7 @@ form#delfromvosdevis {
     border-bottom: 1px solid #555a61;
     font-weight: bold;
   }
-  /* line 2636, sass/_layout-mobile.scss */
+  /* line 2654, sass/_layout-mobile.scss */
   .acces_tab_name_devis {
     width: 688px;
     padding: 1px 0 0 18px;
@@ -8981,13 +9003,13 @@ form#delfromvosdevis {
     display: inline;
     margin: 10px 0;
   }
-  /* line 2648, sass/_layout-mobile.scss */
+  /* line 2666, sass/_layout-mobile.scss */
   .acces_tab_name_devis span {
     float: right;
     width: 200px;
     text-align: right;
   }
-  /* line 2653, sass/_layout-mobile.scss */
+  /* line 2671, sass/_layout-mobile.scss */
   .acces_tab_name_devis span span {
     float: right;
     width: 121px;
@@ -8996,7 +9018,7 @@ form#delfromvosdevis {
     height: 16px;
     line-height: 16px;
   }
-  /* line 2664, sass/_layout-mobile.scss */
+  /* line 2682, sass/_layout-mobile.scss */
   #fbcart_buttons {
     position: relative;
     float: right;
@@ -9008,7 +9030,7 @@ form#delfromvosdevis {
     text-align: center;
     line-height: 19px;
   }
-  /* line 2676, sass/_layout-mobile.scss */
+  /* line 2694, sass/_layout-mobile.scss */
   #fbcart_buttons3 {
     position: relative;
     float: right;
@@ -9021,7 +9043,7 @@ form#delfromvosdevis {
     text-align: center;
     line-height: 19px;
   }
-  /* line 2689, sass/_layout-mobile.scss */
+  /* line 2707, sass/_layout-mobile.scss */
   #fbcart_buttons2 {
     position: relative;
     float: right;
@@ -9033,7 +9055,7 @@ form#delfromvosdevis {
     text-align: center;
     line-height: 19px;
   }
-  /* line 2701, sass/_layout-mobile.scss */
+  /* line 2719, sass/_layout-mobile.scss */
   #but_continuer {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9045,7 +9067,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2713, sass/_layout-mobile.scss */
+  /* line 2731, sass/_layout-mobile.scss */
   #but_conf_pay {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9058,7 +9080,7 @@ form#delfromvosdevis {
     float: left;
     cursor: pointer;
   }
-  /* line 2726, sass/_layout-mobile.scss */
+  /* line 2744, sass/_layout-mobile.scss */
   #but_imprimer {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9070,7 +9092,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2738, sass/_layout-mobile.scss */
+  /* line 2756, sass/_layout-mobile.scss */
   #but_imprimer_form {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9082,7 +9104,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2750, sass/_layout-mobile.scss */
+  /* line 2768, sass/_layout-mobile.scss */
   #but_imprimer_rib {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9094,7 +9116,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2762, sass/_layout-mobile.scss */
+  /* line 2780, sass/_layout-mobile.scss */
   #but_bat {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9106,7 +9128,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2774, sass/_layout-mobile.scss */
+  /* line 2792, sass/_layout-mobile.scss */
   #but_voir_bat {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9118,7 +9140,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2786, sass/_layout-mobile.scss */
+  /* line 2804, sass/_layout-mobile.scss */
   #but_rating {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9130,7 +9152,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2798, sass/_layout-mobile.scss */
+  /* line 2816, sass/_layout-mobile.scss */
   #but_retour {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9142,7 +9164,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2810, sass/_layout-mobile.scss */
+  /* line 2828, sass/_layout-mobile.scss */
   #but_retour2 {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9154,7 +9176,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2822, sass/_layout-mobile.scss */
+  /* line 2840, sass/_layout-mobile.scss */
   #but_supprimer {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9166,7 +9188,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2834, sass/_layout-mobile.scss */
+  /* line 2852, sass/_layout-mobile.scss */
   #but_ajouter {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9178,7 +9200,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2846, sass/_layout-mobile.scss */
+  /* line 2864, sass/_layout-mobile.scss */
   #but_annuler {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9190,7 +9212,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2858, sass/_layout-mobile.scss */
+  /* line 2876, sass/_layout-mobile.scss */
   #but_modifier {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9202,7 +9224,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 2870, sass/_layout-mobile.scss */
+  /* line 2888, sass/_layout-mobile.scss */
   #validerdevis {
     width: 144px;
     height: 19px;
@@ -9210,7 +9232,7 @@ form#delfromvosdevis {
     display: inline;
     margin: 0;
   }
-  /* line 2878, sass/_layout-mobile.scss */
+  /* line 2896, sass/_layout-mobile.scss */
   #but_validerdevis {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -9222,7 +9244,7 @@ form#delfromvosdevis {
     display: block;
     cursor: pointer;
   }
-  /* line 2890, sass/_layout-mobile.scss */
+  /* line 2908, sass/_layout-mobile.scss */
   #contact_advert {
     position: relative;
     float: right;
@@ -9232,7 +9254,7 @@ form#delfromvosdevis {
     width: auto;
     text-align: right;
   }
-  /* line 2900, sass/_layout-mobile.scss */
+  /* line 2918, sass/_layout-mobile.scss */
   #addresses {
     position: relative;
     float: left;
@@ -9240,7 +9262,7 @@ form#delfromvosdevis {
     width: auto;
     margin-top: 5px;
   }
-  /* line 2908, sass/_layout-mobile.scss */
+  /* line 2926, sass/_layout-mobile.scss */
   .address_tab_name {
     width: 217px;
     padding: 1px 0 0 18px;
@@ -9253,7 +9275,7 @@ form#delfromvosdevis {
     display: inline;
     margin: 10px 5px 5px 0;
   }
-  /* line 2921, sass/_layout-mobile.scss */
+  /* line 2939, sass/_layout-mobile.scss */
   .address_tab_content {
     width: 217px;
     padding: 10px 0 0 18px;
@@ -9265,14 +9287,14 @@ form#delfromvosdevis {
     display: inline;
     margin-right: 5px;
   }
-  /* line 2933, sass/_layout-mobile.scss */
+  /* line 2951, sass/_layout-mobile.scss */
   #fbcart_votre {
     position: relative;
     float: left;
     display: inline;
     width: auto;
   }
-  /* line 2939, sass/_layout-mobile.scss */
+  /* line 2957, sass/_layout-mobile.scss */
   #fbcart_votre th {
     background: #e1e8f2;
     text-align: center;
@@ -9284,17 +9306,17 @@ form#delfromvosdevis {
     width: 88px;
     line-height: 12px;
   }
-  /* line 2950, sass/_layout-mobile.scss */
+  /* line 2968, sass/_layout-mobile.scss */
   #fbcart_votre th.leftth {
     width: 130px;
     padding: 6px 0 4px 20px;
     text-align: left;
   }
-  /* line 2956, sass/_layout-mobile.scss */
+  /* line 2974, sass/_layout-mobile.scss */
   #fbcart_votre th.tddesc {
     width: 250px;
   }
-  /* line 2961, sass/_layout-mobile.scss */
+  /* line 2979, sass/_layout-mobile.scss */
   #fbcart_votre td {
     background: #e1e8f2 url("../images/bord2.png") top left no-repeat;
     line-height: 17px;
@@ -9303,12 +9325,12 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 2969, sass/_layout-mobile.scss */
+  /* line 2987, sass/_layout-mobile.scss */
   #fbcart_votre td.tddesc {
     text-align: left;
     padding-left: 10px;
   }
-  /* line 2974, sass/_layout-mobile.scss */
+  /* line 2992, sass/_layout-mobile.scss */
   #fbcart_votre td.lefttd {
     background: #e1e8f2;
     text-align: left;
@@ -9316,18 +9338,18 @@ form#delfromvosdevis {
     line-height: 13px;
     text-transform: uppercase;
   }
-  /* line 2983, sass/_layout-mobile.scss */
+  /* line 3001, sass/_layout-mobile.scss */
   #fbcart_votre .kontener {
     position: relative;
     width: auto;
     height: 100%;
   }
-  /* line 2990, sass/_layout-mobile.scss */
+  /* line 3008, sass/_layout-mobile.scss */
   .virement_payement {
     position: relative;
     width: auto;
   }
-  /* line 2994, sass/_layout-mobile.scss */
+  /* line 3012, sass/_layout-mobile.scss */
   .virement_payement td {
     vertical-align: top;
     padding: 12px;
@@ -9335,11 +9357,11 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: center;
   }
-  /* line 3001, sass/_layout-mobile.scss */
+  /* line 3019, sass/_layout-mobile.scss */
   .virement_payement td.lefttd {
     background: #e1e8f2;
   }
-  /* line 3007, sass/_layout-mobile.scss */
+  /* line 3025, sass/_layout-mobile.scss */
   #promotions_table {
     position: relative;
     float: left;
@@ -9348,7 +9370,7 @@ form#delfromvosdevis {
     margin-top: 5px;
     margin-bottom: 20px;
   }
-  /* line 3015, sass/_layout-mobile.scss */
+  /* line 3033, sass/_layout-mobile.scss */
   #promotions_table td {
     vertical-align: top;
     width: 65px;
@@ -9357,7 +9379,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: center;
   }
-  /* line 3023, sass/_layout-mobile.scss */
+  /* line 3041, sass/_layout-mobile.scss */
   #promotions_table td.lefttd {
     vertical-align: top;
     width: 140px;
@@ -9366,7 +9388,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3032, sass/_layout-mobile.scss */
+  /* line 3050, sass/_layout-mobile.scss */
   #promotions_table td.lefttdmma {
     vertical-align: top;
     width: 140px;
@@ -9375,7 +9397,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3041, sass/_layout-mobile.scss */
+  /* line 3059, sass/_layout-mobile.scss */
   #promotions_table td.imgtd {
     vertical-align: top;
     width: 171px;
@@ -9384,7 +9406,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: center;
   }
-  /* line 3050, sass/_layout-mobile.scss */
+  /* line 3068, sass/_layout-mobile.scss */
   #promotions_table td.imgtdmma {
     vertical-align: top;
     width: 171px;
@@ -9393,7 +9415,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: center;
   }
-  /* line 3059, sass/_layout-mobile.scss */
+  /* line 3077, sass/_layout-mobile.scss */
   #promotions_table td.imgburaliste {
     vertical-align: top;
     width: 360px;
@@ -9402,7 +9424,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: center;
   }
-  /* line 3068, sass/_layout-mobile.scss */
+  /* line 3086, sass/_layout-mobile.scss */
   #promotions_table td.lefttd2 {
     vertical-align: top;
     width: 287px;
@@ -9411,7 +9433,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3077, sass/_layout-mobile.scss */
+  /* line 3095, sass/_layout-mobile.scss */
   #promotions_table td.imgtd2 {
     vertical-align: top;
     width: 171px;
@@ -9420,7 +9442,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: center;
   }
-  /* line 3086, sass/_layout-mobile.scss */
+  /* line 3104, sass/_layout-mobile.scss */
   #promotions_table td.optionstd {
     position: relative;
     float: left;
@@ -9432,12 +9454,12 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3097, sass/_layout-mobile.scss */
+  /* line 3115, sass/_layout-mobile.scss */
   #promotions_table td.optionstd span {
     font-size: 10px;
     color: #000;
   }
-  /* line 3103, sass/_layout-mobile.scss */
+  /* line 3121, sass/_layout-mobile.scss */
   #promotions_table td.righttd {
     position: relative;
     float: right;
@@ -9450,7 +9472,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3115, sass/_layout-mobile.scss */
+  /* line 3133, sass/_layout-mobile.scss */
   #promotions_table td.righttd .prom_sub {
     position: absolute;
     right: 18px;
@@ -9463,7 +9485,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 3128, sass/_layout-mobile.scss */
+  /* line 3146, sass/_layout-mobile.scss */
   #promotions_table td.righttd input.inp_ilosc {
     width: 20px;
     height: 13px;
@@ -9471,7 +9493,7 @@ form#delfromvosdevis {
     border: 1px solid #afb9c7;
     margin-left: 10px;
   }
-  /* line 3137, sass/_layout-mobile.scss */
+  /* line 3155, sass/_layout-mobile.scss */
   #promotions_table td.rightburaliste {
     position: relative;
     vertical-align: top;
@@ -9481,7 +9503,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3146, sass/_layout-mobile.scss */
+  /* line 3164, sass/_layout-mobile.scss */
   #promotions_table td.rightburaliste .prom_sub {
     position: absolute;
     right: 18px;
@@ -9494,7 +9516,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 3159, sass/_layout-mobile.scss */
+  /* line 3177, sass/_layout-mobile.scss */
   #promotions_table td.rightburaliste .prom_sub2 {
     position: absolute;
     right: 18px;
@@ -9507,7 +9529,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 3172, sass/_layout-mobile.scss */
+  /* line 3190, sass/_layout-mobile.scss */
   #promotions_table td.rightburaliste .prom_sub3 {
     position: absolute;
     right: 18px;
@@ -9520,7 +9542,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 3185, sass/_layout-mobile.scss */
+  /* line 3203, sass/_layout-mobile.scss */
   #promotions_table td.rightburaliste input.inp_ilosc {
     width: 20px;
     height: 13px;
@@ -9528,7 +9550,7 @@ form#delfromvosdevis {
     border: 1px solid #afb9c7;
     margin-left: 10px;
   }
-  /* line 3194, sass/_layout-mobile.scss */
+  /* line 3212, sass/_layout-mobile.scss */
   #promotions_table td.righttd2 {
     position: relative;
     float: right;
@@ -9541,7 +9563,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3206, sass/_layout-mobile.scss */
+  /* line 3224, sass/_layout-mobile.scss */
   #promotions_table td.righttd2 .prom_sub2 {
     position: absolute;
     right: 18px;
@@ -9554,7 +9576,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 3219, sass/_layout-mobile.scss */
+  /* line 3237, sass/_layout-mobile.scss */
   #promotions_table td.righttd2 input.inp_ilosc {
     width: 20px;
     height: 13px;
@@ -9562,7 +9584,7 @@ form#delfromvosdevis {
     border: 1px solid #afb9c7;
     margin-left: 10px;
   }
-  /* line 3229, sass/_layout-mobile.scss */
+  /* line 3247, sass/_layout-mobile.scss */
   #promotions_table .prom_price {
     color: #fff;
     background: #cc4068;
@@ -9572,7 +9594,7 @@ form#delfromvosdevis {
     display: block;
     margin: 15px 0 0 8px;
   }
-  /* line 3239, sass/_layout-mobile.scss */
+  /* line 3257, sass/_layout-mobile.scss */
   #promotions_table .prom_price2 {
     color: #fff;
     background: #cc4068;
@@ -9582,18 +9604,18 @@ form#delfromvosdevis {
     display: block;
     margin: 15px 0 0 8px;
   }
-  /* line 3249, sass/_layout-mobile.scss */
+  /* line 3267, sass/_layout-mobile.scss */
   #promotions_table .prom_title {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     padding-bottom: 3px;
   }
-  /* line 3256, sass/_layout-mobile.scss */
+  /* line 3274, sass/_layout-mobile.scss */
   #promotions_table .prom_therest {
     font-size: 10px;
   }
-  /* line 3261, sass/_layout-mobile.scss */
+  /* line 3279, sass/_layout-mobile.scss */
   #promotions_table .prom_form .prom_box {
     position: absolute;
     left: 0;
@@ -9602,7 +9624,7 @@ form#delfromvosdevis {
     height: 12px;
     font-weight: bold;
   }
-  /* line 3270, sass/_layout-mobile.scss */
+  /* line 3288, sass/_layout-mobile.scss */
   #promotions_table .prom_form .prom_box_box {
     width: 12px;
     height: 12px;
@@ -9611,7 +9633,7 @@ form#delfromvosdevis {
     right: 0;
     bottom: -3px;
   }
-  /* line 3280, sass/_layout-mobile.scss */
+  /* line 3298, sass/_layout-mobile.scss */
   #promotions_table .pilosc {
     position: absolute;
     top: 86px;
@@ -9619,7 +9641,7 @@ form#delfromvosdevis {
     width: 100px;
     height: 20px;
   }
-  /* line 3288, sass/_layout-mobile.scss */
+  /* line 3306, sass/_layout-mobile.scss */
   #promotions_table .pilosc2 {
     position: absolute;
     top: 50px;
@@ -9627,7 +9649,7 @@ form#delfromvosdevis {
     width: 100px;
     height: 20px;
   }
-  /* line 3296, sass/_layout-mobile.scss */
+  /* line 3314, sass/_layout-mobile.scss */
   #promotions_table .piloscmma {
     position: relative;
     top: 5px;
@@ -9635,7 +9657,7 @@ form#delfromvosdevis {
     width: 100px;
     height: 20px;
   }
-  /* line 3305, sass/_layout-mobile.scss */
+  /* line 3323, sass/_layout-mobile.scss */
   #promotions_tablemma {
     position: relative;
     float: left;
@@ -9644,7 +9666,7 @@ form#delfromvosdevis {
     margin-top: 5px;
     margin-bottom: 20px;
   }
-  /* line 3313, sass/_layout-mobile.scss */
+  /* line 3331, sass/_layout-mobile.scss */
   #promotions_tablemma td {
     vertical-align: top;
     width: 65px;
@@ -9652,7 +9674,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: center;
   }
-  /* line 3320, sass/_layout-mobile.scss */
+  /* line 3338, sass/_layout-mobile.scss */
   #promotions_tablemma td.lefttdmma {
     vertical-align: top;
     width: 155px;
@@ -9660,7 +9682,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3328, sass/_layout-mobile.scss */
+  /* line 3346, sass/_layout-mobile.scss */
   #promotions_tablemma td.righttdmma {
     position: relative;
     vertical-align: top;
@@ -9671,7 +9693,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: left;
   }
-  /* line 3338, sass/_layout-mobile.scss */
+  /* line 3356, sass/_layout-mobile.scss */
   #promotions_tablemma td.righttdmma .prom_submma {
     position: relative;
     top: 15px;
@@ -9684,7 +9706,7 @@ form#delfromvosdevis {
     border: none;
     margin: 5px;
   }
-  /* line 3351, sass/_layout-mobile.scss */
+  /* line 3369, sass/_layout-mobile.scss */
   #promotions_tablemma td.righttdmma .prom_submma2 {
     position: absolute;
     top: 160px;
@@ -9697,7 +9719,7 @@ form#delfromvosdevis {
     border: none;
     margin: 5px;
   }
-  /* line 3364, sass/_layout-mobile.scss */
+  /* line 3382, sass/_layout-mobile.scss */
   #promotions_tablemma td.righttdmma input.inp_ilosc {
     width: 20px;
     height: 13px;
@@ -9705,7 +9727,7 @@ form#delfromvosdevis {
     border: 1px solid #afb9c7;
     margin-left: 10px;
   }
-  /* line 3374, sass/_layout-mobile.scss */
+  /* line 3392, sass/_layout-mobile.scss */
   #promotions_tablemma td2 {
     vertical-align: top;
     width: 65px;
@@ -9714,7 +9736,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     text-align: center;
   }
-  /* line 3383, sass/_layout-mobile.scss */
+  /* line 3401, sass/_layout-mobile.scss */
   #promotions_tablemma .prom_pricemma {
     color: #fff;
     background: #cc4068;
@@ -9724,7 +9746,7 @@ form#delfromvosdevis {
     display: block;
     margin: 5px 0 0;
   }
-  /* line 3393, sass/_layout-mobile.scss */
+  /* line 3411, sass/_layout-mobile.scss */
   #promotions_tablemma .piloscmma {
     position: relative;
     top: 5px;
@@ -9732,14 +9754,14 @@ form#delfromvosdevis {
     width: 100px;
     height: 20px;
   }
-  /* line 3401, sass/_layout-mobile.scss */
+  /* line 3419, sass/_layout-mobile.scss */
   #promotions_tablemma div.imgtdmma {
     vertical-align: top;
     padding: 12px 6px;
     background: url("../images/bord5.png") top left no-repeat;
     text-align: center;
   }
-  /* line 3409, sass/_layout-mobile.scss */
+  /* line 3427, sass/_layout-mobile.scss */
   .plvmakcon {
     position: absolute;
     left: 32px;
@@ -9747,7 +9769,7 @@ form#delfromvosdevis {
     width: 150px;
     height: 90px;
   }
-  /* line 3417, sass/_layout-mobile.scss */
+  /* line 3435, sass/_layout-mobile.scss */
   .plvmak,
   .plvmak1 {
     position: relative;
@@ -9757,7 +9779,7 @@ form#delfromvosdevis {
     line-height: 15px;
     margin: 0;
   }
-  /* line 3426, sass/_layout-mobile.scss */
+  /* line 3444, sass/_layout-mobile.scss */
   .plvmak input,
   .plvmak1 input {
     position: absolute;
@@ -9765,7 +9787,7 @@ form#delfromvosdevis {
     left: -20px;
     margin: 3px 3px 0 0;
   }
-  /* line 3434, sass/_layout-mobile.scss */
+  /* line 3452, sass/_layout-mobile.scss */
   .plvoptions {
     position: absolute;
     left: 12px;
@@ -9774,11 +9796,11 @@ form#delfromvosdevis {
     height: 90px;
     font-size: 10px;
   }
-  /* line 3442, sass/_layout-mobile.scss */
+  /* line 3460, sass/_layout-mobile.scss */
   .plvoptions input {
     margin-right: 3px;
   }
-  /* line 3446, sass/_layout-mobile.scss */
+  /* line 3464, sass/_layout-mobile.scss */
   .plvoptions .helpButton {
     position: relative;
     float: right;
@@ -9789,7 +9811,7 @@ form#delfromvosdevis {
     text-decoration: none;
     display: block;
   }
-  /* line 3457, sass/_layout-mobile.scss */
+  /* line 3475, sass/_layout-mobile.scss */
   .plvoptions a.options_pytajnik {
     position: relative;
     float: right;
@@ -9800,7 +9822,7 @@ form#delfromvosdevis {
     text-decoration: none;
     display: block;
   }
-  /* line 3469, sass/_layout-mobile.scss */
+  /* line 3487, sass/_layout-mobile.scss */
   .plvoptionsingle {
     position: relative;
     width: 150px;
@@ -9808,7 +9830,7 @@ form#delfromvosdevis {
     line-height: 20px;
     display: block;
   }
-  /* line 3477, sass/_layout-mobile.scss */
+  /* line 3495, sass/_layout-mobile.scss */
   #votre {
     position: relative;
     float: left;
@@ -9816,7 +9838,7 @@ form#delfromvosdevis {
     width: 237px;
     margin-top: 5px;
   }
-  /* line 3485, sass/_layout-mobile.scss */
+  /* line 3503, sass/_layout-mobile.scss */
   #votre2 {
     position: relative;
     float: left;
@@ -9824,7 +9846,7 @@ form#delfromvosdevis {
     width: 237px;
     margin-top: 18px;
   }
-  /* line 3493, sass/_layout-mobile.scss */
+  /* line 3511, sass/_layout-mobile.scss */
   .votre_detail_text {
     float: right;
     display: inline;
@@ -9837,7 +9859,7 @@ form#delfromvosdevis {
     color: #fc2666;
     background: url("../images/arr_down_det.gif") bottom left no-repeat;
   }
-  /* line 3506, sass/_layout-mobile.scss */
+  /* line 3524, sass/_layout-mobile.scss */
   .votre_tab_name {
     width: 237px;
     padding: 1px 0 0 18px;
@@ -9850,7 +9872,7 @@ form#delfromvosdevis {
     display: inline;
     margin: 10px 5px 5px 0;
   }
-  /* line 3519, sass/_layout-mobile.scss */
+  /* line 3537, sass/_layout-mobile.scss */
   .votre_tab_name2 {
     width: 237px;
     padding: 1px 0 0 18px;
@@ -9863,7 +9885,7 @@ form#delfromvosdevis {
     display: inline;
     margin: 25px 5px 5px 0;
   }
-  /* line 3532, sass/_layout-mobile.scss */
+  /* line 3550, sass/_layout-mobile.scss */
   .votre_tab_name3 {
     width: 331px;
     padding: 1px 0 0 18px;
@@ -9876,7 +9898,7 @@ form#delfromvosdevis {
     display: inline;
     margin: 30px 5px 10px 0;
   }
-  /* line 3545, sass/_layout-mobile.scss */
+  /* line 3563, sass/_layout-mobile.scss */
   .votre_tab_active {
     width: 237px;
     padding: 1px 0 0 18px;
@@ -9890,11 +9912,11 @@ form#delfromvosdevis {
     text-decoration: none;
     color: #e1e8f2;
   }
-  /* line 3558, sass/_layout-mobile.scss */
+  /* line 3576, sass/_layout-mobile.scss */
   .votre_tab_active:hover {
     cursor: pointer;
   }
-  /* line 3563, sass/_layout-mobile.scss */
+  /* line 3581, sass/_layout-mobile.scss */
   .votre_tab_inactive {
     width: 237px;
     padding: 1px 0 0 18px;
@@ -9908,47 +9930,47 @@ form#delfromvosdevis {
     text-decoration: none;
     color: #008ebb;
   }
-  /* line 3576, sass/_layout-mobile.scss */
+  /* line 3594, sass/_layout-mobile.scss */
   .votre_tab_inactive:hover {
     cursor: pointer;
   }
-  /* line 3581, sass/_layout-mobile.scss */
+  /* line 3599, sass/_layout-mobile.scss */
   .votre_pagi {
     width: auto;
     text-align: center;
     float: left;
   }
-  /* line 3587, sass/_layout-mobile.scss */
+  /* line 3605, sass/_layout-mobile.scss */
   .href_other {
     text-decoration: none;
     font-weight: normal;
   }
-  /* line 3591, sass/_layout-mobile.scss */
+  /* line 3609, sass/_layout-mobile.scss */
   .href_other:link {
     text-decoration: none;
     font-weight: normal;
   }
-  /* line 3596, sass/_layout-mobile.scss */
+  /* line 3614, sass/_layout-mobile.scss */
   .href_other:visited {
     text-decoration: none;
     font-weight: normal;
   }
-  /* line 3601, sass/_layout-mobile.scss */
+  /* line 3619, sass/_layout-mobile.scss */
   .href_other:hover {
     text-decoration: underline;
   }
-  /* line 3606, sass/_layout-mobile.scss */
+  /* line 3624, sass/_layout-mobile.scss */
   .href_page_act {
     text-decoration: underline;
     font-weight: bold;
   }
-  /* line 3611, sass/_layout-mobile.scss */
+  /* line 3629, sass/_layout-mobile.scss */
   .votre_tab_head {
     width: auto;
     display: inline;
     float: left;
   }
-  /* line 3617, sass/_layout-mobile.scss */
+  /* line 3635, sass/_layout-mobile.scss */
   .votre_tab_content {
     width: 207px;
     padding: 20px 20px 0 28px;
@@ -9960,7 +9982,7 @@ form#delfromvosdevis {
     display: inline;
     margin-right: 5px;
   }
-  /* line 3629, sass/_layout-mobile.scss */
+  /* line 3647, sass/_layout-mobile.scss */
   .votre_tab_content2 {
     width: 207px;
     padding: 20px 20px 20px 28px;
@@ -9971,7 +9993,7 @@ form#delfromvosdevis {
     display: inline;
     margin-right: 5px;
   }
-  /* line 3640, sass/_layout-mobile.scss */
+  /* line 3658, sass/_layout-mobile.scss */
   .but_details {
     width: 130px;
     height: 32px;
@@ -9982,7 +10004,7 @@ form#delfromvosdevis {
     display: block;
     margin: 0 10px 0 20px;
   }
-  /* line 3651, sass/_layout-mobile.scss */
+  /* line 3669, sass/_layout-mobile.scss */
   .stat0 {
     width: 121px;
     height: 16px;
@@ -9996,7 +10018,7 @@ form#delfromvosdevis {
     cursor: pointer;
     font-size: 11px;
   }
-  /* line 3665, sass/_layout-mobile.scss */
+  /* line 3683, sass/_layout-mobile.scss */
   .stat1 {
     width: 121px;
     height: 16px;
@@ -10010,7 +10032,7 @@ form#delfromvosdevis {
     cursor: pointer;
     font-size: 11px;
   }
-  /* line 3679, sass/_layout-mobile.scss */
+  /* line 3697, sass/_layout-mobile.scss */
   .stat2 {
     width: 121px;
     height: 16px;
@@ -10023,7 +10045,7 @@ form#delfromvosdevis {
     border: none;
     cursor: pointer;
   }
-  /* line 3692, sass/_layout-mobile.scss */
+  /* line 3710, sass/_layout-mobile.scss */
   .stat3 {
     width: 121px;
     height: 16px;
@@ -10037,7 +10059,7 @@ form#delfromvosdevis {
     cursor: pointer;
     font-size: 11px;
   }
-  /* line 3706, sass/_layout-mobile.scss */
+  /* line 3724, sass/_layout-mobile.scss */
   .stat4 {
     width: 121px;
     height: 16px;
@@ -10051,7 +10073,7 @@ form#delfromvosdevis {
     cursor: pointer;
     font-size: 11px;
   }
-  /* line 3720, sass/_layout-mobile.scss */
+  /* line 3738, sass/_layout-mobile.scss */
   .stat5 {
     width: 121px;
     height: 16px;
@@ -10065,7 +10087,7 @@ form#delfromvosdevis {
     cursor: pointer;
     font-size: 11px;
   }
-  /* line 3734, sass/_layout-mobile.scss */
+  /* line 3752, sass/_layout-mobile.scss */
   .stat6 {
     width: 121px;
     height: 16px;
@@ -10078,7 +10100,7 @@ form#delfromvosdevis {
     border: none;
     font-size: 11px;
   }
-  /* line 3747, sass/_layout-mobile.scss */
+  /* line 3765, sass/_layout-mobile.scss */
   .stat7 {
     width: 121px;
     height: 40px;
@@ -10091,11 +10113,11 @@ form#delfromvosdevis {
     border: none;
     cursor: pointer;
   }
-  /* line 3760, sass/_layout-mobile.scss */
+  /* line 3778, sass/_layout-mobile.scss */
   stat2 {
     font-size: 11px;
   }
-  /* line 3764, sass/_layout-mobile.scss */
+  /* line 3782, sass/_layout-mobile.scss */
   #fbcart_address {
     position: relative;
     float: left;
@@ -10105,7 +10127,7 @@ form#delfromvosdevis {
     height: 119px;
     padding-top: 10px;
   }
-  /* line 3773, sass/_layout-mobile.scss */
+  /* line 3791, sass/_layout-mobile.scss */
   #fbcart_address th {
     padding: 0 20px;
     text-transform: uppercase;
@@ -10113,11 +10135,11 @@ form#delfromvosdevis {
     width: 203px;
     text-align: left;
   }
-  /* line 3780, sass/_layout-mobile.scss */
+  /* line 3798, sass/_layout-mobile.scss */
   #fbcart_address th.leftth {
     border-right: 1px solid #fff;
   }
-  /* line 3785, sass/_layout-mobile.scss */
+  /* line 3803, sass/_layout-mobile.scss */
   #fbcart_address td {
     padding: 2px 20px;
     font-size: 10px;
@@ -10126,11 +10148,11 @@ form#delfromvosdevis {
     height: 90px;
     vertical-align: top;
   }
-  /* line 3793, sass/_layout-mobile.scss */
+  /* line 3811, sass/_layout-mobile.scss */
   #fbcart_address td.lefttd {
     border-right: 1px solid #fff;
   }
-  /* line 3798, sass/_layout-mobile.scss */
+  /* line 3816, sass/_layout-mobile.scss */
   #fbcart_address a {
     position: absolute;
     bottom: 10px;
@@ -10140,25 +10162,25 @@ form#delfromvosdevis {
     background: url("../images/but_address.png");
     display: block;
   }
-  /* line 3809, sass/_layout-mobile.scss */
+  /* line 3827, sass/_layout-mobile.scss */
   #fbcart_cart {
     position: relative;
     float: left;
     display: inline;
     width: auto;
   }
-  /* line 3816, sass/_layout-mobile.scss */
+  /* line 3834, sass/_layout-mobile.scss */
   #fbcart_cart span.name {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     padding-bottom: 3px;
   }
-  /* line 3823, sass/_layout-mobile.scss */
+  /* line 3841, sass/_layout-mobile.scss */
   #fbcart_cart span.therest {
     font-size: 10px;
   }
-  /* line 3828, sass/_layout-mobile.scss */
+  /* line 3846, sass/_layout-mobile.scss */
   #fbcart_cart th {
     background: #e1e8f2;
     text-align: center;
@@ -10168,23 +10190,23 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 30px;
   }
-  /* line 3837, sass/_layout-mobile.scss */
+  /* line 3855, sass/_layout-mobile.scss */
   #fbcart_cart th.leftth {
     text-align: left;
     width: 250px;
   }
-  /* line 3842, sass/_layout-mobile.scss */
+  /* line 3860, sass/_layout-mobile.scss */
   #fbcart_cart th.nobackground {
     background: #fff;
     width: 30px;
     padding: 0;
   }
-  /* line 3848, sass/_layout-mobile.scss */
+  /* line 3866, sass/_layout-mobile.scss */
   #fbcart_cart th.leftth2 {
     text-align: left;
     width: 435px;
   }
-  /* line 3854, sass/_layout-mobile.scss */
+  /* line 3872, sass/_layout-mobile.scss */
   #fbcart_cart td {
     background: #e1e8f2 url("../images/bord.png") top left no-repeat;
     text-align: center;
@@ -10192,13 +10214,13 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 3861, sass/_layout-mobile.scss */
+  /* line 3879, sass/_layout-mobile.scss */
   #fbcart_cart td.lefttd {
     background: #e1e8f2;
     text-align: left;
     padding: 13px 20px 21px;
   }
-  /* line 3869, sass/_layout-mobile.scss */
+  /* line 3887, sass/_layout-mobile.scss */
   #delcart {
     width: 16px;
     height: 16px;
@@ -10210,7 +10232,7 @@ form#delfromvosdevis {
     margin: 0 5px;
     display: block;
   }
-  /* line 3881, sass/_layout-mobile.scss */
+  /* line 3899, sass/_layout-mobile.scss */
   .delbut {
     width: 16px;
     height: 16px;
@@ -10222,14 +10244,14 @@ form#delfromvosdevis {
     margin: 0 5px;
     display: block;
   }
-  /* line 3893, sass/_layout-mobile.scss */
+  /* line 3911, sass/_layout-mobile.scss */
   #fbcart_lastcomment {
     position: relative;
     float: left;
     display: inline;
     width: auto;
   }
-  /* line 3899, sass/_layout-mobile.scss */
+  /* line 3917, sass/_layout-mobile.scss */
   #fbcart_lastcomment th {
     background: #e1e8f2;
     text-align: left;
@@ -10239,7 +10261,7 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 81px;
   }
-  /* line 3908, sass/_layout-mobile.scss */
+  /* line 3926, sass/_layout-mobile.scss */
   #fbcart_lastcomment th.leftth {
     background: #e1e8f2;
     text-align: left;
@@ -10249,7 +10271,7 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 57px;
   }
-  /* line 3918, sass/_layout-mobile.scss */
+  /* line 3936, sass/_layout-mobile.scss */
   #fbcart_lastcomment th.leftth2 {
     background: #e1e8f2;
     text-align: left;
@@ -10259,7 +10281,7 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 67px;
   }
-  /* line 3928, sass/_layout-mobile.scss */
+  /* line 3946, sass/_layout-mobile.scss */
   #fbcart_lastcomment th.leftth3 {
     background: #e1e8f2;
     text-align: left;
@@ -10269,7 +10291,7 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 411px;
   }
-  /* line 3938, sass/_layout-mobile.scss */
+  /* line 3956, sass/_layout-mobile.scss */
   #fbcart_lastcomment th.leftth4 {
     background: #e1e8f2;
     text-align: left;
@@ -10279,12 +10301,12 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 31px;
   }
-  /* line 3948, sass/_layout-mobile.scss */
+  /* line 3966, sass/_layout-mobile.scss */
   #fbcart_lastcomment th.nobackground {
     background: #fff;
     width: 30px;
   }
-  /* line 3954, sass/_layout-mobile.scss */
+  /* line 3972, sass/_layout-mobile.scss */
   #fbcart_lastcomment td {
     background: #e1e8f2 url("../images/bord2.png") top left no-repeat;
     text-align: left;
@@ -10293,7 +10315,7 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 3962, sass/_layout-mobile.scss */
+  /* line 3980, sass/_layout-mobile.scss */
   #fbcart_lastcomment td.lefttd {
     background: #e1e8f2;
     text-align: left;
@@ -10302,7 +10324,7 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 3971, sass/_layout-mobile.scss */
+  /* line 3989, sass/_layout-mobile.scss */
   #fbcart_lastcomment td.lefttd2 {
     background: #e1e8f2 url("../images/bord2.png") top left no-repeat;
     text-align: left;
@@ -10313,11 +10335,11 @@ form#delfromvosdevis {
     color: #ea2a6a;
     font-weight: bold;
   }
-  /* line 3982, sass/_layout-mobile.scss */
+  /* line 4000, sass/_layout-mobile.scss */
   #fbcart_lastcomment td.lefttd3 {
     color: #ea2a6a;
   }
-  /* line 3986, sass/_layout-mobile.scss */
+  /* line 4004, sass/_layout-mobile.scss */
   #fbcart_lastcomment td.lefttd2a {
     background: #e1e8f2 url("../images/bord2.png") top left no-repeat;
     text-align: left;
@@ -10327,13 +10349,13 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     font-weight: bold;
   }
-  /* line 4000, sass/_layout-mobile.scss */
+  /* line 4018, sass/_layout-mobile.scss */
   .newline {
     position: relative;
     float: left;
     width: auto;
   }
-  /* line 4006, sass/_layout-mobile.scss */
+  /* line 4024, sass/_layout-mobile.scss */
   .logerror {
     font-size: 13px;
     font-weight: bold;
@@ -10343,7 +10365,7 @@ form#delfromvosdevis {
     float: left;
     width: auto;
   }
-  /* line 4016, sass/_layout-mobile.scss */
+  /* line 4034, sass/_layout-mobile.scss */
   #fileupload {
     position: relative;
     float: left;
@@ -10351,7 +10373,7 @@ form#delfromvosdevis {
     width: auto;
     margin: 20px 0 30px;
   }
-  /* line 4024, sass/_layout-mobile.scss */
+  /* line 4042, sass/_layout-mobile.scss */
   #viewsendfiles {
     width: 275px;
     margin-left: 130px;
@@ -10359,7 +10381,7 @@ form#delfromvosdevis {
     padding: 0 2px 6px 8px;
     font-size: 10px;
   }
-  /* line 4032, sass/_layout-mobile.scss */
+  /* line 4050, sass/_layout-mobile.scss */
   #fbcart_fileupload {
     position: relative;
     float: left;
@@ -10367,7 +10389,7 @@ form#delfromvosdevis {
     width: auto;
     margin-top: 23px;
   }
-  /* line 4039, sass/_layout-mobile.scss */
+  /* line 4057, sass/_layout-mobile.scss */
   #fbcart_fileupload th {
     background: #e1e8f2;
     text-align: left;
@@ -10377,7 +10399,7 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 491px;
   }
-  /* line 4048, sass/_layout-mobile.scss */
+  /* line 4066, sass/_layout-mobile.scss */
   #fbcart_fileupload th.leftth {
     background: #e1e8f2;
     text-align: left;
@@ -10387,12 +10409,12 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 160px;
   }
-  /* line 4058, sass/_layout-mobile.scss */
+  /* line 4076, sass/_layout-mobile.scss */
   #fbcart_fileupload th.nobackground {
     background: #fff;
     width: 30px;
   }
-  /* line 4064, sass/_layout-mobile.scss */
+  /* line 4082, sass/_layout-mobile.scss */
   #fbcart_fileupload td {
     background: #e1e8f2 url("../images/bord2.png") top left no-repeat;
     text-align: left;
@@ -10401,7 +10423,7 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 4072, sass/_layout-mobile.scss */
+  /* line 4090, sass/_layout-mobile.scss */
   #fbcart_fileupload td.lefttd {
     background: #e1e8f2 url("../images/wykrzyknik.png") top left no-repeat;
     color: #464b4c;
@@ -10411,7 +10433,7 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 4082, sass/_layout-mobile.scss */
+  /* line 4100, sass/_layout-mobile.scss */
   #fbcart_fileupload td.lefttd2 {
     background: #e1e8f2 url("../images/wykrzyknik2.png") top left no-repeat;
     color: #464b4c;
@@ -10421,11 +10443,11 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 4093, sass/_layout-mobile.scss */
+  /* line 4111, sass/_layout-mobile.scss */
   #fbcart_fileupload span.itemname {
     text-transform: uppercase;
   }
-  /* line 4098, sass/_layout-mobile.scss */
+  /* line 4116, sass/_layout-mobile.scss */
   #fbcart_fileupload2 {
     position: relative;
     float: left;
@@ -10433,7 +10455,7 @@ form#delfromvosdevis {
     width: auto;
     margin: 23px;
   }
-  /* line 4106, sass/_layout-mobile.scss */
+  /* line 4124, sass/_layout-mobile.scss */
   #fbcart_fileupload2 th.leftth {
     background: #e1e8f2;
     text-align: left;
@@ -10443,7 +10465,7 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 160px;
   }
-  /* line 4116, sass/_layout-mobile.scss */
+  /* line 4134, sass/_layout-mobile.scss */
   #fbcart_fileupload2 th.leftth2 {
     background: #e1e8f2;
     text-align: left;
@@ -10453,7 +10475,7 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 111px;
   }
-  /* line 4126, sass/_layout-mobile.scss */
+  /* line 4144, sass/_layout-mobile.scss */
   #fbcart_fileupload2 th.leftth3 {
     background: #e1e8f2;
     text-align: left;
@@ -10463,12 +10485,12 @@ form#delfromvosdevis {
     color: #008ebb;
     width: 351px;
   }
-  /* line 4136, sass/_layout-mobile.scss */
+  /* line 4154, sass/_layout-mobile.scss */
   #fbcart_fileupload2 th.nobackground {
     background: #fff;
     width: 30px;
   }
-  /* line 4142, sass/_layout-mobile.scss */
+  /* line 4160, sass/_layout-mobile.scss */
   #fbcart_fileupload2 td {
     background: #e1e8f2 url("../images/bord2.png") top left no-repeat;
     text-align: left;
@@ -10477,7 +10499,7 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 4150, sass/_layout-mobile.scss */
+  /* line 4168, sass/_layout-mobile.scss */
   #fbcart_fileupload2 td.lefttd {
     background: #e1e8f2 url("../images/wykrzyknik.png") top left no-repeat;
     color: #464b4c;
@@ -10487,7 +10509,7 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 4160, sass/_layout-mobile.scss */
+  /* line 4178, sass/_layout-mobile.scss */
   #fbcart_fileupload2 td.lefttd2 {
     background: #e1e8f2 url("../images/wykrzyknik2.png") top left no-repeat;
     color: #464b4c;
@@ -10497,7 +10519,7 @@ form#delfromvosdevis {
     vertical-align: top;
     border-bottom: 4px solid #fff;
   }
-  /* line 4173, sass/_layout-mobile.scss */
+  /* line 4191, sass/_layout-mobile.scss */
   .sendfiles .input-upload {
     float: left;
     display: inline;
@@ -10505,7 +10527,7 @@ form#delfromvosdevis {
     height: 19px;
     margin-top: 2px;
   }
-  /* line 4181, sass/_layout-mobile.scss */
+  /* line 4199, sass/_layout-mobile.scss */
   .sendfiles .fakeupload {
     width: 86px;
     height: 19px;
@@ -10516,7 +10538,7 @@ form#delfromvosdevis {
     margin-left: 10px;
     margin-top: 2px;
   }
-  /* line 4192, sass/_layout-mobile.scss */
+  /* line 4210, sass/_layout-mobile.scss */
   .sendfiles .input-text {
     width: 118px;
     height: 13px;
@@ -10525,7 +10547,7 @@ form#delfromvosdevis {
     display: inline;
     margin-top: 2px;
   }
-  /* line 4202, sass/_layout-mobile.scss */
+  /* line 4220, sass/_layout-mobile.scss */
   .but_telecharger {
     margin-left: 4px;
     width: 106px;
@@ -10540,7 +10562,7 @@ form#delfromvosdevis {
     cursor: pointer;
     margin-right: 30px;
   }
-  /* line 4217, sass/_layout-mobile.scss */
+  /* line 4235, sass/_layout-mobile.scss */
   #but_annulercommande {
     width: 169px;
     height: 19px;
@@ -10553,7 +10575,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 4230, sass/_layout-mobile.scss */
+  /* line 4248, sass/_layout-mobile.scss */
   #but_comment {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -10566,7 +10588,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 4243, sass/_layout-mobile.scss */
+  /* line 4261, sass/_layout-mobile.scss */
   #but_suivre {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -10579,7 +10601,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 4256, sass/_layout-mobile.scss */
+  /* line 4274, sass/_layout-mobile.scss */
   #but_imprimerfacture {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -10592,7 +10614,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 4269, sass/_layout-mobile.scss */
+  /* line 4287, sass/_layout-mobile.scss */
   .but_voiremaquette {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -10605,11 +10627,11 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 4282, sass/_layout-mobile.scss */
+  /* line 4300, sass/_layout-mobile.scss */
   #addingcomments {
     display: inline-block;
   }
-  /* line 4286, sass/_layout-mobile.scss */
+  /* line 4304, sass/_layout-mobile.scss */
   #paye {
     width: 150px;
     height: 19px;
@@ -10618,7 +10640,7 @@ form#delfromvosdevis {
     margin-bottom: 10px;
     margin-right: 14px;
   }
-  /* line 4295, sass/_layout-mobile.scss */
+  /* line 4313, sass/_layout-mobile.scss */
   #but_payer {
     margin-left: 14px;
     width: 150px;
@@ -10630,13 +10652,13 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 4307, sass/_layout-mobile.scss */
+  /* line 4325, sass/_layout-mobile.scss */
   #fbcart_check {
     float: right;
     display: inline;
     margin-right: 30px;
   }
-  /* line 4313, sass/_layout-mobile.scss */
+  /* line 4331, sass/_layout-mobile.scss */
   #fbcart_check td.toleft {
     background: #e1e8f2;
     text-align: left;
@@ -10648,7 +10670,7 @@ form#delfromvosdevis {
     border-left: 4px solid #fff;
     border-bottom: 4px solid #fff;
   }
-  /* line 4325, sass/_layout-mobile.scss */
+  /* line 4343, sass/_layout-mobile.scss */
   #fbcart_check td.toright {
     background: #e1e8f2;
     text-align: right;
@@ -10657,19 +10679,19 @@ form#delfromvosdevis {
     height: 18px;
     border-bottom: 4px solid #fff;
   }
-  /* line 4336, sass/_layout-mobile.scss */
+  /* line 4354, sass/_layout-mobile.scss */
   .acces_left {
     float: left;
     display: inline;
     width: 351px;
   }
-  /* line 4342, sass/_layout-mobile.scss */
+  /* line 4360, sass/_layout-mobile.scss */
   .acces_right {
     float: right;
     display: inline;
     width: 351px;
   }
-  /* line 4348, sass/_layout-mobile.scss */
+  /* line 4366, sass/_layout-mobile.scss */
   .acces_tab_name {
     width: 331px;
     padding: 1px 0 0 18px;
@@ -10680,7 +10702,7 @@ form#delfromvosdevis {
     margin: 6px 0;
     font-size: 12px;
   }
-  /* line 4359, sass/_layout-mobile.scss */
+  /* line 4377, sass/_layout-mobile.scss */
   .acces_tab_content {
     width: 239px;
     padding: 26px 88px 0 22px;
@@ -10689,12 +10711,12 @@ form#delfromvosdevis {
     color: #464b4c;
     position: relative;
   }
-  /* line 4368, sass/_layout-mobile.scss */
+  /* line 4386, sass/_layout-mobile.scss */
   .loginform {
     float: left;
     display: inline;
   }
-  /* line 4373, sass/_layout-mobile.scss */
+  /* line 4391, sass/_layout-mobile.scss */
   .loginlabel {
     float: left;
     display: inline;
@@ -10703,7 +10725,7 @@ form#delfromvosdevis {
     margin-bottom: 11px;
     white-space: nowrap;
   }
-  /* line 4382, sass/_layout-mobile.scss */
+  /* line 4400, sass/_layout-mobile.scss */
   .logininput {
     float: right;
     display: inline;
@@ -10712,7 +10734,7 @@ form#delfromvosdevis {
     background: #fff;
     margin-bottom: 11px;
   }
-  /* line 4391, sass/_layout-mobile.scss */
+  /* line 4409, sass/_layout-mobile.scss */
   .loginbutton {
     position: absolute;
     bottom: 39px;
@@ -10725,7 +10747,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 4404, sass/_layout-mobile.scss */
+  /* line 4422, sass/_layout-mobile.scss */
   .loginbutton2 {
     position: absolute;
     bottom: 39px;
@@ -10738,7 +10760,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 4417, sass/_layout-mobile.scss */
+  /* line 4435, sass/_layout-mobile.scss */
   .resendbutton {
     position: absolute;
     bottom: 39px;
@@ -10751,7 +10773,7 @@ form#delfromvosdevis {
     overflow: hidden;
     border: none;
   }
-  /* line 4430, sass/_layout-mobile.scss */
+  /* line 4448, sass/_layout-mobile.scss */
   .acces_tab_content2 {
     width: 349px;
     padding: 12px 0 20px;
@@ -10761,7 +10783,7 @@ form#delfromvosdevis {
     float: left;
     display: inline;
   }
-  /* line 4440, sass/_layout-mobile.scss */
+  /* line 4458, sass/_layout-mobile.scss */
   .acces_tab_name2 {
     width: 331px;
     padding: 1px 0 0 18px;
@@ -10772,7 +10794,7 @@ form#delfromvosdevis {
     margin: 6px 0;
     font-size: 12px;
   }
-  /* line 4451, sass/_layout-mobile.scss */
+  /* line 4469, sass/_layout-mobile.scss */
   .registerlabel {
     float: left;
     display: inline;
@@ -10781,7 +10803,7 @@ form#delfromvosdevis {
     vertical-align: middle;
     line-height: 12px;
   }
-  /* line 4460, sass/_layout-mobile.scss */
+  /* line 4478, sass/_layout-mobile.scss */
   .registerinput {
     float: right;
     display: inline;
@@ -10791,7 +10813,7 @@ form#delfromvosdevis {
     background: #fff;
     margin-bottom: 8px;
   }
-  /* line 4470, sass/_layout-mobile.scss */
+  /* line 4488, sass/_layout-mobile.scss */
   .info_unique {
     position: absolute;
     top: 21px;
@@ -10801,11 +10823,11 @@ form#delfromvosdevis {
     font-size: 9px;
     color: #008ebb;
   }
-  /* line 4480, sass/_layout-mobile.scss */
+  /* line 4498, sass/_layout-mobile.scss */
   #registerform_adresselivraison {
     visibility: hidden;
   }
-  /* line 4484, sass/_layout-mobile.scss */
+  /* line 4502, sass/_layout-mobile.scss */
   .form-button-error {
     position: absolute;
     left: 20px;
@@ -10815,7 +10837,7 @@ form#delfromvosdevis {
     font-size: 10px;
     color: #f00;
   }
-  /* line 4494, sass/_layout-mobile.scss */
+  /* line 4512, sass/_layout-mobile.scss */
   #form-button-error2 {
     position: absolute;
     left: 0;
@@ -10826,7 +10848,7 @@ form#delfromvosdevis {
     color: #f00;
     font-weight: bold;
   }
-  /* line 4505, sass/_layout-mobile.scss */
+  /* line 4523, sass/_layout-mobile.scss */
   #form-button-error3 {
     position: absolute;
     left: 0;
@@ -10836,7 +10858,7 @@ form#delfromvosdevis {
     color: #f00;
     font-weight: bold;
   }
-  /* line 4515, sass/_layout-mobile.scss */
+  /* line 4533, sass/_layout-mobile.scss */
   .register-button {
     width: 85px;
     height: 19px;
@@ -10848,7 +10870,7 @@ form#delfromvosdevis {
     float: right;
     display: inline;
   }
-  /* line 4527, sass/_layout-mobile.scss */
+  /* line 4545, sass/_layout-mobile.scss */
   .edit-button {
     width: 142px;
     height: 19px;
@@ -10860,7 +10882,7 @@ form#delfromvosdevis {
     float: right;
     display: inline;
   }
-  /* line 4539, sass/_layout-mobile.scss */
+  /* line 4557, sass/_layout-mobile.scss */
   .register-button2 {
     width: 85px;
     height: 19px;
@@ -10872,7 +10894,7 @@ form#delfromvosdevis {
     float: right;
     display: inline;
   }
-  /* line 4551, sass/_layout-mobile.scss */
+  /* line 4569, sass/_layout-mobile.scss */
   #buying {
     max-width: 100%;
     margin-left: auto;
@@ -10886,7 +10908,7 @@ form#delfromvosdevis {
     display: block;
     clear: both;
   }
-  /* line 4557, sass/_layout-mobile.scss */
+  /* line 4575, sass/_layout-mobile.scss */
   .jotform-form {
     width: 100%;
     float: left;
@@ -10897,7 +10919,7 @@ form#delfromvosdevis {
     animation: fadein 2s;
     -webkit-animation: fadein 2s;
   }
-  /* line 4564, sass/_layout-mobile.scss */
+  /* line 4582, sass/_layout-mobile.scss */
   .jotform-form select {
     display: inline;
     padding-right: 2.5em;
@@ -10915,36 +10937,36 @@ form#delfromvosdevis {
     font-weight: bold;
     cursor: pointer;
   }
-  /* line 4579, sass/_layout-mobile.scss */
+  /* line 4597, sass/_layout-mobile.scss */
   .jotform-form select .titre {
     font-weight: bold;
     text-transform: uppercase;
   }
-  /* line 4584, sass/_layout-mobile.scss */
+  /* line 4602, sass/_layout-mobile.scss */
   .jotform-form select .option1 {
     color: #000;
     background-color: #f6f6f6;
     text-transform: capitalize;
     line-height: 10px;
   }
-  /* line 4591, sass/_layout-mobile.scss */
+  /* line 4609, sass/_layout-mobile.scss */
   .jotform-form select .option2 {
     color: #000;
     background-color: #fff;
     text-transform: capitalize;
     line-height: 10px;
   }
-  /* line 4598, sass/_layout-mobile.scss */
+  /* line 4616, sass/_layout-mobile.scss */
   .jotform-form select.option3 {
     width: 200px;
     float: left;
   }
-  /* line 4603, sass/_layout-mobile.scss */
+  /* line 4621, sass/_layout-mobile.scss */
   .jotform-form select.option4 {
     width: 144px;
     float: left;
   }
-  /* line 4608, sass/_layout-mobile.scss */
+  /* line 4626, sass/_layout-mobile.scss */
   .jotform-form select.quan {
     float: right;
     display: inline;
@@ -10955,7 +10977,7 @@ form#delfromvosdevis {
     font-size: 9px;
     background: #fff;
   }
-  /* line 4621, sass/_layout-mobile.scss */
+  /* line 4639, sass/_layout-mobile.scss */
   .jotform-form input.form-textbox {
     display: inline;
     width: 40px;
@@ -10972,7 +10994,7 @@ form#delfromvosdevis {
     margin: 0;
     text-align: center;
   }
-  /* line 4637, sass/_layout-mobile.scss */
+  /* line 4655, sass/_layout-mobile.scss */
   .jotform-form input.form-textbox2 {
     position: absolute;
     top: 13px;
@@ -10991,7 +11013,7 @@ form#delfromvosdevis {
     margin: 0;
     text-align: center;
   }
-  /* line 4656, sass/_layout-mobile.scss */
+  /* line 4674, sass/_layout-mobile.scss */
   .jotform-form .heusepar {
     position: absolute;
     top: 18px;
@@ -10999,7 +11021,7 @@ form#delfromvosdevis {
     height: 12px;
     width: 10px;
   }
-  /* line 4664, sass/_layout-mobile.scss */
+  /* line 4682, sass/_layout-mobile.scss */
   .jotform-form .llar {
     position: absolute;
     top: 35px;
@@ -11010,7 +11032,7 @@ form#delfromvosdevis {
     font-size: 9px;
     color: #869da6;
   }
-  /* line 4675, sass/_layout-mobile.scss */
+  /* line 4693, sass/_layout-mobile.scss */
   .jotform-form .lhau {
     position: absolute;
     top: 35px;
@@ -11021,7 +11043,7 @@ form#delfromvosdevis {
     font-size: 9px;
     color: #869da6;
   }
-  /* line 4686, sass/_layout-mobile.scss */
+  /* line 4704, sass/_layout-mobile.scss */
   .jotform-form .llar2 {
     position: absolute;
     top: 35px;
@@ -11032,7 +11054,7 @@ form#delfromvosdevis {
     font-size: 9px;
     color: #869da6;
   }
-  /* line 4697, sass/_layout-mobile.scss */
+  /* line 4715, sass/_layout-mobile.scss */
   .jotform-form .lhau2 {
     position: absolute;
     top: 35px;
@@ -11063,7 +11085,7 @@ form#delfromvosdevis {
       opacity: 1;
     }
   }
-  /* line 4764, sass/_layout-mobile.scss */
+  /* line 4782, sass/_layout-mobile.scss */
   .boxcheck {
     position: absolute;
     top: 8px;
@@ -11074,7 +11096,7 @@ form#delfromvosdevis {
     color: #869da6;
     font-size: 10px;
   }
-  /* line 4775, sass/_layout-mobile.scss */
+  /* line 4793, sass/_layout-mobile.scss */
   .form-submit-button {
     width: 86px;
     height: 20px;
@@ -11086,16 +11108,16 @@ form#delfromvosdevis {
     float: right;
     display: inline;
   }
-  /* line 4787, sass/_layout-mobile.scss */
+  /* line 4805, sass/_layout-mobile.scss */
   .form-line-error {
     background: #faa;
     border: 1px solid #faa;
   }
-  /* line 4792, sass/_layout-mobile.scss */
+  /* line 4810, sass/_layout-mobile.scss */
   .form-validation-error {
     border: 1px solid #f00;
   }
-  /* line 4796, sass/_layout-mobile.scss */
+  /* line 4814, sass/_layout-mobile.scss */
   .form-error-message {
     z-index: 900;
     position: absolute;
@@ -11109,7 +11131,7 @@ form#delfromvosdevis {
     border: 4px solid #d88;
     background: #fcc;
   }
-  /* line 4810, sass/_layout-mobile.scss */
+  /* line 4828, sass/_layout-mobile.scss */
   .comment_new {
     color: #f00;
     position: relative;
@@ -11121,14 +11143,14 @@ form#delfromvosdevis {
     margin-top: 4px;
     font-weight: bold;
   }
-  /* line 4822, sass/_layout-mobile.scss */
+  /* line 4840, sass/_layout-mobile.scss */
   #rating {
     position: relative;
     float: left;
     display: inline;
     width: 470px;
   }
-  /* line 4829, sass/_layout-mobile.scss */
+  /* line 4847, sass/_layout-mobile.scss */
   .rating_element {
     position: relative;
     float: left;
@@ -11138,7 +11160,7 @@ form#delfromvosdevis {
     background: #e1e8f2;
     margin: 0 0 4px;
   }
-  /* line 4839, sass/_layout-mobile.scss */
+  /* line 4857, sass/_layout-mobile.scss */
   .rating_element2 {
     position: relative;
     float: left;
@@ -11149,33 +11171,33 @@ form#delfromvosdevis {
     border: 1px solid #e1e8f2;
     margin: 0 0 4px;
   }
-  /* line 4852, sass/_layout-mobile.scss */
+  /* line 4870, sass/_layout-mobile.scss */
   #raele1 {
     border: 1px solid #e1e8f2;
   }
-  /* line 4856, sass/_layout-mobile.scss */
+  /* line 4874, sass/_layout-mobile.scss */
   #raele2 {
     border: 1px solid #e1e8f2;
   }
-  /* line 4860, sass/_layout-mobile.scss */
+  /* line 4878, sass/_layout-mobile.scss */
   #raele3 {
     border: 1px solid #e1e8f2;
   }
-  /* line 4864, sass/_layout-mobile.scss */
+  /* line 4882, sass/_layout-mobile.scss */
   .rating_elcol1 {
     position: relative;
     float: left;
     display: inline;
     width: 50%;
   }
-  /* line 4871, sass/_layout-mobile.scss */
+  /* line 4889, sass/_layout-mobile.scss */
   .rating_elcol2 {
     position: relative;
     float: left;
     display: inline;
     width: 50%;
   }
-  /* line 4878, sass/_layout-mobile.scss */
+  /* line 4896, sass/_layout-mobile.scss */
   #textarearating {
     float: left;
     display: inline;
@@ -11188,7 +11210,7 @@ form#delfromvosdevis {
     font-family: "Trebuchet MS", "Arial", "sans-serif";
     font-size: 11px;
   }
-  /* line 4891, sass/_layout-mobile.scss */
+  /* line 4909, sass/_layout-mobile.scss */
   .but_ratingsubmit {
     width: 116px;
     height: 19px;
@@ -11200,7 +11222,7 @@ form#delfromvosdevis {
     cursor: pointer;
     margin: 4px auto;
   }
-  /* line 4903, sass/_layout-mobile.scss */
+  /* line 4921, sass/_layout-mobile.scss */
   .form-error-message-rating {
     z-index: 900;
     position: absolute;
@@ -11215,7 +11237,7 @@ form#delfromvosdevis {
     background: #fcc;
     display: none;
   }
-  /* line 4918, sass/_layout-mobile.scss */
+  /* line 4936, sass/_layout-mobile.scss */
   .star-rating {
     list-style: none;
     margin: 7px 0 0;
@@ -11225,7 +11247,7 @@ form#delfromvosdevis {
     position: relative;
     background: url("../images/stars20.png") top left repeat-x;
   }
-  /* line 4927, sass/_layout-mobile.scss */
+  /* line 4945, sass/_layout-mobile.scss */
   .star-rating li {
     padding: 0;
     margin: 0;
@@ -11233,7 +11255,7 @@ form#delfromvosdevis {
     width: 20px;
     float: left;
   }
-  /* line 4934, sass/_layout-mobile.scss */
+  /* line 4952, sass/_layout-mobile.scss */
   .star-rating li a {
     display: block;
     width: 20px;
@@ -11246,14 +11268,14 @@ form#delfromvosdevis {
     padding: 0;
     overflow: hidden;
   }
-  /* line 4946, sass/_layout-mobile.scss */
+  /* line 4964, sass/_layout-mobile.scss */
   .star-rating li a:hover {
     background: url("../images/stars20.png") left center;
     z-index: 2;
     left: 0;
     border: none;
   }
-  /* line 4954, sass/_layout-mobile.scss */
+  /* line 4972, sass/_layout-mobile.scss */
   .star-rating li.current-rating {
     background: url("../images/stars20.png") left bottom;
     position: absolute;
@@ -11262,47 +11284,47 @@ form#delfromvosdevis {
     text-indent: -9000px;
     z-index: 1;
   }
-  /* line 4965, sass/_layout-mobile.scss */
+  /* line 4983, sass/_layout-mobile.scss */
   .star-rating a.one-star {
     left: 0;
   }
-  /* line 4968, sass/_layout-mobile.scss */
+  /* line 4986, sass/_layout-mobile.scss */
   .star-rating a.one-star:hover {
     width: 20px;
   }
-  /* line 4973, sass/_layout-mobile.scss */
+  /* line 4991, sass/_layout-mobile.scss */
   .star-rating a.two-stars {
     left: 20px;
   }
-  /* line 4976, sass/_layout-mobile.scss */
+  /* line 4994, sass/_layout-mobile.scss */
   .star-rating a.two-stars:hover {
     width: 40px;
   }
-  /* line 4981, sass/_layout-mobile.scss */
+  /* line 4999, sass/_layout-mobile.scss */
   .star-rating a.three-stars {
     left: 40px;
   }
-  /* line 4984, sass/_layout-mobile.scss */
+  /* line 5002, sass/_layout-mobile.scss */
   .star-rating a.three-stars:hover {
     width: 60px;
   }
-  /* line 4989, sass/_layout-mobile.scss */
+  /* line 5007, sass/_layout-mobile.scss */
   .star-rating a.four-stars {
     left: 60px;
   }
-  /* line 4992, sass/_layout-mobile.scss */
+  /* line 5010, sass/_layout-mobile.scss */
   .star-rating a.four-stars:hover {
     width: 80px;
   }
-  /* line 4997, sass/_layout-mobile.scss */
+  /* line 5015, sass/_layout-mobile.scss */
   .star-rating a.five-stars {
     left: 80px;
   }
-  /* line 5000, sass/_layout-mobile.scss */
+  /* line 5018, sass/_layout-mobile.scss */
   .star-rating a.five-stars:hover {
     width: 100px;
   }
-  /* line 5007, sass/_layout-mobile.scss */
+  /* line 5025, sass/_layout-mobile.scss */
   .star-rating2 {
     list-style: none;
     margin: 0;
@@ -11312,7 +11334,7 @@ form#delfromvosdevis {
     position: relative;
     background: url("../images/stars20.png") top left repeat-x;
   }
-  /* line 5016, sass/_layout-mobile.scss */
+  /* line 5034, sass/_layout-mobile.scss */
   .star-rating2 li {
     padding: 0;
     margin: 0;
@@ -11320,7 +11342,7 @@ form#delfromvosdevis {
     width: 20px;
     float: left;
   }
-  /* line 5023, sass/_layout-mobile.scss */
+  /* line 5041, sass/_layout-mobile.scss */
   .star-rating2 li span {
     display: block;
     width: 20px;
@@ -11333,7 +11355,7 @@ form#delfromvosdevis {
     padding: 0;
     overflow: hidden;
   }
-  /* line 5036, sass/_layout-mobile.scss */
+  /* line 5054, sass/_layout-mobile.scss */
   .star-rating2 li.current-rating {
     background: url("../images/stars20.png") left bottom;
     position: absolute;
@@ -11342,47 +11364,47 @@ form#delfromvosdevis {
     text-indent: -9000px;
     z-index: 1;
   }
-  /* line 5046, sass/_layout-mobile.scss */
+  /* line 5064, sass/_layout-mobile.scss */
   .star-rating2 .one-star {
     left: 0;
   }
-  /* line 5049, sass/_layout-mobile.scss */
+  /* line 5067, sass/_layout-mobile.scss */
   .star-rating2 .one-star:hover {
     width: 20px;
   }
-  /* line 5054, sass/_layout-mobile.scss */
+  /* line 5072, sass/_layout-mobile.scss */
   .star-rating2 .two-stars {
     left: 20px;
   }
-  /* line 5057, sass/_layout-mobile.scss */
+  /* line 5075, sass/_layout-mobile.scss */
   .star-rating2 .two-stars:hover {
     width: 40px;
   }
-  /* line 5062, sass/_layout-mobile.scss */
+  /* line 5080, sass/_layout-mobile.scss */
   .star-rating2 .three-stars {
     left: 40px;
   }
-  /* line 5065, sass/_layout-mobile.scss */
+  /* line 5083, sass/_layout-mobile.scss */
   .star-rating2 .three-stars:hover {
     width: 60px;
   }
-  /* line 5070, sass/_layout-mobile.scss */
+  /* line 5088, sass/_layout-mobile.scss */
   .star-rating2 .four-stars {
     left: 60px;
   }
-  /* line 5073, sass/_layout-mobile.scss */
+  /* line 5091, sass/_layout-mobile.scss */
   .star-rating2 .four-stars:hover {
     width: 80px;
   }
-  /* line 5078, sass/_layout-mobile.scss */
+  /* line 5096, sass/_layout-mobile.scss */
   .star-rating2 .five-stars {
     left: 80px;
   }
-  /* line 5081, sass/_layout-mobile.scss */
+  /* line 5099, sass/_layout-mobile.scss */
   .star-rating2 .five-stars:hover {
     width: 100px;
   }
-  /* line 5087, sass/_layout-mobile.scss */
+  /* line 5105, sass/_layout-mobile.scss */
   .star-rating3 {
     list-style: none;
     margin: 0;
@@ -11392,7 +11414,7 @@ form#delfromvosdevis {
     position: relative;
     background: url("../images/stars30.png") top left repeat-x;
   }
-  /* line 5096, sass/_layout-mobile.scss */
+  /* line 5114, sass/_layout-mobile.scss */
   .star-rating3 li {
     padding: 0;
     margin: 0;
@@ -11400,7 +11422,7 @@ form#delfromvosdevis {
     width: 30px;
     float: left;
   }
-  /* line 5103, sass/_layout-mobile.scss */
+  /* line 5121, sass/_layout-mobile.scss */
   .star-rating3 li span {
     display: block;
     width: 30px;
@@ -11413,7 +11435,7 @@ form#delfromvosdevis {
     padding: 0;
     overflow: hidden;
   }
-  /* line 5116, sass/_layout-mobile.scss */
+  /* line 5134, sass/_layout-mobile.scss */
   .star-rating3 li.current-rating {
     background: url("../images/stars30.png") left bottom;
     position: absolute;
@@ -11422,47 +11444,47 @@ form#delfromvosdevis {
     text-indent: -9000px;
     z-index: 1;
   }
-  /* line 5126, sass/_layout-mobile.scss */
+  /* line 5144, sass/_layout-mobile.scss */
   .star-rating3 .one-star {
     left: 0;
   }
-  /* line 5129, sass/_layout-mobile.scss */
+  /* line 5147, sass/_layout-mobile.scss */
   .star-rating3 .one-star:hover {
     width: 30px;
   }
-  /* line 5134, sass/_layout-mobile.scss */
+  /* line 5152, sass/_layout-mobile.scss */
   .star-rating3 .two-stars {
     left: 30px;
   }
-  /* line 5137, sass/_layout-mobile.scss */
+  /* line 5155, sass/_layout-mobile.scss */
   .star-rating3 .two-stars:hover {
     width: 60px;
   }
-  /* line 5142, sass/_layout-mobile.scss */
+  /* line 5160, sass/_layout-mobile.scss */
   .star-rating3 .three-stars {
     left: 60px;
   }
-  /* line 5145, sass/_layout-mobile.scss */
+  /* line 5163, sass/_layout-mobile.scss */
   .star-rating3 .three-stars:hover {
     width: 90px;
   }
-  /* line 5150, sass/_layout-mobile.scss */
+  /* line 5168, sass/_layout-mobile.scss */
   .star-rating3 .four-stars {
     left: 90px;
   }
-  /* line 5153, sass/_layout-mobile.scss */
+  /* line 5171, sass/_layout-mobile.scss */
   .star-rating3 .four-stars:hover {
     width: 120px;
   }
-  /* line 5158, sass/_layout-mobile.scss */
+  /* line 5176, sass/_layout-mobile.scss */
   .star-rating3 .five-stars {
     left: 120px;
   }
-  /* line 5161, sass/_layout-mobile.scss */
+  /* line 5179, sass/_layout-mobile.scss */
   .star-rating3 .five-stars:hover {
     width: 150px;
   }
-  /* line 5167, sass/_layout-mobile.scss */
+  /* line 5185, sass/_layout-mobile.scss */
   .star-rating4 {
     list-style: none;
     margin: 0;
@@ -11472,7 +11494,7 @@ form#delfromvosdevis {
     position: relative;
     background: url("../images/stars12.png") top left repeat-x;
   }
-  /* line 5176, sass/_layout-mobile.scss */
+  /* line 5194, sass/_layout-mobile.scss */
   .star-rating4 li {
     padding: 0;
     margin: 0;
@@ -11480,7 +11502,7 @@ form#delfromvosdevis {
     width: 12px;
     float: left;
   }
-  /* line 5183, sass/_layout-mobile.scss */
+  /* line 5201, sass/_layout-mobile.scss */
   .star-rating4 li span {
     display: block;
     width: 12px;
@@ -11493,7 +11515,7 @@ form#delfromvosdevis {
     padding: 0;
     overflow: hidden;
   }
-  /* line 5196, sass/_layout-mobile.scss */
+  /* line 5214, sass/_layout-mobile.scss */
   .star-rating4 li.current-rating {
     background: url("../images/stars12.png") left bottom;
     position: absolute;
@@ -11502,54 +11524,54 @@ form#delfromvosdevis {
     text-indent: -9000px;
     z-index: 1;
   }
-  /* line 5206, sass/_layout-mobile.scss */
+  /* line 5224, sass/_layout-mobile.scss */
   .star-rating4 .one-star {
     left: 0;
   }
-  /* line 5209, sass/_layout-mobile.scss */
+  /* line 5227, sass/_layout-mobile.scss */
   .star-rating4 .one-star:hover {
     width: 12px;
   }
-  /* line 5214, sass/_layout-mobile.scss */
+  /* line 5232, sass/_layout-mobile.scss */
   .star-rating4 .two-stars {
     left: 12px;
   }
-  /* line 5217, sass/_layout-mobile.scss */
+  /* line 5235, sass/_layout-mobile.scss */
   .star-rating4 .two-stars:hover {
     width: 240px;
   }
-  /* line 5222, sass/_layout-mobile.scss */
+  /* line 5240, sass/_layout-mobile.scss */
   .star-rating4 .three-stars {
     left: 24px;
   }
-  /* line 5225, sass/_layout-mobile.scss */
+  /* line 5243, sass/_layout-mobile.scss */
   .star-rating4 .three-stars:hover {
     width: 36px;
   }
-  /* line 5230, sass/_layout-mobile.scss */
+  /* line 5248, sass/_layout-mobile.scss */
   .star-rating4 .four-stars {
     left: 36px;
   }
-  /* line 5233, sass/_layout-mobile.scss */
+  /* line 5251, sass/_layout-mobile.scss */
   .star-rating4 .four-stars:hover {
     width: 48px;
   }
-  /* line 5238, sass/_layout-mobile.scss */
+  /* line 5256, sass/_layout-mobile.scss */
   .star-rating4 .five-stars {
     left: 48px;
   }
-  /* line 5241, sass/_layout-mobile.scss */
+  /* line 5259, sass/_layout-mobile.scss */
   .star-rating4 .five-stars:hover {
     width: 60px;
   }
-  /* line 5247, sass/_layout-mobile.scss */
+  /* line 5265, sass/_layout-mobile.scss */
   #fbcart_rating {
     position: relative;
     float: left;
     display: inline;
     width: auto;
   }
-  /* line 5253, sass/_layout-mobile.scss */
+  /* line 5271, sass/_layout-mobile.scss */
   #fbcart_rating td {
     background: #e1e8f2 url("../images/bord4.png") top left no-repeat;
     font-size: 11px;
@@ -11560,7 +11582,7 @@ form#delfromvosdevis {
     border-bottom: 4px solid #fff;
     width: 426px;
   }
-  /* line 5263, sass/_layout-mobile.scss */
+  /* line 5281, sass/_layout-mobile.scss */
   #fbcart_rating td.lefttd {
     background: #e1e8f2;
     text-align: left;
@@ -11568,14 +11590,14 @@ form#delfromvosdevis {
     padding: 10px 20px;
     font-size: 11px;
   }
-  /* line 5271, sass/_layout-mobile.scss */
+  /* line 5289, sass/_layout-mobile.scss */
   #fbcart_rating td.lefttd2 {
     background: #e1e8f2 url("../images/bord4.png") top left no-repeat;
     text-align: left;
     width: 100px;
     font-size: 11px;
   }
-  /* line 5280, sass/_layout-mobile.scss */
+  /* line 5298, sass/_layout-mobile.scss */
   #rating_livre {
     position: relative;
     float: left;
@@ -11584,7 +11606,7 @@ form#delfromvosdevis {
     height: 195px;
     margin: 0 0 22px;
   }
-  /* line 5289, sass/_layout-mobile.scss */
+  /* line 5307, sass/_layout-mobile.scss */
   #vosavis {
     position: relative;
     float: left;
@@ -11593,7 +11615,7 @@ form#delfromvosdevis {
     height: 195px;
     background: url("../images/rating1.jpg");
   }
-  /* line 5298, sass/_layout-mobile.scss */
+  /* line 5316, sass/_layout-mobile.scss */
   #rating_general {
     position: relative;
     float: right;
@@ -11603,18 +11625,18 @@ form#delfromvosdevis {
     background: url("../images/rating2.jpg");
     margin-left: 5px;
   }
-  /* line 5307, sass/_layout-mobile.scss */
+  /* line 5325, sass/_layout-mobile.scss */
   #rating_general table {
     margin: 11px 94px 11px 60px;
   }
-  /* line 5311, sass/_layout-mobile.scss */
+  /* line 5329, sass/_layout-mobile.scss */
   #rating_general .rfirst {
     border-bottom: 1px solid #999;
     text-align: right;
     width: 174px;
     padding: 2px 8px 6px 0;
   }
-  /* line 5318, sass/_layout-mobile.scss */
+  /* line 5336, sass/_layout-mobile.scss */
   #rating_general .rfirst2 {
     border-bottom: 1px solid #999;
     text-align: right;
@@ -11623,19 +11645,19 @@ form#delfromvosdevis {
     text-transform: uppercase;
     font-weight: bold;
   }
-  /* line 5327, sass/_layout-mobile.scss */
+  /* line 5345, sass/_layout-mobile.scss */
   #rating_general .rsecond2 {
     border-bottom: 1px solid #999;
     padding: 2px 0 6px;
   }
-  /* line 5333, sass/_layout-mobile.scss */
+  /* line 5351, sass/_layout-mobile.scss */
   #rating_pagination {
     position: relative;
     float: right;
     display: block;
     margin: 4px 0;
   }
-  /* line 5340, sass/_layout-mobile.scss */
+  /* line 5358, sass/_layout-mobile.scss */
   #rating_pagination a:link {
     font-weight: bold;
     text-decoration: none;
@@ -11644,7 +11666,7 @@ form#delfromvosdevis {
     text-align: center;
     margin: 0 0 0 4px;
   }
-  /* line 5349, sass/_layout-mobile.scss */
+  /* line 5367, sass/_layout-mobile.scss */
   #rating_pagination a:visited {
     font-weight: bold;
     text-decoration: none;
@@ -11653,11 +11675,11 @@ form#delfromvosdevis {
     text-align: center;
     margin: 0 0 0 4px;
   }
-  /* line 5358, sass/_layout-mobile.scss */
+  /* line 5376, sass/_layout-mobile.scss */
   #rating_pagination a:hover {
     text-decoration: underline;
   }
-  /* line 5363, sass/_layout-mobile.scss */
+  /* line 5381, sass/_layout-mobile.scss */
   #rating_pagination span {
     background: #e1e8f2;
     padding: 4px 6px;
@@ -11666,7 +11688,7 @@ form#delfromvosdevis {
     text-decoration: underline;
     color: #555a61;
   }
-  /* line 5371, sass/_layout-mobile.scss */
+  /* line 5389, sass/_layout-mobile.scss */
   #rating_pagination span.ratingpagpage {
     text-decoration: none;
     background: #e1e8f2;
@@ -11676,7 +11698,7 @@ form#delfromvosdevis {
     color: #555a61;
     font-weight: bold;
   }
-  /* line 5383, sass/_layout-mobile.scss */
+  /* line 5401, sass/_layout-mobile.scss */
   .helpText {
     position: absolute;
     right: 20px;
@@ -11690,7 +11712,7 @@ form#delfromvosdevis {
     line-height: 16px;
     font-size: smaller;
   }
-  /* line 5397, sass/_layout-mobile.scss */
+  /* line 5415, sass/_layout-mobile.scss */
   #buying-cadre {
     position: relative;
     float: left;
@@ -11698,7 +11720,7 @@ form#delfromvosdevis {
     width: 280px;
     clear: left;
   }
-  /* line 5405, sass/_layout-mobile.scss */
+  /* line 5423, sass/_layout-mobile.scss */
   .jotform-form-cadre {
     float: left;
     display: inline;
@@ -11706,7 +11728,7 @@ form#delfromvosdevis {
     background: #e1e8f2;
     padding: 20px 10px;
   }
-  /* line 5412, sass/_layout-mobile.scss */
+  /* line 5430, sass/_layout-mobile.scss */
   .jotform-form-cadre select {
     float: left;
     display: inline;
@@ -11716,14 +11738,14 @@ form#delfromvosdevis {
     font-size: 9px;
     padding: 2px;
   }
-  /* line 5423, sass/_layout-mobile.scss */
+  /* line 5441, sass/_layout-mobile.scss */
   #preview-cadre_con {
     float: right;
     display: inline;
     width: 420px;
     clear: right;
   }
-  /* line 5430, sass/_layout-mobile.scss */
+  /* line 5448, sass/_layout-mobile.scss */
   #preview-cadre {
     float: right;
     display: inline;
@@ -11732,7 +11754,7 @@ form#delfromvosdevis {
     margin-bottom: 5px;
     background-color: #e1e8f2;
   }
-  /* line 5439, sass/_layout-mobile.scss */
+  /* line 5457, sass/_layout-mobile.scss */
   #preview-cadre_name {
     float: right;
     display: inline;
@@ -11747,7 +11769,7 @@ form#delfromvosdevis {
     margin-bottom: 6px;
     text-transform: uppercase;
   }
-  /* line 5454, sass/_layout-mobile.scss */
+  /* line 5472, sass/_layout-mobile.scss */
   #preview-cadre_info {
     float: right;
     display: inline;
@@ -11757,7 +11779,7 @@ form#delfromvosdevis {
     min-height: 143px;
     background: #f6f6f6;
   }
-  /* line 5463, sass/_layout-mobile.scss */
+  /* line 5481, sass/_layout-mobile.scss */
   #preview-cadre_info ul {
     float: left;
     display: inline;
@@ -11765,15 +11787,15 @@ form#delfromvosdevis {
     font-size: 9px;
     padding-left: 12px;
   }
-  /* line 5472, sass/_layout-mobile.scss */
+  /* line 5490, sass/_layout-mobile.scss */
   #preview-cadre_info li#iden1 {
     list-style-type: none;
   }
-  /* line 5476, sass/_layout-mobile.scss */
+  /* line 5494, sass/_layout-mobile.scss */
   #preview-cadre_info li#iden2 {
     list-style-type: none;
   }
-  /* line 5482, sass/_layout-mobile.scss */
+  /* line 5500, sass/_layout-mobile.scss */
   #preview-cadre_info_title {
     float: left;
     display: inline;
@@ -11785,7 +11807,7 @@ form#delfromvosdevis {
     background: #565b62;
     text-transform: uppercase;
   }
-  /* line 5494, sass/_layout-mobile.scss */
+  /* line 5512, sass/_layout-mobile.scss */
   #preview-cadre_imag {
     float: left;
     display: inline-block;
@@ -11793,7 +11815,7 @@ form#delfromvosdevis {
     height: 300px;
     background-color: #e1e8f2;
   }
-  /* line 5502, sass/_layout-mobile.scss */
+  /* line 5520, sass/_layout-mobile.scss */
   .roundedImage {
     overflow: hidden;
     border-radius: 50px;
@@ -11806,7 +11828,7 @@ form#delfromvosdevis {
     background-color: #008ebb;
     color: #fff;
   }
-  /* line 5516, sass/_layout-mobile.scss */
+  /* line 5534, sass/_layout-mobile.scss */
   .cadre-bt {
     overflow: hidden;
     border-radius: 5px;
@@ -11819,7 +11841,7 @@ form#delfromvosdevis {
     margin: 2px;
     behavior: url("http://www.france-banderole.com/wp-content/themes/fb/js2/PIE.js");
   }
-  /* line 5530, sass/_layout-mobile.scss */
+  /* line 5548, sass/_layout-mobile.scss */
   #form-button-error2-cadre {
     position: absolute;
     left: 0;
@@ -11831,7 +11853,7 @@ form#delfromvosdevis {
     font-weight: bold;
     top: 40px;
   }
-  /* line 5542, sass/_layout-mobile.scss */
+  /* line 5560, sass/_layout-mobile.scss */
   #wycena-cadre {
     position: relative;
     float: left;
@@ -11841,7 +11863,7 @@ form#delfromvosdevis {
     width: auto;
     clear: left;
   }
-  /* line 5552, sass/_layout-mobile.scss */
+  /* line 5570, sass/_layout-mobile.scss */
   #wycena-cadre_nag {
     float: left;
     display: inline;
@@ -11852,7 +11874,7 @@ form#delfromvosdevis {
     color: #008ebb;
     font-size: 10px;
   }
-  /* line 5563, sass/_layout-mobile.scss */
+  /* line 5581, sass/_layout-mobile.scss */
   #wycena-cadre_suma {
     float: left;
     display: inline;
@@ -11861,7 +11883,7 @@ form#delfromvosdevis {
     padding: 4px 0 6px;
     font-size: 10px;
   }
-  /* line 5572, sass/_layout-mobile.scss */
+  /* line 5590, sass/_layout-mobile.scss */
   #dodaj_koszyk-cadre {
     float: left;
     display: inline;
@@ -11871,21 +11893,21 @@ form#delfromvosdevis {
     margin-top: 24px;
     background: #e1e8f2;
   }
-  /* line 5582, sass/_layout-mobile.scss */
+  /* line 5600, sass/_layout-mobile.scss */
   .OptionFedex {
     border: 0 solid #000;
     width: auto;
     height: 100px;
     clear: both;
   }
-  /* line 5589, sass/_layout-mobile.scss */
+  /* line 5607, sass/_layout-mobile.scss */
   .OptionTNT {
     border: 0 solid #000;
     width: auto;
     height: 100px;
     clear: both;
   }
-  /* line 5596, sass/_layout-mobile.scss */
+  /* line 5614, sass/_layout-mobile.scss */
   #labelFEDEX {
     font-weight: bolder;
     color: #00901d;
@@ -11893,69 +11915,69 @@ form#delfromvosdevis {
   /* ==========================================================================
                                                             SLIDER
      ========================================================================== */
-  /* line 5605, sass/_layout-mobile.scss */
+  /* line 5623, sass/_layout-mobile.scss */
   .theme-default .nivoSlider {
     width: 822px;
     top: 0px;
     margin-left: -57px;
     z-index: 3000;
   }
-  /* line 5612, sass/_layout-mobile.scss */
+  /* line 5630, sass/_layout-mobile.scss */
   .effect2::before {
     margin-left: -58px;
   }
-  /* line 5615, sass/_layout-mobile.scss */
+  /* line 5633, sass/_layout-mobile.scss */
   .effect2::after {
     margin-right: -58px;
   }
-  /* line 5624, sass/_layout-mobile.scss */
+  /* line 5642, sass/_layout-mobile.scss */
   .floatLeft {
     float: left;
   }
-  /* line 5628, sass/_layout-mobile.scss */
+  /* line 5646, sass/_layout-mobile.scss */
   .floatRight {
     float: right;
   }
-  /* line 5632, sass/_layout-mobile.scss */
+  /* line 5650, sass/_layout-mobile.scss */
   .posCenter {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
   }
-  /* line 5638, sass/_layout-mobile.scss */
+  /* line 5656, sass/_layout-mobile.scss */
   .select {
     float: left;
     width: 160px;
   }
-  /* line 5643, sass/_layout-mobile.scss */
+  /* line 5661, sass/_layout-mobile.scss */
   .select-alt {
     background-color: #e8e8e9;
   }
-  /* line 5647, sass/_layout-mobile.scss */
+  /* line 5665, sass/_layout-mobile.scss */
   .label-highlight {
     color: #3097c0;
     font-weight: bold;
     text-transform: capitalize;
   }
-  /* line 5653, sass/_layout-mobile.scss */
+  /* line 5671, sass/_layout-mobile.scss */
   .hide {
     visibility: hidden;
   }
-  /* line 5657, sass/_layout-mobile.scss */
+  /* line 5675, sass/_layout-mobile.scss */
   .highlight {
     color: #f00;
   }
-  /* line 5661, sass/_layout-mobile.scss */
+  /* line 5679, sass/_layout-mobile.scss */
   .flash-slide {
     position: relative;
     z-index: 100;
   }
-  /* line 5666, sass/_layout-mobile.scss */
+  /* line 5684, sass/_layout-mobile.scss */
   .helpImg {
     float: right;
     margin-top: 5px;
   }
-  /* line 5671, sass/_layout-mobile.scss */
+  /* line 5689, sass/_layout-mobile.scss */
   .break-line {
     width: 376px;
     height: 1px;
@@ -11963,23 +11985,23 @@ form#delfromvosdevis {
     display: inline-block;
     margin-top: 5px;
   }
-  /* line 5679, sass/_layout-mobile.scss */
+  /* line 5697, sass/_layout-mobile.scss */
   .delivery-delay {
     float: left;
     width: 98px;
   }
-  /* line 5684, sass/_layout-mobile.scss */
+  /* line 5702, sass/_layout-mobile.scss */
   .delivery-date {
     color: #cc4068;
     text-transform: uppercase;
     font-weight: bold;
   }
-  /* line 5690, sass/_layout-mobile.scss */
+  /* line 5708, sass/_layout-mobile.scss */
   .home-keywords-col {
     float: left;
     padding: 10px;
   }
-  /* line 5695, sass/_layout-mobile.scss */
+  /* line 5713, sass/_layout-mobile.scss */
   .footer-keywords {
     color: #555a61;
     font-size: 9px;
@@ -11987,17 +12009,17 @@ form#delfromvosdevis {
     margin: 0;
     padding: 0;
   }
-  /* line 5703, sass/_layout-mobile.scss */
+  /* line 5721, sass/_layout-mobile.scss */
   .marginTop {
     margin-top: 14px;
   }
-  /* line 5711, sass/_layout-mobile.scss */
+  /* line 5729, sass/_layout-mobile.scss */
   #box {
     width: 200px;
     height: 200px;
     background-color: #f00;
   }
-  /* line 5717, sass/_layout-mobile.scss */
+  /* line 5735, sass/_layout-mobile.scss */
   .production {
     width: 90px;
     height: 20px;
@@ -12011,34 +12033,34 @@ form#delfromvosdevis {
     border-left-style: none;
     cursor: pointer;
   }
-  /* line 5731, sass/_layout-mobile.scss */
+  /* line 5749, sass/_layout-mobile.scss */
   #p1 {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal1.png");
     background-repeat: no-repeat;
   }
-  /* line 5735, sass/_layout-mobile.scss */
+  /* line 5753, sass/_layout-mobile.scss */
   #p1.active {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal2.png");
   }
-  /* line 5740, sass/_layout-mobile.scss */
+  /* line 5758, sass/_layout-mobile.scss */
   #p2 {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide1.png");
     background-repeat: no-repeat;
   }
-  /* line 5744, sass/_layout-mobile.scss */
+  /* line 5762, sass/_layout-mobile.scss */
   #p2.active {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide2.png");
   }
-  /* line 5749, sass/_layout-mobile.scss */
+  /* line 5767, sass/_layout-mobile.scss */
   #p3 {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express1.png");
     background-repeat: no-repeat;
   }
-  /* line 5753, sass/_layout-mobile.scss */
+  /* line 5771, sass/_layout-mobile.scss */
   #p3.active {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express2.png");
   }
-  /* line 5758, sass/_layout-mobile.scss */
+  /* line 5776, sass/_layout-mobile.scss */
   .delivery {
     width: 90px;
     height: 20px;
@@ -12052,34 +12074,34 @@ form#delfromvosdevis {
     border-left-style: none;
     cursor: pointer;
   }
-  /* line 5772, sass/_layout-mobile.scss */
+  /* line 5790, sass/_layout-mobile.scss */
   #l1 {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal1.png");
     background-repeat: no-repeat;
   }
-  /* line 5776, sass/_layout-mobile.scss */
+  /* line 5794, sass/_layout-mobile.scss */
   #l1.active {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal2.png");
   }
-  /* line 5781, sass/_layout-mobile.scss */
+  /* line 5799, sass/_layout-mobile.scss */
   #l2 {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide1.png");
     background-repeat: no-repeat;
   }
-  /* line 5785, sass/_layout-mobile.scss */
+  /* line 5803, sass/_layout-mobile.scss */
   #l2.active {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide2.png");
   }
-  /* line 5790, sass/_layout-mobile.scss */
+  /* line 5808, sass/_layout-mobile.scss */
   #l3 {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express1.png");
     background-repeat: no-repeat;
   }
-  /* line 5794, sass/_layout-mobile.scss */
+  /* line 5812, sass/_layout-mobile.scss */
   #l3.active {
     background-image: url("http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express2.png");
   }
-  /* line 5799, sass/_layout-mobile.scss */
+  /* line 5817, sass/_layout-mobile.scss */
   DIV.ProgressBar {
     float: left;
     width: 100px;
@@ -12093,7 +12115,7 @@ form#delfromvosdevis {
     *display: inline;
     margin-top: 2px;
   }
-  /* line 5812, sass/_layout-mobile.scss */
+  /* line 5830, sass/_layout-mobile.scss */
   DIV.ProgressBar DIV {
     float: left;
     display: inline;
@@ -12101,7 +12123,7 @@ form#delfromvosdevis {
     font-size: 11px;
     height: 100%;
   }
-  /* line 5821, sass/_layout-mobile.scss */
+  /* line 5839, sass/_layout-mobile.scss */
   #regulamin .checkbox2 {
     position: absolute;
     top: 22px;
@@ -12109,7 +12131,7 @@ form#delfromvosdevis {
     width: 236px;
     height: 35px;
   }
-  /* line 5829, sass/_layout-mobile.scss */
+  /* line 5847, sass/_layout-mobile.scss */
   #f00error {
     font-size: 16px;
     font-weight: bold;
@@ -12120,7 +12142,7 @@ form#delfromvosdevis {
     width: auto;
     text-align: center;
   }
-  /* line 5840, sass/_layout-mobile.scss */
+  /* line 5858, sass/_layout-mobile.scss */
   form#delfromvosdevis {
     margin-bottom: 10px;
     width: 183px;
@@ -12128,7 +12150,7 @@ form#delfromvosdevis {
     display: block;
     float: left;
   }
-  /* line 5848, sass/_layout-mobile.scss */
+  /* line 5866, sass/_layout-mobile.scss */
   .livraison-gratuite .starImg {
     width: 16px;
     padding: 2px;

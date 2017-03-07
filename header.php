@@ -24,10 +24,6 @@
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php wp_head(); ?>
 	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/pokaz.js"></script>
-
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type="text/javascript" src="/js/jquery.resmenu.min.js"></script>
-
 	<!--[if lte IE 7]>
 	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/styleie.css" />
 	<![endif]-->
@@ -49,7 +45,7 @@
 			<!--<div id="top">France Banderole : Fabricant banderole - Kakemono - bache publicitaire - maquette banderoles gratuite - prix et tarifs banderoles publicitaires en ligne - <a href="/impression-bache.php/" title="impression bache publicitaire" target="_blank">impression bâche</a> <g:plusone size="small" href="http://www.france-banderole.com"></g:plusone> <a href="https://twitter.com/#!/FranceBanderole" title="France banderole sur Twitter" target="_blank"><img src="http://www.france-banderole.com/wp-content/uploads/2010/12/twitter.jpg" alt="banderole" /></a></div>-->
 			<div id="header">
 				<a href="<?php bloginfo('url'); ?>/index.php" id="logo" title="fabricant banderole"></a>
-
+				
 				<ul id="menu_top">
 					<li onmouseover="pokazt('produit_sub');" onmouseout="ukryjt('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
 
