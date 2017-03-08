@@ -47,11 +47,31 @@
 		<div id="main">
 
 			<div id="header">
+
 				<a href="<?php bloginfo('url'); ?>/index.php" id="logo" title="fabricant banderole"></a>
+
 				<div class="site-head">
 					<div class="site-title">France Banderole</div>
 					<div class="site-subtitle">La qualité sans en payer le prix</div>
 				</div>
+
+				<ul class="menu-client">
+					<li class="menu-client-item item1">
+						<span class="menu-client-icon phone"><i class="fa fa-phone" aria-hidden="true"></i></span>
+
+						<span class="menu-client-label tel1">Nos téléconseillers</span><br />
+						<span class="menu-client-label tel2">0442 401 401</span><br />
+						<span class="menu-client-label tel3">9h-12h | 14h-18h</span>
+					</li>
+					<li class="menu-client-item menu-client--devis">
+						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/vos-devis/"><i class="fa fa-lock" aria-hidden="true"></i></a></span>
+						<span class="menu-client-label"><a href="<?php bloginfo('url'); ?>/vos-devis/">Espace Client</a></span>
+					</li>
+					<li class="menu-client-item menu-client--panier">
+						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><?php echo getCartCount(); ?> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+						<span class="menu-client-label"><a href="<?php bloginfo('url'); ?>/votre-panier/">Panier</li></a></span>
+				</ul>
+
 
 				<ul id="menu_top">
 					<li onmouseover="pokazt('produit_sub');" onmouseout="ukryjt('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
