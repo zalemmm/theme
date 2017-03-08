@@ -48,6 +48,10 @@
 
 			<div id="header">
 				<a href="<?php bloginfo('url'); ?>/index.php" id="logo" title="fabricant banderole"></a>
+				<div class="site-head">
+					<div class="site-title">France Banderole</div>
+					<div class="site-subtitle">La qualité sans en payer le prix</div>
+				</div>
 
 				<ul id="menu_top">
 					<li onmouseover="pokazt('produit_sub');" onmouseout="ukryjt('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
