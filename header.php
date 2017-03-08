@@ -45,7 +45,7 @@
 	<body>
 
 		<div id="main">
-			<!--<div id="top">France Banderole : Fabricant banderole - Kakemono - bache publicitaire - maquette banderoles gratuite - prix et tarifs banderoles publicitaires en ligne - <a href="/impression-bache.php/" title="impression bache publicitaire" target="_blank">impression bâche</a> <g:plusone size="small" href="http://www.france-banderole.com"></g:plusone> <a href="https://twitter.com/#!/FranceBanderole" title="France banderole sur Twitter" target="_blank"><img src="http://www.france-banderole.com/wp-content/uploads/2010/12/twitter.jpg" alt="banderole" /></a></div>-->
+
 			<div id="header">
 				<a href="<?php bloginfo('url'); ?>/index.php" id="logo" title="fabricant banderole"></a>
 
