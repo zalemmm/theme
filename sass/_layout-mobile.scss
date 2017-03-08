@@ -153,7 +153,7 @@
     }
    .menu-client-icon {
       display: block;
-      font-size: 4rem;
+      font-size: 3.8rem;
     }
     .menu-client-icon.phone {
       float: left;
@@ -168,213 +168,7 @@
     }
   }
 
-  a#corner_button {
-    display: none;
-  }
-
-  a#corner_button_cart {
-    display: none;
-  }
-
-
-
-
-  // LINKS ---------------------------------------------------------------------
-  //----------------------------------------------------------------------------
-
-
-  a {
-
-    &:link {
-      color: $text;
-      text-decoration: underline;
-    }
-
-    &:visited {
-      color: $text;
-      text-decoration: underline;
-    }
-
-    &:hover {
-      color: $color_5;
-    }
-
-    &.invisible_link {
-      &:link {
-        color: $white;
-      }
-
-      &:visited {
-        color: $white;
-      }
-
-      &:hover {
-        color: $color_5;
-      }
-    }
-
-    &.pink_link {
-      &:link {
-        color: $color_11;
-        text-transform: none;
-      }
-
-      &:visited {
-        color: $color_11;
-        text-transform: none;
-      }
-
-      &:hover {
-        color: $color_5;
-      }
-    }
-
-    &.but_espace {
-      width: 106px;
-      height: 19px;
-      background: url('../images/but_espace.png') no-repeat;
-      text-indent: -999em;
-      overflow: hidden;
-      border: none;
-      float: left;
-      display: block;
-      cursor: pointer;
-      margin-right: 14px;
-    }
-
-    &.conditio {
-      &:link {
-        color: $color_11;
-      }
-
-      &:visited {
-        color: $color_11;
-      }
-
-      &:hover {
-        color: $color_5;
-      }
-    }
-
-    &#but_imprimerbon {
-      position: absolute;
-      left: 240px;
-      top: 10px;
-      margin-left: 14px;
-      width: 213px;
-      height: 19px;
-      background: url('../images/but_imprimerbon.png') no-repeat;
-      text-indent: -999em;
-      overflow: hidden;
-      border: none;
-      display: inline-block;
-    }
-
-    &.lcomment {
-      &:hover,
-      &:link,
-      &:visited {
-        width: 22px;
-        height: 22px;
-        position: absolute;
-        left: 200px;
-        top: 0;
-        background: url('../images/lastcomment.png') no-repeat;
-      }
-    }
-
-    &.lastcommentlink {
-      &:link,
-      &:visited {
-        position: relative;
-        margin-top: 10px;
-        float: right;
-        display: inline;
-      }
-    }
-
-    &#votre_mod {
-      position: absolute;
-      left: 28px;
-      top: 110px;
-      width: 168px;
-      height: 19px;
-      background: url('../images/v_modifier.png') no-repeat;
-      text-indent: -999em;
-      overflow: hidden;
-      border: none;
-      display: inline-block;
-    }
-
-    &#votre_dec {
-      position: absolute;
-      left: 28px;
-      top: 140px;
-      width: 168px;
-      height: 19px;
-      background: url('../images/v_deconnecter.png') no-repeat;
-      text-indent: -999em;
-      overflow: hidden;
-      border: none;
-      display: inline-block;
-    }
-
-    &.forgetpass {
-      &:link,
-      &:visited {
-        position: absolute;
-        left: 126px;
-        bottom: 18px;
-        width: 140px;
-        height: 12px;
-        color: $color_12;
-        text-decoration: underline;
-      }
-
-      &:hover {
-        color: $color_5;
-      }
-    }
-
-    &.pleaseregister {
-      &:hover,
-      &:link,
-      &:visited {
-        position: absolute;
-        bottom: 39px;
-        left: 26px;
-        background: url('../images/register.png') no-repeat;
-        width: 101px;
-        height: 19px;
-        cursor: pointer;
-        text-indent: -999em;
-        overflow: hidden;
-        border: none;
-      }
-    }
-
-    &.pytajnik {
-      position: absolute;
-      right: 25px;
-      top: 16px;
-      width: 15px;
-      height: 15px;
-      background: url('../images/pytajnik.jpg') no-repeat;
-      text-decoration: none;
-    }
-
-    &:active {
-      outline: none;
-    }
-
-    &.linkUppercase {
-      text-transform: uppercase;
-      text-decoration: none;
-    }
-  }
-
   // MENU TOP ------------------------------------------------------------------
-  //----------------------------------------------------------------------------
 
   ul {
     padding-left: 0;
@@ -384,18 +178,16 @@
     list-style-type: none;
 
     &#menu_top {
-      @include container (90%);
-      position: relative;
+      width:100%;
+      position: absolute;
       //width: 708px;
-      height: 60px;
-      top: 230px;
+      height: 40px;
+      top: 0px;
       left: auto;
       text-transform: uppercase;
       font-weight: bold;
-      font-size: 24px;
-      background-color: #fff;
-      padding-top: 10px;
-
+      font-size: 22px;
+      background-color: darken($jaune, 10%);
       li {
         position: relative;
         float: none;
@@ -405,24 +197,23 @@
         z-index: 1;
         text-align: center;
         vertical-align: center;
-
+        width:24%;
         a {
-
           &:link,
           &:visited {
+            padding-top: 10px;
             display: inline-block;
-            height: 60px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 20px;
-            color: $color_4;
+            color: $white;
             text-align: center;
             text-decoration: none;
-            @include span (3);
           }
 
           &#active,
           &:hover {
-            color: $white;
+            background: $white;
+            color:$text;
           }
         }
       }
@@ -1019,6 +810,222 @@
     }
   }
 
+
+
+
+
+
+
+
+
+
+
+  // desactivation des éléments du template desktop
+
+  a#corner_button,
+  a#corner_button_cart,
+  #slideshow {
+    display: none;
+  }
+
+
+
+
+  // LINKS ---------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+
+  a {
+
+    &:link {
+      color: $text;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: $text;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: $color_5;
+    }
+
+    &.invisible_link {
+      &:link {
+        color: $white;
+      }
+
+      &:visited {
+        color: $white;
+      }
+
+      &:hover {
+        color: $color_5;
+      }
+    }
+
+    &.pink_link {
+      &:link {
+        color: $color_11;
+        text-transform: none;
+      }
+
+      &:visited {
+        color: $color_11;
+        text-transform: none;
+      }
+
+      &:hover {
+        color: $color_5;
+      }
+    }
+
+    &.but_espace {
+      width: 106px;
+      height: 19px;
+      background: url('../images/but_espace.png') no-repeat;
+      text-indent: -999em;
+      overflow: hidden;
+      border: none;
+      float: left;
+      display: block;
+      cursor: pointer;
+      margin-right: 14px;
+    }
+
+    &.conditio {
+      &:link {
+        color: $color_11;
+      }
+
+      &:visited {
+        color: $color_11;
+      }
+
+      &:hover {
+        color: $color_5;
+      }
+    }
+
+    &#but_imprimerbon {
+      position: absolute;
+      left: 240px;
+      top: 10px;
+      margin-left: 14px;
+      width: 213px;
+      height: 19px;
+      background: url('../images/but_imprimerbon.png') no-repeat;
+      text-indent: -999em;
+      overflow: hidden;
+      border: none;
+      display: inline-block;
+    }
+
+    &.lcomment {
+      &:hover,
+      &:link,
+      &:visited {
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        left: 200px;
+        top: 0;
+        background: url('../images/lastcomment.png') no-repeat;
+      }
+    }
+
+    &.lastcommentlink {
+      &:link,
+      &:visited {
+        position: relative;
+        margin-top: 10px;
+        float: right;
+        display: inline;
+      }
+    }
+
+    &#votre_mod {
+      position: absolute;
+      left: 28px;
+      top: 110px;
+      width: 168px;
+      height: 19px;
+      background: url('../images/v_modifier.png') no-repeat;
+      text-indent: -999em;
+      overflow: hidden;
+      border: none;
+      display: inline-block;
+    }
+
+    &#votre_dec {
+      position: absolute;
+      left: 28px;
+      top: 140px;
+      width: 168px;
+      height: 19px;
+      background: url('../images/v_deconnecter.png') no-repeat;
+      text-indent: -999em;
+      overflow: hidden;
+      border: none;
+      display: inline-block;
+    }
+
+    &.forgetpass {
+      &:link,
+      &:visited {
+        position: absolute;
+        left: 126px;
+        bottom: 18px;
+        width: 140px;
+        height: 12px;
+        color: $color_12;
+        text-decoration: underline;
+      }
+
+      &:hover {
+        color: $color_5;
+      }
+    }
+
+    &.pleaseregister {
+      &:hover,
+      &:link,
+      &:visited {
+        position: absolute;
+        bottom: 39px;
+        left: 26px;
+        background: url('../images/register.png') no-repeat;
+        width: 101px;
+        height: 19px;
+        cursor: pointer;
+        text-indent: -999em;
+        overflow: hidden;
+        border: none;
+      }
+    }
+
+    &.pytajnik {
+      position: absolute;
+      right: 25px;
+      top: 16px;
+      width: 15px;
+      height: 15px;
+      background: url('../images/pytajnik.jpg') no-repeat;
+      text-decoration: none;
+    }
+
+    &:active {
+      outline: none;
+    }
+
+    &.linkUppercase {
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+  }
+
+
+
   #frontpage_info {
     position: relative;
     font-weight: bold;
@@ -1561,27 +1568,11 @@
     }
   }
 
-  #slideshow {
-    position: relative;
-    float: left;
-    display: inline;
-    width: 339px;
-    height: 220px;
-  }
-
   #banners {
     position: relative;
-    float: right;
     display: inline;
     width: 339px;
     height: 220px;
-
-    .banner1 {
-      margin-bottom: 4px;
-      display: block;
-      width: 339px;
-      height: 105px;
-    }
   }
 
   img {
