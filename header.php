@@ -20,7 +20,7 @@
 
 	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 	<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?d=11062012 );</style>
-	<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/motscles.css?d=11062012 );</style>
+	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php wp_head(); ?>
 

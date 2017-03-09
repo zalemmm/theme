@@ -415,7 +415,7 @@ $div_1 = '
   <div style="clear: both; height: 10px;"></div>
 
 </div>
-<hr style="margin-bottom: 10px;" /><small>
+<hr /><small>
 FRANCE BANDEROLE : Imprimeur numérique grand format <a href="/kakemonos/" title="KAKEMONO">Kakemono</a> &amp; Banderole, Réalisation/impression/façonnage réalisés en France métropolitaine
 TAILLES D'IMPRESSION : banderole jusqu'à 50m sur 3,20m . 7 matière de bâches : classées M1, écologique, PVC, micro-perforée... Voir rubrique <a href="<?php bloginfo('url'); ?>/realisation/">réalisation</a>
 IMPRESSION NUMÉRIQUE 1440Dpi : tenue et respect des couleurs garantie 3 ans en exterieur / intérieur sur banderoles<br />

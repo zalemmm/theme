@@ -824,7 +824,8 @@
 
   a#corner_button,
   a#corner_button_cart,
-  #slideshow {
+  #slideshow,
+  .mc_contenu {
     display: none;
   }
 
@@ -1636,8 +1637,8 @@
   }
 
   small {
-    font-size: 10px;
-    line-height: 12px;
+    font-size: 0.8rem;
+    line-height: 1rem;
   }
 
   h1 {
@@ -5613,23 +5614,24 @@
     color: $color_16;
   }
 
+
   /* ==========================================================================
                                                             SLIDER
      ========================================================================== */
 
   .theme-default .nivoSlider {
-    width: 822px;
+    @include container(100%);
     top: 0;
-    margin-left: -57px;
+    margin-left: 0;
     z-index: 3000;
   }
 
   .effect2::before {
-    margin-left: -58px;
+    margin-left: 0;
   }
 
   .effect2::after {
-    margin-right: -58px;
+    margin-right: 0;
   }
 
   // ==========================================================================
