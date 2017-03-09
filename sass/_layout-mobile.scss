@@ -696,7 +696,7 @@
 
   .mc_texte {
     padding: 10px 0px;
-    font-size: .9rem;
+    font-size: .7rem;
     line-height: 1.2em;
   }
 
@@ -5705,7 +5705,7 @@
                                                             SLIDER
      ========================================================================== */
 
-  .theme-default .nivoSlider {  // Update to .metaslider 
+  .theme-default .nivoSlider {  // Update to .metaslider
     @include container(100%);
     top: 0;
     margin-left: 0;
@@ -5954,6 +5954,34 @@
     display: none;
   }
 
+  // module accordeon
+  .ui-corner-all{
+    border-radius: none;
+  }
+  #accordion {
+  margin: 50px auto;
+
+  }
+
+  #accordion .ui-accordion-content {
+  background-color: #f3f3f3;
+  color: #777;
+  font-size: 10pt;
+  line-height: 16pt;
+  }
+
+  #accordion .ui-accordion-content a {
+  color: #777;
+  }
+
+  #accordion .ui-accordion-header {
+  padding:15px;
+  background-color: #ccc;
+  color: $white;
+  margin: 0px;
+  border:none;
+  margin-top: 10px;
+  }
 
 
 }

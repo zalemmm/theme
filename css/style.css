@@ -7439,7 +7439,7 @@ form#delfromvosdevis {
   /* line 697, sass/_layout-mobile.scss */
   .mc_texte {
     padding: 10px 0px;
-    font-size: .9rem;
+    font-size: .7rem;
     line-height: 1.2em;
   }
   /* line 708, sass/_layout-mobile.scss */
@@ -12601,6 +12601,34 @@ form#delfromvosdevis {
   /* line 5953, sass/_layout-mobile.scss */
   .onlyprint {
     display: none;
+  }
+  /* line 5958, sass/_layout-mobile.scss */
+  .ui-corner-all {
+    border-radius: none;
+  }
+  /* line 5961, sass/_layout-mobile.scss */
+  #accordion {
+    margin: 50px auto;
+  }
+  /* line 5966, sass/_layout-mobile.scss */
+  #accordion .ui-accordion-content {
+    background-color: #f3f3f3;
+    color: #777;
+    font-size: 10pt;
+    line-height: 16pt;
+  }
+  /* line 5973, sass/_layout-mobile.scss */
+  #accordion .ui-accordion-content a {
+    color: #777;
+  }
+  /* line 5977, sass/_layout-mobile.scss */
+  #accordion .ui-accordion-header {
+    padding: 15px;
+    background-color: #ccc;
+    color: #fff;
+    margin: 0px;
+    border: none;
+    margin-top: 10px;
   }
 }
 
