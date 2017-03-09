@@ -8,6 +8,9 @@ get_header();
 
 <div id="content"><div id="content_bg_top"><div id="content_zawartosc">
 <div class="storycontent">
+  <?php
+    echo do_shortcode("[metaslider id=3848]");
+  ?>
 <?php echo getPageContent(2); ?>
 <hr />
 <div id="slideshow"><?php if(function_exists(dynamic_content_gallery)) dynamic_content_gallery(); ?></div><div id="banners"><a href="<?php bloginfo('url'); ?>/la-ceddre/" class="banner1"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/front_banner1.jpg" alt="banderole écologique" /></a>
