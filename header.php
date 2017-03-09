@@ -24,7 +24,7 @@
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<?php wp_head(); ?>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 
 	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/pokaz.js"></script>
 	<!--[if lte IE 7]>
@@ -71,7 +71,6 @@
 						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><?php echo getCartCount(); ?> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
 						<span class="menu-client-label"><a href="<?php bloginfo('url'); ?>/votre-panier/">Panier</li></a></span>
 				</ul>
-
 
 				<ul id="menu_top">
 					<li onmouseover="pokazt('produit_sub');" onmouseout="ukryjt('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
@@ -129,6 +128,7 @@
 				<input type="text" name="s" value="RECHERCHER" onfocus="if (this.value == 'RECHERCHER') {this.value = ''; this.style.color = '#000000';}" onblur="if (this.value == '') {this.value = 'RECHERCHER';this.style.color = '#e88c07';}" />
 				<input type="submit" id="submit_search" value="" />
 			</form>-->
+
 			<a href="<?php bloginfo('url'); ?>/vos-devis/" id="corner_button"></a>
 			<a href="<?php bloginfo('url'); ?>/votre-panier/" id="corner_button_cart"><?php echo getCartCount(); ?><i class="fa fa-shopping-cart" aria-hidden="true"></i>
 </a>

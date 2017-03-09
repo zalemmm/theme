@@ -13,12 +13,12 @@ if(!function_exists('getPageContent'))
 		{
 			return;
 		}
-		
+
 		global $wpdb;
-		$sql_query = 'SELECT DISTINCT * FROM ' . $wpdb->posts . 
+		$sql_query = 'SELECT DISTINCT * FROM ' . $wpdb->posts .
 		' WHERE ' . $wpdb->posts . '.ID=' . $pageId;
 		$posts = $wpdb->get_results($sql_query);
-				
+
 		if(!empty($posts))
 		{
 			foreach($posts as $post)
@@ -28,7 +28,7 @@ if(!function_exists('getPageContent'))
 		}
 	}
 }
-	
+
 if ( function_exists('register_sidebar') )
 	register_sidebar(array(
 		'before_widget' => '<li id="%1$s" class="widget %2$s">',
@@ -36,7 +36,7 @@ if ( function_exists('register_sidebar') )
 		'before_title' => '',
 		'after_title' => '',
 	));
-add_theme_support( 'post-thumbnails' ); 	
+add_theme_support( 'post-thumbnails' );
 remove_action('wp_head', 'wp_generator');
 remove_filter('wp_head', 'wp_widget_recent_comments_style' );
 function remove_wp_widget_recent_comments_style() {
@@ -82,7 +82,7 @@ function modify_jquery() {
 	if (!is_admin()) {
 		// comment out the next two lines to load the local copy of jQuery
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', get_bloginfo("template_url").'/js/jquery.191.min.js', false, '1.9.1');
+		wp_register_script('jquery', get_bloginfo("template_url").'/js/jquery-3.1.1.min.js', false, '1.9.1');
 		wp_enqueue_script('jquery');
 	}
 }
