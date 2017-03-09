@@ -5705,7 +5705,7 @@
                                                             SLIDER
      ========================================================================== */
 
-  .theme-default .nivoSlider {
+  .theme-default .nivoSlider {  // Update to .metaslider 
     @include container(100%);
     top: 0;
     margin-left: 0;
