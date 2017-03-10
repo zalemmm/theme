@@ -1,3 +1,12 @@
+// Désactive les rajouts mobile ------------------------------------------------
+
+.site-head,
+.menu-client {
+  display: none;
+}
+
+//------------------------------------------------------------------------------
+
 body {
   font-size: 11px;
   color: $text;
@@ -5,11 +14,6 @@ body {
   margin: 0 auto;
   line-height: 15px;
   background-color: $white;
-}
-
-.site-head,
-.menu-client {
-  display: none;
 }
 
 .logoprint {
@@ -5601,7 +5605,7 @@ stat2 {
                                                           SLIDER
    ========================================================================== */
 
-.theme-default .nivoSlider { // update to .metaslider 
+.theme-default .nivoSlider { // update to .metaslider
   width: 822px;
   top: 0;
   margin-left: -57px;

@@ -1,6 +1,14 @@
 @media screen and (max-width: 1400px) {
 
-  // LAYOUT --------------------------------------------------------------------
+  $susy: (
+    columns: 12,
+    gutters: .25,
+    gutter-position: inside,
+  );
+  @include layout($susy);
+
+  //----------------------------------------------------------------------------
+  //                                LAYOUT
   //----------------------------------------------------------------------------
 
   body {
@@ -90,8 +98,9 @@
     padding: 25px 0;
   }
 
-  // DECLARATIONS GENERALES ----------------------------------------------------
-  // ---------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  //                        DECLARATIONS GENERALES
+  //----------------------------------------------------------------------------
 
   img {
     border: 0;
@@ -214,26 +223,32 @@
 
   .highlight {
     color: $color_14;
+    font-weight: 700;
+  }
+  a .highlight{
+    color: $color_14;
+    font-weight: 900;
+    text-decoration: none;
   }
 
   .highlight-alt1 {
     color: $cyan;
   }
 
-
-  // LINKS ---------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  //                                LINKS
   //----------------------------------------------------------------------------
 
   a {
-
     &:link {
-      color: $text;
-      text-decoration: underline;
+      color: $cyan;
+      font-weight: bold;
+      text-decoration: none;
     }
 
     &:visited {
       color: $text;
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     &:hover {
@@ -414,9 +429,9 @@
     }
   }
 
-
-  // MODULES -------------------------------------------------------------------
-  // ---------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  //                             MODULES
+  //----------------------------------------------------------------------------
 
   // Header --------------------------------------------------------------------
 
@@ -437,7 +452,7 @@
     display: block;
         top: 10rem;
     left: 25%;
-    font-family: sansationbold, sans-serif;
+    font-family: $font-special;
     .site-title{
       font-size: 2.2rem;
       line-height: 2.6rem;
@@ -456,7 +471,7 @@
     justify-content: space-between;
     background-color: #fff;
     list-style: none;
-    font-family: sansationbold, sans-serif;
+    font-family: $font-special;
     font-size: 1rem;
     line-height: 1.6rem;
     top:220px;
@@ -627,7 +642,9 @@
     }
   }
 
-  // Page d'accueil ------------------------------------------------------------
+  //----------------------------------------------------------------------------
+  //                      MODULES PAGE ACCUEIL
+  //----------------------------------------------------------------------------
 
   // module icones tarifs
 
@@ -700,10 +717,41 @@
     line-height: 1.2em;
   }
 
+  // module accordeon
 
-  // Pages produits ------------------------------------------------------------
+  .ui-corner-all{
+    border-radius: none;
+  }
+  #accordion {
+  margin: 50px auto;
 
-  // Module Description produit
+  }
+
+  #accordion .ui-accordion-content {
+  background-color: #f3f3f3;
+  color: #777;
+  font-size: 10pt;
+  line-height: 16pt;
+  }
+
+  #accordion .ui-accordion-content a {
+  color: #777;
+  }
+
+  #accordion .ui-accordion-header {
+  padding:15px;
+  background-color: #ccc;
+  color: $white;
+  margin: 0px;
+  border:none;
+  margin-top: 10px;
+  }
+
+  //----------------------------------------------------------------------------
+  //                       MODULES PAGES PRODUITS
+  //----------------------------------------------------------------------------
+
+  // Description produit -------------------------------------------------------
 
   #top_images {
     position: relative;
@@ -712,24 +760,37 @@
   }
 
   #top_info {
-    @include container(100%);
+    width:460px;
     float: none;
     margin-top: 10px;
     margin-bottom: 20px;
+    height: 309px;
   }
 
-  #top_info > img {
-    @include span(1 of 3);
+  #top_info  img {
+    padding-left: 0;
+    width: 460px;
+    height: auto;
+  }
+
+  .front{
+    width:460px;
+    height:auto;
   }
 
   #top_info_info {
-    @include span(2 of 3 last);
+    width:460px;
     position: relative;
     top: 0;
     left: 0;
     height: auto;
-    background: $color_17;
+    background: lighten($text, 40%);
+    color:$white;
     padding: 8px;
+    margin-top: 30px;
+    font-size: .8rem;
+    line-height: 1rem;
+    font-weight: 600;
   }
 
   #top_info_info2 {
@@ -782,7 +843,9 @@
   }
 
   #preview {
-    width: 29%;
+    @include span (4 last);
+    padding-right: 0;
+    margin-top: 20px;
     display: block;
     visibility: hidden;
     margin-bottom: 5px;
@@ -791,13 +854,13 @@
   #preview_con {
     float: right;
     display: inline;
-    width: 247px;
+    width: auto;
   }
 
   #preview_name {
     float: right;
     display: inline;
-    width: 222px;
+    width: auto;
     height: 20px;
     line-height: 21px;
     vertical-align: middle;
@@ -812,7 +875,7 @@
   #preview_info {
     float: right;
     display: inline;
-    width: 111px;
+    width: auto;
     height: 143px;
     height: auto !important;
     min-height: 143px;
@@ -841,7 +904,7 @@
     float: left;
     display: inline;
     padding: 3px 7px 4px;
-    width: 97px;
+    width: auto;
     height: 12px;
     font-size: 10px;
     color: $white;
@@ -851,25 +914,26 @@
 
   #preview_imag {
     float: left;
-    display: inline-block;
-    width: 247px;
-    height: 380px;
+    max-width: 100%;
+    display: block;
+    width: auto;
+    height: auto;
     margin-left: 0;
   }
 
   #preview2 {
     position: relative;
     float: right;
-    width: 247px;
-    height: 175px;
+    width: auto;
+    height: auto;
     display: none;
   }
 
   #preview_name2 {
     float: right;
     display: inline;
-    width: 222px;
-    height: 20px;
+    width: auto;
+    height: auto;
     line-height: 21px;
     vertical-align: middle;
     padding: 1px 8px 0;
@@ -882,8 +946,8 @@
   #preview_info2 {
     float: right;
     display: inline;
-    width: 111px;
-    height: 143px;
+    width: auto;
+    height: auto;
     background: $color_17;
 
     ul {
@@ -899,8 +963,8 @@
     float: left;
     display: inline;
     padding: 3px 7px 4px;
-    width: 97px;
-    height: 12px;
+    width: auto;
+    height: auto;
     font-size: 10px;
     color: $white;
     background: $color_18;
@@ -910,23 +974,23 @@
   #preview_imag2 {
     float: left;
     display: inline-block;
-    width: 125px;
-    height: 142px;
+    width: auto;
+    height: auto;
     margin-left: 9px;
   }
 
   #preview3 {
     float: right;
-    width: 247px;
-    height: 175px;
+    width: auto;
+    height: auto;
     display: none;
   }
 
   #preview_name3 {
     float: right;
     display: inline;
-    width: 222px;
-    height: 20px;
+    width: auto;
+    height: auto;
     line-height: 21px;
     vertical-align: middle;
     padding: 1px 8px 0;
@@ -939,8 +1003,8 @@
   #preview_info3 {
     float: right;
     display: inline;
-    width: 111px;
-    height: 143px;
+    width: auto;
+    height: auto;
     background: $color_17;
 
     ul {
@@ -956,8 +1020,8 @@
     float: left;
     display: inline;
     padding: 3px 7px 4px;
-    width: 97px;
-    height: 12px;
+    width: auto;
+    height: auto;
     font-size: 10px;
     color: $white;
     background: $color_18;
@@ -967,16 +1031,16 @@
   #preview_imag3 {
     float: left;
     display: inline-block;
-    width: 125px;
-    height: 142px;
+    width: auto;
+    height: auto;
     margin-left: 9px;
   }
 
   #preview_imag33 {
     float: left;
     display: inline-block;
-    width: 238px;
-    height: 142px;
+    width: auto;
+    height: auto;
     margin-left: 9px;
     text-align: center;
 
@@ -985,7 +1049,288 @@
     }
   }
 
-  // module sélection produit
+  // module sélection produit --------------------------------------------------
+
+  #buying {
+
+    clear: both;
+    @include span(8);
+    padding-left: 0;
+    position: relative;
+    display: block;
+    margin-top: 20px;
+  }
+
+  .jotform-form {
+    box-sizing: border-box;
+    width: 100%;
+    background: $color_7;
+    padding:2% 4%;
+    animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+
+    select {
+      width: 100%;
+      display: inline;
+      padding-right: 2.5em;
+      border: 0;
+      border-radius: 3px;
+      appearance: menulist;
+      font-size: inherit;
+      padding: 0.5em;
+      margin: 0;
+      height: 30px;
+      color: $color_33;
+      font-weight: bold;
+      cursor: pointer;
+
+      .titre {
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .option1 {
+        color: $black;
+        background-color: $color_17;
+        text-transform: capitalize;
+        line-height: 10px;
+      }
+
+      .option2 {
+        color: $black;
+        background-color: $white;
+        text-transform: capitalize;
+        line-height: 10px;
+      }
+
+      &.option3 {
+        @include span(6);
+
+      }
+
+      &.option4 {
+        @include span(6);
+
+      }
+
+      &.quan {
+        float: right;
+        display: inline;
+        width: 70px;
+        margin-right: 162px;
+        line-height: 11px;
+        border: 1px solid $color_8;
+        font-size: 9px;
+        background: $white;
+      }
+    }
+
+    input {
+      &.form-textbox {
+        display: inline;
+        width: 40px;
+        line-height: 0;
+        font-size: 11px;
+        background: $white;
+        border: 0;
+
+        border-radius: 3px;
+        appearance: none;
+        font-size: inherit;
+        padding: 0.5em;
+        margin: 0;
+        text-align: center;
+      }
+
+      &.form-textbox2 {
+        position: absolute;
+        top: 13px;
+        left: 150px;
+        width: 40px;
+        line-height: 0;
+        border: 1px solid $color_8;
+        font-size: inherit;
+        background: $white;
+
+        border-radius: 3px;
+        border: 0;
+        appearance: none;
+        padding: 0.5em;
+        margin: 0;
+        text-align: center;
+      }
+    }
+
+    .heusepar {
+      position: absolute;
+      top: 18px;
+      left: 135px;
+      height: 12px;
+      width: 10px;
+    }
+
+    .llar {
+      position: absolute;
+      top: 35px;
+      left: 75px;
+      height: 12px;
+      width: 45px;
+      text-align: center;
+      font-size: 9px;
+      color: $color_34;
+    }
+
+    .lhau {
+      position: absolute;
+      top: 35px;
+      left: 153px;
+      height: 12px;
+      width: 45px;
+      text-align: center;
+      font-size: 9px;
+      color: $color_34;
+    }
+
+    .llar2 {
+      position: absolute;
+      top: 35px;
+      left: 216px;
+      height: 12px;
+      width: 45px;
+      text-align: center;
+      font-size: 9px;
+      color: $color_34;
+    }
+
+    .lhau2 {
+      position: absolute;
+      top: 35px;
+      left: 143px;
+      height: 12px;
+      width: 45px;
+      text-align: center;
+      font-size: 9px;
+      color: $color_34;
+    }
+  }
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes fadein {
+    from {
+      opacity: 0;
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes fadein {
+    from {
+      opacity: 0;
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+      opacity: 1;
+    }
+  }
+  @-ms-keyframes fadein {
+    from {
+      opacity: 0;
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+      opacity: 1;
+    }
+  }
+  @-o-keyframes fadein {
+    from {
+      opacity: 0;
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+      opacity: 1;
+    }
+  }
+
+  .boxcheck {
+    position: absolute;
+    top: 8px;
+    right: 80px;
+    width: 136px;
+    height: 35px;
+    line-height: 11px;
+    color: $color_34;
+    font-size: 10px;
+  }
+
+  .form-submit-button {
+    width: 86px;
+    height: 20px;
+    cursor: pointer;
+    background: url('../images/calculez.jpg') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    float: right;
+    display: inline;
+  }
+
+  .form-line-error {
+    background: $color_35;
+    border: 1px solid $color_35;
+  }
+
+  .form-validation-error {
+    border: 1px solid $color_14;
+  }
+
+  .form-error-message {
+    z-index: 900;
+    position: absolute;
+    max-width: 130px;
+    left: 375px;
+    top: 5px;
+    width: 100px;
+    color: $color_36;
+    padding: 3px;
+    font-size: 10px;
+    border: 4px solid $color_37;
+    background: $color_38;
+  }
+
+
+  .helpText {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    width: 200px;
+    background: $color_21;
+    color: $color_9;
+    padding: 5px;
+    z-index: 100;
+    text-align: left;
+    line-height: 16px;
+    font-size: smaller;
+  }
+
+  // form sélection produit ----------------------------------------------------
 
   ul {
     padding-left: 0;
@@ -1032,14 +1377,16 @@
     }
 
     &.form-section {
+      @include container(100%);
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
 
       li {
         position: relative;
         float: left;
-        display: inline;
-        width: 376px;
+        display: block;
+        width: 90%;
         height: auto;
         padding-top: 13px;
         color: $color_27;
@@ -1049,7 +1396,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           color: $color_27;
           height: 22px;
           padding-top: 13px;
@@ -1060,7 +1407,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           color: $color_27;
           height: 32px;
           padding-top: 18px;
@@ -1071,7 +1418,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           color: $color_27;
           height: 32px !important;
           padding-top: 12px !important;
@@ -1082,7 +1429,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           color: $color_27;
           height: 32px !important;
           padding-top: 12px !important;
@@ -1093,7 +1440,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           color: $color_27;
           height: 32px !important;
           padding-top: 12px !important;
@@ -1104,7 +1451,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           color: $color_27;
           height: 32px !important;
           padding-top: 12px !important;
@@ -1115,7 +1462,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           color: $color_27;
           height: 32px !important;
           padding-top: 12px !important;
@@ -1126,7 +1473,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           color: $color_27;
           height: 35px;
           padding-top: 12px;
@@ -1137,7 +1484,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
 
           padding-top: 12px !important;
           color: $color_27;
@@ -1241,7 +1588,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           height: 40px !important;
           padding-top: 12px !important;
           color: $color_27;
@@ -1268,7 +1615,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           height: 40px !important;
           padding-top: 12px !important;
           color: $color_27;
@@ -1395,7 +1742,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           height: 22px;
           padding-top: 13px;
           color: $color_27;
@@ -1406,7 +1753,7 @@
           position: relative;
           float: left;
           display: inline;
-          width: 376px;
+          width: auto;
           height: 32px;
           padding-top: 18px;
           color: $color_27;
@@ -1481,25 +1828,215 @@
     }
   }
 
+  // preview selection produit --------------------------------------------------
 
-  // desactivation des éléments du template desktop
-
-  a#corner_button,
-  a#corner_button_cart,
-  #slideshow,
-  .mc_contenu {
-    display: none;
-  }
-
-
-
-  #frontpage_info {
+  #buying-cadre {
     position: relative;
-    font-weight: bold;
-    margin-top: 50px;
+    float: left;
+    display: inline;
+    width: auto;
+    clear: left;
   }
 
-  // Modules Footer ------------------------------------------------------------
+  .jotform-form-cadre {
+    float: left;
+    display: inline;
+    width: auto;
+    background: $color_7;
+    padding: 20px 10px;
+
+    select {
+      float: left;
+      display: inline;
+      width: 260px;
+      line-height: 11px;
+      border: 0 solid $color_8;
+      font-size: 9px;
+      padding: 2px;
+    }
+  }
+
+  #preview-cadre_con {
+    float: right;
+    display: inline;
+    width: 420px;
+    clear: right;
+  }
+
+  #preview-cadre {
+    float: right;
+    display: inline;
+    width: 420px;
+    visibility: hidden;
+    margin-bottom: 5px;
+    background-color: $color_7;
+  }
+
+  #preview-cadre_name {
+    float: right;
+    display: inline;
+    width: 404px;
+    height: 20px;
+    line-height: 21px;
+    vertical-align: middle;
+    padding: 1px 8px 0;
+    background: $color_11;
+    color: $white;
+    font-size: 12px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  #preview-cadre_info {
+    float: right;
+    display: inline;
+    width: 111px;
+    height: 143px;
+    height: auto !important;
+    min-height: 143px;
+    background: $color_17;
+
+    ul {
+      float: left;
+      display: inline;
+      margin: 3px 7px;
+      font-size: 9px;
+      padding-left: 12px;
+    }
+
+    li {
+      &#iden1 {
+        list-style-type: none;
+      }
+
+      &#iden2 {
+        list-style-type: none;
+      }
+    }
+  }
+
+  #preview-cadre_info_title {
+    float: left;
+    display: inline;
+    padding: 3px 7px 4px;
+    width: 97px;
+    height: 12px;
+    font-size: 10px;
+    color: $white;
+    background: $color_18;
+    text-transform: uppercase;
+  }
+
+  #preview-cadre_imag {
+    float: left;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    background-color: $color_7;
+  }
+
+  .roundedImage {
+    overflow: hidden;
+
+    border-radius: 50px;
+    height: 15px;
+    text-align: center;
+    float: left;
+    margin: 0 5px 5px 0;
+    padding: 0 5px;
+    width: 248px;
+    background-color: $color_12;
+    color: $white;
+  }
+
+  .cadre-bt {
+    overflow: hidden;
+
+    border-radius: 5px;
+    width: 80px;
+    height: 15px;
+    text-align: center;
+    float: left;
+    background-color: $color_12;
+    color: $white;
+    margin: 2px;
+    behavior: url('http://www.france-banderole.com/wp-content/themes/fb/js2/PIE.js');
+  }
+
+  #form-button-error2-cadre {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    height: 30px;
+    font-size: 11px;
+    color: $color_14;
+    font-weight: bold;
+    top: 40px;
+  }
+
+  #wycena-cadre {
+    position: relative;
+    float: left;
+    display: inline;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: auto;
+    clear: left;
+  }
+
+  #wycena-cadre_nag {
+    float: left;
+    display: inline;
+    width: auto;
+    height: 11px;
+    background: $color_7;
+    padding: 4px 0 6px;
+    color: $color_12;
+    font-size: 10px;
+  }
+
+  #wycena-cadre_suma {
+    float: left;
+    display: inline;
+    width: auto;
+    height: 11px;
+    padding: 4px 0 6px;
+    font-size: 10px;
+  }
+
+  #dodaj_koszyk-cadre {
+    float: left;
+    display: inline;
+    width: auto;
+    padding: 6px 10px 6px 27px;
+    height: 47px;
+    margin-top: 24px;
+    background: $color_7;
+  }
+
+  .OptionFedex {
+    border: 0 solid $black;
+    width: auto;
+    height: 100px;
+    clear: both;
+  }
+
+  .OptionTNT {
+    border: 0 solid $black;
+    width: auto;
+    height: 100px;
+    clear: both;
+  }
+
+  #labelFEDEX {
+    font-weight: bolder;
+    color: $color_16;
+  }
+
+
+  //----------------------------------------------------------------------------
+  //                     MODULES FOOTER
   // ---------------------------------------------------------------------------
 
   #flink2 {
@@ -1757,6 +2294,8 @@
       color: $color_12;
       font-weight: bold;
       padding-bottom: 2px;
+      font-size: 1rem;
+
     }
 
     &.info_mar {
@@ -2320,19 +2859,23 @@
     background-color: $color_22;
   }
 
+  // Partie résultat prix
+
   #wycena {
+    clear:both;
     position: relative;
-    float: left;
-    display: inline;
+    float: none;
+    display: block;
+    @include span(full);
+    padding-left: 0;
     margin-top: 20px;
     margin-bottom: 40px;
-    width: 458px;
   }
 
   #wycena_nag {
     float: left;
     display: inline;
-    width: 376px;
+    width: auto;
     height: 11px;
     background: $color_7;
     padding: 4px 57px 6px 27px;
@@ -2343,7 +2886,7 @@
   #wycena_suma {
     float: left;
     display: inline;
-    width: 376px;
+    width: auto;
     height: 11px;
     padding: 4px 57px 6px 27px;
     font-size: 10px;
@@ -2352,7 +2895,7 @@
   #dodaj_koszyk {
     float: left;
     display: inline;
-    width: 376px;
+    width: auto;
     padding: 4px 57px 6px 27px;
     height: 47px;
     margin-top: 24px;
@@ -4650,264 +5193,8 @@
     display: inline;
   }
 
-  #buying {
-    @include container(100%);
-    position: relative;
-    display: inline;
-  }
 
-  .jotform-form {
-    @include span(full);
-    background: $color_7;
-    padding: 22px 57px 5px 27px;
-    animation: fadein 2s;
-    -webkit-animation: fadein 2s;
-
-    select {
-      display: inline;
-      padding-right: 2.5em;
-      border: 0;
-      border-radius: 3px;
-      appearance: menulist;
-      font-size: inherit;
-      padding: 0.5em;
-      margin: 0;
-      width: 350px;
-      height: 30px;
-      color: $color_33;
-      font-weight: bold;
-      cursor: pointer;
-
-      .titre {
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      .option1 {
-        color: $black;
-        background-color: $color_17;
-        text-transform: capitalize;
-        line-height: 10px;
-      }
-
-      .option2 {
-        color: $black;
-        background-color: $white;
-        text-transform: capitalize;
-        line-height: 10px;
-      }
-
-      &.option3 {
-        width: 200px;
-        float: left;
-      }
-
-      &.option4 {
-        width: 144px;
-        float: left;
-      }
-
-      &.quan {
-        float: right;
-        display: inline;
-        width: 70px;
-        margin-right: 162px;
-        line-height: 11px;
-        border: 1px solid $color_8;
-        font-size: 9px;
-        background: $white;
-      }
-    }
-
-    input {
-      &.form-textbox {
-        display: inline;
-        width: 40px;
-        line-height: 0;
-        font-size: 11px;
-        background: $white;
-        border: 0;
-
-        border-radius: 3px;
-        appearance: none;
-        font-size: inherit;
-        padding: 0.5em;
-        margin: 0;
-        text-align: center;
-      }
-
-      &.form-textbox2 {
-        position: absolute;
-        top: 13px;
-        left: 150px;
-        width: 40px;
-        line-height: 0;
-        border: 1px solid $color_8;
-        font-size: inherit;
-        background: $white;
-
-        border-radius: 3px;
-        border: 0;
-        appearance: none;
-        padding: 0.5em;
-        margin: 0;
-        text-align: center;
-      }
-    }
-
-    .heusepar {
-      position: absolute;
-      top: 18px;
-      left: 135px;
-      height: 12px;
-      width: 10px;
-    }
-
-    .llar {
-      position: absolute;
-      top: 35px;
-      left: 75px;
-      height: 12px;
-      width: 45px;
-      text-align: center;
-      font-size: 9px;
-      color: $color_34;
-    }
-
-    .lhau {
-      position: absolute;
-      top: 35px;
-      left: 153px;
-      height: 12px;
-      width: 45px;
-      text-align: center;
-      font-size: 9px;
-      color: $color_34;
-    }
-
-    .llar2 {
-      position: absolute;
-      top: 35px;
-      left: 216px;
-      height: 12px;
-      width: 45px;
-      text-align: center;
-      font-size: 9px;
-      color: $color_34;
-    }
-
-    .lhau2 {
-      position: absolute;
-      top: 35px;
-      left: 143px;
-      height: 12px;
-      width: 45px;
-      text-align: center;
-      font-size: 9px;
-      color: $color_34;
-    }
-  }
-  @keyframes fadein {
-    from {
-      opacity: 0;
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-      opacity: 1;
-    }
-  }
-  @-moz-keyframes fadein {
-    from {
-      opacity: 0;
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-      opacity: 1;
-    }
-  }
-  @-webkit-keyframes fadein {
-    from {
-      opacity: 0;
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-      opacity: 1;
-    }
-  }
-  @-ms-keyframes fadein {
-    from {
-      opacity: 0;
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-      opacity: 1;
-    }
-  }
-  @-o-keyframes fadein {
-    from {
-      opacity: 0;
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-      opacity: 1;
-    }
-  }
-
-  .boxcheck {
-    position: absolute;
-    top: 8px;
-    right: 80px;
-    width: 136px;
-    height: 35px;
-    line-height: 11px;
-    color: $color_34;
-    font-size: 10px;
-  }
-
-  .form-submit-button {
-    width: 86px;
-    height: 20px;
-    cursor: pointer;
-    background: url('../images/calculez.jpg') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    float: right;
-    display: inline;
-  }
-
-  .form-line-error {
-    background: $color_35;
-    border: 1px solid $color_35;
-  }
-
-  .form-validation-error {
-    border: 1px solid $color_14;
-  }
-
-  .form-error-message {
-    z-index: 900;
-    position: absolute;
-    max-width: 130px;
-    left: 375px;
-    top: 5px;
-    width: 100px;
-    color: $color_36;
-    padding: 3px;
-    font-size: 10px;
-    border: 4px solid $color_37;
-    background: $color_38;
-  }
+  // module commentaires -------------------------------------------------------
 
   .comment_new {
     color: $color_14;
@@ -5482,228 +5769,12 @@
     }
   }
 
-  .helpText {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    width: 200px;
-    background: $color_21;
-    color: $color_9;
-    padding: 5px;
-    z-index: 100;
-    text-align: left;
-    line-height: 16px;
-    font-size: smaller;
-  }
-
-  #buying-cadre {
-    position: relative;
-    float: left;
-    display: inline;
-    width: 280px;
-    clear: left;
-  }
-
-  .jotform-form-cadre {
-    float: left;
-    display: inline;
-    width: 260px;
-    background: $color_7;
-    padding: 20px 10px;
-
-    select {
-      float: left;
-      display: inline;
-      width: 260px;
-      line-height: 11px;
-      border: 0 solid $color_8;
-      font-size: 9px;
-      padding: 2px;
-    }
-  }
-
-  #preview-cadre_con {
-    float: right;
-    display: inline;
-    width: 420px;
-    clear: right;
-  }
-
-  #preview-cadre {
-    float: right;
-    display: inline;
-    width: 420px;
-    visibility: hidden;
-    margin-bottom: 5px;
-    background-color: $color_7;
-  }
-
-  #preview-cadre_name {
-    float: right;
-    display: inline;
-    width: 404px;
-    height: 20px;
-    line-height: 21px;
-    vertical-align: middle;
-    padding: 1px 8px 0;
-    background: $color_11;
-    color: $white;
-    font-size: 12px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-  }
-
-  #preview-cadre_info {
-    float: right;
-    display: inline;
-    width: 111px;
-    height: 143px;
-    height: auto !important;
-    min-height: 143px;
-    background: $color_17;
-
-    ul {
-      float: left;
-      display: inline;
-      margin: 3px 7px;
-      font-size: 9px;
-      padding-left: 12px;
-    }
-
-    li {
-      &#iden1 {
-        list-style-type: none;
-      }
-
-      &#iden2 {
-        list-style-type: none;
-      }
-    }
-  }
-
-  #preview-cadre_info_title {
-    float: left;
-    display: inline;
-    padding: 3px 7px 4px;
-    width: 97px;
-    height: 12px;
-    font-size: 10px;
-    color: $white;
-    background: $color_18;
-    text-transform: uppercase;
-  }
-
-  #preview-cadre_imag {
-    float: left;
-    display: inline-block;
-    width: 300px;
-    height: 300px;
-    background-color: $color_7;
-  }
-
-  .roundedImage {
-    overflow: hidden;
-
-    border-radius: 50px;
-    height: 15px;
-    text-align: center;
-    float: left;
-    margin: 0 5px 5px 0;
-    padding: 0 5px;
-    width: 248px;
-    background-color: $color_12;
-    color: $white;
-  }
-
-  .cadre-bt {
-    overflow: hidden;
-
-    border-radius: 5px;
-    width: 80px;
-    height: 15px;
-    text-align: center;
-    float: left;
-    background-color: $color_12;
-    color: $white;
-    margin: 2px;
-    behavior: url('http://www.france-banderole.com/wp-content/themes/fb/js2/PIE.js');
-  }
-
-  #form-button-error2-cadre {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: auto;
-    height: 30px;
-    font-size: 11px;
-    color: $color_14;
-    font-weight: bold;
-    top: 40px;
-  }
-
-  #wycena-cadre {
-    position: relative;
-    float: left;
-    display: inline;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    width: auto;
-    clear: left;
-  }
-
-  #wycena-cadre_nag {
-    float: left;
-    display: inline;
-    width: auto;
-    height: 11px;
-    background: $color_7;
-    padding: 4px 0 6px;
-    color: $color_12;
-    font-size: 10px;
-  }
-
-  #wycena-cadre_suma {
-    float: left;
-    display: inline;
-    width: auto;
-    height: 11px;
-    padding: 4px 0 6px;
-    font-size: 10px;
-  }
-
-  #dodaj_koszyk-cadre {
-    float: left;
-    display: inline;
-    width: auto;
-    padding: 6px 10px 6px 27px;
-    height: 47px;
-    margin-top: 24px;
-    background: $color_7;
-  }
-
-  .OptionFedex {
-    border: 0 solid $black;
-    width: auto;
-    height: 100px;
-    clear: both;
-  }
-
-  .OptionTNT {
-    border: 0 solid $black;
-    width: auto;
-    height: 100px;
-    clear: both;
-  }
-
-  #labelFEDEX {
-    font-weight: bolder;
-    color: $color_16;
-  }
+  // fin module commentaire
 
 
-  /* ==========================================================================
-                                                            SLIDER
-     ========================================================================== */
+  //----------------------------------------------------------------------------
+  //                                  SLIDER
+  //----------------------------------------------------------------------------
 
   .theme-default .nivoSlider {  // Update to .metaslider
     @include container(100%);
@@ -5720,9 +5791,9 @@
     margin-right: 0;
   }
 
-  // ==========================================================================
+  //----------------------------------------------------------------------------
   //                             STYLES INLINE RAPATRIES
-  // ==========================================================================
+  //----------------------------------------------------------------------------
 
 
   .posCenter {
@@ -5746,21 +5817,13 @@
     text-transform: capitalize;
   }
 
-
-
-
   .flash-slide {
     position: relative;
     z-index: 100;
   }
 
-  .helpImg {
-    float: right;
-    margin-top: 5px;
-  }
-
   .break-line {
-    width: 376px;
+    width: auto;
     height: 1px;
     border-bottom: 1px solid $color_5;
     display: inline-block;
@@ -5954,34 +6017,20 @@
     display: none;
   }
 
-  // module accordeon
-  .ui-corner-all{
-    border-radius: none;
-  }
-  #accordion {
-  margin: 50px auto;
+  // desactivation des éléments du template desktop ----------------------------
+  //----------------------------------------------------------------------------
 
-  }
-
-  #accordion .ui-accordion-content {
-  background-color: #f3f3f3;
-  color: #777;
-  font-size: 10pt;
-  line-height: 16pt;
+  a#corner_button,
+  a#corner_button_cart,
+  #slideshow,
+  .mc_contenu {
+    display: none;
   }
 
-  #accordion .ui-accordion-content a {
-  color: #777;
+  #frontpage_info {
+    position: relative;
+    font-weight: bold;
+    margin-top: 50px;
   }
-
-  #accordion .ui-accordion-header {
-  padding:15px;
-  background-color: #ccc;
-  color: $white;
-  margin: 0px;
-  border:none;
-  margin-top: 10px;
-  }
-
 
 }
