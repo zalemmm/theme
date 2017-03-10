@@ -1,4 +1,10 @@
 @import 'susy';
+@import 'variables';
+@import 'extends';
+@import 'mixins';
+@import 'global';
+@import 'layout';
+@import 'layout-mobile';
 
 @font-face {
     font-family: 'sansationbold';
@@ -11,18 +17,9 @@
     font-style: normal;
 }
 
-@import 'variables';
-@import 'extends';
-@import 'mixins';
-@import 'global';
-@import 'layout';
-@import 'layout-mobile';
-
-
-
 $susy: (
   columns: 12,
-  gutters: 1/6,
+  gutters: 1/4,
   math: fluid,
   output: float,
   gutter-position: inside,

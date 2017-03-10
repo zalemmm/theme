@@ -1925,18 +1925,16 @@ SPAN {
 
 #top_info {
   position: relative;
-  width: 100%;
-  height: 165px;
+  width: 450px;
+  height: 315px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
 #top_info_info {
-  position: absolute;
-  width: 284px;
-  height: 129px;
-  top: 24px;
-  left: 160px;
+  position: relative;
+  width: 450px;
+  height: 315px;
   background: $color_17;
   padding: 8px;
 }
@@ -1953,8 +1951,8 @@ SPAN {
 
 #top_slideshow {
   position: absolute;
-  right: 0;
-  top: 24px;
+  right: 90px;
+  top: 200px;
   width: 238px;
   height: 145px;
   overflow: hidden;

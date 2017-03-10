@@ -760,26 +760,19 @@
   }
 
   #top_info {
-    width:460px;
+    @include span(8);
     float: none;
     margin-top: 10px;
     margin-bottom: 20px;
-    height: 309px;
   }
 
-  #top_info  img {
+  #top_info > img {
     padding-left: 0;
-    width: 460px;
+    min-width: 100%;
     height: auto;
   }
 
-  .front{
-    width:460px;
-    height:auto;
-  }
-
   #top_info_info {
-    width:460px;
     position: relative;
     top: 0;
     left: 0;
@@ -791,6 +784,8 @@
     font-size: .8rem;
     line-height: 1rem;
     font-weight: 600;
+    width:460px;
+    height:auto;
   }
 
   #top_info_info2 {
