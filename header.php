@@ -33,15 +33,13 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
 
 	<!--img flip plugin -->
-	<script src="http://127.0.0.1/wordpress/wp-content/themes/fb/js/flip.js"></script>
+	<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
 	<script>
 	$(function(){
 	    $("#top_info").flip({
 	        trigger: 'hover',
-	        axis: 'x'
-					front: '.front',
-					back: '.back'
+	        axis: 'y'
 	    });
 	});
 	</script>
