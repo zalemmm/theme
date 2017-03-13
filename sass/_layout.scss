@@ -4633,12 +4633,15 @@ stat2 {
       padding: 0.5em;
       margin: 0;
       text-align: center;
+      &.textboxPush{
+        margin-left:10px;
+      }
     }
 
     &.form-textbox2 {
       position: absolute;
       top: 13px;
-      left: 150px;
+      left: 240px;
       width: 40px;
       line-height: 0;
       border: 1px solid $color_8;
@@ -4657,7 +4660,7 @@ stat2 {
   .heusepar {
     position: absolute;
     top: 18px;
-    left: 135px;
+    left: 210px;
     height: 12px;
     width: 10px;
   }
@@ -4665,7 +4668,7 @@ stat2 {
   .llar {
     position: absolute;
     top: 35px;
-    left: 75px;
+    left: 132px;
     height: 12px;
     width: 45px;
     text-align: center;
@@ -4676,7 +4679,7 @@ stat2 {
   .lhau {
     position: absolute;
     top: 35px;
-    left: 153px;
+    left: 245px;
     height: 12px;
     width: 45px;
     text-align: center;
@@ -4705,6 +4708,21 @@ stat2 {
     font-size: 9px;
     color: $color_34;
   }
+
+  // ajouts dimensions cm
+
+  .cmLeft {
+    position: absolute;
+    top: 17px;
+    left: 185px;
+  }
+  .cmRight {
+    position: absolute;
+    top: 17px;
+    left: 297px;
+  }
+
+  //fin ajouts
 }
 @keyframes fadein {
   from {
