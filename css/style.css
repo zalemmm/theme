@@ -1,12 +1,4 @@
 @charset "UTF-8";
-@font-face {
-  font-family: 'sansationbold';
-  src: url("../fonts/Sansation-Bold-webfont.eot");
-  src: url("../fonts/Sansation-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Sansation-Bold-webfont.woff") format("woff"), url("../fonts/Sansation-Bold-webfont.ttf") format("truetype"), url("../fonts/Sansation-Bold-webfont.svg#sansationbold") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* line 3, sass/_layout.scss */
 .site-head,
 .menu-client {
@@ -12663,6 +12655,14 @@ form#delfromvosdevis {
     font-weight: bold;
     margin-top: 50px;
   }
+}
+
+@font-face {
+  font-family: 'sansationbold';
+  src: url("../fonts/Sansation-Bold-webfont.eot");
+  src: url("../fonts/Sansation-Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Sansation-Bold-webfont.woff") format("woff"), url("../fonts/Sansation-Bold-webfont.ttf") format("truetype"), url("../fonts/Sansation-Bold-webfont.svg#sansationbold") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 /*# sourceMappingURL=maps/style.css.map */
