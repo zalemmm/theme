@@ -217,7 +217,6 @@ include('nom_du_fichier_de_conf.php');
 
 <?php wp_footer(); ?>
 
-<script>jQuery.noConflict();</script>
 <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
 <script>
