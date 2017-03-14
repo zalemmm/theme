@@ -216,5 +216,26 @@ include('nom_du_fichier_de_conf.php');
 <div id="mainnew" align="center"><h2><a href="http://www.express-impression.com" title="imprimeur pas cher rapide banderole kakemono flyers depliants" target="_blank" >Imprimeur numérique grand format</a></h2></div>
 
 <?php wp_footer(); ?>
+
+<script>jQuery.noConflict();</script>
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+
+<script>
+jQuery(document).ready(function ($) {
+  //img flip plugin
+  $(function(){
+      $("#top_info").flip({
+          trigger: 'hover',
+          axis: 'y'
+      });
+  });
+
+  //toggle
+  $('.toggle-button').click(function() {
+    $('.toggle-block').slideToggle('slow');
+  });
+});
+</script>
+
 </body>
 </html>
