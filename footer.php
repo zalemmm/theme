@@ -5,7 +5,7 @@
 */
 if (is_front_page() OR (1==1)) {
   ?>
-  <script type="text/javascript" src="<?php bloginfo("url"); ?>/wp-content/uploads/shadowbox-js/cd4fb98ee8442d29f2a3dff0be2f9d3b.js?ver=3.0.3"></script>
+  <script src="<?php bloginfo("url"); ?>/wp-content/uploads/shadowbox-js/cd4fb98ee8442d29f2a3dff0be2f9d3b.js?ver=3.0.3"></script>
 
   <script type="text/javascript">
   window.___gcfg = {lang: 'fr'};
@@ -220,19 +220,19 @@ include('nom_du_fichier_de_conf.php');
 <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
 <script>
-jQuery(document).ready(function ($) {
-  //img flip plugin
-  $(function(){
-      $("#top_info").flip({
-          trigger: 'hover',
-          axis: 'y'
-      });
-  });
 
   //toggle
   $('.toggle-button').click(function() {
     $('.toggle-block').slideToggle('slow');
   });
+
+  //home button_send
+
+  $('#tarifs li').mouseover(function (e) {
+    e.stopPropagation();
+    $(this).find('.micro a').css('background', #E74777);
+  });
+
 });
 </script>
 

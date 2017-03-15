@@ -658,16 +658,21 @@
     padding: 0;
 
     li {
-      width: 140px; //120
-      height: 190px; //160
-      margin-bottom: 12px;
+      width: 180px; //120
+      height: 210px; //160
+      margin-bottom: 0;
+
+      .home-buttons{
+        width: 100%;
+        height: auto;
+      }
 
       &.separator_con {
         display: none;
       }
 
       .micro a {
-        font-size: .6rem;
+        font-size: .9rem;
         text-decoration: none;
         text-transform: uppercase;
         font-family: $font-special;
@@ -760,32 +765,28 @@
   }
 
   #top_info {
-    @include span(8);
-    float: none;
+    position: relative;
+    @include container (100%);
+    width: 100%;
+    height: auto;
     margin-top: 10px;
     margin-bottom: 20px;
-  }
+    background: #f6f6f6;
 
-  #top_info > img {
-    padding-left: 0;
-    min-width: 100%;
-    height: auto;
-  }
+    .front img{
+      @include span (4);
+      height: auto;
+      vertical-align: middle;
+      padding-left: 0;
+    }
 
-  #top_info_info {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: auto;
-    background: lighten($text, 40%);
-    color:$white;
-    padding: 8px;
-    margin-top: 30px;
-    font-size: .8rem;
-    line-height: 1rem;
-    font-weight: 600;
-    width:460px;
-    height:auto;
+    #top_info_info {
+      @include span (8);
+      height: auto;
+      padding: 8px;
+      vertical-align: middle;
+      background: 0;
+    }
   }
 
   #top_info_info2 {
@@ -2286,9 +2287,11 @@
     }
 
     &.info_nag {
+      font-family: $font-special;
+      display: block;
       color: $color_12;
       font-weight: bold;
-      padding-bottom: 2px;
+      padding-bottom: 7px;
       font-size: 1rem;
 
     }

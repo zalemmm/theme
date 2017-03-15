@@ -438,8 +438,10 @@ ul {
   }
 
   &#tarifs {
-    float: left;
-    display: inline;
+    float: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -447,19 +449,37 @@ ul {
     li {
       float: left;
       display: inline;
-      width: 120px;
-      height: 160px;
-      margin-bottom: 12px;
+      width: 180px;
+      height: 210px;
+      margin-bottom: -15px;
+
+      .home-buttons{
+        width: 100%;
+        height: auto;
+      }
 
       &.separator_con {
-        float: left;
-        display: inline-block;
-        width: 26px;
-        height: 140px;
+        display: none;
       }
 
       .micro a {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        background: $cyan;
+        font-size: .88rem;
         text-decoration: none;
+        text-transform: uppercase;
+        font-family: $font-special;
+        color: #fff;
+        font-weight: 700;
+        margin-top: -10px;
+        padding: 14px 5px 0;
+        height: 55px;
+        vertical-align: baseline;
+        &:hover {
+          background: $magenta;
+        }
       }
     }
   }
@@ -1231,9 +1251,11 @@ span {
   }
 
   &.info_nag {
+    font-family: $font-special;
+    display: block;
     color: $color_12;
     font-weight: bold;
-    padding-bottom: 2px;
+    padding-bottom: 7px;
   }
 
   &.info_mar {
@@ -1925,24 +1947,33 @@ SPAN {
 
 #top_info {
   position: relative;
-  width: 450px;
-  height: 315px;
+  width: 460px;
+  height: auto;
   margin-top: 10px;
   margin-bottom: 20px;
+  background: #f6f6f6;
+
+  .front img{
+    display: inline-block;
+    height: auto;
+    width: 160px;
+  }
+
+  #top_info_info {
+    display: inline-block;
+    margin-top: 17px;
+    width: 284px;
+    height: auto;
+    padding: 8px;
+  }
 }
 
-#top_info_info {
-  position: relative;
-  width: 450px;
-  height: 315px;
-  background: $color_17;
-  padding: 8px;
-}
+
 
 #top_info_info2 {
   position: absolute;
   width: 284px;
-  height: 129px;
+  height: 150px;
   top: 26px;
   left: 160px;
   background: $color_17;
@@ -1952,7 +1983,7 @@ SPAN {
 #top_slideshow {
   position: absolute;
   right: 90px;
-  top: 200px;
+  top: 24px;
   width: 238px;
   height: 145px;
   overflow: hidden;
