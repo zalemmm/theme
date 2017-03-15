@@ -4563,6 +4563,7 @@ stat2 {
   animation: fadein 2s;
 
   select {
+    float: left;
     display: inline;
     padding-right: 2.5em;
     border: 0;
@@ -5621,7 +5622,7 @@ stat2 {
                                                           SLIDER
    ========================================================================== */
 
-.theme-default .nivoSlider { // update to .metaslider
+.metaslider { /*update from .theme-default .nivoSlider*/
   width: 822px;
   top: 0;
   margin-left: -57px;
