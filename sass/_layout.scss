@@ -1250,14 +1250,6 @@ span {
     font-size: 11px;
   }
 
-  &.info_nag {
-    font-family: $font-special;
-    display: block;
-    color: $color_12;
-    font-weight: bold;
-    padding-bottom: 7px;
-  }
-
   &.info_mar {
     float: left;
     display: inline-block;
@@ -1965,6 +1957,18 @@ SPAN {
     width: 284px;
     height: auto;
     padding: 8px;
+    span.info_nag {
+      font-family: $font-special;
+      display: block;
+      color: $color_12;
+      font-weight: bold;
+      padding-bottom: 2px;
+    }
+    .notice{
+      display: block;
+      margin-top: 5px;
+      text-align: right;
+    }
   }
 }
 

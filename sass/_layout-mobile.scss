@@ -786,6 +786,20 @@
       padding: 8px;
       vertical-align: middle;
       background: 0;
+      font-size: .9rem;
+      span.info_nag {
+        font-family: $font-special;
+        display: block;
+        color: $color_12;
+        font-weight: bold;
+        padding-bottom: 2px;
+        font-size: 1rem;
+      }
+      .notice{
+        display: block;
+        margin-top: 5px;
+        text-align: right;
+      }
     }
   }
 
@@ -2284,16 +2298,6 @@
       font-weight: normal;
       text-transform: none;
       font-size: 11px;
-    }
-
-    &.info_nag {
-      font-family: $font-special;
-      display: block;
-      color: $color_12;
-      font-weight: bold;
-      padding-bottom: 7px;
-      font-size: 1rem;
-
     }
 
     &.info_mar {

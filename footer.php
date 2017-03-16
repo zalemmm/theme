@@ -217,22 +217,21 @@ include('nom_du_fichier_de_conf.php');
 
 <?php wp_footer(); ?>
 
-<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-
 <script>
+jQuery(document).ready(function ($) {
 
   //toggle
   $('.toggle-button').click(function() {
     $('.toggle-block').slideToggle('slow');
   });
 
-  //home button_send
-
-  $('#tarifs li').mouseover(function (e) {
-    e.stopPropagation();
-    $(this).find('.micro a').css('background', #E74777);
+  //home buttons hover
+  $('#tarifs li').mouseover(function() {
+    $(this).find('.micro a').css('background', '#E74777').fadeIn(1000);
   });
-
+  $('#tarifs li').mouseout(function() {
+    $(this).find('.micro a').css('background', '#32A1CC').fadeIn(1000);
+  });
 });
 </script>
 
