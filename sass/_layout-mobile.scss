@@ -658,8 +658,8 @@
     padding: 0;
 
     li {
-      width: 180px; //120
-      height: 210px; //160
+      width: 220px; //120
+      height: 250px; //160
       margin-bottom: 0;
 
       .home-buttons{
@@ -801,17 +801,30 @@
         text-align: right;
       }
     }
+    #top_info_info2 {
+      @include span (8);
+      height: auto;
+      padding: 8px;
+      vertical-align: middle;
+      background: 0;
+      font-size: .9rem;
+      span.info_nag {
+        font-family: $font-special;
+        display: block;
+        color: $color_12;
+        font-weight: bold;
+        padding-bottom: 2px;
+        font-size: 1rem;
+      }
+      .notice{
+        display: block;
+        margin-top: 5px;
+        text-align: right;
+      }
+    }
   }
 
-  #top_info_info2 {
-    position: absolute;
-    width: 284px;
-    height: 129px;
-    top: 26px;
-    left: 160px;
-    background: $color_17;
-    padding: 8px;
-  }
+
 
   #top_slideshow {
     display: none;

@@ -227,11 +227,12 @@ jQuery(document).ready(function ($) {
 
   //home buttons hover
   $('#tarifs li').mouseover(function() {
-    $(this).find('.micro a').css('background', '#E74777').fadeIn(1000);
+    $(this).find('.micro a').fadeIn(1000).css('background', '#E74777');
   });
   $('#tarifs li').mouseout(function() {
     $(this).find('.micro a').css('background', '#32A1CC').fadeIn(1000);
   });
+
 });
 </script>
 

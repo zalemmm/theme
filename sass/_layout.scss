@@ -447,11 +447,9 @@ ul {
     padding: 0;
 
     li {
-      float: left;
-      display: inline;
-      width: 180px;
-      height: 210px;
-      margin-bottom: -15px;
+      width: 150px;
+      height: 180px;
+      margin-bottom: 0;
 
       .home-buttons{
         width: 100%;
@@ -467,16 +465,16 @@ ul {
         box-sizing: border-box;
         width: 100%;
         background: $cyan;
-        font-size: .88rem;
+        font-size: .84rem;
         text-decoration: none;
         text-transform: uppercase;
         font-family: $font-special;
         color: #fff;
         font-weight: 700;
         margin-top: -10px;
-        padding: 14px 5px 0;
+        padding: 14px 2px 0;
         height: 55px;
-        vertical-align: baseline;
+        vertical-align: top;
         &:hover {
           background: $magenta;
         }
@@ -1970,19 +1968,30 @@ SPAN {
       text-align: right;
     }
   }
+  #top_info_info2 {
+    display: inline-block;
+    margin-top: 17px;
+    width: 284px;
+    height: auto;
+    padding: 8px;
+    span.info_nag {
+      font-family: $font-special;
+      display: block;
+      color: $color_12;
+      font-weight: bold;
+      padding-bottom: 2px;
+    }
+    .notice{
+      display: block;
+      margin-top: 5px;
+      text-align: right;
+    }
+  }
 }
 
 
 
-#top_info_info2 {
-  position: absolute;
-  width: 284px;
-  height: 150px;
-  top: 26px;
-  left: 160px;
-  background: $color_17;
-  padding: 8px;
-}
+
 
 #top_slideshow {
   position: absolute;
