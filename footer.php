@@ -1,13 +1,13 @@
 <?php
-/**
-* @package WordPress
-* @subpackage Classic_Theme
-*/
-if (is_front_page() OR (1==1)) {
-  ?>
-  <script src="<?php bloginfo("url"); ?>/wp-content/uploads/shadowbox-js/cd4fb98ee8442d29f2a3dff0be2f9d3b.js?ver=3.0.3"></script>
+  /**
+  * @package WordPress
+  * @subpackage Classic_Theme
+  */
+  if (is_front_page() OR (1==1)) {
+?>
+<script src="<?php bloginfo("url"); ?>/wp-content/uploads/shadowbox-js/cd4fb98ee8442d29f2a3dff0be2f9d3b.js?ver=3.0.3"></script>
 
-  <script type="text/javascript">
+<script type="text/javascript">
   window.___gcfg = {lang: 'fr'};
 
   (function() {
@@ -15,7 +15,7 @@ if (is_front_page() OR (1==1)) {
     po.src = 'https://apis.google.com/js/plusone.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
-  </script>
+</script>
 </div>
 
 <div id="main2">
@@ -25,30 +25,16 @@ if (is_front_page() OR (1==1)) {
     <!--<div id="flink2"><a href="http://www.france-banderole.com/buralistes/"><img class="floatLeft"  src="<?php bloginfo('stylesheet_directory'); ?>/images/bt-buraliste2.png" alt="buraliste" /></a></div>-->
 
     <div id="derniers">
-      <?php /*?>
-      Moyenne des avis sur France banderole :<br />
-      <strong><?php
-      $prefix = $wpdb->prefix;
-      $fb_tablename_rating = $prefix."fbs_rating";
-      $moyenne = $wpdb->get_row("SELECT AVG((fir+sec+thi)/3) AS moy FROM `$fb_tablename_rating`");
-      echo round($moyenne->moy,2);
-      ?>/5</strong> pour <strong>
-      <?php
-      $total = $wpdb->get_row("SELECT COUNT(*) AS nb_avis FROM `$fb_tablename_rating` WHERE exist='true'");
-      echo $total->nb_avis;
-      ?> avis</strong>
-      <?php */?>
 
       <?php
-      $prefix = $wpdb->prefix;
-      $fb_tablename_rating = $prefix."fbs_rating";
-      $moyenne = $wpdb->get_row("SELECT AVG((fir+sec+thi)/3) AS moy FROM `$fb_tablename_rating`");
-      $strmoyenne1 = round($moyenne->moy,2);
-      $strmoyenne2 = "/5 - ";
-      $total = $wpdb->get_row("SELECT COUNT(*) AS nb_avis FROM `$fb_tablename_rating` WHERE exist='true'");
-      $strmoyenne3 = $total->nb_avis;
-      $strmoyenne4 = " avis";
-
+        $prefix = $wpdb->prefix;
+        $fb_tablename_rating = $prefix."fbs_rating";
+        $moyenne = $wpdb->get_row("SELECT AVG((fir+sec+thi)/3) AS moy FROM `$fb_tablename_rating`");
+        $strmoyenne1 = round($moyenne->moy,2);
+        $strmoyenne2 = "/5 - ";
+        $total = $wpdb->get_row("SELECT COUNT(*) AS nb_avis FROM `$fb_tablename_rating` WHERE exist='true'");
+        $strmoyenne3 = $total->nb_avis;
+        $strmoyenne4 = " avis";
       ?>
 
       <h4 class="clients_reviews_titre"><span>Avis Clients sur France Banderole</span></h4>
@@ -65,40 +51,66 @@ if (is_front_page() OR (1==1)) {
       <a href="<?php echo get_bloginfo("url"); ?>/avis/" class="floatRight"></a>
     </div>
     <div id="ratinghome"><?php get_rating_home(); ?></div>
+
+    </div>
+
     <div id="footer3">
       <hr class="bottom_hr" />
-      <span id="footer_links2"><a href="<?php echo get_bloginfo("url"); ?>/">Banderole</a> | <a href="<?php echo get_bloginfo("url"); ?>/kakemonos/">Kakemonos &amp; Roll Up</a> | <a href="<?php echo get_bloginfo("url"); ?>/banderoles/">Banderoles</a> | <a href="<?php echo get_bloginfo("url"); ?>/oriflammes/">Oriflammes</a> | <a href="<?php echo get_bloginfo("url"); ?>/stand-parapluie/">Stand parapluie</a> | <a href="<?php echo get_bloginfo("url"); ?>/plv-exterieur/">PLV exterieur</a> | <a href="<?php echo get_bloginfo("url"); ?>/panneaux-akilux-forex-dibond/">panneaux akilux forex dibond</a> |<a href="<?php echo get_bloginfo("url"); ?>/stickers/">Adhésifs &amp; Stickers</a> |<br />  <a href="<?php echo get_bloginfo("url"); ?>/accessoires/">PROMOTIONS</a>| <a href="<?php echo get_bloginfo("url"); ?>/france-banderole/">France Banderole</a> | <a href="<?php echo get_bloginfo("url"); ?>/realisation/">Impression grand format</a> | <a href="<?php echo get_bloginfo("url"); ?>/references/">Références</a> | <a href="<?php echo get_bloginfo("url"); ?>/cgv/">C.G.V.</a> | <a href="<?php echo get_bloginfo("url"); ?>/acces-client/">Accès Client</a> | <a href="<?php echo get_bloginfo("url"); ?>/top-ten/">Top Ten</a> | <a href="<?php echo get_bloginfo("url"); ?>/la-ceddre/">Nos Engagements</a> | <a href="<?php echo get_bloginfo("url"); ?>/contact/">Contact</a> | <a href="/imprimeur-numerique-discount-Paris-30840.html">Impression grand format Paris</a></span>
-      <div id="copy">
-        <p class="copyright">2008-2014 Copyright &copy; France banderole SAS - Images interdites de reproduction <a href="http://france-banderole.com" title="banderole" target="_blank">france-banderole.com</a></p>
-        <h2 class="footer-keywords">Banderole - </h2>
-        <h2 class="footer-keywords">Banderole publicitaire - </h2>
-        <h2 class="footer-keywords">Impression banderole - </h2>
-        <h2 class="footer-keywords">Impression banderoles - </h2>
-        <h2 class="footer-keywords">Bache - </h2>
-        <h2 class="footer-keywords">Fabricant banderole - </h2>
-        <h2 class="footer-keywords">Banderole Marseille - </h2>
-        <h2 class="footer-keywords">Bâche publicitaire - </h2>
-        <h2 class="footer-keywords">Banderolle - </h2>
-        <h2 class="footer-keywords">banderole Paris - </h2>
-        <h2 class="footer-keywords">fabricant banderole - </h2>
-        <h2 class="footer-keywords">kakemono - </h2>
-        <h2 class="footer-keywords">kakemonos - </h2>
-        <h2 class="footer-keywords">kakemonos publicitaire - </h2>
-        <h2 class="footer-keywords">roll-up - rollup - enrouleur - </h2>
-        <h2 class="footer-keywords">totem publicitaire - </h2>
-        <h2 class="footer-keywords">totem banner - </h2>
-        <h2 class="footer-keywords">rollups - </h2>
-        <h2 class="footer-keywords">rolup - </h2>
-        <h2 class="footer-keywords">stand enrouleur - </h2>
-        <h2 class="footer-keywords">stand parapluie - </h2>
-        <h2 class="footer-keywords">stand tissu - </h2>
-        <h2 class="footer-keywords">stand exposition - </h2>
-        <h2 class="footer-keywords">impression kakemono - </h2>
-        <h2 class="footer-keywords">impression stand tissu easyquick - </h2>
-        <h2 class="footer-keywords">impression bache grand format - </h2>
-        <h2 class="footer-keywords">imprimerie grand format</h2></div>
+      <span id="footer_links2">
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/">Banderole</a> |</span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/kakemonos/">Kakemonos &amp; Roll Up</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/banderoles/">Banderoles</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/oriflammes/">Oriflammes</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/stand-parapluie/">Stand parapluie</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/plv-exterieur/">PLV exterieur</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/panneaux-akilux-forex-dibond/">panneaux akilux forex dibond</a> |</span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/stickers/">Adhésifs &amp; Stickers</a> |</span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/accessoires/">PROMOTIONS</a>| </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/france-banderole/">France Banderole</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/realisation/">Impression grand format</a> |</span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/references/">Références</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/cgv/">C.G.V.</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/acces-client/">Accès Client</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/top-ten/">Top Ten</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/la-ceddre/">Nos Engagements</a> | </span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/contact/">Contact</a> | </span>
+        <span class="split"><a href="/imprimeur-numerique-discount-Paris-30840.html">Impression grand format Paris</a></span>
+      </span>
+        <div id="copy">
+          <div class="copyright">
+            <p class="bloc"><span class="split">2008-2017 Copyright</span> <span class="split">&copy; France banderole SAS</span></p>
+            <p class="bloc small"><span class="split">Images interdites de reproduction - </span><span class="split"><a href="http://france-banderole.com" title="banderole" target="_blank">france-banderole.com</a></span  class="split"></p>
+          </div>
+          <h2 class="footer-keywords">Banderole - </h2>
+          <h2 class="footer-keywords">Banderole publicitaire - </h2>
+          <h2 class="footer-keywords">Impression banderole - </h2>
+          <h2 class="footer-keywords">Impression banderoles - </h2>
+          <h2 class="footer-keywords">Bache - </h2>
+          <h2 class="footer-keywords">Fabricant banderole - </h2>
+          <h2 class="footer-keywords">Banderole Marseille - </h2>
+          <h2 class="footer-keywords">Bâche publicitaire - </h2>
+          <h2 class="footer-keywords">Banderolle - </h2>
+          <h2 class="footer-keywords">banderole Paris - </h2>
+          <h2 class="footer-keywords">fabricant banderole - </h2>
+          <h2 class="footer-keywords">kakemono - </h2>
+          <h2 class="footer-keywords">kakemonos - </h2>
+          <h2 class="footer-keywords">kakemonos publicitaire - </h2>
+          <h2 class="footer-keywords">roll-up - rollup - enrouleur - </h2>
+          <h2 class="footer-keywords">totem publicitaire - </h2>
+          <h2 class="footer-keywords">totem banner - </h2>
+          <h2 class="footer-keywords">rollups - </h2>
+          <h2 class="footer-keywords">rolup - </h2>
+          <h2 class="footer-keywords">stand enrouleur - </h2>
+          <h2 class="footer-keywords">stand parapluie - </h2>
+          <h2 class="footer-keywords">stand tissu - </h2>
+          <h2 class="footer-keywords">stand exposition - </h2>
+          <h2 class="footer-keywords">impression kakemono - </h2>
+          <h2 class="footer-keywords">impression stand tissu easyquick - </h2>
+          <h2 class="footer-keywords">impression bache grand format - </h2>
+          <h2 class="footer-keywords">imprimerie grand format</h2>
+        </div>
       </div>
-    </div>
+
   </div>
 
   <?php
@@ -173,7 +185,23 @@ if (is_front_page() OR (1==1)) {
     <hr class="bottom_hr" />
     <a href="http://www.france-banderole.com/buralistes/"><img class="floatLeft"  src="<?php bloginfo('stylesheet_directory'); ?>/images/bt-buraliste2.png" alt="buraliste" /></a>
     <span id="footer_links">
-      <a href="<?php echo get_bloginfo("url"); ?>/">Banderole</a> | <a href="<?php echo get_bloginfo("url"); ?>/kakemonos/">Kakemonos &amp; Roll Up</a> | <a href="<?php echo get_bloginfo("url"); ?>/banderoles/">Banderoles</a> | <a href="<?php echo get_bloginfo("url"); ?>/oriflammes/">Oriflammes</a> | <a href="<?php echo get_bloginfo("url"); ?>/stand-parapluie/">Stand parapluie</a> | <a href="<?php echo get_bloginfo("url"); ?>/plv-exterieur/">PLV exterieur</a><br /><a href="<?php echo get_bloginfo("url"); ?>/panneaux-akilux-forex-dibond/">Panneaux akilux forex dibond</a> |<a href="<?php echo get_bloginfo("url"); ?>/stickers/">Adhésifs &amp; Stickers</a> |  <a href="<?php echo get_bloginfo("url"); ?>/accessoires/">PROMOTIONS</a>| <a href="<?php echo get_bloginfo("url"); ?>/france-banderole/">France Banderole</a> | <a href="<?php echo get_bloginfo("url"); ?>/realisation/">Impression grand format</a><br /><a href="<?php echo get_bloginfo("url"); ?>/references/">Références</a> | <a href="<?php echo get_bloginfo("url"); ?>/cgv/">C.G.V.</a> | <a href="<?php echo get_bloginfo("url"); ?>/acces-client/">Accès Client</a> | <a href="<?php echo get_bloginfo("url"); ?>/top-ten/">Top Ten</a> | <a href="<?php echo get_bloginfo("url"); ?>/la-ceddre/">Nos Engagements</a> | <a href="<?php echo get_bloginfo("url"); ?>/contact/">Contact</a>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/">Banderole</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/kakemonos/">Kakemonos &amp; Roll Up</a> |</span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/banderoles/">Banderoles</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/oriflammes/">Oriflammes</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/stand-parapluie/">Stand parapluie</a> |</span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/plv-exterieur/">PLV exterieur</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/panneaux-akilux-forex-dibond/">Panneaux akilux forex dibond</a> |</span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/stickers/">Adhésifs &amp; Stickers</a> |</span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/accessoires/">PROMOTIONS</a>| </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/france-banderole/">France Banderole</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/realisation/">Impression grand format</a> |</span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/references/">Références</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/cgv/">C.G.V.</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/acces-client/">Accès Client</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/top-ten/">Top Ten</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/la-ceddre/">Nos Engagements</a> | </span>
+      <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/contact/">Contact</a></span>
     </span>
     <div id="copy">2008 - 2015 Copyright &copy; France banderole SAS - Images interdites de reproduction <a href="http://france-banderole.com" title="banderole" target="_blank">france-banderole.com</a><br/>
       <h2 class="footer-keywords">Banderole - </h2>
@@ -227,10 +255,10 @@ jQuery(document).ready(function ($) {
 
   //home buttons hover
   $('#tarifs li').mouseover(function() {
-    $(this).find('.micro a').fadeIn(1000).css('background', '#E74777');
+    $(this).find('.micro a').css('background', '#E74777');
   });
   $('#tarifs li').mouseout(function() {
-    $(this).find('.micro a').css('background', '#32A1CC').fadeIn(1000);
+    $(this).find('.micro a').css('background', '#32A1CC');
   });
 
 });

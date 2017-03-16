@@ -58,11 +58,13 @@
 
 				<ul class="menu-client">
 					<li class="menu-client-item item1">
-						<span class="menu-client-icon phone"><i class="fa fa-phone" aria-hidden="true"></i></span>
+						<div class="menu-client-icon phone"><i class="fa fa-phone" aria-hidden="true"></i></div>
 
-						<span class="menu-client-label tel1">Nos téléconseillers</span><br />
-						<span class="menu-client-label tel2">0442 401 401</span><br />
-						<span class="menu-client-label tel3">9h-12h | 14h-18h</span>
+						<div class="menu-client-phone">
+							<span class="menu-client-label tel1 split">Nos téléconseillers</span>
+							<span class="menu-client-label tel2 split">0442 401 401</span>
+							<span class="menu-client-label tel3 split">9h-12h | 14h-18h</span>
+						</div>
 					</li>
 					<li class="menu-client-item menu-client--devis">
 						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/vos-devis/"><i class="fa fa-lock" aria-hidden="true"></i></a></span>
