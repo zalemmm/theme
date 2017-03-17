@@ -261,6 +261,28 @@ jQuery(document).ready(function ($) {
     $(this).find('.micro a').css('background', '#32A1CC');
   });
 
+  //top icons menu hover
+  $('.menu-client-icon.phone a, .tel2 a').mouseover(function() {
+    $('.menu-client-icon.phone a, .tel2 a').css({
+      color: '#E74777',
+      WebkitTransition : '0.5s',
+      MozTransition    : '0.5s',
+      MsTransition     : '0.5s',
+      OTransition      : '0.5s',
+      transition       : '0.5s'
+    });
+  });
+  $('.menu-client-icon.phone a, .tel2 a').mouseout(function() {
+    $('.menu-client-icon.phone a, .tel2 a').css({
+      color: '#32A1CC',
+      WebkitTransition : '0.5s',
+      MozTransition    : '0.5s',
+      MsTransition     : '0.5s',
+      OTransition      : '0.5s',
+      transition       : '0.5s'
+    });
+  });
+
 });
 </script>
 

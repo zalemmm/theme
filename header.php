@@ -58,11 +58,11 @@
 
 				<ul class="menu-client">
 					<li class="menu-client-item item1">
-						<div class="menu-client-icon phone"><i class="fa fa-phone" aria-hidden="true"></i></div>
+						<div class="menu-client-icon phone"><a href="tel:+33442401401"><i class="fa fa-phone" aria-hidden="true"></i></a></div>
 
 						<div class="menu-client-phone">
 							<span class="menu-client-label tel1 split">Nos téléconseillers</span>
-							<span class="menu-client-label tel2 split">0442 401 401</span>
+							<span class="menu-client-label tel2 split"><a href="tel:+33442401401">0442 401 401</a></span>
 							<span class="menu-client-label tel3 split">9h-12h | 14h-18h</span>
 						</div>
 					</li>

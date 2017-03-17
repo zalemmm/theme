@@ -526,7 +526,7 @@
   .site-head{
     position: relative;
     display: block;
-    top: 10rem;
+    top: 9rem;
     left: 30%;
     font-family: $font-special;
     letter-spacing: 1px;
@@ -549,8 +549,8 @@
     background-color: #fff;
     list-style: none;
     font-family: $font-special;
-    font-size: 1rem;
-    line-height: 1.6rem;
+    font-size: .8rem;
+    line-height: 1.4rem;
     top:220px;
     height:80px;
     li{
@@ -602,6 +602,10 @@
     }
     .tel2 {
       font-size: 1.6rem;
+      a:hover{
+        color: $magenta;
+        transition-duration: .5s;
+      }
     }
     .tel3 {
       font-size: .8rem;
@@ -609,11 +613,28 @@
     }
   }
 
+  // couleur des icones
+
   a .fa-lock{
     color: $jaune;
+    &:hover {
+      color: $cyan;
+      transition-duration: .5s;
+    }
   }
   .menu-client-icon a{
     color: $magenta;
+    &:hover {
+      color: $cyan;
+      transition-duration: .5s;
+    }
+  }
+  .menu-client-icon.phone a{
+    color: $cyan;
+    &:hover {
+      color: $magenta;
+      transition-duration: .5s;
+    }
   }
   // module menu top
 
@@ -876,7 +897,7 @@
     width: 100%;
     height: auto;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     background: #f6f6f6;
 
     .front img{
@@ -899,7 +920,7 @@
         color: $color_12;
         font-weight: bold;
         padding-bottom: 2px;
-        font-size: 1rem;
+        font-size: 1.2rem;
       }
       .notice{
         display: block;
@@ -1008,7 +1029,7 @@
     height: 143px;
     height: auto !important;
     min-height: 143px;
-    background: $color_17;
+    background: $bloc-base;
 
     ul {
       float: left;
@@ -1077,7 +1098,7 @@
     display: inline;
     width: auto;
     height: auto;
-    background: $color_17;
+    background: $bloc-base;
 
     ul {
       float: left;
@@ -1134,7 +1155,7 @@
     display: inline;
     width: auto;
     height: auto;
-    background: $color_17;
+    background: $bloc-base;
 
     ul {
       float: left;
@@ -1193,13 +1214,13 @@
   .jotform-form {
     box-sizing: border-box;
     width: 100%;
-    background: $color_7;
-    padding:2% 4%;
+    background: $bloc-base;
+    padding: 2% 4% 4%;
     animation: fadein 2s;
     -webkit-animation: fadein 2s;
 
     select {
-      width: 100%;
+      width: 90%;
       display: inline;
       padding-right: 2.5em;
       border: 0;
@@ -1220,7 +1241,7 @@
 
       .option1 {
         color: $black;
-        background-color: $color_17;
+        background-color: $bloc-base;
         text-transform: capitalize;
         line-height: 10px;
       }
@@ -1449,15 +1470,16 @@
     position: absolute;
     right: 20px;
     top: 10px;
-    width: 200px;
-    background: $color_21;
-    color: $color_9;
-    padding: 5px;
+    width: 60%;
+    background: lighten($cyan, 10%);
+    color: darken($text, 10%);
+    padding: 7px;
     z-index: 100;
     text-align: left;
-    line-height: 16px;
-    font-size: smaller;
+    line-height: .9rem;
+    font-size: .75rem;
   }
+
 
   // form sélection produit ----------------------------------------------------
 
@@ -1469,7 +1491,7 @@
     list-style-type: none;
 
     &.grey {
-      background: $color_7;
+      background: $bloc-base;
       padding-left: 20px;
       list-style-image: url('../images/arrow.png');
 
@@ -1515,7 +1537,7 @@
         position: relative;
         float: left;
         display: block;
-        width: 90%;
+        width: 100%;
         height: auto;
         padding-top: 13px;
         color: $color_27;
@@ -1611,18 +1633,18 @@
         &.optionsformline {
           height: 155px !important;
           position: relative;
-          float: left;
+          float: none;
           display: inline;
-          width: auto;
+          width: 100%;
 
-          padding-top: 12px !important;
+          padding-top: 20px !important;
           color: $color_27;
           border: none !important;
 
           span {
             &.title {
               position: relative;
-              widht: 100%;
+              width: 100%;
               display: block;
               text-align: center;
             }
@@ -1748,7 +1770,7 @@
           height: 40px !important;
           padding-top: 12px !important;
           color: $color_27;
-          border-bottom: 1px solid $color_7;
+          border-bottom: 1px solid $bloc-base;
         }
       }
     }
@@ -1781,7 +1803,7 @@
           span {
             &.title {
               position: relative;
-              widht: 100%;
+              width: 100%;
               display: block;
               font-weight: bold;
               margin-bottom: 5px;
@@ -1971,7 +1993,7 @@
     float: left;
     display: inline;
     width: auto;
-    background: $color_7;
+    background: $bloc-base;
     padding: 20px 10px;
 
     select {
@@ -1998,7 +2020,7 @@
     width: 420px;
     visibility: hidden;
     margin-bottom: 5px;
-    background-color: $color_7;
+    background-color: $bloc-base;
   }
 
   #preview-cadre_name {
@@ -2023,7 +2045,7 @@
     height: 143px;
     height: auto !important;
     min-height: 143px;
-    background: $color_17;
+    background: $bloc-base;
 
     ul {
       float: left;
@@ -2061,7 +2083,7 @@
     display: inline-block;
     width: 300px;
     height: 300px;
-    background-color: $color_7;
+    background-color: $bloc-base;
   }
 
   .roundedImage {
@@ -2119,7 +2141,7 @@
     display: inline;
     width: auto;
     height: 11px;
-    background: $color_7;
+    background: $bloc-base;
     padding: 4px 0 6px;
     color: $color_12;
     font-size: 10px;
@@ -2141,7 +2163,7 @@
     padding: 6px 10px 6px 27px;
     height: 47px;
     margin-top: 24px;
-    background: $color_7;
+    background: $bloc-base;
   }
 
   .OptionFedex {
@@ -2410,7 +2432,7 @@
       width: auto;
       height: 33px;
       padding-top: 14px;
-      background: $color_7;
+      background: $bloc-base;
       text-align: center;
     }
 
@@ -2427,13 +2449,7 @@
       margin-top: 8px;
     }
 
-    &.wycena_poz {
-      float: left;
-      display: inline;
-      height: 10px;
-      width: 94px;
-      text-align: center;
-    }
+
 
     &.comm_title {
       float: left;
@@ -2579,7 +2595,7 @@
       position: relative;
       float: left;
       display: inline;
-      background: $color_7;
+      background: $bloc-base;
       width: auto;
 
       p {
@@ -2901,7 +2917,7 @@
 
 
   .box_info {
-    background-color: $color_7;
+    background-color: $bloc-base;
     width: auto;
     padding: 12px 12px 2px;
     margin-bottom: 16px;
@@ -2910,7 +2926,7 @@
   }
 
   .box_warning {
-    background-color: $color_7;
+    background-color: $bloc-base;
     width: auto;
     padding: 8px 8px 2px;
     margin-bottom: 16px;
@@ -2935,36 +2951,50 @@
   #wycena_nag {
     float: left;
     display: inline;
-    width: auto;
-    height: 11px;
-    background: $color_7;
-    padding: 4px 57px 6px 27px;
+    @include span(8);
+    height: 40px;
+    background: $bloc-base;
+    padding: 10px;
     color: $color_12;
-    font-size: 10px;
+    font-size: .9rem;
   }
 
   #wycena_suma {
     float: left;
     display: inline;
-    width: auto;
-    height: 11px;
-    padding: 4px 57px 6px 27px;
-    font-size: 10px;
+    @include span(8);
+    height: 40px;
+    background: $bloc-base;
+    padding: 10px;
+    color: $color_12;
+    font-size: 1rem;
+    font-weight: bold;
   }
 
   #dodaj_koszyk {
     float: left;
     display: inline;
-    width: auto;
-    padding: 4px 57px 6px 27px;
-    height: 47px;
-    margin-top: 24px;
-    background: $color_7;
+    @include span(8);
+    height: 60px;
+    background: $bloc-base;
+    padding: 10px;
+    color: $color_12;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  span.wycena_poz {
+    float: left;
+    display: inline;
+    height: 10px;
+    width: 25%;
+    text-align: center;
   }
 
   #submit_cart {
-    width: 85px;
-    height: 19px;
+    width: 100px;
+    height: 40px;
     cursor: pointer;
     background: url('../images/ajouter.jpg') no-repeat;
     text-indent: -999em;
@@ -2984,7 +3014,7 @@
     position: relative;
     width: 315px;
     padding: 16px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     float: left;
     display: inline;
 
@@ -3036,7 +3066,7 @@
     display: inline;
     width: 315px;
     padding: 16px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     border-bottom: 5px solid $white;
   }
 
@@ -3094,7 +3124,7 @@
     width: 315px;
     height: 120px;
     padding: 20px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     float: left;
     display: inline;
   }
@@ -3126,7 +3156,7 @@
     width: 315px;
     height: 120px;
     padding: 16px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     float: right;
     display: inline;
     border-bottom: 5px solid $white;
@@ -3148,7 +3178,7 @@
     width: 315px;
     height: 19px;
     padding: 16px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     float: right;
     display: inline;
     border-bottom: 5px solid $white;
@@ -3216,7 +3246,7 @@
     display: inline;
     width: 670px;
     padding: 18px;
-    background: $color_7;
+    background: $bloc-base;
     color: $color_9;
   }
 
@@ -3371,7 +3401,7 @@
     float: right;
     display: inline;
     width: auto;
-    background: $color_7;
+    background: $bloc-base;
     padding: 15px 0 5px;
     margin: 0 0 10px;
     text-align: center;
@@ -3384,7 +3414,7 @@
     display: inline;
     width: auto;
     height: 19px;
-    background: $color_7;
+    background: $bloc-base;
     padding: 15px 0 5px;
     margin-top: 30px;
     text-align: center;
@@ -3396,7 +3426,7 @@
     float: right;
     display: inline;
     width: auto;
-    background: $color_7;
+    background: $bloc-base;
     padding: 15px 0 5px;
     margin-top: 25px;
     text-align: center;
@@ -3628,7 +3658,7 @@
     padding: 10px 0 0 18px;
     height: 87px;
     line-height: 14px;
-    background: $color_7;
+    background: $bloc-base;
     font-size: 11px;
     float: left;
     display: inline;
@@ -3642,7 +3672,7 @@
     width: auto;
 
     th {
-      background: $color_7;
+      background: $bloc-base;
       text-align: center;
       font-size: 10px;
       padding: 1px 0;
@@ -3664,7 +3694,7 @@
     }
 
     td {
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       line-height: 17px;
       text-align: center;
       padding: 10px 2px 21px;
@@ -3677,7 +3707,7 @@
       }
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         font-size: 11px;
         line-height: 13px;
@@ -3699,12 +3729,12 @@
     td {
       vertical-align: top;
       padding: 12px;
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       border-bottom: 4px solid $white;
       text-align: center;
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
       }
     }
   }
@@ -3721,7 +3751,7 @@
       vertical-align: top;
       width: 65px;
       padding: 28px 6px 12px;
-      background: $color_7 url('../images/bord5.png') top left no-repeat;
+      background: $bloc-base url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $white;
       text-align: center;
 
@@ -3729,7 +3759,7 @@
         vertical-align: top;
         width: 140px;
         padding: 12px;
-        background: $color_7;
+        background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
       }
@@ -3738,7 +3768,7 @@
         vertical-align: top;
         width: 140px;
         padding: 12px;
-        background: $color_7;
+        background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
       }
@@ -3747,7 +3777,7 @@
         vertical-align: top;
         width: 171px;
         padding: 12px 6px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
       }
@@ -3756,7 +3786,7 @@
         vertical-align: top;
         width: 171px;
         padding: 12px 6px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
       }
@@ -3765,7 +3795,7 @@
         vertical-align: top;
         width: 360px;
         padding: 12px 6px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
       }
@@ -3774,7 +3804,7 @@
         vertical-align: top;
         width: 287px;
         padding: 12px;
-        background: $color_7;
+        background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
       }
@@ -3783,7 +3813,7 @@
         vertical-align: top;
         width: 171px;
         padding: 12px 6px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
       }
@@ -3795,7 +3825,7 @@
         width: 150px;
         height: 140px;
         padding: 12px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
 
@@ -3813,7 +3843,7 @@
         width: 183px;
         height: 164px;
         padding: 0;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
 
@@ -3844,7 +3874,7 @@
         vertical-align: top;
         width: 160px;
         padding: 10px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
 
@@ -3904,7 +3934,7 @@
         width: 186px;
         height: 164px;
         padding: 0;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
 
@@ -4258,7 +4288,7 @@
     display: inline;
     margin: 25px 5px 5px 0;
     text-decoration: none;
-    color: $color_7;
+    color: $bloc-base;
 
     &:hover {
       cursor: pointer;
@@ -4270,7 +4300,7 @@
     padding: 1px 0 0 18px;
     height: 22px;
     line-height: 23px;
-    background: $color_7;
+    background: $bloc-base;
     font-size: 12px;
     float: left;
     display: inline;
@@ -4324,7 +4354,7 @@
     padding: 20px 20px 0 28px;
     height: 132px;
     line-height: 14px;
-    background: $color_7;
+    background: $bloc-base;
     font-size: 11px;
     float: left;
     display: inline;
@@ -4335,7 +4365,7 @@
     width: 207px;
     padding: 20px 20px 20px 28px;
     line-height: 14px;
-    background: $color_7;
+    background: $bloc-base;
     font-size: 11px;
     float: left;
     display: inline;
@@ -4470,7 +4500,7 @@
     position: relative;
     float: left;
     display: inline;
-    background: $color_7;
+    background: $bloc-base;
     width: 447px;
     height: 119px;
     padding-top: 10px;
@@ -4531,7 +4561,7 @@
     }
 
     th {
-      background: $color_7;
+      background: $bloc-base;
       text-align: center;
       padding: 3px 20px;
       border-bottom: 4px solid $white;
@@ -4557,14 +4587,14 @@
     }
 
     td {
-      background: $color_7 url('../images/bord.png') top left no-repeat;
+      background: $bloc-base url('../images/bord.png') top left no-repeat;
       text-align: center;
       padding: 13px 2px 21px;
       vertical-align: top;
       border-bottom: 4px solid $white;
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 13px 20px 21px;
       }
@@ -4602,7 +4632,7 @@
     width: auto;
 
     th {
-      background: $color_7;
+      background: $bloc-base;
       text-align: left;
       padding: 3px 0;
       border-bottom: 4px solid $white;
@@ -4611,7 +4641,7 @@
       width: 81px;
 
       &.leftth {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 20px;
         border-bottom: 4px solid $white;
@@ -4621,7 +4651,7 @@
       }
 
       &.leftth2 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 20px 3px 0;
         border-bottom: 4px solid $white;
@@ -4631,7 +4661,7 @@
       }
 
       &.leftth3 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 0;
         border-bottom: 4px solid $white;
@@ -4641,7 +4671,7 @@
       }
 
       &.leftth4 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 0;
         border-bottom: 4px solid $white;
@@ -4657,7 +4687,7 @@
     }
 
     td {
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
       padding: 10px 2px 6px 8px;
@@ -4665,7 +4695,7 @@
       border-bottom: 4px solid $white;
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         height: 19px;
         padding: 10px 2px 20px 8px;
@@ -4674,7 +4704,7 @@
       }
 
       &.lefttd2 {
-        background: $color_7 url('../images/bord2.png') top left no-repeat;
+        background: $bloc-base url('../images/bord2.png') top left no-repeat;
         text-align: left;
         height: 19px;
         padding: 10px 2px 20px 8px;
@@ -4689,7 +4719,7 @@
       }
 
       &.lefttd2a {
-        background: $color_7 url('../images/bord2.png') top left no-repeat;
+        background: $bloc-base url('../images/bord2.png') top left no-repeat;
         text-align: left;
         height: 19px;
         padding: 10px 2px 20px 8px;
@@ -4729,7 +4759,7 @@
   #viewsendfiles {
     width: 275px;
     margin-left: 130px;
-    background: $color_7;
+    background: $bloc-base;
     padding: 0 2px 6px 8px;
     font-size: 10px;
   }
@@ -4742,7 +4772,7 @@
     margin-top: 23px;
 
     th {
-      background: $color_7;
+      background: $bloc-base;
       text-align: left;
       padding: 3px 0;
       border-bottom: 4px solid $white;
@@ -4751,7 +4781,7 @@
       width: 491px;
 
       &.leftth {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 10px 3px 20px;
         border-bottom: 4px solid $white;
@@ -4767,7 +4797,7 @@
     }
 
     td {
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
       padding: 8px 2px 6px 8px;
@@ -4775,7 +4805,7 @@
       border-bottom: 4px solid $white;
 
       &.lefttd {
-        background: $color_7 url('../images/wykrzyknik.png') top left no-repeat;
+        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
         color: $color_9;
         font-size: 12px;
         text-align: left;
@@ -4785,7 +4815,7 @@
       }
 
       &.lefttd2 {
-        background: $color_7 url('../images/wykrzyknik2.png') top left no-repeat;
+        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
         color: $color_9;
         font-size: 12px;
         text-align: left;
@@ -4809,7 +4839,7 @@
 
     th {
       &.leftth {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 10px 3px 20px;
         border-bottom: 4px solid $white;
@@ -4819,7 +4849,7 @@
       }
 
       &.leftth2 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 0;
         border-bottom: 4px solid $white;
@@ -4829,7 +4859,7 @@
       }
 
       &.leftth3 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 0;
         border-bottom: 4px solid $white;
@@ -4845,7 +4875,7 @@
     }
 
     td {
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
       padding: 8px 2px 6px 8px;
@@ -4853,7 +4883,7 @@
       border-bottom: 4px solid $white;
 
       &.lefttd {
-        background: $color_7 url('../images/wykrzyknik.png') top left no-repeat;
+        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
         color: $color_9;
         font-size: 12px;
         text-align: left;
@@ -4863,7 +4893,7 @@
       }
 
       &.lefttd2 {
-        background: $color_7 url('../images/wykrzyknik2.png') top left no-repeat;
+        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
         color: $color_9;
         font-size: 12px;
         text-align: left;
@@ -5016,7 +5046,7 @@
 
     td {
       &.toleft {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         text-transform: uppercase;
         color: $color_12;
@@ -5028,7 +5058,7 @@
       }
 
       &.toright {
-        background: $color_7;
+        background: $bloc-base;
         text-align: right;
         padding-right: 5px;
         width: 65px;
@@ -5065,7 +5095,7 @@
     width: 239px;
     padding: 26px 88px 0 22px;
     height: 166px;
-    background: $color_7;
+    background: $bloc-base;
     color: $color_9;
     position: relative;
   }
@@ -5135,7 +5165,7 @@
   .acces_tab_content2 {
     width: 349px;
     padding: 12px 0 20px;
-    background: $color_7;
+    background: $bloc-base;
     color: $color_9;
     position: relative;
     float: left;
@@ -5281,7 +5311,7 @@
     display: inline;
     width: 440px;
     padding: 9px 15px;
-    background: $color_7;
+    background: $bloc-base;
     margin: 0 0 4px;
   }
 
@@ -5291,23 +5321,23 @@
     display: inline;
     width: 440px;
     padding: 9px 15px;
-    background: $color_7;
-    border: 1px solid $color_7;
+    background: $bloc-base;
+    border: 1px solid $bloc-base;
     margin: 0 0 4px;
 
     span {}
   }
 
   #raele1 {
-    border: 1px solid $color_7;
+    border: 1px solid $bloc-base;
   }
 
   #raele2 {
-    border: 1px solid $color_7;
+    border: 1px solid $bloc-base;
   }
 
   #raele3 {
-    border: 1px solid $color_7;
+    border: 1px solid $bloc-base;
   }
 
   .rating_elcol1 {
@@ -5700,7 +5730,7 @@
     width: auto;
 
     td {
-      background: $color_7 url('../images/bord4.png') top left no-repeat;
+      background: $bloc-base url('../images/bord4.png') top left no-repeat;
       font-size: 11px;
       line-height: 17px;
       text-align: left;
@@ -5710,7 +5740,7 @@
       width: 426px;
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         width: 100px;
         padding: 10px 20px;
@@ -5718,7 +5748,7 @@
       }
 
       &.lefttd2 {
-        background: $color_7 url('../images/bord4.png') top left no-repeat;
+        background: $bloc-base url('../images/bord4.png') top left no-repeat;
         text-align: left;
         width: 100px;
         font-size: 11px;
@@ -5789,7 +5819,7 @@
       &:link {
         font-weight: bold;
         text-decoration: none;
-        background: $color_7;
+        background: $bloc-base;
         padding: 4px 6px;
         text-align: center;
         margin: 0 0 0 4px;
@@ -5798,7 +5828,7 @@
       &:visited {
         font-weight: bold;
         text-decoration: none;
-        background: $color_7;
+        background: $bloc-base;
         padding: 4px 6px;
         text-align: center;
         margin: 0 0 0 4px;
@@ -5810,7 +5840,7 @@
     }
 
     span {
-      background: $color_7;
+      background: $bloc-base;
       padding: 4px 6px;
       text-align: center;
       margin: 0 0 0 4px;
@@ -5819,7 +5849,7 @@
 
       &.ratingpagpage {
         text-decoration: none;
-        background: $color_7;
+        background: $bloc-base;
         padding: 4px 6px;
         text-align: center;
         margin: 0 17px 0 4px;

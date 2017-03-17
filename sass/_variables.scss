@@ -1,5 +1,6 @@
 //fonts
-$font-global: 'Trebuchet MS', 'Arial', 'sans-serif';
+$font-global: 'Source Sans Pro', sans-serif;
+$font-keep: 'Arial', 'sans-serif';
 $font-title: 'Arial', 'sans-serif';
 $font-special: 'sansationbold', 'Arial', 'sans-serif';
 $font-input: 'Trebuchet MS', 'Arial', 'sans-serif';
@@ -7,6 +8,7 @@ $font-input: 'Trebuchet MS', 'Arial', 'sans-serif';
 //colors
 
 $white: #fff;
+$bloc-base: #f6f6f6;
 $black: #000;
 $text: #555a61;
 $cyan: #32A1CC;
@@ -27,7 +29,6 @@ $color_13: #565960;
 $color_14: #f00;
 $color_15: #0c3;
 $color_16: #00901d;
-$color_17: #f6f6f6;
 $color_18: #565b62;
 $color_19: #125b17;
 $color_20: #bdd6bf;

@@ -10,7 +10,7 @@
 body {
   font-size: 11px;
   color: $text;
-  font-family: $font-global;
+  font-family: $font-keep;
   margin: 0 auto;
   line-height: 15px;
   background-color: $white;
@@ -1620,7 +1620,6 @@ p {
 }
 
 small {
-  font-family: $font-title;
   font-size: 10px;
   line-height: 12px;
 }
@@ -2078,7 +2077,7 @@ SPAN {
   height: 143px;
   height: auto !important;
   min-height: 143px;
-  background: $color_17;
+  background: $bloc-base;
 
   ul {
     float: left;
@@ -2146,7 +2145,7 @@ SPAN {
   display: inline;
   width: 111px;
   height: 143px;
-  background: $color_17;
+  background: $bloc-base;
 
   ul {
     float: left;
@@ -2203,7 +2202,7 @@ SPAN {
   display: inline;
   width: 111px;
   height: 143px;
-  background: $color_17;
+  background: $bloc-base;
 
   ul {
     float: left;
@@ -4607,7 +4606,7 @@ stat2 {
   float: left;
   display: inline;
   width: 376px;
-  background: $color_7;
+  background: $bloc-base;
   padding: 22px 57px 5px 27px;
   animation: fadein 2s;
 
@@ -4634,7 +4633,7 @@ stat2 {
 
     .option1 {
       color: $black;
-      background-color: $color_17;
+      background-color: $bloc-base;
       text-transform: capitalize;
       line-height: 10px;
     }
@@ -5527,7 +5526,7 @@ stat2 {
   height: 143px;
   height: auto !important;
   min-height: 143px;
-  background: $color_17;
+  background: $bloc-base;
 
   ul {
     float: left;
@@ -6235,6 +6234,6 @@ hr.hr-separator {
 }
 
 .toggle-block {
-  font-family: $font-global;
+  font-family: $font-keep;
   font-size: .8rem;
 }
