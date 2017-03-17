@@ -1264,13 +1264,11 @@
       }
 
       &.option3 {
-        @include span(6);
-
+        width: 100%;
       }
 
       &.option4 {
-        @include span(6);
-
+        width: 115%;
       }
 
       &.quan {
