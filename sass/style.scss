@@ -1,11 +1,4 @@
 @import 'susy';
-@import 'variables';
-@import 'extends';
-@import 'mixins';
-@import 'global';
-@import 'layout';
-@import 'layout-mobile';
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro');
 @font-face {
     font-family: 'sansationbold';
@@ -17,6 +10,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@import 'variables';
+@import 'extends';
+@import 'mixins';
+@import 'global';
+@import 'layout';
+@import 'layout-mobile';
 
 $susy: (
   columns: 12,
