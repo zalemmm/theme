@@ -1,4 +1,4 @@
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1200px) {
 
   $susy: (
     columns: 12,
@@ -65,7 +65,9 @@
   // Footer --------------------------------------------------------------------
 
   #main2 {
-    @include container (90%);
+    @include container (100%);
+    margin-top: 100px;
+    clear: both;
     height: auto;
   }
 
@@ -80,9 +82,9 @@
   }
 
   #footer2 {
+    @include container (90%);
     position: relative;
     width: auto;
-    @include container (90%);
     margin: 0 auto;
     height: auto;
     padding: 0;
@@ -90,17 +92,94 @@
   }
 
   #footer3 {
+    @include container (100%);
+    border-top:5px solid $text;
     position: relative;
     width: auto;
-    margin: 0 auto;
-    background: none;
+    margin: 30px auto 0;
+    background: $jaune;
+    padding: 15px 0 70px;
+    font-size: .9rem;
+    text-align: center;
+  }
+
+  #copy {
+    position: relative;
+    @include container (100%);
+    top: 0;
+    left: 0;
+    width: 100%;
     height: auto;
-    padding: 25px 0;
+    text-align: center;
+    margin: 0 auto;
+    font-family: $font-special;
+    p{
+      margin-bottom: 10px;
+    }
+    .copyright{
+      position: relative;
+      bottom: 0;
+      left: 0;
+      margin: 20px auto 0;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      width: 100%;
+      display: block;
+      background: $text;
+      color: $white;
+      text-align: center;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  .footer-keywords {
+    display: none;
+  }
+
+  #under_footer {
+    position: relative;
+    display: block;
+    width: 800px;
+    margin: 0 auto;
+    height: 45px;
+    padding: 14px 45px 0;
+    text-align: center;
+
+    a {
+      &:link,
+      &:visited {
+        color: $color_4;
+        font-size: 10px;
+        line-height: 12px;
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: $color_5;
+      }
+    }
+  }
+
+  #mainnew,
+  #mainnew2 {
+    display: none;
   }
 
   //----------------------------------------------------------------------------
   //                        DECLARATIONS GENERALES
   //----------------------------------------------------------------------------
+
+  .split{
+    display: inline-block;
+  }
+
+  .small {
+    font-size: .8rem;
+  }
 
   img {
     border: 0;
@@ -134,10 +213,7 @@
     }
 
     &.bottom_hr {
-      position: relative;
-      top: auto;
-      left: auto;
-      margin: 10px 0;
+      display: none;
     }
   }
 
@@ -450,9 +526,10 @@
   .site-head{
     position: relative;
     display: block;
-        top: 10rem;
-    left: 25%;
+    top: 9rem;
+    left: 30%;
     font-family: $font-special;
+    letter-spacing: 1px;
     .site-title{
       font-size: 2.2rem;
       line-height: 2.6rem;
@@ -472,8 +549,8 @@
     background-color: #fff;
     list-style: none;
     font-family: $font-special;
-    font-size: 1rem;
-    line-height: 1.6rem;
+    font-size: .8rem;
+    line-height: 1.4rem;
     top:220px;
     height:80px;
     li{
@@ -485,30 +562,80 @@
       }
     }
     .menu-client-item {
-      width: 29%;
+      @include span(3);
       text-align: center;
     }
     .menu-client-item.item1{
-      width: 40%;
+      @include span(6);
       text-align:left;
     }
    .menu-client-icon {
       display: block;
       font-size: 3.8rem;
+      color: $cyan;
     }
     .menu-client-icon.phone {
-      float: left;
+      @include span (1 of 5);
       padding-right: 15px;
       padding-top: 10px;
+    }
+    .menu-client-phone{
+      @include span (4 of 5);
+      box-sizing: border-box;
+      padding-left: 15px;
     }
     a {
       text-decoration: none;
     }
-    .tel2 {
+    .tel1{
       font-size: 1.2rem;
+      &:after{
+        position: relative;
+        left: 0;
+        display: block;
+        content: '';
+        width: 100%;
+        height:5px;
+        background: url('../images/lignetel.png') repeat-y;
+        margin-bottom: 5px;
+      }
+    }
+    .tel2 {
+      font-size: 1.6rem;
+      a:hover{
+        color: $magenta;
+        transition-duration: .5s;
+      }
+    }
+    .tel3 {
+      font-size: .8rem;
+      text-align: right;
     }
   }
 
+  // couleur des icones
+
+  a .fa-lock{
+    color: $jaune;
+    &:hover {
+      color: $cyan;
+      transition-duration: .5s;
+    }
+  }
+  .menu-client-icon a{
+    color: $magenta;
+    &:hover {
+      color: $cyan;
+      transition-duration: .5s;
+    }
+  }
+  .menu-client-icon.phone a{
+    color: $cyan;
+    &:hover {
+      color: $magenta;
+      transition-duration: .5s;
+    }
+  }
   // module menu top
 
   ul {
@@ -658,16 +785,21 @@
     padding: 0;
 
     li {
-      width: 140px; //120
-      height: 190px; //160
-      margin-bottom: 12px;
+      width: 220px; //120
+      height: 250px; //160
+      margin-bottom: 0;
+
+      .home-buttons{
+        width: 100%;
+        height: auto;
+      }
 
       &.separator_con {
         display: none;
       }
 
       .micro a {
-        font-size: .6rem;
+        font-size: .9rem;
         text-decoration: none;
         text-transform: uppercase;
         font-family: $font-special;
@@ -760,43 +892,66 @@
   }
 
   #top_info {
-    @include span(8);
-    float: none;
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
-
-  #top_info > img {
-    padding-left: 0;
-    min-width: 100%;
-    height: auto;
-  }
-
-  #top_info_info {
     position: relative;
-    top: 0;
-    left: 0;
+    @include container (100%);
+    width: 100%;
     height: auto;
-    background: lighten($text, 40%);
-    color:$white;
-    padding: 8px;
-    margin-top: 30px;
-    font-size: .8rem;
-    line-height: 1rem;
-    font-weight: 600;
-    width:460px;
-    height:auto;
+    margin-top: 10px;
+    margin-bottom: 0;
+    background: #f6f6f6;
+
+    .front img{
+      @include span (4);
+      height: auto;
+      vertical-align: middle;
+      padding-left: 0;
+    }
+
+    #top_info_info {
+      @include span (8);
+      height: auto;
+      padding: 8px;
+      vertical-align: middle;
+      background: 0;
+      font-size: .9rem;
+      span.info_nag {
+        font-family: $font-special;
+        display: block;
+        color: $color_12;
+        font-weight: bold;
+        padding-bottom: 2px;
+        font-size: 1.2rem;
+      }
+      .notice{
+        display: block;
+        margin-top: 5px;
+        text-align: right;
+      }
+    }
+    #top_info_info2 {
+      @include span (8);
+      height: auto;
+      padding: 8px;
+      vertical-align: middle;
+      background: 0;
+      font-size: .9rem;
+      span.info_nag {
+        font-family: $font-special;
+        display: block;
+        color: $color_12;
+        font-weight: bold;
+        padding-bottom: 2px;
+        font-size: 1rem;
+      }
+      .notice{
+        display: block;
+        margin-top: 5px;
+        text-align: right;
+      }
+    }
   }
 
-  #top_info_info2 {
-    position: absolute;
-    width: 284px;
-    height: 129px;
-    top: 26px;
-    left: 160px;
-    background: $color_17;
-    padding: 8px;
-  }
+
 
   #top_slideshow {
     display: none;
@@ -874,7 +1029,7 @@
     height: 143px;
     height: auto !important;
     min-height: 143px;
-    background: $color_17;
+    background: $bloc-base;
 
     ul {
       float: left;
@@ -943,7 +1098,7 @@
     display: inline;
     width: auto;
     height: auto;
-    background: $color_17;
+    background: $bloc-base;
 
     ul {
       float: left;
@@ -1000,7 +1155,7 @@
     display: inline;
     width: auto;
     height: auto;
-    background: $color_17;
+    background: $bloc-base;
 
     ul {
       float: left;
@@ -1059,53 +1214,61 @@
   .jotform-form {
     box-sizing: border-box;
     width: 100%;
-    background: $color_7;
-    padding:2% 4%;
+    background: $bloc-base;
+    padding: 2% 4% 4%;
     animation: fadein 2s;
     -webkit-animation: fadein 2s;
+    height: 700px;
 
     select {
-      width: 100%;
+      width: 90%;
       display: inline;
-      padding-right: 2.5em;
-      border: 0;
+      border: 1px solid $color_7;
+      outline: 0;
       border-radius: 3px;
       appearance: menulist;
-      font-size: inherit;
-      padding: 0.5em;
+      font-size: .8rem;
+      padding: 0.3em;
       margin: 0;
-      height: 30px;
-      color: $color_33;
+      height: 38px;
+      color: $cyan-bloc;
       font-weight: bold;
       cursor: pointer;
+      text-transform: uppercase;
+      &:focus {
+        outline: none;
+      }
 
       .titre {
-        font-weight: bold;
+        color: $magenta;
+        background-color: $white;
         text-transform: uppercase;
+        line-height: 12px;
+        padding:10px;
       }
 
       .option1 {
-        color: $black;
-        background-color: $color_17;
-        text-transform: capitalize;
-        line-height: 10px;
+        color: $cyan-bloc;
+        background-color: $bloc-base;
+        text-transform: uppercase;
+        line-height: 12px;
+        padding:10px;
       }
 
       .option2 {
-        color: $black;
+        color: $cyan-bloc;
         background-color: $white;
-        text-transform: capitalize;
-        line-height: 10px;
+        text-transform: uppercase;
+        line-height: 12px;
+        padding:10px;
       }
 
       &.option3 {
-        @include span(6);
-
+        width: 100%;
       }
 
       &.option4 {
-        @include span(6);
-
+        width: 115%;
       }
 
       &.quan {
@@ -1128,13 +1291,14 @@
         font-size: 11px;
         background: $white;
         border: 0;
-
+        margin: 0;
+        margin-left: 10px;
         border-radius: 3px;
         appearance: none;
         font-size: inherit;
         padding: 0.5em;
-        margin: 0;
         text-align: center;
+        border: 1px solid $color_7;
       }
 
       &.form-textbox2 {
@@ -1286,10 +1450,12 @@
     float: right;
     display: inline;
   }
-
+  .form-line{
+    width: 100%;
+  }
   .form-line-error {
-    background: $color_35;
-    border: 1px solid $color_35;
+    background: $magenta;
+    border: 1px solid $magenta;
   }
 
   .form-validation-error {
@@ -1298,16 +1464,16 @@
 
   .form-error-message {
     z-index: 900;
-    position: absolute;
-    max-width: 130px;
-    left: 375px;
-    top: 5px;
-    width: 100px;
-    color: $color_36;
-    padding: 3px;
-    font-size: 10px;
-    border: 4px solid $color_37;
-    background: $color_38;
+    position: relative;
+    display: inline-block;
+    width: 97%;
+    left: 0;
+    top: 0;
+    color: $white;
+    padding: 5px;
+    font-size: .8rem;
+    border: 0;
+    background: $magenta;
   }
 
 
@@ -1316,14 +1482,15 @@
     right: 20px;
     top: 10px;
     width: 200px;
-    background: $color_21;
-    color: $color_9;
-    padding: 5px;
+    background: lighten($cyan, 10%);
+    color: darken($text, 10%);
+    padding: 7px;
     z-index: 100;
     text-align: left;
-    line-height: 16px;
-    font-size: smaller;
+    line-height: .9rem;
+    font-size: .75rem;
   }
+
 
   // form sélection produit ----------------------------------------------------
 
@@ -1335,7 +1502,7 @@
     list-style-type: none;
 
     &.grey {
-      background: $color_7;
+      background: $bloc-base;
       padding-left: 20px;
       list-style-image: url('../images/arrow.png');
 
@@ -1381,9 +1548,10 @@
         position: relative;
         float: left;
         display: block;
-        width: 90%;
+        width: 100%;
         height: auto;
-        padding-top: 13px;
+        padding-top: 0;
+        margin-top: 15px;
         color: $color_27;
         animation: fadein 1s;
 
@@ -1475,22 +1643,27 @@
         }
 
         &.optionsformline {
+          clear: both;
           height: 155px !important;
           position: relative;
           float: left;
           display: inline;
-          width: auto;
+          width: 100%;
 
-          padding-top: 12px !important;
+          padding-top: 20px !important;
           color: $color_27;
           border: none !important;
 
           span {
             &.title {
               position: relative;
-              widht: 100%;
+              width: 100%;
               display: block;
               text-align: center;
+              margin: 0 0 20px;
+              font-size: .9rem;
+              color: $cyan-bloc;
+              font-weight: bold;
             }
 
             &.options_single {
@@ -1506,6 +1679,8 @@
               position: relative;
               float: left;
               width: 50%;
+              font-size: .8rem;
+              margin-bottom: 10px;
 
               input {
                 position: absolute;
@@ -1614,7 +1789,7 @@
           height: 40px !important;
           padding-top: 12px !important;
           color: $color_27;
-          border-bottom: 1px solid $color_7;
+          border-bottom: 1px solid $bloc-base;
         }
       }
     }
@@ -1639,7 +1814,7 @@
           float: left;
           display: inline;
           width: 260px;
-          height: 155px !important;
+          height: 400px !important;
           padding-top: 12px !important;
           color: $color_27;
           border: none !important;
@@ -1647,7 +1822,7 @@
           span {
             &.title {
               position: relative;
-              widht: 100%;
+              width: 100%;
               display: block;
               font-weight: bold;
               margin-bottom: 5px;
@@ -1665,7 +1840,7 @@
             &.optionsleft {
               position: relative;
               float: left;
-              width: auto;
+              width: 50%;
 
               input {
                 position: absolute;
@@ -1837,7 +2012,7 @@
     float: left;
     display: inline;
     width: auto;
-    background: $color_7;
+    background: $bloc-base;
     padding: 20px 10px;
 
     select {
@@ -1864,7 +2039,7 @@
     width: 420px;
     visibility: hidden;
     margin-bottom: 5px;
-    background-color: $color_7;
+    background-color: $bloc-base;
   }
 
   #preview-cadre_name {
@@ -1889,7 +2064,7 @@
     height: 143px;
     height: auto !important;
     min-height: 143px;
-    background: $color_17;
+    background: $bloc-base;
 
     ul {
       float: left;
@@ -1927,7 +2102,7 @@
     display: inline-block;
     width: 300px;
     height: 300px;
-    background-color: $color_7;
+    background-color: $bloc-base;
   }
 
   .roundedImage {
@@ -1985,7 +2160,7 @@
     display: inline;
     width: auto;
     height: 11px;
-    background: $color_7;
+    background: $bloc-base;
     padding: 4px 0 6px;
     color: $color_12;
     font-size: 10px;
@@ -2007,7 +2182,7 @@
     padding: 6px 10px 6px 27px;
     height: 47px;
     margin-top: 24px;
-    background: $color_7;
+    background: $bloc-base;
   }
 
   .OptionFedex {
@@ -2047,14 +2222,16 @@
   #derniers {
     position: relative;
     left: auto;
+    right: auto;
     top: auto;
-    width: 35%;
+    width: 50%;
     height: auto;
     text-transform: uppercase;
-    display: inline-block;
+    margin: 0 auto;
+    display: block;
     font-weight: bold;
-    margin-right: 5%;
     vertical-align: baseline;
+
     a {
       float: left;
       display: block;
@@ -2066,15 +2243,15 @@
   }
 
   #ratinghome {
-    margin-top: 100px;
-    display: inline-block;
-    width: 50%;
+    margin-top: 0;
+    display: block;
     position: relative;
+    left: auto;
     right: auto;
-    top: auto;
-    width: 58%;
+    margin:20px auto 0;
+    top: 0;
+    width: 50%;
     height: auto;
-    vertical-align: baseline;
   }
 
   .singlerate {
@@ -2132,12 +2309,12 @@
 
     &#footer_links {
       position: relative;
-      top: 26px;
-      right: 102px;
-      width: 440px;
-      height: 40px;
+      top: auto;
+      right: auto;
+      width: 100%;
+      height: auto;
       text-align: center;
-      font-size: 10px;
+      font-size: .75rem;
 
       a {
         &:link {
@@ -2154,10 +2331,10 @@
       position: relative;
       top: auto;
       right: auto;
-      width: 706px;
-      height: 40px;
+      width: 100%;
+      height: auto;
       text-align: center;
-      font-size: 10px;
+      font-size: .75rem;
 
       a {
         &:link {
@@ -2274,7 +2451,7 @@
       width: auto;
       height: 33px;
       padding-top: 14px;
-      background: $color_7;
+      background: $bloc-base;
       text-align: center;
     }
 
@@ -2285,27 +2462,13 @@
       font-size: 11px;
     }
 
-    &.info_nag {
-      color: $color_12;
-      font-weight: bold;
-      padding-bottom: 2px;
-      font-size: 1rem;
-
-    }
-
     &.info_mar {
       float: left;
       display: inline-block;
       margin-top: 8px;
     }
 
-    &.wycena_poz {
-      float: left;
-      display: inline;
-      height: 10px;
-      width: 94px;
-      text-align: center;
-    }
+
 
     &.comm_title {
       float: left;
@@ -2424,41 +2587,6 @@
     }
   }
 
-  #copy {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    left: auto;
-    width: auto;
-    height: 70px;
-    text-align: center;
-    margin: 20px auto;
-  }
-
-  #under_footer {
-    position: relative;
-    display: block;
-    width: 800px;
-    margin: 0 auto;
-    height: 45px;
-    padding: 14px 45px 0;
-    text-align: center;
-
-    a {
-      &:link,
-      &:visited {
-        color: $color_4;
-        font-size: 10px;
-        line-height: 12px;
-        text-decoration: none;
-      }
-
-      &:hover {
-        color: $color_5;
-      }
-    }
-  }
-
   #front_image {
     position: relative;
     width: 708px;
@@ -2486,7 +2614,7 @@
       position: relative;
       float: left;
       display: inline;
-      background: $color_7;
+      background: $bloc-base;
       width: auto;
 
       p {
@@ -2585,34 +2713,6 @@
     }
   }
 
-
-  #mainnew,
-  #mainnew2 {
-    position: relative;
-    float: none;
-    width: auto;
-    background: $white;
-    padding: 0;
-    margin: 10px 0 0;
-    padding: 0;
-
-    h2 {
-      color: $text;
-      font-size: 10px;
-      padding: 0;
-      margin: 0;
-    }
-
-    a {
-      color: $text;
-    }
-
-    p {
-      text-align: center;
-      width: 900px;
-      margin: 0 auto;
-    }
-  }
 
   // module page charte eco
 
@@ -2836,7 +2936,7 @@
 
 
   .box_info {
-    background-color: $color_7;
+    background-color: $bloc-base;
     width: auto;
     padding: 12px 12px 2px;
     margin-bottom: 16px;
@@ -2845,7 +2945,7 @@
   }
 
   .box_warning {
-    background-color: $color_7;
+    background-color: $bloc-base;
     width: auto;
     padding: 8px 8px 2px;
     margin-bottom: 16px;
@@ -2870,36 +2970,50 @@
   #wycena_nag {
     float: left;
     display: inline;
-    width: auto;
-    height: 11px;
-    background: $color_7;
-    padding: 4px 57px 6px 27px;
+    @include span(8);
+    height: 40px;
+    background: $bloc-base;
+    padding: 10px;
     color: $color_12;
-    font-size: 10px;
+    font-size: .9rem;
   }
 
   #wycena_suma {
     float: left;
     display: inline;
-    width: auto;
-    height: 11px;
-    padding: 4px 57px 6px 27px;
-    font-size: 10px;
+    @include span(8);
+    height: 40px;
+    background: $bloc-base;
+    padding: 10px;
+    color: $color_12;
+    font-size: 1rem;
+    font-weight: bold;
   }
 
   #dodaj_koszyk {
     float: left;
     display: inline;
-    width: auto;
-    padding: 4px 57px 6px 27px;
-    height: 47px;
-    margin-top: 24px;
-    background: $color_7;
+    @include span(8);
+    height: 60px;
+    background: $bloc-base;
+    padding: 10px;
+    color: $color_12;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0;
+  }
+
+  span.wycena_poz {
+    float: left;
+    display: inline;
+    height: 10px;
+    width: 25%;
+    text-align: center;
   }
 
   #submit_cart {
-    width: 85px;
-    height: 19px;
+    width: 100px;
+    height: 40px;
     cursor: pointer;
     background: url('../images/ajouter.jpg') no-repeat;
     text-indent: -999em;
@@ -2919,7 +3033,7 @@
     position: relative;
     width: 315px;
     padding: 16px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     float: left;
     display: inline;
 
@@ -2971,7 +3085,7 @@
     display: inline;
     width: 315px;
     padding: 16px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     border-bottom: 5px solid $white;
   }
 
@@ -3029,7 +3143,7 @@
     width: 315px;
     height: 120px;
     padding: 20px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     float: left;
     display: inline;
   }
@@ -3061,7 +3175,7 @@
     width: 315px;
     height: 120px;
     padding: 16px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     float: right;
     display: inline;
     border-bottom: 5px solid $white;
@@ -3083,7 +3197,7 @@
     width: 315px;
     height: 19px;
     padding: 16px 16px 13px 20px;
-    background: $color_7;
+    background: $bloc-base;
     float: right;
     display: inline;
     border-bottom: 5px solid $white;
@@ -3151,7 +3265,7 @@
     display: inline;
     width: 670px;
     padding: 18px;
-    background: $color_7;
+    background: $bloc-base;
     color: $color_9;
   }
 
@@ -3306,7 +3420,7 @@
     float: right;
     display: inline;
     width: auto;
-    background: $color_7;
+    background: $bloc-base;
     padding: 15px 0 5px;
     margin: 0 0 10px;
     text-align: center;
@@ -3319,7 +3433,7 @@
     display: inline;
     width: auto;
     height: 19px;
-    background: $color_7;
+    background: $bloc-base;
     padding: 15px 0 5px;
     margin-top: 30px;
     text-align: center;
@@ -3331,7 +3445,7 @@
     float: right;
     display: inline;
     width: auto;
-    background: $color_7;
+    background: $bloc-base;
     padding: 15px 0 5px;
     margin-top: 25px;
     text-align: center;
@@ -3563,7 +3677,7 @@
     padding: 10px 0 0 18px;
     height: 87px;
     line-height: 14px;
-    background: $color_7;
+    background: $bloc-base;
     font-size: 11px;
     float: left;
     display: inline;
@@ -3577,7 +3691,7 @@
     width: auto;
 
     th {
-      background: $color_7;
+      background: $bloc-base;
       text-align: center;
       font-size: 10px;
       padding: 1px 0;
@@ -3599,7 +3713,7 @@
     }
 
     td {
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       line-height: 17px;
       text-align: center;
       padding: 10px 2px 21px;
@@ -3612,7 +3726,7 @@
       }
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         font-size: 11px;
         line-height: 13px;
@@ -3634,12 +3748,12 @@
     td {
       vertical-align: top;
       padding: 12px;
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       border-bottom: 4px solid $white;
       text-align: center;
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
       }
     }
   }
@@ -3656,7 +3770,7 @@
       vertical-align: top;
       width: 65px;
       padding: 28px 6px 12px;
-      background: $color_7 url('../images/bord5.png') top left no-repeat;
+      background: $bloc-base url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $white;
       text-align: center;
 
@@ -3664,7 +3778,7 @@
         vertical-align: top;
         width: 140px;
         padding: 12px;
-        background: $color_7;
+        background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
       }
@@ -3673,7 +3787,7 @@
         vertical-align: top;
         width: 140px;
         padding: 12px;
-        background: $color_7;
+        background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
       }
@@ -3682,7 +3796,7 @@
         vertical-align: top;
         width: 171px;
         padding: 12px 6px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
       }
@@ -3691,7 +3805,7 @@
         vertical-align: top;
         width: 171px;
         padding: 12px 6px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
       }
@@ -3700,7 +3814,7 @@
         vertical-align: top;
         width: 360px;
         padding: 12px 6px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
       }
@@ -3709,7 +3823,7 @@
         vertical-align: top;
         width: 287px;
         padding: 12px;
-        background: $color_7;
+        background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
       }
@@ -3718,7 +3832,7 @@
         vertical-align: top;
         width: 171px;
         padding: 12px 6px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
       }
@@ -3730,7 +3844,7 @@
         width: 150px;
         height: 140px;
         padding: 12px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
 
@@ -3748,7 +3862,7 @@
         width: 183px;
         height: 164px;
         padding: 0;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
 
@@ -3779,7 +3893,7 @@
         vertical-align: top;
         width: 160px;
         padding: 10px;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
 
@@ -3839,7 +3953,7 @@
         width: 186px;
         height: 164px;
         padding: 0;
-        background: $color_7 url('../images/bord5.png') top left no-repeat;
+        background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
 
@@ -4193,7 +4307,7 @@
     display: inline;
     margin: 25px 5px 5px 0;
     text-decoration: none;
-    color: $color_7;
+    color: $bloc-base;
 
     &:hover {
       cursor: pointer;
@@ -4205,7 +4319,7 @@
     padding: 1px 0 0 18px;
     height: 22px;
     line-height: 23px;
-    background: $color_7;
+    background: $bloc-base;
     font-size: 12px;
     float: left;
     display: inline;
@@ -4259,7 +4373,7 @@
     padding: 20px 20px 0 28px;
     height: 132px;
     line-height: 14px;
-    background: $color_7;
+    background: $bloc-base;
     font-size: 11px;
     float: left;
     display: inline;
@@ -4270,7 +4384,7 @@
     width: 207px;
     padding: 20px 20px 20px 28px;
     line-height: 14px;
-    background: $color_7;
+    background: $bloc-base;
     font-size: 11px;
     float: left;
     display: inline;
@@ -4405,7 +4519,7 @@
     position: relative;
     float: left;
     display: inline;
-    background: $color_7;
+    background: $bloc-base;
     width: 447px;
     height: 119px;
     padding-top: 10px;
@@ -4466,7 +4580,7 @@
     }
 
     th {
-      background: $color_7;
+      background: $bloc-base;
       text-align: center;
       padding: 3px 20px;
       border-bottom: 4px solid $white;
@@ -4492,14 +4606,14 @@
     }
 
     td {
-      background: $color_7 url('../images/bord.png') top left no-repeat;
+      background: $bloc-base url('../images/bord.png') top left no-repeat;
       text-align: center;
       padding: 13px 2px 21px;
       vertical-align: top;
       border-bottom: 4px solid $white;
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 13px 20px 21px;
       }
@@ -4537,7 +4651,7 @@
     width: auto;
 
     th {
-      background: $color_7;
+      background: $bloc-base;
       text-align: left;
       padding: 3px 0;
       border-bottom: 4px solid $white;
@@ -4546,7 +4660,7 @@
       width: 81px;
 
       &.leftth {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 20px;
         border-bottom: 4px solid $white;
@@ -4556,7 +4670,7 @@
       }
 
       &.leftth2 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 20px 3px 0;
         border-bottom: 4px solid $white;
@@ -4566,7 +4680,7 @@
       }
 
       &.leftth3 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 0;
         border-bottom: 4px solid $white;
@@ -4576,7 +4690,7 @@
       }
 
       &.leftth4 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 0;
         border-bottom: 4px solid $white;
@@ -4592,7 +4706,7 @@
     }
 
     td {
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
       padding: 10px 2px 6px 8px;
@@ -4600,7 +4714,7 @@
       border-bottom: 4px solid $white;
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         height: 19px;
         padding: 10px 2px 20px 8px;
@@ -4609,7 +4723,7 @@
       }
 
       &.lefttd2 {
-        background: $color_7 url('../images/bord2.png') top left no-repeat;
+        background: $bloc-base url('../images/bord2.png') top left no-repeat;
         text-align: left;
         height: 19px;
         padding: 10px 2px 20px 8px;
@@ -4624,7 +4738,7 @@
       }
 
       &.lefttd2a {
-        background: $color_7 url('../images/bord2.png') top left no-repeat;
+        background: $bloc-base url('../images/bord2.png') top left no-repeat;
         text-align: left;
         height: 19px;
         padding: 10px 2px 20px 8px;
@@ -4664,7 +4778,7 @@
   #viewsendfiles {
     width: 275px;
     margin-left: 130px;
-    background: $color_7;
+    background: $bloc-base;
     padding: 0 2px 6px 8px;
     font-size: 10px;
   }
@@ -4677,7 +4791,7 @@
     margin-top: 23px;
 
     th {
-      background: $color_7;
+      background: $bloc-base;
       text-align: left;
       padding: 3px 0;
       border-bottom: 4px solid $white;
@@ -4686,7 +4800,7 @@
       width: 491px;
 
       &.leftth {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 10px 3px 20px;
         border-bottom: 4px solid $white;
@@ -4702,7 +4816,7 @@
     }
 
     td {
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
       padding: 8px 2px 6px 8px;
@@ -4710,7 +4824,7 @@
       border-bottom: 4px solid $white;
 
       &.lefttd {
-        background: $color_7 url('../images/wykrzyknik.png') top left no-repeat;
+        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
         color: $color_9;
         font-size: 12px;
         text-align: left;
@@ -4720,7 +4834,7 @@
       }
 
       &.lefttd2 {
-        background: $color_7 url('../images/wykrzyknik2.png') top left no-repeat;
+        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
         color: $color_9;
         font-size: 12px;
         text-align: left;
@@ -4744,7 +4858,7 @@
 
     th {
       &.leftth {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 10px 3px 20px;
         border-bottom: 4px solid $white;
@@ -4754,7 +4868,7 @@
       }
 
       &.leftth2 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 0;
         border-bottom: 4px solid $white;
@@ -4764,7 +4878,7 @@
       }
 
       &.leftth3 {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         padding: 3px 0;
         border-bottom: 4px solid $white;
@@ -4780,7 +4894,7 @@
     }
 
     td {
-      background: $color_7 url('../images/bord2.png') top left no-repeat;
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
       padding: 8px 2px 6px 8px;
@@ -4788,7 +4902,7 @@
       border-bottom: 4px solid $white;
 
       &.lefttd {
-        background: $color_7 url('../images/wykrzyknik.png') top left no-repeat;
+        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
         color: $color_9;
         font-size: 12px;
         text-align: left;
@@ -4798,7 +4912,7 @@
       }
 
       &.lefttd2 {
-        background: $color_7 url('../images/wykrzyknik2.png') top left no-repeat;
+        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
         color: $color_9;
         font-size: 12px;
         text-align: left;
@@ -4951,7 +5065,7 @@
 
     td {
       &.toleft {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         text-transform: uppercase;
         color: $color_12;
@@ -4963,7 +5077,7 @@
       }
 
       &.toright {
-        background: $color_7;
+        background: $bloc-base;
         text-align: right;
         padding-right: 5px;
         width: 65px;
@@ -5000,7 +5114,7 @@
     width: 239px;
     padding: 26px 88px 0 22px;
     height: 166px;
-    background: $color_7;
+    background: $bloc-base;
     color: $color_9;
     position: relative;
   }
@@ -5070,7 +5184,7 @@
   .acces_tab_content2 {
     width: 349px;
     padding: 12px 0 20px;
-    background: $color_7;
+    background: $bloc-base;
     color: $color_9;
     position: relative;
     float: left;
@@ -5216,7 +5330,7 @@
     display: inline;
     width: 440px;
     padding: 9px 15px;
-    background: $color_7;
+    background: $bloc-base;
     margin: 0 0 4px;
   }
 
@@ -5226,23 +5340,23 @@
     display: inline;
     width: 440px;
     padding: 9px 15px;
-    background: $color_7;
-    border: 1px solid $color_7;
+    background: $bloc-base;
+    border: 1px solid $bloc-base;
     margin: 0 0 4px;
 
     span {}
   }
 
   #raele1 {
-    border: 1px solid $color_7;
+    border: 1px solid $bloc-base;
   }
 
   #raele2 {
-    border: 1px solid $color_7;
+    border: 1px solid $bloc-base;
   }
 
   #raele3 {
-    border: 1px solid $color_7;
+    border: 1px solid $bloc-base;
   }
 
   .rating_elcol1 {
@@ -5635,7 +5749,7 @@
     width: auto;
 
     td {
-      background: $color_7 url('../images/bord4.png') top left no-repeat;
+      background: $bloc-base url('../images/bord4.png') top left no-repeat;
       font-size: 11px;
       line-height: 17px;
       text-align: left;
@@ -5645,7 +5759,7 @@
       width: 426px;
 
       &.lefttd {
-        background: $color_7;
+        background: $bloc-base;
         text-align: left;
         width: 100px;
         padding: 10px 20px;
@@ -5653,7 +5767,7 @@
       }
 
       &.lefttd2 {
-        background: $color_7 url('../images/bord4.png') top left no-repeat;
+        background: $bloc-base url('../images/bord4.png') top left no-repeat;
         text-align: left;
         width: 100px;
         font-size: 11px;
@@ -5724,7 +5838,7 @@
       &:link {
         font-weight: bold;
         text-decoration: none;
-        background: $color_7;
+        background: $bloc-base;
         padding: 4px 6px;
         text-align: center;
         margin: 0 0 0 4px;
@@ -5733,7 +5847,7 @@
       &:visited {
         font-weight: bold;
         text-decoration: none;
-        background: $color_7;
+        background: $bloc-base;
         padding: 4px 6px;
         text-align: center;
         margin: 0 0 0 4px;
@@ -5745,7 +5859,7 @@
     }
 
     span {
-      background: $color_7;
+      background: $bloc-base;
       padding: 4px 6px;
       text-align: center;
       margin: 0 0 0 4px;
@@ -5754,7 +5868,7 @@
 
       &.ratingpagpage {
         text-decoration: none;
-        background: $color_7;
+        background: $bloc-base;
         padding: 4px 6px;
         text-align: center;
         margin: 0 17px 0 4px;
@@ -5807,9 +5921,10 @@
   }
 
   .label-highlight {
-    color: $color_33;
+    color: $cyan-bloc;
     font-weight: bold;
     text-transform: capitalize;
+    font-size: .8rem;
   }
 
   .flash-slide {
@@ -5826,8 +5941,11 @@
   }
 
   .delivery-delay {
-    float: left;
-    width: 98px;
+    float: none;
+    display: inline-block;
+    width: 100%;
+    margin: 0 0 7px;
+    font-size: .8rem;
   }
 
   .delivery-date {
@@ -5839,14 +5957,6 @@
   .home-keywords-col {
     float: left;
     padding: 10px;
-  }
-
-  .footer-keywords {
-    color: $text;
-    font-size: 9px;
-    display: inline;
-    margin: 0;
-    padding: 0;
   }
 
   .marginTop {
@@ -5863,8 +5973,14 @@
     background-color: $color_14;
   }
 
+  #production,
+  #delivery {
+    display: block;
+    width: 100%;
+  }
+
   .production {
-    width: 90px;
+    width: auto;
     height: 20px;
     border-top-width: 0;
     border-right-width: 0;
@@ -5877,30 +5993,46 @@
     cursor: pointer;
   }
 
-  #p1 {
-    background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal1.png');
+  %pBase{
+    background-image: none;
+    background-color: $cyan;
     background-repeat: no-repeat;
-
+    width: 30%;
+    height: 40px;
+    margin-right: 1%;
     &.active {
-      background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-normal2.png');
+      background-image: none;
+      background-color: $magenta;
+    }
+  }
+
+  %pBaseAfter{
+    color: $white;
+    text-transform: uppercase;
+        padding: 10px 0;
+  }
+
+  #p1 {
+    @extend %pBase;
+    &:after{
+      @extend %pBaseAfter;
+      content: 'Normal - 4/5 jours';
     }
   }
 
   #p2 {
-    background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide1.png');
-    background-repeat: no-repeat;
-
-    &.active {
-      background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-rapide2.png');
+    @extend %pBase;
+    &:after{
+      @extend %pBaseAfter;
+      content: 'Rapide - 2/3 jours';
     }
   }
 
   #p3 {
-    background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express1.png');
-    background-repeat: no-repeat;
-
-    &.active {
-      background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/p-express2.png');
+    @extend %pBase;
+    &:after{
+      @extend %pBaseAfter;
+      content: 'Express - 1 jours';
     }
   }
 
@@ -5919,29 +6051,26 @@
   }
 
   #l1 {
-    background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal1.png');
-    background-repeat: no-repeat;
-
-    &.active {
-      background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-normal2.png');
+    @extend %pBase;
+    &:after{
+      @extend %pBaseAfter;
+      content: 'Normal - 4/5 jours';
     }
   }
 
   #l2 {
-    background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide1.png');
-    background-repeat: no-repeat;
-
-    &.active {
-      background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-rapide2.png');
+    @extend %pBase;
+    &:after{
+      @extend %pBaseAfter;
+      content: 'Normal - 4/5 jours';
     }
   }
 
   #l3 {
-    background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express1.png');
-    background-repeat: no-repeat;
-
-    &.active {
-      background-image: url('http://www.france-banderole.com/wp-content/plugins/fbshop/images/roll-up/l-express2.png');
+    @extend %pBase;
+    &:after{
+      @extend %pBaseAfter;
+      content: 'Normal - 4/5 jours';
     }
   }
 
@@ -6026,6 +6155,21 @@
     position: relative;
     font-weight: bold;
     margin-top: 50px;
+  }
+
+  // module paragraphe important
+  .important {
+    font-family: $font-special;
+    color: $text;
+    font-size: 1rem;
+    h3 {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+  }
+
+  .toggle-button {
+    font-size: 1.2rem;
   }
 
 }
