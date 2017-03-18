@@ -4139,7 +4139,7 @@ ul.form-section li.id_17 {
 }
 
 .jotform-form select {
-  float: right;
+  float: left;
   display: inline;
   padding-right: 2.5em;
   /* accommodate with the pseudo elements for the dropdown arrow */
@@ -4224,7 +4224,7 @@ ul.form-section li.id_17 {
 .jotform-form input.form-textbox2 {
   position: absolute;
   top: 13px;
-  left: 150px;
+  left: 240px;
   width: 40px;
   line-height: 0px;
   border: 1px solid #afb9c7;
@@ -4245,7 +4245,7 @@ ul.form-section li.id_17 {
 .jotform-form .heusepar {
   position: absolute;
   top: 18px;
-  left: 135px;
+  left: 210px;
   height: 12px;
   width: 10px;
 }
@@ -4253,7 +4253,7 @@ ul.form-section li.id_17 {
 .jotform-form .llar {
   position: absolute;
   top: 35px;
-  left: 75px;
+  left: 132px; /*75px*/
   height: 12px;
   width: 45px;
   text-align: center;
@@ -4264,7 +4264,7 @@ ul.form-section li.id_17 {
 .jotform-form .lhau {
   position: absolute;
   top: 35px;
-  left: 153px;
+  left: 245px; /*153px*/
   height: 12px;
   width: 45px;
   text-align: center;
@@ -4293,6 +4293,24 @@ ul.form-section li.id_17 {
   font-size: 9px;
   color: #869da6;
 }
+
+/*ajouts dimensions cm*/
+
+.jotform-form input.form-textbox.textboxPush{
+  margin-left:10px;
+}
+.jotform-form .cmLeft {
+  position: absolute;
+  top: 17px;
+  left: 185px;
+}
+.jotform-form .cmRight {
+  position: absolute;
+  top: 17px;
+  left: 297px;
+}
+
+/*fin ajouts*/
 
 span.form-checkbox-item {
   position: absolute;
@@ -5608,6 +5626,10 @@ a.linkUppercase {
   padding: 0px
 }
 
+/* styles Prod Pages adaptation des zones dimensions */
+
+
+
 
 /* !OLD cadre livraison gratuite */
 
@@ -5633,7 +5655,7 @@ ul.form-section li.optionsformline .options_single span.optionsleft.livraison-gr
                                                           SLIDER
    ========================================================================== */
 
-.theme-default .nivoSlider {
+.metaslider { /*update from .theme-default .nivoSlider*/
   width: 822px;
   top: 0px;
   margin-left: -57px;

@@ -245,9 +245,20 @@ include('nom_du_fichier_de_conf.php');
 
 <?php wp_footer(); ?>
 
+<<<<<<< HEAD
 <script>
 jQuery(document).ready(function ($) {
 
+=======
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+<script>
+jQuery(document).ready(function ($) {
+
+  //$(".form-dropdown").select2();
+
+>>>>>>> origin/master
   //toggle
   $('.toggle-button').click(function() {
     $('.toggle-block').slideToggle('slow');
