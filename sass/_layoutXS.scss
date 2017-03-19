@@ -1,0 +1,103 @@
+@media(max-width: 480px) {
+
+  #header {
+    height:220px;
+  }
+
+  //----------------------------------------------------------------------------
+  //                             MODULES
+  //----------------------------------------------------------------------------
+
+  // Header --------------------------------------------------------------------
+
+  // module logo
+  a#logo {
+    top: 50px;
+    left: 10px;
+    width: 22%;
+    height: 90px;
+  }
+
+  // module titre site
+  .site-head{
+    top: 77px;
+    left: 24%;
+    .site-title{
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+    }
+    .site-subtitle{
+      font-size: .7rem;
+      padding:2px 5px;
+    }
+  }
+
+  // module accès client
+  ul.menu-client{
+    font-size: .6rem;
+    line-height: .8rem;
+    top:107px;
+    height:50px;
+    li{
+      height: 50px;
+    }
+   .menu-client-icon {
+      display: block;
+      font-size: 2rem;
+      color: $cyan;
+    }
+    .menu-client-icon.phone {
+      padding-right: 10px;
+      padding-top: 10px;
+    }
+    .menu-client-phone{
+      padding-left: 10px;
+    }
+    .tel1{
+      font-size: .7rem;
+    }
+    .tel2 {
+      font-size: .88rem;
+    }
+    .tel3 {
+      font-size: .6rem;
+      text-align: right;
+    }
+  }
+
+  //----------------------------------------------------------------------------
+  //                      MODULES PAGE ACCUEIL
+  //----------------------------------------------------------------------------
+
+
+
+  //----------------------------------------------------------------------------
+  #top_info {
+    .front img{
+      @include span(6);
+      max-height: 100px;
+    }
+    #top_info_info {
+      @include span(6);
+      span.info_nag {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+    }
+  }
+
+  // derniers commentaires
+
+  #derniers {
+    top: auto;
+    width: 80%;
+  }
+
+  #ratinghome {
+    width: 80%;
+  }
+
+
+
+
+}

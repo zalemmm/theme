@@ -8,6 +8,8 @@
 //------------------------------------------------------------------------------
 
 body {
+  width: auto;
+  margin:0 auto;
   font-size: 11px;
   color: $text;
   font-family: $font-keep;
@@ -28,14 +30,14 @@ body {
 }
 
 #main {
-  width: 100%;
+  width: auto;
 }
 
 
 
 #top {
   position: relative;
-  width: 100%;
+  width: auto;
   height: 25px;
   text-align: center;
   margin: 0 auto;
@@ -302,12 +304,12 @@ a {
 
 #content_bg_top {
   position: relative;
-  width: 706px;
+  max-width: 706px;
   margin: 0 auto;
   min-height: 400px;
   height: auto !important;
   height: 755px;
-  padding: 0 102px 15px;
+  padding: 0;
 }
 
 ul {
@@ -444,8 +446,8 @@ ul {
     padding: 0;
 
     li {
-      width: 150px;
-      height: 180px;
+      width: 23%; //120
+      height: auto; //160
       margin-bottom: 0;
 
       .home-buttons{
@@ -462,16 +464,23 @@ ul {
         box-sizing: border-box;
         width: 100%;
         background: $cyan;
-        font-size: .84rem;
+        font-size: .85rem;
+        line-height: .87rem;
+        letter-spacing: 1px;
         text-decoration: none;
         text-transform: uppercase;
         font-family: $font-special;
         color: #fff;
         font-weight: 700;
-        margin-top: -10px;
+        margin-top: -15px;
         padding: 14px 2px 0;
         height: 55px;
-        vertical-align: top;
+        vertical-align: middle;
+        .micro-s {
+          display: block;
+          font-size: .65rem;
+          font-family: $font-global;
+        }
         &:hover {
           background: $magenta;
         }
@@ -1999,7 +2008,7 @@ SPAN {
 
 #top_slideshow {
   position: absolute;
-  right: 90px;
+  right: 0;
   top: 24px;
   width: 238px;
   height: 145px;

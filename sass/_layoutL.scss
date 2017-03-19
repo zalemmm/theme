@@ -1,4 +1,4 @@
-@media screen and (max-width: 1200px) {
+@media(max-width: 1024px) {
 
   $susy: (
     columns: 12,
@@ -10,32 +10,40 @@
   //----------------------------------------------------------------------------
   //                                LAYOUT
   //----------------------------------------------------------------------------
+  html { box-sizing: border-box; }
+  * { box-sizing: inherit; }
+  @include border-box-sizing;
 
   body {
-    @include container (100%);
-    font-size: 12px;
-    color: $text;
-    font-family: $font-global;
+    width: 100%;
     margin: 0 auto;
-    line-height: 15px;
+    font-family: $font-global;
     background-color: $white;
-    width: auto;
+    color: $text;
+    font-size: 1em;
+    line-height: 1.2em;
+    //overflow-x: hidden;
   }
 
   #main {
     width: auto;
+    margin: 0 auto;
   }
 
+  #menu_top{
+    display: none;
+  }
   // header --------------------------------------------------------------------
 
   #header {
     @include container (100%);
-    height: 240px;
+    width: 100%;
+    height: 330px;
     position: relative;
     margin: 0 auto;
     text-align: left;
     z-index: 100;
-    background: url('../img/mobile480.png') repeat-y;
+    background: url('../img/mobile480.png') no-repeat;
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -43,23 +51,19 @@
 
   #content {
     position: relative;
-    width: auto;
+    width: 100%;
     margin: 0 auto;
     background: none;
-    top: 100px;
+    top: 0;
   }
 
   #content_bg_top {
-    @include container (90%);
+    @include container (100%);
+    width: 100%;
     min-height: 400px;
     height: auto !important;
     height: 755px;
     padding: 0 5% 15px;
-  }
-
-  .storycontent {
-    @span include (full);
-    margin-top: 50px;
   }
 
   // Footer --------------------------------------------------------------------
@@ -69,12 +73,14 @@
     margin-top: 100px;
     clear: both;
     height: auto;
+    width: 100%;
   }
 
   #footer {
     position: relative;
     //width: 706px;
-    width: auto;
+    @include container (100%);
+    width: 100%;
     margin: 0 auto;
     background: none;
     height: auto;
@@ -84,7 +90,7 @@
   #footer2 {
     @include container (90%);
     position: relative;
-    width: auto;
+    width: 100%;
     margin: 0 auto;
     height: auto;
     padding: 0;
@@ -95,34 +101,39 @@
     @include container (100%);
     border-top:5px solid $text;
     position: relative;
-    width: auto;
-    margin: 30px auto 0;
+    width: 100%;
+    height: 100px;
+    margin: 20px auto 0;
     background: $jaune;
-    padding: 15px 0 70px;
+    padding: 10px 0 70px;
     font-size: .9rem;
     text-align: center;
+    a{
+      color: $text;
+    }
   }
 
   #copy {
     position: relative;
     @include container (100%);
     top: 0;
-    left: 0;
+    left: auto;
+    right: auto;
     width: 100%;
     height: auto;
     text-align: center;
     margin: 0 auto;
     font-family: $font-special;
     p{
-      margin-bottom: 10px;
+      margin-bottom: 0;
     }
     .copyright{
       position: relative;
       bottom: 0;
       left: 0;
-      margin: 20px auto 0;
-      padding-top: 40px;
-      padding-bottom: 40px;
+      margin: 0 auto;
+      padding-top: 30px;
+      padding-bottom: 30px;
       width: 100%;
       display: block;
       background: $text;
@@ -143,7 +154,7 @@
   #under_footer {
     position: relative;
     display: block;
-    width: 800px;
+    width: 100%;
     margin: 0 auto;
     height: 45px;
     padding: 14px 45px 0;
@@ -167,6 +178,9 @@
   #mainnew,
   #mainnew2 {
     display: none;
+    p {
+      width: 100%;
+    }
   }
 
   //----------------------------------------------------------------------------
@@ -298,11 +312,11 @@
 
 
   .highlight {
-    color: $color_14;
+    color: $alert;
     font-weight: 700;
   }
   a .highlight{
-    color: $color_14;
+    color: $alert;
     font-weight: 900;
     text-decoration: none;
   }
@@ -514,28 +528,32 @@
   // module logo
   a#logo {
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: 20px;
     width: 25%;
-    height: 200px;
+    height: 280px;
     background: url('../img/logo.png') top left no-repeat;
     background-size: contain;
   }
 
   // module titre site
   .site-head{
+    width: 68%;
     position: relative;
     display: block;
-    top: 9rem;
-    left: 30%;
+    top: 120px;
+    left: 27%;
     font-family: $font-special;
     letter-spacing: 1px;
     .site-title{
-      font-size: 2.2rem;
-      line-height: 2.6rem;
+      font-size: 2.6rem;
+      line-height: 2.8rem;
     }
     .site-subtitle{
-      font-size: 1.4rem;
+      background: url('../img/ligne-titre.png') top left repeat-y;
+      color: $white;
+      padding: 5px;
+      font-size: 1.2rem;
     }
   }
 
@@ -546,12 +564,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #fff;
+    background-color: transparent;
     list-style: none;
     font-family: $font-special;
     font-size: .8rem;
     line-height: 1.4rem;
-    top:220px;
+    top:170px;
     height:80px;
     li{
       text-align:left;
@@ -785,8 +803,8 @@
     padding: 0;
 
     li {
-      width: 220px; //120
-      height: 250px; //160
+      width: 31%; //120
+      height: auto; //160
       margin-bottom: 0;
 
       .home-buttons{
@@ -799,11 +817,30 @@
       }
 
       .micro a {
-        font-size: .9rem;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        background: $cyan;
+        font-size: .85rem;
+        line-height: .87rem;
+        letter-spacing: 1px;
         text-decoration: none;
         text-transform: uppercase;
         font-family: $font-special;
+        color: #fff;
         font-weight: 700;
+        margin-top: -15px;
+        padding: 14px 2px 0;
+        height: 45px;
+        vertical-align: middle;
+        .micro-s {
+          display: block;
+          font-size: .65rem;
+          font-family: $font-global;
+        }
+        &:hover {
+          background: $magenta;
+        }
       }
     }
   }
@@ -849,36 +886,6 @@
     line-height: 1.2em;
   }
 
-  // module accordeon
-
-  .ui-corner-all{
-    border-radius: none;
-  }
-  #accordion {
-  margin: 50px auto;
-
-  }
-
-  #accordion .ui-accordion-content {
-  background-color: #f3f3f3;
-  color: #777;
-  font-size: 10pt;
-  line-height: 16pt;
-  }
-
-  #accordion .ui-accordion-content a {
-  color: #777;
-  }
-
-  #accordion .ui-accordion-header {
-  padding:15px;
-  background-color: #ccc;
-  color: $white;
-  margin: 0px;
-  border:none;
-  margin-top: 10px;
-  }
-
   //----------------------------------------------------------------------------
   //                       MODULES PAGES PRODUITS
   //----------------------------------------------------------------------------
@@ -886,6 +893,7 @@
   // Description produit -------------------------------------------------------
 
   #top_images {
+    width: 100%;
     position: relative;
     margin-top: 4px;
     height: 10px;
@@ -975,7 +983,7 @@
     position: relative;
     float: left;
     display: inline;
-    width: 706px;
+    width: 100%;
     margin-bottom: 40px;
 
     td {
@@ -987,13 +995,14 @@
     position: relative;
     float: left;
     display: none;
-    width: 706px;
+    width: 100%;
     margin-top: 10px;
     text-align: center;
   }
 
   #preview {
     @include span (4 last);
+    width: 32%;
     padding-right: 0;
     margin-top: 20px;
     display: block;
@@ -1212,13 +1221,13 @@
   }
 
   .jotform-form {
+    clear: both;
     box-sizing: border-box;
     width: 100%;
     background: $bloc-base;
     padding: 2% 4% 4%;
     animation: fadein 2s;
     -webkit-animation: fadein 2s;
-    height: 700px;
 
     select {
       width: 90%;
@@ -1247,20 +1256,19 @@
         padding:10px;
       }
 
-      .option1 {
+      option{
         color: $cyan-bloc;
-        background-color: $bloc-base;
         text-transform: uppercase;
         line-height: 12px;
         padding:10px;
       }
 
+      .option1 {
+        background-color: $bloc-base;
+      }
+
       .option2 {
-        color: $cyan-bloc;
         background-color: $white;
-        text-transform: uppercase;
-        line-height: 12px;
-        padding:10px;
       }
 
       &.option3 {
@@ -1450,47 +1458,6 @@
     float: right;
     display: inline;
   }
-  .form-line{
-    width: 100%;
-  }
-  .form-line-error {
-    background: $magenta;
-    border: 1px solid $magenta;
-  }
-
-  .form-validation-error {
-    border: 1px solid $color_14;
-  }
-
-  .form-error-message {
-    z-index: 900;
-    position: relative;
-    display: inline-block;
-    width: 97%;
-    left: 0;
-    top: 0;
-    color: $white;
-    padding: 5px;
-    font-size: .8rem;
-    border: 0;
-    background: $magenta;
-  }
-
-
-  .helpText {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    width: 200px;
-    background: lighten($cyan, 10%);
-    color: darken($text, 10%);
-    padding: 7px;
-    z-index: 100;
-    text-align: left;
-    line-height: .9rem;
-    font-size: .75rem;
-  }
-
 
   // form sélection produit ----------------------------------------------------
 
@@ -1644,7 +1611,7 @@
 
         &.optionsformline {
           clear: both;
-          height: 155px !important;
+          height: 280px !important;
           position: relative;
           float: left;
           display: inline;
@@ -1757,12 +1724,12 @@
         &.optionsformline2 {
           position: relative;
           float: left;
-          display: inline;
-          width: auto;
-          height: 40px !important;
+          display: block;
+          width: 100%;
+          height: 20px !important;
           padding-top: 12px !important;
           color: $color_27;
-          border-bottom: 1px solid $color_5;
+          border-bottom: 0;
         }
 
         &.optionsformline4 {
@@ -1998,6 +1965,52 @@
     }
   }
 
+  // tips forms
+
+  .form-line{
+    width: 80%;
+  }
+  .form-line-error {
+    background: $magenta;
+    border: 1px solid $magenta;
+  }
+
+  .form-validation-error {
+    border: 1px solid $magenta;
+  }
+
+  .form-error-message {
+    z-index: 900;
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    left: 0;
+    top: 0;
+    color: $white;
+    padding: 10px 5px 5px;
+    font-size: .8rem;
+    border: 0;
+    background: $magenta;
+    img{
+      margin-top: -5px;
+    }
+  }
+
+
+  .helpText {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    width: 200px;
+    background: lighten($cyan, 10%);
+    color: darken($text, 10%);
+    padding: 7px;
+    z-index: 999;
+    text-align: left;
+    line-height: .9rem;
+    font-size: .75rem;
+  }
+
   // preview selection produit --------------------------------------------------
 
   #buying-cadre {
@@ -2140,7 +2153,7 @@
     width: auto;
     height: 30px;
     font-size: 11px;
-    color: $color_14;
+    color: $alert;
     font-weight: bold;
     top: 40px;
   }
@@ -2265,21 +2278,22 @@
   }
 
   .singlerate_content {
+    clear: both;
     position: relative;
     float: none;
     display: block;
     width: auto;
     height: auto;
-    font-size: 11px;
-    line-height: 13px;
-    margin: 0 0 5px;
+    font-size: .8rem;
+    line-height: .9rem;
+    margin: 10px 0 5px;
   }
 
   .singlerate_rate {
     position: relative;
     float: none;
     display: inline-block;
-    width: 49%;
+    width: 48%;
     height: 20px;
     line-height: 20px;
 
@@ -2289,9 +2303,10 @@
     position: relative;
     float: none;
     display: inline-block;
-    width: 49%;
-    height: 17px;
+    width: 48%;
+    height: 20px;
     text-align: right;
+    font-size: .8rem;
   }
 
   span {
@@ -2315,14 +2330,17 @@
       height: auto;
       text-align: center;
       font-size: .75rem;
+      line-height: .8rem;
 
       a {
         &:link {
+          color: $text;
           text-decoration: none;
         }
 
         &:visited {
           text-decoration: none;
+          color: $text;
         }
       }
     }
@@ -2589,7 +2607,7 @@
 
   #front_image {
     position: relative;
-    width: 708px;
+    width: 100%;
     height: 134px;
     background: url('../images/frontpage.jpg') no-repeat;
     margin-top: 0;
@@ -2718,8 +2736,8 @@
 
   #ceddretopten {
     position: relative;
-    width: 706px;
-    height: 590px;
+    width: 100%;
+    height: auto;
     margin-bottom: 50px;
 
     a {
@@ -2746,7 +2764,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2761,7 +2779,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2776,7 +2794,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2791,7 +2809,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2806,7 +2824,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2821,7 +2839,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2836,7 +2854,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2851,7 +2869,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2866,7 +2884,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -2881,7 +2899,7 @@
     width: 80px;
     height: 28px;
     font-size: 12px;
-    color: $color_14;
+    color: $alert;
     text-transform: uppercase;
     text-align: center;
     color: $black;
@@ -4760,7 +4778,7 @@
   .logerror {
     font-size: 13px;
     font-weight: bold;
-    color: $color_14;
+    color: $alert;
     margin-top: 10px;
     position: relative;
     float: left;
@@ -5235,35 +5253,16 @@
     visibility: hidden;
   }
 
-  .form-button-error {
-    position: absolute;
-    left: 20px;
-    bottom: 0;
-    width: 200px;
-    height: 30px;
-    font-size: 10px;
-    color: $color_14;
-  }
-
-  #form-button-error2 {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 280px;
-    height: 30px;
-    font-size: 11px;
-    color: $color_14;
-    font-weight: bold;
-  }
-
+  .form-button-error,
+  #form-button-error2,
   #form-button-error3 {
-    position: absolute;
-    left: 0;
+    position: relative;
+    left: 0px;
     bottom: 0;
-    height: 30px;
-    font-size: 11px;
-    color: $color_14;
-    font-weight: bold;
+    width: auto;
+    height: 20px;
+    font-size: .8rem;
+    color: $alert;
   }
 
   .register-button {
@@ -5306,7 +5305,7 @@
   // module commentaires -------------------------------------------------------
 
   .comment_new {
-    color: $color_14;
+    color: $alert;
     position: relative;
     float: left;
     width: auto;
@@ -5321,14 +5320,14 @@
     position: relative;
     float: left;
     display: inline;
-    width: 470px;
+      width: 100%;
   }
 
   .rating_element {
     position: relative;
     float: left;
     display: inline;
-    width: 440px;
+      width: 100%;
     padding: 9px 15px;
     background: $bloc-base;
     margin: 0 0 4px;
@@ -5338,7 +5337,7 @@
     position: relative;
     float: left;
     display: inline;
-    width: 440px;
+      width: 100%;
     padding: 9px 15px;
     background: $bloc-base;
     border: 1px solid $bloc-base;
@@ -5412,6 +5411,8 @@
     background: $color_38;
     display: none;
   }
+
+  // commentaires---------------------------------------------------------------
 
   .star-rating {
     list-style: none;
@@ -5746,30 +5747,30 @@
     position: relative;
     float: left;
     display: inline;
-    width: auto;
+    width: 100%;
 
     td {
       background: $bloc-base url('../images/bord4.png') top left no-repeat;
-      font-size: 11px;
-      line-height: 17px;
+      font-size: .8rem;
+      line-height: .9rem;
       text-align: left;
       padding: 10px 10px 21px;
       vertical-align: top;
       border-bottom: 4px solid $white;
-      width: 426px;
+      width: 50%;
 
       &.lefttd {
         background: $bloc-base;
         text-align: left;
-        width: 100px;
+        width: 43%;
         padding: 10px 20px;
-        font-size: 11px;
+        font-size: .8rem;
       }
 
       &.lefttd2 {
         background: $bloc-base url('../images/bord4.png') top left no-repeat;
         text-align: left;
-        width: 100px;
+        width: 6%;
         font-size: 11px;
       }
     }
@@ -5784,22 +5785,14 @@
     margin: 0 0 22px;
   }
 
-  #vosavis {
-    position: relative;
-    float: left;
-    display: inline;
-    width: 231px;
-    height: 195px;
-    background: url('../images/rating1.jpg');
-  }
-
   #rating_general {
     position: relative;
-    float: right;
-    display: inline;
-    width: 470px;
+    float: none;
+    display: block;
+      width: 100%;
     height: 195px;
-    background: url('../images/rating2.jpg');
+    background-image: none;
+    background-color: $bloc-base;
     margin-left: 5px;
 
     table {
@@ -5885,8 +5878,9 @@
   //                                  SLIDER
   //----------------------------------------------------------------------------
 
-  .theme-default .nivoSlider {  // Update to .metaslider
+  .metaslider {  // Update to .metaslider
     @include container(100%);
+    width: 100%;
     top: 0;
     margin-left: 0;
     z-index: 3000;
@@ -5970,7 +5964,7 @@
   #box {
     width: 200px;
     height: 200px;
-    background-color: $color_14;
+    background-color: $alert;
   }
 
   #production,
@@ -5997,9 +5991,10 @@
     background-image: none;
     background-color: $cyan;
     background-repeat: no-repeat;
-    width: 30%;
+    width: 29%;
     height: 40px;
     margin-right: 1%;
+    border-radius: 3px;
     &.active {
       background-image: none;
       background-color: $magenta;
@@ -6032,7 +6027,7 @@
     @extend %pBase;
     &:after{
       @extend %pBaseAfter;
-      content: 'Express - 1 jours';
+      content: 'Express - 1 jour';
     }
   }
 
@@ -6054,7 +6049,7 @@
     @extend %pBase;
     &:after{
       @extend %pBaseAfter;
-      content: 'Normal - 4/5 jours';
+      content: 'Normal - 3/4 jours';
     }
   }
 
@@ -6062,7 +6057,7 @@
     @extend %pBase;
     &:after{
       @extend %pBaseAfter;
-      content: 'Normal - 4/5 jours';
+      content: 'Rapide - 2/3 jours';
     }
   }
 
@@ -6070,7 +6065,7 @@
     @extend %pBase;
     &:after{
       @extend %pBaseAfter;
-      content: 'Normal - 4/5 jours';
+      content: 'Express - 1 jour';
     }
   }
 
@@ -6107,7 +6102,7 @@
   #f00error {
     font-size: 16px;
     font-weight: bold;
-    color: $color_14;
+    color: $alert;
     margin-top: 10px;
     position: relative;
     float: left;
@@ -6144,10 +6139,15 @@
   // desactivation des éléments du template desktop ----------------------------
   //----------------------------------------------------------------------------
 
+  iframe,
   a#corner_button,
   a#corner_button_cart,
   #slideshow,
-  .mc_contenu {
+  .mc_contenu,
+  .size-full,
+  #vosavis,
+  .display0,
+  #chat-application {
     display: none;
   }
 
