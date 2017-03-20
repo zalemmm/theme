@@ -247,6 +247,7 @@ include('nom_du_fichier_de_conf.php');
 
 <script>
 jQuery(document).ready(function ($) {
+  $('#submit_cart').append('<p>SUIVANT <i class="fa fa-caret-right" aria-hidden="true"></i></p>');
 
   //toggle
   $('.toggle-button').click(function() {

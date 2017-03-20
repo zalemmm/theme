@@ -44,8 +44,9 @@
       line-height: 2.2rem;
     }
     .site-subtitle{
+      padding: 0 4px;
       font-size: .8rem;
-      padding: 4px 5px;
+      line-height: .85rem;
     }
   }
 
@@ -98,6 +99,7 @@
   #top_info {
     .front img{
       @include span(6);
+      width: auto;
       max-height: 100px;
     }
     #top_info_info {

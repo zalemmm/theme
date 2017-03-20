@@ -28,7 +28,7 @@
     }
     .site-subtitle{
       font-size: .7rem;
-      padding:2px 5px;
+      line-height: .75rem;
     }
   }
 
@@ -75,6 +75,7 @@
   #top_info {
     .front img{
       @include span(6);
+      width: auto;
       max-height: 100px;
     }
     #top_info_info {
@@ -98,6 +99,11 @@
   }
 
 
+  // help buttons
+
+  ul.form-section li.optionsformline .options_single span.optionsleft .helpButton {
+    left: 92%;
+  }
 
 
 }

@@ -5997,7 +5997,7 @@
     background-image: none;
     background-color: $cyan;
     background-repeat: no-repeat;
-    width: 30%;
+    width: 31%;
     height: 40px;
     margin-right: 1%;
     &.active {
@@ -6033,6 +6033,7 @@
     &:after{
       @extend %pBaseAfter;
       content: 'Express - 1 jours';
+      margin-right: 0;
     }
   }
 
