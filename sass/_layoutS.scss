@@ -1,0 +1,118 @@
+@media(max-width: 540px) {
+  // invisible -----------------------------------------------------------------
+
+  #preview,
+  h1,
+  .prod-desc {
+    display: none;
+  }
+
+  // grille --------------------------------------------------------------------
+  #buying,
+  #wycena_nag,
+  #wycena_suma,
+  #dodaj_koszyk {
+    @include span(12);
+  }
+
+  #header {
+    height:300px;
+  }
+
+
+  //----------------------------------------------------------------------------
+  //                             MODULES
+  //----------------------------------------------------------------------------
+
+  // Header --------------------------------------------------------------------
+
+  // module logo
+  a#logo {
+    top: 80px;
+    left: 10px;
+    width: 22%;
+    height: 200px;
+  }
+
+  // module titre site
+  .site-head{
+    top: 120px;
+    left: 24%;
+    width: 71%;
+    .site-title{
+      font-size: 2.2rem;
+      line-height: 2.2rem;
+    }
+    .site-subtitle{
+      font-size: .8rem;
+      padding: 4px 5px;
+    }
+  }
+
+  // module accès client
+  ul.menu-client{
+    font-size: .7rem;
+    line-height: 1.1rem;
+    top:150px;
+    height:80px;
+    li{
+      height: 60px;
+    }
+   .menu-client-icon {
+      display: block;
+      font-size: 3rem;
+      color: $cyan;
+    }
+    .menu-client-icon.phone {
+      padding-right: 10px;
+      padding-top: 10px;
+    }
+    .menu-client-phone{
+      padding-left: 10px;
+    }
+    .tel1{
+      font-size: 1rem;
+    }
+    .tel2 {
+      font-size: 1.3rem;
+    }
+    .tel3 {
+      font-size: .7rem;
+      text-align: right;
+    }
+  }
+
+  //----------------------------------------------------------------------------
+  //                      MODULES PAGE ACCUEIL
+  //----------------------------------------------------------------------------
+
+  // module icones tarifs
+
+  ul#tarifs {
+    li {
+      width: 48%; //120
+    }
+  }
+
+  //----------------------------------------------------------------------------
+  #top_info {
+    .front img{
+      @include span(6);
+      max-height: 100px;
+    }
+    #top_info_info {
+      @include span(6);
+      span.info_nag {
+        padding-bottom: 2px;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+      }
+    }
+  }
+
+
+
+
+
+
+}

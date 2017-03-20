@@ -13,6 +13,7 @@
 	<meta name="Author" content="france banderole" />
 	<meta name="Publisher" content="france banderole" />
 	<meta name="Copyright" content="france banderole" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="icon" type="image/png" href="http://www.france-banderole.com/wp-content/themes/fb/images/favicon.png" />
 
@@ -52,7 +53,7 @@
 				<a href="<?php bloginfo('url'); ?>/index.php" id="logo" title="fabricant banderole"></a>
 
 				<div class="site-head">
-					<div class="site-title">France Banderole</div>
+					<div class="site-title"><a href="<?php bloginfo('url'); ?>/index.php">France Banderole</a></div>
 					<div class="site-subtitle">La qualité sans en payer le prix</div>
 				</div>
 
@@ -68,11 +69,11 @@
 					</li>
 					<li class="menu-client-item menu-client--devis">
 						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/vos-devis/"><i class="fa fa-lock" aria-hidden="true"></i></a></span>
-						<span class="menu-client-label"><a href="<?php bloginfo('url'); ?>/vos-devis/">Espace Client</a></span>
+						<span class="menu-client-label">Espace Client</span>
 					</li>
 					<li class="menu-client-item menu-client--panier">
 						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><?php echo getCartCount(); ?> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-						<span class="menu-client-label"><a href="<?php bloginfo('url'); ?>/votre-panier/">Panier</li></a></span>
+						<span class="menu-client-label">Panier</li></span>
 					</ul>
 
 					<ul id="menu_top">
@@ -132,7 +133,5 @@
 					<input type="submit" id="submit_search" value="" />
 				</form>-->
 
-				<a href="<?php bloginfo('url'); ?>/vos-devis/" id="corner_button"></a>
-				<a href="<?php bloginfo('url'); ?>/votre-panier/" id="corner_button_cart"><?php echo getCartCount(); ?><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-				</a>
+
 			</div>
