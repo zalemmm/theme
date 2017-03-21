@@ -112,8 +112,10 @@
     }
   }
 
-
-
+  ul.form-section li.optionsformline .options_single span.optionsleft,
+  ul.form-section li.optionsformline .options_single span.optionsright {
+    width: 100%;
+  }
 
 
 

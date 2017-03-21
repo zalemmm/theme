@@ -1693,93 +1693,6 @@
               line-height: 22px;
             }
           }
-
-          .options_single span {
-            &.optionsleft {
-              position: relative;
-              float: none;
-              display: inline-block;
-              width: 100%;
-              font-size: .8rem;
-              margin-bottom: 5px;
-              margin-left: 0;
-
-              .form-label-left{
-                margin-left: 25px;
-              }
-
-              input {
-                position: absolute;
-                top: 3px;
-                left: 0;
-              }
-
-              .helpButton {
-                position: absolute;
-                top: 0px;
-                left: 50%;
-                width: 18px;
-                height: 18px;
-                background: url("../images/question.png") no-repeat;
-                text-decoration: none;
-                background-size: cover;
-              }
-
-              &.livraison-gratuite {
-                border: 1px solid $color_5;
-                font-weight: bold;
-                width: 48%;
-              }
-
-              a.options_pytajnik {
-                position: absolute;
-                top: 3px;
-                left: 150px;
-                width: 15px;
-                height: 15px;
-                background: url('../images/question.png') no-repeat;
-                text-decoration: none;
-              }
-            }
-
-            &.optionsright {
-              position: relative;
-              float: right;
-              width: 50%;
-              text-align: right;
-
-              input {
-                position: absolute;
-                top: 3px;
-                right: 23px;
-              }
-
-              label {
-                padding-right: 50px;
-              }
-
-              .helpButton {
-                position: absolute;
-                top: 3px;
-                left: 150px;
-                width: 20px;
-                height: 20px;
-                background: url("../images/question.png") no-repeat;
-                text-decoration: none;
-                background-size: cover;
-              }
-
-              a.options_pytajnik {
-                position: absolute;
-                top: 3px;
-                right: 0;
-                width: 15px;
-                height: 15px;
-                background: url('../images/question.png') no-repeat;
-                text-decoration: none;
-              }
-            }
-          }
         }
 
         &.optionsformline2,
@@ -1841,11 +1754,19 @@
           }
 
           .options_single span {
-            &.optionsleft {
+            &.optionsleft,
+            &.optionsright {
               position: relative;
-              float: left;
+              float: none;
+              display: inline-block;
               width: 100%;
-              margin-left: 15px;
+              font-size: .8rem;
+              margin-bottom: 5px;
+              margin-left: 0;
+
+              .form-label-left{
+                margin-left: 25px;
+              }
 
               input {
                 position: absolute;
@@ -1855,12 +1776,19 @@
 
               .helpButton {
                 position: absolute;
-                top: 3px;
-                left: 150px;
-                width: 15px;
-                height: 15px;
-                background: url('../images/pytajnik.jpg') no-repeat;
+                top: 0px;
+                left: 50%;
+                width: 18px;
+                height: 18px;
+                background: url("../images/question.png") no-repeat;
                 text-decoration: none;
+                background-size: cover;
+              }
+
+              &.livraison-gratuite {
+                border: 1px solid $color_5;
+                font-weight: bold;
+                width: 48%;
               }
 
               a.options_pytajnik {
@@ -1869,48 +1797,14 @@
                 left: 150px;
                 width: 15px;
                 height: 15px;
-                background: url('../images/pytajnik.jpg') no-repeat;
-                text-decoration: none;
-              }
-            }
-
-            &.optionsright {
-              position: relative;
-              float: right;
-              width: 50%;
-              text-align: right;
-
-              input {
-                position: absolute;
-                top: 3px;
-                right: 23px;
-              }
-
-              label {
-                padding-right: 50px;
-              }
-
-              .helpButton {
-                position: absolute;
-                top: 3px;
-                right: 0;
-                width: 15px;
-                height: 15px;
-                background: url('../images/pytajnik.jpg') no-repeat;
-                text-decoration: none;
-              }
-
-              a.options_pytajnik {
-                position: absolute;
-                top: 3px;
-                right: 0;
-                width: 15px;
-                height: 15px;
-                background: url('../images/pytajnik.jpg') no-repeat;
+                background: url('../images/question.png') no-repeat;
                 text-decoration: none;
               }
             }
           }
+
+
+
         }
 
         &.nobor {
@@ -3075,6 +2969,11 @@
 
   #cart_form {
 
+  }
+  .warning {
+    display: block;
+    float: left;
+    padding-left: 10px;
   }
 
   #submit_cart {
@@ -5309,11 +5208,11 @@
     position: relative;
     left: 0px;
     bottom: 30px;
-    width: auto;
+    width: 100%;
     height: 20px;
     font-size: .8rem;
     color: #f00;
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   .register-button {
@@ -5990,12 +5889,14 @@
     display: inline-block;
     margin-top: 5px;
   }
-
+  #delivery-div {
+    margin-top: -20px;
+  }
   .delivery-delay {
     float: none;
     display: inline-block;
     width: 100%;
-    margin: -20px 0 5px;
+    margin: 15px 0 5px;
     font-size: .8rem;
   }
 
