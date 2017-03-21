@@ -247,7 +247,6 @@ include('nom_du_fichier_de_conf.php');
 
 <script>
 jQuery(document).ready(function ($) {
-  $('#submit_cart').append('<p>SUIVANT <i class="fa fa-caret-right" aria-hidden="true"></i></p>');
 
   //toggle
   $('.toggle-button').click(function() {
@@ -259,7 +258,7 @@ jQuery(document).ready(function ($) {
     $(this).find('.micro a').css('background', '#E74777');
   });
   $('#tarifs li').mouseout(function() {
-    $(this).find('.micro a').css('background', '#32A1CC');
+    $(this).find('.micro a').css('background', '#555a61');
   });
 
   //top icons menu hover

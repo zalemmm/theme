@@ -17,7 +17,12 @@
     margin-right: .5%;
     border-radius: 3px;
     border:1px solid darken($cyan, 7%);
-    &.active {
+    color: #fff;
+    font-size: .8rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    &.active,
+    &:hover {
       background-image: none;
       background-color: $magenta;
       border:1px solid darken($magenta, 7%);
@@ -61,7 +66,7 @@
   #header {
     @include container (100%);
     width: 100%;
-    height: 330px;
+    height: 400px;
     position: relative;
     margin: 0 auto;
     text-align: left;
@@ -398,18 +403,7 @@
       }
     }
 
-    &.but_espace {
-      width: 106px;
-      height: 19px;
-      background: url('../images/but_espace.png') no-repeat;
-      text-indent: -999em;
-      overflow: hidden;
-      border: none;
-      float: left;
-      display: block;
-      cursor: pointer;
-      margin-right: 14px;
-    }
+
 
     &.conditio {
       &:link {
@@ -423,20 +417,6 @@
       &:hover {
         color: $color_5;
       }
-    }
-
-    &#but_imprimerbon {
-      position: absolute;
-      left: 240px;
-      top: 10px;
-      margin-left: 14px;
-      width: 213px;
-      height: 19px;
-      background: url('../images/but_imprimerbon.png') no-repeat;
-      text-indent: -999em;
-      overflow: hidden;
-      border: none;
-      display: inline-block;
     }
 
     &.lcomment {
@@ -459,66 +439,6 @@
         margin-top: 10px;
         float: right;
         display: inline;
-      }
-    }
-
-    &#votre_mod {
-      position: absolute;
-      left: 28px;
-      top: 110px;
-      width: 168px;
-      height: 19px;
-      background: url('../images/v_modifier.png') no-repeat;
-      text-indent: -999em;
-      overflow: hidden;
-      border: none;
-      display: inline-block;
-    }
-
-    &#votre_dec {
-      position: absolute;
-      left: 28px;
-      top: 140px;
-      width: 168px;
-      height: 19px;
-      background: url('../images/v_deconnecter.png') no-repeat;
-      text-indent: -999em;
-      overflow: hidden;
-      border: none;
-      display: inline-block;
-    }
-
-    &.forgetpass {
-      &:link,
-      &:visited {
-        position: absolute;
-        left: 126px;
-        bottom: 18px;
-        width: 140px;
-        height: 12px;
-        color: $color_12;
-        text-decoration: underline;
-      }
-
-      &:hover {
-        color: $color_5;
-      }
-    }
-
-    &.pleaseregister {
-      &:hover,
-      &:link,
-      &:visited {
-        position: absolute;
-        bottom: 39px;
-        left: 26px;
-        background: url('../images/register.png') no-repeat;
-        width: 101px;
-        height: 19px;
-        cursor: pointer;
-        text-indent: -999em;
-        overflow: hidden;
-        border: none;
       }
     }
 
@@ -554,7 +474,7 @@
     top: 60px;
     left: 20px;
     width: 25%;
-    height: 280px;
+    height: 240px;
     background: url('../img/logo.png') top left no-repeat;
     background-size: contain;
   }
@@ -564,7 +484,7 @@
     width: 68%;
     position: relative;
     display: block;
-    top: 120px;
+    top: 180px;
     left: 27%;
     font-family: $font-special;
     letter-spacing: 1px;
@@ -593,7 +513,7 @@
     font-family: $font-special;
     font-size: .8rem;
     line-height: 1.4rem;
-    top:170px;
+    top:230px;
     height:80px;
     li{
       text-align:left;
@@ -844,7 +764,7 @@
         display: block;
         box-sizing: border-box;
         width: 100%;
-        background: $cyan;
+        background: $text;
         font-size: .85rem;
         line-height: .87rem;
         letter-spacing: 1px;
@@ -910,6 +830,22 @@
     line-height: 1.2em;
   }
 
+  // module paragraphe important
+
+  .important {
+    font-family: $font-special;
+    color: $text;
+    font-size: 1rem;
+    h3 {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+  }
+
+  .toggle-button {
+    font-size: 1.2rem;
+  }
+
   //----------------------------------------------------------------------------
   //                       MODULES PAGES PRODUITS
   //----------------------------------------------------------------------------
@@ -933,13 +869,15 @@
     background: #f6f6f6;
 
     .front img{
+      display: inline-block;
       @include span (4);
       height: auto;
       vertical-align: middle;
       padding-left: 0;
     }
 
-    #top_info_info {
+    #top_info_info,
+    #top_info_info2 {
       @include span (8);
       height: auto;
       padding: 8px;
@@ -960,30 +898,7 @@
         text-align: right;
       }
     }
-    #top_info_info2 {
-      @include span (8);
-      height: auto;
-      padding: 8px;
-      vertical-align: middle;
-      background: 0;
-      font-size: .9rem;
-      span.info_nag {
-        font-family: $font-special;
-        display: block;
-        color: $color_12;
-        font-weight: bold;
-        padding-bottom: 2px;
-        font-size: 1rem;
-      }
-      .notice{
-        display: block;
-        margin-top: 5px;
-        text-align: right;
-      }
-    }
   }
-
-
 
   #top_slideshow {
     display: none;
@@ -1536,29 +1451,6 @@
       }
     }
 
-    &.regiform,
-    &.regiform2 {
-      margin: 0;
-      padding: 0;
-      float: left;
-      display: inline;
-
-      li {
-        position: relative;
-        padding: 6px 88px 0 22px;
-        list-style-type: none;
-        float: left;
-        display: inline;
-        width: 237px;
-        height: 24px;
-      }
-
-      .form-error-message {
-        left: 351px;
-        line-height: 11px;
-      }
-    }
-
     &.form-section {
       @include container(100%);
       box-sizing: border-box;
@@ -1665,7 +1557,7 @@
 
         &.optionsformline {
           clear: both;
-          height: 280px !important;
+          height: 320px !important;
           position: relative;
           float: left;
           display: inline;
@@ -1673,6 +1565,57 @@
           padding-top: 0px !important;
           color: $color_27;
           border: none !important;
+
+          .options_single span {
+            &.optionsleft,
+            &.optionsright {
+              position: relative;
+              float: none;
+              display: inline-block;
+              width: 100%;
+              font-size: .8rem;
+              margin-bottom: 5px;
+              margin-left: 0;
+              position: relative;
+
+              .form-label-left{
+                margin-left: 25px;
+              }
+
+              input {
+                position: absolute;
+                top: 3px;
+                left: 0;
+              }
+
+              .helpButton {
+                position: absolute;
+                top: 0px;
+                left: 50%;
+                width: 18px;
+                height: 18px;
+                background: url("../images/question.png") no-repeat;
+                text-decoration: none;
+                background-size: cover;
+              }
+
+              &.livraison-gratuite {
+                border: 1px solid $color_5;
+                font-weight: bold;
+                width: 48%;
+              }
+
+              a.options_pytajnik {
+                position: absolute;
+                top: 3px;
+                left: 150px;
+                width: 15px;
+                height: 15px;
+                background: url('../images/question.png') no-repeat;
+                text-decoration: none;
+              }
+            }
+          }
 
           span {
             &.title {
@@ -1763,6 +1706,7 @@
               font-size: .8rem;
               margin-bottom: 5px;
               margin-left: 0;
+              position: relative;
 
               .form-label-left{
                 margin-left: 25px;
@@ -2897,6 +2841,9 @@
     margin-bottom: 16px;
     border: 2px solid $color_19;
     background-color: $color_20;
+    img{
+      margin: 0 20px;
+    }
   }
 
   .box_warning {
@@ -2982,11 +2929,12 @@
     display: inline;
     width: 150px;
     margin: 0 5px 10px;
+    text-indent: 0;
     a{
       color: $white;
     }
 
-    &:after{
+    &:after {
       @extend %buttonBaseAfter;
     }
   }
@@ -3054,18 +3002,6 @@
     padding: 16px 16px 13px 20px;
     background: $bloc-base;
     border-bottom: 5px solid $white;
-  }
-
-  .but_envoyer {
-    width: 82px;
-    height: 19px;
-    background: url('../images/button_send.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: block;
-    cursor: pointer;
-    float: right;
   }
 
   #paiements {
@@ -3171,32 +3107,9 @@
     text-align: center;
   }
 
-  #suivant_reg {
-    position: absolute;
-    left: 45px;
-    bottom: 15px;
-    width: 75px;
-    height: 19px;
-    background: url('../images/but_suivant.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: inline-block;
-    cursor: pointer;
-  }
 
-  #but_suivant {
-    position: absolute;
-    top: 15px;
-    left: 120px;
-    width: 75px;
-    height: 19px;
-    background: url('../images/but_suivant.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-  }
+
+
 
   .cheque_tab_name {
     width: 237px;
@@ -3354,18 +3267,11 @@
     }
   }
 
-  .acces_tab_name_devis {
-    width: 688px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
-    background: $color_26;
-    color: $white;
-    font-size: 12px;
-    float: left;
-    display: inline;
-    margin: 10px 0;
+  //----------------------------------------------------------------------------
+  //                            PANIER
+  //----------------------------------------------------------------------------
 
+  .acces_tab_name_devis {
     span {
       float: right;
       width: 200px;
@@ -3382,211 +3288,25 @@
     }
   }
 
-  #fbcart_buttons {
-    position: relative;
-    float: right;
-    display: inline;
-    width: auto;
-    background: $bloc-base;
-    padding: 15px 0 5px;
-    margin: 0 0 10px;
-    text-align: center;
-    line-height: 19px;
+  tbody {
+    width: 100%;
   }
 
-  #fbcart_buttons3 {
-    position: relative;
-    float: right;
-    display: inline;
-    width: auto;
-    height: 19px;
-    background: $bloc-base;
-    padding: 15px 0 5px;
-    margin-top: 30px;
-    text-align: center;
-    line-height: 19px;
-  }
-
+  #fbcart_buttons,
+  #fbcart_buttons3,
   #fbcart_buttons2 {
     position: relative;
-    float: right;
-    display: inline;
+    float: none;
+    display: block;
+    margin: 25px auto;
     width: auto;
-    background: $bloc-base;
-    padding: 15px 0 5px;
-    margin-top: 25px;
+    background: none;
+    padding: 0;
     text-align: center;
     line-height: 19px;
   }
 
-  #but_continuer {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 147px;
-    height: 19px;
-    background: url('../images/but_continuer.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
 
-  #but_conf_pay {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 102px;
-    height: 19px;
-    background: url('../images/but_conf_pay.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-    cursor: pointer;
-  }
-
-  #but_imprimer {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 138px;
-    height: 19px;
-    background: url('../images/but_imprimer.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_imprimer_form {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 180px;
-    height: 19px;
-    background: url('../images/but_imprimer_form.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_imprimer_rib {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 138px;
-    height: 19px;
-    background: url('../images/but_imprimer_rib.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_bat {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 142px;
-    height: 19px;
-    background: url('../images/but_bat.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_voir_bat {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 174px;
-    height: 19px;
-    background: url('../images/but_voir_bat.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_rating {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 177px;
-    height: 19px;
-    background: url('../images/but_rating.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_retour {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 142px;
-    height: 19px;
-    background: url('../images/but_retour.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_retour2 {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 70px;
-    height: 19px;
-    background: url('../images/but_retour2.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_supprimer {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 145px;
-    height: 19px;
-    background: url('../images/but_supprimer.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_ajouter {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 147px;
-    height: 19px;
-    background: url('../images/but_ajouter.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_annuler {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 136px;
-    height: 19px;
-    background: url('../images/but_annuler.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_modifier {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 137px;
-    height: 19px;
-    background: url('../images/but_modifier.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
 
   #validerdevis {
     width: 144px;
@@ -3596,26 +3316,20 @@
     margin: 0;
   }
 
-  #but_validerdevis {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 130px;
-    height: 19px;
-    background: url('../images/but_validerdevis.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    cursor: pointer;
-  }
-
   #contact_advert {
     position: relative;
-    float: right;
-    display: inline;
+    top: 0;
+    left: 0;
+    float: left;
+    display: block;
     height: 73px;
-    margin: 28px 0 0;
-    width: auto;
-    text-align: right;
+    margin: 28px auto 0;
+    width: 100%;
+    text-align: center;
+    img{
+      width: 100%;
+      height: auto;
+    }
   }
 
   #addresses {
@@ -4199,7 +3913,7 @@
     position: relative;
     float: left;
     display: inline;
-    width: 237px;
+    width: 100%;
     margin-top: 5px;
   }
 
@@ -4224,43 +3938,21 @@
     background: url('../images/arr_down_det.gif') bottom left no-repeat;
   }
 
-  .votre_tab_name {
-    width: 237px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
-    background: $color_12;
-    color: $white;
-    font-size: 12px;
-    float: left;
-    display: inline;
-    margin: 10px 5px 5px 0;
-  }
-
-  .votre_tab_name2 {
-    width: 237px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
-    background: $color_12;
-    color: $white;
-    font-size: 12px;
-    float: left;
-    display: inline;
-    margin: 25px 5px 5px 0;
-  }
-
+  .votre_tab_name,
+  .votre_tab_name2,
   .votre_tab_name3 {
-    width: 331px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
+    width: 100%;
+    padding: 7px 0 4px;
+    height: 40px;
+    line-height: 1rem;
     background: $color_12;
     color: $white;
-    font-size: 12px;
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+    color: $white;
     float: left;
     display: inline;
-    margin: 30px 5px 10px 0;
   }
 
   .votre_tab_active {
@@ -4299,6 +3991,25 @@
     }
   }
 
+  .votre_tab_head {
+    width: auto;
+    display: inline;
+    float: left;
+  }
+
+  .votre_tab_content,
+  .votre_tab_content2 {
+    width: 100%;
+    padding: 1.5rem;
+    height: 132px;
+    line-height: 14px;
+    background: $bloc-base;
+    font-size: .9rem;
+    float: left;
+    display: inline;
+    margin-right: 5px;
+    margin-bottom: 15px;
+  }
   .votre_pagi {
     width: auto;
     text-align: center;
@@ -4327,46 +4038,6 @@
   .href_page_act {
     text-decoration: underline;
     font-weight: bold;
-  }
-
-  .votre_tab_head {
-    width: auto;
-    display: inline;
-    float: left;
-  }
-
-  .votre_tab_content {
-    width: 207px;
-    padding: 20px 20px 0 28px;
-    height: 132px;
-    line-height: 14px;
-    background: $bloc-base;
-    font-size: 11px;
-    float: left;
-    display: inline;
-    margin-right: 5px;
-  }
-
-  .votre_tab_content2 {
-    width: 207px;
-    padding: 20px 20px 20px 28px;
-    line-height: 14px;
-    background: $bloc-base;
-    font-size: 11px;
-    float: left;
-    display: inline;
-    margin-right: 5px;
-  }
-
-  .but_details {
-    width: 130px;
-    height: 32px;
-    background: url('../images/detailleddevisbutton.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    margin: 0 10px 0 20px;
   }
 
   .stat0 {
@@ -4529,9 +4200,9 @@
 
   #fbcart_cart {
     position: relative;
-    float: left;
-    display: inline;
-    width: auto;
+    float: none;
+    display: block;
+    width: 100%;
 
     span {
       &.name {
@@ -4724,16 +4395,6 @@
     width: auto;
   }
 
-  .logerror {
-    font-size: 13px;
-    font-weight: bold;
-    color: $alert;
-    margin-top: 10px;
-    position: relative;
-    float: left;
-    width: auto;
-  }
-
   #fileupload {
     position: relative;
     float: left;
@@ -4920,86 +4581,6 @@
     }
   }
 
-  .but_telecharger {
-    margin-left: 4px;
-    width: 106px;
-    height: 19px;
-    background: url('../images/but_telecharger.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: inline-block;
-    float: left;
-    margin-top: 0;
-    cursor: pointer;
-    margin-right: 30px;
-  }
-
-  #but_annulercommande {
-    width: 169px;
-    height: 19px;
-    margin-left: 14px;
-    margin-bottom: 10px;
-    background: url('../images/but_annulercommande.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
-
-  #but_comment {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 162px;
-    height: 19px;
-    background: url('../images/but_comment.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
-
-  #but_suivre {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 122px;
-    height: 19px;
-    background: url('../images/but_suivre.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
-
-  #but_imprimerfacture {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 153px;
-    height: 19px;
-    background: url('../images/but_imprimerfacture.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
-
-  .but_voiremaquette {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 153px;
-    height: 19px;
-    background: url('../images/voiremaquette.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
-
   #addingcomments {
     display: inline-block;
   }
@@ -5011,18 +4592,6 @@
     float: left;
     margin-bottom: 10px;
     margin-right: 14px;
-  }
-
-  #but_payer {
-    margin-left: 14px;
-    width: 150px;
-    height: 19px;
-    background: url('../images/but_payer.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
   }
 
   #fbcart_check {
@@ -5054,36 +4623,54 @@
     }
   }
 
+  //----------------------------------------------------------------------------
+  //                      MODULES ACCES CLIENT
+  //----------------------------------------------------------------------------
+
   .acces_left {
+    width: 49%;
+    display: block;
     float: left;
-    display: inline;
-    width: 351px;
   }
 
   .acces_right {
+    width: 49%;
+    display: block;
     float: right;
-    display: inline;
-    width: 351px;
   }
 
-  .acces_tab_name {
-    width: 331px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
+  .acces_tab_name,
+  .acces_tab_name2,
+  .acces_tab_name_devis {
+    width: 100%;
+    padding: 7px 0 4px;
+    height: 40px;
+    line-height: erem;
     background: $color_26;
     color: $white;
-    margin: 6px 0;
-    font-size: 12px;
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
   }
 
-  .acces_tab_content {
-    width: 239px;
-    padding: 26px 88px 0 22px;
-    height: 166px;
+  .acces_tab_name2 {
+    background: $color_12;
+  }
+
+  .acces_tab_content,
+  .acces_tab_content2 {
+    width: 100%;
+    padding: 2rem;
+    height: auto;
+    min-height: 235px;
     background: $bloc-base;
     color: $color_9;
     position: relative;
+    margin-bottom: 15px;
+  }
+
+  .acces_tab_content2 {
+    padding: 1.5rem;
   }
 
   .loginform {
@@ -5092,47 +4679,62 @@
   }
 
   .loginlabel {
-    float: left;
-    display: inline;
-    height: 16px;
-    line-height: 16px;
-    margin-bottom: 11px;
+    display: inline-block;
+    float: none;
+    width: 49%;
+    height: auto;
+    line-height: 1rem;
+    margin-bottom: 12px;
     white-space: nowrap;
   }
 
   .logininput {
-    float: right;
-    display: inline;
-    width: 132px;
-    border: 1px solid $color_8;
+    display: inline-block;
+    float: none;
+    width: 49%;
+    height: 35px;
+    border: 1px solid $color_7;
+    border-radius: 3px;
     background: $white;
+    padding-left: 10px;
     margin-bottom: 11px;
   }
 
-  .loginbutton {
-    position: absolute;
-    bottom: 39px;
-    left: 126px;
-    background: url('../images/login.png') no-repeat;
-    cursor: pointer;
-    width: 95px;
-    height: 19px;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
+  .loginbutton,
+  .loginbutton2 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    @extend %buttonBase;
+    display: block;
+    margin: 10px auto 0;
+    width: 150px;
+    text-indent: 0;
+    &:after{
+      @extend %buttonBaseAfter;
+      content: 'se connecter';
+    }
   }
 
-  .loginbutton2 {
-    position: absolute;
-    bottom: 39px;
-    left: 126px;
-    background: url('../images/contin.png') no-repeat;
-    cursor: pointer;
-    width: 91px;
-    height: 19px;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
+  a.pleaseregister {
+    &:link,
+    &:visited {
+      display: block;
+      position: relative;
+      bottom: 0;
+      left: 0;
+      @extend %buttonBase;
+      margin: 60px auto 0;
+      width: 150px;
+      text-indent: 0;
+      text-align: center;
+      padding: 9px 0;
+      font-size: .9rem;
+      &:after{
+        @extend %buttonBaseAfter;
+        content: '';
+      }
+    }
   }
 
   .resendbutton {
@@ -5148,54 +4750,150 @@
     border: none;
   }
 
-  .acces_tab_content2 {
-    width: 349px;
-    padding: 12px 0 20px;
-    background: $bloc-base;
-    color: $color_9;
-    position: relative;
-    float: left;
-    display: inline;
+  .info_unique {
+    position: absolute;
+    top: 31px;
+    left: 52%;
+    width: 100%;
+    height: 9px;
+    font-size: .7rem;
+    color: $cyan-bloc;
   }
 
-  .acces_tab_name2 {
-    width: 331px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
-    background: $color_12;
-    color: $white;
-    margin: 6px 0;
-    font-size: 12px;
+  a.forgetpass {
+    &:link,
+    &:visited {
+      position: relative;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 20px;
+      color: $color_12;
+      text-decoration: none;
+      text-align: center;
+      display: block;
+      font-size: .9rem;
+      margin-top: 10px;
+    }
+
+    &:hover {
+      color: $magenta;
+    }
+  }
+
+  .logerror {
+    display: block;
+    position: relative;
+    top: 0;
+    height: 40px;
+    width: 80%;
+    margin:20px auto;
+    padding:20px auto;
+    float: none;
+    text-align: center;
+    font-weight: bold;
+    color: $alert;
+    margin-top: 0;
+
+    font-size: 1rem;
+  }
+
+  // register-------------------------------------------------------------------
+
+  .register-button,
+  .register-button2,
+  .edit-button {
+    float: none;
+    clear: both;
+    @extend %buttonBase;
+    display: block;
+    margin: 10px auto 0;
+    width: 150px;
+    text-indent: 0;
+    &:after{
+      @extend %buttonBaseAfter;
+      content: '';
+    }
+  }
+
+
+  ul.regiform,
+  ul.regiform2 {
+    margin: 0;
+    padding: 0;
+    float: left;
+    display: inline;
+
+    li {
+      position: relative;
+      padding: 0;
+      list-style-type: none;
+      float: left;
+      display: block;
+      width: 100%;
+      height: 50px;
+    }
+    .form-line-error{
+
+    }
+    .form-error-message {
+      position: relative;
+      left: 0;
+      margin: -75px 0 0 -1px;
+      padding: 5px 5px 5px;
+      line-height: 1rem;
+      width: 100.3%;
+    }
   }
 
   .registerlabel {
     float: left;
     display: inline;
     margin-bottom: 11px;
-    height: 30px;
+    width: 49%;
+    height: 35px;
     vertical-align: middle;
-    line-height: 12px;
+    font-size: .9rem;
+    line-height: .9rem;
   }
 
   .registerinput {
     float: right;
     display: inline;
-    width: 132px;
+    width: 49%;
     font-size: 10px;
-    border: 1px solid $color_8;
+    height: 35px;
+    border: 1px solid $color_7;
+    border-radius: 3px;
     background: $white;
     margin-bottom: 8px;
+    font-size: .9rem;
+    line-height: 1rem;
+    padding-left: 10px;
   }
 
-  .info_unique {
-    position: absolute;
-    top: 21px;
-    left: 124px;
-    width: 130px;
-    height: 9px;
-    font-size: 9px;
-    color: $color_12;
+  .registerWarning{
+    position:relative;
+    bottom:0;
+    color:#ea2a6a;
+    font-size: .8rem;
+    line-height: .9rem;
+  }
+
+  .antiSpam {
+    position:relative;
+    float:left;
+    display:inline;
+    width:100%;
+    height:100px;
+    font-size: .8rem;
+    iframe {
+      display: block;
+    }
+  }
+
+  .rc-anchor-normal{
+    width: 100%;
   }
 
   #registerform_adresselivraison {
@@ -5213,44 +4911,8 @@
     font-size: .8rem;
     color: #f00;
     margin-top: 0;
+    line-height: .9rem;
   }
-
-  .register-button {
-    width: 85px;
-    height: 19px;
-    cursor: pointer;
-    background: url('../images/inscription.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    float: right;
-    display: inline;
-  }
-
-  .edit-button {
-    width: 142px;
-    height: 19px;
-    cursor: pointer;
-    background: url('../images/but_edit.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    float: right;
-    display: inline;
-  }
-
-  .register-button2 {
-    width: 85px;
-    height: 19px;
-    cursor: pointer;
-    background: url('../images/inscription2.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    float: right;
-    display: inline;
-  }
-
 
   // module commentaires -------------------------------------------------------
 
@@ -5333,18 +4995,6 @@
     background: $white;
     font-family: $font-input;
     font-size: 11px;
-  }
-
-  .but_ratingsubmit {
-    width: 116px;
-    height: 19px;
-    background: url('../images/rating_submit.jpg') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: block;
-    cursor: pointer;
-    margin: 4px auto;
   }
 
   .form-error-message-rating {
@@ -5754,7 +5404,7 @@
     height: 195px;
     background-image: none;
     background-color: $bloc-base;
-    margin-left: 5px;
+    margin: 15px 0;
 
     table {
       margin: 11px 94px 11px 60px;
@@ -6077,6 +5727,381 @@
     display: none;
   }
 
+  // ---------------------------------------------------------------------------
+  //                           BOUTONS
+  // ---------------------------------------------------------------------------
+
+  #but_continuer {
+    @extend %buttonBase;
+  }
+
+  a#votre_mod,
+  a#votre_dec {
+    @extend %buttonBase;
+    width: auto;
+    text-indent: 0;
+    padding: 10px;
+    display: block;
+    width: 30%;
+    text-align: center;
+    float: none;
+  }
+
+  a#votre_dec {
+    background: $text;
+    border: 1px solid darken($text, 5%);
+  }
+
+  .but_ratingsubmit {
+    width: 116px;
+    height: 19px;
+    background: url('../images/rating_submit.jpg') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: block;
+    cursor: pointer;
+    margin: 4px auto;
+  }
+
+  a#but_imprimerbon {
+    position: absolute;
+    left: 240px;
+    top: 10px;
+    margin-left: 14px;
+    width: 213px;
+    height: 19px;
+    background: url('../images/but_imprimerbon.png') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: inline-block;
+  }
+  a.but_espace {
+    width: 106px;
+    height: 19px;
+    background: url('../images/but_espace.png') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    float: left;
+    display: block;
+    cursor: pointer;
+    margin-right: 14px;
+  }
+
+  #but_conf_pay {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 102px;
+    height: 19px;
+    background: url('../images/but_conf_pay.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+    cursor: pointer;
+  }
+
+  #but_imprimer {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 138px;
+    height: 19px;
+    background: url('../images/but_imprimer.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_imprimer_form {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 180px;
+    height: 19px;
+    background: url('../images/but_imprimer_form.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_imprimer_rib {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 138px;
+    height: 19px;
+    background: url('../images/but_imprimer_rib.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_bat {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 142px;
+    height: 19px;
+    background: url('../images/but_bat.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_voir_bat {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 174px;
+    height: 19px;
+    background: url('../images/but_voir_bat.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_rating {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 177px;
+    height: 19px;
+    background: url('../images/but_rating.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_retour {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 142px;
+    height: 19px;
+    background: url('../images/but_retour.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_retour2 {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 70px;
+    height: 19px;
+    background: url('../images/but_retour2.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_supprimer {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 145px;
+    height: 19px;
+    background: url('../images/but_supprimer.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_ajouter {
+    @extend %buttonBase;
+    width: 150px;
+    text-indent: 0;
+    padding-top: 9px;
+    margin: 0;
+    &:after {
+
+      content:'Ajouter un article';
+    }
+  }
+
+  #but_annuler {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 136px;
+    height: 19px;
+    background: url('../images/but_annuler.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_modifier {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 137px;
+    height: 19px;
+    background: url('../images/but_modifier.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    float: left;
+  }
+
+  #but_validerdevis {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 130px;
+    height: 19px;
+    background: url('../images/but_validerdevis.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  #but_suivant {
+    position: absolute;
+    top: 15px;
+    left: 120px;
+    width: 75px;
+    height: 19px;
+    background: url('../images/but_suivant.png') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+  }
+
+  .but_envoyer {
+    width: 82px;
+    height: 19px;
+    background: url('../images/button_send.png') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: block;
+    cursor: pointer;
+    float: right;
+  }
+
+  .but_details {
+    width: 130px;
+    height: 32px;
+    background: url('../images/detailleddevisbutton.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 10px 0 20px;
+  }
+
+  #suivant_reg {
+    position: absolute;
+    left: 45px;
+    bottom: 15px;
+    width: 75px;
+    height: 19px;
+    background: url('../images/but_suivant.png') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .but_telecharger {
+    margin-left: 4px;
+    width: 106px;
+    height: 19px;
+    background: url('../images/but_telecharger.png') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: inline-block;
+    float: left;
+    margin-top: 0;
+    cursor: pointer;
+    margin-right: 30px;
+  }
+
+  #but_annulercommande {
+    width: 169px;
+    height: 19px;
+    margin-left: 14px;
+    margin-bottom: 10px;
+    background: url('../images/but_annulercommande.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+  }
+
+  #but_comment {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 162px;
+    height: 19px;
+    background: url('../images/but_comment.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+  }
+
+  #but_suivre {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 122px;
+    height: 19px;
+    background: url('../images/but_suivre.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+  }
+
+  #but_imprimerfacture {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 153px;
+    height: 19px;
+    background: url('../images/but_imprimerfacture.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+  }
+
+  .but_voiremaquette {
+    margin-left: 14px;
+    margin-bottom: 10px;
+    width: 153px;
+    height: 19px;
+    background: url('../images/voiremaquette.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+  }
+
+  #but_payer {
+    margin-left: 14px;
+    width: 150px;
+    height: 19px;
+    background: url('../images/but_payer.png') no-repeat;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: left;
+  }
+
+
   // desactivation des éléments du template desktop ----------------------------
   //----------------------------------------------------------------------------
 
@@ -6098,19 +6123,6 @@
     margin-top: 50px;
   }
 
-  // module paragraphe important
-  .important {
-    font-family: $font-special;
-    color: $text;
-    font-size: 1rem;
-    h3 {
-      margin-bottom: 5px;
-      font-size: 1.2rem;
-    }
-  }
 
-  .toggle-button {
-    font-size: 1.2rem;
-  }
 
 }
