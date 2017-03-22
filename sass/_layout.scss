@@ -6387,63 +6387,6 @@ hr.hr-separator {
 }
 
 
-/* Fix for IE 6:*/
-
-* html .fileinput-button {
-  margin-right: 1px;
-}
-
-* html .fileinput-button .ui-button-text {
-  line-height: 24px;
-}
-
-* html .fileupload-buttonbar .ui-button {
-  margin-left: 3px;
-}
-
-
-/* Fix for IE 7:*/
-
-*+html .fileinput-button {
-  margin-right: 4px;
-}
-
-*+html .fileinput-button .ui-button-text {
-  line-height: 24px;
-}
-
-*+html .fileupload-buttonbar .ui-button {
-  margin-left: 3px;
-}
-
-@media (max-width:767px) {
-  .fileupload-buttonbar .toggle,
-  .files .toggle,
-  .files .btn span {
-    display: none;
-  }
-  .files .preview * {
-    width: 40px;
-  }
-  .files .name * {
-    width: 80px;
-    display: inline-block;
-    word-wrap: break-word;
-  }
-  .files .progress {
-    width: 20px;
-  }
-}
-
-
-/* Fix for Webkit (Safari, Chrome) */
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  .fileinput-button {
-    margin-top: 2px;
-  }
-}
-
 .fuselect {
   margin-left: 14px;
   width: 150px;
