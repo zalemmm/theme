@@ -2,7 +2,6 @@
   // invisible -----------------------------------------------------------------
 
   #preview,
-  h1,
   .prod-desc {
     display: none;
   }
@@ -32,26 +31,19 @@
     left: 20px;
     width: 25%;
     height: 250px;
-    background: url('../img/logo.png') top left no-repeat;
-    background-size: contain;
   }
 
   // module titre site
   .site-head{
     width: 68%;
-    position: relative;
-    display: block;
     top: 150px;
     left: 27%;
-    font-family: $font-special;
     letter-spacing: 1px;
     .site-title{
       font-size: 2.6rem;
       line-height: 2.8rem;
     }
     .site-subtitle{
-      background: url('../img/ligne-titre.png') top left repeat-y;
-      color: $white;
       padding: 0 5px;
       font-size: 1.2rem;
       line-height: 1.4rem;
@@ -61,13 +53,6 @@
   // module accès client
   ul.menu-client{
     @include container (90%);
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: transparent;
-    list-style: none;
-    font-family: $font-special;
     font-size: .8rem;
     line-height: 1.4rem;
     top:200px;
@@ -76,9 +61,7 @@
       height: 60px;
     }
    .menu-client-icon {
-      display: block;
       font-size: 3rem;
-      color: $cyan;
     }
     .menu-client-icon.phone {
       padding-right: 10px;
@@ -148,7 +131,25 @@
     @include span(12);
   }
 
+  // blocs autour des boutons payer et annuler la commande ---------------------
 
+  #but_retour,
+  #but_imprimer,
+  #but_imprimerfacture,
+  #but_comment,
+  #but_suivre,
+  #but_rating,
+  form#delfromvosdevis,
+  #paye {
+    width: 49%;
+  }
+
+  #but_payer.deactive {
+    @include buttonLog($magenta, 49%);
+  }
+  #but_annulercommande.deactive{
+    @include buttonLog($text, 49%);
+  }
 
 
 }

@@ -491,10 +491,18 @@
     .site-title{
       font-size: 2.6rem;
       line-height: 2.8rem;
+      &:after{
+        content: '';
+        background: url('../img/ligne-titre.png') top left repeat-y;
+        display: block;
+        width: 99%;
+        height: 7px;
+        margin-left: 3px;
+      }
     }
     .site-subtitle{
-      background: url('../img/ligne-titre.png') top left repeat-y;
-      color: $white;
+      color: $text;
+      text-align: right;
       padding: 0 5px;
       font-size: 1.2rem;
       line-height: 1.4rem;
@@ -2394,10 +2402,10 @@
     }
 
     &.payement_underline {
-      width: 290px;
+      width: 90%;
       display: inline-block;
-      border-bottom: 1px solid $color_8;
-      font-size: 12px;
+      border-bottom: 1px solid $color_7;
+      font-size: .8rem;
       padding-bottom: 2px;
     }
 
@@ -2414,7 +2422,7 @@
     &.pay_carte_info {
       display: block;
       margin: 5px 0 0 20px;
-      font-size: 9px;
+      font-size: .7rem;
     }
 
     &.colblue {
@@ -2449,10 +2457,6 @@
       text-transform: uppercase;
       border: none;
       cursor: pointer;
-    }
-
-    &.deactive {
-      cursor: default !important;
     }
 
     &.reg_info {
@@ -2832,28 +2836,30 @@
     }
   }
 
-
+  // alerte panier
 
   .box_info {
     background-color: $bloc-base;
     width: auto;
-    padding: 12px 12px 2px;
+    padding: 1rem;
     margin-bottom: 16px;
     border: 2px solid $color_19;
     background-color: $color_20;
     img{
-      margin: 0 20px;
+      margin-right: 1rem;
     }
   }
 
   .box_warning {
     background-color: $bloc-base;
     width: auto;
-    padding: 8px 8px 2px;
+    padding: 1rem;
     margin-bottom: 16px;
-    min-height: 90px;
     border: 2px solid $color_21;
     background-color: $color_22;
+    img{
+      margin-right: 1rem;
+    }
   }
 
   // Partie résultat prix
@@ -3004,8 +3010,13 @@
     border-bottom: 5px solid $white;
   }
 
+
+  // ---------------------------------------------------------------------------
+  //                                PAGE PAIEMENTS
+  // ---------------------------------------------------------------------------
+
   #paiements {
-    width: auto;
+    width: 100%;
     position: relative;
   }
 
@@ -3016,76 +3027,62 @@
 
   #paiements_left,
   #valid_bat_left {
-    position: absolute;
+    position: relative;
     left: 0;
-    top: 15px;
-    width: 315px;
+    top: 0;
+    width: 49%;
     float: left;
     display: inline;
   }
-
-  #paiements_left_tit,
-  #valid_bat_left_tit {
-    position: relative;
-    width: 333px;
-    text-transform: uppercase;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
-    background: $color_12;
-    color: $white;
-    font-size: 12px;
-    float: left;
-    display: inline;
-    margin: 0 0 5px;
-  }
-
-  #paiements_left_con,
-  #valid_bat_left_con {
-    position: relative;
-    width: 315px;
-    height: 120px;
-    padding: 20px 16px 13px 20px;
-    background: $bloc-base;
-    float: left;
-    display: inline;
-  }
-
   #paiements_right {
-    margin-left: 315px;
-    width: 315px;
+    margin-left: 0;
+    width: 49%;
     float: right;
-    display: inline;
+    display: block;
     visibility: hidden;
   }
 
-  #paiements_right_tit {
-    position: relative;
-    width: 333px;
-    text-transform: uppercase;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
+  #paiements_left_tit,
+  #valid_bat_left_tit,
+  #paiements_right_tit,
+  .cheque_tab_name {
+    width: 100%;
+    padding: 12px 0 4px;
+    height: 40px;
+    line-height: 1rem;
     background: $color_12;
     color: $white;
-    font-size: 12px;
-    float: right;
-    display: inline;
-    margin: 0 0 5px;
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+    color: $white;
+    float: none;
+    display: block;
   }
 
-  .paiements_right_con {
-    width: 315px;
-    height: 120px;
-    padding: 16px 16px 13px 20px;
+  #paiements_left_con,
+  #valid_bat_left_con,
+  .paiements_right_con,
+  .paiements_right_con2,
+  .cheque_tab_con  {
+    width: 100%;
+    padding: 2rem;
+    height: auto;
+    min-height: 170px;
     background: $bloc-base;
-    float: right;
-    display: inline;
-    border-bottom: 5px solid $white;
+    color: $color_9;
+    position: relative;
+    margin-bottom: 15px;
+    border: 1px solid darken($bloc-base, 5%);
+  }
+  .paiements_right_con2  {
+    height: auto;
+    min-height: 50px;
+    padding:1rem;
   }
 
   .paiements_right_con_diff {
-    width: 315px;
+    width: 100%;
     height: 162px;
     padding: 16px 16px 13px 20px;
     background: $color_24;
@@ -3095,38 +3092,20 @@
     border-bottom: 5px solid $white;
   }
 
-  .paiements_right_con2 {
+
+
+  #regulamin .checkbox2 {
     position: relative;
-    width: 315px;
-    height: 19px;
-    padding: 16px 16px 13px 20px;
-    background: $bloc-base;
-    float: right;
-    display: inline;
-    border-bottom: 5px solid $white;
-    text-align: center;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
   }
 
 
-
-
-
-  .cheque_tab_name {
-    width: 237px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
-    background: $color_12;
-    color: $white;
-    font-size: 12px;
-    float: left;
-    display: inline;
-    margin: 0 5px 5px 0;
-    text-transform: uppercase;
-  }
 
   .paydiff_tab_name {
-    width: 237px;
+    width: 100%;
     padding: 1px 0 0 18px;
     height: 22px;
     line-height: 23px;
@@ -3139,21 +3118,13 @@
     text-transform: uppercase;
   }
 
-  .cheque_tab_con {
-    position: relative;
-    float: left;
-    display: inline;
-    width: 670px;
-    padding: 18px;
-    background: $bloc-base;
-    color: $color_9;
-  }
+
 
   .paydiff_tab_con {
     position: relative;
     float: left;
     display: inline;
-    width: 670px;
+    width: 100%;
     padding: 18px;
     background: $color_24;
     color: $color_9;
@@ -3171,7 +3142,7 @@
 
   .cheque_tab {
     margin-left: 15px;
-    width: 675px;
+    width: 100%;
 
     th {
       width: 331px;
@@ -3268,7 +3239,7 @@
   }
 
   //----------------------------------------------------------------------------
-  //                            PANIER
+  //                            DEVIS
   //----------------------------------------------------------------------------
 
   .acces_tab_name_devis {
@@ -3279,17 +3250,16 @@
 
       span {
         float: right;
-        width: 121px;
+        width: 50%;
         text-align: center;
-        margin: 2px 18px 0;
-        height: 16px;
-        line-height: 16px;
+        margin: 0 5px 5px;
+        padding:.1rem 0;
+        height: 25px;
+        font-size: .7rem;
+        line-height: .7rem;
+        vertical-align: middle;
       }
     }
-  }
-
-  tbody {
-    width: 100%;
   }
 
   #fbcart_buttons,
@@ -3297,13 +3267,23 @@
   #fbcart_buttons2 {
     position: relative;
     float: none;
-    display: block;
     margin: 25px auto;
-    width: auto;
     background: none;
     padding: 0;
     text-align: center;
-    line-height: 19px;
+    width: 100%;
+    padding: .8rem .8rem .2rem .8rem;
+    height: auto;
+    line-height: 1rem;
+    background: $bloc-base;
+    font-size: .9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid darken($bloc-base, 5%);
+  }
+  #fbcart_buttons3 {
+    display: inline-block;
   }
 
 
@@ -3365,7 +3345,710 @@
     margin-right: 5px;
   }
 
+  // ---------------------------------------------------------------------------
+  //                                  UPLOAD
+  //----------------------------------------------------------------------------
+
+  .fileinput-button {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    margin-right: 5px;
+  }
+
+  .fileinput-button input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+  }
+
+  .fileupload-buttonbar .ui-button,
+  .fileupload-buttonbar .toggle {
+    float: left;
+    margin-bottom: 5px;
+    margin-left: 14px;
+  }
+
+  .files .progress {
+    width: 200px;
+  }
+
+  .files .progress,
+  .fileupload-buttonbar .progress {
+    height: 14px;
+  }
+
+  .files .ui-progressbar-value,
+  .fileupload-buttonbar .ui-progressbar-value {
+    background: url(../img/progressbar2.gif);
+  }
+
+  .fileupload-buttonbar .fade,
+  .files .fade {
+    display: none;
+  }
+
+  .fileupload-loading {
+    position: absolute;
+    left: 50%;
+    width: 128px;
+    height: 128px;
+    background: url(../img/loading.gif) center no-repeat;
+    display: none;
+  }
+
+  .fileupload-processing .fileupload-loading {
+    display: block;
+  }
+
+  .fileupload-progress {
+    position: relative;
+    display: block;
+    margin: 10px 0 0 0;
+    display: none;
+    padding: 0 14px 0 14px;
+    height: 20px;
+    float: left;
+    width: 600px;
+  }
+
+  .ui-progressbar {
+    text-align: left;
+    overflow: hidden;
+    background: #fff;
+    width: 100px;
+    height: 10px;
+    float: left;
+    display: block;
+    margin: 0 20px 0 0;
+  }
+
+  .ui-progressbar .ui-progressbar-value {
+    margin: -1px;
+    height: 100%;
+  }
+
+  .ui-progressbar .ui-progressbar-overlay {
+    background: url("images/animated-overlay.gif");
+    height: 100%;
+    filter: alpha(opacity=25);
+    opacity: 0.25;
+  }
+
+  .ui-progressbar-indeterminate .ui-progressbar-value {
+    background-image: none;
+  }
+
+  .ui-widget-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .ui-widget {
+    font-family: Verdana,
+    Arial,
+    sans-serif/*{ffDefault}*/
+    ;
+    font-size: 1.1em/*{fsDefault}*/
+    ;
+  }
+
+  .ui-widget .ui-widget {
+    font-size: 1em;
+  }
+
+
+  /* Fix for IE 6:*/
+
+  * html .fileinput-button {
+    margin-right: 1px;
+  }
+
+  * html .fileinput-button .ui-button-text {
+    line-height: 24px;
+  }
+
+  * html .fileupload-buttonbar .ui-button {
+    margin-left: 3px;
+  }
+
+
+  /* Fix for IE 7:*/
+
+  *+html .fileinput-button {
+    margin-right: 4px;
+  }
+
+  *+html .fileinput-button .ui-button-text {
+    line-height: 24px;
+  }
+
+  *+html .fileupload-buttonbar .ui-button {
+    margin-left: 3px;
+  }
+
+  @media (max-width:767px) {
+    .fileupload-buttonbar .toggle,
+    .files .toggle,
+    .files .btn span {
+      display: none;
+    }
+    .files .preview * {
+      width: 40px;
+    }
+    .files .name * {
+      width: 80px;
+      display: inline-block;
+      word-wrap: break-word;
+    }
+    .files .progress {
+      width: 20px;
+    }
+  }
+
+
+  /* Fix for Webkit (Safari, Chrome) */
+
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    .fileinput-button {
+      margin-top: 2px;
+    }
+  }
+
+  .fuselect {
+    margin-left: 14px;
+    width: 150px;
+    height: 19px;
+    background: url(../img/but_para.png) no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: inline-block;
+    float: left;
+    margin-top: 0px;
+    cursor: pointer;
+  }
+
+  .fustart {
+    margin-left: 14px;
+    width: 157px;
+    height: 19px;
+    background: url(../img/but_tele.png) no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: inline-block;
+    float: left;
+    margin-top: 0px;
+    cursor: pointer;
+  }
+
+  .fucancel {
+    margin-left: 14px;
+    width: 83px;
+    height: 19px;
+    background: url(../img/but_ann.png) no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: inline-block;
+    float: left;
+    margin-top: 0px;
+    cursor: pointer;
+  }
+
+  .fudelete {
+    margin-left: 14px;
+    width: 78px;
+    height: 19px;
+    background: url(../img/but_eff.png) no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    display: inline-block;
+    float: left;
+    margin-top: 0px;
+    cursor: pointer;
+  }
+
+  .fileupload-buttonbar {
+    position: relative;
+    float: left;
+    display: block;
+    width: 100%;
+    margin: 0;
+    background: $bloc-base;
+    line-height: 19px;
+    padding: 15px 0 15px 0;
+  }
+
+  #fbcart_fileupload3 {
+    position: relative;
+    float: left;
+    display: inline;
+    width: 100%;
+    margin-top: 0px;
+    border-top: 1px dotted $color_7;
+  }
+
+  #fbcart_fileupload3 th {
+    text-transform: uppercase;
+    background: $bloc-base;
+    padding: 8px 6px 6px 8px;
+    vertical-align: top;
+    color: #008EBB;
+  }
+
+  #fbcart_fileupload3 .lefttd {
+    background: $bloc-base;
+    text-align: left;
+    padding: 6px 0 3px 14px;
+    width: 30px;
+  }
+
+  #fbcart_fileupload3 .tabname {
+    width: 30%;
+    text-align: left;
+    padding-left: 0 !important;
+    background: $bloc-base;
+  }
+
+  #fbcart_fileupload3 .tabsize {
+    width: 20%;
+  }
+
+  #fbcart_fileupload3 .tabprog {
+  width: 20%;
+  }
+
+  #fbcart_fileupload3 .tabstart {
+    width: 20%;
+  }
+
+  #fbcart_fileupload3 .tabdel {
+    width: 5%;
+  }
+
+  #fbcart_fileupload3 .tabwykrzyknik {
+    background: $bloc-base url(../img/wykrzyknik2.png) center 7px no-repeat;
+  }
+
+  #fbcart_fileupload3 td.lefttd {
+    width: 30px;
+    background: $bloc-base;
+  }
+
+  #fbcart_fileupload3 .fustart {
+    margin-left: 0 !important;
+    margin-top: -1px !important;
+  }
+
+  #fbcart_fileupload3 td.lefttd_none {
+    width: 30px;
+    background: $bloc-base url(../img/wykrzyknik.png) center 7px no-repeat;
+  }
+
+  #fbcart_fileupload3 td {
+    background: $bloc-base url(../img/bord2.png) top left no-repeat;
+    text-align: center;
+    height: 19px;
+    padding: 8px 8px 6px 8px;
+    vertical-align: top;
+  }
+
+  #fbcart_fileupload span.itemname {
+    text-transform: uppercase;
+  }
+
+  // file upload CSS natif -----------------------------------------------------
+
+  #fileupload {
+    position: relative;
+    float: left;
+    display: inline;
+    width: 100%;
+    margin: 20px 0 30px;
+  }
+
+  #viewsendfiles {
+    width: 275px;
+    margin-left: 130px;
+    background: $bloc-base;
+    padding: 0 2px 6px 8px;
+    font-size: 10px;
+  }
+
+  #fbcart_fileupload {
+    position: relative;
+    float: left;
+    display: inline;
+    width: auto;
+    margin-top: 23px;
+
+    th {
+      background: $bloc-base;
+      text-align: left;
+      padding: 3px 0;
+      border-bottom: 4px solid $white;
+      text-transform: uppercase;
+      color: $color_12;
+      width: 491px;
+
+      &.leftth {
+        background: $bloc-base;
+        text-align: left;
+        padding: 3px 10px 3px 20px;
+        border-bottom: 4px solid $white;
+        text-transform: uppercase;
+        color: $color_12;
+        width: 160px;
+      }
+
+      &.nobackground {
+        background: $white;
+        width: 30px;
+      }
+    }
+
+    td {
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
+      text-align: left;
+      height: 19px;
+      padding: 8px 2px 6px 8px;
+      vertical-align: top;
+      border-bottom: 4px solid $white;
+
+      &.lefttd {
+        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
+        color: $color_9;
+        font-size: 12px;
+        text-align: left;
+        padding: 12px 2px 6px 44px;
+        vertical-align: top;
+        border-bottom: 4px solid $white;
+      }
+
+      &.lefttd2 {
+        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
+        color: $color_9;
+        font-size: 12px;
+        text-align: left;
+        padding: 12px 2px 6px 44px;
+        vertical-align: top;
+        border-bottom: 4px solid $white;
+      }
+    }
+
+    span.itemname {
+      text-transform: uppercase;
+    }
+  }
+
+  #fbcart_fileupload2 {
+    position: relative;
+    float: left;
+    display: inline;
+    width: auto;
+    margin: 23px;
+
+    th {
+      &.leftth {
+        background: $bloc-base;
+        text-align: left;
+        padding: 3px 10px 3px 20px;
+        border-bottom: 4px solid $white;
+        text-transform: uppercase;
+        color: $color_12;
+        width: 160px;
+      }
+
+      &.leftth2 {
+        background: $bloc-base;
+        text-align: left;
+        padding: 3px 0;
+        border-bottom: 4px solid $white;
+        text-transform: uppercase;
+        color: $color_12;
+        width: 111px;
+      }
+
+      &.leftth3 {
+        background: $bloc-base;
+        text-align: left;
+        padding: 3px 0;
+        border-bottom: 4px solid $white;
+        text-transform: uppercase;
+        color: $color_12;
+        width: 351px;
+      }
+
+      &.nobackground {
+        background: $white;
+        width: 30px;
+      }
+    }
+
+    td {
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
+      text-align: left;
+      height: 19px;
+      padding: 8px 2px 6px 8px;
+      vertical-align: top;
+      border-bottom: 4px solid $white;
+
+      &.lefttd {
+        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
+        color: $color_9;
+        font-size: 12px;
+        text-align: left;
+        padding: 12px 2px 6px 44px;
+        vertical-align: top;
+        border-bottom: 4px solid $white;
+      }
+
+      &.lefttd2 {
+        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
+        color: $color_9;
+        font-size: 12px;
+        text-align: left;
+        padding: 12px 2px 6px 44px;
+        vertical-align: top;
+        border-bottom: 4px solid $white;
+      }
+    }
+  }
+
+  .sendfiles {
+    .input-upload {
+      float: left;
+      display: inline;
+      width: 220px;
+      height: 19px;
+      margin-top: 2px;
+    }
+
+    .fakeupload {
+      width: 86px;
+      height: 19px;
+      background: url('../images/parcourir.png') no-repeat;
+      overflow: hidden;
+      display: inline-block;
+      float: left;
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+
+
+  // ---------------------------------------------------------------------------
+  //                           TABLEAU PANIER
+  // ---------------------------------------------------------------------------
+
+  tbody {
+    width: 100%;
+  }
+
   #fbcart_votre {
+    position: relative;
+    float: none;
+    display: table;
+    table-layout: auto;
+
+    th {
+      background: $bloc-base;
+      text-align: center;
+      padding: 1px 0;
+      border-bottom: 4px solid $white;
+      text-transform: uppercase;
+      color: $color_12;
+      width: 30%;
+      line-height: 1rem;
+      font-size: .7rem;
+
+      &.leftth {
+        width: 100%;
+        padding: 6px 0 4px 20px;
+        text-align: left;
+      }
+
+      &.tddesc {
+        width: 30%;
+      }
+    }
+
+    td {
+      background: $bloc-base url('../images/bord2.png') top left no-repeat;
+      line-height: 1rem;
+      text-align: center;
+      padding: 10px 2px 21px;
+      vertical-align: top;
+      border-bottom: 4px solid $white;
+      width: 30%;
+
+      &.tddesc {
+        text-align: left;
+        padding-left: 10px;
+        width: 30%;
+      }
+
+      &.lefttd {
+        background: $bloc-base;
+        text-align: left;
+        font-size: .8rem;
+        line-height: .8rem;
+        text-transform: uppercase;
+        width: 30%;
+      }
+    }
+
+    .kontener {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // PANIER
+
+  #fbcart_address {
+    position: relative;
+    float: left;
+    display: inline;
+    background: $bloc-base;
+    width: 447px;
+    height: 119px;
+    padding-top: 10px;
+
+    th {
+      padding: 0 20px;
+      text-transform: uppercase;
+      color: $color_12;
+      width: 203px;
+      text-align: left;
+
+      &.leftth {
+        border-right: 1px solid $white;
+      }
+    }
+
+    td {
+      padding: 2px 20px;
+      font-size: 10px;
+      line-height: 12px;
+      width: 203px;
+      height: 90px;
+      vertical-align: top;
+
+      &.lefttd {
+        border-right: 1px solid $white;
+      }
+    }
+
+    a {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 118px;
+      height: 19px;
+      background: url('../images/but_address.png');
+      display: block;
+    }
+  }
+
+  #fbcart_cart {
+    position: relative;
+    float: none;
+    display: inline;
+    width: 100%;
+
+    span {
+      &.name {
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-bottom: 3px;
+      }
+
+      &.therest {
+        font-size: 10px;
+      }
+    }
+
+    th {
+      background: $bloc-base;
+      text-align: center;
+      padding: 3px 20px;
+      border-bottom: 4px solid $white;
+      text-transform: uppercase;
+      color: $color_12;
+      width: 30px;
+
+      &.leftth {
+        text-align: left;
+        width: 250px;
+      }
+
+      &.nobackground {
+        background: $white;
+        width: 30px;
+        padding: 0;
+      }
+
+      &.leftth2 {
+        text-align: left;
+        width: 435px;
+      }
+    }
+
+    td {
+      background: $bloc-base url('../images/bord.png') top left no-repeat;
+      text-align: center;
+      padding: 13px 2px 21px;
+      vertical-align: top;
+      border-bottom: 4px solid $white;
+
+      &.lefttd {
+        background: $bloc-base;
+        text-align: left;
+        padding: 13px 20px 21px;
+      }
+    }
+  }
+
+  #delcart {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background: url('../images/del.png') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    margin: 0 5px;
+    display: block;
+  }
+
+  .delbut {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    background: url('../images/del.png') no-repeat;
+    text-indent: -999em;
+    overflow: hidden;
+    border: none;
+    margin: 0 5px;
+    display: block;
+  }
+
+  #fbcart_lastcomment {
     position: relative;
     float: left;
     display: inline;
@@ -3373,54 +4056,106 @@
 
     th {
       background: $bloc-base;
-      text-align: center;
-      font-size: 10px;
-      padding: 1px 0;
+      text-align: left;
+      padding: 3px 0;
       border-bottom: 4px solid $white;
       text-transform: uppercase;
       color: $color_12;
-      width: 88px;
-      line-height: 12px;
+      width: 81px;
 
       &.leftth {
-        width: 130px;
-        padding: 6px 0 4px 20px;
+        background: $bloc-base;
         text-align: left;
+        padding: 3px 20px;
+        border-bottom: 4px solid $white;
+        text-transform: uppercase;
+        color: $color_12;
+        width: 57px;
       }
 
-      &.tddesc {
-        width: 250px;
+      &.leftth2 {
+        background: $bloc-base;
+        text-align: left;
+        padding: 3px 20px 3px 0;
+        border-bottom: 4px solid $white;
+        text-transform: uppercase;
+        color: $color_12;
+        width: 67px;
+      }
+
+      &.leftth3 {
+        background: $bloc-base;
+        text-align: left;
+        padding: 3px 0;
+        border-bottom: 4px solid $white;
+        text-transform: uppercase;
+        color: $color_12;
+        width: 411px;
+      }
+
+      &.leftth4 {
+        background: $bloc-base;
+        text-align: left;
+        padding: 3px 0;
+        border-bottom: 4px solid $white;
+        text-transform: uppercase;
+        color: $color_12;
+        width: 31px;
+      }
+
+      &.nobackground {
+        background: $white;
+        width: 30px;
       }
     }
 
     td {
       background: $bloc-base url('../images/bord2.png') top left no-repeat;
-      line-height: 17px;
-      text-align: center;
-      padding: 10px 2px 21px;
+      text-align: left;
+      height: 19px;
+      padding: 10px 2px 6px 8px;
       vertical-align: top;
       border-bottom: 4px solid $white;
-
-      &.tddesc {
-        text-align: left;
-        padding-left: 10px;
-      }
 
       &.lefttd {
         background: $bloc-base;
         text-align: left;
-        font-size: 11px;
-        line-height: 13px;
-        text-transform: uppercase;
+        height: 19px;
+        padding: 10px 2px 20px 8px;
+        vertical-align: top;
+        border-bottom: 4px solid $white;
       }
-    }
 
-    .kontener {
-      position: relative;
-      width: auto;
-      height: 100%;
+      &.lefttd2 {
+        background: $bloc-base url('../images/bord2.png') top left no-repeat;
+        text-align: left;
+        height: 19px;
+        padding: 10px 2px 20px 8px;
+        vertical-align: top;
+        border-bottom: 4px solid $white;
+        color: $color_26;
+        font-weight: bold;
+      }
+
+      &.lefttd3 {
+        color: $color_26;
+      }
+
+      &.lefttd2a {
+        background: $bloc-base url('../images/bord2.png') top left no-repeat;
+        text-align: left;
+        height: 19px;
+        padding: 10px 2px 20px 8px;
+        vertical-align: top;
+        border-bottom: 4px solid $white;
+        font-weight: bold;
+      }
+
+      &.lefttd3a {}
     }
   }
+
+  // ---------------------------------------------------------------------------
 
   .virement_payement {
     position: relative;
@@ -3938,11 +4673,17 @@
     background: url('../images/arr_down_det.gif') bottom left no-repeat;
   }
 
+  .votre_tab_head {
+    @include container(100%);
+    display: block;
+    float: none;
+  }
+
   .votre_tab_name,
   .votre_tab_name2,
   .votre_tab_name3 {
     width: 100%;
-    padding: 7px 0 4px;
+    padding: 12px 0 4px;
     height: 40px;
     line-height: 1rem;
     background: $color_12;
@@ -3951,64 +4692,56 @@
     font-size: 1rem;
     text-align: center;
     color: $white;
+    float: none;
+    display: block;
+  }
+
+  .votre_tab_active,
+  .votre_tab_inactive {
+    width: 49%;
+    padding: 12px .5rem;
+    height: 40px;
+    line-height: 1rem;
+    background: $color_12;
+    font-size: .9rem;
     float: left;
     display: inline;
+    margin: 25px auto 5px;
+    text-decoration: none;
+    text-align: center;
+    color: $bloc-base;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .votre_tab_active {
-    width: 237px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
-    background: $color_12;
-    font-size: 12px;
-    float: left;
-    display: inline;
-    margin: 25px 5px 5px 0;
-    text-decoration: none;
-    color: $bloc-base;
-
-    &:hover {
-      cursor: pointer;
-    }
+    margin-right: 2%;
   }
-
   .votre_tab_inactive {
-    width: 237px;
-    padding: 1px 0 0 18px;
-    height: 22px;
-    line-height: 23px;
     background: $bloc-base;
-    font-size: 12px;
-    float: left;
-    display: inline;
-    margin: 25px 5px 5px 0;
-    text-decoration: none;
     color: $color_12;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .votre_tab_head {
-    width: auto;
-    display: inline;
-    float: left;
   }
 
   .votre_tab_content,
   .votre_tab_content2 {
     width: 100%;
     padding: 1.5rem;
-    height: 132px;
-    line-height: 14px;
+    height: auto;
+    line-height: 1rem;
     background: $bloc-base;
     font-size: .9rem;
-    float: left;
-    display: inline;
-    margin-right: 5px;
-    margin-bottom: 15px;
+    float: none;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid darken($bloc-base, 5%);
+    p{
+      display: block;
+      width: 100%;
+    }
   }
   .votre_pagi {
     width: auto;
@@ -4040,536 +4773,12 @@
     font-weight: bold;
   }
 
-  .stat0 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_29;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    font-size: 11px;
-  }
-
-  .stat1 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_30;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    font-size: 11px;
-  }
-
-  .stat2 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_12;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-  }
-
-  .stat3 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_31;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    font-size: 11px;
-  }
-
-  .stat4 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_32;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    font-size: 11px;
-  }
-
-  .stat5 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_8;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    font-size: 11px;
-  }
-
-  .stat6 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $text;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    font-size: 11px;
-  }
-
-  .stat7 {
-    width: 121px;
-    height: 40px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_24;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-  }
-
-  stat2 {
-    font-size: 11px;
-  }
-
-  #fbcart_address {
-    position: relative;
-    float: left;
-    display: inline;
-    background: $bloc-base;
-    width: 447px;
-    height: 119px;
-    padding-top: 10px;
-
-    th {
-      padding: 0 20px;
-      text-transform: uppercase;
-      color: $color_12;
-      width: 203px;
-      text-align: left;
-
-      &.leftth {
-        border-right: 1px solid $white;
-      }
-    }
-
-    td {
-      padding: 2px 20px;
-      font-size: 10px;
-      line-height: 12px;
-      width: 203px;
-      height: 90px;
-      vertical-align: top;
-
-      &.lefttd {
-        border-right: 1px solid $white;
-      }
-    }
-
-    a {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 118px;
-      height: 19px;
-      background: url('../images/but_address.png');
-      display: block;
-    }
-  }
-
-  #fbcart_cart {
-    position: relative;
-    float: none;
-    display: block;
-    width: 100%;
-
-    span {
-      &.name {
-        font-size: 12px;
-        font-weight: bold;
-        text-transform: uppercase;
-        padding-bottom: 3px;
-      }
-
-      &.therest {
-        font-size: 10px;
-      }
-    }
-
-    th {
-      background: $bloc-base;
-      text-align: center;
-      padding: 3px 20px;
-      border-bottom: 4px solid $white;
-      text-transform: uppercase;
-      color: $color_12;
-      width: 30px;
-
-      &.leftth {
-        text-align: left;
-        width: 250px;
-      }
-
-      &.nobackground {
-        background: $white;
-        width: 30px;
-        padding: 0;
-      }
-
-      &.leftth2 {
-        text-align: left;
-        width: 435px;
-      }
-    }
-
-    td {
-      background: $bloc-base url('../images/bord.png') top left no-repeat;
-      text-align: center;
-      padding: 13px 2px 21px;
-      vertical-align: top;
-      border-bottom: 4px solid $white;
-
-      &.lefttd {
-        background: $bloc-base;
-        text-align: left;
-        padding: 13px 20px 21px;
-      }
-    }
-  }
-
-  #delcart {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-    background: url('../images/del.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    margin: 0 5px;
-    display: block;
-  }
-
-  .delbut {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
-    background: url('../images/del.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    margin: 0 5px;
-    display: block;
-  }
-
-  #fbcart_lastcomment {
-    position: relative;
-    float: left;
-    display: inline;
-    width: auto;
-
-    th {
-      background: $bloc-base;
-      text-align: left;
-      padding: 3px 0;
-      border-bottom: 4px solid $white;
-      text-transform: uppercase;
-      color: $color_12;
-      width: 81px;
-
-      &.leftth {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 20px;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 57px;
-      }
-
-      &.leftth2 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 20px 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 67px;
-      }
-
-      &.leftth3 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 411px;
-      }
-
-      &.leftth4 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 31px;
-      }
-
-      &.nobackground {
-        background: $white;
-        width: 30px;
-      }
-    }
-
-    td {
-      background: $bloc-base url('../images/bord2.png') top left no-repeat;
-      text-align: left;
-      height: 19px;
-      padding: 10px 2px 6px 8px;
-      vertical-align: top;
-      border-bottom: 4px solid $white;
-
-      &.lefttd {
-        background: $bloc-base;
-        text-align: left;
-        height: 19px;
-        padding: 10px 2px 20px 8px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-
-      &.lefttd2 {
-        background: $bloc-base url('../images/bord2.png') top left no-repeat;
-        text-align: left;
-        height: 19px;
-        padding: 10px 2px 20px 8px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-        color: $color_26;
-        font-weight: bold;
-      }
-
-      &.lefttd3 {
-        color: $color_26;
-      }
-
-      &.lefttd2a {
-        background: $bloc-base url('../images/bord2.png') top left no-repeat;
-        text-align: left;
-        height: 19px;
-        padding: 10px 2px 20px 8px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-        font-weight: bold;
-      }
-
-      &.lefttd3a {}
-    }
-  }
-
   .newline {
     position: relative;
     float: left;
     width: auto;
   }
 
-  #fileupload {
-    position: relative;
-    float: left;
-    display: inline;
-    width: auto;
-    margin: 20px 0 30px;
-  }
-
-  #viewsendfiles {
-    width: 275px;
-    margin-left: 130px;
-    background: $bloc-base;
-    padding: 0 2px 6px 8px;
-    font-size: 10px;
-  }
-
-  #fbcart_fileupload {
-    position: relative;
-    float: left;
-    display: inline;
-    width: auto;
-    margin-top: 23px;
-
-    th {
-      background: $bloc-base;
-      text-align: left;
-      padding: 3px 0;
-      border-bottom: 4px solid $white;
-      text-transform: uppercase;
-      color: $color_12;
-      width: 491px;
-
-      &.leftth {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 10px 3px 20px;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 160px;
-      }
-
-      &.nobackground {
-        background: $white;
-        width: 30px;
-      }
-    }
-
-    td {
-      background: $bloc-base url('../images/bord2.png') top left no-repeat;
-      text-align: left;
-      height: 19px;
-      padding: 8px 2px 6px 8px;
-      vertical-align: top;
-      border-bottom: 4px solid $white;
-
-      &.lefttd {
-        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
-        color: $color_9;
-        font-size: 12px;
-        text-align: left;
-        padding: 12px 2px 6px 44px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-
-      &.lefttd2 {
-        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
-        color: $color_9;
-        font-size: 12px;
-        text-align: left;
-        padding: 12px 2px 6px 44px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-    }
-
-    span.itemname {
-      text-transform: uppercase;
-    }
-  }
-
-  #fbcart_fileupload2 {
-    position: relative;
-    float: left;
-    display: inline;
-    width: auto;
-    margin: 23px;
-
-    th {
-      &.leftth {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 10px 3px 20px;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 160px;
-      }
-
-      &.leftth2 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 111px;
-      }
-
-      &.leftth3 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 351px;
-      }
-
-      &.nobackground {
-        background: $white;
-        width: 30px;
-      }
-    }
-
-    td {
-      background: $bloc-base url('../images/bord2.png') top left no-repeat;
-      text-align: left;
-      height: 19px;
-      padding: 8px 2px 6px 8px;
-      vertical-align: top;
-      border-bottom: 4px solid $white;
-
-      &.lefttd {
-        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
-        color: $color_9;
-        font-size: 12px;
-        text-align: left;
-        padding: 12px 2px 6px 44px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-
-      &.lefttd2 {
-        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
-        color: $color_9;
-        font-size: 12px;
-        text-align: left;
-        padding: 12px 2px 6px 44px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-    }
-  }
-
-  .sendfiles {
-    .input-upload {
-      float: left;
-      display: inline;
-      width: 220px;
-      height: 19px;
-      margin-top: 2px;
-    }
-
-    .fakeupload {
-      width: 86px;
-      height: 19px;
-      background: url('../images/parcourir.png') no-repeat;
-      overflow: hidden;
-      display: inline-block;
-      float: left;
-      margin-left: 10px;
-      margin-top: 2px;
-    }
 
     .input-text {
       width: 118px;
@@ -4585,14 +4794,7 @@
     display: inline-block;
   }
 
-  #paye {
-    width: 150px;
-    height: 19px;
-    display: block;
-    float: left;
-    margin-bottom: 10px;
-    margin-right: 14px;
-  }
+
 
   #fbcart_check {
     float: right;
@@ -4642,6 +4844,7 @@
   .acces_tab_name,
   .acces_tab_name2,
   .acces_tab_name_devis {
+    z-index: 100;
     width: 100%;
     padding: 7px 0 4px;
     height: 40px;
@@ -4667,6 +4870,7 @@
     color: $color_9;
     position: relative;
     margin-bottom: 15px;
+    border: 1px solid darken($bloc-base, 5%);
   }
 
   .acces_tab_content2 {
@@ -5682,13 +5886,7 @@
     }
   }
 
-  #regulamin .checkbox2 {
-    position: absolute;
-    top: 22px;
-    right: 70px;
-    width: 236px;
-    height: 35px;
-  }
+
 
   #f00error {
     font-size: 16px;
@@ -5699,14 +5897,6 @@
     float: left;
     width: auto;
     text-align: center;
-  }
-
-  form#delfromvosdevis {
-    margin-bottom: 10px;
-    width: 183px;
-    height: 19px;
-    display: block;
-    float: left;
   }
 
   .livraison-gratuite .starImg {
@@ -5727,6 +5917,9 @@
     display: none;
   }
 
+
+
+
   // ---------------------------------------------------------------------------
   //                           BOUTONS
   // ---------------------------------------------------------------------------
@@ -5735,21 +5928,131 @@
     @extend %buttonBase;
   }
 
+  // boutons mon compte --------------------------------------------------------
+
   a#votre_mod,
   a#votre_dec {
     @extend %buttonBase;
-    width: auto;
+    width: 49%;
+    position: relative;
+    left: 0;
+    top: 0;
     text-indent: 0;
     padding: 10px;
-    display: block;
-    width: 30%;
+    display: inline-block;
     text-align: center;
-    float: none;
   }
 
   a#votre_dec {
     background: $text;
     border: 1px solid darken($text, 5%);
+  }
+
+  // boutons logged ------------------------------------------------------------
+
+
+
+  // blocs autour des boutons payer et annuler la commande ---------------------
+
+  form#delfromvosdevis,
+  #paye {
+    width: 24%;
+    height: auto;
+    display: inline-block;
+    float: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+  #payeTop {
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    float: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    #but_payerTop {
+      @include buttonLog($magenta, 100%);
+      width: 100%;
+      cursor: pointer;
+      &.active,
+      &:hover {
+        background-image: none;
+        background-color: $cyan;
+        border:1px solid darken($cyan, 7%);
+      }
+    }
+  }
+
+  // ---------------------------------------------------------------------------
+
+  #but_payer {
+    @include buttonLog($magenta, 100%);
+    padding-top: .5rem;
+    &.active,
+    &:hover {
+      background-image: none;
+      background-color: $cyan;
+      border:1px solid darken($cyan, 7%);
+    }
+  }
+  #but_payer.deactive {
+    @include buttonLog($magenta, 24%);
+  }
+  #but_retour {
+    @include buttonLog($text, 24%);
+  }
+
+  #but_annulercommande {
+    @include buttonLog($text, 100%);
+    padding-top: .5rem;
+  }
+  #but_annulercommande.deactive{
+    @include buttonLog($text, 24%);
+  }
+
+  #but_imprimer {
+    @include buttonLog($jaune, 24%);
+  }
+  #but_imprimerfacture {
+    @include buttonLog($jaune, 24%);
+  }
+  #but_comment {
+    @include buttonLog($cyan, 24%);
+  }
+  #but_suivre {
+    @include buttonLog($cyan, 24%);
+  }
+  #but_rating {
+    @include buttonLog($cyan, 24%);
+  }
+  #suivant_reg {
+    @include buttonLog($cyan, 150px);
+    margin:20px auto 0;
+    padding:.5rem;
+    bottom: 0;
+    right: auto;
+    left: auto;
+    float: right;
+    text-indent: 0;
+  }
+  #but_conf_pay {
+    @include buttonLog($color_29, 150px);
+    margin:0 auto;
+    padding:.5rem;
+    bottom: 0;
+    right: auto;
+    left: auto;
+    float: right;
+
+  }
+  a#but_imprimerbon {
+    @include buttonLog($jaune, auto);
+    margin:0 auto;
+    margin-left: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+
   }
 
   .but_ratingsubmit {
@@ -5764,19 +6067,7 @@
     margin: 4px auto;
   }
 
-  a#but_imprimerbon {
-    position: absolute;
-    left: 240px;
-    top: 10px;
-    margin-left: 14px;
-    width: 213px;
-    height: 19px;
-    background: url('../images/but_imprimerbon.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: inline-block;
-  }
+
   a.but_espace {
     width: 106px;
     height: 19px;
@@ -5790,30 +6081,6 @@
     margin-right: 14px;
   }
 
-  #but_conf_pay {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 102px;
-    height: 19px;
-    background: url('../images/but_conf_pay.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-    cursor: pointer;
-  }
-
-  #but_imprimer {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 138px;
-    height: 19px;
-    background: url('../images/but_imprimer.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
 
   #but_imprimer_form {
     margin-left: 14px;
@@ -5863,30 +6130,6 @@
     float: left;
   }
 
-  #but_rating {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 177px;
-    height: 19px;
-    background: url('../images/but_rating.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_retour {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 142px;
-    height: 19px;
-    background: url('../images/but_retour.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
   #but_retour2 {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -5923,17 +6166,7 @@
     }
   }
 
-  #but_annuler {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 136px;
-    height: 19px;
-    background: url('../images/but_annuler.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
+
 
   #but_modifier {
     margin-left: 14px;
@@ -5995,20 +6228,6 @@
     margin: 0 10px 0 20px;
   }
 
-  #suivant_reg {
-    position: absolute;
-    left: 45px;
-    bottom: 15px;
-    width: 75px;
-    height: 19px;
-    background: url('../images/but_suivant.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: inline-block;
-    cursor: pointer;
-  }
-
   .but_telecharger {
     margin-left: 4px;
     width: 106px;
@@ -6024,57 +6243,6 @@
     margin-right: 30px;
   }
 
-  #but_annulercommande {
-    width: 169px;
-    height: 19px;
-    margin-left: 14px;
-    margin-bottom: 10px;
-    background: url('../images/but_annulercommande.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
-
-  #but_comment {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 162px;
-    height: 19px;
-    background: url('../images/but_comment.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
-
-  #but_suivre {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 122px;
-    height: 19px;
-    background: url('../images/but_suivre.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
-
-  #but_imprimerfacture {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 153px;
-    height: 19px;
-    background: url('../images/but_imprimerfacture.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
 
   .but_voiremaquette {
     margin-left: 14px;
@@ -6089,18 +6257,33 @@
     float: left;
   }
 
-  #but_payer {
-    margin-left: 14px;
-    width: 150px;
-    height: 19px;
-    background: url('../images/but_payer.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    float: left;
-  }
 
+
+
+  .stat0 {
+    @include buttonStatusBase($color_29);
+  }
+  .stat1 {
+    @include buttonStatusBase($color_30);
+  }
+  .stat2 {
+    @include buttonStatusBase($color_12);
+  }
+  .stat3 {
+    @include buttonStatusBase($color_31);
+  }
+  .stat4 {
+    @include buttonStatusBase($color_32);
+  }
+  .stat5 {
+    @include buttonStatusBase($color_8);
+  }
+  .stat6 {
+    @include buttonStatusBase($text);
+  }
+  .stat7 {
+    @include buttonStatusBase($color_2);
+  }
 
   // desactivation des éléments du template desktop ----------------------------
   //----------------------------------------------------------------------------

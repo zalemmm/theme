@@ -5,3 +5,61 @@
     clear: both;
   }
 }
+
+// BOUTONS ---------------------------------------------------------------------
+
+
+
+@mixin buttonStatusBase($bgcolor){
+  width: 100%;
+  background: $bgcolor;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  color: $white;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-size: .7rem;
+  &.active,
+  &:hover {
+    background-image: none;
+    background-color: $magenta;
+  }
+}
+
+@mixin buttonLog($bgcolor: $cyan, $largeur: 24px) {
+  position: relative;
+  background-image: none;
+  background-repeat: no-repeat;
+  vertical-align: top;
+  width: $largeur;
+  height: 40px;
+  margin: 0 0 10px 0;
+  padding: .7rem .5rem .5rem;
+  border-radius: 3px;
+  background: $bgcolor;
+  border:1px solid darken($bgcolor, 7%);
+  color: #fff;
+  font-size: .8rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  display: inline-block;
+  float: none;
+  text-indent: 0;
+  &.active,
+  &:hover {
+    background-image: none;
+    background-color: $magenta;
+    border:1px solid darken($magenta, 7%);
+  }
+  &.deactive {
+    cursor: default !important;
+    &.active,
+    &:hover {
+      background: $bgcolor;
+      border:1px solid darken($bgcolor, 7%);
+    }
+  }
+}

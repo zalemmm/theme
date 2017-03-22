@@ -3813,10 +3813,6 @@ SPAN {
   cursor: pointer;
 }
 
-stat2 {
-  font-size: 11px;
-}
-
 #fbcart_address {
   position: relative;
   float: left;
@@ -6266,4 +6262,331 @@ hr.hr-separator {
 .toggle-block {
   font-family: $font-keep;
   font-size: .8rem;
+}
+
+
+// -----------------------------------------------------------------------------
+//          FILES UPLOAD RECUPERE DE FBSHOP/JS/JUPLOADER/CSS
+// -----------------------------------------------------------------------------
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  margin-right: 5px;
+}
+
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transform: translate(-300px, 0) scale(4);
+  font-size: 23px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.fileupload-buttonbar .ui-button,
+.fileupload-buttonbar .toggle {
+  float: left;
+  margin-bottom: 5px;
+  margin-left: 14px;
+}
+
+.files .progress {
+  width: 200px;
+}
+
+.files .progress,
+.fileupload-buttonbar .progress {
+  height: 14px;
+}
+
+.files .ui-progressbar-value,
+.fileupload-buttonbar .ui-progressbar-value {
+  background: url(../img/progressbar2.gif);
+}
+
+.fileupload-buttonbar .fade,
+.files .fade {
+  display: none;
+}
+
+.fileupload-loading {
+  position: absolute;
+  left: 50%;
+  width: 128px;
+  height: 128px;
+  background: url(../img/loading.gif) center no-repeat;
+  display: none;
+}
+
+.fileupload-processing .fileupload-loading {
+  display: block;
+}
+
+.fileupload-progress {
+  position: relative;
+  display: block;
+  margin: 10px 0 0 0;
+  display: none;
+  padding: 0 14px 0 14px;
+  height: 20px;
+  float: left;
+  width: 600px;
+}
+
+.ui-progressbar {
+  text-align: left;
+  overflow: hidden;
+  background: #fff;
+  width: 100px;
+  height: 10px;
+  float: left;
+  display: block;
+  margin: 0 20px 0 0;
+}
+
+.ui-progressbar .ui-progressbar-value {
+  margin: -1px;
+  height: 100%;
+}
+
+.ui-progressbar .ui-progressbar-overlay {
+  background: url("images/animated-overlay.gif");
+  height: 100%;
+  filter: alpha(opacity=25);
+  opacity: 0.25;
+}
+
+.ui-progressbar-indeterminate .ui-progressbar-value {
+  background-image: none;
+}
+
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-widget {
+  font-family: Verdana,
+  Arial,
+  sans-serif/*{ffDefault}*/
+  ;
+  font-size: 1.1em/*{fsDefault}*/
+  ;
+}
+
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+
+
+/* Fix for IE 6:*/
+
+* html .fileinput-button {
+  margin-right: 1px;
+}
+
+* html .fileinput-button .ui-button-text {
+  line-height: 24px;
+}
+
+* html .fileupload-buttonbar .ui-button {
+  margin-left: 3px;
+}
+
+
+/* Fix for IE 7:*/
+
+*+html .fileinput-button {
+  margin-right: 4px;
+}
+
+*+html .fileinput-button .ui-button-text {
+  line-height: 24px;
+}
+
+*+html .fileupload-buttonbar .ui-button {
+  margin-left: 3px;
+}
+
+@media (max-width:767px) {
+  .fileupload-buttonbar .toggle,
+  .files .toggle,
+  .files .btn span {
+    display: none;
+  }
+  .files .preview * {
+    width: 40px;
+  }
+  .files .name * {
+    width: 80px;
+    display: inline-block;
+    word-wrap: break-word;
+  }
+  .files .progress {
+    width: 20px;
+  }
+}
+
+
+/* Fix for Webkit (Safari, Chrome) */
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .fileinput-button {
+    margin-top: 2px;
+  }
+}
+
+.fuselect {
+  margin-left: 14px;
+  width: 150px;
+  height: 19px;
+  background: url(../img/but_para.png) no-repeat;
+  text-indent: -999em;
+  overflow: hidden;
+  border: none;
+  display: inline-block;
+  float: left;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.fustart {
+  margin-left: 14px;
+  width: 157px;
+  height: 19px;
+  background: url(../img/but_tele.png) no-repeat;
+  text-indent: -999em;
+  overflow: hidden;
+  border: none;
+  display: inline-block;
+  float: left;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.fucancel {
+  margin-left: 14px;
+  width: 83px;
+  height: 19px;
+  background: url(../img/but_ann.png) no-repeat;
+  text-indent: -999em;
+  overflow: hidden;
+  border: none;
+  display: inline-block;
+  float: left;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.fudelete {
+  margin-left: 14px;
+  width: 78px;
+  height: 19px;
+  background: url(../img/but_eff.png) no-repeat;
+  text-indent: -999em;
+  overflow: hidden;
+  border: none;
+  display: inline-block;
+  float: left;
+  margin-top: 0px;
+  cursor: pointer;
+}
+
+.fileupload-buttonbar {
+  position: relative;
+  float: left;
+  display: block;
+  width: 100%;
+  margin: 0;
+  background: #E1E8F2;
+  line-height: 19px;
+  padding: 15px 0 15px 0;
+}
+
+#fbcart_fileupload3 {
+  position: relative;
+  float: left;
+  display: inline;
+  width: 704px;
+  margin-top: 0px;
+  border-top-width: 1px;
+  border-top-style: dotted;
+  border-top-color: #999;
+}
+
+#fbcart_fileupload3 th {
+  text-transform: uppercase;
+  background: #e1e8f2;
+  padding: 8px 6px 6px 8px;
+  vertical-align: top;
+  color: #008EBB;
+}
+
+#fbcart_fileupload3 .lefttd {
+  background: #e1e8f2;
+  text-align: left;
+  padding: 6px 0 3px 14px;
+  width: 30px;
+}
+
+#fbcart_fileupload3 .tabname {
+  width: 250px;
+  text-align: left;
+  padding-left: 0 !important;
+  background: #e1e8f2;
+}
+
+#fbcart_fileupload3 .tabsize {
+  width: 70px;
+}
+
+#fbcart_fileupload3 .tabprog {
+  width: 170px;
+}
+
+#fbcart_fileupload3 .tabstart {
+  width: 106px;
+}
+
+#fbcart_fileupload3 .tabdel {
+  width: 30px;
+}
+
+#fbcart_fileupload3 .tabwykrzyknik {
+  background: #e1e8f2 url(../img/wykrzyknik2.png) center 7px no-repeat;
+}
+
+#fbcart_fileupload3 td.lefttd {
+  width: 30px;
+  background: #e1e8f2;
+}
+
+#fbcart_fileupload3 .fustart {
+  margin-left: 0 !important;
+  margin-top: -1px !important;
+}
+
+#fbcart_fileupload3 td.lefttd_none {
+  width: 30px;
+  background: #e1e8f2 url(../img/wykrzyknik.png) center 7px no-repeat;
+}
+
+#fbcart_fileupload3 td {
+  background: #e1e8f2 url(../img/bord2.png) top left no-repeat;
+  text-align: center;
+  height: 19px;
+  padding: 8px 8px 6px 8px;
+  vertical-align: top;
+}
+
+#fbcart_fileupload span.itemname {
+  text-transform: uppercase;
 }
