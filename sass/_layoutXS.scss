@@ -91,11 +91,11 @@
 
   #derniers {
     top: auto;
-    width: 80%;
+    width: 100%;
   }
 
   #ratinghome {
-    width: 80%;
+    width: 100%;
   }
 
 
@@ -126,5 +126,44 @@
       max-width: 50px;
     }
   }
+
+
+  #fbcart_votre{
+    table, tbody {
+      display: block;
+    }
+    .kontener{
+      text-align: center;
+      font-size: .8rem;
+      font-weight: bold;
+      background: $cyan-bloc;
+      color: #fff;
+    }
+    td.lefttd {
+      display: none;
+    }
+    tr {
+      width: 100%;
+      display: table;
+      &:first-of-type{
+        display: none;
+      }
+    }
+    th {
+       font-size: 0;
+       border: none;
+       visibility: hidden;
+    }
+    td, th {
+      display: table-row;
+
+    }
+    td:before {
+       content: attr(data-headers);
+       display: table-cell;
+       width: 0;
+    }
+  }
+
 
 }

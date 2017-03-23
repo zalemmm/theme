@@ -8,8 +8,6 @@
 
 // BOUTONS ---------------------------------------------------------------------
 
-
-
 @mixin buttonStatusBase($bgcolor){
   width: 100%;
   background: $bgcolor;
@@ -22,6 +20,7 @@
   border: none;
   cursor: pointer;
   font-size: .7rem;
+  vertical-align: middle;
   &.active,
   &:hover {
     background-image: none;
@@ -33,7 +32,7 @@
   position: relative;
   background-image: none;
   background-repeat: no-repeat;
-  vertical-align: top;
+  vertical-align: middle;
   width: $largeur;
   height: 40px;
   margin: 0 0 10px 0;

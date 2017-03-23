@@ -44,7 +44,7 @@
         </span><?php echo $strmoyenne2 . $strmoyenne3 . $strmoyenne4; ?>
 
 
-        <span class="star-note"><img src="<?php get_bloginfo("url"); ?>http://www.france-banderole.com/wp-content/themes/fb/images/star-4_7.jpg" /></span><br />
+        <span class="star-note"><img src="<?php get_bloginfo("url"); ?>http://www.france-banderole.com/wp-content/themes/fb/images/star-4_7.png" /></span><br />
 
       </div>
 

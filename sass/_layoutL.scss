@@ -59,7 +59,7 @@
   }
 
   #menu_top{
-    display: none;
+
   }
   // header --------------------------------------------------------------------
 
@@ -121,8 +121,10 @@
     width: 100%;
     margin: 0 auto;
     height: auto;
-    padding: 0;
+    padding: 2rem;
     background: none;
+    background: $bloc-base;
+    border: 1px solid darken($bloc-base, 5%);
   }
 
   #footer3 {
@@ -497,13 +499,13 @@
         display: block;
         width: 99%;
         height: 7px;
-        margin-left: 3px;
+        margin: 0;
       }
     }
     .site-subtitle{
       color: $text;
-      text-align: right;
-      padding: 0 5px;
+      text-align: left;
+      padding: 0 5px 0 0;
       font-size: 1.2rem;
       line-height: 1.4rem;
     }
@@ -625,7 +627,7 @@
       text-transform: uppercase;
       font-weight: bold;
       font-size: 22px;
-      background-color: darken($jaune, 10%);
+      background-color: darken($jaune, 5%);
       li {
         position: relative;
         float: none;
@@ -646,6 +648,9 @@
             color: $white;
             text-align: center;
             text-decoration: none;
+            width: 100%;
+            height: 40px;
+            border-left: 1px solid $jaune;
           }
 
           &#active,
@@ -2126,7 +2131,7 @@
     left: auto;
     right: auto;
     top: auto;
-    width: 50%;
+    width: 40%;
     height: auto;
     text-transform: uppercase;
     margin: 0 auto;
@@ -2152,7 +2157,7 @@
     right: auto;
     margin:20px auto 0;
     top: 0;
-    width: 50%;
+    width: 40%;
     height: auto;
   }
 
@@ -2373,32 +2378,6 @@
       float: left;
       display: inline-block;
       margin-top: 8px;
-    }
-
-
-
-    &.comm_title {
-      float: left;
-      display: inline;
-      color: $color_12;
-      text-transform: uppercase;
-      font-size: 10px;
-      margin-bottom: 14px;
-    }
-
-    &.comm_title2 {
-      color: $color_12;
-      text-transform: uppercase;
-      font-size: 10px;
-      margin-bottom: 14px;
-    }
-
-    &.comm_title3 {
-      color: $color_12;
-      text-transform: uppercase;
-      font-size: 10px;
-      margin-bottom: 14px;
-      margin-left: 15px;
     }
 
     &.payement_underline {
@@ -2813,29 +2792,6 @@
     color: $color_15;
   }
 
-  // module upload
-
-  SPAN {
-    &#uploadfile_completedMessage {
-      float: left;
-      display: inline;
-      margin-top: 2px;
-    }
-
-    &#uploadfile_uploading {
-      float: left;
-      display: inline;
-      margin-left: 10px;
-      margin-top: 2px;
-    }
-
-    &.asyncUploader OBJECT {
-      position: relative;
-      top: 2px;
-      left: 10px;
-    }
-  }
-
   // alerte panier
 
   .box_info {
@@ -2945,41 +2901,75 @@
     }
   }
 
+
+  // Page écrire un commentaire ------------------------------------------------
+
   #comments {
-    width: auto;
+    width: 100%;
     position: relative;
+  }
+
+
+  span.comm_title {
+    z-index: 100;
+    width: 100%;
+    padding: 7px 0 4px;
+    height: 40px;
+    line-height: 1rem;
+    background: $color_26;
+    color: $white;
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+  }
+  span.comm_title2,
+  span.comm_title3 {
+    padding: 0 2px;
+    width: 100%;
+    height: auto;
+    line-height: erem;
+    background: none;
+    color: $cyan;
+    margin: 0;
+    font-size: .9rem;
+    font-weight: bold;
+    text-align: center;
   }
 
   #comment_left {
     position: relative;
-    width: 315px;
-    padding: 16px 16px 13px 20px;
+    width: 100%;
+    padding: 2rem;
     background: $bloc-base;
-    float: left;
-    display: inline;
+    border: 1px solid darken($bloc-base, 5%);
+    float: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
     select {
       float: right;
-      display: inline;
-      width: 232px;
+      display: block;
+      width: 49%;
       height: 15px;
       line-height: 11px;
-      border: 1px solid $color_8;
+      border: 1px solid $color_7;
       font-size: 9px;
       background: $white;
     }
 
     textarea {
       float: left;
-      display: inline;
-      margin: 10px 0;
-      height: 125px;
-      width: auto;
-      border: 1px solid $color_8;
+      display: block;
+      margin: 0;
+      height: 150px;
+      width: 100%;
+      border: 1px solid $color_7;
       font-size: 9px;
       background: $white;
       font-family: $font-input;
-      font-size: 11px;
+      padding: 1rem;
+      font-size: .8rem;
     }
   }
 
@@ -2987,28 +2977,23 @@
     position: relative;
     float: right;
     display: block;
-    width: 351px;
+    width: 100%;
+
   }
 
-  .comment_right {
-    position: relative;
-    float: right;
-    display: inline;
-    width: 315px;
-    padding: 16px 16px 13px 20px;
-    background: $color_23;
-    border-bottom: 5px solid $white;
-  }
-
+  .comment_right,
   .comment_right2 {
     position: relative;
     float: right;
     display: inline;
-    width: 315px;
-    padding: 16px 16px 13px 20px;
-    background: $bloc-base;
-    border-bottom: 5px solid $white;
+    width: 100%;
+    padding: 2rem;
+    background: $color_23;
+    border-left: 1px solid darken($bloc-base, 5%);
+    border-bottom: 1px solid darken($bloc-base, 5%);
+    border-right: 1px solid darken($bloc-base, 5%);
   }
+
 
 
   // ---------------------------------------------------------------------------
@@ -3148,7 +3133,7 @@
       width: 331px;
       border-bottom: 1px solid $text;
       text-align: left;
-      font-size: 9px;
+      font-size: .75rem;
     }
 
     td {
@@ -3166,7 +3151,7 @@
       border-bottom: 1px solid $text;
       border-top: 1px solid $text;
       text-align: center;
-      font-size: 9px;
+      font-size: .75rem;
       text-transform: uppercase;
       padding-top: 1px;
 
@@ -3188,13 +3173,13 @@
 
     span {
       &.name {
-        font-size: 12px;
+        font-size: .75rem;
         text-transform: uppercase;
         font-weight: bold;
       }
 
       &.therest {
-        font-size: 9px;
+        font-size: .75rem;
         line-height: 13px;
       }
     }
@@ -3210,7 +3195,7 @@
     td {
       width: 50%;
       text-align: right;
-      font-size: 12px;
+      font-size: .75rem;
       border-bottom: 1px solid $text;
       padding: 2px 1px 2px 0;
 
@@ -3222,7 +3207,7 @@
 
       &.lefttotal {
         text-align: left;
-        font-size: 12px;
+        font-size: .75rem;
         padding: 15px 0;
         border-bottom: 1px solid $text;
         font-weight: bold;
@@ -3230,7 +3215,7 @@
 
       &.righttotal {
         text-align: right;
-        font-size: 12px;
+        font-size: .75rem;
         padding: 15px 1px 15px 0;
         border-bottom: 1px solid $text;
         font-weight: bold;
@@ -3262,39 +3247,6 @@
     }
   }
 
-  #fbcart_buttons,
-  #fbcart_buttons3,
-  #fbcart_buttons2 {
-    position: relative;
-    float: none;
-    margin: 25px auto;
-    background: none;
-    padding: 0;
-    text-align: center;
-    width: 100%;
-    padding: .8rem .8rem .2rem .8rem;
-    height: auto;
-    line-height: 1rem;
-    background: $bloc-base;
-    font-size: .9rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border: 1px solid darken($bloc-base, 5%);
-  }
-  #fbcart_buttons3 {
-    display: inline-block;
-  }
-
-
-
-  #validerdevis {
-    width: 144px;
-    height: 19px;
-    float: left;
-    display: inline;
-    margin: 0;
-  }
 
   #contact_advert {
     position: relative;
@@ -3347,6 +3299,29 @@
 
   // UPLOAD --------------------------------------------------------------------
 
+  // module upload
+
+  SPAN {
+    &#uploadfile_completedMessage {
+      float: left;
+      display: inline;
+      margin-top: 2px;
+    }
+
+    &#uploadfile_uploading {
+      float: left;
+      display: inline;
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+
+    &.asyncUploader OBJECT {
+      position: relative;
+      top: 2px;
+      left: 10px;
+    }
+  }
+
   .fileinput-button {
     position: relative;
     overflow: hidden;
@@ -3355,7 +3330,7 @@
   }
 
   .fileinput-button input {
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     margin: 0;
@@ -3466,118 +3441,8 @@
   }
 
 
-  /* Fix for IE 6:*/
 
-  * html .fileinput-button {
-    margin-right: 1px;
-  }
-
-  * html .fileinput-button .ui-button-text {
-    line-height: 24px;
-  }
-
-  * html .fileupload-buttonbar .ui-button {
-    margin-left: 3px;
-  }
-
-
-  /* Fix for IE 7:*/
-
-  *+html .fileinput-button {
-    margin-right: 4px;
-  }
-
-  *+html .fileinput-button .ui-button-text {
-    line-height: 24px;
-  }
-
-  *+html .fileupload-buttonbar .ui-button {
-    margin-left: 3px;
-  }
-
-  @media (max-width:767px) {
-    .fileupload-buttonbar .toggle,
-    .files .toggle,
-    .files .btn span {
-      display: none;
-    }
-    .files .preview * {
-      width: 40px;
-    }
-    .files .name * {
-      width: 80px;
-      display: inline-block;
-      word-wrap: break-word;
-    }
-    .files .progress {
-      width: 20px;
-    }
-  }
-
-
-  /* Fix for Webkit (Safari, Chrome) */
-
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
-    .fileinput-button {
-      margin-top: 2px;
-    }
-  }
-
-  .fuselect {
-    margin-left: 14px;
-    width: 150px;
-    height: 19px;
-    background: url(../img/but_para.png) no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: inline-block;
-    float: left;
-    margin-top: 0px;
-    cursor: pointer;
-  }
-
-  .fustart {
-    margin-left: 14px;
-    width: 157px;
-    height: 19px;
-    background: url(../img/but_tele.png) no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: inline-block;
-    float: left;
-    margin-top: 0px;
-    cursor: pointer;
-  }
-
-  .fucancel {
-    margin-left: 14px;
-    width: 83px;
-    height: 19px;
-    background: url(../img/but_ann.png) no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: inline-block;
-    float: left;
-    margin-top: 0px;
-    cursor: pointer;
-  }
-
-  .fudelete {
-    margin-left: 14px;
-    width: 78px;
-    height: 19px;
-    background: url(../img/but_eff.png) no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: inline-block;
-    float: left;
-    margin-top: 0px;
-    cursor: pointer;
-  }
+  // tableau file upload -------------------------------------------------------
 
   .fileupload-buttonbar {
     position: relative;
@@ -3585,26 +3450,25 @@
     display: block;
     width: 100%;
     margin: 0;
-    background: $bloc-base;
+    background: darken($bloc-base, 2%);
     line-height: 19px;
-    padding: 15px 0 15px 0;
+    padding: 1rem;
   }
 
   #fbcart_fileupload3 {
     position: relative;
     float: left;
-    display: inline;
-    width: 704px;
+    display: block;
+    width: 100%;
     margin-top: 0px;
-    border-top-width: 1px;
-    border-top-style: dotted;
-    border-top-color: #999;
+    border-top: 1px solid darken($bloc-base, 5%);
+    margin-bottom: 20px;
   }
 
   #fbcart_fileupload3 th {
     text-transform: uppercase;
     background: $bloc-base;
-    padding: 8px 6px 6px 8px;
+    padding: .7rem;
     vertical-align: top;
     color: #008EBB;
   }
@@ -3612,31 +3476,31 @@
   #fbcart_fileupload3 .lefttd {
     background: $bloc-base;
     text-align: left;
-    padding: 6px 0 3px 14px;
-    width: 30px;
+    padding: .7rem;
+    width: 10%;
   }
 
   #fbcart_fileupload3 .tabname {
-    width: 250px;
+    width: 20%;
     text-align: left;
     padding-left: 0 !important;
     background: $bloc-base;
   }
 
   #fbcart_fileupload3 .tabsize {
-    width: 70px;
+    width: 10%;
   }
 
   #fbcart_fileupload3 .tabprog {
-    width: 170px;
+    width: 25%;
   }
 
   #fbcart_fileupload3 .tabstart {
-    width: 106px;
+    width: 25%;
   }
 
   #fbcart_fileupload3 .tabdel {
-    width: 30px;
+    width: 10%;
   }
 
   #fbcart_fileupload3 .tabwykrzyknik {
@@ -3670,10 +3534,12 @@
     text-transform: uppercase;
   }
 
-
+  .tdstart .fustart {
+    width: 100%;
+  }
 
   // ---------------------------------------------------------------------------
-  //                           TABLEAU PANIER
+  //                           TABLEAU COMMANDES
   // ---------------------------------------------------------------------------
 
   tbody {
@@ -3685,51 +3551,55 @@
     float: none;
     display: table;
     table-layout: auto;
+    border-top: 1px solid darken($bloc-base, 5%);
+    border-left: 1px solid darken($bloc-base, 5%);
+    border-right: 1px solid darken($bloc-base, 5%);
 
     th {
-      background: $bloc-base;
+      background: darken($bloc-base, 5%);
       text-align: center;
-      padding: 1px 0;
-      border-bottom: 4px solid $white;
+      padding: .2rem;
+      border-bottom: 1px solid darken($bloc-base, 5%);
       text-transform: uppercase;
       color: $color_12;
-      width: 30%;
+      width: 15%;
       line-height: 1rem;
-      font-size: .7rem;
+      font-size: .8rem;
 
       &.leftth {
-        width: 100%;
-        padding: 6px 0 4px 20px;
+        width: 20%;
+        padding: .2rem;
         text-align: left;
       }
 
       &.tddesc {
-        width: 30%;
+        width: 20%;
       }
     }
 
     td {
-      background: $bloc-base url('../images/bord2.png') top left no-repeat;
+      background: darken($bloc-base, 1%) url('../images/bord2.png') top left no-repeat;
       line-height: 1rem;
       text-align: center;
-      padding: 10px 2px 21px;
-      vertical-align: top;
-      border-bottom: 4px solid $white;
-      width: 30%;
+      padding: .2rem;
+      vertical-align: middle;
+      border-bottom: 1px solid darken($bloc-base, 5%);
+      width: 15%;
+      font-size: .9rem;
 
       &.tddesc {
         text-align: left;
-        padding-left: 10px;
-        width: 30%;
+        padding: .2rem;
+        width: 20%;
       }
 
       &.lefttd {
-        background: $bloc-base;
+        background: darken($bloc-base, 1%) ;
         text-align: left;
         font-size: .8rem;
         line-height: .8rem;
         text-transform: uppercase;
-        width: 30%;
+        width: 20%;
       }
     }
 
@@ -3740,95 +3610,53 @@
     }
   }
 
-  // PANIER
 
-  #fbcart_address {
-    position: relative;
-    float: left;
-    display: inline;
-    background: $bloc-base;
-    width: 447px;
-    height: 119px;
-    padding-top: 10px;
 
-    th {
-      padding: 0 20px;
-      text-transform: uppercase;
-      color: $color_12;
-      width: 203px;
-      text-align: left;
-
-      &.leftth {
-        border-right: 1px solid $white;
-      }
-    }
-
-    td {
-      padding: 2px 20px;
-      font-size: 10px;
-      line-height: 12px;
-      width: 203px;
-      height: 90px;
-      vertical-align: top;
-
-      &.lefttd {
-        border-right: 1px solid $white;
-      }
-    }
-
-    a {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 118px;
-      height: 19px;
-      background: url('../images/but_address.png');
-      display: block;
-    }
-  }
+  // tableau panier ------------------------------------------------------------
 
   #fbcart_cart {
     position: relative;
     float: none;
     display: inline;
+    @include container(100%);
     width: 100%;
 
     span {
       &.name {
-        font-size: 12px;
+        font-size: .8rem;
         font-weight: bold;
         text-transform: uppercase;
         padding-bottom: 3px;
       }
 
       &.therest {
-        font-size: 10px;
+        font-size: .7rem;
       }
     }
 
     th {
-      background: $bloc-base;
+      background: darken($bloc-base,2%);
       text-align: center;
       padding: 3px 20px;
-      border-bottom: 4px solid $white;
+      border-bottom: 1px solid darken($bloc-base,5%);
       text-transform: uppercase;
       color: $color_12;
-      width: 30px;
+      width: 10%;
 
       &.leftth {
         text-align: left;
-        width: 250px;
+        width: 35%;
       }
 
       &.nobackground {
-        background: $white;
-        width: 30px;
+        background: $bloc-base;
+        width: 10%;
         padding: 0;
       }
 
       &.leftth2 {
         text-align: left;
-        width: 435px;
+        width: 35%;
       }
     }
 
@@ -3837,7 +3665,9 @@
       text-align: center;
       padding: 13px 2px 21px;
       vertical-align: top;
-      border-bottom: 4px solid $white;
+      border-bottom: 1px solid darken($bloc-base, 5%);
+
+
 
       &.lefttd {
         background: $bloc-base;
@@ -3871,64 +3701,139 @@
     display: block;
   }
 
+
+  // tableau prix total --------------------------------------------------------
+
+  #fbcart_check {
+    float: right;
+    margin-right: 0;
+    right: 0;
+    display: block;
+    margin-right: 30px;
+    width: 45%;
+
+    td {
+      &.toleft {
+        background: $bloc-base;
+        text-align: left;
+        text-transform: uppercase;
+        color: $color_12;
+        padding: .7rem;
+        width: 90%;
+        height: 25px;
+        border-left: 1px solid darken($bloc-base,5%);
+        border-bottom: 1px solid darken($bloc-base,5%);
+      }
+
+      &.toright {
+        background: $bloc-base;
+        text-align: right;
+        padding: .7remm;
+        width: 30%;
+        height: 20px;
+        border-right: 1px solid darken($bloc-base,5%);
+        border-bottom: 1px solid darken($bloc-base,5%);
+      }
+    }
+  }
+
+  // tableau adresses livraison & facturation
+
+  #fbcart_address {
+    position: relative;
+    float: left;
+    display: block;
+    background: $bloc-base;
+    width: auto;
+    height: auto;
+    min-height: 200px;
+    padding-top: 0;
+
+    th {
+      padding: .7rem;
+      text-transform: uppercase;
+      color: $color_12;
+      width: 50%;
+      text-align: left;
+
+      &.leftth {
+        border-right: 1px solid darken($bloc-base, 5%);
+      }
+    }
+
+    td {
+      padding: .7rem;
+      font-size: 10px;
+      line-height: 12px;
+      width: 50%;
+      height: 90px;
+      vertical-align: top;
+
+      &.lefttd {
+        border-right: 1px solid darken($bloc-base, 5%);
+      }
+    }
+
+    a {
+      @include buttonLog($text,150px);
+      text-align: center;
+      float: right;
+      margin-bottom: 0;
+    }
+  }
+
+  // tableau derniers commentaires----------------------------------------------
+
   #fbcart_lastcomment {
     position: relative;
     float: left;
-    display: inline;
-    width: auto;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    margin-bottom: 15px;
 
     th {
-      background: $bloc-base;
+      background:  darken($bloc-base, 2%);
       text-align: left;
-      padding: 3px 0;
-      border-bottom: 4px solid $white;
+      padding: 1rem;
+      border-bottom: 1px solid darken($bloc-base, 5%);
       text-transform: uppercase;
       color: $color_12;
-      width: 81px;
+      width: 15%;
 
       &.leftth {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 20px;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 57px;
+        background: darken($bloc-base, 2%);
+        padding: 1rem;
+        width: 15%;
+        border-bottom: 1px solid darken($bloc-base, 5%);
       }
 
       &.leftth2 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 20px 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 67px;
+        background: darken($bloc-base, 2%);
+        padding: 1rem;
+        width: 20%;
+        border-bottom: 1px solid darken($bloc-base, 5%);
       }
 
       &.leftth3 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 411px;
+        background: darken($bloc-base, 2%);
+        padding: 1rem;
+        width: 50%;
+        border-bottom: 1px solid darken($bloc-base, 5%);
       }
 
       &.leftth4 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 31px;
+        background: darken($bloc-base, 2%);
+        padding: 1rem;
+        width: 10%;
+        border-bottom: 1px solid darken($bloc-base, 5%);
       }
 
       &.nobackground {
-        background: $white;
-        width: 30px;
+        background: $bloc-base;
+        width: 10%;
+
       }
     }
 
@@ -3936,28 +3841,29 @@
       background: $bloc-base url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
-      padding: 10px 2px 6px 8px;
+      padding: 1rem;
       vertical-align: top;
-      border-bottom: 4px solid $white;
+      border-bottom: 0;
 
       &.lefttd {
         background: $bloc-base;
         text-align: left;
         height: 19px;
-        padding: 10px 2px 20px 8px;
+        padding: 1rem;
         vertical-align: top;
-        border-bottom: 4px solid $white;
+        border-bottom: 0;
       }
 
       &.lefttd2 {
         background: $bloc-base url('../images/bord2.png') top left no-repeat;
         text-align: left;
         height: 19px;
-        padding: 10px 2px 20px 8px;
+        padding: 1rem;
         vertical-align: top;
         border-bottom: 4px solid $white;
         color: $color_26;
         font-weight: bold;
+        border-bottom: 0;
       }
 
       &.lefttd3 {
@@ -3968,10 +3874,11 @@
         background: $bloc-base url('../images/bord2.png') top left no-repeat;
         text-align: left;
         height: 19px;
-        padding: 10px 2px 20px 8px;
+        padding: 1rem;
         vertical-align: top;
         border-bottom: 4px solid $white;
         font-weight: bold;
+        border-bottom: 0;
       }
 
       &.lefttd3a {}
@@ -4467,6 +4374,8 @@
     display: block;
   }
 
+  // bloc votre compte ---------------------------------------------------------
+
   #votre {
     position: relative;
     float: left;
@@ -4521,25 +4430,29 @@
 
   .votre_tab_active,
   .votre_tab_inactive {
-    width: 49%;
+    width: 50%;
     padding: 12px .5rem;
-    height: 40px;
+    height: auto;
     line-height: 1rem;
     background: $color_12;
     font-size: .9rem;
     float: left;
     display: inline;
-    margin: 25px auto 5px;
+    margin: 25px auto 0;
     text-decoration: none;
     text-align: center;
     color: $bloc-base;
     &:hover {
       cursor: pointer;
+      background: $color_12;
+      color: $bloc-base;
+      border-left: 1px solid $bloc-base;
+      border-right: 1px solid $bloc-base;
     }
   }
 
   .votre_tab_active {
-    margin-right: 2%;
+    margin-right: 0;
   }
   .votre_tab_inactive {
     background: $bloc-base;
@@ -4602,10 +4515,14 @@
     width: auto;
   }
 
+
+
+  // file uplaod natif ---------------------------------------------------------
+
   #fileupload {
     position: relative;
-    float: left;
-    display: inline;
+    float: none;
+    display: block;
     width: 100%;
     margin: 20px 0 30px;
   }
@@ -4645,7 +4562,7 @@
       }
 
       &.nobackground {
-        background: $white;
+        background: $bloc-base;
         width: 30px;
       }
     }
@@ -4723,7 +4640,7 @@
       }
 
       &.nobackground {
-        background: $white;
+        background: $bloc-base;
         width: 30px;
       }
     }
@@ -4794,35 +4711,6 @@
 
 
 
-  #fbcart_check {
-    float: right;
-    display: inline;
-    margin-right: 30px;
-
-    td {
-      &.toleft {
-        background: $bloc-base;
-        text-align: left;
-        text-transform: uppercase;
-        color: $color_12;
-        padding-left: 5px;
-        width: 125px;
-        height: 18px;
-        border-left: 4px solid $white;
-        border-bottom: 4px solid $white;
-      }
-
-      &.toright {
-        background: $bloc-base;
-        text-align: right;
-        padding-right: 5px;
-        width: 65px;
-        height: 18px;
-        border-bottom: 4px solid $white;
-      }
-    }
-  }
-
   //----------------------------------------------------------------------------
   //                      MODULES ACCES CLIENT
   //----------------------------------------------------------------------------
@@ -4852,6 +4740,7 @@
     margin: 0;
     font-size: 1rem;
     text-align: center;
+    text-transform: uppercase;
   }
 
   .acces_tab_name2 {
@@ -5922,11 +5811,40 @@
   //                           BOUTONS
   // ---------------------------------------------------------------------------
 
+  // containers pour accès clients
+
+  #fbcart_buttons,
+  #fbcart_buttons3,
+  #fbcart_buttons2 {
+    position: relative;
+    float: none;
+    margin: 25px auto;
+    background: none;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    padding: .8rem .8rem .2rem .8rem;
+    height: auto;
+    line-height: 1rem;
+    background: $bloc-base;
+    font-size: .9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border: 1px solid darken($bloc-base, 5%);
+  }
+
+  #fbcart_buttons3 {
+    top: 20px;
+  }
+
+
+
   #but_continuer {
     @extend %buttonBase;
   }
 
-  // boutons mon compte --------------------------------------------------------
+  // boutons mon compte
 
   a#votre_mod,
   a#votre_dec {
@@ -5950,8 +5868,8 @@
 
 
 
-  // blocs autour des boutons payer et annuler la commande ---------------------
-
+  // conteneur (form) des boutons validation formulaire -- c'est eux qui déterminent la taille des boutons, fixer les boutons correspondants à 100%
+  #validerdevis,
   form#delfromvosdevis,
   #paye {
     width: 24%;
@@ -5961,6 +5879,28 @@
     margin-bottom: 0;
     margin-right: 0;
   }
+
+  // bouton gérer la commande
+
+  .but_details {
+    width: 100%;
+    height: 40px;
+    background-image: none;
+    background: $bt-gerer;
+    color: $white;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    &.active,
+    &:hover {
+      background-color: $cyan;
+      border:1px solid darken($cyan, 7%);
+    }
+  }
+
+  // bouton payer situé dans le bloc information jaune
   #payeTop {
     width: 100%;
     height: auto;
@@ -5981,7 +5921,24 @@
     }
   }
 
-  // ---------------------------------------------------------------------------
+  // boutons panier ------------------------------------------------------------
+
+  #but_ajouter {
+    @include buttonLog($cyan, 24%);
+  }
+  #but_supprimer {
+    @include buttonLog($text, 24%);
+  }
+  #but_validerdevis {
+    @include buttonLog($magenta, 100%);
+    &.active,
+    &:hover {
+      background-color: $cyan;
+      border:1px solid darken($cyan, 7%);
+    }
+  }
+
+  // boutons gestion des commandes ---------------------------------------------
 
   #but_payer {
     @include buttonLog($magenta, 100%);
@@ -6007,7 +5964,6 @@
   #but_annulercommande.deactive{
     @include buttonLog($text, 24%);
   }
-
   #but_imprimer {
     @include buttonLog($jaune, 24%);
   }
@@ -6043,15 +5999,60 @@
     float: right;
 
   }
-  a#but_imprimerbon {
-    @include buttonLog($jaune, auto);
-    margin:0 auto;
-    margin-left: 10px;
+  a#but_imprimerbon,
+  #but_imprimer_rib {
+    @include buttonLog($jaune, 24%);
     top: 0;
     left: 0;
     right: 0;
-
   }
+
+  // boutons écrire un commentaire
+  a.but_espace {
+    @include buttonLog($text, 49%);
+    margin: 20px 2% 0 0;
+    text-align: center;
+    padding: .5rem;
+  }
+
+  .but_envoyer {
+    @include buttonLog($cyan, 49%);
+    margin: 20px 0 0;
+    padding: .5rem;
+  }
+
+
+  // boutons file upload -------------------------------------------------------
+
+  .fuselect {
+    @include buttonLog($cyan, 25%);
+    text-align: center;
+    font-size: .75rem;
+    padding-top: .3rem;
+  }
+
+  .fustart {
+    @include buttonLog($color_29, 25%);
+
+    font-size: .75rem;
+    padding-top: .3rem;
+  }
+
+  .fucancel {
+    @include buttonLog($text, 15%);
+
+    font-size: .75rem;
+    padding-top: .3rem;
+  }
+
+  .fudelete {
+    @include buttonLog($text, 15%);
+
+    font-size: .75rem;
+    padding-top: .3rem;
+  }
+
+  // ---------------------------------------------------------------------------
 
   .but_ratingsubmit {
     width: 116px;
@@ -6066,19 +6067,6 @@
   }
 
 
-  a.but_espace {
-    width: 106px;
-    height: 19px;
-    background: url('../images/but_espace.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    float: left;
-    display: block;
-    cursor: pointer;
-    margin-right: 14px;
-  }
-
 
   #but_imprimer_form {
     margin-left: 14px;
@@ -6086,18 +6074,6 @@
     width: 180px;
     height: 19px;
     background: url('../images/but_imprimer_form.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_imprimer_rib {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 138px;
-    height: 19px;
-    background: url('../images/but_imprimer_rib.png') no-repeat;
     overflow: hidden;
     border: none;
     display: block;
@@ -6140,32 +6116,6 @@
     float: left;
   }
 
-  #but_supprimer {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 145px;
-    height: 19px;
-    background: url('../images/but_supprimer.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
-
-  #but_ajouter {
-    @extend %buttonBase;
-    width: 150px;
-    text-indent: 0;
-    padding-top: 9px;
-    margin: 0;
-    &:after {
-
-      content:'Ajouter un article';
-    }
-  }
-
-
-
   #but_modifier {
     margin-left: 14px;
     margin-bottom: 10px;
@@ -6178,17 +6128,7 @@
     float: left;
   }
 
-  #but_validerdevis {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 130px;
-    height: 19px;
-    background: url('../images/but_validerdevis.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    cursor: pointer;
-  }
+
 
   #but_suivant {
     position: absolute;
@@ -6203,28 +6143,9 @@
     cursor: pointer;
   }
 
-  .but_envoyer {
-    width: 82px;
-    height: 19px;
-    background: url('../images/button_send.png') no-repeat;
-    text-indent: -999em;
-    overflow: hidden;
-    border: none;
-    display: block;
-    cursor: pointer;
-    float: right;
-  }
 
-  .but_details {
-    width: 130px;
-    height: 32px;
-    background: url('../images/detailleddevisbutton.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    display: block;
-    margin: 0 10px 0 20px;
-  }
+
+
 
   .but_telecharger {
     margin-left: 4px;
@@ -6254,9 +6175,6 @@
     display: block;
     float: left;
   }
-
-
-
 
   .stat0 {
     @include buttonStatusBase($color_29);

@@ -115,6 +115,15 @@
     margin-left:0;
   }
 
+  #derniers {
+    top: auto;
+    width: 50%;
+  }
+
+  #ratinghome {
+    width: 50%;
+  }
+
   //----------------------------------------------------------------------------
   //                      MODULES ACCES CLIENT
   //----------------------------------------------------------------------------
@@ -136,9 +145,14 @@
   #but_retour,
   #but_imprimer,
   #but_imprimerfacture,
+  #but_ajouter,
   #but_comment,
   #but_suivre,
   #but_rating,
+  #but_supprimer,
+  #validerdevis,
+  a#but_imprimerbon,
+  #but_imprimer_rib,
   form#delfromvosdevis,
   #paye {
     width: 49%;
