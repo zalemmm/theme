@@ -3989,26 +3989,29 @@
     }
   }
 
+
+  // tableau PLV ---------------------------------------------------------------
+
   #promotions_table {
     position: relative;
     float: left;
-    display: inline;
-    width: auto;
+    display: inline-block;
+    width: 100%;
     margin-top: 5px;
     margin-bottom: 20px;
 
     td {
       vertical-align: top;
-      width: 65px;
-      padding: 28px 6px 12px;
+      width: 25%;
+      padding: .7rem;
       background: $bloc-base url('../images/bord5.png') top left no-repeat;
       border-bottom: 4px solid $white;
       text-align: center;
 
       &.lefttd {
         vertical-align: top;
-        width: 140px;
-        padding: 12px;
+        width: 25%;
+        padding: .7rem;
         background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
@@ -4016,8 +4019,8 @@
 
       &.lefttdmma {
         vertical-align: top;
-        width: 140px;
-        padding: 12px;
+        width: 25%;
+        padding: .7rem;
         background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
@@ -4025,8 +4028,8 @@
 
       &.imgtd {
         vertical-align: top;
-        width: 171px;
-        padding: 12px 6px;
+        width: 25%;
+        padding: .7rem;
         background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
@@ -4034,8 +4037,8 @@
 
       &.imgtdmma {
         vertical-align: top;
-        width: 171px;
-        padding: 12px 6px;
+        width: 25%;
+        padding: .7rem;
         background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
@@ -4043,8 +4046,8 @@
 
       &.imgburaliste {
         vertical-align: top;
-        width: 360px;
-        padding: 12px 6px;
+        width: 25%;
+        padding: .7rem;
         background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
@@ -4052,8 +4055,8 @@
 
       &.lefttd2 {
         vertical-align: top;
-        width: 287px;
-        padding: 12px;
+        width: 25%;
+        padding: .7rem;
         background: $bloc-base;
         border-bottom: 4px solid $white;
         text-align: left;
@@ -4061,8 +4064,8 @@
 
       &.imgtd2 {
         vertical-align: top;
-        width: 171px;
-        padding: 12px 6px;
+        width: 25%;
+        padding: .7rem;
         background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: center;
@@ -4072,9 +4075,9 @@
         position: relative;
         float: left;
         vertical-align: top;
-        width: 150px;
-        height: 140px;
-        padding: 12px;
+        width: 50%;
+        padding: .7rem;
+        height: auto;
         background: $bloc-base url('../images/bord5.png') top left no-repeat;
         border-bottom: 4px solid $white;
         text-align: left;
@@ -4090,7 +4093,7 @@
         float: right;
         display: block;
         vertical-align: top;
-        width: 183px;
+        width: 50%;
         height: 164px;
         padding: 0;
         background: $bloc-base url('../images/bord5.png') top left no-repeat;
@@ -4098,24 +4101,20 @@
         text-align: left;
 
         .prom_sub {
+          @include buttonLog($cyan, 40%);
           position: absolute;
-          right: 18px;
-          top: 128px;
-          width: 85px;
-          height: 19px;
-          cursor: pointer;
-          background: url('../images/ajouter.jpg') no-repeat;
-          text-indent: -999em;
-          overflow: hidden;
-          border: none;
+          right: 10px;
+          top:  120px;
+          height: 30px;
+          padding-top: .3rem;
         }
 
         input.inp_ilosc {
-          width: 20px;
-          height: 13px;
-          font-size: 10px;
-          border: 1px solid $color_8;
-          margin-left: 10px;
+          width: 60px;
+          height: 30px;
+          font-size: .8rem;
+          border: 1px solid $color_7;
+          margin-left: 0;
         }
       }
 
@@ -4211,24 +4210,14 @@
       }
     }
 
-    .prom_price {
+    .prom_price,{
       color: $white;
       background: $color_11;
-      padding: 2px 4px;
-      width: 143px;
-      float: left;
+      padding: .7rem;
+      width: 100%;
+      float: 0;
       display: block;
-      margin: 15px 0 0 8px;
-    }
-
-    .prom_price2 {
-      color: $white;
-      background: $color_11;
-      padding: 2px 4px;
-      width: 335px;
-      float: left;
-      display: block;
-      margin: 15px 0 0 8px;
+      margin: 0;
     }
 
     .prom_title {
@@ -4417,12 +4406,12 @@
   }
 
   .plvoptions {
-    position: absolute;
-    left: 12px;
-    top: 32px;
-    width: 150px;
-    height: 90px;
-    font-size: 10px;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    font-size: .8rem;
 
     input {
       margin-right: 3px;
