@@ -130,16 +130,59 @@
 //                           PAGE PAIEMENTS
 //------------------------------------------------------------------------------
 
-#paiements_left,
-#valid_bat_left {
-  width: 100%;
-}
-#paiements_right {
-  margin-left: 0;
-  width: 100%;
-}
+  #paiements_left,
+  #valid_bat_left {
+    width: 100%;
+  }
+  #paiements_right {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  // tableau produit commandé détail -------------------------------------------
+  .disMob0 {
+    display: inline;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $cyan-bloc;
+  }
 
 
+  #fbcart_cart {
+    position: relative;
+    float: left;
+    display: inline-block;
+    @include container(100%);
+    width: 100%;
+    span {
+      &.therest {
+        display: none;
+      }
+    }
+
+    th {
+      display: none;
+    }
+
+    td {
+      display: inline-block;
+      width: 100%;
+      padding: .5rem;
+      background-image: none;
+
+      &.lefttd {
+        width: 100%;
+      }
+      &.noprint{
+        width: 5%;
+      }
+      &.tdtotal{
+
+      }
+    }
+
+
+  }
 
 
 

@@ -30,23 +30,28 @@
 
 @mixin buttonLog($bgcolor: $cyan, $largeur: 24px) {
   position: relative;
-  background-image: none;
-  background-repeat: no-repeat;
-  vertical-align: middle;
   width: $largeur;
   height: 40px;
   margin: 0 0 10px 0;
   padding: .7rem .5rem .5rem;
-  border-radius: 3px;
+  display: inline-block;
+  float: none;
+  
+  background-image: none;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+
   background: $bgcolor;
   border:1px solid darken($bgcolor, 7%);
+  border-radius: 3px;
+
   color: #fff;
+  font-family: $font-global;
   font-size: .8rem;
   font-weight: normal;
   text-transform: uppercase;
-  display: inline-block;
-  float: none;
   text-indent: 0;
+
   &.active,
   &:hover {
     background-image: none;

@@ -355,6 +355,10 @@
     color: $cyan;
   }
 
+  .disMob0 {
+    display: none;
+  }
+
   //----------------------------------------------------------------------------
   //                                LINKS
   //----------------------------------------------------------------------------
@@ -1168,7 +1172,7 @@
     padding-left: 0;
     position: relative;
     display: block;
-    margin-top: 20px ;
+    margin-top: 20px;
   }
 
   .jotform-form {
@@ -2946,6 +2950,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    font-size: .9rem;
 
     select {
       float: right;
@@ -2988,10 +2993,15 @@
     display: inline;
     width: 100%;
     padding: 2rem;
-    background: $color_23;
+    background: $bloc-base;
     border-left: 1px solid darken($bloc-base, 5%);
     border-bottom: 1px solid darken($bloc-base, 5%);
     border-right: 1px solid darken($bloc-base, 5%);
+    font-size: .9rem;
+  }
+
+  .comment_right2 {
+    background: darken($bloc-base, 2%);
   }
 
 
@@ -3133,7 +3143,7 @@
       width: 331px;
       border-bottom: 1px solid $text;
       text-align: left;
-      font-size: .75rem;
+      font-size: .8rem;
     }
 
     td {
@@ -3151,7 +3161,7 @@
       border-bottom: 1px solid $text;
       border-top: 1px solid $text;
       text-align: center;
-      font-size: .75rem;
+      font-size: .8rem;
       text-transform: uppercase;
       padding-top: 1px;
 
@@ -3344,18 +3354,22 @@
 
   .fileupload-buttonbar .ui-button,
   .fileupload-buttonbar .toggle {
-    float: left;
-    margin-bottom: 5px;
-    margin-left: 14px;
+    float: 0;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+
+  .fileupload-buttonbar .toggle {
+    display: none;
   }
 
   .files .progress {
-    width: 200px;
+    width: 100%;
   }
 
   .files .progress,
   .fileupload-buttonbar .progress {
-    height: 14px;
+    height: 20px;
   }
 
   .files .ui-progressbar-value,
@@ -3441,8 +3455,7 @@
   }
 
 
-
-  // tableau file upload -------------------------------------------------------
+  // barre de boutons file upload ----------------------------------------------
 
   .fileupload-buttonbar {
     position: relative;
@@ -3452,7 +3465,35 @@
     margin: 0;
     background: darken($bloc-base, 2%);
     line-height: 19px;
-    padding: 1rem;
+    padding: 1rem 1rem .5rem;
+    .span7 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  .tdstart .fustart {
+    width: 100%;
+  }
+
+
+  // tableau file uplaod--------------------------------------------------------
+
+  #fileupload {
+    position: relative;
+    float: none;
+    display: block;
+    width: 100%;
+    margin: 20px 0 30px;
+  }
+
+  #viewsendfiles {
+    width: 100%;
+    margin-left: 130px;
+    background: $bloc-base;
+    padding: 0 2px 6px 8px;
+    font-size: 10px;
   }
 
   #fbcart_fileupload3 {
@@ -3463,80 +3504,99 @@
     margin-top: 0px;
     border-top: 1px solid darken($bloc-base, 5%);
     margin-bottom: 20px;
-  }
+    font-size: .8rem;
+    th {
+      text-transform: uppercase;
+      background: $bloc-base;
+      padding: .7rem;
+      font-size: .8rem;
+      vertical-align: top;
+      color: #008EBB;
+    }
+    .lefttd {
+      background: $bloc-base;
+      text-align: left;
+      padding: .7rem;
+      width: 0;
+    }
+    .tabname {
+      width: 20%;
+      text-align: left;
+      padding-left: 0 !important;
+      background: $bloc-base;
+    }
+    .tabsize {
+      width: 15%;
+    }
+    .tabprog {
+      width: 35%;
+    }
+    .tabstart {
+      width: 25%;
+    }
+    .tabdel {
+      width: 5%;
+    }
+    .tabwykrzyknik {
+      background: $bloc-base url(../img/wykrzyknik2.png) center 7px no-repeat;
+    }
+    .fustart {
+      margin-left: 0 !important;
+      margin-top: -1px !important;
+    }
 
-  #fbcart_fileupload3 th {
-    text-transform: uppercase;
-    background: $bloc-base;
-    padding: .7rem;
-    vertical-align: top;
-    color: #008EBB;
-  }
-
-  #fbcart_fileupload3 .lefttd {
-    background: $bloc-base;
-    text-align: left;
-    padding: .7rem;
-    width: 10%;
-  }
-
-  #fbcart_fileupload3 .tabname {
-    width: 20%;
-    text-align: left;
-    padding-left: 0 !important;
-    background: $bloc-base;
-  }
-
-  #fbcart_fileupload3 .tabsize {
-    width: 10%;
-  }
-
-  #fbcart_fileupload3 .tabprog {
-    width: 25%;
-  }
-
-  #fbcart_fileupload3 .tabstart {
-    width: 25%;
-  }
-
-  #fbcart_fileupload3 .tabdel {
-    width: 10%;
-  }
-
-  #fbcart_fileupload3 .tabwykrzyknik {
-    background: $bloc-base url(../img/wykrzyknik2.png) center 7px no-repeat;
-  }
-
-  #fbcart_fileupload3 td.lefttd {
-    width: 30px;
-    background: $bloc-base;
-  }
-
-  #fbcart_fileupload3 .fustart {
-    margin-left: 0 !important;
-    margin-top: -1px !important;
-  }
-
-  #fbcart_fileupload3 td.lefttd_none {
-    width: 30px;
-    background: $bloc-base url(../img/wykrzyknik.png) center 7px no-repeat;
-  }
-
-  #fbcart_fileupload3 td {
-    background: $bloc-base url(../img/bord2.png) top left no-repeat;
-    text-align: center;
-    height: 19px;
-    padding: 8px 8px 6px 8px;
-    vertical-align: top;
+    td {
+      background: $bloc-base url(../images/bord2.png) top left no-repeat;
+      text-align: center;
+      height: 19px;
+      padding: 8px 8px 6px 8px;
+      vertical-align: top;
+      &.lefttd_none {
+        width: 30px;
+        background-color: $bloc-base;
+      }
+      &.lefttd {
+        width: 30px;
+        background-color: $bloc-base;
+      }
+    }
   }
 
   #fbcart_fileupload span.itemname {
     text-transform: uppercase;
   }
 
-  .tdstart .fustart {
-    width: 100%;
+
+  .sendfiles {
+    .input-upload {
+      float: left;
+      display: inline;
+      width: 220px;
+      height: 19px;
+      margin-top: 2px;
+    }
+
+    .fakeupload {
+      width: 86px;
+      height: 19px;
+      background: url('../images/parcourir.png') no-repeat;
+      overflow: hidden;
+      display: inline-block;
+      float: left;
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+
+    .input-text {
+      width: 118px;
+      height: 13px;
+      border: 1px solid $color_8;
+      float: left;
+      display: inline;
+      margin-top: 2px;
+    }
   }
+
 
   // ---------------------------------------------------------------------------
   //                           TABLEAU COMMANDES
@@ -3616,21 +3676,24 @@
 
   #fbcart_cart {
     position: relative;
-    float: none;
-    display: inline;
+    float: left;
+    display: inline-block;
     @include container(100%);
     width: 100%;
+    background: darken($bloc-base,2%);
+    font-size: .85rem;
+    line-height: .9rem;
 
     span {
       &.name {
-        font-size: .8rem;
+        font-size: .85rem;
         font-weight: bold;
         text-transform: uppercase;
         padding-bottom: 3px;
       }
 
       &.therest {
-        font-size: .7rem;
+        font-size: .75rem;
       }
     }
 
@@ -3641,11 +3704,13 @@
       border-bottom: 1px solid darken($bloc-base,5%);
       text-transform: uppercase;
       color: $color_12;
-      width: 10%;
+      width: 12%;
+      padding: 1rem;
+      font-size: .8rem;
 
       &.leftth {
         text-align: left;
-        width: 35%;
+        width: 40%;
       }
 
       &.nobackground {
@@ -3656,7 +3721,7 @@
 
       &.leftth2 {
         text-align: left;
-        width: 35%;
+        width: 40%;
       }
     }
 
@@ -3667,12 +3732,13 @@
       vertical-align: top;
       border-bottom: 1px solid darken($bloc-base, 5%);
 
-
-
       &.lefttd {
         background: $bloc-base;
         text-align: left;
         padding: 13px 20px 21px;
+      }
+      &.noprint{
+        width: 5%;
       }
     }
   }
@@ -3705,12 +3771,15 @@
   // tableau prix total --------------------------------------------------------
 
   #fbcart_check {
-    float: right;
-    margin-right: 0;
-    right: 0;
-    display: block;
-    margin-right: 30px;
-    width: 45%;
+    position: relative;
+    float: 0;
+    display: inline-block;
+    background: $bloc-base;
+    width: 39%;
+    height: auto;
+    margin: 20px 0;
+    padding: 0;
+    border: 1px solid darken($bloc-base, 5%);
 
     td {
       &.toleft {
@@ -3719,20 +3788,26 @@
         text-transform: uppercase;
         color: $color_12;
         padding: .7rem;
-        width: 90%;
-        height: 25px;
-        border-left: 1px solid darken($bloc-base,5%);
-        border-bottom: 1px solid darken($bloc-base,5%);
+        width: 100%;
+        height: auto;
+        border-bottom:0;
+        border-left: 0;
+        font-size: .85rem;
+        line-height: .85rem;
       }
 
       &.toright {
+        display: inline-block;
         background: $bloc-base;
         text-align: right;
-        padding: .7remm;
-        width: 30%;
-        height: 20px;
-        border-right: 1px solid darken($bloc-base,5%);
-        border-bottom: 1px solid darken($bloc-base,5%);
+        padding: .7rem;
+        width: 20%;
+        min-width: 100px;
+        height: auto;
+        border-bottom:0;
+        border-left: 0;
+        font-size: .85rem;
+        line-height: .85rem;
       }
     }
   }
@@ -3741,13 +3816,18 @@
 
   #fbcart_address {
     position: relative;
-    float: left;
-    display: block;
+    float: 0;
     background: $bloc-base;
-    width: auto;
-    height: auto;
-    min-height: 200px;
+    width: 59%;
+    margin-right: 2%;
+    height: 200px;
+    margin: 0;
+    padding: 0;
     padding-top: 0;
+    margin-top: 20px;
+    font-size: .85rem;
+    line-height: .9rem;
+    border: 1px solid darken($bloc-base, 5%);
 
     th {
       padding: .7rem;
@@ -3755,6 +3835,7 @@
       color: $color_12;
       width: 50%;
       text-align: left;
+      font-size: .8rem;
 
       &.leftth {
         border-right: 1px solid darken($bloc-base, 5%);
@@ -3763,7 +3844,7 @@
 
     td {
       padding: .7rem;
-      font-size: 10px;
+      font-size: .8rem;
       line-height: 12px;
       width: 50%;
       height: 90px;
@@ -3776,9 +3857,12 @@
 
     a {
       @include buttonLog($text,150px);
+      position: absolute;
+      width: 150px;
+      height: 25px;
       text-align: center;
-      float: right;
       margin-bottom: 0;
+      padding: .3rem .5rem .5rem;
     }
   }
 
@@ -3796,36 +3880,36 @@
     th {
       background:  darken($bloc-base, 2%);
       text-align: left;
-      padding: 1rem;
+      padding: .7rem;
       border-bottom: 1px solid darken($bloc-base, 5%);
       text-transform: uppercase;
       color: $color_12;
       width: 15%;
-
+      font-size: .8rem;
       &.leftth {
         background: darken($bloc-base, 2%);
-        padding: 1rem;
-        width: 15%;
+        padding: .7rem;
+        width: 10%;
         border-bottom: 1px solid darken($bloc-base, 5%);
       }
 
       &.leftth2 {
         background: darken($bloc-base, 2%);
-        padding: 1rem;
-        width: 20%;
+        padding: .7rem;
+        width: 15%;
         border-bottom: 1px solid darken($bloc-base, 5%);
       }
 
       &.leftth3 {
         background: darken($bloc-base, 2%);
-        padding: 1rem;
-        width: 50%;
+        padding: .7rem;
+        width: 55%;
         border-bottom: 1px solid darken($bloc-base, 5%);
       }
 
       &.leftth4 {
         background: darken($bloc-base, 2%);
-        padding: 1rem;
+        padding: .7rem;
         width: 10%;
         border-bottom: 1px solid darken($bloc-base, 5%);
       }
@@ -3841,15 +3925,16 @@
       background: $bloc-base url('../images/bord2.png') top left no-repeat;
       text-align: left;
       height: 19px;
-      padding: 1rem;
+      padding: .7rem;
       vertical-align: top;
       border-bottom: 0;
-
+      font-size: .75rem;
+      line-height: .85rem;
       &.lefttd {
         background: $bloc-base;
         text-align: left;
         height: 19px;
-        padding: 1rem;
+        padding: .7rem;
         vertical-align: top;
         border-bottom: 0;
       }
@@ -3858,7 +3943,7 @@
         background: $bloc-base url('../images/bord2.png') top left no-repeat;
         text-align: left;
         height: 19px;
-        padding: 1rem;
+        padding: .7rem;
         vertical-align: top;
         border-bottom: 4px solid $white;
         color: $color_26;
@@ -3874,7 +3959,7 @@
         background: $bloc-base url('../images/bord2.png') top left no-repeat;
         text-align: left;
         height: 19px;
-        padding: 1rem;
+        padding: .7rem;
         vertical-align: top;
         border-bottom: 4px solid $white;
         font-weight: bold;
@@ -4517,193 +4602,6 @@
 
 
 
-  // file uplaod natif ---------------------------------------------------------
-
-  #fileupload {
-    position: relative;
-    float: none;
-    display: block;
-    width: 100%;
-    margin: 20px 0 30px;
-  }
-
-  #viewsendfiles {
-    width: 275px;
-    margin-left: 130px;
-    background: $bloc-base;
-    padding: 0 2px 6px 8px;
-    font-size: 10px;
-  }
-
-  #fbcart_fileupload {
-    position: relative;
-    float: left;
-    display: inline;
-    width: auto;
-    margin-top: 23px;
-
-    th {
-      background: $bloc-base;
-      text-align: left;
-      padding: 3px 0;
-      border-bottom: 4px solid $white;
-      text-transform: uppercase;
-      color: $color_12;
-      width: 491px;
-
-      &.leftth {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 10px 3px 20px;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 160px;
-      }
-
-      &.nobackground {
-        background: $bloc-base;
-        width: 30px;
-      }
-    }
-
-    td {
-      background: $bloc-base url('../images/bord2.png') top left no-repeat;
-      text-align: left;
-      height: 19px;
-      padding: 8px 2px 6px 8px;
-      vertical-align: top;
-      border-bottom: 4px solid $white;
-
-      &.lefttd {
-        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
-        color: $color_9;
-        font-size: 12px;
-        text-align: left;
-        padding: 12px 2px 6px 44px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-
-      &.lefttd2 {
-        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
-        color: $color_9;
-        font-size: 12px;
-        text-align: left;
-        padding: 12px 2px 6px 44px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-    }
-
-    span.itemname {
-      text-transform: uppercase;
-    }
-  }
-
-  #fbcart_fileupload2 {
-    position: relative;
-    float: left;
-    display: inline;
-    width: auto;
-    margin: 23px;
-
-    th {
-      &.leftth {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 10px 3px 20px;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 160px;
-      }
-
-      &.leftth2 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 111px;
-      }
-
-      &.leftth3 {
-        background: $bloc-base;
-        text-align: left;
-        padding: 3px 0;
-        border-bottom: 4px solid $white;
-        text-transform: uppercase;
-        color: $color_12;
-        width: 351px;
-      }
-
-      &.nobackground {
-        background: $bloc-base;
-        width: 30px;
-      }
-    }
-
-    td {
-      background: $bloc-base url('../images/bord2.png') top left no-repeat;
-      text-align: left;
-      height: 19px;
-      padding: 8px 2px 6px 8px;
-      vertical-align: top;
-      border-bottom: 4px solid $white;
-
-      &.lefttd {
-        background: $bloc-base url('../images/wykrzyknik.png') top left no-repeat;
-        color: $color_9;
-        font-size: 12px;
-        text-align: left;
-        padding: 12px 2px 6px 44px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-
-      &.lefttd2 {
-        background: $bloc-base url('../images/wykrzyknik2.png') top left no-repeat;
-        color: $color_9;
-        font-size: 12px;
-        text-align: left;
-        padding: 12px 2px 6px 44px;
-        vertical-align: top;
-        border-bottom: 4px solid $white;
-      }
-    }
-  }
-
-  .sendfiles {
-    .input-upload {
-      float: left;
-      display: inline;
-      width: 220px;
-      height: 19px;
-      margin-top: 2px;
-    }
-
-    .fakeupload {
-      width: 86px;
-      height: 19px;
-      background: url('../images/parcourir.png') no-repeat;
-      overflow: hidden;
-      display: inline-block;
-      float: left;
-      margin-left: 10px;
-      margin-top: 2px;
-    }
-
-    .input-text {
-      width: 118px;
-      height: 13px;
-      border: 1px solid $color_8;
-      float: left;
-      display: inline;
-      margin-top: 2px;
-    }
-  }
 
   #addingcomments {
     display: inline-block;
@@ -4891,29 +4789,13 @@
 
   // register-------------------------------------------------------------------
 
-  .register-button,
-  .register-button2,
-  .edit-button {
-    float: none;
-    clear: both;
-    @extend %buttonBase;
-    display: block;
-    margin: 10px auto 0;
-    width: 150px;
-    text-indent: 0;
-    &:after{
-      @extend %buttonBaseAfter;
-      content: '';
-    }
-  }
-
-
   ul.regiform,
   ul.regiform2 {
     margin: 0;
     padding: 0;
     float: left;
-    display: inline;
+    display: inline-block;
+    width: 100%;
 
     li {
       position: relative;
@@ -5880,7 +5762,7 @@
     margin-right: 0;
   }
 
-  // bouton gérer la commande
+  // bouton gérer la commande --------------------------------------------------
 
   .but_details {
     width: 100%;
@@ -5900,7 +5782,7 @@
     }
   }
 
-  // bouton payer situé dans le bloc information jaune
+  // bouton payer situé dans le bloc information jaune -------------------------
   #payeTop {
     width: 100%;
     height: auto;
@@ -6007,7 +5889,35 @@
     right: 0;
   }
 
-  // boutons écrire un commentaire
+  // boutons register ----------------------------------------------------------
+ .form-input-wide {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  } // ---------------------------------------------------------------WTF???????
+
+  .register-button {
+    @include buttonLog($cyan, 150px);
+  }
+  .edit-button {
+    @include buttonLog($cyan, 150px);
+  }
+
+  .pushButton {
+    display: block;
+
+
+  }
+
+  #but_retour2 {
+    @include buttonLog($text, 49%);
+  }
+  .register-button2 {
+    @include buttonLog($cyan, 49%);
+  }
+
+  // boutons écrire un commentaire ---------------------------------------------
   a.but_espace {
     @include buttonLog($text, 49%);
     margin: 20px 2% 0 0;
@@ -6025,30 +5935,23 @@
   // boutons file upload -------------------------------------------------------
 
   .fuselect {
-    @include buttonLog($cyan, 25%);
+    @include buttonLog($cyan, 29%);
     text-align: center;
-    font-size: .75rem;
-    padding-top: .3rem;
+    padding-top: .5rem;
   }
 
   .fustart {
-    @include buttonLog($color_29, 25%);
-
-    font-size: .75rem;
+    @include buttonLog($color_29, 29%);
     padding-top: .3rem;
   }
 
   .fucancel {
-    @include buttonLog($text, 15%);
-
-    font-size: .75rem;
+    @include buttonLog($text, 19%);
     padding-top: .3rem;
   }
 
   .fudelete {
-    @include buttonLog($text, 15%);
-
-    font-size: .75rem;
+    @include buttonLog($text, 19%);
     padding-top: .3rem;
   }
 
@@ -6104,17 +6007,7 @@
     float: left;
   }
 
-  #but_retour2 {
-    margin-left: 14px;
-    margin-bottom: 10px;
-    width: 70px;
-    height: 19px;
-    background: url('../images/but_retour2.png') no-repeat;
-    overflow: hidden;
-    border: none;
-    display: block;
-    float: left;
-  }
+
 
   #but_modifier {
     margin-left: 14px;

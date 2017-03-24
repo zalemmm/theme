@@ -127,17 +127,21 @@
     }
   }
 
-
+  // tableau commandes ---------------------------------------------------------
   #fbcart_votre{
     table, tbody {
       display: block;
     }
     .kontener{
       text-align: center;
-      font-size: .8rem;
+      font-size: 1rem;
+      line-height: 1.2rem;
       font-weight: bold;
-      background: $cyan-bloc;
-      color: #fff;
+      background: darken($bloc-base, 2%);
+      border-bottom: darken($bloc-base, 5%);
+      color: $cyan-bloc;
+      height: auto;
+      padding: .5rem;
     }
     td.lefttd {
       display: none;
@@ -158,10 +162,51 @@
       display: table-row;
 
     }
-    td:before {
-       content: attr(data-headers);
-       display: table-cell;
-       width: 0;
+  }
+
+  // tableau dernier commentaire -----------------------------------------------
+  #fbcart_lastcomment {
+    th {
+      display: none;
+      &.leftth3 {
+        display:block;
+        width: 100%;
+      }
+    }
+    tr{
+      background: $bloc-base;
+      border-spacing: .7rem;
+      td {
+        width: 100%;
+        padding: .5rem;
+        &.lefttd,
+        &.lefttd2,
+        &.lefttd2a,
+        &.lefttd3,
+        &.lefttd3a,
+        &.lefttd4{
+          display: table-row;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // tableau file upload -------------------------------------------------------
+  #fbcart_fileupload3 {
+    .tabsize {
+      width: 20%;
+    }
+    th {
+      display: none;
+    }
+    td {
+      &.tdstart{
+        width: 50%;
+      }
+      &.tdprog {
+        display: none;
+      }
     }
   }
 

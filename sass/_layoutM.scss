@@ -140,8 +140,21 @@
     @include span(12);
   }
 
-  // blocs autour des boutons payer et annuler la commande ---------------------
+  // tableau
+  #fbcart_address {
+    width: 100%;
+  }
 
+  #fbcart_check {
+    width: 100%;
+  }
+
+
+  // boutons à 50% de l'écran --------------------------------------------------
+  .fuselect,
+  .fustart,
+  .fucancel,
+  .fudelete,
   #but_retour,
   #but_imprimer,
   #but_imprimerfacture,
@@ -158,6 +171,7 @@
     width: 49%;
   }
 
+  // adaptation taille pour bouton input dans conteneur
   #but_payer.deactive {
     @include buttonLog($magenta, 49%);
   }
@@ -165,5 +179,11 @@
     @include buttonLog($text, 49%);
   }
 
+  // réduction taille boutons annuler effacer module upload
+  .fucancel,
+  .fudelete {
+    height: 25px;
+    padding: 0;
+  }
 
 }
