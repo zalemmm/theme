@@ -11,6 +11,7 @@ get_header();
     <div id="content_zawartosc">
       <div class="storycontent">
         <?php echo getPageContent(2); ?>
+        <?php edit_post_link(); ?>
         <hr />
         <div id="slideshow"><?php if(function_exists(dynamic_content_gallery)) dynamic_content_gallery(); ?></div>
         <div id="banners"><a href="<?php bloginfo('url'); ?>/la-ceddre/" class="banner1"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/front_banner1.jpg" alt="banderole écologique" /></a>
