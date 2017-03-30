@@ -12,7 +12,7 @@
   width: 100%;
   background: $bgcolor;
   height: 40px;
-  padding: 0;
+  padding: 5px;
   margin: 0;
   display: inline-block;
   color: $white;
@@ -36,10 +36,9 @@
   padding: .7rem .5rem .5rem;
   display: inline-block;
   float: none;
-  
+  cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  vertical-align: middle;
 
   background: $bgcolor;
   border:1px solid darken($bgcolor, 7%);
@@ -48,9 +47,12 @@
   color: #fff;
   font-family: $font-global;
   font-size: .8rem;
+  line-height: .8rem;
   font-weight: normal;
+  text-align: center;
   text-transform: uppercase;
   text-indent: 0;
+  vertical-align: middle;
 
   &.active,
   &:hover {

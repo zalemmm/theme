@@ -14,13 +14,12 @@
 @import 'extends';
 @import 'mixins';
 @import 'global';
-@import 'layout';
-//@import 'layoutXXL';
-//@import 'layoutXL';
+//@import 'layout';
 @import 'layoutL';
 @import 'layoutM';
 @import 'layoutS';
 @import 'layoutXS';
+@import 'layoutXL';
 
 $susy: (
   columns: 12,

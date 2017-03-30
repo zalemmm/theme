@@ -9,7 +9,9 @@ get_header();
   <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
     <div class="storycontent">
       <?php the_content(__('(more...)')); ?>
+      <?php edit_post_link(); ?>
     </div>
+
   <?php endwhile; else: ?>
     <p><?php _e('Désolé, pas de correspondance trouvée.'); ?></p>
   <?php endif; ?>

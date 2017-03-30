@@ -1,4 +1,10 @@
 @media(max-width: 480px) {
+  // invisible -----------------------------------------------------------------
+
+  #preview,
+  .prod-desc {
+    display: none;
+  }
 
   #header {
     height:220px;
@@ -23,8 +29,8 @@
     top: 77px;
     left: 24%;
     .site-title{
-      font-size: 1.8rem;
-      line-height: 1.8rem;
+      font-size: 1.6rem;
+      line-height: 1.6rem;
     }
     .site-subtitle{
       font-size: .7rem;
@@ -43,7 +49,7 @@
     }
    .menu-client-icon {
       display: block;
-      font-size: 2rem;
+      font-size: 2.1rem;
       color: $cyan;
     }
     .menu-client-icon.phone {
@@ -54,10 +60,10 @@
       padding-left: 10px;
     }
     .tel1{
-      font-size: .7rem;
+      font-size: .78rem;
     }
     .tel2 {
-      font-size: .88rem;
+      font-size: 1.05rem;
     }
     .tel3 {
       font-size: .6rem;
@@ -65,26 +71,9 @@
     }
   }
 
-  //----------------------------------------------------------------------------
-  //                      MODULES PAGE ACCUEIL
-  //----------------------------------------------------------------------------
-
-
-
-  //----------------------------------------------------------------------------
-  #top_info {
-    .front img{
-      @include span(6);
-      width: auto;
-      max-height: 100px;
-    }
-    #top_info_info {
-      @include span(6);
-      span.info_nag {
-        font-size: 1.2rem;
-        line-height: 1.6rem;
-      }
-    }
+  //footer
+  #footer2 {
+    width: 100%;
   }
 
   // derniers commentaires
@@ -98,15 +87,47 @@
     width: 100%;
   }
 
+  #footer3 {
+    height: 200px;
+  }
 
-  // help buttons
+  //----------------------------------------------------------------------------
+  //                      MODULES PAGE ACCUEIL
+  //----------------------------------------------------------------------------
 
+
+
+  //----------------------------------------------------------------------------
+  #top_info {
+    .front img{
+      @include span(4);
+      max-height: 100px;
+    }
+    #top_info_info {
+      @include span(8);
+      span.info_nag {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+        text-align: center;
+        padding-top: 0;
+      }
+    }
+  }
+  // invisible -----------------------------------------------------------------
+
+  #preview,
+  .prod-desc {
+    display: none;
+  }
+
+
+
+  // help buttons --------------------------------------------------------------
   ul.form-section li.optionsformline .options_single span.optionsleft .helpButton {
     left: 92%;
   }
 
   // boutons mon compte --------------------------------------------------------
-
   a#votre_mod{
     width: 100%;
     margin-bottom: 15px;
@@ -115,9 +136,7 @@
     width: 100%;
   }
 
-
-  // alerte panier
-
+  // alerte panier--------------------------------------------------------------
   .box_info,
   .box_warning {
     font-size: .8rem;
@@ -125,6 +144,14 @@
     img{
       max-width: 50px;
     }
+  }
+
+  // ajustements padding top status commandes ----------------------------------
+  .comment_new {
+    padding-top: 5px;
+  }
+  .stat6 {
+    padding-top: .8rem;
   }
 
   // tableau commandes ---------------------------------------------------------
@@ -210,5 +237,33 @@
     }
   }
 
+  // tableau ratings
 
+  #fbcart_rating {
+    position: relative;
+    float: none;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 0;
+    background-image: none;
+
+    td {
+      display: block;
+      width: 100%;
+
+      &.lefttd {
+        border-bottom: 0;
+        display: block;
+        width: 100%;
+      }
+
+      &.lefttd2 {
+        display: block;
+        width: 100%;
+        border-bottom: 0;
+        padding:0 .7rem;
+        background-image: none;
+      }
+    }
+  }
 }

@@ -90,6 +90,7 @@
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/plv-interieur/" class="menu_sub"<?php if(is_page('plv-interieur')) echo ' id=active_sub'; ?>>plv intérieur</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/plv-exterieur/" class="menu_sub"<?php if(is_page('plv-exterieur')) echo ' id=active_sub'; ?>>plv extérieur</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/stand-parapluie/" class="menu_sub"<?php if(is_page('stand-parapluie')) echo ' id=active_sub'; ?>>stand parapluie</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/france-banderole/tente-pliante-exposition/" class="menu_sub"<?php if(is_page('tente-pliante-exposition')) echo ' id=active_sub'; ?>>tente pliante</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/flyers/" class="menu_sub"<?php if(is_page('flyers')) echo ' id=active_sub'; ?>>flyer</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/affiches/" class="menu_sub"<?php if(is_page('affiches')) echo ' id=active_sub'; ?>>affiche</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/cartes/" class="menu_sub"<?php if(is_page('cartes')) echo ' id=active_sub'; ?>>carte de visite</a></li>
@@ -104,7 +105,7 @@
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/un-devis/" class="menu_sub"<?php if(is_page('un-devis')) echo ' id=active_sub'; ?>>un devis</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/choisir-sa-bache/" class="menu_sub"<?php if(is_page('choisir-sa-bache')) echo ' id=active_sub'; ?>>choisir sa bâche</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/choisir-son-kakemono/" class="menu_sub"<?php if(is_page('choisir-son-kakemono')) echo ' id=active_sub'; ?>>choisir son kakemono</a></li>
-								<li class="highest"><a href="<?php bloginfo('url'); ?>/france-banderole/telecharger-une-maquette/" class="menu_sub2"<?php if(is_page('telecharger-une-maquette')) echo ' id=active_sub'; ?>>télécharger une maquette</a></li>
+								<li class="highest"><a href="<?php bloginfo('url'); ?>/france-banderole/telecharger-une-maquette/" class="menu_sub"<?php if(is_page('telecharger-une-maquette')) echo ' id=active_sub'; ?>>télécharger une maquette</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/payer-sa-commande/" class="menu_sub"<?php if(is_page('payer-sa-commande')) echo ' id=active_sub'; ?>>payer sa commande</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/etre-livre-rapidement/" class="menu_sub"<?php if(is_page('etre-livre-rapidement')) echo ' id=active_sub'; ?>>être livré rapidement</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/tarifs-revendeurs/" class="menu_sub"<?php if(is_page('tarifs-revendeurs')) echo ' id=active_sub'; ?>>tarifs revendeurs</a></li>

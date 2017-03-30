@@ -255,7 +255,7 @@ jQuery(document).ready(function ($) {
 
   //home buttons hover
   $('#tarifs li').mouseover(function() {
-    $(this).find('.micro a').css('background', '#E74777');
+    $(this).find('.micro a').css('background', '#EA2A6A');
   });
   $('#tarifs li').mouseout(function() {
     $(this).find('.micro a').css('background', '#555a61');
@@ -264,7 +264,7 @@ jQuery(document).ready(function ($) {
   //top icons menu hover
   $('.menu-client-icon.phone a, .tel2 a').mouseover(function() {
     $('.menu-client-icon.phone a, .tel2 a').css({
-      color: '#E74777',
+      color: '#EA2A6A',
       WebkitTransition : '0.5s',
       MozTransition    : '0.5s',
       MsTransition     : '0.5s',

@@ -1,42 +1,31 @@
 @media(max-width: 760px) {
-  // invisible -----------------------------------------------------------------
 
-  #preview,
-  .prod-desc {
-    display: none;
-  }
 
-  // grille --------------------------------------------------------------------
-  #buying,
-  #wycena_nag,
-  #wycena_suma,
-  #dodaj_koszyk {
-    @include span(12);
-  }
+
+  //----------------------------------------------------------------------------
+  //                             HEADER
+  //----------------------------------------------------------------------------
 
   #header {
-    height:350px;
+    height:300px;
+    background-image: url('../images/mobile480.png');
+    background-size: cover;
   }
-
-  //----------------------------------------------------------------------------
-  //                             MODULES
-  //----------------------------------------------------------------------------
-
-  // Header --------------------------------------------------------------------
 
   // module logo
   a#logo {
     position: absolute;
-    top: 60px;
+    top: 20px;
     left: 20px;
     width: 25%;
-    height: 250px;
+    height: 280px;
+    vertical-align: bottom;
   }
 
   // module titre site
   .site-head{
     width: 68%;
-    top: 150px;
+    top: 100px;
     left: 27%;
     letter-spacing: 1px;
     .site-title{
@@ -55,7 +44,8 @@
     @include container (90%);
     font-size: .8rem;
     line-height: 1.4rem;
-    top:200px;
+    top:140px;
+    left:0;
     height:80px;
     li{
       height: 60px;
@@ -83,26 +73,29 @@
   }
 
   //----------------------------------------------------------------------------
-  //                      MODULES PAGE ACCUEIL
+  //                            PAGE ACCUEIL
   //----------------------------------------------------------------------------
 
   // module icones tarifs
 
   ul#tarifs {
     li {
-      width: 48%; //120
+      width: 32%; //120
     }
   }
 
   //----------------------------------------------------------------------------
+  //                          PAGES PRODUITS
+  //----------------------------------------------------------------------------
+
   #top_info {
     .front img{
-      @include span(6);
-      width: auto;
-      max-height: 100px;
+      @include span(4);
+      vertical-align: bottom;
+      max-height: auto;
     }
     #top_info_info {
-      @include span(6);
+      @include span(8);
       span.info_nag {
         padding-bottom: 2px;
         font-size: 1.4rem;
@@ -124,8 +117,13 @@
     width: 50%;
   }
 
+  .helpText {
+    left: auto;
+    right: 20px;
+  }
+
   //----------------------------------------------------------------------------
-  //                      MODULES ACCES CLIENT
+  //                       PAGES ACCES CLIENT
   //----------------------------------------------------------------------------
 
   .acces_left {
@@ -149,12 +147,55 @@
     width: 100%;
   }
 
+  //----------------------------------------------------------------------------
+  //                           PAGE PAIEMENTS
+  //----------------------------------------------------------------------------
+
+    #paiements_left,
+    #valid_bat_left {
+      width: 100%;
+    }
+    #paiements_right {
+      margin-left: 0;
+      width: 100%;
+    }
+
+  //----------------------------------------------------------------------------
+  //                           PAGE CONTACT
+  //----------------------------------------------------------------------------
+
+  #contact1 {
+    width: 100%;
+  }
+  #contact2 {
+    width: 100%;
+    margin-left: 0;
+  }
+  #contact3 {
+
+    width: 100%;
+  }
+  #contact4 {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  span.contacter,
+  span.contacter2 {
+    width: 100%;
+  }
+
+
+
+
 
   // boutons à 50% de l'écran --------------------------------------------------
   .fuselect,
   .fustart,
   .fucancel,
   .fudelete,
+  a.but_voiremaquette,
+  #but_modifier,
   #but_retour,
   #but_imprimer,
   #but_imprimerfacture,
@@ -184,6 +225,39 @@
   .fudelete {
     height: 25px;
     padding: 0;
+  }
+
+  // ajustements padding top status commandes
+  .comment_new {
+    padding-top: 0;
+  }
+
+  // tableau PLV
+  #promotions_table {
+    tr {
+      display: block;
+      background: $bloc-base;
+      margin-bottom: 20px;
+    }
+    td {
+      display: inline-block;
+      width: 49%;
+      border-bottom: 0;
+      &.lefttd{
+        background: transparent;
+      }
+      &.optionstd {
+        width: 49%;
+        border-bottom: 0;
+        background: transparent;
+      }
+
+      &.righttd {
+        width: 49%;
+        border-bottom: 0;
+        background: transparent;
+      }
+    }
   }
 
 }
