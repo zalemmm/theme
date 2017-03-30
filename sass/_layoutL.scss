@@ -922,7 +922,8 @@ ul#tarifs {
 
 // module paragraphe important
 .important {
-
+  background: $bloc-base;
+  padding: 1rem;
   font-family: $font-special;
   color: $text;
   font-size: .8rem;
@@ -939,7 +940,7 @@ hr.hr-separator {
   display: block;
   height: 1px;
   width: 50%;
-  background: $jaune;
+  background: transparent;
   margin: 10px auto;
 }
 
@@ -2108,9 +2109,9 @@ ul {
 }
 
 .clients_reviews {
-  border-bottom: 1px solid darken($bloc-base,5%);
-  border-right: 1px solid darken($bloc-base,5%);
-  border-left: 1px solid darken($bloc-base,5%);
+  border-bottom: 1px solid $border;
+  border-right: 1px solid $border;
+  border-left: 1px solid $border;
   text-align: center;
   padding:.7rem 0 0;
   font-size: 18px;
@@ -2383,7 +2384,7 @@ span {
   display: inline-block;
   width: 60%;
   background: $bloc-base;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
   padding: 1rem;
   h1 {
     background: $magenta;
@@ -2867,7 +2868,7 @@ span.comm_title3 {
   width: 100%;
   padding: 2rem;
   background: $bloc-base;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
   float: none;
   display: flex;
   flex-wrap: wrap;
@@ -2916,9 +2917,9 @@ span.comm_title3 {
   width: 100%;
   padding: 2rem;
   background: $bloc-base;
-  border-left: 1px solid darken($bloc-base, 5%);
-  border-bottom: 1px solid darken($bloc-base, 5%);
-  border-right: 1px solid darken($bloc-base, 5%);
+  border-left: 1px solid $border;
+  border-bottom: 1px solid $border;
+  border-right: 1px solid $border;
   font-size: .9rem;
 }
 
@@ -2990,7 +2991,7 @@ span.comm_title3 {
   color: $color_9;
   position: relative;
   margin-bottom: 15px;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
 }
 .paiements_right_con2  {
   height: auto;
@@ -3205,7 +3206,7 @@ span.comm_title3 {
 }
 
 .address_tab_name {
-  width: 49%;
+  width: 50%;
   padding: .7rem;
   height: auto;
   background: $color_26;
@@ -3214,10 +3215,11 @@ span.comm_title3 {
   float: left;
   display: inline-block;
   margin: 0;
+  border-right: 1px solid darken($magenta, 5%);
 }
 
 .address_tab_content {
-  width: 49%;
+  width: 50%;
   padding: .7rem;
   height: auto;
   line-height: 14px;
@@ -3226,6 +3228,7 @@ span.comm_title3 {
   float: left;
   display: inline-block;
   margin: 0;
+  border-right: 1px solid $border;
 }
 
 // UPLOAD --------------------------------------------------------------------
@@ -3267,7 +3270,6 @@ SPAN {
   margin: 0;
   opacity: 0;
   filter: alpha(opacity=0);
-  transform: translate(-300px, 0) scale(4);
   font-size: 23px;
   direction: ltr;
   cursor: pointer;
@@ -3423,7 +3425,7 @@ SPAN {
   display: block;
   width: 100%;
   margin-top: 0px;
-  border-top: 1px solid darken($bloc-base, 5%);
+  border-top: 1px solid $border;
   margin-bottom: 20px;
   font-size: .8rem;
   th {
@@ -3457,6 +3459,7 @@ SPAN {
   }
   .tabdel {
     width: 5%;
+    padding-top: .4rem;
   }
   .tabwykrzyknik {
     background: $bloc-base url(../img/wykrzyknik2.png) center 7px no-repeat;
@@ -3470,7 +3473,7 @@ SPAN {
     background: $bloc-base url(../images/bord2.png) top left no-repeat;
     text-align: center;
     height: 19px;
-    padding: 8px 8px 6px 8px;
+    padding: .7rem;
     vertical-align: top;
     &.lefttd_none {
       width: 30px;
@@ -3533,15 +3536,15 @@ tbody {
   float: none;
   display: table;
   table-layout: auto;
-  border-top: 1px solid darken($bloc-base, 5%);
-  border-left: 1px solid darken($bloc-base, 5%);
-  border-right: 1px solid darken($bloc-base, 5%);
+  border-top: 1px solid $border;
+  border-left: 1px solid $border;
+  border-right: 1px solid $border;
 
   th {
-    background: darken($bloc-base, 5%);
+    background: $border;
     text-align: center;
     padding: .2rem;
-    border-bottom: 1px solid darken($bloc-base, 5%);
+    border-bottom: 1px solid $border;
     text-transform: uppercase;
     color: $color_12;
     width: 15%;
@@ -3565,7 +3568,7 @@ tbody {
     text-align: center;
     padding: .2rem;
     vertical-align: middle;
-    border-bottom: 1px solid darken($bloc-base, 5%);
+    border-bottom: 1px solid $border;
     width: 15%;
     font-size: .9rem;
 
@@ -3624,7 +3627,7 @@ tbody {
     background: darken($bloc-base,2%);
     text-align: center;
     padding: 3px 20px;
-    border-bottom: 1px solid darken($bloc-base,5%);
+    border-bottom: 1px solid $border;
     text-transform: uppercase;
     color: $color_12;
     width: 12%;
@@ -3653,7 +3656,7 @@ tbody {
     text-align: center;
     padding: 13px 2px 21px;
     vertical-align: top;
-    border-bottom: 1px solid darken($bloc-base, 5%);
+    border-bottom: 1px solid $border;
 
     &.lefttd {
       background: $bloc-base;
@@ -3702,7 +3705,7 @@ tbody {
   height: auto;
   margin: 0 0 20px;
   padding: 0;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
 
   td {
     &.toleft {
@@ -3743,23 +3746,24 @@ tbody {
   background: $bloc-base;
   width: 59%;
   margin-right: 2%;
-  height: 200px;
+  height: auto;
   margin: 0 2% 20px 0;
   padding: 0;
   font-size: .85rem;
   line-height: .9rem;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
 
   th {
-    padding: .7rem;
+    padding: .7rem .7rem 0.7rem;
     text-transform: uppercase;
     color: $color_12;
     width: 50%;
+    height:20px;
     text-align: left;
     font-size: .8rem;
 
     &.leftth {
-      border-right: 1px solid darken($bloc-base, 5%);
+      border-right: 1px solid $border;
     }
   }
 
@@ -3768,11 +3772,11 @@ tbody {
     font-size: .8rem;
     line-height: 12px;
     width: 50%;
-    height: 90px;
+    height: auto;
     vertical-align: top;
 
     &.lefttd {
-      border-right: 1px solid darken($bloc-base, 5%);
+      border-right: 1px solid $border;
     }
   }
 
@@ -3803,7 +3807,7 @@ tbody {
     background:  darken($bloc-base, 2%);
     text-align: left;
     padding: .7rem;
-    border-bottom: 1px solid darken($bloc-base, 5%);
+    border-bottom: 1px solid $border;
     text-transform: uppercase;
     color: $color_12;
     width: 15%;
@@ -3812,28 +3816,28 @@ tbody {
       background: darken($bloc-base, 2%);
       padding: .7rem;
       width: 10%;
-      border-bottom: 1px solid darken($bloc-base, 5%);
+      border-bottom: 1px solid $border;
     }
 
     &.leftth2 {
       background: darken($bloc-base, 2%);
       padding: .7rem;
       width: 15%;
-      border-bottom: 1px solid darken($bloc-base, 5%);
+      border-bottom: 1px solid $border;
     }
 
     &.leftth3 {
       background: darken($bloc-base, 2%);
       padding: .7rem;
       width: 55%;
-      border-bottom: 1px solid darken($bloc-base, 5%);
+      border-bottom: 1px solid $border;
     }
 
     &.leftth4 {
       background: darken($bloc-base, 2%);
       padding: .7rem;
       width: 10%;
-      border-bottom: 1px solid darken($bloc-base, 5%);
+      border-bottom: 1px solid $border;
     }
 
     &.nobackground {
@@ -3893,7 +3897,7 @@ tbody {
 }
 
 .review_answer {
-  background-color: darken($bloc-base,5%);
+  background-color: $border;
   margin-left: 0;
   padding: .7rem;
   p{
@@ -4225,7 +4229,7 @@ tbody {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
   p{
     display: block;
     width: 100%;
@@ -4297,7 +4301,7 @@ tbody {
 .acces_tab_name_devis {
   z-index: 100;
   width: 100%;
-  padding: 7px 0 4px;
+  padding: .7rem;
   height: 40px;
   line-height: erem;
   background: $color_26;
@@ -4323,7 +4327,7 @@ tbody {
   color: $color_9;
   position: relative;
   margin-bottom: 15px;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
 }
 
 .acces_tab_content2 {
@@ -4577,7 +4581,7 @@ ul.regiform2 {
   width: 100%;
   padding: 1rem;
   background: $bloc-base;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
   margin: 0 0 10px;
   span {}
 }
@@ -4586,7 +4590,7 @@ ul.regiform2 {
 #raele2,
 #raele3 {
   padding: 1rem;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
 }
 
 .rating_elcol1 {
@@ -5386,7 +5390,7 @@ DIV.ProgressBar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
 }
 
 #fbcart_buttons3 {
@@ -5449,6 +5453,7 @@ form#delfromvosdevis,
   margin-right: 0;
   #but_payerTop {
     @include buttonLog($magenta, 100%);
+    padding-top: .5rem;
     width: 100%;
     cursor: pointer;
     &.active,
@@ -5462,7 +5467,7 @@ form#delfromvosdevis,
 
 #but_voir_bat {
   @include buttonLog($color_29, 100%);
-  padding-top: .5rem;
+  padding-top: .7rem;
 }
 
 // bouton valider BAT (dans shadowbox fichier val_bat) pour l'instant en inline
@@ -5481,6 +5486,7 @@ form#delfromvosdevis,
 }
 #but_validerdevis {
   @include buttonLog($magenta, 100%);
+  padding-top: .5rem;
   &.active,
   &:hover {
     background-color: $cyan;
@@ -5506,6 +5512,10 @@ form#delfromvosdevis,
 }
 #but_retour {
   @include buttonLog($text, 24%);
+}
+#but_annuler{
+  @include buttonLog($text, 24%);
+;
 }
 #but_annulercommande {
   @include buttonLog($text, 100%);
@@ -5611,7 +5621,6 @@ a.but_espace {
 .fuselect {
   @include buttonLog($cyan, 29%);
   text-align: center;
-  padding-top: .5rem;
 }
 
 .fustart {
@@ -5741,6 +5750,7 @@ a.but_voiremaquette {
   @include buttonStatusBase($text);
   padding-top: .7rem;
   cursor: default;
+  font-size: .75rem;
   &.active,
   &:hover {
     background-image: none;
@@ -5748,7 +5758,7 @@ a.but_voiremaquette {
   }
 }
 .stat7 {
-  @include buttonStatusBase($color_2);
+  @include buttonStatusBase($light-grey);
 }
 .comment_new {
   display: inline-block;
@@ -5793,7 +5803,7 @@ a.but_voiremaquette {
 
 .tntRCHeader {
   background-color: $bloc-base;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
 	background-image: url(../img/logotnt.png);
   background-size: contain;
 	background-position: 10px center;
@@ -5822,7 +5832,7 @@ a.but_voiremaquette {
 
 .tntRCBody {
 	background-color: $bloc-base;
-	border: 1px solid darken($bloc-base, 5%);
+	border: 1px solid $border;
 	color: $text;
 	display: bloc;
 	font-family: $font-global;
@@ -5835,7 +5845,7 @@ a.but_voiremaquette {
 
 .tntRCBodySearch {
   background-color: $bloc-base;
-  border-top: 1px solid darken($bloc-base, 5%);
+  border-top: 1px solid $border;
   color:$text;
 	font-size: 10pt;
 	font-weight: bold;
@@ -5847,7 +5857,7 @@ a.but_voiremaquette {
 
 #blocCodePostal {
   background-color: $bloc-base;
-  border: 1px solid darken($bloc-base, 5%);
+  border: 1px solid $border;
 }
 
 .tntRCError {
@@ -5880,7 +5890,7 @@ a.but_voiremaquette {
 
 .tntRCrelaisColis {
 	font-size: .7rem;
-	border-bottom: 1px solid darken($bloc-base, 5%);
+	border-bottom: 1px solid $border;
 	padding-bottom: 3px;
 	vertical-align: middle;
 }
