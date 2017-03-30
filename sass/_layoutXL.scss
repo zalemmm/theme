@@ -1,6 +1,8 @@
 @media(min-width: 1025px) {
-  // restore hidden elements
-  iframe{
+  // restore hidden elements ---------------------------------------------------
+  iframe,
+  #slideshow,
+  #chat-application {
     display: block;
   }
 
@@ -56,23 +58,26 @@
 
   // module titre site
   .site-head{
-    width: 76%;
+    width: 76.5%;
     position: relative;
     display: block;
     top: 120px;
-    left: 20%;
+    left: 19%;
     font-family: $font-special;
     letter-spacing: 1px;
     .site-title{
       font-size: 2.6rem;
       line-height: 2.6rem;
+      a{
+        color: $text;
+      }
       &:after{
         content: '';
         background: url('../img/ligne-titre.png') top left repeat-y;
         display: block;
         width: 99%;
         height: 7px;
-        margin: 0;
+
       }
     }
     .site-subtitle{
@@ -89,27 +94,6 @@
     @include container (42%);
     top: 20px;
     left:25%;
-    li{
-
-    }
-   .menu-client-icon {
-
-    }
-    .menu-client-icon.phone {
-
-    }
-    .menu-client-phone{
-
-    }
-    .tel1{
-
-    }
-    .tel2 {
-
-    }
-    .tel3 {
-
-    }
   }
 
 
