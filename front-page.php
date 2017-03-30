@@ -9,13 +9,19 @@ get_header();
 <div id="content">
   <div id="content_bg_top">
     <div id="content_zawartosc">
+      <?php
+        echo do_shortcode("[metaslider id=3869]");
+      ?>
       <div class="storycontent">
+
         <?php echo getPageContent(2); ?>
         <?php edit_post_link(); ?>
         <hr />
-        <div id="slideshow"><?php if(function_exists(dynamic_content_gallery)) dynamic_content_gallery(); ?></div>
+
         <div id="banners"><a href="<?php bloginfo('url'); ?>/la-ceddre/" class="banner1"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/front_banner1.jpg" alt="banderole écologique" /></a>
           <a rel="shadowbox[banderolesgallery]" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-01.jpg" title="exemple BANDEROLE et KAKEMONO"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/front_banner2.jpg" alt="exemple realisation banderole et kakemono" /></a>
+
+
           <a style="display: none;" rel="shadowbox[banderolesgallery]" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-02.jpg" title="banderole de noel 400x100cm"></a>
           <a style="display: none;" rel="shadowbox[banderolesgallery]" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-03.jpg" title="banderole publicitaire 250x103cm"></a>
           <a style="display: none;" rel="shadowbox[banderolesgallery]" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-04.jpg" title="banderole PVC géante 1000x160cm"></a>

@@ -5117,13 +5117,36 @@ h1.comTitre {
 //                                  SLIDER
 //----------------------------------------------------------------------------
 
-.metaslider {  // Update to .metaslider
-  @include container(100%);
+.metaslider {
   width: 100%;
   top: 0;
   margin-left: 0;
   z-index: 3000;
+  position: relative;
 }
+
+.metaslider:before,
+.metaslider:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  box-shadow: 0 15px 10px #777;
+  transform: rotate(-3deg);
+}
+.metaslider:after
+{
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
 
 .effect2::before {
   margin-left: 0;
