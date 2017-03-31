@@ -316,7 +316,7 @@ small {
   line-height: 1rem;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-size: 1.1rem;
   line-height: 1.4rem;
   margin: 15px 0;
@@ -328,6 +328,9 @@ h1, h2 {
   &.categorytitle {
     margin: 0;
   }
+}
+h3{
+  font-size: 1rem;
 }
 
 .h1product {
@@ -878,6 +881,7 @@ ul#tarifs {
   }
 }
 
+
 // module banières
 
 #banners {
@@ -944,6 +948,8 @@ hr.hr-separator {
   margin: 10px auto;
 }
 
+// éléments cachés déroulants --------------------------------------------------
+
 .toggle-button {
   display: block;
   margin: 10px auto;
@@ -955,6 +961,10 @@ hr.hr-separator {
   font-weight: bold;
   font-family: $font-special;
   font-size: 1.2rem;
+  &:before{
+    display: table;
+    clear:both;
+  }
 }
 
 .toggle-block {
@@ -965,6 +975,10 @@ hr.hr-separator {
   font-weight: normal;
 }
 
+
+.bloc-img{
+  display: none;
+}
 
 //----------------------------------------------------------------------------
 //                       MODULES PAGES PRODUITS
@@ -1017,8 +1031,9 @@ hr.hr-separator {
     }
     .notice{
       display: block;
-      margin-top: 5px;
+      margin: 15px 0 2rem;
       text-align: right;
+      text-transform: uppercase;
     }
   }
 }
@@ -1248,8 +1263,9 @@ hr.hr-separator {
 
 input::placeholder {
   color: $cyan;
+  font-family: $font-global;
   text-transform: capitalize;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .jotform-form {
@@ -1268,13 +1284,14 @@ input::placeholder {
     outline: 0;
     border-radius: 3px;
     appearance: menulist;
-    font-size: .8rem;
+    font-size: .75rem;
     padding: 0.3em;
     margin: 0;
     height: 38px;
     color: $cyan-bloc;
     font-weight: bold;
     cursor: pointer;
+    font-family: $font-global;
     text-transform: uppercase;
     &:focus {
       outline: none;
@@ -1289,11 +1306,13 @@ input::placeholder {
     }
 
     option{
+      font-family: $font-global;
       color: $cyan-bloc;
       text-transform: capitalize;
       line-height: .8rem;
-      padding:.3rem;
-      font-weight: normal;
+      padding:.5rem;
+      font-size: .8rem;
+      font-weight: bold;
     }
 
     .option1 {
@@ -1439,6 +1458,28 @@ input::placeholder {
     left: 2px;
   }
 }
+
+// Hack Chrome & Safari
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .jotform-form {
+    .cmLeft,
+    .cmRight {
+      top: -1px;
+      left: 1px;
+    }
+
+    .mLeft,
+    .mRight {
+      top: -1px;
+      left: 0;
+    }
+    .mRight {
+      left: 2px;
+    }
+  }
+}
+
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -1508,6 +1549,9 @@ input::placeholder {
 
 .form-submit-button {
   @include buttonLog($cyan, 150px);
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 // form sélection produit ----------------------------------------------------
@@ -1518,6 +1562,7 @@ ul {
   margin-left: auto;
   margin-right: auto;
   list-style-type: none;
+
 
   &.grey {
     background: $bloc-base;
@@ -1596,7 +1641,7 @@ ul {
       &.optionsformline,
       &.optionsformlineOld {
         clear: both;
-        height: 320px !important;
+        height: 300px !important;
         position: relative;
         float: left;
         display: inline;
@@ -1625,6 +1670,7 @@ ul {
               position: absolute;
               top: 3px;
               left: 0;
+              font-family:  $font-global;
             }
 
             .helpButton {
@@ -1672,7 +1718,7 @@ ul {
       }
 
       &.optionsformlineOld {
-        height: 230px !important;
+        height: 200px !important;
       }
 
       &.optionsformline2,
@@ -1688,6 +1734,12 @@ ul {
         color: $color_27;
         border-bottom: 0;
       }
+
+      &.optionsformline4,
+      &.optionsformline5, {
+        width: 47.35%;
+      }
+
     }
   }
 
@@ -1825,6 +1877,7 @@ ul {
     border: 0 solid $color_7;
     font-size: .8rem;
     padding: 2px;
+    font-family:  $font-global;
   }
 }
 
@@ -2818,7 +2871,7 @@ span.wycena_poz {
   float: right;
   display: inline-block;
   width: 150px;
-  margin: 0 5px 10px;
+  margin: 0 10px 10px;
   text-indent: -5px;
   a{
     color: $white;
@@ -2884,6 +2937,7 @@ span.comm_title3 {
     border: 1px solid $color_7;
     font-size: 9px;
     background: $white;
+    font-family:  $font-global;
   }
 
   textarea {
@@ -5760,6 +5814,29 @@ a.but_voiremaquette {
 .stat7 {
   @include buttonStatusBase($light-grey);
 }
+
+.acces_tab_name_devis {
+  .stat0,
+  .stat1,
+  .stat2,
+  .stat3,
+  .stat4,
+  .stat5,
+  .stat6,
+  .stat7,{
+    margin-top: -5px;
+    margin-right: -5px;
+    height: 27px;
+    padding-top: 7px;
+    &:hover{
+      cursor: default;
+    }
+  }
+  .stat7 {
+    padding-top: 2px;
+  }
+}
+
 .comment_new {
   display: inline-block;
   width: 100%;
