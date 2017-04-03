@@ -100,11 +100,13 @@
   // derniers commentaires
 
   #derniers {
-    width: 40%;
+    @include span(5);
+    padding-right: 0;
   }
 
-  #ratinghome {
-    width: 40%;
+  #banners {
+    @include span(7);
+    padding-left: 0;
   }
 
   //----------------------------------------------------------------------------

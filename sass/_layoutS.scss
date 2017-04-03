@@ -19,6 +19,8 @@
   #wycena_suma,
   #dodaj_koszyk {
     @include span(12);
+    padding-left: 0;
+    padding-right: 0;
   }
 
   #header {

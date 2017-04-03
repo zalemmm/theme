@@ -79,7 +79,7 @@
 					<ul id="menu_top">
 						<li onmouseover="pokazt('produit_sub');" onmouseout="ukryjt('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
 
-							<ul id="produit_sub">
+							<ul id="produit_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/banderoles/" class="menu_sub"<?php if(is_page('banderoles')) echo ' id=active_sub'; ?>>banderole</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/roll-up/" class="menu_sub"<?php if(is_page('roll-up')) echo ' id=active_sub'; ?>>roll-up</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/totem/" class="menu_sub"<?php if(is_page('totem')) echo ' id=active_sub'; ?>>totem</a></li>
@@ -100,7 +100,8 @@
 						</li>
 
 						<li onmouseover="pokazt('comment_sub');" onmouseout="ukryjt('comment_sub');"><a href="<?php bloginfo('url'); ?>/les-maquettes/"<?php if(is_page('les-maquettes') || is_page('un-devis') || is_page('choisir-sa-bache') || is_page('choisir-son-kakemono') || is_page('telecharger-une-maquette') || is_page('payer-sa-commande') || is_page('etre-livre-rapidement') || is_page('tarifs-revendeurs')) echo ' id="active"'; ?>>comment faire?</a>
-							<ul id="comment_sub">
+
+							<ul id="comment_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/les-maquettes/" class="menu_sub"<?php if(is_page('les-maquettes')) echo ' id=active_sub'; ?>>les maquettes</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/un-devis/" class="menu_sub"<?php if(is_page('un-devis')) echo ' id=active_sub'; ?>>un devis</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/choisir-sa-bache/" class="menu_sub"<?php if(is_page('choisir-sa-bache')) echo ' id=active_sub'; ?>>choisir sa bâche</a></li>
@@ -111,8 +112,10 @@
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/tarifs-revendeurs/" class="menu_sub"<?php if(is_page('tarifs-revendeurs')) echo ' id=active_sub'; ?>>tarifs revendeurs</a></li>
 							</ul>
 						</li>
+
 						<li onmouseover="pokazt('qui_sub');" onmouseout="ukryjt('qui_sub');"><a href="<?php bloginfo('url'); ?>/france-banderole/"<?php if(is_page('france-banderole') || is_page('cgv') || is_page('realisation') || is_page('references')) echo ' id="active"'; ?>>QUI SOMMES-NOUS</a>
-							<ul id="qui_sub">
+
+							<ul id="qui_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/" class="menu_sub"<?php if(is_page('france-banderole')) echo ' id=active_sub'; ?>>FRANCE BANDEROLE</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/la-ceddre/" class="menu_sub"<?php if(is_page('la-ceddre')) echo ' id="active_sub"'; ?>>Charte écocitoyenne</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/realisation/" class="menu_sub"<?php if(is_page('realisation')) echo ' id=active_sub'; ?>>Réalisation</a></li>
@@ -121,6 +124,7 @@
 								<li><a href="<?php bloginfo('url'); ?>/cgv/" class="menu_sub"<?php if(is_page('cgv')) echo ' id=active_sub'; ?>>C.G.V.</a></li>
 							</ul>
 						</li>
+
 						<?php if (is_cart_not_empty()) {
 							$link = get_bloginfo("url").'/votre-panier/';
 						} else {
