@@ -25,8 +25,8 @@
     <!--<div id="flink2"><a href="http://www.france-banderole.com/buralistes/"><img class="floatLeft"  src="<?php bloginfo('stylesheet_directory'); ?>/images/bt-buraliste2.png" alt="buraliste" /></a></div>-->
 
     <div id="banners">
-      <a href="<?php bloginfo('url'); ?>/la-ceddre/" class="banner1"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/front_banner1.jpg" alt="banderole écologique" /></a>
-      <a rel="shadowbox[banderolesgallery]" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-01.jpg"  class="banner2" title="exemple BANDEROLE et KAKEMONO"><img src="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/front_banner2.jpg" alt="exemple realisation banderole et kakemono" /></a>
+      <a href="<?php bloginfo('url'); ?>/la-ceddre/" class="banner1"><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/ceddre.png" alt="banderole écologique" /></a>
+      <a rel="shadowbox[banderolesgallery]" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-01.jpg"  class="banner2" title="exemple BANDEROLE et KAKEMONO"><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/ex.png" alt="exemple realisation banderole et kakemono" /></a>
 
 
       <a style="display: none;" rel="shadowbox[banderolesgallery]" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-02.jpg" title="banderole de noel 400x100cm"></a>

@@ -124,20 +124,21 @@
 
   .helpText {
     left: auto;
-    right: 30px;
+    right: 35px;
+    width: 280px;
   }
 
   .helpText:after, .helpText:before {
-    right: 20px;
+    left: 100%;
     top: 28px;
   }
-  .arrow_box:after {
+  .helpText:after {
   	border-color: rgba(246, 246, 246, 0);
   	border-left-color: #f6f6f6;
   	border-width: 10px;
   	margin-top: -10px;
   }
-  .arrow_box:before {
+  .helpText:before {
   	border-color: rgba(233, 233, 233, 0);
   	border-left-color: #e9e9e9;
   	border-width: 11px;

@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<div id="content">
+<div id="content" onclick="void(0)">
   <div id="content_bg_top">
     <div id="content_zawartosc">
       <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
