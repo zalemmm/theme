@@ -358,17 +358,6 @@ h4 {
   line-height: 1rem;
   text-transform: uppercase;
   text-align:left;
-
-
-  &.clients_reviews_titre {
-    width: 100%;
-    background: $jaune;
-    color:$white;
-    padding: .7rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: center;
-  }
 }
 .star-note{
   display: block;
@@ -1565,9 +1554,7 @@ input::placeholder {
 
 .form-submit-button {
   @include buttonLog($cyan, 150px);
-  position: absolute;
-  right: 0;
-  top: 0;
+
 }
 
 // form sélection produit ----------------------------------------------------
@@ -2167,14 +2154,6 @@ ul {
   vertical-align: baseline;
   padding-right: 0;
 
-  a {
-    float: left;
-    display: block;
-    width: auto;
-    height: auto;
-    background: url('../images/livrebut.jpg') no-repeat;
-    margin: 8px 0 0;
-  }
 }
 
 #ratinghome {
@@ -2287,6 +2266,8 @@ span {
       }
     }
   }
+
+
 
   &#footer_links2 {
     position: relative;
@@ -2496,6 +2477,22 @@ span {
   height: 134px;
   background: url('../images/frontpage.jpg') no-repeat;
   margin-top: 0;
+}
+
+h4.clients_reviews_titre a{
+  display: inline-block;
+  background-image: none;
+  width: 100%;
+  background: $jaune;
+  color:$white;
+  padding: .7rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  top: 0;
+  &:hover{
+    background: $magenta;
+  }
 }
 
 // module contact
@@ -5945,12 +5942,12 @@ a.but_voiremaquette {
   width: 100%;
   background: $bloc-base;
 }
+
 .exemplePresentation{
   width: 100%;
   margin: 0 auto 20px;
   height: auto;
   display: inline-block;
-
 }
 #tntB2CRelaisColis {
   width: 100%;
@@ -5958,7 +5955,6 @@ a.but_voiremaquette {
 #map_canvas{
   width: 100%;
   height: 400px;
-
 }
 
 .tntRCHeader {
