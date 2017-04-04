@@ -5168,6 +5168,7 @@ h1.comTitre {
   background-color: $bloc-base;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
   margin: 15px 0;
+  text-align: center;
   h2 {
     font-size: 1.2rem;
     padding-top: 30px;
@@ -5741,8 +5742,9 @@ a.but_espace {
 
 .but_envoyer {
   @include buttonLog($cyan, 49%);
-  margin: 20px 0 0;
-  padding: .5rem;
+  width: 49% !important;
+  margin: 20px 0 0 auto!important;
+  padding: .5rem !important;
 }
 
 // bouton donner votre avis
@@ -6296,6 +6298,7 @@ a:hover {
 .video-container iframe,
 .video-container object,
 .video-container embed {
+  display: block;
 	position: absolute;
 	top: 0;
 	left: 0;
