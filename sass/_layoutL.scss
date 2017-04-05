@@ -7,6 +7,7 @@ $susy: (
 );
 @include layout($susy);
 
+
 // desactivation des éléments du template desktop ------------------------------
 
 iframe,
@@ -26,6 +27,7 @@ a#corner_button_cart,
   font-weight: bold;
   margin-top: 50px;
 }
+
 
 // extends ---------------------------------------------------------------------
 
@@ -863,6 +865,8 @@ ul#tarifs {
   list-style-type: none;
   margin: 0;
   padding: 0;
+
+  a{display:block}
 
   li {
     width: 24%; //120

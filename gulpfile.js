@@ -32,7 +32,12 @@ gulp.task( 'sass', function() {
             sourceComments: true,
             outputStyle: 'expanded'
         }).on( 'error', sass.logError ) )
-        .pipe( autoprefixer(  ) )
+        .pipe( autoprefixer({
+            "browserslist": [
+              "> 1%",
+              "last 5 versions"
+            ]
+          }) )
         .pipe( sourcemaps.write( './maps' ) )
         .pipe( gulp.dest( './css' ) )
         .pipe( browserSync.stream() );
