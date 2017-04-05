@@ -18,8 +18,6 @@ get_header();
         <?php edit_post_link(); ?>
         <hr />
 
-
-
         <hr style="margin-bottom: 10px;" /><small>
           <div class="mc_contenu">
             <?php
@@ -374,13 +372,13 @@ get_header();
           <hr class="hr-separator" />
 
           <div class="important">
-            <h3>FRANCE BANDEROLE :</h3>
+            <h4 class="keepTxtColor">FRANCE BANDEROLE :</h4>
             Imprimeur numérique grand format <a href="/kakemonos/" title="KAKEMONO">Kakemono</a> &amp; Banderole, Réalisation/impression/façonnage réalisés en France métropolitaine
-            <h3>TAILLES D'IMPRESSION :</h3>
-             Banderole jusqu'à 50m sur 3,20m . 7 matière de bâches : classées M1, écologique, PVC, micro-perforée... Voir rubrique <a href="<?php bloginfo('url'); ?>/realisation/">réalisation</a>
-            <h3>IMPRESSION NUMÉRIQUE 1440Dpi :</h3>
+            <h4 class="keepTxtColor">TAILLES D'IMPRESSION :</h4>
+             Banderole jusqu'à 50m sur 3,20m . 7 matière de bâches : classées M1, écologique, PVC, micro-perforée... Voir rubrique <a href="/realisation/">Réalisation</a>
+            <h4 class="keepTxtColor">IMPRESSION NUMÉRIQUE 1440Dpi :</h4>
             Tenue et respect des couleurs garantie 3 ans en exterieur / intérieur sur banderoles<br />
-            <h3>RAPIDITÉ D'EXECUTION :</h3>
+            <h4 class="keepTxtColor">RAPIDITÉ D'EXECUTION :</h4>
             Possibilité de réalisations et livraisons de vos commandes en 24/48H ou 72H au choix
           </div>
 

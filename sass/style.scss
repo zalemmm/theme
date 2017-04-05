@@ -1,6 +1,5 @@
 @import 'susy';
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro');
-@import url('https://fonts.googleapis.com/css?family=Bangers');
 @font-face {
     font-family: 'sansationbold';
     src: url('../fonts/Sansation-Bold-webfont.eot');
@@ -12,22 +11,13 @@
     font-style: normal;
 }
 @import 'variables';
-@import 'extends';
 @import 'mixins';
-@import 'global';
-//@import 'layout';
-@import 'layoutL';
-@import 'layoutM';
-@import 'layoutS';
-@import 'layoutXS';
-@import 'layoutXL';
+//@import 'layout'; // ancien template - à priori devenu inutile mais conservé en cas de pb
+@import 'layoutL';  // template de base sur lequel les fichiers layout suivants modifient l'affichage en fonction de la résolution
+@import 'layoutM';  // format tablette large
+@import 'layoutS';  // format tablette petit
+@import 'layoutXS'; // format mobile
+@import 'layoutXL'; // format desktop
 
-$susy: (
-  columns: 12,
-  gutters: 1/4,
-  math: fluid,
-  output: float,
-  gutter-position: inside,
-);
 
 // @include border-box-sizing;
