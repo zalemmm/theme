@@ -94,7 +94,7 @@
         $strmoyenne4 = " avis";
       ?>
 
-      <h4 class="clients_reviews_titre"><span>Avis Clients sur France Banderole</span></h4>
+      <h4 class="clients_reviews_titre"><span><a href="<?php bloginfo('url'); ?>/avis">Avis Clients sur France Banderole</a></span></h4>
       <div class="clients_reviews">
         <span class="client_reviews_1">
           <?php echo $strmoyenne1; ?>
