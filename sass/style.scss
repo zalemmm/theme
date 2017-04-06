@@ -12,12 +12,12 @@
 }
 @import 'variables';
 @import 'mixins';
-//@import 'layout'; // ancien template - à priori devenu inutile mais conservé en cas de pb
-@import 'layoutL';  // template de base sur lequel les fichiers layout suivants modifient l'affichage en fonction de la résolution
-@import 'layoutM';  // format tablette large
-@import 'layoutS';  // format tablette petit
-@import 'layoutXS'; // format mobile
-@import 'layoutXL'; // format desktop
+//@import 'layout'; // (ancien template)
+@import 'layoutL';  // base 1024px (template de base)
+@import 'layoutM';  // max 760px (tablette)
+@import 'layoutS';  // max 640px (tablette)
+@import 'layoutXS'; // max 480px (mobile)
+@import 'layoutXL'; // min 1025px (desktop)
 
 
 // @include border-box-sizing;

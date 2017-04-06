@@ -895,7 +895,7 @@ ul#tarifs {
       font-family: $font-special;
       color: #fff;
       font-weight: 700;
-      margin-top: -15px;
+      margin-top: -10px;
       padding: 14px 2px 0;
       height: 45px;
       vertical-align: middle;
@@ -940,7 +940,7 @@ ul#tarifs {
   color: $text;
   font-size: .8rem;
   margin-bottom: 20px;
-  //box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+  //box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 }
 
 hr.hr-separator {
@@ -957,7 +957,7 @@ hr.hr-separator {
 
 .toggle-button {
   display: block;
-  margin: 10px auto;
+  margin: 20px auto;
   cursor: pointer;
   text-align: center;
   border: 0;
@@ -973,6 +973,7 @@ hr.hr-separator {
 }
 
 .toggle-block {
+  clear: both;
   display: none;
   font-family: $font-global;
   font-size: .85rem;
@@ -1007,7 +1008,7 @@ hr.hr-separator {
   margin-bottom: 0;
   background: #f6f6f6;
   padding: 1rem;
-  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 
   .front img{
     display: inline-block;
@@ -1173,7 +1174,7 @@ input::placeholder {
   padding: 2% 4% 6%;
   animation: fadein 2s;
   -webkit-animation: fadein 2s;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 
   select {
     width: 90%;
@@ -2787,7 +2788,7 @@ div {
   padding: 10px 0;
   color: $color_12;
   font-size: .9rem;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 }
 
 #wycena_suma {
@@ -2800,7 +2801,7 @@ div {
   color: $color_12;
   font-size: 1rem;
   font-weight: bold;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 }
 
 #dodaj_koszyk {
@@ -2814,7 +2815,7 @@ div {
   font-size: 1rem;
   font-weight: bold;
   margin-top: 0;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 }
 
 span.wycena_poz {
@@ -5061,7 +5062,7 @@ h1.comTitre {
   height: 195px;
   background-image: none;
   background-color: $bloc-base;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
   margin: 15px 0;
   text-align: center;
   h2 {
@@ -5159,38 +5160,28 @@ h1.comTitre {
   z-index: 3000;
   position: relative;
   margin-bottom: 10px;
+
+  &:before,
+  &:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    box-shadow: 0 15px 10px #777;
+    transform: rotate(-3deg);
+  }
+  &:after {
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
 }
 
-.metaslider:before,
-.metaslider:after
-{
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width:300px;
-  background: #777;
-  box-shadow: 0 15px 10px #777;
-  transform: rotate(-3deg);
-}
-.metaslider:after
-{
-  transform: rotate(3deg);
-  right: 10px;
-  left: auto;
-}
-
-
-.effect2::before {
-  margin-left: 0;
-}
-
-.effect2::after {
-  margin-right: 0;
-}
 
 //----------------------------------------------------------------------------
 //                             STYLES INLINE RAPATRIES
@@ -6219,13 +6210,6 @@ a:hover {
   td {
     width: 50%;
   }
-}
-
-.adresseFact{
-  position: relative;
-  float: right;
-  text-align: right;
-  margin-top: 75px;
 }
 
 .bottomfak {

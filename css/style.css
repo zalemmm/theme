@@ -481,7 +481,7 @@ input[type="submit"] {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -999,7 +999,7 @@ ul#tarifs li .micro a {
   font-family: "sansationbold", "Arial", "sans-serif";
   color: #fff;
   font-weight: 700;
-  margin-top: -15px;
+  margin-top: -10px;
   padding: 14px 2px 0;
   height: 45px;
   vertical-align: middle;
@@ -1053,7 +1053,7 @@ hr.hr-separator {
 
 .toggle-button {
   display: block;
-  margin: 10px auto;
+  margin: 20px auto;
   cursor: pointer;
   text-align: center;
   border: 0;
@@ -1070,6 +1070,7 @@ hr.hr-separator {
 }
 
 .toggle-block {
+  clear: both;
   display: none;
   font-family: "Source Sans Pro", sans-serif;
   font-size: .85rem;
@@ -1099,7 +1100,7 @@ hr.hr-separator {
   margin-bottom: 0;
   background: #f6f6f6;
   padding: 1rem;
-  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
 #top_info:after {
@@ -1303,7 +1304,7 @@ input::placeholder {
   padding: 2% 4% 6%;
   animation: fadein 2s;
   -webkit-animation: fadein 2s;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
 .jotform-form select {
@@ -1551,7 +1552,7 @@ input::placeholder {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -2612,7 +2613,7 @@ div.wpcf7 input.contact_send {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -2925,7 +2926,7 @@ div.aligncenter {
   padding: 10px 0;
   color: #008ebb;
   font-size: .9rem;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
 #wycena_suma {
@@ -2941,7 +2942,7 @@ div.aligncenter {
   color: #008ebb;
   font-size: 1rem;
   font-weight: bold;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
 #dodaj_koszyk {
@@ -2958,7 +2959,7 @@ div.aligncenter {
   font-size: 1rem;
   font-weight: bold;
   margin-top: 0;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
 span.wycena_poz {
@@ -3064,7 +3065,7 @@ span.comm_title3 {
   border: 1px solid #e1e8f2;
   font-size: 9px;
   background: #fff;
-  font-family: "Trebuchet MS", "Arial", "sans-serif";
+  font-family: "Source Sans Pro", "sans-serif";
   padding: 1rem;
   font-size: .8rem;
 }
@@ -3929,7 +3930,7 @@ tbody {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -4164,7 +4165,7 @@ tbody {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -4816,7 +4817,7 @@ ul.regiform2 .form-error-message {
   border: 1px solid #e1e8f2;
   font-size: .8rem;
   background: #fff;
-  font-family: "Trebuchet MS", "Arial", "sans-serif";
+  font-family: "Source Sans Pro", "sans-serif";
   padding: 1rem;
 }
 
@@ -5227,7 +5228,7 @@ h1.comTitre {
   height: 195px;
   background-image: none;
   background-color: #f6f6f6;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
   margin: 15px 0;
   text-align: center;
 }
@@ -5319,8 +5320,7 @@ h1.comTitre {
   margin-bottom: 10px;
 }
 
-.metaslider:before,
-.metaslider:after {
+.metaslider:before, .metaslider:after {
   z-index: -1;
   position: absolute;
   content: "";
@@ -5340,14 +5340,6 @@ h1.comTitre {
           transform: rotate(3deg);
   right: 10px;
   left: auto;
-}
-
-.effect2::before {
-  margin-left: 0;
-}
-
-.effect2::after {
-  margin-right: 0;
 }
 
 .posCenter {
@@ -5569,7 +5561,7 @@ DIV.ProgressBar DIV {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -5612,7 +5604,7 @@ a#votre_mod {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -5655,7 +5647,7 @@ a#votre_dec {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -5736,7 +5728,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #EA2A6A;
   border: 1px solid #db1657;
   border-radius: 3px;
@@ -5788,7 +5780,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #74c012;
   border: 1px solid #609f0f;
   border-radius: 3px;
@@ -5832,7 +5824,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #74c012;
   border: 1px solid #609f0f;
   border-radius: 3px;
@@ -5876,7 +5868,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -5919,7 +5911,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -5962,7 +5954,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #EA2A6A;
   border: 1px solid #db1657;
   border-radius: 3px;
@@ -6011,7 +6003,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #EA2A6A;
   border: 1px solid #db1657;
   border-radius: 3px;
@@ -6061,7 +6053,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #EA2A6A;
   border: 1px solid #db1657;
   border-radius: 3px;
@@ -6104,7 +6096,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -6147,7 +6139,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -6190,7 +6182,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -6234,7 +6226,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -6277,7 +6269,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #F9B610;
   border: 1px solid #e0a106;
   border-radius: 3px;
@@ -6320,7 +6312,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #F9B610;
   border: 1px solid #e0a106;
   border-radius: 3px;
@@ -6363,7 +6355,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -6406,7 +6398,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -6449,7 +6441,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -6492,7 +6484,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -6542,7 +6534,7 @@ form#delfromvosdevis,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #74c012;
   border: 1px solid #609f0f;
   border-radius: 3px;
@@ -6592,7 +6584,7 @@ a#but_imprimerbon,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #F9B610;
   border: 1px solid #e0a106;
   border-radius: 3px;
@@ -6657,7 +6649,7 @@ a#but_imprimerbon.deactive.active, a#but_imprimerbon.deactive:hover,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -6713,7 +6705,7 @@ a#but_imprimerbon.deactive.active, a#but_imprimerbon.deactive:hover,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -6756,7 +6748,7 @@ a#but_imprimerbon.deactive.active, a#but_imprimerbon.deactive:hover,
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -6799,7 +6791,7 @@ a.but_espace {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -6845,7 +6837,7 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -6891,7 +6883,7 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -6935,7 +6927,7 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -6979,7 +6971,7 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #74c012;
   border: 1px solid #609f0f;
   border-radius: 3px;
@@ -7023,7 +7015,7 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -7067,7 +7059,7 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -7111,7 +7103,7 @@ a.post-edit-link {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #555a61;
   border: 1px solid #44484e;
   border-radius: 3px;
@@ -7159,7 +7151,7 @@ a.post-edit-link.deactive.active, a.post-edit-link.deactive:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #EA2A6A;
   border: 1px solid #db1657;
   border-radius: 3px;
@@ -7209,7 +7201,7 @@ a.but_voiremaquette {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #EA2A6A;
   border: 1px solid #db1657;
   border-radius: 3px;
@@ -7274,7 +7266,7 @@ a.but_voiremaquette.active, a.but_voiremaquette:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -7345,7 +7337,7 @@ a.but_voiremaquette.active, a.but_voiremaquette:hover {
   cursor: pointer;
   background-image: none;
   background-repeat: no-repeat;
-  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
   background: #32A1CC;
   border: 1px solid #2b8aaf;
   border-radius: 3px;
@@ -7984,13 +7976,6 @@ a:hover {
   width: 50%;
 }
 
-.adresseFact {
-  position: relative;
-  float: right;
-  text-align: right;
-  margin-top: 75px;
-}
-
 .bottomfak {
   position: relative;
   float: left;
@@ -8217,7 +8202,7 @@ a:hover {
     cursor: pointer;
     background-image: none;
     background-repeat: no-repeat;
-    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
     background: #EA2A6A;
     border: 1px solid #db1657;
     border-radius: 3px;
@@ -8256,7 +8241,7 @@ a:hover {
     cursor: pointer;
     background-image: none;
     background-repeat: no-repeat;
-    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
     background: #555a61;
     border: 1px solid #44484e;
     border-radius: 3px;
@@ -8549,6 +8534,9 @@ a:hover {
     line-height: 1.6rem;
     text-align: center;
     padding-top: 0;
+  }
+  .metaslider {
+    display: none;
   }
   #preview,
   .prod-desc {
