@@ -5,13 +5,12 @@ var autoprefixer = require( 'gulp-autoprefixer' );
 var postcss      = require( 'gulp-postcss' );
 var imagemin     = require( 'gulp-imagemin' );
 var rename       = require( 'gulp-rename' );
-var gulpPrettyDiff = require("gulp-prettydiff");
+var gulpPrettyDiff = require( 'gulp-prettydiff' );
 var browserSync  = require( 'browser-sync' ).create();
 
 // Paths
 
 var susy    = './node_modules/susy/sass';
-var bourbon = './node_modules/bourbon/app/assets/stylesheets';
 
 // Start browserSync & watch css & html changes
 
@@ -28,16 +27,11 @@ gulp.task( 'sass', function() {
     return gulp.src( './sass/**/*.scss' )
         .pipe( sourcemaps.init() )
         .pipe( sass({
-            includePaths: [susy, bourbon],
-            sourceComments: true,
+            includePaths: [susy],
+            sourceComments: false,
             outputStyle: 'expanded'
         }).on( 'error', sass.logError ) )
-        .pipe( autoprefixer({
-            "browserslist": [
-              "> 1%",
-              "last 5 versions"
-            ]
-          }) )
+        .pipe( autoprefixer(  ) )
         .pipe( sourcemaps.write( './maps' ) )
         .pipe( gulp.dest( './css' ) )
         .pipe( browserSync.stream() );
