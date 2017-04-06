@@ -1169,27 +1169,6 @@ hr.hr-separator {
   list-style: none;
 }
 
-.adresfak {
-  position: relative;
-  float: left;
-  display: inline;
-  width: 100%;
-  margin-bottom: 40px;
-}
-
-.adresfak td {
-  width: 50%;
-}
-
-.bottomfak {
-  position: relative;
-  float: left;
-  display: none;
-  width: 100%;
-  margin-top: 10px;
-  text-align: center;
-}
-
 #preview,
 #preview2,
 #preview3 {
@@ -2403,7 +2382,7 @@ span.pink {
   color: #EA2A6A;
   font-weight: normal;
   text-transform: none;
-  font-size: 11px;
+  font-size: .75rem;
 }
 
 span.info_mar {
@@ -5537,11 +5516,11 @@ DIV.ProgressBar DIV {
   display: none;
 }
 
-.logoprint {
-  float: left;
+.logoprint,
+.logoprint2 {
   display: inline-block;
-  width: 330px;
-  height: 119px;
+  width: 100%;
+  height: 200px;
 }
 
 .onlyprint {
@@ -7990,6 +7969,35 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.adresfak {
+  position: relative;
+  float: left;
+  display: block;
+  width: 100%;
+  margin-top: 200px;
+  margin-bottom: 40px;
+}
+
+.adresfak td {
+  width: 50%;
+}
+
+.adresseFact {
+  position: relative;
+  float: right;
+  text-align: right;
+  margin-top: 75px;
+}
+
+.bottomfak {
+  position: relative;
+  float: left;
+  display: none;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
 }
 
 @media (max-width: 760px) {
