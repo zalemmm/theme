@@ -151,6 +151,22 @@
     width: 100%;
   }
 
+
+  ul.form-section  li {
+      &.optionsformline,
+      &.optionsformlineOld {
+        .options_single span {
+          &.optionsleft,
+          &.optionsright {
+            width: 100%;
+              .helpButton {
+              right: 5px;
+              left: auto;
+            }
+          }
+        }
+      }
+    }
   //----------------------------------------------------------------------------
   //                       PAGES ACCES CLIENT
   //----------------------------------------------------------------------------
