@@ -314,6 +314,8 @@ p {
   }
 }
 
+
+
 small {
   font-size: 0.8rem;
   line-height: 1rem;
@@ -1068,9 +1070,9 @@ hr.hr-separator {
 
 #preview,
 #preview2,
-#preview3,
- {
-  @include span (5 last);
+#preview3 {
+  width: 400px;
+  float: right;
   position: relative;
   padding-right: 0;
   margin-top: 20px;
@@ -1152,12 +1154,14 @@ hr.hr-separator {
 // module sélection produit --------------------------------------------------
 
 #buying {
-  font-size: .8rem;
-  clear: both;
-  @include span(7);
+
+  width:510px;
+  float: left;
   padding-left: 0;
   position: relative;
   display: block;
+  font-size: .8rem;
+  clear: both;
   margin-top: 20px;
 }
 
@@ -1810,8 +1814,9 @@ ul {
 
 .helpText {
   position: absolute;
-  left: 102%;
+  left: 100%;
   top: -10px;
+  padding-left: 10px;
   width: 270px;
   color: darken($text, 10%);
   padding: .7rem;
@@ -2747,7 +2752,7 @@ div {
 #wycena_nag {
   float: left;
   display: inline;
-  @include span(8);
+  @include span(12);
   height: 40px;
   background: $bloc-base;
   padding: 10px 0;
@@ -2759,7 +2764,7 @@ div {
 #wycena_suma {
   float: left;
   display: inline;
-  @include span(8);
+  @include span(12);
   height: 40px;
   background: $bloc-base;
   padding: 10px 0;
@@ -2772,7 +2777,7 @@ div {
 #dodaj_koszyk {
   float: left;
   display: inline;
-  @include span(8);
+  @include span(12);
   height: 60px;
   background: $bloc-base;
   padding: 10px 0;
@@ -2793,9 +2798,6 @@ span.wycena_poz {
 
 }
 
-#cart_form {
-
-}
 .warning {
   display: block;
   float: left;
@@ -2808,7 +2810,7 @@ span.wycena_poz {
   display: inline-block;
   width: 150px;
   margin: 0 10px 10px;
-  text-indent: -5px;
+
   a{
     color: $white;
   }
@@ -3037,114 +3039,6 @@ display:-webkit-flex;
   padding: 18px;
   background: $color_24;
   color: $color_9;
-}
-
-.cheque {
-  width: auto;
-  margin: 35px auto 0;
-  position: relative;
-  float: left;
-  display: inline;
-  text-align: center;
-  color: $text;
-}
-
-.cheque_tab {
-  margin-left: 15px;
-  width: 100%;
-
-  th {
-    width: 331px;
-    border-bottom: 1px solid $text;
-    text-align: left;
-    font-size: .8rem;
-  }
-
-  td {
-    text-align: left;
-    padding: 10px 0 20px;
-    vertical-align: top;
-  }
-}
-
-.cheque_tab2 {
-  margin-left: 15px;
-  width: 675px;
-
-  th {
-    border-bottom: 1px solid $text;
-    border-top: 1px solid $text;
-    text-align: center;
-    font-size: .8rem;
-    text-transform: uppercase;
-    padding-top: 1px;
-
-    &.leftth {
-      text-align: left;
-    }
-  }
-
-  td {
-    text-align: center;
-    padding: 10px 0 15px;
-    border-bottom: 1px solid $text;
-    vertical-align: top;
-
-    &.lefttd {
-      text-align: left;
-    }
-  }
-
-  span {
-    &.name {
-      font-size: .75rem;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    &.therest {
-      font-size: .75rem;
-      line-height: 13px;
-    }
-  }
-}
-
-.cheque_tab3 {
-  float: right;
-  display: inline;
-  width: 203px;
-  margin-right: 16px;
-  margin-top: 5px;
-
-  td {
-    width: 50%;
-    text-align: right;
-    font-size: .75rem;
-    border-bottom: 1px solid $text;
-    padding: 2px 1px 2px 0;
-
-    &.left {
-      text-align: left;
-      font-size: 10px;
-      border-bottom: 1px solid $text;
-    }
-
-    &.lefttotal {
-      text-align: left;
-      font-size: .75rem;
-      padding: 15px 0;
-      border-bottom: 1px solid $text;
-      font-weight: bold;
-    }
-
-    &.righttotal {
-      text-align: right;
-      font-size: .75rem;
-      padding: 15px 1px 15px 0;
-      border-bottom: 1px solid $text;
-      font-weight: bold;
-    }
-  }
 }
 
 //----------------------------------------------------------------------------
@@ -3596,7 +3490,6 @@ tbody {
   position: relative;
   float: left;
   display: inline-block;
-  @include container(100%);
   width: 100%;
   background: darken($bloc-base,2%);
   font-size: .85rem;
@@ -3623,7 +3516,7 @@ tbody {
     border-bottom: 1px solid $border;
     text-transform: uppercase;
     color: $color_12;
-    width: 12%;
+    width: 14%;
     padding: 1rem;
     font-size: .8rem;
 
