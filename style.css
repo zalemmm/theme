@@ -3629,7 +3629,7 @@ stat2,
   margin-bottom: 10px;
   width: 153px;
   height: 19px;
-  background: url(images/but_imprimerfacture.png) no-repeat;
+  background: yellow;
   overflow: hidden;
   border: none;
   cursor: pointer;
