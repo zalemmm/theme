@@ -1,3 +1,6 @@
+//                                                 Template desktop: + de 1024px
+// -----------------------------------------------------------------------------
+
 @media(min-width: 1025px) {
 
   // restore hidden elements ---------------------------------------------------
@@ -10,7 +13,7 @@
   //----------------------------------------------------------------------------
   //                              LAYOUT
   //----------------------------------------------------------------------------
-
+  
   body {
     width: 1024px;
     background: $bloc-base;
@@ -43,33 +46,19 @@
     height: 190px;
   }
 
-  // titre site --------------------------------------------------
+  // titre site ----------------------------------------------------------------
+
   .site-head{
     width: 76.5%;
-    position: relative;
-    display: block;
     top: 120px;
     left: 19%;
-    font-family: $font-special;
-    letter-spacing: 1px;
     .site-title{
-      font-size: 2.6rem;
-      line-height: 2.6rem;
-      a{
-        color: $text;
-      }
       &:after{
-        content: '';
-        background: url('../img/ligne-titre.png') top left repeat-y;
-        display: block;
         width: 99%;
         height: 7px;
-
       }
     }
     .site-subtitle{
-      color: $text;
-      text-align: left;
       padding: 0 5px 0 0;
       font-size: 1.2rem;
       line-height: 1.4rem;
@@ -82,8 +71,6 @@
     top: 20px;
     left:25%;
   }
-
-
 
   // derniers commentaires
 
@@ -131,7 +118,6 @@
   }
 
   #contact3 {
-
     display: inline-block;
     width: 49%;
   }

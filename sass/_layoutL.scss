@@ -1,4 +1,5 @@
-//@media(max-width: 1024px) {
+//                                                      Template de base: 1024px
+// -----------------------------------------------------------------------------
 
 $susy: (
   columns: 12,
@@ -193,6 +194,23 @@ small {
   line-height: 1rem;
 }
 
+span.pink {
+  color: $magenta;
+}
+
+span.colblue {
+  color: $color_12;
+}
+
+span.subtitle {
+  font-size: 11px;
+}
+
+span.reg_info {
+  font-size: .75rem;
+  color: $color_12;
+}
+
 h1, h2, h3 {
   font-size: 1.1rem;
   line-height: 1.4rem;
@@ -259,7 +277,6 @@ h4.keepTxtColor {
 .floatRight {
   float: right;
 }
-
 
 .highlight {
   color: $alert;
@@ -418,13 +435,12 @@ a {
   }
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                             MODULES
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
-// Header --------------------------------------------------------------------
+// logo ------------------------------------------------------------------------
 
-// module logo
 a#logo {
   position: absolute;
   top: 60px;
@@ -435,7 +451,8 @@ a#logo {
   background-size: contain;
 }
 
-// module titre site
+// titre site ------------------------------------------------------------------
+
 .site-head{
   width: 72%;
   position: relative;
@@ -447,6 +464,9 @@ a#logo {
   .site-title{
     font-size: 2.6rem;
     line-height: 2.6rem;
+    a {
+      color: $text;
+    }
     &:after{
       content: '';
       background: url('../images/ligne-titre.png') top left repeat-y;
@@ -466,9 +486,8 @@ a#logo {
   }
 }
 
+// menu accès client -----------------------------------------------------------
 
-
-// module accès client
 ul.menu-client{
   @include container (55%);
   font-size: .7rem;
@@ -567,7 +586,7 @@ a .fa-lock{
   }
 }
 
-// module menu top
+// menu génénéral --------------------------------------------------------------
 
 #responsive-menu-container li.responsive-menu-item a{
   text-transform: uppercase;
@@ -713,20 +732,12 @@ ul {
 #produit_sub{
   border-left: 0;
 }
-//----------------------------------------------------------------------------
-//                      MODULES PAGE ACCUEIL
-//----------------------------------------------------------------------------
 
-// module icones tarifs
-.b-it1{
-  margin-right: 1%;
-}
-.b-it2 {
-  margin-right: 1%;
-}
-.b-it3 {
-  margin-right: 0;
-}
+//------------------------------------------------------------------------------
+//                      MODULES PAGE ACCUEIL
+//------------------------------------------------------------------------------
+
+// icones page d'accueil et pages akilux, enseigne et stickers -----------------
 
 ul#tarifs {
   float: none;
@@ -749,8 +760,6 @@ ul#tarifs {
       width: 100%;
       height: auto;
     }
-
-
 
     &.separator_con {
       display: none;
@@ -785,8 +794,19 @@ ul#tarifs {
   }
 }
 
+// ajustements icones tarifs pages akilux, enseigne et stickers
 
-// module texte mots clés
+.b-it1{
+  margin-right: 1%;
+}
+.b-it2 {
+  margin-right: 1%;
+}
+.b-it3 {
+  margin-right: 0;
+}
+
+// texte mots clés
 
   small {
     font-size: .9rem;
@@ -806,7 +826,8 @@ ul#tarifs {
   line-height: 1.2em;
 }
 
-// module paragraphe important
+// paragraphe important --------------------------------------------------------
+
 .important {
   background: $bloc-base;
   padding: 1rem;
@@ -855,16 +876,11 @@ hr.hr-separator {
   font-weight: normal;
 }
 
-
-.bloc-img{
-  display: none;
-}
-
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                       MODULES PAGES PRODUITS
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
-// Description produit -------------------------------------------------------
+// Encart top description produit ----------------------------------------------
 
 #top_images {
   width: 100%;
@@ -943,12 +959,12 @@ hr.hr-separator {
 #preview,
 #preview2,
 #preview3 {
-  @include span (4 last);
+  @include span(4);
   position: relative;
   padding-right: 0;
   margin-top: 20px;
   display: block;
-  visibility: hidden;
+
   margin-bottom: 5px;
 }
 
@@ -1022,11 +1038,22 @@ hr.hr-separator {
   margin-left: 0;
 }
 
-// module sélection produit --------------------------------------------------
+.previewTitle{
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  max-width: 100%;
+  height: 50px !important;
+  background: $cyan;
+  color: $white;
+}
+
+// module sélection produit ----------------------------------------------------
 
 #buying {
-
   @include span(8);
+  float: left;
   padding-left: 0;
   position: relative;
   display: block;
@@ -1196,7 +1223,8 @@ input::placeholder {
   }
 }
 
-// Hack Chrome & Safari
+// Hack Chrome & Safari champs hauteur largeur des produits
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .jotform-form {
     .cmLeft,
@@ -1215,7 +1243,6 @@ input::placeholder {
   }
 }
 
-
 @keyframes fadein {
   from {
     opacity: 0;
@@ -1227,68 +1254,8 @@ input::placeholder {
     opacity: 1;
   }
 }
-@-moz-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
 
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-@-ms-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-@-o-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-
-.boxcheck {
-  position: absolute;
-  top: 8px;
-  right: 80px;
-  width: 136px;
-  height: 35px;
-  line-height: 11px;
-  color: $color_34;
-  font-size: 10px;
-}
-
-.form-submit-button {
-  @include buttonLog($cyan, 150px);
-
-}
-
-// form sélection produit ----------------------------------------------------
+// form sélection produit ------------------------------------------------------
 
 ul {
   padding-left: 0;
@@ -1328,49 +1295,6 @@ ul {
       margin-top: 15px;
       color: $color_27;
       animation: fadein 1s;
-
-      &.nobor {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        color: $color_27;
-        height: 22px;
-        padding-top: 13px;
-        border-bottom: none !important;
-      }
-
-      &.sizehigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        color: $color_27;
-        height: 32px;
-        padding-top: 18px;
-        border-bottom: 1px solid $color_5;
-      }
-
-      &.ceddreheigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        color: $color_27;
-        height: 32px !important;
-        padding-top: 12px !important;
-        border: none !important;
-      }
-
-      &.id_17 {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        color: $color_27;
-        height: 35px;
-        padding-top: 12px;
-      }
 
       &.optionsformline,
       &.optionsformlineOld {
@@ -1477,71 +1401,96 @@ ul {
 
     }
   }
-
-  &.form-section-cadre {
-    margin: 0;
-    padding: 0;
-
-    li {
-      padding-top: 13px;
-      padding-bottom: 5px;
-      position: relative;
-      float: left;
-      display: inline;
-      width: 260px;
-      padding-top: 10px;
-      color: $color_27;
-      animation: fadein 2s;
+}
 
 
+// Partie résultat devis -------------------------------------------------------
 
-      &.nobor {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        height: 22px;
-        padding-top: 13px;
-        color: $color_27;
-        border-bottom: none !important;
-      }
+#wycena {
+  clear:both;
+  position: relative;
+  float: none;
+  display: block;
+  @include span(full);
+  padding-left: 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
 
-      &.sizehigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        height: 32px;
-        padding-top: 18px;
-        color: $color_27;
-        border-bottom: 1px solid $color_5;
-      }
+#wycena_nag {
+  float: left;
+  display: inline;
+  @include span(12);
+  height: 40px;
+  background: $bloc-base;
+  padding: 10px 0;
+  color: $color_12;
+  font-size: .9rem;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+}
 
-      &.ceddreheigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 260px;
-        height: 32px !important;
-        padding-top: 12px !important;
-        color: $color_27;
-        border: none !important;
-      }
+#wycena_suma {
+  float: left;
+  display: inline;
+  @include span(12);
+  height: 40px;
+  background: $bloc-base;
+  padding: 10px 0;
+  color: $color_12;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+}
 
-      &.id_17 {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 260px;
-        height: 35px;
-        padding-top: 12px;
-        color: $color_27;
-      }
-    }
+#dodaj_koszyk {
+  float: left;
+  display: inline;
+  @include span(12);
+  height: 60px;
+  background: $bloc-base;
+  padding: 10px 0;
+  color: $color_12;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+.wycena_poz,
+.wycena-cadre_poz {
+  float: left;
+  display: inline;
+  height: 10px;
+  width: 25%;
+  text-align: center;
+  line-height: .7rem;
+
+}
+
+.warning {
+  display: block;
+  float: left;
+  padding-left: 10px;
+}
+
+// boutons envoi formulaire
+
+#submit_cart {
+  @extend %buttonBase;
+  float: right;
+  display: inline-block;
+  width: 150px;
+  margin: 0 10px 10px;
+  a{
+    color: $white;
   }
 }
 
-// tips forms
+.form-submit-button {
+  @include buttonLog($cyan, 150px);
+}
+
+// alertes formulaires ---------------------------------------------------------
 
 .form-line{
   width: 80%;
@@ -1572,96 +1521,7 @@ ul {
   }
 }
 
-
-// preview selection produit --------------------------------------------------
-
-#buying-cadre {
-  position: relative;
-  float: left;
-  display: inline;
-  width: auto;
-  clear: left;
-}
-
-.jotform-form-cadre {
-  float: left;
-  display: inline;
-  width: auto;
-  background: $bloc-base;
-  padding: 20px 10px;
-
-  select {
-    float: left;
-    display: inline-block;
-    width: 90%;
-    line-height: .8rem;
-    border: 0 solid $color_7;
-    font-size: .8rem;
-    padding: 2px;
-    font-family:  $font-global;
-  }
-}
-
-#preview-cadre_con {
-  float: right;
-  display: inline;
-  width: 420px;
-  clear: right;
-}
-
-#preview-cadre {
-  float: right;
-  display: inline;
-  width: 420px;
-  visibility: hidden;
-  margin-bottom: 5px;
-  background-color: $bloc-base;
-}
-
-#preview-cadre_name {
-  float: right;
-  display: inline;
-  width: 404px;
-  height: 20px;
-  line-height: 21px;
-  vertical-align: middle;
-  padding: 1px 8px 0;
-  background: $magenta;
-  color: $white;
-  font-size: 12px;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-}
-
-#preview-cadre_info {
-  float: right;
-  display: inline;
-  width: 111px;
-  height: 143px;
-  height: auto !important;
-  min-height: 143px;
-  background: $bloc-base;
-
-  ul {
-    float: left;
-    display: inline;
-    margin: 3px 7px;
-    font-size: 9px;
-    padding-left: 12px;
-  }
-
-  li {
-    &#iden1 {
-      list-style-type: none;
-    }
-
-    &#iden2 {
-      list-style-type: none;
-    }
-  }
-}
-
-// Tooltips --------------------------------------------------------------------
+// Tooltips aide formulaires ---------------------------------------------------
 
 .helpImg {
   float: right;
@@ -1686,6 +1546,7 @@ ul {
   position: absolute;
   left: 100%;
   top: -10px;
+  padding-left: 10px;
   width: 270px;
   color: darken($text, 10%);
   padding: .7rem;
@@ -1724,511 +1585,9 @@ ul {
 	margin-top: -11px;
 }
 
-//------------------------------------------------------------------------------
-
-#preview-cadre_info_title {
-  float: left;
-  display: inline;
-  padding: 3px 7px 4px;
-  width: 97px;
-  height: 12px;
-  font-size: 10px;
-  color: $white;
-  background: $color_18;
-  text-transform: uppercase;
-}
-
-#preview-cadre_imag {
-  float: left;
-  display: inline-block;
-  width: 300px;
-  height: 300px;
-  background-color: $bloc-base;
-}
-
-.roundedImage {
-  overflow: hidden;
-
-  border-radius: 50px;
-  height: 15px;
-  text-align: center;
-  float: left;
-  margin: 0 5px 5px 0;
-  padding: 0 5px;
-  width: 248px;
-  background-color: $color_12;
-  color: $white;
-}
-
-.cadre-bt {
-  overflow: hidden;
-
-  border-radius: 5px;
-  width: 80px;
-  height: 15px;
-  text-align: center;
-  float: left;
-  background-color: $color_12;
-  color: $white;
-  margin: 2px;
-  behavior: url('http://www.france-banderole.com/wp-content/themes/fb/js2/PIE.js');
-}
-
-#form-button-error2-cadre {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: auto;
-  height: 30px;
-  font-size: 11px;
-  color: $alert;
-  font-weight: bold;
-  top: 40px;
-}
-
-#wycena-cadre {
-  position: relative;
-  float: left;
-  display: inline;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  width: auto;
-  clear: left;
-}
-
-#wycena-cadre_nag {
-  float: left;
-  display: inline;
-  width: auto;
-  height: 11px;
-  background: $bloc-base;
-  padding: 4px 0 6px;
-  color: $color_12;
-  font-size: 10px;
-}
-
-#wycena-cadre_suma {
-  float: left;
-  display: inline;
-  width: auto;
-  height: 11px;
-  padding: 4px 0 6px;
-  font-size: 10px;
-}
-
-#dodaj_koszyk-cadre {
-  float: left;
-  display: inline;
-  width: auto;
-  padding: 6px 10px 6px 27px;
-  height: 47px;
-  margin-top: 24px;
-  background: $bloc-base;
-}
-
-.OptionFedex {
-  border: 0 solid $black;
-  width: auto;
-  height: 100px;
-  clear: both;
-}
-
-.OptionTNT {
-  border: 0 solid $black;
-  width: auto;
-  height: 100px;
-  clear: both;
-}
-
-#labelFEDEX {
-  font-weight: bolder;
-  color: $color_16;
-}
-
-
-//----------------------------------------------------------------------------
-//                     MODULES FOOTER
-// ---------------------------------------------------------------------------
-
-#flink2 {
-  position: relative;
-  left: auto;
-  top: auto;
-  width: auto;
-  height: auto;
-}
-
-// banières
-
-#banners {
-  @include span(6);
-  height: auto;
-  margin-top: 0;
-  padding-left: 0;
-
-  .banner1 img, .banner2 img {
-    width:100%;
-    margin-bottom: 10px;
-    display: block;
-    height: auto;
-  }
-}
-
-// derniers commentaires
-
-#derniers {
-  position: relative;
-  @include span(6 last);
-  height: auto;
-  text-transform: uppercase;
-  margin: -19px auto 0;
-  display: block;
-  font-weight: bold;
-  vertical-align: top;
-  padding-right: 0;
-}
-
-#ratinghome {
-  margin-top: 0;
-  display: block;
-  position: relative;
-  left: auto;
-  right: auto;
-  margin:20px auto 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-}
-
-.singlerate {
-  position: relative;
-  float: none;
-  display: block;
-  width: auto;
-  height: 51px;
-  margin: 0 0 5px;
-  vertical-align: baseline;
-  color: darken($bloc-base,20%);
-}
-
-.singlerate_content {
-  clear: both;
-  position: relative;
-  float: none;
-  display: block;
-  width: auto;
-  height: auto;
-  font-family:  $font-title;
-  font-size: .72rem;
-  font-weight: bold;
-  font-style: italic;
-  color: darken($bloc-base,20%);
-  line-height: .9rem;
-  margin: 10px 0 5px;
-  text-transform: none;
-}
-
-.singlerate_rate {
-  position: relative;
-  float: none;
-  display: inline-block;
-  width: 48%;
-  height: 20px;
-  line-height: 20px;
-
-}
-
-.singlerate_date {
-  position: relative;
-  float: right;
-  display: inline-block;
-  width: 50%;
-  height: 15px;
-  text-align: right;
-  font-size: .8rem;
-}
-
-.clients_reviews {
-  border-bottom: 1px solid $border;
-  border-right: 1px solid $border;
-  border-left: 1px solid $border;
-  text-align: center;
-  padding:.7rem 0 0;
-  font-size: 18px;
-  margin-top: -10px;
-}
-
-.client_reviews_1 {
-  font-size: 20px;
-  font-weight: bold;
-  color: $color_15;
-}
-
-span {
-  &.footer_separ1 {
-    display: inline-block;
-    width: 12px;
-    height: 37px;
-  }
-
-  &.footer_separ2 {
-    display: inline-block;
-    width: 18px;
-    height: 37px;
-  }
-
-  &#footer_links {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    font-size: .75rem;
-    line-height: .8rem;
-
-    a {
-      &:link {
-        color: $text;
-        text-decoration: none;
-      }
-
-      &:visited {
-        text-decoration: none;
-        color: $text;
-      }
-    }
-  }
-
-
-
-  &#footer_links2 {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    font-size: .75rem;
-
-    a {
-      &:link {
-        text-decoration: none;
-      }
-
-      &:visited {
-        text-decoration: none;
-      }
-    }
-  }
-
-  &.fa1 {
-    position: absolute;
-    top: 18px;
-    left: 15px;
-    width: 225px;
-    height: 70px;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 22px;
-    color: $color_6;
-  }
-
-  &.fa2 {
-    position: absolute;
-    top: 18px;
-    left: 252px;
-    width: 200px;
-    height: 70px;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 22px;
-    color: $color_6;
-  }
-
-  &.fa3 {
-    position: absolute;
-    top: 18px;
-    left: 479px;
-    width: 220px;
-    height: 70px;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 22px;
-    color: $color_6;
-  }
-
-  &.fab1 {
-    position: absolute;
-    top: 108px;
-    left: 15px;
-    width: 225px;
-    height: 26px;
-    color: $text;
-    font-size: 10px;
-  }
-
-  &.fab2 {
-    position: absolute;
-    top: 108px;
-    left: 252px;
-    width: 225px;
-    height: 26px;
-    color: $text;
-    font-size: 10px;
-  }
-
-  &.fab3 {
-    position: absolute;
-    top: 108px;
-    left: 479px;
-    width: 225px;
-    height: 26px;
-    line-height: 13px;
-    color: $text;
-    font-size: 10px;
-  }
-
-
-
-  &.print_button {
-    position: relative;
-    float: left;
-    display: inline;
-    width: auto;
-    height: 33px;
-    padding-top: 14px;
-    background: $bloc-base;
-    text-align: center;
-  }
-
-  &.pink {
-    color: $magenta;
-    font-weight: normal;
-    text-transform: none;
-    font-size: .75rem;
-  }
-
-  &.info_mar {
-    float: left;
-    display: inline-block;
-    margin-top: 8px;
-  }
-
-  &.payement_underline {
-    width: 90%;
-    display: inline-block;
-    border-bottom: 1px solid $color_7;
-    font-size: .8rem;
-    padding-bottom: 2px;
-  }
-
-  &.pay_image {
-    display: block;
-    margin: 5px 0 0 18px;
-  }
-
-  &.pay_image2 {
-    display: block;
-    margin: 0 0 0 18px;
-  }
-
-  &.pay_carte_info {
-    display: block;
-    margin: 5px 0 0 20px;
-    font-size: .7rem;
-  }
-
-  &.colblue {
-    color: $color_12;
-  }
-
-  &.subtitle {
-    font-size: 11px;
-  }
-
-  &.stat3 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_12;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-  }
-
-  &.stat4 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_12;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-  }
-
-  &.reg_info {
-    font-size: 10px;
-    color: $color_12;
-  }
-
-  &.form-checkbox-item {
-    position: absolute;
-    top: 15px;
-    right: 226px;
-    width: 12px;
-    height: 15px;
-    line-height: 13px;
-  }
-
-  &.wycena-cadre_poz {
-    float: left;
-    display: inline;
-    height: 10px;
-    width: 130px;
-    text-align: center;
-  }
-
-  &#notregiste#f00 {
-    position: absolute;
-    top: 64px;
-    left: 26px;
-    width: 200px;
-    height: 40px;
-  }
-}
-
-#front_image {
-  position: relative;
-  width: 100%;
-  height: 134px;
-  background: url('../images/frontpage.jpg') no-repeat;
-  margin-top: 0;
-}
-
-h4.clients_reviews_titre a{
-  display: inline-block;
-  background-image: none;
-  width: 100%;
-  background: $jaune;
-  color:$white;
-  padding: .7rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-align: center;
-  top: 0;
-  &:hover{
-    background: $magenta;
-  }
-}
-
-// module contact
+// -----------------------------------------------------------------------------
+//                                PAGE CONTACT
+// -----------------------------------------------------------------------------
 
 #contact_bot,
 #contact_top {
@@ -2422,156 +1781,6 @@ div {
   }
 }
 
-#ceddreplace1 {
-  position: absolute;
-  top: 352px;
-  left: 49px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace2 {
-  position: absolute;
-  top: 352px;
-  left: 184px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace3 {
-  position: absolute;
-  top: 352px;
-  left: 318px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace4 {
-  position: absolute;
-  top: 352px;
-  left: 450px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace5 {
-  position: absolute;
-  top: 352px;
-  left: 582px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace6 {
-  position: absolute;
-  top: 521px;
-  left: 49px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace7 {
-  position: absolute;
-  top: 521px;
-  left: 184px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace8 {
-  position: absolute;
-  top: 521px;
-  left: 318px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace9 {
-  position: absolute;
-  top: 521px;
-  left: 450px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace10 {
-  position: absolute;
-  top: 521px;
-  left: 582px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
 .cedtab {
   display: table-cell;
   vertical-align: middle;
@@ -2602,86 +1811,6 @@ div {
   background-color: $color_22;
   img{
     margin-right: 1rem;
-  }
-}
-
-// Partie résultat prix
-
-#wycena {
-  clear:both;
-  position: relative;
-  float: none;
-  display: block;
-  @include span(full);
-  padding-left: 0;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-#wycena_nag {
-  float: left;
-  display: inline;
-  @include span(8);
-  height: 40px;
-  background: $bloc-base;
-  padding: 10px 0;
-  color: $color_12;
-  font-size: .9rem;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
-}
-
-#wycena_suma {
-  float: left;
-  display: inline;
-  @include span(8);
-  height: 40px;
-  background: $bloc-base;
-  padding: 10px 0;
-  color: $color_12;
-  font-size: 1rem;
-  font-weight: bold;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
-}
-
-#dodaj_koszyk {
-  float: left;
-  display: inline;
-  @include span(8);
-  height: 60px;
-  background: $bloc-base;
-  padding: 10px 0;
-  color: $color_12;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-top: 0;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
-}
-
-span.wycena_poz {
-  float: left;
-  display: inline;
-  height: 10px;
-  width: 25%;
-  text-align: center;
-  line-height: .7rem;
-
-}
-
-.warning {
-  display: block;
-  float: left;
-  padding-left: 10px;
-}
-
-#submit_cart {
-  @extend %buttonBase;
-  float: right;
-  display: inline-block;
-  width: 150px;
-  margin: 0 10px 10px;
-
-  a{
-    color: $white;
   }
 }
 
@@ -2731,7 +1860,7 @@ span.comm_title3 {
   border: 1px solid $border;
   float: none;
   display: flex;
-display:-webkit-flex;
+  display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
   font-size: .9rem;
@@ -2872,8 +2001,6 @@ display:-webkit-flex;
   border-bottom: 5px solid $white;
 }
 
-
-
 #regulamin .checkbox2 {
   position: relative;
   top: 0;
@@ -2881,8 +2008,6 @@ display:-webkit-flex;
   width: 100%;
   height: auto;
 }
-
-
 
 .paydiff_tab_name {
   width: 100%;
@@ -2898,8 +2023,6 @@ display:-webkit-flex;
   text-transform: uppercase;
 }
 
-
-
 .paydiff_tab_con {
   position: relative;
   float: left;
@@ -2908,6 +2031,22 @@ display:-webkit-flex;
   padding: 18px;
   background: $color_24;
   color: $color_9;
+}
+
+span.pay_image {
+  display: block;
+  margin: 5px 0 0 18px;
+}
+
+span.pay_image2 {
+  display: block;
+  margin: 0 0 0 18px;
+}
+
+span.pay_carte_info {
+  display: block;
+  margin: 5px 0 0 20px;
+  font-size: .7rem;
 }
 
 //----------------------------------------------------------------------------
@@ -2933,7 +2072,6 @@ display:-webkit-flex;
     }
   }
 }
-
 
 #contact_advert {
   position: relative;
@@ -2985,9 +2123,8 @@ display:-webkit-flex;
   border-right: 1px solid $border;
 }
 
-// UPLOAD --------------------------------------------------------------------
+// MODULE UPLOAD ---------------------------------------------------------------
 
-// module upload
 
 SPAN {
   &#uploadfile_completedMessage {
@@ -4874,10 +4011,12 @@ h1.comTitre {
 
 
 //----------------------------------------------------------------------------
-//                                  SLIDER
+//                                  SLIDERS
 //----------------------------------------------------------------------------
 
-.metaslider {
+
+.metaslider,
+#container {
   width: 100%;
   top: 0;
   margin-left: 0;
@@ -4905,20 +4044,33 @@ h1.comTitre {
     left: auto;
   }
 }
+
 #slides {
-  display: none
+  display: none;
 }
 
 /* Center the slideshow */
-.container {
-  margin: 0 auto
+#container {
+  width: 400px;
+  height: 266px;
+  z-index: 1;
+  &:before,
+  &:after {
+    animation: 1s 5s fadeIn;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+  }
 }
 
-/* Show active item in the pagination */
-.slidesjs-pagination .active {
-  color:red;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
-
 
 //----------------------------------------------------------------------------
 //                             STYLES INLINE RAPATRIES
@@ -5003,6 +4155,47 @@ h1.comTitre {
   cursor: pointer;
 }
 
+
+DIV.ProgressBar {
+  float: left;
+  width: 100px;
+  padding: 0;
+  border: 1px solid $black;
+  margin-right: 1em;
+  height: 12px;
+  margin-left: 1em;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  margin-top: 2px;
+
+  DIV {
+    float: left;
+    display: inline;
+    background-color: $color_16;
+    font-size: 11px;
+    height: 100%;
+  }
+}
+
+
+.livraison-gratuite {
+  font-weight: bold;
+  width: 48%;
+  padding: .7rem;
+  .starImg{
+    display: none;
+  }
+
+}
+
+
+// -----------------------------------------------------------------------------
+//                           BOUTONS
+// -----------------------------------------------------------------------------
+
+// boutons délais de production/livraison --------------------------------------
+
 #p1 {
   @extend %buttonBase;
   &:after{
@@ -5067,70 +4260,8 @@ h1.comTitre {
   }
 }
 
-DIV.ProgressBar {
-  float: left;
-  width: 100px;
-  padding: 0;
-  border: 1px solid $black;
-  margin-right: 1em;
-  height: 12px;
-  margin-left: 1em;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  margin-top: 2px;
 
-  DIV {
-    float: left;
-    display: inline;
-    background-color: $color_16;
-    font-size: 11px;
-    height: 100%;
-  }
-}
-
-
-
-#f00error {
-  font-size: 16px;
-  font-weight: bold;
-  color: $alert;
-  margin-top: 10px;
-  position: relative;
-  float: left;
-  width: auto;
-  text-align: center;
-}
-
-.livraison-gratuite {
-  font-weight: bold;
-  width: 48%;
-  padding: .7rem;
-  .starImg{
-    display: none;
-  }
-
-}
-
-.logoprint,
-.logoprint2 {
-  display: inline-block;
-  width: 100%;
-  height: 200px;
-}
-
-.onlyprint {
-  display: none;
-}
-
-
-
-
-// ---------------------------------------------------------------------------
-//                           BOUTONS
-// ---------------------------------------------------------------------------
-
-// containers pour accès clients
+// containers pour accès clients -----------------------------------------------
 
 #fbcart_buttons,
 #fbcart_buttons3,
@@ -5148,8 +4279,7 @@ DIV.ProgressBar {
   background: $bloc-base;
   font-size: .9rem;
   display: flex;
-display:-webkit-flex;
-
+  display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
   border: 1px solid $border;
@@ -5159,9 +4289,6 @@ display:-webkit-flex;
   top: 20px;
 }
 
-#but_continuer {
-  @include buttonLog($cyan,24%);
-}
 
 // boutons géréer mon compte -------------------------------------------------
 
@@ -5240,6 +4367,9 @@ form#delfromvosdevis,
 
 // boutons panier ------------------------------------------------------------
 
+#but_continuer {
+  @include buttonLog($cyan,24%);
+}
 #but_ajouter {
   @include buttonLog($cyan, 24%);
 }
@@ -5480,6 +4610,17 @@ a.but_voiremaquette {
   margin-top: 0;
   cursor: pointer;
   margin-right: 30px;
+}
+
+span.print_button {
+  position: relative;
+  float: left;
+  display: inline;
+  width: auto;
+  height: 33px;
+  padding-top: 14px;
+  background: $bloc-base;
+  text-align: center;
 }
 
 .prom_sub2 {
@@ -5936,6 +5077,17 @@ a:hover {
 //                               PRINT
 // -----------------------------------------------------------------------------
 
+.logoprint,
+.logoprint2 {
+  display: inline-block;
+  width: 100%;
+  height: 200px;
+}
+
+.onlyprint {
+  display: none;
+}
+
 .adresfak {
   position: relative;
   float: left;
@@ -5958,5 +5110,277 @@ a:hover {
   text-align: center;
 }
 
+//------------------------------------------------------------------------------
+//                     MODULES PIED DE PAGE (avant footer)
+// -----------------------------------------------------------------------------
 
-//}
+#flink2 {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: auto;
+  height: auto;
+}
+
+// images charte éco & réalisations --------------------------------------------
+
+#banners {
+  @include span(6);
+  height: auto;
+  margin-top: 0;
+  padding-left: 0;
+
+  .banner1 img, .banner2 img {
+    width:100%;
+    margin-bottom: 10px;
+    display: block;
+    height: auto;
+  }
+}
+
+// derniers commentaires -------------------------------------------------------
+
+#derniers {
+  position: relative;
+  @include span(6 last);
+  height: auto;
+  text-transform: uppercase;
+  margin: -19px auto 0;
+  display: block;
+  font-weight: bold;
+  vertical-align: top;
+  padding-right: 0;
+
+}
+
+h4.clients_reviews_titre a{
+  display: inline-block;
+  background-image: none;
+  width: 100%;
+  background: $jaune;
+  color:$white;
+  padding: .7rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  top: 0;
+  &:hover{
+    background: $magenta;
+  }
+}
+
+#ratinghome {
+  margin-top: 0;
+  display: block;
+  position: relative;
+  left: auto;
+  right: auto;
+  margin:20px auto 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.singlerate {
+  position: relative;
+  float: none;
+  display: block;
+  width: auto;
+  height: 51px;
+  margin: 0 0 5px;
+  vertical-align: baseline;
+  color: darken($bloc-base,20%);
+}
+
+.singlerate_content {
+  clear: both;
+  position: relative;
+  float: none;
+  display: block;
+  width: auto;
+  height: auto;
+  font-family:  $font-title;
+  font-size: .72rem;
+  font-weight: bold;
+  font-style: italic;
+  color: darken($bloc-base,20%);
+  line-height: .9rem;
+  margin: 10px 0 5px;
+  text-transform: none;
+}
+
+.singlerate_rate {
+  position: relative;
+  float: none;
+  display: inline-block;
+  width: 48%;
+  height: 20px;
+  line-height: 20px;
+
+}
+
+.singlerate_date {
+  position: relative;
+  float: right;
+  display: inline-block;
+  width: 50%;
+  height: 15px;
+  text-align: right;
+  font-size: .8rem;
+}
+
+.clients_reviews {
+  border-bottom: 1px solid $border;
+  border-right: 1px solid $border;
+  border-left: 1px solid $border;
+  text-align: center;
+  padding:.7rem 0 0;
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+.client_reviews_1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: $color_15;
+}
+
+
+//------------------------------------------------------------------------------
+//                             FOOTER
+//------------------------------------------------------------------------------
+
+#main2 {
+  @include container (100%);
+  margin-top: 0;
+  background: #fff;
+  clear: both;
+  height: auto;
+  width: 100%;
+}
+
+#footer {
+  position: relative;
+  //width: 706px;
+  @include container (100%);
+  width: 100%;
+  margin: 0 auto;
+  background: none;
+  height: auto;
+  padding: 25px 5% 0;
+}
+
+#footer2 {
+  @include container (90%);
+  position: relative;
+  width: 100%;
+  margin: 0auto;
+  height: auto;
+  padding: 0;
+  //border: 2px solid $color_21;
+  //background-color: $color_22;
+}
+
+#footer3 {
+  @include container (100%);
+  border-top:10px solid darken($text,10%);
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin: 20px auto 0;
+  background: $cyan;
+  padding: 10px 0 100px;
+  font-size: .9rem;
+  text-align: center;
+  color: $white;
+  a{
+    color: $white;
+    font-weight: bold;
+    text-transform: uppercase;
+    &:hover {
+      color: $border;
+    }
+  }
+}
+
+span#footer_links,
+span#footer_links2 {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: .75rem;
+  line-height: .8rem;
+}
+
+#copy {
+  position: relative;
+  @include container (100%);
+  top: 0;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+  font-family: $font-special;
+  p{
+    margin-bottom: 0;
+  }
+  .copyright{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin: 10px auto 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    display: block;
+    background: darken($text,10%);
+    color: $white;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    a {
+      color: $white;
+    }
+  }
+}
+
+.footer-keywords {
+  display: none;
+}
+
+#under_footer {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  height: 45px;
+  padding: 14px 45px 0;
+  text-align: center;
+
+  a {
+    &:link,
+    &:visited {
+      color: $color_4;
+      font-size: 10px;
+      line-height: 12px;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $color_5;
+    }
+  }
+}
+
+#mainnew,
+#mainnew2 {
+  display: none;
+  p {
+    width: 100%;
+  }
+}

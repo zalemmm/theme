@@ -1,4 +1,5 @@
-//@media(max-width: 1024px) {
+//                                                      Template de base: 1024px
+// -----------------------------------------------------------------------------
 
 $susy: (
   columns: 12,
@@ -191,6 +192,23 @@ p {
 small {
   font-size: 0.8rem;
   line-height: 1rem;
+}
+
+span.pink {
+  color: $magenta;
+}
+
+span.colblue {
+  color: $color_12;
+}
+
+span.subtitle {
+  font-size: 11px;
+}
+
+span.reg_info {
+  font-size: .75rem;
+  color: $color_12;
 }
 
 h1, h2, h3 {
@@ -446,6 +464,9 @@ a#logo {
   .site-title{
     font-size: 2.6rem;
     line-height: 2.6rem;
+    a {
+      color: $text;
+    }
     &:after{
       content: '';
       background: url('../images/ligne-titre.png') top left repeat-y;
@@ -855,11 +876,6 @@ hr.hr-separator {
   font-weight: normal;
 }
 
-
-.bloc-img{
-  display: none;
-}
-
 //------------------------------------------------------------------------------
 //                       MODULES PAGES PRODUITS
 //------------------------------------------------------------------------------
@@ -1241,11 +1257,7 @@ input::placeholder {
   }
 }
 
-.form-submit-button {
-  @include buttonLog($cyan, 150px);
-}
-
-// form sélection produit ----------------------------------------------------
+// form sélection produit ------------------------------------------------------
 
 ul {
   padding-left: 0;
@@ -1285,49 +1297,6 @@ ul {
       margin-top: 15px;
       color: $color_27;
       animation: fadein 1s;
-
-      &.nobor {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        color: $color_27;
-        height: 22px;
-        padding-top: 13px;
-        border-bottom: none !important;
-      }
-
-      &.sizehigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        color: $color_27;
-        height: 32px;
-        padding-top: 18px;
-        border-bottom: 1px solid $color_5;
-      }
-
-      &.ceddreheigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        color: $color_27;
-        height: 32px !important;
-        padding-top: 12px !important;
-        border: none !important;
-      }
-
-      &.id_17 {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        color: $color_27;
-        height: 35px;
-        padding-top: 12px;
-      }
 
       &.optionsformline,
       &.optionsformlineOld {
@@ -1434,68 +1403,93 @@ ul {
 
     }
   }
-
-  &.form-section-cadre {
-    margin: 0;
-    padding: 0;
-
-    li {
-      padding-top: 13px;
-      padding-bottom: 5px;
-      position: relative;
-      float: left;
-      display: inline;
-      width: 260px;
-      padding-top: 10px;
-      color: $color_27;
-      animation: fadein 2s;
+}
 
 
+// Partie résultat devis -------------------------------------------------------
 
-      &.nobor {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        height: 22px;
-        padding-top: 13px;
-        color: $color_27;
-        border-bottom: none !important;
-      }
+#wycena {
+  clear:both;
+  position: relative;
+  float: none;
+  display: block;
+  @include span(full);
+  padding-left: 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
 
-      &.sizehigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: auto;
-        height: 32px;
-        padding-top: 18px;
-        color: $color_27;
-        border-bottom: 1px solid $color_5;
-      }
+#wycena_nag {
+  float: left;
+  display: inline;
+  @include span(12);
+  height: 40px;
+  background: $bloc-base;
+  padding: 10px 0;
+  color: $color_12;
+  font-size: .9rem;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+}
 
-      &.ceddreheigher {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 260px;
-        height: 32px !important;
-        padding-top: 12px !important;
-        color: $color_27;
-        border: none !important;
-      }
+#wycena_suma {
+  float: left;
+  display: inline;
+  @include span(12);
+  height: 40px;
+  background: $bloc-base;
+  padding: 10px 0;
+  color: $color_12;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+}
 
-      &.id_17 {
-        position: relative;
-        float: left;
-        display: inline;
-        width: 260px;
-        height: 35px;
-        padding-top: 12px;
-        color: $color_27;
-      }
-    }
+#dodaj_koszyk {
+  float: left;
+  display: inline;
+  @include span(12);
+  height: 60px;
+  background: $bloc-base;
+  padding: 10px 0;
+  color: $color_12;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+.wycena_poz,
+.wycena-cadre_poz {
+  float: left;
+  display: inline;
+  height: 10px;
+  width: 25%;
+  text-align: center;
+  line-height: .7rem;
+
+}
+
+.warning {
+  display: block;
+  float: left;
+  padding-left: 10px;
+}
+
+// boutons envoi formulaire
+
+#submit_cart {
+  @extend %buttonBase;
+  float: right;
+  display: inline-block;
+  width: 150px;
+  margin: 0 10px 10px;
+  a{
+    color: $white;
   }
+}
+
+.form-submit-button {
+  @include buttonLog($cyan, 150px);
 }
 
 // alertes formulaires ---------------------------------------------------------
@@ -1593,133 +1587,9 @@ ul {
 	margin-top: -11px;
 }
 
-
-
-span {
-  &.print_button {
-    position: relative;
-    float: left;
-    display: inline;
-    width: auto;
-    height: 33px;
-    padding-top: 14px;
-    background: $bloc-base;
-    text-align: center;
-  }
-
-  &.pink {
-    color: $magenta;
-    font-weight: normal;
-    text-transform: none;
-    font-size: .75rem;
-  }
-
-  &.pay_image {
-    display: block;
-    margin: 5px 0 0 18px;
-  }
-
-  &.pay_image2 {
-    display: block;
-    margin: 0 0 0 18px;
-  }
-
-  &.pay_carte_info {
-    display: block;
-    margin: 5px 0 0 20px;
-    font-size: .7rem;
-  }
-
-  &.colblue {
-    color: $color_12;
-  }
-
-  &.subtitle {
-    font-size: 11px;
-  }
-
-  &.stat3 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_12;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-  }
-
-  &.stat4 {
-    width: 121px;
-    height: 16px;
-    padding-top: 1px;
-    margin: 0 10px;
-    display: inline-block;
-    background: $color_12;
-    color: $white;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-  }
-
-  &.reg_info {
-    font-size: 10px;
-    color: $color_12;
-  }
-
-  &.form-checkbox-item {
-    position: absolute;
-    top: 15px;
-    right: 226px;
-    width: 12px;
-    height: 15px;
-    line-height: 13px;
-  }
-
-  &.wycena-cadre_poz {
-    float: left;
-    display: inline;
-    height: 10px;
-    width: 130px;
-    text-align: center;
-  }
-
-  &#notregiste#f00 {
-    position: absolute;
-    top: 64px;
-    left: 26px;
-    width: 200px;
-    height: 40px;
-  }
-}
-
-#front_image {
-  position: relative;
-  width: 100%;
-  height: 134px;
-  background: url('../images/frontpage.jpg') no-repeat;
-  margin-top: 0;
-}
-
-h4.clients_reviews_titre a{
-  display: inline-block;
-  background-image: none;
-  width: 100%;
-  background: $jaune;
-  color:$white;
-  padding: .7rem;
-  margin-top: 0;
-  margin-bottom: 0;
-  text-align: center;
-  top: 0;
-  &:hover{
-    background: $magenta;
-  }
-}
-
-// module contact
+// -----------------------------------------------------------------------------
+//                                PAGE CONTACT
+// -----------------------------------------------------------------------------
 
 #contact_bot,
 #contact_top {
@@ -1913,156 +1783,6 @@ div {
   }
 }
 
-#ceddreplace1 {
-  position: absolute;
-  top: 352px;
-  left: 49px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace2 {
-  position: absolute;
-  top: 352px;
-  left: 184px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace3 {
-  position: absolute;
-  top: 352px;
-  left: 318px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace4 {
-  position: absolute;
-  top: 352px;
-  left: 450px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace5 {
-  position: absolute;
-  top: 352px;
-  left: 582px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace6 {
-  position: absolute;
-  top: 521px;
-  left: 49px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace7 {
-  position: absolute;
-  top: 521px;
-  left: 184px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace8 {
-  position: absolute;
-  top: 521px;
-  left: 318px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace9 {
-  position: absolute;
-  top: 521px;
-  left: 450px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
-#ceddreplace10 {
-  position: absolute;
-  top: 521px;
-  left: 582px;
-  width: 80px;
-  height: 28px;
-  font-size: 12px;
-  color: $alert;
-  text-transform: uppercase;
-  text-align: center;
-  color: $black;
-  line-height: 13px;
-  display: table;
-}
-
 .cedtab {
   display: table-cell;
   vertical-align: middle;
@@ -2093,86 +1813,6 @@ div {
   background-color: $color_22;
   img{
     margin-right: 1rem;
-  }
-}
-
-// Partie résultat prix
-
-#wycena {
-  clear:both;
-  position: relative;
-  float: none;
-  display: block;
-  @include span(full);
-  padding-left: 0;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-#wycena_nag {
-  float: left;
-  display: inline;
-  @include span(12);
-  height: 40px;
-  background: $bloc-base;
-  padding: 10px 0;
-  color: $color_12;
-  font-size: .9rem;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
-}
-
-#wycena_suma {
-  float: left;
-  display: inline;
-  @include span(12);
-  height: 40px;
-  background: $bloc-base;
-  padding: 10px 0;
-  color: $color_12;
-  font-size: 1rem;
-  font-weight: bold;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
-}
-
-#dodaj_koszyk {
-  float: left;
-  display: inline;
-  @include span(12);
-  height: 60px;
-  background: $bloc-base;
-  padding: 10px 0;
-  color: $color_12;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-top: 0;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
-}
-
-span.wycena_poz {
-  float: left;
-  display: inline;
-  height: 10px;
-  width: 25%;
-  text-align: center;
-  line-height: .7rem;
-
-}
-
-.warning {
-  display: block;
-  float: left;
-  padding-left: 10px;
-}
-
-#submit_cart {
-  @extend %buttonBase;
-  float: right;
-  display: inline-block;
-  width: 150px;
-  margin: 0 10px 10px;
-
-  a{
-    color: $white;
   }
 }
 
@@ -2222,7 +1862,7 @@ span.comm_title3 {
   border: 1px solid $border;
   float: none;
   display: flex;
-display:-webkit-flex;
+  display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
   font-size: .9rem;
@@ -2363,8 +2003,6 @@ display:-webkit-flex;
   border-bottom: 5px solid $white;
 }
 
-
-
 #regulamin .checkbox2 {
   position: relative;
   top: 0;
@@ -2372,8 +2010,6 @@ display:-webkit-flex;
   width: 100%;
   height: auto;
 }
-
-
 
 .paydiff_tab_name {
   width: 100%;
@@ -2389,8 +2025,6 @@ display:-webkit-flex;
   text-transform: uppercase;
 }
 
-
-
 .paydiff_tab_con {
   position: relative;
   float: left;
@@ -2399,6 +2033,22 @@ display:-webkit-flex;
   padding: 18px;
   background: $color_24;
   color: $color_9;
+}
+
+span.pay_image {
+  display: block;
+  margin: 5px 0 0 18px;
+}
+
+span.pay_image2 {
+  display: block;
+  margin: 0 0 0 18px;
+}
+
+span.pay_carte_info {
+  display: block;
+  margin: 5px 0 0 20px;
+  font-size: .7rem;
 }
 
 //----------------------------------------------------------------------------
@@ -2424,7 +2074,6 @@ display:-webkit-flex;
     }
   }
 }
-
 
 #contact_advert {
   position: relative;
@@ -2476,9 +2125,8 @@ display:-webkit-flex;
   border-right: 1px solid $border;
 }
 
-// UPLOAD --------------------------------------------------------------------
+// MODULE UPLOAD ---------------------------------------------------------------
 
-// module upload
 
 SPAN {
   &#uploadfile_completedMessage {
@@ -4509,6 +4157,47 @@ h1.comTitre {
   cursor: pointer;
 }
 
+
+DIV.ProgressBar {
+  float: left;
+  width: 100px;
+  padding: 0;
+  border: 1px solid $black;
+  margin-right: 1em;
+  height: 12px;
+  margin-left: 1em;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  margin-top: 2px;
+
+  DIV {
+    float: left;
+    display: inline;
+    background-color: $color_16;
+    font-size: 11px;
+    height: 100%;
+  }
+}
+
+
+.livraison-gratuite {
+  font-weight: bold;
+  width: 48%;
+  padding: .7rem;
+  .starImg{
+    display: none;
+  }
+
+}
+
+
+// -----------------------------------------------------------------------------
+//                           BOUTONS
+// -----------------------------------------------------------------------------
+
+// boutons délais de production/livraison --------------------------------------
+
 #p1 {
   @extend %buttonBase;
   &:after{
@@ -4573,70 +4262,8 @@ h1.comTitre {
   }
 }
 
-DIV.ProgressBar {
-  float: left;
-  width: 100px;
-  padding: 0;
-  border: 1px solid $black;
-  margin-right: 1em;
-  height: 12px;
-  margin-left: 1em;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-  margin-top: 2px;
 
-  DIV {
-    float: left;
-    display: inline;
-    background-color: $color_16;
-    font-size: 11px;
-    height: 100%;
-  }
-}
-
-
-
-#f00error {
-  font-size: 16px;
-  font-weight: bold;
-  color: $alert;
-  margin-top: 10px;
-  position: relative;
-  float: left;
-  width: auto;
-  text-align: center;
-}
-
-.livraison-gratuite {
-  font-weight: bold;
-  width: 48%;
-  padding: .7rem;
-  .starImg{
-    display: none;
-  }
-
-}
-
-.logoprint,
-.logoprint2 {
-  display: inline-block;
-  width: 100%;
-  height: 200px;
-}
-
-.onlyprint {
-  display: none;
-}
-
-
-
-
-// ---------------------------------------------------------------------------
-//                           BOUTONS
-// ---------------------------------------------------------------------------
-
-// containers pour accès clients
+// containers pour accès clients -----------------------------------------------
 
 #fbcart_buttons,
 #fbcart_buttons3,
@@ -4654,8 +4281,7 @@ DIV.ProgressBar {
   background: $bloc-base;
   font-size: .9rem;
   display: flex;
-display:-webkit-flex;
-
+  display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
   border: 1px solid $border;
@@ -4665,9 +4291,6 @@ display:-webkit-flex;
   top: 20px;
 }
 
-#but_continuer {
-  @include buttonLog($cyan,24%);
-}
 
 // boutons géréer mon compte -------------------------------------------------
 
@@ -4746,6 +4369,9 @@ form#delfromvosdevis,
 
 // boutons panier ------------------------------------------------------------
 
+#but_continuer {
+  @include buttonLog($cyan,24%);
+}
 #but_ajouter {
   @include buttonLog($cyan, 24%);
 }
@@ -4986,6 +4612,17 @@ a.but_voiremaquette {
   margin-top: 0;
   cursor: pointer;
   margin-right: 30px;
+}
+
+span.print_button {
+  position: relative;
+  float: left;
+  display: inline;
+  width: auto;
+  height: 33px;
+  padding-top: 14px;
+  background: $bloc-base;
+  text-align: center;
 }
 
 .prom_sub2 {
@@ -5442,6 +5079,17 @@ a:hover {
 //                               PRINT
 // -----------------------------------------------------------------------------
 
+.logoprint,
+.logoprint2 {
+  display: inline-block;
+  width: 100%;
+  height: 200px;
+}
+
+.onlyprint {
+  display: none;
+}
+
 .adresfak {
   position: relative;
   float: left;
@@ -5464,9 +5112,9 @@ a:hover {
   text-align: center;
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                     MODULES PIED DE PAGE (avant footer)
-// ---------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 #flink2 {
   position: relative;
@@ -5476,7 +5124,7 @@ a:hover {
   height: auto;
 }
 
-// banières
+// images charte éco & réalisations --------------------------------------------
 
 #banners {
   @include span(6);
@@ -5492,7 +5140,7 @@ a:hover {
   }
 }
 
-// derniers commentaires
+// derniers commentaires -------------------------------------------------------
 
 #derniers {
   position: relative;
@@ -5505,6 +5153,22 @@ a:hover {
   vertical-align: top;
   padding-right: 0;
 
+}
+
+h4.clients_reviews_titre a{
+  display: inline-block;
+  background-image: none;
+  width: 100%;
+  background: $jaune;
+  color:$white;
+  padding: .7rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  top: 0;
+  &:hover{
+    background: $magenta;
+  }
 }
 
 #ratinghome {
@@ -5582,6 +5246,7 @@ a:hover {
   font-weight: bold;
   color: $color_15;
 }
+
 
 //------------------------------------------------------------------------------
 //                             FOOTER
@@ -5721,6 +5386,3 @@ span#footer_links2 {
     width: 100%;
   }
 }
-
-
-//}
