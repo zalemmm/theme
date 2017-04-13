@@ -13,8 +13,8 @@
 @import 'variables';
 @import 'mixins';
 //@import 'layout'; // (ancien template)
-//@import 'layoutLdev';  // base 1024px (modifs dev)
-@import 'layoutL';  // base 1024px (template général)
+@import 'layoutLdev';  // base 1024px (modifs dev)
+//@import 'layoutL';  // base 1024px (template général)
 @import 'layoutM';  // max 760px (tablette)
 @import 'layoutS';  // max 640px (phablette)
 @import 'layoutXS'; // max 480px (mobile)

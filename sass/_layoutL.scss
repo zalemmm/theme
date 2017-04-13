@@ -1464,7 +1464,6 @@ ul {
   width: 25%;
   text-align: center;
   line-height: .7rem;
-
 }
 
 .warning {
@@ -4581,7 +4580,7 @@ a.but_voiremaquette {
 }
 
 #but_modifier {
-    @include buttonLog($cyan, 24%);
+  @include buttonLog($cyan, 24%);
 }
 
 #but_suivant {
@@ -4612,17 +4611,6 @@ a.but_voiremaquette {
   margin-right: 30px;
 }
 
-span.print_button {
-  position: relative;
-  float: left;
-  display: inline;
-  width: auto;
-  height: 33px;
-  padding-top: 14px;
-  background: $bloc-base;
-  text-align: center;
-}
-
 .prom_sub2 {
   @include buttonLog($cyan, 50%);
   display: block;
@@ -4631,6 +4619,13 @@ span.print_button {
   &::before{
     clear: both;
   }
+}
+
+// bouton imprimer cgv
+
+.print_button a {
+  @include buttonLog($jaune, 200px);
+  margin: 0 auto;
 }
 
 .stat0 {

@@ -303,14 +303,14 @@ include('nom_du_fichier_de_conf.php');
 <div id="mainnew" align="center"><h2><a href="http://www.express-impression.com" title="imprimeur pas cher rapide banderole kakemono flyers depliants" target="_blank" >Imprimeur numérique grand format</a></h2></div>
 
 <?php wp_footer(); ?>
-<!-- SlidesJS Required: Link to jquery.slides.js -->
+
+<!-- SlidesJS  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.min.js"></script>
-<!-- End SlidesJS Required -->
 
 <script>
 jQuery(document).ready(function ($) {
 
-  //SlidesJS Required: Initialize SlidesJS with a jQuery doc ready
+  //SlidesJS
   $('#slides').slidesjs({
     width: 400,
     height: 266,
