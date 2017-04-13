@@ -22,13 +22,6 @@ a#corner_button_cart,
   display: none;
 }
 
-#frontpage_info {
-  position: relative;
-  font-weight: bold;
-  margin-top: 50px;
-}
-
-
 // extends ---------------------------------------------------------------------
 
 %buttonBase{
@@ -61,9 +54,10 @@ a#corner_button_cart,
       padding: 10px 0;
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                                LAYOUT
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+
 html { box-sizing: border-box; }
 * { box-sizing: inherit; }
 @include border-box-sizing;
@@ -85,7 +79,9 @@ body {
   margin: 0 auto;
 }
 
-// header --------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//                             HEADER
+//------------------------------------------------------------------------------
 
 #header {
   @include container (100%);
@@ -95,7 +91,7 @@ body {
   margin: 0 auto;
   text-align: left;
   z-index: 100;
-  background: url('../images/desktop.png') no-repeat;
+  background-image: url(../images/desktop.png);
   background-repeat: no-repeat;
   background-position: center top;
   background-size: contain;
@@ -116,128 +112,6 @@ body {
   height: auto !important;
   height: 755px;
   padding: 0 5% 15px;
-}
-
-// Footer --------------------------------------------------------------------
-
-#main2 {
-  @include container (100%);
-  margin-top: 0;
-  background: #fff;
-  clear: both;
-  height: auto;
-  width: 100%;
-}
-
-#footer {
-  position: relative;
-  //width: 706px;
-  @include container (100%);
-  width: 100%;
-  margin: 0 auto;
-  background: none;
-  height: auto;
-  padding: 25px 5% 0;
-}
-
-#footer2 {
-  @include container (90%);
-  position: relative;
-  width: 100%;
-  margin: 0auto;
-  height: auto;
-  padding: 0;
-  //border: 2px solid $color_21;
-  //background-color: $color_22;
-}
-
-#footer3 {
-  @include container (100%);
-  border-top:10px solid darken($text,10%);
-  position: relative;
-  width: 100%;
-  height: 100px;
-  margin: 20px auto 0;
-  background: $cyan;
-  padding: 10px 0 100px;
-  font-size: .9rem;
-  text-align: center;
-  color: $white;
-  a{
-    color: $white;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-}
-
-#copy {
-  position: relative;
-  @include container (100%);
-  top: 0;
-  left: auto;
-  right: auto;
-  width: 100%;
-  height: auto;
-  text-align: center;
-  margin: 0 auto;
-  font-family: $font-special;
-  p{
-    margin-bottom: 0;
-  }
-  .copyright{
-    position: relative;
-    bottom: 0;
-    left: 0;
-    margin: 10px auto 0;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    width: 100%;
-    display: block;
-    background: darken($text,10%);
-    color: $white;
-    text-align: center;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    a {
-      color: $white;
-    }
-  }
-}
-
-.footer-keywords {
-  display: none;
-}
-
-#under_footer {
-  position: relative;
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-  height: 45px;
-  padding: 14px 45px 0;
-  text-align: center;
-
-  a {
-    &:link,
-    &:visited {
-      color: $color_4;
-      font-size: 10px;
-      line-height: 12px;
-      text-decoration: none;
-    }
-
-    &:hover {
-      color: $color_5;
-    }
-  }
-}
-
-#mainnew,
-#mainnew2 {
-  display: none;
-  p {
-    width: 100%;
-  }
 }
 
 //----------------------------------------------------------------------------
@@ -314,8 +188,6 @@ p {
   }
 }
 
-
-
 small {
   font-size: 0.8rem;
   line-height: 1rem;
@@ -387,7 +259,6 @@ h4.keepTxtColor {
 .floatRight {
   float: right;
 }
-
 
 .highlight {
   color: $alert;
@@ -546,13 +417,12 @@ a {
   }
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                             MODULES
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
-// Header --------------------------------------------------------------------
+// logo ------------------------------------------------------------------------
 
-// module logo
 a#logo {
   position: absolute;
   top: 60px;
@@ -563,7 +433,8 @@ a#logo {
   background-size: contain;
 }
 
-// module titre site
+// titre site ------------------------------------------------------------------
+
 .site-head{
   width: 72%;
   position: relative;
@@ -594,9 +465,8 @@ a#logo {
   }
 }
 
+// menu accès client -----------------------------------------------------------
 
-
-// module accès client
 ul.menu-client{
   @include container (55%);
   font-size: .7rem;
@@ -695,7 +565,7 @@ a .fa-lock{
   }
 }
 
-// module menu top
+// menu génénéral --------------------------------------------------------------
 
 #responsive-menu-container li.responsive-menu-item a{
   text-transform: uppercase;
@@ -841,20 +711,12 @@ ul {
 #produit_sub{
   border-left: 0;
 }
-//----------------------------------------------------------------------------
-//                      MODULES PAGE ACCUEIL
-//----------------------------------------------------------------------------
 
-// module icones tarifs
-.b-it1{
-  margin-right: 1%;
-}
-.b-it2 {
-  margin-right: 1%;
-}
-.b-it3 {
-  margin-right: 0;
-}
+//------------------------------------------------------------------------------
+//                      MODULES PAGE ACCUEIL
+//------------------------------------------------------------------------------
+
+// icones page d'accueil et pages akilux, enseigne et stickers -----------------
 
 ul#tarifs {
   float: none;
@@ -877,8 +739,6 @@ ul#tarifs {
       width: 100%;
       height: auto;
     }
-
-
 
     &.separator_con {
       display: none;
@@ -913,8 +773,19 @@ ul#tarifs {
   }
 }
 
+// ajustements icones tarifs pages akilux, enseigne et stickers
 
-// module texte mots clés
+.b-it1{
+  margin-right: 1%;
+}
+.b-it2 {
+  margin-right: 1%;
+}
+.b-it3 {
+  margin-right: 0;
+}
+
+// texte mots clés
 
   small {
     font-size: .9rem;
@@ -934,7 +805,8 @@ ul#tarifs {
   line-height: 1.2em;
 }
 
-// module paragraphe important
+// paragraphe important --------------------------------------------------------
+
 .important {
   background: $bloc-base;
   padding: 1rem;
@@ -988,11 +860,11 @@ hr.hr-separator {
   display: none;
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                       MODULES PAGES PRODUITS
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
-// Description produit -------------------------------------------------------
+// Encart top description produit ----------------------------------------------
 
 #top_images {
   width: 100%;
@@ -1162,7 +1034,7 @@ hr.hr-separator {
   color: $white;
 }
 
-// module sélection produit --------------------------------------------------
+// module sélection produit ----------------------------------------------------
 
 #buying {
 
@@ -1337,7 +1209,8 @@ input::placeholder {
   }
 }
 
-// Hack Chrome & Safari
+// Hack Chrome & Safari champs hauteur largeur des produits
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .jotform-form {
     .cmLeft,
@@ -1356,7 +1229,6 @@ input::placeholder {
   }
 }
 
-
 @keyframes fadein {
   from {
     opacity: 0;
@@ -1368,65 +1240,9 @@ input::placeholder {
     opacity: 1;
   }
 }
-@-moz-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-@-ms-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-@-o-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-
-.boxcheck {
-  position: absolute;
-  top: 8px;
-  right: 80px;
-  width: 136px;
-  height: 35px;
-  line-height: 11px;
-  color: $color_34;
-  font-size: 10px;
-}
 
 .form-submit-button {
   @include buttonLog($cyan, 150px);
-
 }
 
 // form sélection produit ----------------------------------------------------
@@ -1682,7 +1498,7 @@ ul {
   }
 }
 
-// tips forms
+// alertes formulaires ---------------------------------------------------------
 
 .form-line{
   width: 80%;
@@ -1713,96 +1529,7 @@ ul {
   }
 }
 
-
-// preview selection produit --------------------------------------------------
-
-#buying-cadre {
-  position: relative;
-  float: left;
-  display: inline;
-  width: auto;
-  clear: left;
-}
-
-.jotform-form-cadre {
-  float: left;
-  display: inline;
-  width: auto;
-  background: $bloc-base;
-  padding: 20px 10px;
-
-  select {
-    float: left;
-    display: inline-block;
-    width: 90%;
-    line-height: .8rem;
-    border: 0 solid $color_7;
-    font-size: .8rem;
-    padding: 2px;
-    font-family:  $font-global;
-  }
-}
-
-#preview-cadre_con {
-  float: right;
-  display: inline;
-  width: 420px;
-  clear: right;
-}
-
-#preview-cadre {
-  float: right;
-  display: inline;
-  width: 420px;
-  visibility: hidden;
-  margin-bottom: 5px;
-  background-color: $bloc-base;
-}
-
-#preview-cadre_name {
-  float: right;
-  display: inline;
-  width: 404px;
-  height: 20px;
-  line-height: 21px;
-  vertical-align: middle;
-  padding: 1px 8px 0;
-  background: $magenta;
-  color: $white;
-  font-size: 12px;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-}
-
-#preview-cadre_info {
-  float: right;
-  display: inline;
-  width: 111px;
-  height: 143px;
-  height: auto !important;
-  min-height: 143px;
-  background: $bloc-base;
-
-  ul {
-    float: left;
-    display: inline;
-    margin: 3px 7px;
-    font-size: 9px;
-    padding-left: 12px;
-  }
-
-  li {
-    &#iden1 {
-      list-style-type: none;
-    }
-
-    &#iden2 {
-      list-style-type: none;
-    }
-  }
-}
-
-// Tooltips --------------------------------------------------------------------
+// Tooltips aide formulaires ---------------------------------------------------
 
 .helpImg {
   float: right;
@@ -1816,7 +1543,7 @@ ul {
   cursor: pointer;
   animation: pulse 1.25s 1s cubic-bezier(0.66, 0, 0, 1);
   &:hover{
-    animation: none;
+    animation-play-state: paused;
     transform: scale(1.2);
   }
 }
@@ -1866,374 +1593,9 @@ ul {
 	margin-top: -11px;
 }
 
-//------------------------------------------------------------------------------
 
-#preview-cadre_info_title {
-  float: left;
-  display: inline;
-  padding: 3px 7px 4px;
-  width: 97px;
-  height: 12px;
-  font-size: 10px;
-  color: $white;
-  background: $color_18;
-  text-transform: uppercase;
-}
-
-#preview-cadre_imag {
-  float: left;
-  display: inline-block;
-  width: 300px;
-  height: 300px;
-  background-color: $bloc-base;
-}
-
-.roundedImage {
-  overflow: hidden;
-
-  border-radius: 50px;
-  height: 15px;
-  text-align: center;
-  float: left;
-  margin: 0 5px 5px 0;
-  padding: 0 5px;
-  width: 248px;
-  background-color: $color_12;
-  color: $white;
-}
-
-.cadre-bt {
-  overflow: hidden;
-
-  border-radius: 5px;
-  width: 80px;
-  height: 15px;
-  text-align: center;
-  float: left;
-  background-color: $color_12;
-  color: $white;
-  margin: 2px;
-  behavior: url('http://www.france-banderole.com/wp-content/themes/fb/js2/PIE.js');
-}
-
-#form-button-error2-cadre {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: auto;
-  height: 30px;
-  font-size: 11px;
-  color: $alert;
-  font-weight: bold;
-  top: 40px;
-}
-
-#wycena-cadre {
-  position: relative;
-  float: left;
-  display: inline;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  width: auto;
-  clear: left;
-}
-
-#wycena-cadre_nag {
-  float: left;
-  display: inline;
-  width: auto;
-  height: 11px;
-  background: $bloc-base;
-  padding: 4px 0 6px;
-  color: $color_12;
-  font-size: 10px;
-}
-
-#wycena-cadre_suma {
-  float: left;
-  display: inline;
-  width: auto;
-  height: 11px;
-  padding: 4px 0 6px;
-  font-size: 10px;
-}
-
-#dodaj_koszyk-cadre {
-  float: left;
-  display: inline;
-  width: auto;
-  padding: 6px 10px 6px 27px;
-  height: 47px;
-  margin-top: 24px;
-  background: $bloc-base;
-}
-
-.OptionFedex {
-  border: 0 solid $black;
-  width: auto;
-  height: 100px;
-  clear: both;
-}
-
-.OptionTNT {
-  border: 0 solid $black;
-  width: auto;
-  height: 100px;
-  clear: both;
-}
-
-#labelFEDEX {
-  font-weight: bolder;
-  color: $color_16;
-}
-
-
-//----------------------------------------------------------------------------
-//                     MODULES FOOTER
-// ---------------------------------------------------------------------------
-
-#flink2 {
-  position: relative;
-  left: auto;
-  top: auto;
-  width: auto;
-  height: auto;
-}
-
-// banières
-
-#banners {
-  @include span(6);
-  height: auto;
-  margin-top: 0;
-  padding-left: 0;
-
-  .banner1 img, .banner2 img {
-    width:100%;
-    margin-bottom: 10px;
-    display: block;
-    height: auto;
-  }
-}
-
-// derniers commentaires
-
-#derniers {
-  position: relative;
-  @include span(6 last);
-  height: auto;
-  text-transform: uppercase;
-  margin: -19px auto 0;
-  display: block;
-  font-weight: bold;
-  vertical-align: top;
-  padding-right: 0;
-
-}
-
-#ratinghome {
-  margin-top: 0;
-  display: block;
-  position: relative;
-  left: auto;
-  right: auto;
-  margin:20px auto 0;
-  top: 0;
-  width: 100%;
-  height: auto;
-}
-
-.singlerate {
-  position: relative;
-  float: none;
-  display: block;
-  width: auto;
-  height: 51px;
-  margin: 0 0 5px;
-  vertical-align: baseline;
-  color: darken($bloc-base,20%);
-}
-
-.singlerate_content {
-  clear: both;
-  position: relative;
-  float: none;
-  display: block;
-  width: auto;
-  height: auto;
-  font-family:  $font-title;
-  font-size: .72rem;
-  font-weight: bold;
-  font-style: italic;
-  color: darken($bloc-base,20%);
-  line-height: .9rem;
-  margin: 10px 0 5px;
-  text-transform: none;
-}
-
-.singlerate_rate {
-  position: relative;
-  float: none;
-  display: inline-block;
-  width: 48%;
-  height: 20px;
-  line-height: 20px;
-
-}
-
-.singlerate_date {
-  position: relative;
-  float: right;
-  display: inline-block;
-  width: 50%;
-  height: 15px;
-  text-align: right;
-  font-size: .8rem;
-}
-
-.clients_reviews {
-  border-bottom: 1px solid $border;
-  border-right: 1px solid $border;
-  border-left: 1px solid $border;
-  text-align: center;
-  padding:.7rem 0 0;
-  font-size: 18px;
-  margin-top: -10px;
-}
-
-.client_reviews_1 {
-  font-size: 20px;
-  font-weight: bold;
-  color: $color_15;
-}
 
 span {
-  &.footer_separ1 {
-    display: inline-block;
-    width: 12px;
-    height: 37px;
-  }
-
-  &.footer_separ2 {
-    display: inline-block;
-    width: 18px;
-    height: 37px;
-  }
-
-  &#footer_links {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    font-size: .75rem;
-    line-height: .8rem;
-
-    a {
-      &:link {
-        color: $text;
-        text-decoration: none;
-      }
-
-      &:visited {
-        text-decoration: none;
-        color: $text;
-      }
-    }
-  }
-
-
-
-  &#footer_links2 {
-    position: relative;
-    top: auto;
-    right: auto;
-    width: 100%;
-    height: auto;
-    text-align: center;
-    font-size: .75rem;
-
-    a {
-      &:link {
-        text-decoration: none;
-      }
-
-      &:visited {
-        text-decoration: none;
-      }
-    }
-  }
-
-  &.fa1 {
-    position: absolute;
-    top: 18px;
-    left: 15px;
-    width: 225px;
-    height: 70px;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 22px;
-    color: $color_6;
-  }
-
-  &.fa2 {
-    position: absolute;
-    top: 18px;
-    left: 252px;
-    width: 200px;
-    height: 70px;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 22px;
-    color: $color_6;
-  }
-
-  &.fa3 {
-    position: absolute;
-    top: 18px;
-    left: 479px;
-    width: 220px;
-    height: 70px;
-    font-size: 18px;
-    font-weight: bold;
-    line-height: 22px;
-    color: $color_6;
-  }
-
-  &.fab1 {
-    position: absolute;
-    top: 108px;
-    left: 15px;
-    width: 225px;
-    height: 26px;
-    color: $text;
-    font-size: 10px;
-  }
-
-  &.fab2 {
-    position: absolute;
-    top: 108px;
-    left: 252px;
-    width: 225px;
-    height: 26px;
-    color: $text;
-    font-size: 10px;
-  }
-
-  &.fab3 {
-    position: absolute;
-    top: 108px;
-    left: 479px;
-    width: 225px;
-    height: 26px;
-    line-height: 13px;
-    color: $text;
-    font-size: 10px;
-  }
-
-
-
   &.print_button {
     position: relative;
     float: left;
@@ -2250,20 +1612,6 @@ span {
     font-weight: normal;
     text-transform: none;
     font-size: .75rem;
-  }
-
-  &.info_mar {
-    float: left;
-    display: inline-block;
-    margin-top: 8px;
-  }
-
-  &.payement_underline {
-    width: 90%;
-    display: inline-block;
-    border-bottom: 1px solid $color_7;
-    font-size: .8rem;
-    padding-bottom: 2px;
   }
 
   &.pay_image {
@@ -6114,6 +5462,264 @@ a:hover {
   width: 100%;
   margin-top: 10px;
   text-align: center;
+}
+
+//----------------------------------------------------------------------------
+//                     MODULES PIED DE PAGE (avant footer)
+// ---------------------------------------------------------------------------
+
+#flink2 {
+  position: relative;
+  left: auto;
+  top: auto;
+  width: auto;
+  height: auto;
+}
+
+// banières
+
+#banners {
+  @include span(6);
+  height: auto;
+  margin-top: 0;
+  padding-left: 0;
+
+  .banner1 img, .banner2 img {
+    width:100%;
+    margin-bottom: 10px;
+    display: block;
+    height: auto;
+  }
+}
+
+// derniers commentaires
+
+#derniers {
+  position: relative;
+  @include span(6 last);
+  height: auto;
+  text-transform: uppercase;
+  margin: -19px auto 0;
+  display: block;
+  font-weight: bold;
+  vertical-align: top;
+  padding-right: 0;
+
+}
+
+#ratinghome {
+  margin-top: 0;
+  display: block;
+  position: relative;
+  left: auto;
+  right: auto;
+  margin:20px auto 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+.singlerate {
+  position: relative;
+  float: none;
+  display: block;
+  width: auto;
+  height: 51px;
+  margin: 0 0 5px;
+  vertical-align: baseline;
+  color: darken($bloc-base,20%);
+}
+
+.singlerate_content {
+  clear: both;
+  position: relative;
+  float: none;
+  display: block;
+  width: auto;
+  height: auto;
+  font-family:  $font-title;
+  font-size: .72rem;
+  font-weight: bold;
+  font-style: italic;
+  color: darken($bloc-base,20%);
+  line-height: .9rem;
+  margin: 10px 0 5px;
+  text-transform: none;
+}
+
+.singlerate_rate {
+  position: relative;
+  float: none;
+  display: inline-block;
+  width: 48%;
+  height: 20px;
+  line-height: 20px;
+
+}
+
+.singlerate_date {
+  position: relative;
+  float: right;
+  display: inline-block;
+  width: 50%;
+  height: 15px;
+  text-align: right;
+  font-size: .8rem;
+}
+
+.clients_reviews {
+  border-bottom: 1px solid $border;
+  border-right: 1px solid $border;
+  border-left: 1px solid $border;
+  text-align: center;
+  padding:.7rem 0 0;
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+.client_reviews_1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: $color_15;
+}
+
+//------------------------------------------------------------------------------
+//                             FOOTER
+//------------------------------------------------------------------------------
+
+#main2 {
+  @include container (100%);
+  margin-top: 0;
+  background: #fff;
+  clear: both;
+  height: auto;
+  width: 100%;
+}
+
+#footer {
+  position: relative;
+  //width: 706px;
+  @include container (100%);
+  width: 100%;
+  margin: 0 auto;
+  background: none;
+  height: auto;
+  padding: 25px 5% 0;
+}
+
+#footer2 {
+  @include container (90%);
+  position: relative;
+  width: 100%;
+  margin: 0auto;
+  height: auto;
+  padding: 0;
+  //border: 2px solid $color_21;
+  //background-color: $color_22;
+}
+
+#footer3 {
+  @include container (100%);
+  border-top:10px solid darken($text,10%);
+  position: relative;
+  width: 100%;
+  height: 100px;
+  margin: 20px auto 0;
+  background: $cyan;
+  padding: 10px 0 100px;
+  font-size: .9rem;
+  text-align: center;
+  color: $white;
+  a{
+    color: $white;
+    font-weight: bold;
+    text-transform: uppercase;
+    &:hover {
+      color: $border;
+    }
+  }
+}
+
+span#footer_links,
+span#footer_links2 {
+  position: relative;
+  top: auto;
+  right: auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  font-size: .75rem;
+  line-height: .8rem;
+}
+
+#copy {
+  position: relative;
+  @include container (100%);
+  top: 0;
+  left: auto;
+  right: auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+  font-family: $font-special;
+  p{
+    margin-bottom: 0;
+  }
+  .copyright{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    margin: 10px auto 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    display: block;
+    background: darken($text,10%);
+    color: $white;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    a {
+      color: $white;
+    }
+  }
+}
+
+.footer-keywords {
+  display: none;
+}
+
+#under_footer {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  height: 45px;
+  padding: 14px 45px 0;
+  text-align: center;
+
+  a {
+    &:link,
+    &:visited {
+      color: $color_4;
+      font-size: 10px;
+      line-height: 12px;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $color_5;
+    }
+  }
+}
+
+#mainnew,
+#mainnew2 {
+  display: none;
+  p {
+    width: 100%;
+  }
 }
 
 

@@ -1,10 +1,8 @@
 @media(max-width: 640px) {
-
   a#logo {
     top: 40px;
   }
 }
-
 
 @media(max-width: 540px) {
   // invisible -----------------------------------------------------------------
@@ -32,10 +30,9 @@
 
 
   //----------------------------------------------------------------------------
-  //                             MODULES
+  //                             HEADER
   //----------------------------------------------------------------------------
 
-  // Header --------------------------------------------------------------------
 
   button#responsive-menu-button {
     top: 10px;
@@ -43,7 +40,8 @@
     margin: 0;
   }
 
-  // module logo
+  // logo ----------------------------------------------------------------------
+
   a#logo {
     top: 80px;
     left: 10px;
@@ -51,7 +49,8 @@
     height: 200px;
   }
 
-  // module titre site
+  //  titre site ---------------------------------------------------------------
+
   .site-head{
     top: 120px;
     left: 24%;
@@ -67,7 +66,8 @@
     }
   }
 
-  // module accès client
+  // menu accès client ---------------------------------------------------------
+
   ul.menu-client{
     font-size: .7rem;
     line-height: 1.1rem;
@@ -100,19 +100,17 @@
     }
   }
 
+  //----------------------------------------------------------------------------
+  //                            PAGES WORDPRESS
+  //----------------------------------------------------------------------------
 
+  // ajustement des icônes dans les pages accueil, akilux, stickers et enseigne
 
-  .bloc-left,
-  .bloc-right{
-    width: 100%;
-    float: none;
-    margin: 0;
+  ul#tarifs {
+    li {
+      width: 48%; //120
+    }
   }
-  //----------------------------------------------------------------------------
-  //                      MODULES PAGE ACCUEIL
-  //----------------------------------------------------------------------------
-
-  // module icones tarifs
   .b-it1{
     margin-right: 2%;
   }
@@ -122,23 +120,22 @@
   .b-it3 {
     margin-right: 2%;
   }
-  ul#tarifs {
-    li {
-      width: 48%; //120
-    }
+
+  // autres éléments de pages wordpress
+
+  .bloc-left,
+  .bloc-right{
+    width: 100%;
+    float: none;
+    margin: 0;
   }
 
-
-
   //----------------------------------------------------------------------------
-  //                      MODULES PAGES PRODUITS
+  //                           PAGES ACCES CLIENT
   //----------------------------------------------------------------------------
-
-
-
-
 
   // tableau produit commandé détail -------------------------------------------
+
   .disMob0 {
     display: inline;
     font-weight: bold;
@@ -146,6 +143,7 @@
     color: $cyan-bloc;
   }
 
+  // tableau devis -------------------------------------------------------------
 
   #fbcart_cart {
     position: relative;
@@ -179,8 +177,6 @@
 
       }
     }
-
-
   }
   #comment_left{
     padding: 1rem;
