@@ -1179,7 +1179,6 @@ hr.hr-separator {
   padding-right: 0;
   margin-top: 20px;
   display: block;
-  visibility: hidden;
   margin-bottom: 5px;
 }
 
@@ -1251,6 +1250,17 @@ hr.hr-separator {
   height: auto;
   min-height: 380px;
   margin-left: 0;
+}
+
+.previewTitle {
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  max-width: 100%;
+  height: 50px !important;
+  background: #32A1CC;
+  color: #fff;
 }
 
 #buying {
@@ -2128,10 +2138,10 @@ ul.form-section-cadre li.id_17 {
   padding-right: 0.83333%;
   height: auto;
   text-transform: uppercase;
-  margin: 0 auto;
+  margin: -19px auto 0;
   display: block;
   font-weight: bold;
-  vertical-align: baseline;
+  vertical-align: top;
   padding-right: 0;
 }
 
@@ -2201,6 +2211,7 @@ ul.form-section-cadre li.id_17 {
   text-align: center;
   padding: .7rem 0 0;
   font-size: 18px;
+  margin-top: -10px;
 }
 
 .client_reviews_1 {
@@ -5116,7 +5127,6 @@ h1.comTitre {
 #rating_pagination a:link {
   font-weight: bold;
   text-decoration: none;
-  background: #f6f6f6;
   padding: 4px 6px;
   text-align: center;
   margin: 0 0 0 4px;
@@ -5125,7 +5135,6 @@ h1.comTitre {
 #rating_pagination a:visited {
   font-weight: bold;
   text-decoration: none;
-  background: #f6f6f6;
   padding: 4px 6px;
   text-align: center;
   margin: 0 0 0 4px;
@@ -5136,17 +5145,16 @@ h1.comTitre {
 }
 
 #rating_pagination span {
-  background: #f6f6f6;
   padding: 4px 6px;
   text-align: center;
   margin: 0 0 0 4px;
   text-decoration: underline;
   color: #555a61;
+  font-weight: bold;
 }
 
 #rating_pagination span.ratingpagpage {
   text-decoration: none;
-  background: #f6f6f6;
   padding: 4px 6px;
   text-align: center;
   margin: 0 17px 0 4px;
@@ -5154,7 +5162,8 @@ h1.comTitre {
   font-weight: bold;
 }
 
-.metaslider {
+.metaslider,
+#container {
   width: 100%;
   top: 0;
   margin-left: 0;
@@ -5163,7 +5172,9 @@ h1.comTitre {
   margin-bottom: 10px;
 }
 
-.metaslider:before, .metaslider:after {
+.metaslider:before, .metaslider:after,
+#container:before,
+#container:after {
   z-index: -1;
   position: absolute;
   content: "";
@@ -5178,11 +5189,22 @@ h1.comTitre {
           transform: rotate(-3deg);
 }
 
-.metaslider:after {
+.metaslider:after,
+#container:after {
   -webkit-transform: rotate(3deg);
           transform: rotate(3deg);
   right: 10px;
   left: auto;
+}
+
+#slides {
+  display: none;
+}
+
+/* Center the slideshow */
+#container {
+  width: 400px;
+  height: 266px;
 }
 
 .posCenter {
@@ -7921,23 +7943,6 @@ a:hover {
   .pushButton {
     margin-left: 0;
   }
-  #derniers {
-    margin-top: 20px;
-    width: 100%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  #banners {
-    width: 100%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%;
-    padding-left: 0;
-    padding-right: 0;
-  }
   .helpText {
     left: auto;
     right: 35px;
@@ -7969,6 +7974,29 @@ a:hover {
   ul.form-section li.optionsformline .options_single span.optionsleft .helpButton, ul.form-section li.optionsformline .options_single span.optionsright .helpButton, ul.form-section li.optionsformlineOld .options_single span.optionsleft .helpButton, ul.form-section li.optionsformlineOld .options_single span.optionsright .helpButton {
     right: 5px;
     left: auto;
+  }
+  #promotions_table tr {
+    display: block;
+    background: #f6f6f6;
+    margin-bottom: 20px;
+  }
+  #promotions_table td {
+    display: inline-block;
+    width: 49%;
+    border-bottom: 0;
+  }
+  #promotions_table td.lefttd {
+    background: transparent;
+  }
+  #promotions_table td.optionstd {
+    width: 49%;
+    border-bottom: 0;
+    background: transparent;
+  }
+  #promotions_table td.righttd {
+    width: 49%;
+    border-bottom: 0;
+    background: transparent;
   }
   .acces_left {
     float: none;
@@ -8127,28 +8155,22 @@ a:hover {
   .comment_new {
     padding-top: 0;
   }
-  #promotions_table tr {
-    display: block;
-    background: #f6f6f6;
-    margin-bottom: 20px;
+  #derniers {
+    margin-top: 0;
+    width: 100%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    padding-left: 0;
+    padding-right: 0;
   }
-  #promotions_table td {
-    display: inline-block;
-    width: 49%;
-    border-bottom: 0;
-  }
-  #promotions_table td.lefttd {
-    background: transparent;
-  }
-  #promotions_table td.optionstd {
-    width: 49%;
-    border-bottom: 0;
-    background: transparent;
-  }
-  #promotions_table td.righttd {
-    width: 49%;
-    border-bottom: 0;
-    background: transparent;
+  #banners {
+    width: 100%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

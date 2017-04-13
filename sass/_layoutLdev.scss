@@ -314,6 +314,8 @@ p {
   }
 }
 
+
+
 small {
   font-size: 0.8rem;
   line-height: 1rem;
@@ -1069,12 +1071,13 @@ hr.hr-separator {
 #preview,
 #preview2,
 #preview3 {
-  @include span (4 last);
+  width: 400px;
+  float: right;
   position: relative;
   padding-right: 0;
   margin-top: 20px;
   display: block;
-  visibility: hidden;
+
   margin-bottom: 5px;
 }
 
@@ -1148,11 +1151,23 @@ hr.hr-separator {
   margin-left: 0;
 }
 
+.previewTitle{
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  max-width: 100%;
+  height: 50px !important;
+  background: $cyan;
+  color: $white;
+}
+
 // module sélection produit --------------------------------------------------
 
 #buying {
 
-  @include span(8);
+  width:500px;
+  float: left;
   padding-left: 0;
   position: relative;
   display: block;
@@ -1812,6 +1827,7 @@ ul {
   position: absolute;
   left: 100%;
   top: -10px;
+  padding-left: 10px;
   width: 270px;
   color: darken($text, 10%);
   padding: .7rem;
@@ -2012,6 +2028,7 @@ ul {
   font-weight: bold;
   vertical-align: top;
   padding-right: 0;
+
 }
 
 #ratinghome {
@@ -2747,7 +2764,7 @@ div {
 #wycena_nag {
   float: left;
   display: inline;
-  @include span(8);
+  @include span(12);
   height: 40px;
   background: $bloc-base;
   padding: 10px 0;
@@ -2759,7 +2776,7 @@ div {
 #wycena_suma {
   float: left;
   display: inline;
-  @include span(8);
+  @include span(12);
   height: 40px;
   background: $bloc-base;
   padding: 10px 0;
@@ -2772,7 +2789,7 @@ div {
 #dodaj_koszyk {
   float: left;
   display: inline;
-  @include span(8);
+  @include span(12);
   height: 60px;
   background: $bloc-base;
   padding: 10px 0;
@@ -5003,7 +5020,8 @@ h1.comTitre {
 //                                  SLIDER
 //----------------------------------------------------------------------------
 
-.metaslider {
+.metaslider,
+#container {
   width: 100%;
   top: 0;
   margin-left: 0;
@@ -5032,6 +5050,15 @@ h1.comTitre {
   }
 }
 
+#slides {
+  display: none;
+}
+
+/* Center the slideshow */
+#container {
+  width: 400px;
+  height: 266px;
+}
 
 
 //----------------------------------------------------------------------------

@@ -303,9 +303,29 @@ include('nom_du_fichier_de_conf.php');
 <div id="mainnew" align="center"><h2><a href="http://www.express-impression.com" title="imprimeur pas cher rapide banderole kakemono flyers depliants" target="_blank" >Imprimeur numérique grand format</a></h2></div>
 
 <?php wp_footer(); ?>
+<!-- SlidesJS Required: Link to jquery.slides.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.min.js"></script>
+<!-- End SlidesJS Required -->
 
 <script>
 jQuery(document).ready(function ($) {
+
+  //SlidesJS Required: Initialize SlidesJS with a jQuery doc ready
+  $('#slides').slidesjs({
+    width: 400,
+    height: 266,
+    navigation: false, // [boolean] Generates next and previous buttons.
+    pagination: false, // [boolean] Create pagination items.
+    play: {
+      active: false, // [boolean] Generate the play and stop buttons.
+      effect: "slide", // [string] Can be either "slide" or "fade".
+      interval: 5000, // [number] Time spent on each slide in milliseconds.
+      auto: true, // [boolean] Start playing the slideshow on load.
+      swap: false, // [boolean] show/hide stop and play buttons
+      pauseOnHover: false, // [boolean] pause a playing slideshow on hover
+      restartDelay: 2500 // [number] restart delay on inactive slideshow
+    }
+  });
 
   //toggle
   $('.toggle-button').click(function() {

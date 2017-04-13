@@ -10,7 +10,8 @@
     background-size: cover;
   }
 
-  // module logo
+  // logo ----------------------------------------------------------------------
+
   a#logo {
     position: absolute;
     top: 20px;
@@ -20,7 +21,8 @@
     vertical-align: bottom;
   }
 
-  // module titre site
+  //  titre site ---------------------------------------------------------------
+
   .site-head{
     width: 68%;
     top: 100px;
@@ -38,7 +40,8 @@
     }
   }
 
-  // module accès client
+  // menu accès client ---------------------------------------------------------
+
   ul.menu-client{
     @include container (90%);
     font-size: .8rem;
@@ -75,7 +78,7 @@
   //                            PAGE ACCUEIL
   //----------------------------------------------------------------------------
 
-  // module icones tarifs
+  // icones --------------------------------------------------------------------
 
   ul#tarifs {
     li {
@@ -107,19 +110,6 @@
     margin-left:0;
   }
 
-  #derniers {
-    margin-top: 20px;
-    @include span(12);
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  #banners {
-    @include span(12);
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   // Help tooltip
 
   .helpText {
@@ -145,28 +135,58 @@
   	margin-top: -11px;
   }
 
+  // Selects options
 
   ul.form-section li.optionsformline4,
   ul.form-section li.optionsformline5, {
     width: 100%;
   }
 
-
   ul.form-section  li {
-      &.optionsformline,
-      &.optionsformlineOld {
-        .options_single span {
-          &.optionsleft,
-          &.optionsright {
-            width: 100%;
-              .helpButton {
-              right: 5px;
-              left: auto;
-            }
+    &.optionsformline,
+    &.optionsformlineOld {
+      .options_single span {
+        &.optionsleft,
+        &.optionsright {
+          width: 100%;
+            .helpButton {
+            right: 5px;
+            left: auto;
           }
         }
       }
     }
+  }
+
+  // tableau PLV ---------------------------------------------------------------
+
+  #promotions_table {
+    tr {
+      display: block;
+      background: $bloc-base;
+      margin-bottom: 20px;
+    }
+    td {
+      display: inline-block;
+      width: 49%;
+      border-bottom: 0;
+      &.lefttd{
+        background: transparent;
+      }
+      &.optionstd {
+        width: 49%;
+        border-bottom: 0;
+        background: transparent;
+      }
+
+      &.righttd {
+        width: 49%;
+        border-bottom: 0;
+        background: transparent;
+      }
+    }
+  }
+
   //----------------------------------------------------------------------------
   //                       PAGES ACCES CLIENT
   //----------------------------------------------------------------------------
@@ -183,7 +203,8 @@
     @include span(12);
   }
 
-  // tableau
+  // tableaux devis ------------------------------------------------------------
+  
   #fbcart_address {
     width: 100%;
   }
@@ -196,14 +217,14 @@
   //                           PAGE PAIEMENTS
   //----------------------------------------------------------------------------
 
-    #paiements_left,
-    #valid_bat_left {
-      width: 100%;
-    }
-    #paiements_right {
-      margin-left: 0;
-      width: 100%;
-    }
+  #paiements_left,
+  #valid_bat_left {
+    width: 100%;
+  }
+  #paiements_right {
+    margin-left: 0;
+    width: 100%;
+  }
 
   //----------------------------------------------------------------------------
   //                           PAGE CONTACT
@@ -229,10 +250,6 @@
   span.contacter2 {
     width: 100%;
   }
-
-
-
-
 
   // boutons à 50% de l'écran --------------------------------------------------
   .fuselect,
@@ -279,32 +296,22 @@
     padding-top: 0;
   }
 
-  // tableau PLV
-  #promotions_table {
-    tr {
-      display: block;
-      background: $bloc-base;
-      margin-bottom: 20px;
-    }
-    td {
-      display: inline-block;
-      width: 49%;
-      border-bottom: 0;
-      &.lefttd{
-        background: transparent;
-      }
-      &.optionstd {
-        width: 49%;
-        border-bottom: 0;
-        background: transparent;
-      }
 
-      &.righttd {
-        width: 49%;
-        border-bottom: 0;
-        background: transparent;
-      }
-    }
+  // ---------------------------------------------------------------------------
+  //                            FOOTER
+  // ---------------------------------------------------------------------------
+
+  #derniers {
+    margin-top: 0;
+    @include span(12);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #banners {
+    @include span(12);
+    padding-left: 0;
+    padding-right: 0;
   }
 
 }
