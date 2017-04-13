@@ -5205,6 +5205,35 @@ h1.comTitre {
 #container {
   width: 400px;
   height: 266px;
+  z-index: 1;
+}
+
+#container:before, #container:after {
+  -webkit-animation: 1s 5s fadeIn;
+          animation: 1s 5s fadeIn;
+  visibility: hidden;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .posCenter {

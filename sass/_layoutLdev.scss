@@ -5017,8 +5017,9 @@ h1.comTitre {
 
 
 //----------------------------------------------------------------------------
-//                                  SLIDER
+//                                  SLIDERS
 //----------------------------------------------------------------------------
+
 
 .metaslider,
 #container {
@@ -5058,8 +5059,24 @@ h1.comTitre {
 #container {
   width: 400px;
   height: 266px;
+  z-index: 1;
+  &:before,
+  &:after {
+    animation: 1s 5s fadeIn;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+  }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
 
 //----------------------------------------------------------------------------
 //                             STYLES INLINE RAPATRIES
