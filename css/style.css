@@ -7977,13 +7977,13 @@ span#footer_links2 {
     padding-right: 0.83333%;
     padding-left: 0;
   }
+  ul#tarifs li {
+    width: 24%;
+  }
   .b-it1,
   .b-it2,
   .b-it3 {
     margin-right: 1%;
-  }
-  ul#tarifs li {
-    width: 24%;
   }
   #buying {
     width: 500px;
