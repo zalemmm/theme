@@ -959,13 +959,12 @@ hr.hr-separator {
 #preview,
 #preview2,
 #preview3 {
-  width: 400px;
+  width: 39%;
   float: right;
   position: relative;
   padding-right: 0;
   margin-top: 20px;
-  display: block;
-
+  display: inline-block;
   margin-bottom: 5px;
 }
 
@@ -1053,12 +1052,11 @@ hr.hr-separator {
 // module sélection produit ----------------------------------------------------
 
 #buying {
-
-  width:500px;
+  width:59%;
   float: left;
   padding-left: 0;
   position: relative;
-  display: block;
+  display: inline-block;
   font-size: .8rem;
   clear: both;
   margin-top: 20px;
@@ -1337,7 +1335,7 @@ ul {
             .helpButton {
               position: absolute;
               top: 0px;
-              left: 80%;
+              left: 90%;
               width: 18px;
               height: 18px;
               background: url("../images/question.png") no-repeat;
@@ -1831,7 +1829,7 @@ form#topics{
 span.comm_title {
   z-index: 100;
   width: 100%;
-  padding: 7px 0 4px;
+  padding: 10px 0 4px;
   height: 40px;
   line-height: 1rem;
   background: $color_26;
@@ -4049,12 +4047,16 @@ h1.comTitre {
 
 #slides {
   display: none;
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Center the slideshow */
 #container {
-  width: 400px;
-  height: 266px;
+  width: 100%;
+  height: auto;
   z-index: 1;
   &:before,
   &:after {
@@ -4496,7 +4498,7 @@ a.but_espace {
   @include buttonLog($text, 49%);
   margin: 20px 2% 0 0;
   text-align: center;
-  padding: .5rem;
+  padding: .7rem .5rem .5rem;
 }
 
 .but_envoyer {

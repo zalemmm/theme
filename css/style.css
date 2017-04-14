@@ -1024,12 +1024,12 @@ hr.hr-separator {
 #preview,
 #preview2,
 #preview3 {
-  width: 400px;
+  width: 39%;
   float: right;
   position: relative;
   padding-right: 0;
   margin-top: 20px;
-  display: block;
+  display: inline-block;
   margin-bottom: 5px;
 }
 
@@ -1115,11 +1115,11 @@ hr.hr-separator {
 }
 
 #buying {
-  width: 500px;
+  width: 59%;
   float: left;
   padding-left: 0;
   position: relative;
-  display: block;
+  display: inline-block;
   font-size: .8rem;
   clear: both;
   margin-top: 20px;
@@ -1435,7 +1435,7 @@ ul.form-section li.optionsformline .options_single span.optionsleft input, ul.fo
 ul.form-section li.optionsformline .options_single span.optionsleft .helpButton, ul.form-section li.optionsformline .options_single span.optionsright .helpButton, ul.form-section li.optionsformlineOld .options_single span.optionsleft .helpButton, ul.form-section li.optionsformlineOld .options_single span.optionsright .helpButton {
   position: absolute;
   top: 0px;
-  left: 80%;
+  left: 90%;
   width: 18px;
   height: 18px;
   background: url("../images/question.png") no-repeat;
@@ -1986,7 +1986,7 @@ form#topics {
 span.comm_title {
   z-index: 100;
   width: 100%;
-  padding: 7px 0 4px;
+  padding: 10px 0 4px;
   height: 40px;
   line-height: 1rem;
   background: #ea2a6a;
@@ -4233,10 +4233,15 @@ h1.comTitre {
   display: none;
 }
 
+#slides img {
+  width: 100%;
+  height: auto;
+}
+
 /* Center the slideshow */
 #container {
-  width: 400px;
-  height: 266px;
+  width: 100%;
+  height: auto;
   z-index: 1;
 }
 
@@ -5710,7 +5715,7 @@ a.but_espace {
   vertical-align: middle;
   margin: 20px 2% 0 0;
   text-align: center;
-  padding: .5rem;
+  padding: .7rem .5rem .5rem;
 }
 
 a.but_espace.active, a.but_espace:hover {
@@ -7979,6 +7984,26 @@ span#footer_links2 {
   }
   ul#tarifs li {
     width: 24%;
+  }
+  #buying {
+    width: 500px;
+  }
+  #preview,
+  #preview2,
+  #preview3 {
+    width: 400px;
+  }
+  #slides {
+    display: none;
+  }
+  #slides img {
+    width: 400px;
+    height: 400px;
+  }
+  /* Center the slideshow */
+  #container {
+    width: 400px;
+    height: 400px;
   }
   #contact1 {
     width: 47%;

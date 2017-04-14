@@ -313,7 +313,7 @@ jQuery(document).ready(function ($) {
   //SlidesJS
   $('#slides').slidesjs({
     width: 400,
-    height: 266,
+    height: 400,
     navigation: false, // [boolean] Generates next and previous buttons.
     pagination: false, // [boolean] Create pagination items.
     play: {
