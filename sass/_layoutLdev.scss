@@ -897,7 +897,7 @@ hr.hr-separator {
   margin-top: 10px;
   margin-bottom: 0;
   background: #f6f6f6;
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 
   .front img{
@@ -917,7 +917,7 @@ hr.hr-separator {
     vertical-align: middle;
     background: 0;
     font-size: .9rem;
-    padding: 1rem 1rem 0;
+    padding: 1rem 0 0 1rem;
     span.info_nag {
       font-family: $font-special;
       display: block;
@@ -927,15 +927,48 @@ hr.hr-separator {
       font-size: 1.4rem;
 
     }
-    .notice{
-      display: block;
-      margin: 15px 0 2rem;
-      text-align: right;
-      text-transform: uppercase;
+    .prod-desc .highlight{
+      color: darken($bloc-base,35%);
+      font-size: .75rem;
+      float: right;
     }
   }
 }
 
+.helpMenu{
+  margin-top: 1rem;
+  float: right;
+}
+a.notice{
+  display: block;
+  float: left;
+  margin: 15px 0 1rem 10px;
+  border: 1px solid $border;
+  background: darken($bloc-base,1%);
+  border-radius: 20px;
+  padding: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  color: darken($bloc-base,35%);
+  letter-spacing: 1px;
+  font-size: .9rem;
+  .textHide{
+    font-size: .75rem;
+  }
+  &:hover{
+    border-bottom: none;
+    border-left: none;
+    background: lighten($bloc-base,1%);
+  }
+  .helpExp{
+    display: block;
+    margin-left: -10px;
+  }
+}
+
+.dis0 {
+  display: none;
+}
 #top_slideshow {
   display: none;
 }
@@ -966,6 +999,12 @@ hr.hr-separator {
   margin-top: 20px;
   display: inline-block;
   margin-bottom: 5px;
+  .arrow {
+    position: absolute;
+    top: 20px;
+    left: -1px;
+    z-index: 950;
+  }
 }
 
 #preview_con {
@@ -1034,7 +1073,7 @@ hr.hr-separator {
   width: 100%;
   display: block;
   height: auto;
-  min-height: 380px;
+  min-height: 400px;
   margin-left: 0;
 }
 
@@ -1053,6 +1092,7 @@ hr.hr-separator {
 
 #buying {
   width:59%;
+  min-height: 410px;
   float: left;
   padding-left: 0;
   position: relative;
@@ -1060,6 +1100,16 @@ hr.hr-separator {
   font-size: .8rem;
   clear: both;
   margin-top: 20px;
+  h3{
+    color: $white;
+    font-style: normal;
+    font-family: $font-global;
+    background: $magenta;
+    margin: 0;
+    padding: .5rem;
+    font-size: .9rem;
+    text-transform: uppercase;
+  }
 }
 
 input::placeholder {
@@ -1073,11 +1123,12 @@ input::placeholder {
   clear: both;
   box-sizing: border-box;
   width: 100%;
-  background: $bloc-base;
-  padding: 2% 4% 6%;
+  //padding: 2% 4% 6%;
+  padding: 0;
   animation: fadein 2s;
-  -webkit-animation: fadein 2s;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+  //background: $bloc-base;
+  //-webkit-animation: fadein 2s;
+  //box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 
   select {
     width: 90%;
@@ -1089,7 +1140,7 @@ input::placeholder {
     font-size: .75rem;
     padding: 0.3em;
     margin: 0;
-    height: 38px;
+    height: 33px;
     color: $cyan-bloc;
     font-weight: bold;
     cursor: pointer;
@@ -1142,7 +1193,7 @@ input::placeholder {
     &.form-textbox2 {
       display: inline;
       width: 29%;
-      height: 35px;
+      height: 33px;
       line-height: .8rem;
       background: $white;
       border: 0;
@@ -1407,11 +1458,11 @@ ul {
 // Partie résultat devis -------------------------------------------------------
 
 #wycena {
-  clear:both;
   position: relative;
-  float: none;
+  right: 0;
+  float: right;
   display: block;
-  @include span(full);
+  width: 400px;
   padding-left: 0;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -1420,7 +1471,7 @@ ul {
 #wycena_nag {
   float: left;
   display: inline;
-  @include span(12);
+  width: 100%;
   height: 40px;
   background: $bloc-base;
   padding: 10px 0;
@@ -3438,7 +3489,7 @@ ul.regiform2 {
 #form-button-error3 {
   position: relative;
   left: 0px;
-  bottom: 10px;
+  bottom: 245px;
   width: 100%;
   height: 20px;
   font-size: .8rem;
@@ -4015,12 +4066,12 @@ h1.comTitre {
 //----------------------------------------------------------------------------
 
 
-.metaslider,
-#container {
+
+#preview {
   width: 100%;
   top: 0;
   margin-left: 0;
-  z-index: 3000;
+  z-index: 900;
   position: relative;
   margin-bottom: 10px;
 

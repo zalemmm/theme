@@ -6,7 +6,7 @@
   // invisible -----------------------------------------------------------------
 
   #preview,
-  .prod-desc {
+  .prezHide {
     display: none;
   }
 
@@ -100,6 +100,14 @@
     display: none;
   }
 
+  .helpMenu{
+      margin-top: 0;
+  }
+
+  .notice{
+    width: 30px;
+    height: 30px;
+  }
 
   // help buttons --------------------------------------------------------------
 
