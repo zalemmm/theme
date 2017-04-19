@@ -319,7 +319,7 @@ jQuery(document).ready(function ($) {
     play: {
       active: false, // [boolean] Generate the play and stop buttons.
       effect: "slide", // [string] Can be either "slide" or "fade".
-      interval: 5000, // [number] Time spent on each slide in milliseconds.
+      interval: 6000, // [number] Time spent on each slide in milliseconds.
       auto: true, // [boolean] Start playing the slideshow on load.
       swap: false, // [boolean] show/hide stop and play buttons
       pauseOnHover: false, // [boolean] pause a playing slideshow on hover

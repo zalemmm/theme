@@ -927,14 +927,50 @@ hr.hr-separator {
       font-size: 1.4rem;
 
     }
-    .notice{
-      display: block;
-      margin: 15px 0 2rem;
-      text-align: right;
-      text-transform: uppercase;
+    .prod-desc .highlight{
+      color: darken($bloc-base,35%);
+      font-size: .75rem;
+      float: right;
     }
   }
 }
+
+.helpMenu{
+  margin-top: 1rem;
+  float: right;
+}
+
+a.notice{
+  display: block;
+  float: left;
+  margin: 15px 0 1rem 10px;
+  border: 1px solid $border;
+  background: darken($bloc-base,1%);
+  border-radius: 20px;
+  padding: 7px;
+  text-align: center;
+  text-transform: uppercase;
+  color: darken($bloc-base,35%);
+  letter-spacing: 1px;
+  font-size: .9rem;
+  .textHide{
+    font-size: .75rem;
+  }
+  &:hover{
+    border-bottom: none;
+    border-left: none;
+    background: lighten($bloc-base,1%);
+  }
+  .helpExp{
+    display: block;
+    margin-left: -10px;
+  }
+}
+
+.dis0 {
+  display: none;
+}
+
 
 #top_slideshow {
   display: none;
