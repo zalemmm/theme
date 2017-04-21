@@ -114,6 +114,21 @@
   #preview3 {
     width: 400px;
     height: 400px;
+    min-height: 400px;
+  }
+
+  #preview_imag,
+  #preview_imag2,
+  #preview_imag3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: none;
+    width: 100%;
+    display: block;
+    height: auto;
+    min-height: 400px;
+    margin-left: 0;
   }
 
   #slides {
@@ -128,6 +143,10 @@
   #container {
     width: 400px;
     height: 400px;
+  }
+
+  #wycena {
+    width: 500px;
   }
 
   //----------------------------------------------------------------------------

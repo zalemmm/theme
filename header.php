@@ -90,7 +90,7 @@
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/plv-interieur/" class="menu_sub"<?php if(is_page('plv-interieur')) echo ' id=active_sub'; ?>>plv intérieur</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/plv-exterieur/" class="menu_sub"<?php if(is_page('plv-exterieur')) echo ' id=active_sub'; ?>>plv extérieur</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/stand-parapluie/" class="menu_sub"<?php if(is_page('stand-parapluie')) echo ' id=active_sub'; ?>>stand parapluie</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/france-banderole/tente-pliante-exposition/" class="menu_sub"<?php if(is_page('tente-pliante-exposition')) echo ' id=active_sub'; ?>>tente pliante</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/france-banderole/tente-publicitaire-barnum/" class="menu_sub"<?php if(is_page('tente-pliante-exposition')) echo ' id=active_sub'; ?>>tente publicitaire Barnum</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/flyers/" class="menu_sub"<?php if(is_page('flyers')) echo ' id=active_sub'; ?>>flyer</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/affiches/" class="menu_sub"<?php if(is_page('affiches')) echo ' id=active_sub'; ?>>affiche</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/cartes/" class="menu_sub"<?php if(is_page('cartes')) echo ' id=active_sub'; ?>>carte de visite</a></li>
