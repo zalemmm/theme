@@ -7941,15 +7941,28 @@ span#footer_links2 {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 650px) {
   a#logo {
     top: 40px;
   }
   #buying {
     min-height: 230px;
   }
+  h1.metaTitle {
+    line-height: 1.4rem !important;
+    font-size: 1.4rem !important;
+    margin-bottom: 0 !important;
+  }
   .metaAP {
-    width: 120px;
+    width: 140px;
+  }
+  .metaPrice {
+    font-size: 2rem !important;
+    line-height: 2rem !important;
+  }
+  a.metaButton {
+    font-size: 1.2rem !important;
+    width: 80px;
   }
 }
 
