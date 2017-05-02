@@ -760,7 +760,6 @@ ul#tarifs {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
   a{display:block}
 
   li {
@@ -769,9 +768,13 @@ ul#tarifs {
     margin-bottom: 0;
     background: url('../images/bt/btbg.png');
     background-size: contain;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
+    margin-top: 15px;
     &:hover {
-      background: url('../images/bt/btbghover.png');
+      //background: url('../images/bt/btbghover.png');
       background-size: contain;
+      background: $magenta;
+      transition: .1s;
     }
 
 
@@ -4151,34 +4154,11 @@ h1.comTitre {
 // fin module commentaire
 
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                                  SLIDERS
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
-#preview {
-  &:before,
-  &:after {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 15px;
-    left: 10px;
-    width: 50%;
-    top: 80%;
-    max-width:300px;
-    background: #777;
-    box-shadow: 0 15px 10px #777;
-    transform: rotate(-3deg);
-    animation: 1s 5s fadeIn;
-    visibility: hidden;
-    animation-fill-mode: forwards;
-  }
-  &:after {
-    transform: rotate(3deg);
-    right: 10px;
-    left: auto;
-  }
-}
+// slider acceuil --------------------------------------------------------------
 
 .metaslider {
   width: 100%;
@@ -4201,6 +4181,94 @@ h1.comTitre {
     background: #777;
     box-shadow: 0 15px 10px #777;
     transform: rotate(-3deg);
+  }
+  &:after {
+    transform: rotate(3deg);
+    right: 10px;
+    left: auto;
+  }
+}
+
+h1.metaTitle {
+  font-family: $font-global;
+  line-height: 1.8rem !important;
+  font-size: 1.8rem !important;
+  float: right;
+  text-align: right;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: normal;
+  color: $white;
+  margin-bottom: 10px !important;
+}
+
+.metaDesc, .metaAP {
+  text-align: right !important;
+  font-size: .9rem !important;
+  line-height: 1.1rem !important;
+  text-transform: uppercase;
+  font-weight: normal !important;
+  clear: both;
+}
+.metaAP {
+  float: left;
+  width: 260px;
+  margin-top: 10px !important;
+}
+.metaPB {
+  float: right;
+}
+
+.metaPrice {
+  clear: both;
+  font-size: 3.5rem !important;
+  line-height: 3.5rem !important;
+  font-weight: 700;
+  float: right;
+}
+
+a.metaButton {
+  clear: both;
+  float: right;
+  display: block;
+  text-transform: uppercase;
+  padding-top: .2rem !important;
+  width: 100px;
+  height: 40px;
+  vertical-align: middle;
+  text-align: center;
+  background: $magenta;
+  color: $white;
+  border: none;
+  font-size: 1.4rem !important;
+  border-radius: 20px;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.40);
+
+  &:hover {
+    background: $jaune;
+    transition: .2s;
+  }
+}
+
+// sliders pages produits
+
+#preview {
+  &:before,
+  &:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width:300px;
+    background: #777;
+    box-shadow: 0 15px 10px #777;
+    transform: rotate(-3deg);
+    animation: 1s 5s fadeIn;
+    visibility: hidden;
+    animation-fill-mode: forwards;
   }
   &:after {
     transform: rotate(3deg);
@@ -4233,6 +4301,8 @@ h1.comTitre {
   }
 }
 
+// délai effet ombre sous le slide
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -4242,6 +4312,8 @@ h1.comTitre {
     opacity: 1;
   }
 }
+
+// animation des éléments de sélection produits (activée dans chaque page produit via le jotform.js correspondant)
 
 @keyframes anim {
   0% {

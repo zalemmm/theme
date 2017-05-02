@@ -334,11 +334,20 @@ jQuery(document).ready(function ($) {
 
   //home buttons hover
   $('#tarifs li').mouseover(function() {
-    $(this).find('.micro a').css('background', '#EA2A6A');
+    $(this).find('.micro a').css({
+      background: '#EA2A6A',
+      color: '#fff',
+      transition: '.1s'
+    });
   });
   $('#tarifs li').mouseout(function() {
-    $(this).find('.micro a').css('background', '#f6f6f6');
+    $(this).find('.micro a').css({
+      background: '#f6f6f6',
+      color: '#555a61',
+      transition: '.1s'
+    });
   });
+
 
   //top icons menu hover
   $('.menu-client-icon.phone a, .tel2 a').mouseover(function() {

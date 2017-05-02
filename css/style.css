@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900");
 @font-face {
   font-family: 'sansationbold';
   src: url("../fonts/Sansation-Bold-webfont.eot");
@@ -831,11 +831,15 @@ ul#tarifs li {
   margin-bottom: 0;
   background: url("../images/bt/btbg.png");
   background-size: contain;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+  margin-top: 15px;
 }
 
 ul#tarifs li:hover {
-  background: url("../images/bt/btbghover.png");
   background-size: contain;
+  background: #EA2A6A;
+  -webkit-transition: .1s;
+  transition: .1s;
 }
 
 ul#tarifs li .home-buttons {
@@ -4371,33 +4375,6 @@ h1.comTitre {
   font-weight: bold;
 }
 
-#preview:before, #preview:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width: 300px;
-  background: #777;
-  box-shadow: 0 15px 10px #777;
-  -webkit-transform: rotate(-3deg);
-          transform: rotate(-3deg);
-  -webkit-animation: 1s 5s fadeIn;
-          animation: 1s 5s fadeIn;
-  visibility: hidden;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-#preview:after {
-  -webkit-transform: rotate(3deg);
-          transform: rotate(3deg);
-  right: 10px;
-  left: auto;
-}
-
 .metaslider {
   width: 100%;
   top: 0;
@@ -4423,6 +4400,97 @@ h1.comTitre {
 }
 
 .metaslider:after {
+  -webkit-transform: rotate(3deg);
+          transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+h1.metaTitle {
+  font-family: "Source Sans Pro", sans-serif;
+  line-height: 1.8rem !important;
+  font-size: 1.8rem !important;
+  float: right;
+  text-align: right;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: normal;
+  color: #fff;
+  margin-bottom: 10px !important;
+}
+
+.metaDesc, .metaAP {
+  text-align: right !important;
+  font-size: .9rem !important;
+  line-height: 1.1rem !important;
+  text-transform: uppercase;
+  font-weight: normal !important;
+  clear: both;
+}
+
+.metaAP {
+  float: left;
+  width: 260px;
+  margin-top: 10px !important;
+}
+
+.metaPB {
+  float: right;
+}
+
+.metaPrice {
+  clear: both;
+  font-size: 3.5rem !important;
+  line-height: 3.5rem !important;
+  font-weight: 700;
+  float: right;
+}
+
+a.metaButton {
+  clear: both;
+  float: right;
+  display: block;
+  text-transform: uppercase;
+  padding-top: .2rem !important;
+  width: 100px;
+  height: 40px;
+  vertical-align: middle;
+  text-align: center;
+  background: #EA2A6A;
+  color: #fff;
+  border: none;
+  font-size: 1.4rem !important;
+  border-radius: 20px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+a.metaButton:hover {
+  background: #F9B610;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+#preview:before, #preview:after {
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width: 300px;
+  background: #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+  -webkit-animation: 1s 5s fadeIn;
+          animation: 1s 5s fadeIn;
+  visibility: hidden;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+#preview:after {
   -webkit-transform: rotate(3deg);
           transform: rotate(3deg);
   right: 10px;
@@ -7506,6 +7574,17 @@ span#footer_links2 {
   width: 100%;
 }
 
+@media (max-width: 960px) {
+  ul#tarifs li .micro a {
+    font-size: .7rem;
+  }
+  ul#tarifs li .micro a .micro-s {
+    display: block;
+    font-size: .5rem;
+    font-family: "Source Sans Pro", sans-serif;
+  }
+}
+
 @media (max-width: 760px) {
   .textHide {
     display: none;
@@ -7579,6 +7658,24 @@ span#footer_links2 {
   }
   ul#tarifs li {
     width: 32%;
+  }
+  h1.metaTitle {
+    margin-bottom: 0 !important;
+  }
+  .metaDesc {
+    display: none;
+  }
+  .metaAP {
+    width: 160px;
+  }
+  .metaPrice {
+    font-size: 3rem !important;
+    line-height: 3rem !important;
+  }
+  a.metaButton {
+    width: 100px;
+    height: 35px;
+    font-size: 1.4rem !important;
   }
   #top_info .front img {
     width: 33.33333%;
@@ -7850,6 +7947,9 @@ span#footer_links2 {
   }
   #buying {
     min-height: 230px;
+  }
+  .metaAP {
+    width: 120px;
   }
 }
 
@@ -8290,6 +8390,29 @@ span#footer_links2 {
   .b-it2,
   .b-it3 {
     margin-right: 1%;
+  }
+  h1.metaTitle {
+    line-height: 2.3rem !important;
+    font-size: 2.3rem !important;
+    margin-bottom: 20px !important;
+  }
+  .metaDesc, .metaAP {
+    font-size: 1.1rem !important;
+    line-height: 1.4rem !important;
+  }
+  .metaAP {
+    float: left;
+    width: 340px;
+  }
+  .metaPB {
+    float: right;
+  }
+  .metaPrice {
+    font-size: 3.7rem !important;
+    line-height: 3.7rem !important;
+  }
+  a.metaButton {
+    font-size: 1.4rem !important;
   }
   #buying {
     width: 500px;
