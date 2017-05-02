@@ -148,6 +148,14 @@
     height: 30px;
   }
 
+  #buying{
+    min-height: 280px;
+  }
+
+  #wycena {
+    float: none;
+    width: 100%;
+  }
   // largeur des champs select -------------------------------------------------
 
   ul.form-section li.optionsformline4,
@@ -170,6 +178,7 @@
       }
     }
   }
+
 
   // tableau PLV ---------------------------------------------------------------
 

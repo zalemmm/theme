@@ -107,6 +107,7 @@
   //----------------------------------------------------------------------------
   #buying {
     width:500px;
+    min-height: 410px;
   }
 
   #preview,
@@ -119,16 +120,10 @@
 
   #preview_imag,
   #preview_imag2,
-  #preview_imag3 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    float: none;
-    width: 100%;
-    display: block;
-    height: auto;
+  #preview_imag3,
+  #preview_imag4,
+  #preview_imag5 {
     min-height: 400px;
-    margin-left: 0;
   }
 
   #slides {
@@ -146,7 +141,13 @@
   }
 
   #wycena {
-    width: 500px;
+    float: right;
+    width: 400px;
+  }
+
+  .exclam{
+    margin-right: 5px;
+    vertical-align: middle;
   }
 
   //----------------------------------------------------------------------------

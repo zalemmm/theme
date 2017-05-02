@@ -527,12 +527,12 @@
 			var ax2 = document.getElementById("id_ext");
 			var ax3 = document.getElementById("id_intext");
 			if (ax1) {
-			ax1.style.background="#FFAAAA";
+			ax1.style.background="#EA2A6A";
 			ax1.style.border="none";
 			ax1.style.borderBottom="1px solid #9fa3a8";
 		}
 		if (ax2) {
-		ax2.style.background="#FFAAAA";
+		ax2.style.background="#EA2A6A";
 		ax2.style.border="none";
 		ax2.style.border="1px solid #9fa3a8";
 	}
@@ -1635,19 +1635,19 @@ transport=0;
 
 if ( ($('input_int').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
+	blad.style.background = "#EA2A6A";
 	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 if ( ($('input_ext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
+	blad.style.background = "#EA2A6A";
 	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 if ( ($('input_intext').value == 'bache 100% écologique M1') && (szerokosc > 1.6) && (wysokosc > 1.6) ) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
+	blad.style.background = "#EA2A6A";
 	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
@@ -1658,19 +1658,19 @@ if ( ($('input_intext').value == 'bache 100% écologique M1') && (szerokosc > 1.
 
 if ( ($('input_int').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
+	blad.style.background = "#EA2A6A";
 	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 if ( ($('input_ext').value == 'bache nontissé 150g') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
+	blad.style.background = "#EA2A6A";
 	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 }
 if ( ($('input_intext').value == 'bache nontissé 150g M1') && (szerokosc > 1.6) && (wysokosc > 1.6)) {
 	var blad = document.getElementById("id_14");
-	blad.style.background = "#FFAAAA";
+	blad.style.background = "#EA2A6A";
 	eBox.innerHTML = 'Hauteur ou Largeur doit être inférieure à 1.6m!';
 	niepokazuj=1;
 

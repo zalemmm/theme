@@ -10,7 +10,7 @@ get_header();
   <div id="content_bg_top">
     <div id="content_zawartosc">
       <?php
-        echo do_shortcode("[metaslider id=4082]");
+        echo do_shortcode("[metaslider id=3870]");
       ?>
       <div class="storycontent">
 

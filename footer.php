@@ -337,7 +337,7 @@ jQuery(document).ready(function ($) {
     $(this).find('.micro a').css('background', '#EA2A6A');
   });
   $('#tarifs li').mouseout(function() {
-    $(this).find('.micro a').css('background', '#555a61');
+    $(this).find('.micro a').css('background', '#f6f6f6');
   });
 
   //top icons menu hover

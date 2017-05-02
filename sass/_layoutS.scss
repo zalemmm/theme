@@ -5,16 +5,26 @@
   a#logo {
     top: 40px;
   }
+  #buying{
+    min-height: 230px;
+  }
 }
 
 @media(max-width: 540px) {
   // invisible -----------------------------------------------------------------
 
-  #preview {
+  #preview,
+  #preview2 {
     display: none;
   }
 
+  #buying{
+    min-height: 20px;
+  }
+
   // grille --------------------------------------------------------------------
+
+
   #buying,
   #wycena_nag,
   #wycena_suma,
