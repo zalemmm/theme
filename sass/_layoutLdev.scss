@@ -116,9 +116,9 @@ body {
   padding: 0 5% 15px;
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                        DECLARATIONS GENERALES
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 .split,
 .splitorhide{
@@ -289,7 +289,7 @@ h4.keepTxtColor {
 
 .highlight {
   color: $alert;
-  font-weight: 700;
+  font-weight: 900;
 }
 a .highlight{
   color: $alert;
@@ -302,6 +302,13 @@ a .highlight{
 }
 .highlight.small {
   color: $white;
+}
+
+b {
+  font-weight: 700;
+  b{
+    font-weight: 700;
+  }
 }
 
 .disMob0 {
@@ -339,9 +346,9 @@ input[type="submit"]{
   color: $magenta;
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                                LINKS
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 a {
   &:link {
@@ -1124,7 +1131,6 @@ a.notice{
   min-height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
-
 
   &::before {
     content: "";
@@ -3325,9 +3331,9 @@ display:-webkit-flex;
 
 
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                      MODULES ACCES CLIENT
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 .acces_left {
   width: 49%;
@@ -4164,7 +4170,7 @@ h1.comTitre {
 // slider acceuil --------------------------------------------------------------
 
 .metaslider {
-
+  width: 100%;
   top: 0;
   margin-left: 0;
   z-index: 3000;
@@ -4316,38 +4322,41 @@ a.metaButton {
   }
 }
 
-// animation des éléments de sélection produits (activée dans chaque page produit via le jotform.js correspondant)
+// animation des éléments sélectionnés dans la preview produit (activée dans chaque page produit via le jotform.js correspondant)
+// !! les anims sont les mêmes mais elles ont un nom différent pour pouvoir les alterner sans quoi l'effet ne s'applique q'au premier changement)
 
 @keyframes anim {
   0% {
-    transform: translateX(100%);
-  }
-  14.28% {
-    transform: translateX(0);
-  }
-  85.71% {
-    transform: translateX(0);
+    transform: translateX(60%);
   }
   100% {
     transform: translateX(0);
   }
 }
-
-@keyframes anim-reverse {
+@keyframes anim1 {
   0% {
-    transform: translateX(-100%);
-  }
-  14.28% {
-    transform: translateX(0);
-  }
-  85.71% {
-    transform: translateX(0);
+    transform: translateX(60%);
   }
   100% {
     transform: translateX(0);
   }
 }
-
+@keyframes anim2 {
+  0% {
+    transform: translateX(60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes anim3 {
+  0% {
+    transform: translateX(60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 //----------------------------------------------------------------------------
 //                             STYLES INLINE RAPATRIES
 //----------------------------------------------------------------------------
@@ -4383,7 +4392,8 @@ a.metaButton {
 }
 
 .delivery-date,
-#estdate_7 {
+#estdate_7,
+#estdate_16 {
   float: right;
   color: $magenta;
   text-transform: uppercase;
@@ -4568,7 +4578,7 @@ DIV.ProgressBar {
 }
 
 
-// boutons géréer mon compte -------------------------------------------------
+// boutons géréer mon compte ---------------------------------------------------
 
 a#votre_mod {
   @include buttonLog($cyan, 49%);
@@ -4590,7 +4600,7 @@ form#delfromvosdevis,
   margin-right: 0;
 }
 
-// bouton gérer la commande --------------------------------------------------
+// bouton gérer la commande ----------------------------------------------------
 
 .but_details {
   width: 100%;
@@ -4611,7 +4621,7 @@ form#delfromvosdevis,
   }
 }
 
-// boutons payer/valider bat situé dans le bloc information jaune ------------
+// boutons payer/valider bat situé dans le bloc information jaune --------------
 #payeTop {
   width: 100%;
   height: auto;
@@ -4644,7 +4654,7 @@ form#delfromvosdevis,
   padding-top: .5rem;
 }
 
-// boutons panier ------------------------------------------------------------
+// boutons panier --------------------------------------------------------------
 
 #but_continuer {
   @include buttonLog($cyan,24%);
@@ -4665,7 +4675,7 @@ form#delfromvosdevis,
   }
 }
 
-// boutons gestion des commandes ---------------------------------------------
+// boutons gestion des commandes -----------------------------------------------
 
 #but_payer {
   @include buttonLog($magenta, 100%);
@@ -4739,14 +4749,14 @@ a#but_imprimerbon,
   right: 0;
 }
 
-// boutons register ----------------------------------------------------------
+// boutons register ------------------------------------------------------------
 .form-input-wide {
   width: 100%;
   display: flex;
 display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
-} // ---------------------------------------------------------------WTF???????
+} // -----------------------------------------------------------------WTF???????
 
 .register-button,
 .edit-button {
@@ -4768,7 +4778,7 @@ display:-webkit-flex;
   @include buttonLog($cyan, 49%);
 }
 
-// boutons écrire un commentaire ---------------------------------------------
+// boutons écrire un commentaire -----------------------------------------------
 a.but_espace {
   @include buttonLog($text, 49%);
   margin: 20px 2% 0 0;
@@ -4789,7 +4799,7 @@ a.but_espace {
   float: right;
 }
 
-// boutons file upload -------------------------------------------------------
+// boutons file upload ---------------------------------------------------------
 
 .fuselect {
   @include buttonLog($cyan, 29%);
@@ -4820,7 +4830,7 @@ a.post-edit-link{
   float: right;
 }
 
-// Boutons BAT----------------------------------------------------------------
+// Boutons BAT------------------------------------------------------------------
 
 #but_bat {
   @include buttonLog($magenta, 100%);
@@ -4983,9 +4993,9 @@ span.print_button {
   z-index: 900;
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                                 relais colis
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 .relais_content {
   display: block;
