@@ -336,15 +336,13 @@ jQuery(document).ready(function ($) {
   $('#tarifs li').mouseover(function() {
     $(this).find('.micro a').css({
       background: '#EA2A6A',
-      color: '#fff',
-      transition: '.1s'
+      color: '#fff'
     });
   });
   $('#tarifs li').mouseout(function() {
     $(this).find('.micro a').css({
       background: '#f6f6f6',
-      color: '#555a61',
-      transition: '.1s'
+      color: '#555a61'
     });
   });
 

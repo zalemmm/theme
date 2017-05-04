@@ -87,12 +87,6 @@
     }
     #top_info_info {
       @include span(8);
-      span.info_nag {
-        font-size: 1.2rem;
-        line-height: 1.6rem;
-        text-align: center;
-        padding-top: 0;
-      }
     }
   }
 

@@ -13,6 +13,10 @@
       }
     }
   }
+
+  .metaAP {
+    width: 250px;
+  }
 }
 
 @media(max-width: 760px) {
@@ -140,11 +144,6 @@
     }
     #top_info_info {
       @include span(8);
-      span.info_nag {
-        padding-bottom: 2px;
-        font-size: 1.4rem;
-        line-height: 1.6rem;
-      }
     }
   }
 

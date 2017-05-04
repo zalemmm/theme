@@ -47,6 +47,8 @@ a#corner_button_cart,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a.pleaseregister:link:after, a.pleaseregister:visited:after, #p1:after, #p2:after, #p3:after, #l1:after, #l2:after, #l3:after {
@@ -364,8 +366,8 @@ input[type="submit"].active, input[type="submit"]:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 input[type="submit"].deactive {
@@ -771,8 +773,8 @@ ul#menu_top a#active_sub {
   background: #f6f6f6;
   border: 1px solid #e9e9e9;
   margin-top: 10px;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
   box-shadow: 3px 3px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -879,6 +881,8 @@ ul#tarifs li .micro a .micro-s {
 ul#tarifs li .micro a:hover {
   background: #EA2A6A;
   color: #fff;
+  -webkit-transition: .1s;
+  transition: .1s;
 }
 
 .b-it1 {
@@ -1011,11 +1015,12 @@ hr.hr-separator {
 #top_info #top_info_info span.info_nag,
 #top_info #top_info_info2 span.info_nag {
   font-family: "sansationbold", "Arial", "sans-serif";
+  font-weight: 700;
   display: block;
   color: #008ebb;
-  font-weight: bold;
   padding-bottom: 2px;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 
 #top_info #top_info_info .prod-desc .highlight,
@@ -1749,8 +1754,8 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #submit_cart.deactive {
@@ -1793,8 +1798,8 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .form-submit-button.deactive {
@@ -2041,8 +2046,8 @@ div.wpcf7 input.contact_send.active, div.wpcf7 input.contact_send:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 div.wpcf7 input.contact_send.deactive {
@@ -3026,8 +3031,8 @@ tbody {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #fbcart_address a.deactive {
@@ -3259,8 +3264,8 @@ tbody {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #promotions_table td.righttd .prom_sub.deactive {
@@ -4376,7 +4381,6 @@ h1.comTitre {
 }
 
 .metaslider {
-  width: 100%;
   top: 0;
   margin-left: 0;
   z-index: 3000;
@@ -4397,6 +4401,8 @@ h1.comTitre {
   box-shadow: 0 15px 10px #777;
   -webkit-transform: rotate(-3deg);
           transform: rotate(-3deg);
+  -webkit-animation: 1s 2s fadeIn;
+          animation: 1s 2s fadeIn;
 }
 
 .metaslider:after {
@@ -4451,7 +4457,7 @@ a.metaButton {
   float: right;
   display: block;
   text-transform: uppercase;
-  padding-top: .2rem !important;
+  padding-top: .25rem !important;
   width: 100px;
   height: 40px;
   vertical-align: middle;
@@ -4461,7 +4467,6 @@ a.metaButton {
   border: none;
   font-size: 1.4rem !important;
   border-radius: 20px;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.4);
 }
 
 a.metaButton:hover {
@@ -4839,8 +4844,8 @@ a#votre_mod.active, a#votre_mod:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a#votre_mod.deactive {
@@ -4882,8 +4887,8 @@ a#votre_dec.active, a#votre_dec:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a#votre_dec.deactive {
@@ -4922,6 +4927,7 @@ form#delfromvosdevis,
 .but_details.active, .but_details:hover {
   background-color: #32A1CC;
   border: 1px solid #2b8aaf;
+  transiton: .2s;
 }
 
 #payeTop {
@@ -4966,8 +4972,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #payeTop #but_payerTop.deactive {
@@ -5016,8 +5022,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_voir_bat.deactive {
@@ -5060,8 +5066,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .but_val_bat.deactive {
@@ -5103,8 +5109,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_continuer.deactive {
@@ -5146,8 +5152,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_ajouter.deactive {
@@ -5189,8 +5195,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_supprimer.deactive {
@@ -5233,8 +5239,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_validerdevis.deactive {
@@ -5282,8 +5288,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_payer.deactive {
@@ -5331,8 +5337,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_payer.deactive.deactive {
@@ -5374,8 +5380,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_retour.deactive {
@@ -5417,8 +5423,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_annuler.deactive {
@@ -5461,8 +5467,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_annulercommande.deactive {
@@ -5504,8 +5510,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_annulercommande.deactive.deactive {
@@ -5547,8 +5553,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_imprimer.deactive {
@@ -5590,8 +5596,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_imprimerfacture.deactive {
@@ -5633,8 +5639,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_comment.deactive {
@@ -5676,8 +5682,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_suivre.deactive {
@@ -5719,8 +5725,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_rating.deactive {
@@ -5769,8 +5775,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #suivant_reg.deactive {
@@ -5818,8 +5824,8 @@ form#delfromvosdevis,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_conf_pay.deactive {
@@ -5867,8 +5873,8 @@ a#but_imprimerbon.active, a#but_imprimerbon:hover,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a#but_imprimerbon.deactive,
@@ -5933,8 +5939,8 @@ a#but_imprimerbon.deactive.active, a#but_imprimerbon.deactive:hover,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .register-button.deactive,
@@ -5983,8 +5989,8 @@ a#but_imprimerbon.deactive.active, a#but_imprimerbon.deactive:hover,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_retour2.deactive {
@@ -6026,8 +6032,8 @@ a#but_imprimerbon.deactive.active, a#but_imprimerbon.deactive:hover,
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .register-button2.deactive {
@@ -6072,8 +6078,8 @@ a.but_espace.active, a.but_espace:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a.but_espace.deactive {
@@ -6118,8 +6124,8 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .but_envoyer.deactive {
@@ -6162,8 +6168,8 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .but_ratingsubmit.deactive {
@@ -6206,8 +6212,8 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .fuselect.deactive {
@@ -6250,8 +6256,8 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .fustart.deactive {
@@ -6294,8 +6300,8 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .fucancel.deactive {
@@ -6338,8 +6344,8 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .fudelete.deactive {
@@ -6386,8 +6392,8 @@ a.post-edit-link.active, a.post-edit-link:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a.post-edit-link.deactive {
@@ -6430,8 +6436,8 @@ a.post-edit-link.deactive.active, a.post-edit-link.deactive:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_bat.deactive {
@@ -6479,8 +6485,8 @@ a.but_voiremaquette.active, a.but_voiremaquette:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 a.but_voiremaquette.deactive {
@@ -6544,8 +6550,8 @@ a.but_voiremaquette.active, a.but_voiremaquette:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 #but_modifier.deactive {
@@ -6629,8 +6635,8 @@ span.print_button {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .prom_sub2.deactive {
@@ -6664,6 +6670,8 @@ span.print_button {
 .stat0.active, .stat0:hover {
   background-image: none;
   background-color: #EA2A6A;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .stat1 {
@@ -6684,6 +6692,8 @@ span.print_button {
 .stat1.active, .stat1:hover {
   background-image: none;
   background-color: #EA2A6A;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .stat2 {
@@ -6704,6 +6714,8 @@ span.print_button {
 .stat2.active, .stat2:hover {
   background-image: none;
   background-color: #EA2A6A;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .stat3 {
@@ -6724,6 +6736,8 @@ span.print_button {
 .stat3.active, .stat3:hover {
   background-image: none;
   background-color: #EA2A6A;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .stat4 {
@@ -6744,6 +6758,8 @@ span.print_button {
 .stat4.active, .stat4:hover {
   background-image: none;
   background-color: #EA2A6A;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .stat5 {
@@ -6764,6 +6780,8 @@ span.print_button {
 .stat5.active, .stat5:hover {
   background-image: none;
   background-color: #EA2A6A;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .stat6 {
@@ -6787,6 +6805,8 @@ span.print_button {
 .stat6.active, .stat6:hover {
   background-image: none;
   background-color: #EA2A6A;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .stat6.active, .stat6:hover {
@@ -6812,6 +6832,8 @@ span.print_button {
 .stat7.active, .stat7:hover {
   background-image: none;
   background-color: #EA2A6A;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .acces_tab_name_devis .stat0,
@@ -7583,6 +7605,9 @@ span#footer_links2 {
     font-size: .5rem;
     font-family: "Source Sans Pro", sans-serif;
   }
+  .metaAP {
+    width: 250px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -7690,11 +7715,6 @@ span#footer_links2 {
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
-  }
-  #top_info #top_info_info span.info_nag {
-    padding-bottom: 2px;
-    font-size: 1.4rem;
-    line-height: 1.6rem;
   }
   .pushButton {
     margin-left: 0;
@@ -7865,8 +7885,8 @@ span#footer_links2 {
     background-image: none;
     background-color: #EA2A6A;
     border: 1px solid #db1657;
-    -webkit-transition-delay: .2s;
-            transition-delay: .2s;
+    -webkit-transition: .2s;
+    transition: .2s;
   }
   #but_payer.deactive.deactive {
     cursor: default !important;
@@ -7904,8 +7924,8 @@ span#footer_links2 {
     background-image: none;
     background-color: #EA2A6A;
     border: 1px solid #db1657;
-    -webkit-transition-delay: .2s;
-            transition-delay: .2s;
+    -webkit-transition: .2s;
+    transition: .2s;
   }
   #but_annulercommande.deactive.deactive {
     cursor: default !important;
@@ -8178,12 +8198,6 @@ span#footer_links2 {
     padding-left: 0.83333%;
     padding-right: 0.83333%;
   }
-  #top_info #top_info_info span.info_nag {
-    font-size: 1.2rem;
-    line-height: 1.6rem;
-    text-align: center;
-    padding-top: 0;
-  }
   .metaslider {
     display: none;
   }
@@ -8407,11 +8421,12 @@ span#footer_links2 {
   h1.metaTitle {
     line-height: 2.3rem !important;
     font-size: 2.3rem !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 15px !important;
   }
   .metaDesc, .metaAP {
     font-size: 1.1rem !important;
     line-height: 1.4rem !important;
+    margin-bottom: 5px !important;
   }
   .metaAP {
     float: left;

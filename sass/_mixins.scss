@@ -25,6 +25,7 @@
   &:hover {
     background-image: none;
     background-color: $magenta;
+    transition: .2s;
   }
 }
 
@@ -59,7 +60,7 @@
     background-image: none;
     background-color: $magenta;
     border:1px solid darken($magenta, 7%);
-    transition-delay: .2s;
+    transition: .2s;
   }
   &.deactive {
     cursor: default !important;
