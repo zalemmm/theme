@@ -231,7 +231,7 @@ h1, h2, h3 {
   font-style: italic;
   font-weight: bold;
   color: #555a61;
-  font-family: "Arial", "sans-serif";
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 h1.categorytitle, h2.categorytitle, h3.categorytitle {
@@ -254,13 +254,13 @@ h3 {
 }
 
 h5 {
-  font-family: "Arial", "sans-serif";
+  font-family: "Source Sans Pro", sans-serif;
   padding: 0;
   margin: 0;
 }
 
 h6 {
-  font-family: "Arial", "sans-serif";
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 h4 {
@@ -1706,7 +1706,13 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
 }
 
 #dodaj_koszyk #cart_form {
-  padding: 10px;
+  padding: .9rem;
+  font-size: .8rem;
+  line-height: .9rem;
+  color: #32A1CC;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 #dodaj_koszyk #cart_form:empty {
@@ -1823,9 +1829,14 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   width: 80%;
 }
 
+input:invalid {
+  border: 1px solid #EA2A6A;
+}
+
 .form-line-error {
   background: #EA2A6A;
   border: 1px solid #EA2A6A;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .form-validation-error {
@@ -1844,6 +1855,8 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   font-size: .8rem;
   border: 0;
   background: #EA2A6A;
+  outline: 1px solid #ea2a6a;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .form-error-message img {
@@ -3762,6 +3775,11 @@ ul.regiform2 li {
   height: 50px;
 }
 
+ul.regiform .form-line-error,
+ul.regiform2 .form-line-error {
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
 ul.regiform .form-error-message,
 ul.regiform2 .form-error-message {
   position: relative;
@@ -3829,17 +3847,22 @@ ul.regiform2 .form-error-message {
 .form-button-error,
 #form-button-error2,
 #form-button-error3 {
+  z-index: 900;
   position: absolute;
   left: 0px;
-  bottom: 305px;
+  bottom: 270px;
   width: 100%;
   height: auto;
-  padding: .5rem;
+  padding: 2.5rem .5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
   font-size: .8rem;
   color: #fff;
   background: #EA2A6A;
   margin-top: 0;
   line-height: .9rem;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
 .form-button-error:empty,
@@ -7397,7 +7420,7 @@ h4.clients_reviews_titre a:hover {
   display: block;
   width: auto;
   height: auto;
-  font-family: "Arial", "sans-serif";
+  font-family: "Source Sans Pro", sans-serif;
   font-size: .72rem;
   font-weight: bold;
   font-style: italic;

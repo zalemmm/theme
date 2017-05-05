@@ -219,7 +219,7 @@ h1, h2, h3 {
   font-style: italic;
   font-weight: bold;
   color: $text;
-  font-family: $font-title;
+  font-family: $font-global;
 
   &.categorytitle {
     margin: 0;
@@ -242,13 +242,13 @@ h3{
 }
 
 h5 {
-  font-family: $font-title;
+  font-family: $font-global;
   padding: 0;
   margin: 0;
 }
 
 h6 {
-  font-family: $font-title;
+  font-family: $font-global;
 }
 
 h4 {
@@ -1609,7 +1609,13 @@ ul {
   margin-bottom: 20px;
 
   #cart_form {
-    padding: 10px;
+    padding: .9rem;
+    font-size: .8rem;
+    line-height: .9rem;
+    color: $cyan;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
     &:empty {
       display: none;
     }
@@ -1652,9 +1658,18 @@ ul {
 .form-line{
   width: 80%;
 }
+
+input:invalid {
+  border: 1px solid $magenta;
+}
+input:valid {
+  //border: 1px solid green;
+}
+
 .form-line-error {
   background: $magenta;
   border: 1px solid $magenta;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
 }
 
 .form-validation-error {
@@ -1673,6 +1688,8 @@ ul {
   font-size: .8rem;
   border: 0;
   background: $magenta;
+  outline: 1px solid #ea2a6a;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
   img{
     margin-top: -5px;
   }
@@ -2413,12 +2430,8 @@ SPAN {
 }
 
 .ui-widget {
-  font-family: Verdana,
-  Arial,
-  sans-serif/*{ffDefault}*/
-  ;
-  font-size: 1.1em/*{fsDefault}*/
-  ;
+  font-family: Verdana,  Arial,  sans-serif/*{ffDefault}*/  ;
+  font-size: 1.1em/*{fsDefault}*/  ;
 }
 
 .ui-widget .ui-widget {
@@ -3526,7 +3539,7 @@ ul.regiform2 {
     height: 50px;
   }
   .form-line-error{
-
+    box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
   }
   .form-error-message {
     position: relative;
@@ -3594,17 +3607,22 @@ ul.regiform2 {
 .form-button-error,
 #form-button-error2,
 #form-button-error3 {
+  z-index: 900;
   position: absolute;
   left: 0px;
-  bottom: 305px;
+  bottom: 270px;
   width: 100%;
   height: auto;
-  padding: .5rem;
+  padding: 2.5rem .5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
   font-size: .8rem;
   color: $white;
   background: $magenta;
   margin-top: 0;
   line-height: .9rem;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
   &:empty{
     display: none;
   }
@@ -5488,7 +5506,7 @@ h4.clients_reviews_titre a{
   display: block;
   width: auto;
   height: auto;
-  font-family:  $font-title;
+  font-family:  $font-global;
   font-size: .72rem;
   font-weight: bold;
   font-style: italic;
