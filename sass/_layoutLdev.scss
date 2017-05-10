@@ -659,6 +659,7 @@ ul {
         &:hover {
           background: transparent;
           color:$jaune;
+          transition: .2s;
         }
       }
     }
@@ -678,16 +679,6 @@ ul {
         width: 250px;
         height: 32px;
         margin-left: 0;
-        &.highest {
-          display: block;
-          width: 240px;
-          height: 32px;
-          // à supprimer
-          a#active_sub {
-            background-color: lighten($jaune, 10%);
-            color: $white;
-          }
-        }
       }
     }
 
@@ -696,17 +687,17 @@ ul {
         &:link {
           display: block;
           width: 250px;
+          float: left;
           height: 32px;
           background: $bloc-base;
           padding-top: 5px;
           text-decoration: none;
         }
 
-
-
         &:hover {
           background-color: lighten($jaune, 10%);
           color: $white;
+          transition: .2s;
         }
       }
 
@@ -749,8 +740,41 @@ ul {
 	border-width: 16px;
 	margin-left: -16px;
 }
-#produit_sub{
-  border-left: 0;
+ul#menu_top ul#produit_sub{
+  width: 600px;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &.menu_hover:after,
+  &.menu_hover:before {
+    left: 14%;
+  }
+
+  li {
+    min-height: 60px;
+    width: 33%;
+  }
+  img {
+    display: inline-block;
+    width: auto;
+    height:50px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  a {
+    &.menu_sub {
+      &:link {
+        display: inline-block;
+        text-align: left;
+        padding: 5px;
+        width: 100%;
+        min-height: 60px;
+        vertical-align: middle;
+      }
+    }
+  }
+
 }
 
 //------------------------------------------------------------------------------

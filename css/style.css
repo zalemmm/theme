@@ -726,6 +726,8 @@ ul#menu_top li a:link, ul#menu_top li a:visited {
 ul#menu_top li a#active, ul#menu_top li a:hover {
   background: transparent;
   color: #F9B610;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 ul#menu_top ul {
@@ -746,20 +748,10 @@ ul#menu_top ul li {
   margin-left: 0;
 }
 
-ul#menu_top ul li.highest {
-  display: block;
-  width: 240px;
-  height: 32px;
-}
-
-ul#menu_top ul li.highest a#active_sub {
-  background-color: #fac542;
-  color: #fff;
-}
-
 ul#menu_top a.menu_sub:link {
   display: block;
   width: 250px;
+  float: left;
   height: 32px;
   background: #f6f6f6;
   padding-top: 5px;
@@ -769,6 +761,8 @@ ul#menu_top a.menu_sub:link {
 ul#menu_top a.menu_sub:hover {
   background-color: #fac542;
   color: #fff;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 ul#menu_top a#active_sub {
@@ -811,8 +805,43 @@ ul#menu_top a#active_sub {
   margin-left: -16px;
 }
 
-#produit_sub {
-  border-left: 0;
+ul#menu_top ul#produit_sub {
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+ul#menu_top ul#produit_sub.menu_hover:after, ul#menu_top ul#produit_sub.menu_hover:before {
+  left: 14%;
+}
+
+ul#menu_top ul#produit_sub li {
+  min-height: 60px;
+  width: 33%;
+}
+
+ul#menu_top ul#produit_sub img {
+  display: inline-block;
+  width: auto;
+  height: 50px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+ul#menu_top ul#produit_sub a.menu_sub:link {
+  display: inline-block;
+  text-align: left;
+  padding: 5px;
+  width: 100%;
+  min-height: 60px;
+  vertical-align: middle;
 }
 
 ul#tarifs {
