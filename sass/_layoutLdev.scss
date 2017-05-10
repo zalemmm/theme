@@ -1118,7 +1118,9 @@ a.notice{
 #preview_imag2,
 #preview_imag3,
 #preview_imag4,
-#preview_imag5 {
+#preview_imag5,
+#preview_imag6,
+#preview_imag7 {
   position: absolute;
   top: 0;
   left: 0;
@@ -1676,7 +1678,8 @@ input:valid {
   border: 1px solid $magenta;
 }
 
-.form-error-message {
+.form-error-message,
+.form-error-message-reg {
   z-index: 900;
   position: relative;
   display: inline-block;
@@ -1695,6 +1698,12 @@ input:valid {
   }
 }
 
+.form-error-message-reg {
+  outline: 0;
+  padding-top: 0;
+  top: -21px;
+  z-index: 1;
+}
 // Tooltips aide formulaires ---------------------------------------------------
 
 .helpImg {
@@ -3625,6 +3634,17 @@ ul.regiform2 {
   box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
   &:empty{
     display: none;
+  }
+  button{
+    background: none;
+    border:0;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
   }
 }
 

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900");
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700i,900");
 @font-face {
   font-family: 'sansationbold';
   src: url("../fonts/Sansation-Bold-webfont.eot");
@@ -1186,7 +1186,9 @@ a.notice .helpExp {
 #preview_imag2,
 #preview_imag3,
 #preview_imag4,
-#preview_imag5 {
+#preview_imag5,
+#preview_imag6,
+#preview_imag7 {
   position: absolute;
   top: 0;
   left: 0;
@@ -1205,7 +1207,9 @@ a.notice .helpExp {
 #preview_imag2::before,
 #preview_imag3::before,
 #preview_imag4::before,
-#preview_imag5::before {
+#preview_imag5::before,
+#preview_imag6::before,
+#preview_imag7::before {
   content: "";
   display: block;
   padding-top: 100%;
@@ -1843,7 +1847,8 @@ input:invalid {
   border: 1px solid #EA2A6A;
 }
 
-.form-error-message {
+.form-error-message,
+.form-error-message-reg {
   z-index: 900;
   position: relative;
   display: inline-block;
@@ -1859,8 +1864,16 @@ input:invalid {
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
-.form-error-message img {
+.form-error-message img,
+.form-error-message-reg img {
   margin-top: -5px;
+}
+
+.form-error-message-reg {
+  outline: 0;
+  padding-top: 0;
+  top: -21px;
+  z-index: 1;
 }
 
 .helpImg {
@@ -3869,6 +3882,20 @@ ul.regiform2 .form-error-message {
 #form-button-error2:empty,
 #form-button-error3:empty {
   display: none;
+}
+
+.form-button-error button,
+#form-button-error2 button,
+#form-button-error3 button {
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 3px;
+  right: 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 #rating {

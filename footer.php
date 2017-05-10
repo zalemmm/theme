@@ -310,6 +310,15 @@ include('nom_du_fichier_de_conf.php');
 <script>
 jQuery(document).ready(function ($) {
 
+  // bouton close messages d'erreur
+
+  $(document).on('click', '.closeButton', function() {
+    $('.form-button-error').fadeOut();
+    $('#form-button-error2').fadeOut();
+    $('#form-button-error3').fadeOut();
+  });
+
+
   //SlidesJS
   $('#slides').slidesjs({
     width: 400,
