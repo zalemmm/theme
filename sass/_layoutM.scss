@@ -189,6 +189,8 @@
     float: none;
     width: 100%;
   }
+
+
   // largeur des champs select -------------------------------------------------
 
   ul.form-section li.optionsformline4,
@@ -196,9 +198,11 @@
     width: 100%;
   }
 
-  ul.form-section  li {
-    &.optionsformline,
-    &.optionsformlineOld {
+  ul.form-section {
+    min-height: 680px;
+    li.optionsformline,
+    li.optionsformlineOld {
+      height: 650px;
       .options_single span {
         &.optionsleft,
         &.optionsright {

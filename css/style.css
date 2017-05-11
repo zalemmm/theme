@@ -485,11 +485,6 @@ a:active {
   outline: none;
 }
 
-a.linkUppercase {
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
 a#logo {
   position: absolute;
   top: 60px;
@@ -845,6 +840,7 @@ ul#menu_top ul#produit_sub a.menu_sub:link {
 }
 
 ul#tarifs {
+  clear: both;
   float: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1687,6 +1683,57 @@ ul.form-section li.optionsformline2, ul.form-section li.optionsformline3, ul.for
 
 ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   width: 47.35%;
+}
+
+#delivery-div {
+  margin-top: -10px;
+}
+
+.delivery-delay {
+  float: none;
+  display: inline-block;
+  width: 100%;
+  margin: 5px 0 5px;
+  font-size: .8rem;
+}
+
+.dateLivraison {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  float: right;
+  vertical-align: bottom;
+  margin-top: 400px;
+  border: 1px solid #EA2A6A;
+  text-align: center;
+  padding: 1rem;
+}
+
+.dateLivraison:empty {
+  display: none;
+  border: none;
+}
+
+.dateLivraison:empty span {
+  display: none;
+}
+
+.delivery-date,
+#estdate_7,
+#estdate_16 {
+  color: #EA2A6A;
+  text-transform: uppercase;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+a.linkUppercase {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .75rem;
+  color: #32A1CC;
 }
 
 #wycena {
@@ -4737,36 +4784,6 @@ a.metaButton:hover {
   z-index: 100;
 }
 
-.break-line {
-  width: auto;
-  height: 1px;
-  border-bottom: 1px solid #999;
-  display: inline-block;
-  margin-top: 5px;
-}
-
-#delivery-div {
-  margin-top: -10px;
-}
-
-.delivery-delay {
-  float: none;
-  display: inline-block;
-  width: 100%;
-  margin: 5px 0 5px;
-  font-size: .8rem;
-}
-
-.delivery-date,
-#estdate_7,
-#estdate_16 {
-  float: right;
-  color: #EA2A6A;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 .home-keywords-col {
   float: left;
   padding: 10px;
@@ -4774,6 +4791,14 @@ a.metaButton:hover {
 
 .marginTop {
   margin-top: 14px;
+}
+
+.break-line {
+  width: auto;
+  height: 1px;
+  border-bottom: 1px solid #999;
+  display: inline-block;
+  margin-top: 5px;
 }
 
 #box {
@@ -7856,10 +7881,21 @@ span#footer_links2 {
   ul.form-section li.optionsformline5 {
     width: 100%;
   }
-  ul.form-section li.optionsformline .options_single span.optionsleft, ul.form-section li.optionsformline .options_single span.optionsright, ul.form-section li.optionsformlineOld .options_single span.optionsleft, ul.form-section li.optionsformlineOld .options_single span.optionsright {
+  ul.form-section {
+    min-height: 680px;
+  }
+  ul.form-section li.optionsformline,
+  ul.form-section li.optionsformlineOld {
+    height: 650px;
+  }
+  ul.form-section li.optionsformline .options_single span.optionsleft, ul.form-section li.optionsformline .options_single span.optionsright,
+  ul.form-section li.optionsformlineOld .options_single span.optionsleft,
+  ul.form-section li.optionsformlineOld .options_single span.optionsright {
     width: 100%;
   }
-  ul.form-section li.optionsformline .options_single span.optionsleft .helpButton, ul.form-section li.optionsformline .options_single span.optionsright .helpButton, ul.form-section li.optionsformlineOld .options_single span.optionsleft .helpButton, ul.form-section li.optionsformlineOld .options_single span.optionsright .helpButton {
+  ul.form-section li.optionsformline .options_single span.optionsleft .helpButton, ul.form-section li.optionsformline .options_single span.optionsright .helpButton,
+  ul.form-section li.optionsformlineOld .options_single span.optionsleft .helpButton,
+  ul.form-section li.optionsformlineOld .options_single span.optionsright .helpButton {
     right: 5px;
     left: auto;
   }
@@ -8545,7 +8581,7 @@ span#footer_links2 {
   }
   #buying {
     width: 500px;
-    min-height: 410px;
+    min-height: 450px;
   }
   #preview,
   #preview2,
@@ -8574,8 +8610,12 @@ span#footer_links2 {
     height: 400px;
   }
   #wycena {
+    margin-top: 100px;
     float: right;
     width: 400px;
+  }
+  .dateLivraison {
+    margin-top: 420px;
   }
   .exclam {
     margin-right: 5px;

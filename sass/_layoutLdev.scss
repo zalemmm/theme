@@ -448,11 +448,6 @@ a {
   &:active {
     outline: none;
   }
-
-  &.linkUppercase {
-    text-transform: uppercase;
-    text-decoration: none;
-  }
 }
 
 //------------------------------------------------------------------------------
@@ -784,6 +779,7 @@ ul#menu_top ul#produit_sub{
 // icones page d'accueil et pages akilux, enseigne et stickers -----------------
 
 ul#tarifs {
+  clear: both;
   float: none;
   display: flex;
   display: -webkit-flex;
@@ -1583,6 +1579,57 @@ ul {
     }
   }
 }
+
+// affichage délais de livraison -----------------------------------------------
+
+#delivery-div {
+  margin-top: -10px;
+}
+.delivery-delay {
+  float: none;
+  display: inline-block;
+  width: 100%;
+  margin: 5px 0 5px;
+  font-size: .8rem;
+}
+
+.dateLivraison{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  float: right;
+  vertical-align: bottom;
+  margin-top: 400px;
+  border: 1px solid $magenta;
+  text-align: center;
+  padding: 1rem;
+  &:empty {
+    display: none;
+    border: none;
+    span {
+      display: none;
+    }
+  }
+}
+
+.delivery-date,
+#estdate_7,
+#estdate_16 {
+  color: $magenta;
+  text-transform: uppercase;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+a.linkUppercase {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .75rem;
+  color: $cyan;
+}
+
 
 // Partie résultat devis -------------------------------------------------------
 
@@ -4435,34 +4482,6 @@ a.metaButton {
   z-index: 100;
 }
 
-.break-line {
-  width: auto;
-  height: 1px;
-  border-bottom: 1px solid $color_5;
-  display: inline-block;
-  margin-top: 5px;
-}
-#delivery-div {
-  margin-top: -10px;
-}
-.delivery-delay {
-  float: none;
-  display: inline-block;
-  width: 100%;
-  margin: 5px 0 5px;
-  font-size: .8rem;
-}
-
-.delivery-date,
-#estdate_7,
-#estdate_16 {
-  float: right;
-  color: $magenta;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 .home-keywords-col {
   float: left;
   padding: 10px;
@@ -4471,6 +4490,16 @@ a.metaButton {
 .marginTop {
   margin-top: 14px;
 }
+
+.break-line {
+  width: auto;
+  height: 1px;
+  border-bottom: 1px solid $color_5;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+
 
 // ==========================================================================
 //                                    STYLES PROD PAGES

@@ -137,7 +137,7 @@
   //----------------------------------------------------------------------------
   #buying {
     width:500px;
-    min-height: 410px;
+    min-height: 450px;
   }
 
   #preview,
@@ -171,8 +171,13 @@
   }
 
   #wycena {
+    margin-top: 100px;
     float: right;
     width: 400px;
+  }
+
+  .dateLivraison{
+    margin-top: 420px;
   }
 
   .exclam{
