@@ -318,7 +318,6 @@ jQuery(document).ready(function ($) {
     $('#form-button-error3').fadeOut();
   });
 
-
   //SlidesJS
   $('#slides').slidesjs({
     width: 400,

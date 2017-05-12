@@ -1373,6 +1373,10 @@ input::placeholder {
   padding: 10px;
 }
 
+.jotform-form select optgroup {
+  font-style: normal;
+}
+
 .jotform-form select option {
   font-family: "Source Sans Pro", sans-serif;
   color: #3097C0;
@@ -1435,25 +1439,28 @@ input::placeholder {
   color: #fff;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: .9rem;
+  font-size: .75rem;
   line-height: .8rem;
   vertical-align: top;
   display: inline-block;
-  width: 20%;
+  width: 25%;
   background: #EA2A6A;
   height: 33px;
   margin: 0;
-  padding: .3rem;
+  padding: .3rem .3rem .3rem .5rem;
   border-radius: 3px;
 }
 
 .jotform-form .label-highlight .small {
   font-size: .7rem;
+  font-weight: normal;
+  text-transform: lowercase;
 }
 
 .jotform-form .label-highlight.special {
   width: 44%;
   margin-right: 2%;
+  text-transform: lowercase;
 }
 
 .jotform-form .heusepar {
@@ -1475,7 +1482,7 @@ input::placeholder {
   display: inline-block;
   position: relative;
   top: -2px;
-  left: 0;
+  left: 1px;
   margin-left: -29px;
   background: #32A1CC;
   border-radius: 0 3px 3px 0;
@@ -1596,7 +1603,7 @@ ul.form-section li {
 
 ul.form-section li.optionsformline, ul.form-section li.optionsformlineOld {
   clear: both;
-  height: 350px !important;
+  height: auto !important;
   position: relative;
   float: left;
   display: inline;
@@ -1813,7 +1820,7 @@ a.linkUppercase {
   float: left;
   display: inline;
   height: 10px;
-  width: 25%;
+  width: 33%;
   text-align: center;
   line-height: .7rem;
 }
@@ -1850,7 +1857,8 @@ a.linkUppercase {
   text-indent: 0;
   vertical-align: middle;
   float: right;
-  margin: 10px 0;
+  padding-bottom: .7rem;
+  margin: 0 0 15px;
 }
 
 #submit_cart.active, #submit_cart:hover {
@@ -7817,7 +7825,7 @@ span#footer_links2 {
     padding-right: 0.83333%;
   }
   #buying {
-    min-height: 400px;
+    min-height: 450px;
   }
   #preview,
   #preview2,
@@ -7861,10 +7869,6 @@ span#footer_links2 {
   ul.form-section li.optionsformline4,
   ul.form-section li.optionsformline5 {
     width: 100%;
-  }
-  ul.form-section li.optionsformline,
-  ul.form-section li.optionsformlineOld {
-    height: 650px;
   }
   ul.form-section li.optionsformline .options_single span.optionsleft, ul.form-section li.optionsformline .options_single span.optionsright,
   ul.form-section li.optionsformlineOld .options_single span.optionsleft,
@@ -8080,13 +8084,8 @@ span#footer_links2 {
   a#logo {
     top: 40px;
   }
-  #buying {
-    min-height: 300px;
-  }
-  #preview,
-  #preview2,
-  #preview3 {
-    min-height: 280px;
+  .jotform-form .label-highlight {
+    padding-left: .3rem;
   }
   h1.metaTitle {
     line-height: 1.4rem !important;
@@ -8309,6 +8308,12 @@ span#footer_links2 {
   ul.menu-client .tel3 {
     font-size: .6rem;
     text-align: right;
+  }
+  ul#tarifs li .micro a {
+    font-size: .7rem;
+  }
+  ul#tarifs li .micro a .micro-s {
+    display: none;
   }
   #top_info .front img {
     width: 33.33333%;
