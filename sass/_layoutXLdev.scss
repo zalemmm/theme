@@ -137,7 +137,7 @@
   //----------------------------------------------------------------------------
   #buying {
     width:500px;
-    min-height: 450px;
+    min-height: 550px;
   }
 
   #preview,
@@ -146,6 +146,34 @@
     width: 400px;
     height: 400px;
     min-height: 400px;
+    .arrow {
+      height: 95px;
+    }
+  }
+
+  #preview {
+    &:before,
+    &:after {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      bottom: 15px;
+      left: 10px;
+      width: 50%;
+      top: 80%;
+      max-width:300px;
+      background: #777;
+      box-shadow: 0 15px 10px #777;
+      transform: rotate(-3deg);
+      animation: 1s 5s fadeIn;
+      visibility: hidden;
+      animation-fill-mode: forwards;
+    }
+    &:after {
+      transform: rotate(3deg);
+      right: 10px;
+      left: auto;
+    }
   }
 
   #preview_imag,
@@ -171,13 +199,15 @@
   }
 
   #wycena {
-    margin-top: 100px;
+    margin-top: 20px;
     float: right;
     width: 400px;
   }
 
   .dateLivraison{
-    margin-top: 420px;
+    margin-top: 20px;
+    float: right;
+    width: 400px;
   }
 
   .exclam{

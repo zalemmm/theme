@@ -6,7 +6,12 @@
     top: 40px;
   }
   #buying{
-    min-height: 230px;
+    min-height: 300px;
+  }
+  #preview,
+  #preview2,
+  #preview3 {
+    min-height: 280px;
   }
 
   // slider
@@ -30,14 +35,13 @@
 
 @media(max-width: 540px) {
   // invisible -----------------------------------------------------------------
+  #buying{
+    min-height: 20px;
+  }
 
   #preview,
   #preview2 {
     display: none;
-  }
-
-  #buying{
-    min-height: 20px;
   }
 
   // grille --------------------------------------------------------------------
@@ -50,6 +54,11 @@
     @include span(12);
     padding-left: 0;
     padding-right: 0;
+  }
+  #wycena,
+  .dateLivraison {
+    float: none;
+    width: 100%;
   }
 
   #header {

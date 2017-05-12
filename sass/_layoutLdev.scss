@@ -1064,6 +1064,7 @@ a.notice{
   margin-bottom: 10px;
   margin-top: 20px;
   display: inline-block;
+  min-height: 350px;
   //min-height: 350px;
 
   .arrow {
@@ -1071,6 +1072,7 @@ a.notice{
     top: 20px;
     left: -1px;
     z-index: 950;
+    height: 80px;
   }
 }
 
@@ -1150,7 +1152,7 @@ a.notice{
   display: block;
   overflow-x: hidden;
   margin-left: 0;
-  min-height: 100%;
+  min-height: 350px;
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -1201,7 +1203,7 @@ a.notice{
 #buying {
   width:59%;
   margin-right: 2%;
-  min-height: 370px;
+  min-height: 450px;
   float: left;
   padding-left: 0;
   position: relative;
@@ -1582,6 +1584,14 @@ ul {
 
 // affichage délais de livraison -----------------------------------------------
 
+#livraisonComp {
+    display: block;
+    padding: .7rem .7rem 0;
+    text-align: right;
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
 #delivery-div {
   margin-top: -10px;
 }
@@ -1596,31 +1606,28 @@ ul {
 .dateLivraison{
   position: relative;
   display: inline-block;
-  width: 100%;
-  height: auto;
   float: right;
-  vertical-align: bottom;
-  margin-top: 400px;
-  border: 1px solid $magenta;
-  text-align: center;
-  padding: 1rem;
-  &:empty {
-    display: none;
-    border: none;
-    span {
-      display: none;
-    }
-  }
+  width: 39%;
+  height: auto;
 }
 
 .delivery-date,
 #estdate_7,
 #estdate_16 {
+  display: block;
   color: $magenta;
   text-transform: uppercase;
   text-align: right;
   font-weight: bold;
   font-size: 1rem;
+  border: 1px solid $magenta;
+  text-align: center;
+  padding: 1rem;
+  animation: fadein 1s;
+  &:empty {
+    display: none;
+    border: none;
+  }
 }
 
 a.linkUppercase {
@@ -1637,10 +1644,11 @@ a.linkUppercase {
   position: relative;
   right: 0;
   bottom: 0;
+  float: right;
   margin-top: 15px;
   margin-bottom: 20px;
   display: block;
-  width: 100%;
+  width: 39%;
   vertical-align: bottom;
 }
 
@@ -1682,11 +1690,10 @@ a.linkUppercase {
   margin-bottom: 20px;
 
   #cart_form {
-    padding: .9rem;
-    font-size: .8rem;
-    line-height: .9rem;
+    padding: .7rem;
+    font-size: .75rem;
+    line-height: .75rem;
     color: $cyan;
-    text-align: center;
     font-weight: bold;
     text-transform: uppercase;
     &:empty {
@@ -4370,31 +4377,6 @@ a.metaButton {
 
 // sliders pages produits ------------------------------------------------------
 
-#preview {
-  &:before,
-  &:after {
-    z-index: -1;
-    position: absolute;
-    content: "";
-    bottom: 15px;
-    left: 10px;
-    width: 50%;
-    top: 80%;
-    max-width:300px;
-    background: #777;
-    box-shadow: 0 15px 10px #777;
-    transform: rotate(-3deg);
-    animation: 1s 5s fadeIn;
-    visibility: hidden;
-    animation-fill-mode: forwards;
-  }
-  &:after {
-    transform: rotate(3deg);
-    right: 10px;
-    left: auto;
-  }
-}
-
 #slides {
   display: none;
   li {
@@ -4411,12 +4393,6 @@ a.metaButton {
   width: 100%;
   height: auto;
   z-index: 1;
-  &:before,
-  &:after {
-    animation: 1s 5s fadeIn;
-    visibility: hidden;
-    animation-fill-mode: forwards;
-  }
 }
 
 // délai effet ombre sous le slide

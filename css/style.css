@@ -1136,6 +1136,7 @@ a.notice .helpExp {
   margin-bottom: 10px;
   margin-top: 20px;
   display: inline-block;
+  min-height: 350px;
 }
 
 #preview .arrow,
@@ -1145,6 +1146,7 @@ a.notice .helpExp {
   top: 20px;
   left: -1px;
   z-index: 950;
+  height: 80px;
 }
 
 #preview_con {
@@ -1223,7 +1225,7 @@ a.notice .helpExp {
   display: block;
   overflow-x: hidden;
   margin-left: 0;
-  min-height: 100%;
+  min-height: 350px;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -1281,7 +1283,7 @@ a.notice .helpExp {
 #buying {
   width: 59%;
   margin-right: 2%;
-  min-height: 370px;
+  min-height: 450px;
   float: left;
   padding-left: 0;
   position: relative;
@@ -1685,6 +1687,14 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   width: 47.35%;
 }
 
+#livraisonComp {
+  display: block;
+  padding: .7rem .7rem 0;
+  text-align: right;
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
 #delivery-div {
   margin-top: -10px;
 }
@@ -1700,33 +1710,32 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
 .dateLivraison {
   position: relative;
   display: inline-block;
-  width: 100%;
-  height: auto;
   float: right;
-  vertical-align: bottom;
-  margin-top: 400px;
-  border: 1px solid #EA2A6A;
-  text-align: center;
-  padding: 1rem;
-}
-
-.dateLivraison:empty {
-  display: none;
-  border: none;
-}
-
-.dateLivraison:empty span {
-  display: none;
+  width: 39%;
+  height: auto;
 }
 
 .delivery-date,
 #estdate_7,
 #estdate_16 {
+  display: block;
   color: #EA2A6A;
   text-transform: uppercase;
   text-align: right;
   font-weight: bold;
   font-size: 1rem;
+  border: 1px solid #EA2A6A;
+  text-align: center;
+  padding: 1rem;
+  -webkit-animation: fadein 1s;
+          animation: fadein 1s;
+}
+
+.delivery-date:empty,
+#estdate_7:empty,
+#estdate_16:empty {
+  display: none;
+  border: none;
 }
 
 a.linkUppercase {
@@ -1740,10 +1749,11 @@ a.linkUppercase {
   position: relative;
   right: 0;
   bottom: 0;
+  float: right;
   margin-top: 15px;
   margin-bottom: 20px;
   display: block;
-  width: 100%;
+  width: 39%;
   vertical-align: bottom;
 }
 
@@ -1786,11 +1796,10 @@ a.linkUppercase {
 }
 
 #dodaj_koszyk #cart_form {
-  padding: .9rem;
-  font-size: .8rem;
-  line-height: .9rem;
+  padding: .7rem;
+  font-size: .75rem;
+  line-height: .75rem;
   color: #32A1CC;
-  text-align: center;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -4610,33 +4619,6 @@ a.metaButton:hover {
   transition: .2s;
 }
 
-#preview:before, #preview:after {
-  z-index: -1;
-  position: absolute;
-  content: "";
-  bottom: 15px;
-  left: 10px;
-  width: 50%;
-  top: 80%;
-  max-width: 300px;
-  background: #777;
-  box-shadow: 0 15px 10px #777;
-  -webkit-transform: rotate(-3deg);
-          transform: rotate(-3deg);
-  -webkit-animation: 1s 5s fadeIn;
-          animation: 1s 5s fadeIn;
-  visibility: hidden;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-#preview:after {
-  -webkit-transform: rotate(3deg);
-          transform: rotate(3deg);
-  right: 10px;
-  left: auto;
-}
-
 #slides {
   display: none;
 }
@@ -4655,14 +4637,6 @@ a.metaButton:hover {
   width: 100%;
   height: auto;
   z-index: 1;
-}
-
-#container:before, #container:after {
-  -webkit-animation: 1s 5s fadeIn;
-          animation: 1s 5s fadeIn;
-  visibility: hidden;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes fadeIn {
@@ -7842,6 +7816,20 @@ span#footer_links2 {
     padding-left: 0.83333%;
     padding-right: 0.83333%;
   }
+  #buying {
+    min-height: 400px;
+  }
+  #preview,
+  #preview2,
+  #preview3 {
+    min-height: 350px;
+  }
+  #preview .arrow,
+  #preview2 .arrow,
+  #preview3 .arrow {
+    height: 50px;
+    top: 30px;
+  }
   .pushButton {
     margin-left: 0;
   }
@@ -7870,19 +7858,9 @@ span#footer_links2 {
     width: 30px;
     height: 30px;
   }
-  #buying {
-    min-height: 280px;
-  }
-  #wycena {
-    float: none;
-    width: 100%;
-  }
   ul.form-section li.optionsformline4,
   ul.form-section li.optionsformline5 {
     width: 100%;
-  }
-  ul.form-section {
-    min-height: 680px;
   }
   ul.form-section li.optionsformline,
   ul.form-section li.optionsformlineOld {
@@ -8103,7 +8081,12 @@ span#footer_links2 {
     top: 40px;
   }
   #buying {
-    min-height: 230px;
+    min-height: 300px;
+  }
+  #preview,
+  #preview2,
+  #preview3 {
+    min-height: 280px;
   }
   h1.metaTitle {
     line-height: 1.4rem !important;
@@ -8124,12 +8107,12 @@ span#footer_links2 {
 }
 
 @media (max-width: 540px) {
+  #buying {
+    min-height: 20px;
+  }
   #preview,
   #preview2 {
     display: none;
-  }
-  #buying {
-    min-height: 20px;
   }
   #buying,
   #wycena_nag,
@@ -8141,6 +8124,11 @@ span#footer_links2 {
     padding-right: 0.83333%;
     padding-left: 0;
     padding-right: 0;
+  }
+  #wycena,
+  .dateLivraison {
+    float: none;
+    width: 100%;
   }
   #header {
     height: 300px;
@@ -8581,7 +8569,7 @@ span#footer_links2 {
   }
   #buying {
     width: 500px;
-    min-height: 450px;
+    min-height: 550px;
   }
   #preview,
   #preview2,
@@ -8589,6 +8577,36 @@ span#footer_links2 {
     width: 400px;
     height: 400px;
     min-height: 400px;
+  }
+  #preview .arrow,
+  #preview2 .arrow,
+  #preview3 .arrow {
+    height: 95px;
+  }
+  #preview:before, #preview:after {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 15px;
+    left: 10px;
+    width: 50%;
+    top: 80%;
+    max-width: 300px;
+    background: #777;
+    box-shadow: 0 15px 10px #777;
+    -webkit-transform: rotate(-3deg);
+            transform: rotate(-3deg);
+    -webkit-animation: 1s 5s fadeIn;
+            animation: 1s 5s fadeIn;
+    visibility: hidden;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+  }
+  #preview:after {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+    right: 10px;
+    left: auto;
   }
   #preview_imag,
   #preview_imag2,
@@ -8610,12 +8628,14 @@ span#footer_links2 {
     height: 400px;
   }
   #wycena {
-    margin-top: 100px;
+    margin-top: 20px;
     float: right;
     width: 400px;
   }
   .dateLivraison {
-    margin-top: 420px;
+    margin-top: 20px;
+    float: right;
+    width: 400px;
   }
   .exclam {
     margin-right: 5px;
