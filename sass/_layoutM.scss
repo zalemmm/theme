@@ -17,6 +17,14 @@
   .metaAP {
     width: 250px;
   }
+
+  .jotform-form .label-highlight {
+    width: 25%;
+  }
+  .jotform-form input.form-textbox,
+  .jotform-form input.form-textbox2 {
+    width: 30%;
+  }
 }
 
 @media(max-width: 760px) {

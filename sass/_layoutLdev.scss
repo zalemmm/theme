@@ -334,8 +334,11 @@ input[type="submit"]{
   @include buttonLog($cyan, 150px);
   height: 40px;
   margin-top: 9px;
-}
 
+}
+input:focus {
+  border: 1px solid $cyan-bloc;
+}
 // blocs droite gauche
 
 .bloc-left{
@@ -1263,8 +1266,39 @@ input::placeholder {
     cursor: pointer;
     font-family: $font-global;
     text-transform: uppercase;
+
+    /* reset */
+
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url(../images/drop.png);
+    background-position:
+       calc(100% - 10px) calc(1em - 2px),
+       calc(100% - 15px) calc(1em + 2px),
+       calc(100% - 2.5em) 0.5em;
+    background-size:
+       8px 8px,
+       8px 8px,
+       1px 1.5em;
+    background-repeat: no-repeat;
+
+
     &:focus {
-      outline: none;
+      background-image: url(../images/drop2.png);
+      background-position:
+      calc(100% - 10px) calc(1em - 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.5em;
+      background-size:
+      8px 8px,
+      8px 8px,
+      1px 1.5em;
+      background-repeat: no-repeat;
+      border-color: $cyan-bloc;
+      outline: 0;
     }
 
     .titre {
@@ -1276,7 +1310,9 @@ input::placeholder {
     }
 
     optgroup {
+      font-family: $font-global;
       font-style: normal;
+      font-weight: 900;
     }
 
     option {
@@ -1284,9 +1320,10 @@ input::placeholder {
       color: $cyan-bloc;
       text-transform: capitalize;
       line-height: .8rem;
-      padding:.5rem;
+      padding:.2rem;
       font-size: .8rem;
-      font-weight: bold;
+      font-weight: 700;
+      font-style: normal;
     }
 
     .option1 {
@@ -1313,19 +1350,22 @@ input::placeholder {
     &.form-textbox,
     &.form-textbox2 {
       display: inline;
-      width: 29%;
+      width: 26%;
       height: 33px;
       line-height: .8rem;
       background: $white;
       border: 0;
       margin: 0;
-      margin-left: 8px;
-      border-radius: 3px;
+      margin-left: -5px;
+      border-radius: 0 3px 3px 0;
       appearance: none;
       font-size: inherit;
       padding: 0.5rem;
       text-align: left;
       border: 1px solid $color_7;
+      &:focus {
+        border: 1px solid $cyan-bloc;
+      }
     }
 
     &.form-textbox2 {
@@ -1347,12 +1387,15 @@ input::placeholder {
     line-height: .8rem;
     vertical-align: top;
     display: inline-block;
-    width: 25%;
+    width: 17%;
     background: $magenta;
+    border-left: 1px solid darken($magenta, 10%);
+    border-top: 1px solid  darken($magenta, 10%);
+    border-bottom: 1px solid  darken($magenta, 10%);
     height: 33px;
     margin: 0;
-    padding: .3rem .3rem .3rem .5rem;
-    border-radius: 3px;
+    padding: .2rem .3rem .3rem .5rem;
+    border-radius: 3px 0 0 3px;
     .small{
       font-size: .7rem;
       font-weight: normal;
@@ -1360,7 +1403,7 @@ input::placeholder {
     }
     &.special{
     width: 44%;
-    margin-right: 2%;
+    margin-right: 0;
     text-transform: lowercase;
     }
   }
@@ -1385,6 +1428,9 @@ input::placeholder {
     position: relative;
     top: -2px;
     left: 1px;
+    border-right: 1px solid darken($cyan, 10%);
+    border-top: 1px solid  darken($cyan, 10%);
+    border-bottom: 1px solid  darken($cyan, 10%);
     margin-left: -29px;
     background: $cyan;
     border-radius: 0 3px 3px 0;
@@ -1401,6 +1447,9 @@ input::placeholder {
     position: relative;
     top: -2px;
     left: -1px;
+    border-right: 1px solid darken($cyan, 10%);
+    border-top: 1px solid  darken($cyan, 10%);
+    border-bottom: 1px solid  darken($cyan, 10%);
     margin-left: -29px;
     background: $cyan;
     border-radius: 0 3px 3px 0;
@@ -1496,6 +1545,7 @@ ul {
         float: left;
         display: inline;
         width: 100%;
+        min-height: 250px;
         padding-top: 0px !important;
         color: $color_27;
         border: none !important;
@@ -1603,6 +1653,7 @@ ul {
     text-align: right;
     font-size: .75rem;
     text-transform: uppercase;
+    color: $magenta;
 }
 
 #delivery-div {
@@ -1636,7 +1687,7 @@ ul {
   font-size: 1rem;
   border: 1px solid $magenta;
   text-align: center;
-  padding: 1rem;
+  padding: .7rem;
   animation: fadein 1s;
   &:empty {
     display: none;
@@ -1645,9 +1696,8 @@ ul {
 }
 
 a.linkUppercase {
-  text-transform: uppercase;
   text-decoration: none;
-  font-size: .75rem;
+  font-size: 1rem;
   color: $cyan;
 }
 
@@ -1725,7 +1775,7 @@ a.linkUppercase {
   width: 33%;
   text-align: center;
   line-height: .7rem;
-
+  font-weight: 900;
 }
 
 .warning {
@@ -1790,6 +1840,20 @@ input:valid {
   img{
     margin-top: -5px;
   }
+  &:empty{
+    display: none;
+  }
+  button{
+    background: none;
+    border:0;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+  }
 }
 
 .form-error-message-reg {
@@ -1798,6 +1862,42 @@ input:valid {
   top: -21px;
   z-index: 1;
 }
+
+.form-button-error,
+#form-button-error2,
+#form-button-error3 {
+  z-index: 900;
+  position: absolute;
+  left: 0px;
+  bottom: 170px;
+  width: 100%;
+  height: auto;
+  padding: 2.5rem .5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .8rem;
+  color: $white;
+  background: $magenta;
+  margin-top: 0;
+  line-height: .9rem;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
+  &:empty{
+    padding: 0;
+  }
+  button{
+    background: none;
+    border:0;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+  }
+}
+
 // Tooltips aide formulaires ---------------------------------------------------
 
 .helpImg {
@@ -3707,40 +3807,6 @@ ul.regiform2 {
   visibility: hidden;
 }
 
-.form-button-error,
-#form-button-error2,
-#form-button-error3 {
-  z-index: 900;
-  position: absolute;
-  left: 0px;
-  bottom: 270px;
-  width: 100%;
-  height: auto;
-  padding: 2.5rem .5rem;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: .8rem;
-  color: $white;
-  background: $magenta;
-  margin-top: 0;
-  line-height: .9rem;
-  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
-  &:empty{
-    display: none;
-  }
-  button{
-    background: none;
-    border:0;
-    position: absolute;
-    top: 3px;
-    right: 0;
-    color: $white;
-    font-size: 1rem;
-    font-weight: 900;
-    cursor: pointer;
-  }
-}
 
 
 // module rating -------------------------------------------------------------

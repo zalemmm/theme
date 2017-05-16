@@ -102,9 +102,87 @@
     margin-right: 1%;
   }
 
+  // slider
+
+  h1.metaTitle {
+    line-height: 2.3rem !important;
+    font-size: 2.3rem !important;
+    margin-bottom: 15px !important;
+  }
+
+  .metaDesc, .metaAP {
+    font-size: 1.1rem !important;
+    line-height: 1.4rem !important;
+    margin-bottom: 5px !important;
+  }
+
+  .metaAP {
+    float: left;
+    width: 340px;
+  }
+  .metaPB {
+    float: right;
+  }
+
+  .metaPrice {
+    font-size: 3.7rem !important;
+    line-height: 3.7rem !important;
+  }
+
+  a.metaButton {
+    font-size: 1.4rem !important;
+  }
   //----------------------------------------------------------------------------
   //                            PAGES PRODUITS
   //----------------------------------------------------------------------------
+  #buying {
+    width:500px;
+    min-height: 550px;
+  }
+
+  #preview,
+  #preview2,
+  #preview3 {
+    width: 400px;
+    height: 400px;
+    min-height: 400px;
+    .arrow {
+      height: 95px;
+    }
+  }
+
+  #preview {
+    &:before,
+    &:after {
+      z-index: -1;
+      position: absolute;
+      content: "";
+      bottom: 15px;
+      left: 10px;
+      width: 50%;
+      top: 80%;
+      max-width:300px;
+      background: #777;
+      box-shadow: 0 15px 10px #777;
+      transform: rotate(-3deg);
+      animation: 1s 5s fadeIn;
+      visibility: hidden;
+      animation-fill-mode: forwards;
+    }
+    &:after {
+      transform: rotate(3deg);
+      right: 10px;
+      left: auto;
+    }
+  }
+
+  #preview_imag,
+  #preview_imag2,
+  #preview_imag3,
+  #preview_imag4,
+  #preview_imag5 {
+    min-height: 400px;
+  }
 
   #slides {
     display: none;
@@ -118,6 +196,23 @@
   #container {
     width: 400px;
     height: 400px;
+  }
+
+  #wycena {
+    margin-top: 20px;
+    float: right;
+    width: 400px;
+  }
+
+  .dateLivraison{
+    margin-top: 20px;
+    float: right;
+    width: 400px;
+  }
+
+  .exclam{
+    margin-right: 5px;
+    vertical-align: middle;
   }
 
   //----------------------------------------------------------------------------

@@ -46,6 +46,7 @@ a#corner_button_cart,
     background-image: none;
     background-color: $magenta;
     border:1px solid darken($magenta, 7%);
+    transition: .2s;
   }
 }
 
@@ -115,9 +116,15 @@ body {
   padding: 0 5% 15px;
 }
 
-//----------------------------------------------------------------------------
+.storycontent {
+  //display: flex;
+  //flex-direction: row;
+  //flex-wrap: wrap;
+}
+
+//------------------------------------------------------------------------------
 //                        DECLARATIONS GENERALES
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 .split,
 .splitorhide{
@@ -218,7 +225,7 @@ h1, h2, h3 {
   font-style: italic;
   font-weight: bold;
   color: $text;
-  font-family: $font-title;
+  font-family: $font-global;
 
   &.categorytitle {
     margin: 0;
@@ -241,13 +248,13 @@ h3{
 }
 
 h5 {
-  font-family: $font-title;
+  font-family: $font-global;
   padding: 0;
   margin: 0;
 }
 
 h6 {
-  font-family: $font-title;
+  font-family: $font-global;
 }
 
 h4 {
@@ -288,7 +295,7 @@ h4.keepTxtColor {
 
 .highlight {
   color: $alert;
-  font-weight: 700;
+  font-weight: 900;
 }
 a .highlight{
   color: $alert;
@@ -298,6 +305,16 @@ a .highlight{
 
 .highlight-alt1 {
   color: $cyan;
+}
+.highlight.small {
+  color: $white;
+}
+
+b {
+  font-weight: 700;
+  b{
+    font-weight: 700;
+  }
 }
 
 .disMob0 {
@@ -312,12 +329,16 @@ form select {
   color: $text;
   font-size: .8rem;
 }
+
 input[type="submit"]{
   @include buttonLog($cyan, 150px);
   height: 40px;
   margin-top: 9px;
-}
 
+}
+input:focus {
+  border: 1px solid $cyan-bloc;
+}
 // blocs droite gauche
 
 .bloc-left{
@@ -334,9 +355,9 @@ input[type="submit"]{
   color: $magenta;
 }
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                                LINKS
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 a {
   &:link {
@@ -435,11 +456,6 @@ a {
 
   &:active {
     outline: none;
-  }
-
-  &.linkUppercase {
-    text-transform: uppercase;
-    text-decoration: none;
   }
 }
 
@@ -647,6 +663,7 @@ ul {
         &:hover {
           background: transparent;
           color:$jaune;
+          transition: .2s;
         }
       }
     }
@@ -666,16 +683,6 @@ ul {
         width: 250px;
         height: 32px;
         margin-left: 0;
-        &.highest {
-          display: block;
-          width: 240px;
-          height: 32px;
-          // à supprimer
-          a#active_sub {
-            background-color: lighten($jaune, 10%);
-            color: $white;
-          }
-        }
       }
     }
 
@@ -684,17 +691,17 @@ ul {
         &:link {
           display: block;
           width: 250px;
+          float: left;
           height: 32px;
           background: $bloc-base;
           padding-top: 5px;
           text-decoration: none;
         }
 
-
-
         &:hover {
           background-color: lighten($jaune, 10%);
           color: $white;
+          transition: .2s;
         }
       }
 
@@ -711,7 +718,7 @@ ul {
 	background: #f6f6f6;
 	border: 1px solid #e9e9e9;
   margin-top: 10px;
-  transition-delay: .2s;
+  transition: .2s;
   box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.2);
 }
 .menu_hover:after, .menu_hover:before {
@@ -737,8 +744,41 @@ ul {
 	border-width: 16px;
 	margin-left: -16px;
 }
-#produit_sub{
-  border-left: 0;
+ul#menu_top ul#produit_sub{
+  width: 600px;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &.menu_hover:after,
+  &.menu_hover:before {
+    left: 14%;
+  }
+
+  li {
+    min-height: 60px;
+    width: 33%;
+  }
+  img {
+    display: inline-block;
+    width: auto;
+    height:50px;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  a {
+    &.menu_sub {
+      &:link {
+        display: inline-block;
+        text-align: left;
+        padding: 5px;
+        width: 100%;
+        min-height: 60px;
+        vertical-align: middle;
+      }
+    }
+  }
+
 }
 
 //------------------------------------------------------------------------------
@@ -748,6 +788,7 @@ ul {
 // icones page d'accueil et pages akilux, enseigne et stickers -----------------
 
 ul#tarifs {
+  clear: both;
   float: none;
   display: flex;
   display: -webkit-flex;
@@ -756,13 +797,23 @@ ul#tarifs {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
   a{display:block}
 
   li {
     width: 24%; //120
     height: auto; //160
     margin-bottom: 0;
+    background: url('../images/bt/btbg.png');
+    background-size: contain;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
+    margin-top: 15px;
+    &:hover {
+      //background: url('../images/bt/btbghover.png');
+      background-size: contain;
+      background: $magenta;
+      transition: .1s;
+    }
+
 
     .home-buttons{
       width: 100%;
@@ -777,14 +828,14 @@ ul#tarifs {
       display: block;
       box-sizing: border-box;
       width: 100%;
-      background: $text;
+      background: #f6f6f6;
       font-size: .85rem;
       line-height: .87rem;
       letter-spacing: 1px;
       text-decoration: none;
       text-transform: uppercase;
       font-family: $font-special;
-      color: #fff;
+      color: $text;
       font-weight: 700;
       margin-top: -10px;
       padding: 14px 2px 0;
@@ -797,6 +848,8 @@ ul#tarifs {
       }
       &:hover {
         background: $magenta;
+        color: $white;
+        transition: .1s;
       }
     }
   }
@@ -889,6 +942,7 @@ hr.hr-separator {
 //------------------------------------------------------------------------------
 
 // Encart top description produit ----------------------------------------------
+//------------------------------------------------------------------------------
 
 #top_images {
   width: 100%;
@@ -905,7 +959,7 @@ hr.hr-separator {
   margin-top: 10px;
   margin-bottom: 0;
   background: #f6f6f6;
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 
   .front img{
@@ -925,15 +979,15 @@ hr.hr-separator {
     vertical-align: middle;
     background: 0;
     font-size: .9rem;
-    padding: 1rem 1rem 0;
+    padding: 1rem 0 0 1rem;
     span.info_nag {
       font-family: $font-special;
+      font-weight: 700;
       display: block;
       color: $color_12;
-      font-weight: bold;
       padding-bottom: 2px;
-      font-size: 1.4rem;
-
+      font-size: 1.2rem;
+      letter-spacing: 1px;
     }
     .prod-desc .highlight{
       color: darken($bloc-base,35%);
@@ -947,7 +1001,6 @@ hr.hr-separator {
   margin-top: 1rem;
   float: right;
 }
-
 a.notice{
   display: block;
   float: left;
@@ -978,8 +1031,6 @@ a.notice{
 .dis0 {
   display: none;
 }
-
-
 #top_slideshow {
   display: none;
 }
@@ -998,18 +1049,40 @@ a.notice{
   }
 }
 
+// module de sélection ---------------------------------------------------------
+//------------------------------------------------------------------------------
+
+.productGrid {
+  //display: flex;
+  //flex-wrap: wrap;
+  //justify-content:
+  position: relative;
+}
+
 // Prévisualisation produit ----------------------------------------------------
 
 #preview,
 #preview2,
 #preview3 {
-  @include span(4);
+  width: 39%;
+  height: auto;
+  float: right;
+  top: 0;
+  z-index: 900;
   position: relative;
-  padding-right: 0;
+  margin-bottom: 10px;
   margin-top: 20px;
-  display: block;
+  display: inline-block;
+  min-height: 350px;
+  //min-height: 350px;
 
-  margin-bottom: 5px;
+  .arrow {
+    position: absolute;
+    top: 20px;
+    left: -1px;
+    z-index: 950;
+    height: 80px;
+  }
 }
 
 #preview_con {
@@ -1073,13 +1146,54 @@ a.notice{
 }
 
 #preview_imag,
-#preview_imag2 {
+#preview_imag2,
+#preview_imag3,
+#preview_imag4,
+#preview_imag5,
+#preview_imag6,
+#preview_imag7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
   float: none;
   width: 100%;
   display: block;
-  height: auto;
-  min-height: 380px;
+  overflow-x: hidden;
   margin-left: 0;
+  min-height: 350px;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 100%; 	/* initial ratio of 1:1*/
+  }
+}
+
+.slideIn{
+    right:0px !important;
+    transition: left 0.3s ease-out;
+}
+
+
+
+#preview_imag {
+
+  z-index:10;
+}
+#preview_imag2 {
+  z-index: 20;
+}
+#preview_imag3 {
+  z-index: 30;
+}
+#preview_imag4 {
+  z-index: 40;
+}
+#preview_imag5 {
+  z-index: 50;
 }
 
 .previewTitle{
@@ -1093,17 +1207,29 @@ a.notice{
   color: $white;
 }
 
-// module sélection produit ----------------------------------------------------
+// sélection produit -----------------------------------------------------------
 
 #buying {
-  @include span(8);
+  width:59%;
+  margin-right: 2%;
+  min-height: 450px;
   float: left;
   padding-left: 0;
   position: relative;
-  display: block;
+  display: inline-block;
   font-size: .8rem;
   clear: both;
   margin-top: 20px;
+  h3{
+    color: $white;
+    font-style: normal;
+    font-family: $font-global;
+    background: $magenta;
+    margin: 0;
+    padding: .5rem;
+    font-size: .9rem;
+    text-transform: uppercase;
+  }
 }
 
 input::placeholder {
@@ -1117,11 +1243,12 @@ input::placeholder {
   clear: both;
   box-sizing: border-box;
   width: 100%;
-  background: $bloc-base;
-  padding: 2% 4% 6%;
+  //padding: 2% 4% 6%;
+  padding: 0;
   animation: fadein 2s;
-  -webkit-animation: fadein 2s;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+  //background: $bloc-base;
+  //-webkit-animation: fadein 2s;
+  //box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 
   select {
     width: 90%;
@@ -1133,14 +1260,45 @@ input::placeholder {
     font-size: .75rem;
     padding: 0.3em;
     margin: 0;
-    height: 38px;
+    height: 33px;
     color: $cyan-bloc;
     font-weight: bold;
     cursor: pointer;
     font-family: $font-global;
     text-transform: uppercase;
+
+    /* reset */
+
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url(../images/drop.png);
+    background-position:
+       calc(100% - 10px) calc(1em - 2px),
+       calc(100% - 15px) calc(1em + 2px),
+       calc(100% - 2.5em) 0.5em;
+    background-size:
+       8px 8px,
+       8px 8px,
+       1px 1.5em;
+    background-repeat: no-repeat;
+
+
     &:focus {
-      outline: none;
+      background-image: url(../images/drop2.png);
+      background-position:
+      calc(100% - 10px) calc(1em - 2px),
+      calc(100% - 15px) calc(1em + 2px),
+      calc(100% - 2.5em) 0.5em;
+      background-size:
+      8px 8px,
+      8px 8px,
+      1px 1.5em;
+      background-repeat: no-repeat;
+      border-color: $cyan-bloc;
+      outline: 0;
     }
 
     .titre {
@@ -1151,14 +1309,21 @@ input::placeholder {
       padding:10px;
     }
 
-    option{
+    optgroup {
+      font-family: $font-global;
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    option {
       font-family: $font-global;
       color: $cyan-bloc;
       text-transform: capitalize;
       line-height: .8rem;
-      padding:.5rem;
+      padding:.2rem;
       font-size: .8rem;
-      font-weight: bold;
+      font-weight: 700;
+      font-style: normal;
     }
 
     .option1 {
@@ -1185,19 +1350,22 @@ input::placeholder {
     &.form-textbox,
     &.form-textbox2 {
       display: inline;
-      width: 29%;
-      height: 35px;
+      width: 26%;
+      height: 33px;
       line-height: .8rem;
       background: $white;
       border: 0;
       margin: 0;
-      margin-left: 8px;
-      border-radius: 3px;
+      margin-left: -5px;
+      border-radius: 0 3px 3px 0;
       appearance: none;
       font-size: inherit;
       padding: 0.5rem;
       text-align: left;
       border: 1px solid $color_7;
+      &:focus {
+        border: 1px solid $cyan-bloc;
+      }
     }
 
     &.form-textbox2 {
@@ -1205,18 +1373,39 @@ input::placeholder {
       top: 0;
       left: 0;
       margin-left: 0;
+      &.special {
+        width: 44%;
+      }
     }
   }
 
   .label-highlight {
-    color: $cyan-bloc;
+    color: #fff;
     font-weight: bold;
-    text-transform: capitalize;
-    font-size: .9rem;
+    text-transform: uppercase;
+    font-size: .75rem;
     line-height: .8rem;
-    vertical-align: middle;
+    vertical-align: top;
     display: inline-block;
-    width: 27%;
+    width: 17%;
+    background: $magenta;
+    border-left: 1px solid darken($magenta, 10%);
+    border-top: 1px solid  darken($magenta, 10%);
+    border-bottom: 1px solid  darken($magenta, 10%);
+    height: 33px;
+    margin: 0;
+    padding: .2rem .3rem .3rem .5rem;
+    border-radius: 3px 0 0 3px;
+    .small{
+      font-size: .7rem;
+      font-weight: normal;
+      text-transform: lowercase;
+    }
+    &.special{
+    width: 44%;
+    margin-right: 0;
+    text-transform: lowercase;
+    }
   }
 
   .heusepar {
@@ -1225,7 +1414,7 @@ input::placeholder {
     left: 0;
     height: 12px;
     width: 10px;
-    margin:0 1%;
+    margin: 0 1%;
   }
 
   .llar,
@@ -1238,7 +1427,10 @@ input::placeholder {
     display: inline-block;
     position: relative;
     top: -2px;
-    left: 0;
+    left: 1px;
+    border-right: 1px solid darken($cyan, 10%);
+    border-top: 1px solid  darken($cyan, 10%);
+    border-bottom: 1px solid  darken($cyan, 10%);
     margin-left: -29px;
     background: $cyan;
     border-radius: 0 3px 3px 0;
@@ -1255,6 +1447,9 @@ input::placeholder {
     position: relative;
     top: -2px;
     left: -1px;
+    border-right: 1px solid darken($cyan, 10%);
+    border-top: 1px solid  darken($cyan, 10%);
+    border-bottom: 1px solid  darken($cyan, 10%);
     margin-left: -29px;
     background: $cyan;
     border-radius: 0 3px 3px 0;
@@ -1276,7 +1471,7 @@ input::placeholder {
     .cmLeft,
     .cmRight {
       top: -1px;
-      left: 1px;
+      left: 2px;
     }
     .mLeft,
     .mRight {
@@ -1345,11 +1540,12 @@ ul {
       &.optionsformline,
       &.optionsformlineOld {
         clear: both;
-        height: 300px !important;
+        height: auto !important;
         position: relative;
         float: left;
         display: inline;
         width: 100%;
+        min-height: 250px;
         padding-top: 0px !important;
         color: $color_27;
         border: none !important;
@@ -1381,7 +1577,7 @@ ul {
             .helpButton {
               position: absolute;
               top: 0px;
-              left: 80%;
+              left: 90%;
               width: 18px;
               height: 18px;
               background: url("../images/question.png") no-repeat;
@@ -1449,28 +1645,86 @@ ul {
   }
 }
 
+// affichage délais de livraison -----------------------------------------------
+
+#livraisonComp {
+    display: block;
+    padding: .7rem .7rem 0;
+    text-align: right;
+    font-size: .75rem;
+    text-transform: uppercase;
+    color: $magenta;
+}
+
+#delivery-div {
+  margin-top: -10px;
+}
+.delivery-delay {
+  float: none;
+  display: inline-block;
+  width: 100%;
+  margin: 5px 0 5px;
+  font-size: .8rem;
+}
+
+.dateLivraison{
+  //align-self: baseline;
+  position: relative;
+  display: inline-block;
+  float: right;
+  width: 39%;
+  height: auto;
+}
+
+.delivery-date,
+#estdate_7,
+#estdate_16 {
+  display: block;
+  color: $magenta;
+  text-transform: uppercase;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 1px solid $magenta;
+  text-align: center;
+  padding: .7rem;
+  animation: fadein 1s;
+  &:empty {
+    display: none;
+    border: none;
+  }
+}
+
+a.linkUppercase {
+  text-decoration: none;
+  font-size: 1rem;
+  color: $cyan;
+}
+
 
 // Partie résultat devis -------------------------------------------------------
 
 #wycena {
-  clear:both;
+  //align-self: baseline;
   position: relative;
-  float: none;
+  right: 0;
+  bottom: 0;
+  float: right;
+  margin-top: 15px;
+  margin-bottom: 20px;
   display: block;
-  @include span(full);
-  padding-left: 0;
-  margin-top: 20px;
-  margin-bottom: 40px;
+  width: 39%;
+  vertical-align: bottom;
 }
 
 #wycena_nag {
   float: left;
   display: inline;
-  @include span(12);
-  height: 40px;
-  background: $bloc-base;
+  width: 100%;
+  height: 35px;
+  background: $cyan;
   padding: 10px 0;
-  color: $color_12;
+  color: $white;
   font-size: .9rem;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 }
@@ -1478,28 +1732,39 @@ ul {
 #wycena_suma {
   float: left;
   display: inline;
-  @include span(12);
+  width: 100%;
   height: 40px;
-  background: $bloc-base;
+  background: darken($bloc-base,2%) ;
   padding: 10px 0;
   color: $color_12;
   font-size: 1rem;
   font-weight: bold;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 }
 
 #dodaj_koszyk {
   float: left;
   display: inline;
-  @include span(12);
-  height: 60px;
+  width: 100%;
+  height: auto;
   background: $bloc-base;
-  padding: 10px 0;
+  padding: 0;
   color: $color_12;
   font-size: 1rem;
   font-weight: bold;
   margin-top: 0;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+
+  #cart_form {
+    padding: .7rem;
+    font-size: .75rem;
+    line-height: .75rem;
+    color: $cyan;
+    font-weight: bold;
+    text-transform: uppercase;
+    &:empty {
+      display: none;
+    }
+  }
 }
 
 .wycena_poz,
@@ -1507,32 +1772,31 @@ ul {
   float: left;
   display: inline;
   height: 10px;
-  width: 25%;
+  width: 33%;
   text-align: center;
   line-height: .7rem;
+  font-weight: 900;
 }
 
 .warning {
   display: block;
   float: left;
   padding-left: 10px;
+  color: $magenta;
 }
 
 // boutons envoi formulaire
 
 #submit_cart {
-  @extend %buttonBase;
+  @include buttonLog($cyan, 150px);
   float: right;
-  display: inline-block;
-  width: 150px;
-  margin: 0 10px 10px;
-  a{
-    color: $white;
-  }
+  padding-bottom: .7rem;
+  margin: 0 0 15px;
 }
 
 .form-submit-button {
   @include buttonLog($cyan, 150px);
+  margin-top: 15px;
 }
 
 // alertes formulaires ---------------------------------------------------------
@@ -1540,16 +1804,26 @@ ul {
 .form-line{
   width: 80%;
 }
+
+input:invalid {
+  border: 1px solid $magenta;
+}
+input:valid {
+  //border: 1px solid green;
+}
+
 .form-line-error {
   background: $magenta;
   border: 1px solid $magenta;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
 }
 
 .form-validation-error {
   border: 1px solid $magenta;
 }
 
-.form-error-message {
+.form-error-message,
+.form-error-message-reg {
   z-index: 900;
   position: relative;
   display: inline-block;
@@ -1561,8 +1835,66 @@ ul {
   font-size: .8rem;
   border: 0;
   background: $magenta;
+  outline: 1px solid #ea2a6a;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
   img{
     margin-top: -5px;
+  }
+  &:empty{
+    display: none;
+  }
+  button{
+    background: none;
+    border:0;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+  }
+}
+
+.form-error-message-reg {
+  outline: 0;
+  padding-top: 0;
+  top: -21px;
+  z-index: 1;
+}
+
+.form-button-error,
+#form-button-error2,
+#form-button-error3 {
+  z-index: 900;
+  position: absolute;
+  left: 0px;
+  bottom: 170px;
+  width: 100%;
+  height: auto;
+  padding: 2.5rem .5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .8rem;
+  color: $white;
+  background: $magenta;
+  margin-top: 0;
+  line-height: .9rem;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
+  &:empty{
+    padding: 0;
+  }
+  button{
+    background: none;
+    border:0;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: $white;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
   }
 }
 
@@ -1570,7 +1902,7 @@ ul {
 
 .helpImg {
   float: right;
-  margin: 10px .5%  0 ;
+  margin: 7px .5%  0 ;
   width: 18px;
   box-shadow: 0 0 0 0 rgba(50, 161, 204, 0.7);
   border-radius: 50%;
@@ -1874,7 +2206,7 @@ form#topics{
 span.comm_title {
   z-index: 100;
   width: 100%;
-  padding: 7px 0 4px;
+  padding: 10px 0 4px;
   height: 40px;
   line-height: 1rem;
   background: $color_26;
@@ -2301,12 +2633,8 @@ SPAN {
 }
 
 .ui-widget {
-  font-family: Verdana,
-  Arial,
-  sans-serif/*{ffDefault}*/
-  ;
-  font-size: 1.1em/*{fsDefault}*/
-  ;
+  font-family: Verdana,  Arial,  sans-serif/*{ffDefault}*/  ;
+  font-size: 1.1em/*{fsDefault}*/  ;
 }
 
 .ui-widget .ui-widget {
@@ -3219,9 +3547,9 @@ display:-webkit-flex;
 
 
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                      MODULES ACCES CLIENT
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 .acces_left {
   width: 49%;
@@ -3414,7 +3742,7 @@ ul.regiform2 {
     height: 50px;
   }
   .form-line-error{
-
+    box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
   }
   .form-error-message {
     position: relative;
@@ -3479,29 +3807,7 @@ ul.regiform2 {
   visibility: hidden;
 }
 
-.form-button-error,
-#form-button-error3 {
-  position: relative;
-  left: 0px;
-  bottom: 10px;
-  width: 100%;
-  height: 20px;
-  font-size: .8rem;
-  color: $alert;
-  margin-top: 0;
-  line-height: .9rem;
-}
-#form-button-error2{
-  position: relative;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 20px;
-  font-size: .8rem;
-  color: $alert;
-  margin-top: 0;
-  line-height: .9rem;
-}
+
 
 // module rating -------------------------------------------------------------
 
@@ -4055,13 +4361,13 @@ h1.comTitre {
 // fin module commentaire
 
 
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //                                  SLIDERS
-//----------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
+// slider acceuil --------------------------------------------------------------
 
-.metaslider,
-#container {
+.metaslider {
   width: 100%;
   top: 0;
   margin-left: 0;
@@ -4082,6 +4388,7 @@ h1.comTitre {
     background: #777;
     box-shadow: 0 15px 10px #777;
     transform: rotate(-3deg);
+    animation: 1s 2s fadeIn;
   }
   &:after {
     transform: rotate(3deg);
@@ -4090,22 +4397,87 @@ h1.comTitre {
   }
 }
 
+h1.metaTitle {
+  font-family: $font-global;
+  line-height: 1.8rem !important;
+  font-size: 1.8rem !important;
+  float: right;
+  text-align: right;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: normal;
+  color: $white;
+  margin-bottom: 10px !important;
+}
+
+.metaDesc, .metaAP {
+  text-align: right !important;
+  font-size: .9rem !important;
+  line-height: 1.1rem !important;
+  text-transform: uppercase;
+  font-weight: normal !important;
+  clear: both;
+}
+.metaAP {
+  float: left;
+  width: 260px;
+  margin-top: 10px !important;
+}
+.metaPB {
+  float: right;
+}
+
+.metaPrice {
+  clear: both;
+  font-size: 3.5rem !important;
+  line-height: 3.5rem !important;
+  font-weight: 700;
+  float: right;
+}
+
+a.metaButton {
+  clear: both;
+  float: right;
+  display: block;
+  text-transform: uppercase;
+  padding-top: .25rem !important;
+  width: 100px;
+  height: 40px;
+  vertical-align: middle;
+  text-align: center;
+  background: $magenta;
+  color: $white;
+  border: none;
+  font-size: 1.4rem !important;
+  border-radius: 20px;
+
+  &:hover {
+    background: $jaune;
+    transition: .2s;
+  }
+}
+
+// sliders pages produits ------------------------------------------------------
+
 #slides {
   display: none;
+  li {
+    list-style-type: none;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Center the slideshow */
 #container {
-  width: 400px;
-  height: 266px;
+  width: 100%;
+  height: auto;
   z-index: 1;
-  &:before,
-  &:after {
-    animation: 1s 5s fadeIn;
-    visibility: hidden;
-    animation-fill-mode: forwards;
-  }
 }
+
+// délai effet ombre sous le slide
 
 @keyframes fadeIn {
   0% {
@@ -4117,6 +4489,41 @@ h1.comTitre {
   }
 }
 
+// animation des éléments sélectionnés dans la preview produit (activée dans chaque page produit via le jotform.js correspondant)
+// !! les anims sont les mêmes mais elles ont un nom différent pour pouvoir les alterner sans quoi l'effet ne s'applique q'au premier changement)
+
+@keyframes anim {
+  0% {
+    transform: translateX(60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes anim1 {
+  0% {
+    transform: translateX(60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes anim2 {
+  0% {
+    transform: translateX(60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes anim3 {
+  0% {
+    transform: translateX(60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 //----------------------------------------------------------------------------
 //                             STYLES INLINE RAPATRIES
 //----------------------------------------------------------------------------
@@ -4133,31 +4540,6 @@ h1.comTitre {
   z-index: 100;
 }
 
-.break-line {
-  width: auto;
-  height: 1px;
-  border-bottom: 1px solid $color_5;
-  display: inline-block;
-  margin-top: 5px;
-}
-#delivery-div {
-  margin-top: -10px;
-}
-.delivery-delay {
-  float: none;
-  display: inline-block;
-  width: 100%;
-  margin: 5px 0 5px;
-  font-size: .8rem;
-}
-
-.delivery-date {
-  color: $magenta;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 .home-keywords-col {
   float: left;
   padding: 10px;
@@ -4166,6 +4548,16 @@ h1.comTitre {
 .marginTop {
   margin-top: 14px;
 }
+
+.break-line {
+  width: auto;
+  height: 1px;
+  border-bottom: 1px solid $color_5;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+
 
 // ==========================================================================
 //                                    STYLES PROD PAGES
@@ -4335,7 +4727,7 @@ DIV.ProgressBar {
 }
 
 
-// boutons géréer mon compte -------------------------------------------------
+// boutons géréer mon compte ---------------------------------------------------
 
 a#votre_mod {
   @include buttonLog($cyan, 49%);
@@ -4357,7 +4749,7 @@ form#delfromvosdevis,
   margin-right: 0;
 }
 
-// bouton gérer la commande --------------------------------------------------
+// bouton gérer la commande ----------------------------------------------------
 
 .but_details {
   width: 100%;
@@ -4374,10 +4766,11 @@ form#delfromvosdevis,
   &:hover {
     background-color: $cyan;
     border:1px solid darken($cyan, 7%);
+    transiton:.2s;
   }
 }
 
-// boutons payer/valider bat situé dans le bloc information jaune ------------
+// boutons payer/valider bat situé dans le bloc information jaune --------------
 #payeTop {
   width: 100%;
   height: auto;
@@ -4410,7 +4803,7 @@ form#delfromvosdevis,
   padding-top: .5rem;
 }
 
-// boutons panier ------------------------------------------------------------
+// boutons panier --------------------------------------------------------------
 
 #but_continuer {
   @include buttonLog($cyan,24%);
@@ -4431,7 +4824,7 @@ form#delfromvosdevis,
   }
 }
 
-// boutons gestion des commandes ---------------------------------------------
+// boutons gestion des commandes -----------------------------------------------
 
 #but_payer {
   @include buttonLog($magenta, 100%);
@@ -4505,14 +4898,14 @@ a#but_imprimerbon,
   right: 0;
 }
 
-// boutons register ----------------------------------------------------------
+// boutons register ------------------------------------------------------------
 .form-input-wide {
   width: 100%;
   display: flex;
 display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
-} // ---------------------------------------------------------------WTF???????
+} // -----------------------------------------------------------------WTF???????
 
 .register-button,
 .edit-button {
@@ -4534,7 +4927,7 @@ display:-webkit-flex;
   @include buttonLog($cyan, 49%);
 }
 
-// boutons écrire un commentaire ---------------------------------------------
+// boutons écrire un commentaire -----------------------------------------------
 a.but_espace {
   @include buttonLog($text, 49%);
   margin: 20px 2% 0 0;
@@ -4555,7 +4948,7 @@ a.but_espace {
   float: right;
 }
 
-// boutons file upload -------------------------------------------------------
+// boutons file upload ---------------------------------------------------------
 
 .fuselect {
   @include buttonLog($cyan, 29%);
@@ -4586,7 +4979,7 @@ a.post-edit-link{
   float: right;
 }
 
-// Boutons BAT----------------------------------------------------------------
+// Boutons BAT------------------------------------------------------------------
 
 #but_bat {
   @include buttonLog($magenta, 100%);
@@ -4626,7 +5019,7 @@ a.but_voiremaquette {
 }
 
 #but_modifier {
-  @include buttonLog($cyan, 24%);
+    @include buttonLog($cyan, 24%);
 }
 
 #but_suivant {
@@ -4657,6 +5050,17 @@ a.but_voiremaquette {
   margin-right: 30px;
 }
 
+span.print_button {
+  position: relative;
+  float: left;
+  display: inline;
+  width: auto;
+  height: 33px;
+  padding-top: 14px;
+  background: $bloc-base;
+  text-align: center;
+}
+
 .prom_sub2 {
   @include buttonLog($cyan, 50%);
   display: block;
@@ -4665,13 +5069,6 @@ a.but_voiremaquette {
   &::before{
     clear: both;
   }
-}
-
-// bouton imprimer cgv
-
-.print_button a {
-  @include buttonLog($jaune, 200px);
-  margin: 0 auto;
 }
 
 .stat0 {
@@ -5240,7 +5637,7 @@ h4.clients_reviews_titre a{
   display: block;
   width: auto;
   height: auto;
-  font-family:  $font-title;
+  font-family:  $font-global;
   font-size: .72rem;
   font-weight: bold;
   font-style: italic;

@@ -387,6 +387,10 @@ input[type="submit"].deactive.active, input[type="submit"].deactive:hover {
   border: 1px solid #2b8aaf;
 }
 
+input:focus {
+  border: 1px solid #3097C0;
+}
+
 .bloc-left {
   width: 49%;
   margin-right: 2%;
@@ -1359,10 +1363,24 @@ input::placeholder {
   cursor: pointer;
   font-family: "Source Sans Pro", sans-serif;
   text-transform: uppercase;
+  /* reset */
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(../images/drop.png);
+  background-position: calc(100% - 10px) calc(1em - 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 8px 8px, 8px 8px, 1px 1.5em;
+  background-repeat: no-repeat;
 }
 
 .jotform-form select:focus {
-  outline: none;
+  background-image: url(../images/drop2.png);
+  background-position: calc(100% - 10px) calc(1em - 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 8px 8px, 8px 8px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border-color: #3097C0;
+  outline: 0;
 }
 
 .jotform-form select .titre {
@@ -1374,7 +1392,9 @@ input::placeholder {
 }
 
 .jotform-form select optgroup {
+  font-family: "Source Sans Pro", sans-serif;
   font-style: normal;
+  font-weight: 900;
 }
 
 .jotform-form select option {
@@ -1382,9 +1402,10 @@ input::placeholder {
   color: #3097C0;
   text-transform: capitalize;
   line-height: .8rem;
-  padding: .5rem;
+  padding: .2rem;
   font-size: .8rem;
-  font-weight: bold;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .jotform-form select .option1 {
@@ -1407,14 +1428,14 @@ input::placeholder {
 
 .jotform-form input.form-textbox, .jotform-form input.form-textbox2 {
   display: inline;
-  width: 29%;
+  width: 26%;
   height: 33px;
   line-height: .8rem;
   background: #fff;
   border: 0;
   margin: 0;
-  margin-left: 8px;
-  border-radius: 3px;
+  margin-left: -5px;
+  border-radius: 0 3px 3px 0;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -1422,6 +1443,10 @@ input::placeholder {
   padding: 0.5rem;
   text-align: left;
   border: 1px solid #e1e8f2;
+}
+
+.jotform-form input.form-textbox:focus, .jotform-form input.form-textbox2:focus {
+  border: 1px solid #3097C0;
 }
 
 .jotform-form input.form-textbox2 {
@@ -1443,12 +1468,15 @@ input::placeholder {
   line-height: .8rem;
   vertical-align: top;
   display: inline-block;
-  width: 25%;
+  width: 17%;
   background: #EA2A6A;
+  border-left: 1px solid #cd1452;
+  border-top: 1px solid #cd1452;
+  border-bottom: 1px solid #cd1452;
   height: 33px;
   margin: 0;
-  padding: .3rem .3rem .3rem .5rem;
-  border-radius: 3px;
+  padding: .2rem .3rem .3rem .5rem;
+  border-radius: 3px 0 0 3px;
 }
 
 .jotform-form .label-highlight .small {
@@ -1459,7 +1487,7 @@ input::placeholder {
 
 .jotform-form .label-highlight.special {
   width: 44%;
-  margin-right: 2%;
+  margin-right: 0;
   text-transform: lowercase;
 }
 
@@ -1483,6 +1511,9 @@ input::placeholder {
   position: relative;
   top: -2px;
   left: 1px;
+  border-right: 1px solid #2881a3;
+  border-top: 1px solid #2881a3;
+  border-bottom: 1px solid #2881a3;
   margin-left: -29px;
   background: #32A1CC;
   border-radius: 0 3px 3px 0;
@@ -1499,6 +1530,9 @@ input::placeholder {
   position: relative;
   top: -2px;
   left: -1px;
+  border-right: 1px solid #2881a3;
+  border-top: 1px solid #2881a3;
+  border-bottom: 1px solid #2881a3;
   margin-left: -29px;
   background: #32A1CC;
   border-radius: 0 3px 3px 0;
@@ -1608,6 +1642,7 @@ ul.form-section li.optionsformline, ul.form-section li.optionsformlineOld {
   float: left;
   display: inline;
   width: 100%;
+  min-height: 250px;
   padding-top: 0px !important;
   color: #272727;
   border: none !important;
@@ -1700,6 +1735,7 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   text-align: right;
   font-size: .75rem;
   text-transform: uppercase;
+  color: #EA2A6A;
 }
 
 #delivery-div {
@@ -1733,7 +1769,7 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   font-size: 1rem;
   border: 1px solid #EA2A6A;
   text-align: center;
-  padding: 1rem;
+  padding: .7rem;
   -webkit-animation: fadein 1s;
           animation: fadein 1s;
 }
@@ -1746,9 +1782,8 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
 }
 
 a.linkUppercase {
-  text-transform: uppercase;
   text-decoration: none;
-  font-size: .75rem;
+  font-size: 1rem;
   color: #32A1CC;
 }
 
@@ -1823,6 +1858,7 @@ a.linkUppercase {
   width: 33%;
   text-align: center;
   line-height: .7rem;
+  font-weight: 900;
 }
 
 .warning {
@@ -1962,11 +1998,70 @@ input:invalid {
   margin-top: -5px;
 }
 
+.form-error-message:empty,
+.form-error-message-reg:empty {
+  display: none;
+}
+
+.form-error-message button,
+.form-error-message-reg button {
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 5px;
+  right: 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
 .form-error-message-reg {
   outline: 0;
   padding-top: 0;
   top: -21px;
   z-index: 1;
+}
+
+.form-button-error,
+#form-button-error2,
+#form-button-error3 {
+  z-index: 900;
+  position: absolute;
+  left: 0px;
+  bottom: 170px;
+  width: 100%;
+  height: auto;
+  padding: 2.5rem .5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: .8rem;
+  color: #fff;
+  background: #EA2A6A;
+  margin-top: 0;
+  line-height: .9rem;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.form-button-error:empty,
+#form-button-error2:empty,
+#form-button-error3:empty {
+  padding: 0;
+}
+
+.form-button-error button,
+#form-button-error2 button,
+#form-button-error3 button {
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 3px;
+  right: 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
 }
 
 .helpImg {
@@ -3948,47 +4043,6 @@ ul.regiform2 .form-error-message {
 
 #registerform_adresselivraison {
   visibility: hidden;
-}
-
-.form-button-error,
-#form-button-error2,
-#form-button-error3 {
-  z-index: 900;
-  position: absolute;
-  left: 0px;
-  bottom: 270px;
-  width: 100%;
-  height: auto;
-  padding: 2.5rem .5rem;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: .8rem;
-  color: #fff;
-  background: #EA2A6A;
-  margin-top: 0;
-  line-height: .9rem;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
-}
-
-.form-button-error:empty,
-#form-button-error2:empty,
-#form-button-error3:empty {
-  display: none;
-}
-
-.form-button-error button,
-#form-button-error2 button,
-#form-button-error3 button {
-  background: none;
-  border: 0;
-  position: absolute;
-  top: 3px;
-  right: 0;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 900;
-  cursor: pointer;
 }
 
 #rating {
@@ -7715,6 +7769,13 @@ span#footer_links2 {
   }
   .metaAP {
     width: 250px;
+  }
+  .jotform-form .label-highlight {
+    width: 25%;
+  }
+  .jotform-form input.form-textbox,
+  .jotform-form input.form-textbox2 {
+    width: 30%;
   }
 }
 
