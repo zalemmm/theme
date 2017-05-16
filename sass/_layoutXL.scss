@@ -29,7 +29,17 @@
     margin: 0 auto;
     background: $white;
   }
+  .izoneLeft {
+    display: block;
+    position: absolute;
+    left:-170px;
+  }
 
+  .izoneRight {
+    display: block;
+    position: absolute;
+    left: calc(100% + 10px);
+  }
 
   //----------------------------------------------------------------------------
   //                             HEADER

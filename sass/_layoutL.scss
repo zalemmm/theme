@@ -1228,6 +1228,7 @@ a.notice{
     margin: 0;
     padding: .5rem;
     font-size: .9rem;
+    font-weight: 900;
     text-transform: uppercase;
   }
 }
@@ -1276,7 +1277,7 @@ input::placeholder {
 
     background-image: url(../images/drop.png);
     background-position:
-       calc(100% - 10px) calc(1em - 2px),
+       calc(100% - 10px) calc(1em),
        calc(100% - 15px) calc(1em + 2px),
        calc(100% - 2.5em) 0.5em;
     background-size:
@@ -1649,7 +1650,7 @@ ul {
 
 #livraisonComp {
     display: block;
-    padding: .7rem .7rem 0;
+    padding: .7rem 1.7rem 0;
     text-align: right;
     font-size: .75rem;
     text-transform: uppercase;

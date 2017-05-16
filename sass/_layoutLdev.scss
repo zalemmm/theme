@@ -81,6 +81,10 @@ body {
   margin: 0 auto;
 }
 
+.izoneLeft,
+.izoneRight {
+  display: none;
+}
 //------------------------------------------------------------------------------
 //                             HEADER
 //------------------------------------------------------------------------------
@@ -1228,6 +1232,7 @@ a.notice{
     margin: 0;
     padding: .5rem;
     font-size: .9rem;
+    font-weight: 900;
     text-transform: uppercase;
   }
 }
@@ -1275,27 +1280,15 @@ input::placeholder {
     -moz-appearance: none;
 
     background-image: url(../images/drop.png);
-    background-position:
-       calc(100% - 10px) calc(1em - 2px),
-       calc(100% - 15px) calc(1em + 2px),
-       calc(100% - 2.5em) 0.5em;
-    background-size:
-       8px 8px,
-       8px 8px,
-       1px 1.5em;
+    background-position: calc(100% - 10px) 1em;
+    background-size: 8px 8px;
     background-repeat: no-repeat;
 
 
     &:focus {
       background-image: url(../images/drop2.png);
-      background-position:
-      calc(100% - 10px) calc(1em - 2px),
-      calc(100% - 15px) calc(1em + 2px),
-      calc(100% - 2.5em) 0.5em;
-      background-size:
-      8px 8px,
-      8px 8px,
-      1px 1.5em;
+      background-position: calc(100% - 10px) 1em;
+      background-size: 8px 8px;
       background-repeat: no-repeat;
       border-color: $cyan-bloc;
       outline: 0;
@@ -1649,7 +1642,7 @@ ul {
 
 #livraisonComp {
     display: block;
-    padding: .7rem .7rem 0;
+    padding: .7rem 1.7rem 0;
     text-align: right;
     font-size: .75rem;
     text-transform: uppercase;
@@ -1665,6 +1658,8 @@ ul {
   width: 100%;
   margin: 5px 0 5px;
   font-size: .8rem;
+  text-transform: uppercase;
+  color: $text;
 }
 
 .dateLivraison{
@@ -2344,6 +2339,7 @@ span.comm_title3 {
   color: $white;
   float: none;
   display: block;
+  text-transform: uppercase;
 }
 
 #paiements_left_con,
@@ -3573,6 +3569,7 @@ display:-webkit-flex;
   line-height: erem;
   background: $color_26;
   color: $white;
+  //font-weight: bold;
   margin: 0;
   font-size: 1rem;
   text-align: center;

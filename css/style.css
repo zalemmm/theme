@@ -85,6 +85,11 @@ body {
   margin: 0 auto;
 }
 
+.izoneLeft,
+.izoneRight {
+  display: none;
+}
+
 #header {
   max-width: 100%;
   margin-left: auto;
@@ -1305,6 +1310,7 @@ a.notice .helpExp {
   margin: 0;
   padding: .5rem;
   font-size: .9rem;
+  font-weight: 900;
   text-transform: uppercase;
 }
 
@@ -1369,15 +1375,15 @@ input::placeholder {
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: url(../images/drop.png);
-  background-position: calc(100% - 10px) calc(1em - 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
-  background-size: 8px 8px, 8px 8px, 1px 1.5em;
+  background-position: calc(100% - 10px) 1em;
+  background-size: 8px 8px;
   background-repeat: no-repeat;
 }
 
 .jotform-form select:focus {
   background-image: url(../images/drop2.png);
-  background-position: calc(100% - 10px) calc(1em - 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
-  background-size: 8px 8px, 8px 8px, 1px 1.5em;
+  background-position: calc(100% - 10px) 1em;
+  background-size: 8px 8px;
   background-repeat: no-repeat;
   border-color: #3097C0;
   outline: 0;
@@ -1731,7 +1737,7 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
 
 #livraisonComp {
   display: block;
-  padding: .7rem .7rem 0;
+  padding: .7rem 1.7rem 0;
   text-align: right;
   font-size: .75rem;
   text-transform: uppercase;
@@ -1748,6 +1754,8 @@ ul.form-section li.optionsformline4, ul.form-section li.optionsformline5 {
   width: 100%;
   margin: 5px 0 5px;
   font-size: .8rem;
+  text-transform: uppercase;
+  color: #555a61;
 }
 
 .dateLivraison {
@@ -2535,6 +2543,7 @@ span.comm_title3 {
   color: #fff;
   float: none;
   display: block;
+  text-transform: uppercase;
 }
 
 #paiements_left_con,
@@ -8142,6 +8151,9 @@ span#footer_links2 {
 }
 
 @media (max-width: 650px) {
+  .prezHide {
+    display: none;
+  }
   a#logo {
     top: 40px;
   }
@@ -8167,9 +8179,6 @@ span#footer_links2 {
 }
 
 @media (max-width: 540px) {
-  #buying {
-    min-height: 20px;
-  }
   #preview,
   #preview2 {
     display: none;
@@ -8252,6 +8261,9 @@ span#footer_links2 {
     font-size: .7rem;
     text-align: right;
   }
+  #buying {
+    min-height: 20px;
+  }
   ul#tarifs li {
     width: 48%;
   }
@@ -8314,10 +8326,6 @@ span#footer_links2 {
 }
 
 @media (max-width: 480px) {
-  #preview,
-  .prezHide {
-    display: none;
-  }
   #header {
     height: 220px;
   }
@@ -8553,6 +8561,16 @@ span#footer_links2 {
     width: auto;
     margin: 0 auto;
     background: #fff;
+  }
+  .izoneLeft {
+    display: block;
+    position: absolute;
+    left: -170px;
+  }
+  .izoneRight {
+    display: block;
+    position: absolute;
+    left: 100%;
   }
   #header {
     height: 240px;

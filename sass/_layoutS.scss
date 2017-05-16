@@ -2,6 +2,10 @@
 // -----------------------------------------------------------------------------
 
 @media(max-width: 650px) {
+  .prezHide {
+    display: none;
+  }
+
   a#logo {
     top: 40px;
   }
@@ -29,10 +33,6 @@
 
 @media(max-width: 540px) {
   // invisible -----------------------------------------------------------------
-  #buying{
-    min-height: 20px;
-  }
-
   #preview,
   #preview2 {
     display: none;
@@ -137,6 +137,10 @@
   //----------------------------------------------------------------------------
   //                           PAGES PRODUITS
   //----------------------------------------------------------------------------
+
+  #buying{
+    min-height: 20px;
+  }
 
   // ajustement des icônes dans les pages accueil, akilux, stickers et enseigne
 
