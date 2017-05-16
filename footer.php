@@ -137,8 +137,8 @@
       </span>
         <div id="copy">
           <div class="copyright">
-            <p class="bloc"><span class="split">2008-2017 Copyright</span> <span class="split">&copy; France banderole SAS</span></p>
-            <p class="bloc small"><span class="split">Images interdites de reproduction - </span><span class="split"><a href="http://france-banderole.com" title="banderole" target="_blank">france-banderole.com</a></span  class="split"></p>
+            <p class="bloc"><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/logoblanc.png" alt="logo france banderole" /><br /><span class="split">2008-2017 copyright</span> <span class="split">&copy; France Banderole SAS</span></p>
+            <p class="bloc small"><span class="split">Images interdites de reproduction </span> - <span class="split"><a href="http://france-banderole.com" title="banderole" target="_blank">france-banderole.com</a></span  class="split"></p>
           </div>
           <h2 class="footer-keywords">Banderole - </h2>
           <h2 class="footer-keywords">Banderole publicitaire - </h2>
@@ -262,7 +262,7 @@
       <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/la-ceddre/">Nos Engagements</a> | </span>
       <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/contact/">Contact</a></span>
     </span>
-    <div id="copy">2008 - 2015 Copyright &copy; France banderole SAS - Images interdites de reproduction <a href="http://france-banderole.com" title="banderole" target="_blank">france-banderole.com</a><br/>
+    <div id="copy"><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/logoblanc.png" alt="logo france banderole" /><br /> 2008 - 2015 Copyright &copy; France banderole SAS - Images interdites de reproduction <a href="http://france-banderole.com" title="banderole" target="_blank">france-banderole.com</a><br/>
       <h2 class="footer-keywords">Banderole - </h2>
       <h2 class="footer-keywords">Banderole publicitaire - </h2>
       <h2 class="footer-keywords">Impression banderole - </h2>

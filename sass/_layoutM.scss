@@ -376,15 +376,23 @@
 
   #derniers {
     margin-top: 0;
-    @include span(12);
-    padding-left: 0;
+    @include span(7);
     padding-right: 0;
+
   }
 
   #banners {
-    @include span(12);
+    @include span(5);
     padding-left: 0;
-    padding-right: 0;
+
+    .banner1 img,
+    .banner2 img {
+      width: 100%;
+    }
+  }
+
+  h4.clients_reviews_titre {
+    margin-top: 0;
   }
 
 }

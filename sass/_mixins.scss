@@ -9,6 +9,7 @@
 // BOUTONS ---------------------------------------------------------------------
 
 @mixin buttonStatusBase($bgcolor){
+  font-family: $font-global;
   width: 100%;
   background: $bgcolor;
   height: 40px;
@@ -44,7 +45,6 @@
   background: $bgcolor;
   border:1px solid darken($bgcolor, 7%);
   border-radius: 3px;
-
   color: #fff;
   font-family: $font-global;
   font-size: .8rem;
