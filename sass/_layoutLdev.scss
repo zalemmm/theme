@@ -23,6 +23,20 @@ a#corner_button_cart,
   display: none;
 }
 
+iframe#sb-player {
+  display: block;
+  iframe,
+  #main2
+   {
+    display: none;
+  }
+}
+
+.modal-wrapper {
+
+    z-index: 9999;
+}
+
 // extends ---------------------------------------------------------------------
 
 %buttonBase{
@@ -178,6 +192,7 @@ hr {
 
 .aligncenter {
   margin: 0 auto;
+  text-align: center;
 }
 
 .alignleft {
@@ -4863,6 +4878,26 @@ a#but_imprimerbon,
   right: 0;
 }
 
+a.notech {
+  @include buttonLog($cyan, 150px);
+  float: right;
+  color: $white;
+  height: 30px;
+  padding-top: .5rem;
+  border-radius: 15px;
+}
+a.notech1 {
+  @include buttonLog($magenta, 150px);
+  float: right;
+  color: $white;
+  height: 30px;
+  padding-top: .5rem;
+  border-radius: 15px;
+  &:hover {
+    background-color: $cyan;
+    border:1px solid darken($cyan, 7%);
+  }
+}
 // boutons register ------------------------------------------------------------
 .form-input-wide {
   width: 100%;
