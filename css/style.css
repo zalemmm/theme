@@ -2532,7 +2532,8 @@ span.comm_title3 {
 #paiements_left_tit,
 #valid_bat_left_tit,
 #paiements_right_tit,
-.cheque_tab_name {
+.cheque_tab_name,
+.paydiff_tab_name {
   width: 100%;
   padding: 12px 0 4px;
   height: 40px;
@@ -2552,7 +2553,9 @@ span.comm_title3 {
 #valid_bat_left_con,
 .paiements_right_con,
 .paiements_right_con2,
-.cheque_tab_con {
+.cheque_tab_con,
+.paydiff_tab_con,
+.paiements_right_con_diff {
   width: 100%;
   padding: 2rem;
   height: auto;
@@ -2570,46 +2573,12 @@ span.comm_title3 {
   padding: 1rem;
 }
 
-.paiements_right_con_diff {
-  width: 100%;
-  height: 162px;
-  padding: 16px 16px 13px 20px;
-  background: #fbcfd0;
-  float: right;
-  display: inline;
-  border-bottom: 5px solid #fff;
-}
-
 #regulamin .checkbox2 {
   position: relative;
   top: 0;
   right: 0;
   width: 100%;
   height: auto;
-}
-
-.paydiff_tab_name {
-  width: 100%;
-  padding: 1px 0 0 18px;
-  height: 22px;
-  line-height: 23px;
-  background: #db0073;
-  color: #fff;
-  font-size: 12px;
-  float: left;
-  display: inline;
-  margin: 0 5px 5px 0;
-  text-transform: uppercase;
-}
-
-.paydiff_tab_con {
-  position: relative;
-  float: left;
-  display: inline;
-  width: 100%;
-  padding: 18px;
-  background: #fbcfd0;
-  color: #464b4c;
 }
 
 span.pay_image {
@@ -2624,8 +2593,8 @@ span.pay_image2 {
 
 span.pay_carte_info {
   display: block;
-  margin: 5px 0 0 20px;
-  font-size: .7rem;
+  margin: 5px 0 0 1rem;
+  font-size: .75rem;
 }
 
 .acces_tab_name_devis span {
@@ -6682,15 +6651,46 @@ a.but_voiremaquette.active, a.but_voiremaquette:hover {
 }
 
 #but_imprimer_form {
-  margin-left: 14px;
-  margin-bottom: 10px;
-  width: 180px;
-  height: 19px;
-  background: url("../images/but_imprimer_form.png") no-repeat;
-  overflow: hidden;
-  border: none;
-  display: block;
-  float: left;
+  position: relative;
+  width: 24%;
+  height: 40px;
+  margin: 0 0 10px 0;
+  padding: .7rem .5rem .5rem;
+  display: inline-block;
+  float: none;
+  cursor: pointer;
+  background-image: none;
+  background-repeat: no-repeat;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  background: #F9B610;
+  border: 1px solid #e0a106;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: .8rem;
+  line-height: .8rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-indent: 0;
+  vertical-align: middle;
+}
+
+#but_imprimer_form.active, #but_imprimer_form:hover {
+  background-image: none;
+  background-color: #EA2A6A;
+  border: 1px solid #db1657;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+#but_imprimer_form.deactive {
+  cursor: default !important;
+}
+
+#but_imprimer_form.deactive.active, #but_imprimer_form.deactive:hover {
+  background: #F9B610;
+  border: 1px solid #e0a106;
 }
 
 #but_modifier {

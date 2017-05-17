@@ -2326,7 +2326,8 @@ span.comm_title3 {
 #paiements_left_tit,
 #valid_bat_left_tit,
 #paiements_right_tit,
-.cheque_tab_name {
+.cheque_tab_name,
+.paydiff_tab_name {
   width: 100%;
   padding: 12px 0 4px;
   height: 40px;
@@ -2346,7 +2347,9 @@ span.comm_title3 {
 #valid_bat_left_con,
 .paiements_right_con,
 .paiements_right_con2,
-.cheque_tab_con  {
+.cheque_tab_con,
+.paydiff_tab_con,
+.paiements_right_con_diff  {
   width: 100%;
   padding: 2rem;
   height: auto;
@@ -2363,47 +2366,12 @@ span.comm_title3 {
   padding:1rem;
 }
 
-.paiements_right_con_diff {
-  width: 100%;
-  height: 162px;
-  padding: 16px 16px 13px 20px;
-  background: $color_24;
-
-  float: right;
-  display: inline;
-  border-bottom: 5px solid $white;
-}
-
 #regulamin .checkbox2 {
   position: relative;
   top: 0;
   right: 0;
   width: 100%;
   height: auto;
-}
-
-.paydiff_tab_name {
-  width: 100%;
-  padding: 1px 0 0 18px;
-  height: 22px;
-  line-height: 23px;
-  background: $color_25;
-  color: $white;
-  font-size: 12px;
-  float: left;
-  display: inline;
-  margin: 0 5px 5px 0;
-  text-transform: uppercase;
-}
-
-.paydiff_tab_con {
-  position: relative;
-  float: left;
-  display: inline;
-  width: 100%;
-  padding: 18px;
-  background: $color_24;
-  color: $color_9;
 }
 
 span.pay_image {
@@ -2418,8 +2386,8 @@ span.pay_image2 {
 
 span.pay_carte_info {
   display: block;
-  margin: 5px 0 0 20px;
-  font-size: .7rem;
+  margin: 5px 0 0 1rem;
+  font-size: .75rem;
 }
 
 //----------------------------------------------------------------------------
@@ -5004,15 +4972,7 @@ a.but_voiremaquette {
 }
 
 #but_imprimer_form {
-  margin-left: 14px;
-  margin-bottom: 10px;
-  width: 180px;
-  height: 19px;
-  background: url('../images/but_imprimer_form.png') no-repeat;
-  overflow: hidden;
-  border: none;
-  display: block;
-  float: left;
+  @include buttonLog($jaune, 24%);
 }
 
 #but_modifier {
