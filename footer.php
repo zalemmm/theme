@@ -316,6 +316,8 @@ jQuery(document).ready(function ($) {
     $('.form-button-error').fadeOut();
     $('#form-button-error2').fadeOut();
     $('#form-button-error3').fadeOut();
+    $('.box_info').fadeOut();
+    $('.box_warning').fadeOut();
   });
 
   //SlidesJS

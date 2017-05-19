@@ -203,6 +203,13 @@
     height: 30px;
   }
 
+  .helpPage1 {
+    font-size: 3rem;
+  }
+
+  h1.helpPageTitle {
+    font-size: 1rem;
+  }
 
   // largeur des champs select -------------------------------------------------
 
@@ -393,6 +400,21 @@
 
   h4.clients_reviews_titre {
     margin-top: 0;
+  }
+
+  // ---------------------------------------------------------------------------
+  //                                POP UP / MODALS
+  // ---------------------------------------------------------------------------
+
+  .modal {
+      width: 95%;
+      padding: 1rem;
+  }
+  .modal h1 {
+      font-size: 1rem;
+  }
+  a.notech,a.notech1 {
+    width: 30px;
   }
 
 }

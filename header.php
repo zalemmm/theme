@@ -50,8 +50,8 @@
 		<div id="main">
 
 			<div id="header">
-				<div class="izoneLeft"><a href="http://placehold.it"><img src="http://placehold.it/170x768"></a></div>
-				<div class="izoneRight"><a href="http://placehold.it"><img src="http://placehold.it/170x768"></a></div>
+				<div class="izoneLeft"><a href="http://placehold.it"><img src="http://placehold.it/170x768/f6f6f6"></a></div>
+				<div class="izoneRight"><a href="http://placehold.it"><img src="http://placehold.it/170x768/f6f6f6"></a></div>
 
 				<!--<div class="izoneLeft"><a href="http://placehold.it"><img src="http://placehold.it/170x700"></a></div>
 				<div class="izoneRight"><a href="http://placehold.it"><img src="http://placehold.it/170x700"></a></div>-->

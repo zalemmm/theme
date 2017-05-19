@@ -1945,6 +1945,7 @@ input:valid {
 	border: 1px solid #e9e9e9;
   box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.2);
   font-weight: normal;
+  min-height: 100px;
 }
 
 .helpText:after, .helpText:before {
@@ -2177,7 +2178,9 @@ div {
 
 // alerte panier
 
-.box_info {
+.box_info,
+.box_warning {
+  position: relative;
   background-color: $bloc-base;
   width: auto;
   padding: 1rem;
@@ -2187,17 +2190,24 @@ div {
   img{
     margin-right: 1rem;
   }
+  button{
+    background: none;
+    border:0;
+    position: absolute;
+    top: 3px;
+    right: 0;
+    color: $color_19;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+  }
 }
 
 .box_warning {
-  background-color: $bloc-base;
-  width: auto;
-  padding: 1rem;
-  margin-bottom: 16px;
   border: 2px solid $color_21;
   background-color: $color_22;
-  img{
-    margin-right: 1rem;
+  button{
+    color: $color_21;
   }
 }
 
@@ -4606,6 +4616,26 @@ DIV.ProgressBar {
 
 }
 
+// ----------------------------------------------------height: 1px;height: 1px;-------------------------
+//                          HELP PAGES
+// -----------------------------------------------------------------------------
+
+.helpPage1 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+h1.helpPageTitle {
+  margin: 0;
+  color: $text;
+  padding: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
 
 // -----------------------------------------------------------------------------
 //                           BOUTONS
@@ -4885,6 +4915,7 @@ a.notech {
   height: 30px;
   padding-top: .5rem;
   border-radius: 15px;
+  margin-left: 10px;
 }
 a.notech1 {
   @include buttonLog($magenta, 150px);
@@ -4893,6 +4924,7 @@ a.notech1 {
   height: 30px;
   padding-top: .5rem;
   border-radius: 15px;
+  margin-left: 10px;
   &:hover {
     background-color: $cyan;
     border:1px solid darken($cyan, 7%);
@@ -5822,5 +5854,121 @@ span#footer_links2 {
   display: none;
   p {
     width: 100%;
+  }
+}
+
+// -----------------------------------------------------------------------------
+//                                POP UP / MODALS
+// -----------------------------------------------------------------------------
+
+.close-modal {
+    display: none;
+}
+
+.modal-wrapper {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-wrapper.show {
+    display: block;
+    transition: .8s;
+}
+
+.modal {
+    display: none;
+    position: relative;
+    background-color: #fefefe;
+    margin: 3% auto; /* 15% from the top and centered */
+    padding: 2rem;
+    border: 0;
+    /*border-radius: 10px;*/
+    width: 70%; /* Could be more or less, depending on screen size */
+    max-width: 1060px;
+    text-align: center;
+    transition: all 2s ease;
+    opacity: 0;
+    box-shadow: 0 4px 4px 4px rgba(0,0,0,0.20);
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+    animation: scale .5s 1;
+}
+
+.modal .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 30px;
+    color: #afb9c7;
+}
+.modal .close-modal:hover {
+  color: #ea2a6a;
+}
+
+.btn-fermer {
+  @include buttonLog($magenta, 150px);
+  margin: 15px 0 10px 0;
+  padding: .7rem .5rem;
+  &:hover {
+    background-color: #32A1CC;
+    border: 1px solid #2881a3;
+  }
+  i {
+    font-size: 1rem;
+  }
+}
+
+.modal.show .close-modal {
+    display: block;
+}
+
+.modal h1 {
+    margin: 0;
+    color: $text;
+    padding: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.modal p {
+  text-align: justify;
+}
+/*#modal-content {
+  max-height: 700px;
+  overflow-y: scroll;
+
+}*/
+.modal .entry-content p {
+    font-size: 1rem;
+}
+.modal .loading {
+    width: 100px;
+    margin-top: 20px;
+}
+
+@keyframes scale {
+  0% {
+    top: 0;
+    transform: scale(0);
+  }
+  100% {
+    top: 0;
+    transform: scale(1);
   }
 }
