@@ -7,42 +7,25 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
-<head profile="http://gmpg.org/xfn/11">
-	<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
-	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-	<meta name="keywords" content="Banderole, Banderoles, Banderole publicitaire,  banderole de, banderole d', banderoles publicitaires, bache, baches, bâche, bâches, calicot, calicots, kakemono, kakemonos, banderole de pub, banderole de marché, banderole de foire, banderole exposition, forain, banderole evenementiel, banderole de communication, communication, banderole de publicité, banderole+paris, banderole+lyon, banderole+marseille, banderole+lille, banderole+strasbourg, banderole+auxerre, banderole+montpellier, banderole+toulouse, banderole+beziers, banderole+perpignan, banderole+dijon, banderole+metz, banderole+bordeaux, pas cher " />
-	<meta name="Author" content="france banderole" />
-	<meta name="Publisher" content="france banderole" />
-	<meta name="Copyright" content="france banderole" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="icon" type="image/png" href="http://www.france-banderole.com/wp-content/themes/fb/images/favicon.png" />
+	<head profile="http://gmpg.org/xfn/11">
+		<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+		<meta name="keywords" content="Banderole, Banderoles, Banderole publicitaire,  banderole de, banderole d', banderoles publicitaires, bache, baches, bâche, bâches, calicot, calicots, kakemono, kakemonos, banderole de pub, banderole de marché, banderole de foire, banderole exposition, forain, banderole evenementiel, banderole de communication, communication, banderole de publicité, banderole+paris, banderole+lyon, banderole+marseille, banderole+lille, banderole+strasbourg, banderole+auxerre, banderole+montpellier, banderole+toulouse, banderole+beziers, banderole+perpignan, banderole+dijon, banderole+metz, banderole+bordeaux, pas cher " />
+		<meta name="Author" content="france banderole" />
+		<meta name="Publisher" content="france banderole" />
+		<meta name="Copyright" content="france banderole" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /><![endif]-->
+		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
-	<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
-	<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?d=11062012 );</style>
+		<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?d=11062012 );</style>
+		<link rel="icon" type="image/png" href="http://www.france-banderole.com/wp-content/themes/fb/images/favicon.png" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/print.css" />
+		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
-	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-	<?php wp_head(); ?>
-
-	<!--font awesome-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-	<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/pokaz.js"></script>
-	<!--[if lte IE 7]>
-	<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo('stylesheet_directory'); ?>/styleie.css" />
-	<![endif]-->
-	<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/print.css" />
-	<script type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-3325076-4']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script>
-	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-	<!--<script type="text/javascript">document.oncontextmenu = function(){return false;};		</script>-->
-	<?php
-	if (isset($_GET['detail'])) { ?>
-		<link rel="stylesheet" href="<?php bloginfo("url") ?>/wp-content/plugins/fbshop/js/juploader/css/jquery.fileupload-ui.css" />
-		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		<?php } ?>
-
+		<?php wp_head(); ?>
 	</head>
 
 	<body>
@@ -50,11 +33,14 @@
 		<div id="main">
 
 			<div id="header">
-				<div class="izoneLeft"><a href="http://placehold.it"><img src="http://placehold.it/170x768/f6f6f6"></a></div>
-				<div class="izoneRight"><a href="http://placehold.it"><img src="http://placehold.it/170x768/f6f6f6"></a></div>
+				<?php
+				if(is_page('stand-parapluie')) {
 
-				<!--<div class="izoneLeft"><a href="http://placehold.it"><img src="http://placehold.it/170x700"></a></div>
-				<div class="izoneRight"><a href="http://placehold.it"><img src="http://placehold.it/170x700"></a></div>-->
+				}else{
+					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/stand-parapluie"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoLeft.png" title="promo stand tissu" alt="promo stand tissu"></a></div>';
+					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoRight.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
+				}
+				?>
 
 				<a href="<?php bloginfo('url'); ?>/index.php" id="logo" title="fabricant banderole"></a>
 
@@ -64,22 +50,25 @@
 				</div>
 
 				<ul class="menu-client">
+
 					<li class="menu-client-item item1">
 						<div class="menu-client-icon phone"><a href="tel:+33442401401"><i class="fa fa-phone" aria-hidden="true"></i></a></div>
-
 						<div class="menu-client-phone">
 							<span class="menu-client-label tel1 split">Nos téléconseillers</span><br />
-							<span class="menu-client-label tel2 split"><a href="tel:+33442401401">0442 401 401</a></span><br />
+							<span class="menu-client-label tel2 split"><a href="tel:+33442401401">0442 401 401</a></span>
 							<span class="menu-client-label tel3 split">9h-12h | 14h-18h</span>
 						</div>
 					</li>
+
 					<li class="menu-client-item menu-client--devis">
 						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/vos-devis/"><i class="fa fa-lock" aria-hidden="true"></i></a></span>
 						<span class="menu-client-label">Espace Client</span>
 					</li>
+
 					<li class="menu-client-item menu-client--panier">
 						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><?php echo getCartCount(); ?> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-						<span class="menu-client-label">Panier</li></span>
+						<span class="menu-client-label">Panier</span>
+					</li>
 					</ul>
 
 					<ul id="menu_top">
@@ -137,12 +126,13 @@
 							$link = get_bloginfo("url").'/vos-devis/';
 						}
 						?>
+
 						<li><a href="<?php bloginfo('url'); ?>/contact/"<?php if(is_page('contact')) echo ' id="active"'; ?>>CONTACT</a></li>
 					</ul>
 					<!--	<form name="search" id="search" method="get" action="<?php bloginfo('url'); ?>">
 					<input type="text" name="s" value="RECHERCHER" onfocus="if (this.value == 'RECHERCHER') {this.value = ''; this.style.color = '#000000';}" onblur="if (this.value == '') {this.value = 'RECHERCHER';this.style.color = '#e88c07';}" />
 					<input type="submit" id="submit_search" value="" />
-				</form>-->
+					</form>-->
 
 
 			</div>

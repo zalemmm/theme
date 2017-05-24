@@ -109,8 +109,6 @@
       <div id="ratinghome"><?php get_rating_home(); ?></div>
     </div>
 
-
-
     </div>
 
     <div id="footer3">
@@ -304,83 +302,11 @@ include('nom_du_fichier_de_conf.php');
 
 <?php wp_footer(); ?>
 
-<!-- SlidesJS  -->
+<!-- javascript  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.min.js"></script>
-
-<script>
-jQuery(document).ready(function ($) {
-
-  // bouton close messages d'erreur
-
-  $(document).on('click', '.closeButton', function() {
-    $('.form-button-error').fadeOut();
-    $('#form-button-error2').fadeOut();
-    $('#form-button-error3').fadeOut();
-    $('.box_info').fadeOut();
-    $('.box_warning').fadeOut();
-  });
-
-  //SlidesJS
-  $('#slides').slidesjs({
-    width: 400,
-    height: 400,
-    navigation: false, // [boolean] Generates next and previous buttons.
-    pagination: false, // [boolean] Create pagination items.
-    play: {
-      active: false, // [boolean] Generate the play and stop buttons.
-      effect: "slide", // [string] Can be either "slide" or "fade".
-      interval: 3500, // [number] Time spent on each slide in milliseconds.
-      auto: true, // [boolean] Start playing the slideshow on load.
-      swap: false, // [boolean] show/hide stop and play buttons
-      pauseOnHover: false, // [boolean] pause a playing slideshow on hover
-      restartDelay: 2500 // [number] restart delay on inactive slideshow
-    }
-  });
-
-  //toggle
-  $('.toggle-button').click(function() {
-    $('.toggle-block').slideToggle('slow');
-  });
-
-  //home buttons hover
-  $('#tarifs li').mouseover(function() {
-    $(this).find('.micro a').css({
-      background: '#EA2A6A',
-      color: '#fff'
-    });
-  });
-  $('#tarifs li').mouseout(function() {
-    $(this).find('.micro a').css({
-      background: '#f6f6f6',
-      color: '#555a61'
-    });
-  });
-
-
-  //top icons menu hover
-  $('.menu-client-icon.phone a, .tel2 a').mouseover(function() {
-    $('.menu-client-icon.phone a, .tel2 a').css({
-      color: '#EA2A6A',
-      WebkitTransition : '0.5s',
-      MozTransition    : '0.5s',
-      MsTransition     : '0.5s',
-      OTransition      : '0.5s',
-      transition       : '0.5s'
-    });
-  });
-  $('.menu-client-icon.phone a, .tel2 a').mouseout(function() {
-    $('.menu-client-icon.phone a, .tel2 a').css({
-      color: '#32A1CC',
-      WebkitTransition : '0.5s',
-      MozTransition    : '0.5s',
-      MsTransition     : '0.5s',
-      OTransition      : '0.5s',
-      transition       : '0.5s'
-    });
-  });
-
-});
-</script>
-
+<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/pokaz.js"></script>
+<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/main.js"></script>
+<script type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-3325076-4']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
 </body>
 </html>
