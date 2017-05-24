@@ -4005,6 +4005,12 @@ ul.regiform2 li {
   height: 50px;
 }
 
+ul.regiform #id_21,
+ul.regiform2 #id_21 {
+  margin-top: 70px;
+  text-align: center;
+}
+
 ul.regiform .form-line-error,
 ul.regiform2 .form-line-error {
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
@@ -6260,10 +6266,10 @@ a.notech1:hover {
   text-transform: uppercase;
   text-indent: 0;
   vertical-align: middle;
-  position: absolute;
+  float: right;
   right: 0;
-  top: 100px;
-  margin-top: .3rem;
+  top: 0;
+  margin-top: 1rem;
 }
 
 .register-button.active, .register-button:hover,
@@ -6290,6 +6296,7 @@ a.notech1:hover {
 
 .pushButton {
   display: block;
+  margin: 0 auto;
 }
 
 #but_retour2 {

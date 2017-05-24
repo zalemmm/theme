@@ -35,7 +35,8 @@
 			<div id="header">
 				<?php
 				if(is_page('stand-parapluie')) {
-
+					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/stand-parapluie"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoLeft.png" title="promo stand tissu" alt="promo stand tissu"></a></div>';
+					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoRight.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
 				}else{
 					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/stand-parapluie"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoLeft.png" title="promo stand tissu" alt="promo stand tissu"></a></div>';
 					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoRight.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
