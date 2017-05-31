@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "gulp": "^3.9.1",
     "gulp-sass": "^3.0.0",
-    "gulp": "^3.9.1"
+    "jquery.uniform": "^4.2.0"
   },
   "devDependencies": {
     "bourbon": "^4.2.7",

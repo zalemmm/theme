@@ -259,7 +259,6 @@ h1.categorytitle, h2.categorytitle, h3.categorytitle {
 }
 
 h2 {
-  font-family: "sansationbold", "Arial", "sans-serif";
   color: #008ebb;
   padding-bottom: 2px;
   font-size: 1.4rem;
@@ -289,7 +288,7 @@ h4 {
   padding: 0;
   font-size: 1rem;
   font-weight: bold;
-  font-family: "sansationbold", "Arial", "sans-serif";
+  font-family: "Source Sans Pro", sans-serif;
   line-height: 1rem;
   text-transform: uppercase;
   text-align: left;
@@ -1433,19 +1432,35 @@ input::placeholder {
   font-family: "Source Sans Pro", sans-serif;
   color: #3097C0;
   text-transform: capitalize;
-  line-height: .8rem;
+  line-height: 40px;
   padding: .2rem;
   font-size: .8rem;
   font-weight: 700;
   font-style: normal;
 }
 
-.jotform-form select .option1 {
+.jotform-form select option.option1 {
   background-color: #f6f6f6;
 }
 
-.jotform-form select .option2 {
+.jotform-form select option.option2 {
   background-color: #fff;
+}
+
+.jotform-form select option.fr {
+  background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-color: #d7e6fc;
+  color: #2e57e7;
+}
+
+.jotform-form select option.ecofr {
+  background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/eco.png), url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
+  background-position: center 50%, center calc( 50% + 50px);
+  background-repeat: no-repeat, no-repeat;
+  background-color: #d7e6fc;
+  color: #0dda65;
 }
 
 .jotform-form select.option3, .jotform-form select.option4 {
@@ -1577,44 +1592,6 @@ input::placeholder {
 
 .jotform-form .mRight {
   left: 2px;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  .jotform-form .cmLeft,
-  .jotform-form .cmRight {
-    top: -1px;
-    left: 2px;
-  }
-  .jotform-form .mLeft,
-  .jotform-form .mRight {
-    top: -1px;
-    left: 0;
-  }
-  .jotform-form .mRight {
-    left: 2px;
-  }
-}
-
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
 }
 
 ul {
@@ -2037,16 +2014,17 @@ input:invalid {
   display: none;
 }
 
-.form-error-message button,
-.form-error-message-reg button {
+.form-error-message .closeButton,
+.form-error-message-reg .closeButton {
   background: none;
   border: 0;
   position: absolute;
-  top: 5px;
-  right: 0;
+  padding: 0;
+  top: 0;
+  right: 5px;
   color: #fff;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 1.6rem;
+  font-weight: normal;
   cursor: pointer;
 }
 
@@ -2084,17 +2062,18 @@ input:invalid {
   padding: 0;
 }
 
-.form-button-error button,
-#form-button-error2 button,
-#form-button-error3 button {
+.form-button-error .closeButton,
+#form-button-error2 .closeButton,
+#form-button-error3 .closeButton {
   background: none;
   border: 0;
   position: absolute;
-  top: 3px;
-  right: 0;
+  padding: 0;
+  top: 0;
+  right: 5px;
   color: #fff;
-  font-size: 1rem;
-  font-weight: 900;
+  font-size: 1.6rem;
+  font-weight: normal;
   cursor: pointer;
 }
 
@@ -2150,15 +2129,16 @@ input:invalid {
   min-height: 100px;
 }
 
-.helpText button {
+.helpText .closeB {
   background: none;
   border: 0;
   position: absolute;
-  top: 5px;
-  right: 0;
+  padding: 0;
+  top: 3px;
+  right: 6px;
   color: #555a61;
-  font-size: .7rem;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: normal;
   cursor: pointer;
 }
 
@@ -2422,16 +2402,17 @@ div.aligncenter {
   margin-right: 1rem;
 }
 
-.box_info button,
-.box_warning button {
+.box_info .closeButton,
+.box_warning .closeButton {
   background: none;
   border: 0;
   position: absolute;
-  top: 3px;
-  right: 0;
+  padding: 0;
+  top: 0;
+  right: 10px;
   color: #125b17;
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 2rem;
+  font-weight: normal;
   cursor: pointer;
 }
 
@@ -2440,8 +2421,17 @@ div.aligncenter {
   background-color: #fde799;
 }
 
-.box_warning button {
+.box_warning .closeButton {
+  background: none;
+  border: 0;
+  position: absolute;
+  padding: 0;
+  top: 0;
+  right: 10px;
   color: #f9b812;
+  font-size: 2rem;
+  font-weight: normal;
+  cursor: pointer;
 }
 
 #comments {
@@ -3271,7 +3261,7 @@ tbody {
   vertical-align: middle;
   position: relative;
   float: right;
-  width: 150px;
+  width: 100px;
   height: 25px;
   text-align: center;
   margin-bottom: 0;
@@ -3860,7 +3850,7 @@ tbody {
   padding: 2rem;
   height: auto;
   display: inline-block;
-  min-height: 250px;
+  min-height: 240px;
   background: #f6f6f6;
   color: #464b4c;
   position: relative;
@@ -4002,12 +3992,10 @@ ul.regiform2 li {
   float: left;
   display: block;
   width: 100%;
-  height: 50px;
 }
 
 ul.regiform #id_21,
 ul.regiform2 #id_21 {
-  margin-top: 70px;
   text-align: center;
 }
 
@@ -5024,7 +5012,7 @@ h1.helpPageTitle {
 #fbcart_buttons2 {
   position: relative;
   float: none;
-  margin: 25px auto;
+  margin: 0 auto 25px;
   background: none;
   padding: 0;
   text-align: center;
@@ -6125,55 +6113,7 @@ a#but_imprimerbon.deactive.active, a#but_imprimerbon.deactive:hover,
   border: 1px solid #e0a106;
 }
 
-a.notech {
-  position: relative;
-  width: 150px;
-  height: 40px;
-  margin: 0 0 10px 0;
-  padding: .7rem .5rem .5rem;
-  display: inline-block;
-  float: none;
-  cursor: pointer;
-  background-image: none;
-  background-repeat: no-repeat;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  background: #32A1CC;
-  border: 1px solid #2b8aaf;
-  border-radius: 3px;
-  color: #fff;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: .8rem;
-  line-height: .8rem;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  text-indent: 0;
-  vertical-align: middle;
-  float: right;
-  color: #fff;
-  height: 30px;
-  padding-top: .5rem;
-  border-radius: 15px;
-  margin-left: 10px;
-}
-
-a.notech.active, a.notech:hover {
-  background-image: none;
-  background-color: #EA2A6A;
-  border: 1px solid #db1657;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-a.notech.deactive {
-  cursor: default !important;
-}
-
-a.notech.deactive.active, a.notech.deactive:hover {
-  background: #32A1CC;
-  border: 1px solid #2b8aaf;
-}
-
+a.notech,
 a.notech1 {
   position: relative;
   width: 150px;
@@ -6203,10 +6143,13 @@ a.notech1 {
   height: 30px;
   padding-top: .5rem;
   border-radius: 15px;
+  margin-top: 10px;
   margin-left: 10px;
 }
 
-a.notech1.active, a.notech1:hover {
+a.notech.active, a.notech:hover,
+a.notech1.active,
+a.notech1:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
@@ -6214,15 +6157,19 @@ a.notech1.active, a.notech1:hover {
   transition: .2s;
 }
 
+a.notech.deactive,
 a.notech1.deactive {
   cursor: default !important;
 }
 
-a.notech1.deactive.active, a.notech1.deactive:hover {
+a.notech.deactive.active, a.notech.deactive:hover,
+a.notech1.deactive.active,
+a.notech1.deactive:hover {
   background: #EA2A6A;
   border: 1px solid #db1657;
 }
 
+a.notech:hover,
 a.notech1:hover {
   background-color: #32A1CC;
   border: 1px solid #2b8aaf;
@@ -6366,6 +6313,7 @@ a.notech1:hover {
   text-transform: uppercase;
   text-indent: 0;
   vertical-align: middle;
+  padding-top: .5rem;
 }
 
 .register-button2.active, .register-button2:hover {
@@ -8042,13 +7990,16 @@ span#footer_links2 {
 }
 
 .modal .close-modal {
+  background: none;
+  border: 0;
   position: absolute;
-  top: 20px;
-  right: 30px;
-  cursor: pointer;
+  padding: 0;
+  top: 0;
+  right: 20px;
+  color: #555a61;
+  font-size: 60px;
   font-weight: normal;
-  font-size: 30px;
-  color: #afb9c7;
+  cursor: pointer;
 }
 
 .modal .close-modal:hover {
@@ -8080,7 +8031,7 @@ span#footer_links2 {
   text-indent: 0;
   vertical-align: middle;
   margin: 15px 0 10px 0;
-  padding: .7rem .5rem;
+  padding-top: .5rem;
 }
 
 .btn-fermer.active, .btn-fermer:hover {
@@ -8106,7 +8057,11 @@ span#footer_links2 {
 }
 
 .btn-fermer i {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  margin-left: 5px;
+  padding: 0;
+  vertical-align: middle;
+  line-height: .9rem;
 }
 
 .modal.show .close-modal {
@@ -8165,6 +8120,22 @@ span#footer_links2 {
     top: 0;
     -webkit-transform: scale(1);
             transform: scale(1);
+  }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .jotform-form .cmLeft,
+  .jotform-form .cmRight {
+    top: -1px;
+    left: 2px;
+  }
+  .jotform-form .mLeft,
+  .jotform-form .mRight {
+    top: -1px;
+    left: 0;
+  }
+  .jotform-form .mRight {
+    left: 2px;
   }
 }
 

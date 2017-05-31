@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-
+  $(".select7").select7();
   // bouton close messages d'erreur
   $(document).on('click', '.closeButton', function() {
     $('.closeButton').parent().fadeOut();
@@ -8,7 +8,7 @@ jQuery(document).ready(function ($) {
   });
 
   // bouton close tooltips
-  $('.helpText').append('<button class="closeB"><i class="fa fa-times" aria-hidden="true"></i></button>');
+  $('.helpText').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
   $(document).on('click', '.closeB', function() {
     $('.closeB').parent().fadeOut();
   });

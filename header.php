@@ -22,8 +22,11 @@
 		<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?d=11062012 );</style>
 		<link rel="icon" type="image/png" href="http://www.france-banderole.com/wp-content/themes/fb/images/favicon.png" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/print.css" />
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/jquery-select7.css">
 
 		<?php wp_head(); ?>
 	</head>

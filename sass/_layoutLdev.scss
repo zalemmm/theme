@@ -253,7 +253,6 @@ h1, h2, h3 {
 }
 
 h2{
-  font-family: $font-special;
   color: $color_12;
   padding-bottom: 2px;
   font-size: 1.4rem;
@@ -283,7 +282,7 @@ h4 {
   padding: 0;
   font-size: 1rem;
   font-weight: bold;
-  font-family: $font-special;
+  font-family: $font-global;
   line-height: 1rem;
   text-transform: uppercase;
   text-align:left;
@@ -1331,20 +1330,37 @@ input::placeholder {
       font-family: $font-global;
       color: $cyan-bloc;
       text-transform: capitalize;
-      line-height: .8rem;
+      line-height: 40px;
       padding:.2rem;
       font-size: .8rem;
       font-weight: 700;
       font-style: normal;
+      &.option1 {
+        background-color: $bloc-base;
+      }
+      &.option2 {
+        background-color: $white;
+      }
+      &.fr {
+        background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-color: rgba(215, 230, 252, 1);
+        color: #2e57e7;
+      }
+      &.ecofr {
+        background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/eco.png),
+                          url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
+        background-position: center 50%,
+                             center calc( 50% + 50px );
+        background-repeat: no-repeat,
+                           no-repeat;
+        background-color: rgba(215, 230, 252, 1);
+        color: #0dda65;
+      }
     }
 
-    .option1 {
-      background-color: $bloc-base;
-    }
 
-    .option2 {
-      background-color: $white;
-    }
 
     &.option3,
     &.option4 {
@@ -1476,37 +1492,6 @@ input::placeholder {
   }
 }
 
-// Hack Chrome & Safari champs hauteur largeur des produits
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  .jotform-form {
-    .cmLeft,
-    .cmRight {
-      top: -1px;
-      left: 2px;
-    }
-    .mLeft,
-    .mRight {
-      top: -1px;
-      left: 0;
-    }
-    .mRight {
-      left: 2px;
-    }
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
 
 // form sélection produit ------------------------------------------------------
 
@@ -1857,16 +1842,8 @@ input:valid {
   &:empty{
     display: none;
   }
-  button{
-    background: none;
-    border:0;
-    position: absolute;
-    top: 5px;
-    right: 0;
-    color: $white;
-    font-size: 1rem;
-    font-weight: 400;
-    cursor: pointer;
+  .closeButton {
+    @include close($white, 1.6rem, 0, 5px);
   }
 }
 
@@ -1899,16 +1876,8 @@ input:valid {
   &:empty{
     padding: 0;
   }
-  button{
-    background: none;
-    border:0;
-    position: absolute;
-    top: 3px;
-    right: 0;
-    color: $white;
-    font-size: 1rem;
-    font-weight: 900;
-    cursor: pointer;
+  .closeButton {
+    @include close($white, 1.6rem, 0, 5px);
   }
 }
 
@@ -1950,16 +1919,8 @@ input:valid {
   box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.2);
   font-weight: normal;
   min-height: 100px;
-  button{
-    background: none;
-    border:0;
-    position: absolute;
-    top: 5px;
-    right: 0;
-    color: $text;
-    font-size: .7rem;
-    font-weight: 300;
-    cursor: pointer;
+  .closeB{
+    @include close($text, 1rem, 3px, 6px);
   }
 }
 
@@ -2205,24 +2166,16 @@ div {
   img{
     margin-right: 1rem;
   }
-  button{
-    background: none;
-    border:0;
-    position: absolute;
-    top: 3px;
-    right: 0;
-    color: $color_19;
-    font-size: 1rem;
-    font-weight: 400;
-    cursor: pointer;
+  .closeButton {
+    @include close($color_19, 2rem, 0, 10px);
   }
 }
 
 .box_warning {
   border: 2px solid $color_21;
   background-color: $color_22;
-  button{
-    color: $color_21;
+  .closeButton {
+    @include close($color_21, 2rem, 0, 10px);
   }
 }
 
@@ -3053,7 +3006,7 @@ tbody {
     @include buttonLog($text,150px);
     position: relative;
     float: right;
-    width: 150px;
+    width: 100px;
     height: 25px;
     text-align: center;
     margin-bottom: 0;
@@ -3594,7 +3547,7 @@ display:-webkit-flex;
   padding: 2rem;
   height: auto;
   display: inline-block;
-  min-height: 250px;
+  min-height: 240px;
   background: $bloc-base;
   color: $color_9;
   position: relative;
@@ -3744,10 +3697,8 @@ ul.regiform2 {
     float: left;
     display: block;
     width: 100%;
-    height: 50px;
   }
   #id_21{
-    margin-top: 70px;
     text-align: center;
   }
   .form-line-error{
@@ -4742,7 +4693,7 @@ h1.helpPageTitle {
 #fbcart_buttons2 {
   position: relative;
   float: none;
-  margin: 25px auto;
+  margin: 0 auto 25px;
   background: none;
   padding: 0;
   text-align: center;
@@ -4935,15 +4886,7 @@ a#but_imprimerbon,
   right: 0;
 }
 
-a.notech {
-  @include buttonLog($cyan, 150px);
-  float: right;
-  color: $white;
-  height: 30px;
-  padding-top: .5rem;
-  border-radius: 15px;
-  margin-left: 10px;
-}
+a.notech,
 a.notech1 {
   @include buttonLog($magenta, 150px);
   float: right;
@@ -4951,6 +4894,7 @@ a.notech1 {
   height: 30px;
   padding-top: .5rem;
   border-radius: 15px;
+  margin-top: 10px;
   margin-left: 10px;
   &:hover {
     background-color: $cyan;
@@ -4985,6 +4929,7 @@ display:-webkit-flex;
 }
 .register-button2 {
   @include buttonLog($cyan, 49%);
+  padding-top: .5rem;
 }
 
 // boutons écrire un commentaire -----------------------------------------------
@@ -5934,13 +5879,7 @@ span#footer_links2 {
 }
 
 .modal .close-modal {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    cursor: pointer;
-    font-weight: normal;
-    font-size: 30px;
-    color: #afb9c7;
+    @include close($text, 60px, 0, 20px);
 }
 .modal .close-modal:hover {
   color: #ea2a6a;
@@ -5949,13 +5888,17 @@ span#footer_links2 {
 .btn-fermer {
   @include buttonLog($magenta, 150px);
   margin: 15px 0 10px 0;
-  padding: .7rem .5rem;
+  padding-top: .5rem;
   &:hover {
     background-color: #32A1CC;
     border: 1px solid #2881a3;
   }
   i {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    margin-left: 5px;
+    padding: 0;
+    vertical-align: middle;
+    line-height: .9rem;
   }
 }
 
@@ -6000,3 +5943,33 @@ span#footer_links2 {
     transform: scale(1);
   }
 }
+
+// Hack Chrome & Safari
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  // hauteur largeur des produits
+  .jotform-form {
+    .cmLeft,
+    .cmRight {
+      top: -1px;
+      left: 2px;
+    }
+    .mLeft,
+    .mRight {
+      top: -1px;
+      left: 0;
+    }
+    .mRight {
+      left: 2px;
+    }
+  }
+
+}
+
+//
+
+
+
+
+
+//

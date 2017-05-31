@@ -6,6 +6,21 @@
   }
 }
 
+// bouton fermer tooltips et modals
+
+@mixin close($color: $white, $size: 1rem, $top: 0, $right: 0) {
+  background: none;
+  border:0;
+  position: absolute;
+  padding: 0;
+  top: $top;
+  right: $right;
+  color: $color;
+  font-size: $size;
+  font-weight: normal;
+  cursor: pointer;
+}
+
 // BOUTONS ---------------------------------------------------------------------
 
 @mixin buttonStatusBase($bgcolor){
