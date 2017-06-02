@@ -33,7 +33,6 @@ iframe#sb-player {
 }
 
 .modal-wrapper {
-
     z-index: 9999;
 }
 
@@ -2629,7 +2628,7 @@ SPAN {
 }
 // boutons file upload ---------------------------------------------------------
 
-.fuselect {
+.fuselect, a.maquette {
   @include buttonLog($cyan, 29%);
   text-align: center;
 }
@@ -2853,6 +2852,7 @@ tbody {
     position: relative;
     width: 100%;
     height: 100%;
+    font-size: .8rem;
   }
 }
 

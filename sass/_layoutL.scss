@@ -23,12 +23,27 @@ a#corner_button_cart,
   display: none;
 }
 
+iframe#sb-player {
+  display: block;
+  iframe,
+  #main2
+   {
+    display: none;
+  }
+}
+
+.modal-wrapper {
+
+    z-index: 9999;
+}
+
 // extends ---------------------------------------------------------------------
 
 %buttonBase{
   background-image: none;
   background-color: $cyan;
   background-repeat: no-repeat;
+  font-family: $font-global;
   vertical-align: top;
   width: 32%;
   height: 40px;
@@ -81,6 +96,10 @@ body {
   margin: 0 auto;
 }
 
+.izoneLeft,
+.izoneRight {
+  display: none;
+}
 //------------------------------------------------------------------------------
 //                             HEADER
 //------------------------------------------------------------------------------
@@ -137,7 +156,7 @@ body {
 
 img {
   border: 0;
-}
+  }
 
 dd {
   margin-left: 10px;
@@ -173,6 +192,7 @@ hr {
 
 .aligncenter {
   margin: 0 auto;
+  text-align: center;
 }
 
 .alignleft {
@@ -233,7 +253,6 @@ h1, h2, h3 {
 }
 
 h2{
-  font-family: $font-special;
   color: $color_12;
   padding-bottom: 2px;
   font-size: 1.4rem;
@@ -263,7 +282,7 @@ h4 {
   padding: 0;
   font-size: 1rem;
   font-weight: bold;
-  font-family: $font-special;
+  font-family: $font-global;
   line-height: 1rem;
   text-transform: uppercase;
   text-align:left;
@@ -527,7 +546,7 @@ ul.menu-client{
   li{
     text-align:left;
     height: 60px;
-    border-right:1px solid $jaune;
+    border-right:1px solid lighten($text, 30%);
     &:last-of-type{
       border-right:none;
     }
@@ -567,8 +586,8 @@ ul.menu-client{
       display: block;
       content: '';
       width: 100%;
-      height:5px;
-      background: url('../images/lignetel.png') repeat-y;
+      height:1px;
+      background: lighten($text, 30%);
       margin-bottom: 2px;
     }
   }
@@ -719,6 +738,7 @@ ul {
 	border: 1px solid #e9e9e9;
   margin-top: 10px;
   transition: .2s;
+  z-index: 800;
   box-shadow: 3px 3px 2px 0px rgba(0,0,0,0.2);
 }
 .menu_hover:after, .menu_hover:before {
@@ -745,6 +765,7 @@ ul {
 	margin-left: -16px;
 }
 ul#menu_top ul#produit_sub{
+  z-index: 700;
   width: 600px;
   display: flex;
   display: -webkit-flex;
@@ -807,13 +828,13 @@ ul#tarifs {
     background-size: contain;
     box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
     margin-top: 15px;
+
     &:hover {
       //background: url('../images/bt/btbghover.png');
       background-size: contain;
       background: $magenta;
       transition: .1s;
     }
-
 
     .home-buttons{
       width: 100%;
@@ -956,7 +977,7 @@ hr.hr-separator {
   @include container (100%);
   width: 100%;
   height: auto;
-  margin-top: 10px;
+  margin-top: 0;
   margin-bottom: 0;
   background: #f6f6f6;
   padding: 1rem 1rem 0;
@@ -1146,6 +1167,7 @@ a.notice{
 }
 
 #preview_imag,
+#preview_imag1,
 #preview_imag2,
 #preview_imag3,
 #preview_imag4,
@@ -1177,11 +1199,8 @@ a.notice{
     transition: left 0.3s ease-out;
 }
 
-
-
 #preview_imag {
-
-  z-index:10;
+  z-index: 10;
 }
 #preview_imag2 {
   z-index: 20;
@@ -1194,6 +1213,12 @@ a.notice{
 }
 #preview_imag5 {
   z-index: 50;
+}
+#preview_imag6 {
+  z-index: 60;
+}
+#preview_imag7 {
+  z-index: 70;
 }
 
 .previewTitle{
@@ -1226,7 +1251,7 @@ a.notice{
     font-family: $font-global;
     background: $magenta;
     margin: 0;
-    padding: .5rem;
+    padding: .5rem .5rem .5rem .8rem;
     font-size: .9rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -1267,36 +1292,21 @@ input::placeholder {
     cursor: pointer;
     font-family: $font-global;
     text-transform: uppercase;
-
-    /* reset */
-
+    // reset styles navigateur
     margin: 0;
     box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
-
+    // bg
     background-image: url(../images/drop.png);
-    background-position:
-       calc(100% - 10px) calc(1em),
-       calc(100% - 15px) calc(1em + 2px),
-       calc(100% - 2.5em) 0.5em;
-    background-size:
-       8px 8px,
-       8px 8px,
-       1px 1.5em;
+    background-position: calc(100% - 10px) 1em;
+    background-size: 8px 8px;
     background-repeat: no-repeat;
-
 
     &:focus {
       background-image: url(../images/drop2.png);
-      background-position:
-      calc(100% - 10px) calc(1em - 2px),
-      calc(100% - 15px) calc(1em + 2px),
-      calc(100% - 2.5em) 0.5em;
-      background-size:
-      8px 8px,
-      8px 8px,
-      1px 1.5em;
+      background-position: calc(100% - 10px) 1em;
+      background-size: 8px 8px;
       background-repeat: no-repeat;
       border-color: $cyan-bloc;
       outline: 0;
@@ -1320,20 +1330,39 @@ input::placeholder {
       font-family: $font-global;
       color: $cyan-bloc;
       text-transform: capitalize;
-      line-height: .8rem;
+      line-height: 40px;
       padding:.2rem;
       font-size: .8rem;
       font-weight: 700;
       font-style: normal;
+      &.option1 {
+        background-color: $bloc-base;
+      }
+      &.option2 {
+        background-color: $white;
+      }
+      &.fr {
+        background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-color: rgba(177,211,255,.8);
+      }
+      &.ecofr {
+        background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mifeco.png);
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-color: rgba(216,252,227,1);
+
+      }
+      .spanfr, .spaneco {
+        font-weight: 900;
+        display: inline-block;
+        margin-left: 50px;
+
+      }
     }
 
-    .option1 {
-      background-color: $bloc-base;
-    }
 
-    .option2 {
-      background-color: $white;
-    }
 
     &.option3,
     &.option4 {
@@ -1465,37 +1494,6 @@ input::placeholder {
   }
 }
 
-// Hack Chrome & Safari champs hauteur largeur des produits
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  .jotform-form {
-    .cmLeft,
-    .cmRight {
-      top: -1px;
-      left: 2px;
-    }
-    .mLeft,
-    .mRight {
-      top: -1px;
-      left: 0;
-    }
-    .mRight {
-      left: 2px;
-    }
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-    opacity: 1;
-  }
-}
 
 // form sélection produit ------------------------------------------------------
 
@@ -1666,6 +1664,8 @@ ul {
   width: 100%;
   margin: 5px 0 5px;
   font-size: .8rem;
+  text-transform: uppercase;
+  color: $text;
 }
 
 .dateLivraison{
@@ -1844,16 +1844,8 @@ input:valid {
   &:empty{
     display: none;
   }
-  button{
-    background: none;
-    border:0;
-    position: absolute;
-    top: 5px;
-    right: 0;
-    color: $white;
-    font-size: 1rem;
-    font-weight: 900;
-    cursor: pointer;
+  .closeButton {
+    @include close($white, 1.6rem, 0, 5px);
   }
 }
 
@@ -1886,16 +1878,8 @@ input:valid {
   &:empty{
     padding: 0;
   }
-  button{
-    background: none;
-    border:0;
-    position: absolute;
-    top: 3px;
-    right: 0;
-    color: $white;
-    font-size: 1rem;
-    font-weight: 900;
-    cursor: pointer;
+  .closeButton {
+    @include close($white, 1.6rem, 0, 5px);
   }
 }
 
@@ -1927,7 +1911,7 @@ input:valid {
   padding-left: 10px;
   width: 270px;
   color: darken($text, 10%);
-  padding: .7rem;
+  padding: .8rem;
   z-index: 999;
   text-align: left;
   line-height: 1rem;
@@ -1936,6 +1920,10 @@ input:valid {
 	border: 1px solid #e9e9e9;
   box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.2);
   font-weight: normal;
+  min-height: 100px;
+  .closeB{
+    @include close($text, 1rem, 3px, 6px);
+  }
 }
 
 .helpText:after, .helpText:before {
@@ -2168,7 +2156,9 @@ div {
 
 // alerte panier
 
-.box_info {
+.box_info,
+.box_warning {
+  position: relative;
   background-color: $bloc-base;
   width: auto;
   padding: 1rem;
@@ -2178,17 +2168,16 @@ div {
   img{
     margin-right: 1rem;
   }
+  .closeButton {
+    @include close($color_19, 2rem, 0, 10px);
+  }
 }
 
 .box_warning {
-  background-color: $bloc-base;
-  width: auto;
-  padding: 1rem;
-  margin-bottom: 16px;
   border: 2px solid $color_21;
   background-color: $color_22;
-  img{
-    margin-right: 1rem;
+  .closeButton {
+    @include close($color_21, 2rem, 0, 10px);
   }
 }
 
@@ -2205,7 +2194,7 @@ form#topics{
 }
 
 span.comm_title {
-  z-index: 100;
+  z-index: 90;
   width: 100%;
   padding: 10px 0 4px;
   height: 40px;
@@ -2332,7 +2321,8 @@ span.comm_title3 {
 #paiements_left_tit,
 #valid_bat_left_tit,
 #paiements_right_tit,
-.cheque_tab_name {
+.cheque_tab_name,
+.paydiff_tab_name {
   width: 100%;
   padding: 12px 0 4px;
   height: 40px;
@@ -2345,13 +2335,16 @@ span.comm_title3 {
   color: $white;
   float: none;
   display: block;
+  text-transform: uppercase;
 }
 
 #paiements_left_con,
 #valid_bat_left_con,
 .paiements_right_con,
 .paiements_right_con2,
-.cheque_tab_con  {
+.cheque_tab_con,
+.paydiff_tab_con,
+.paiements_right_con_diff  {
   width: 100%;
   padding: 2rem;
   height: auto;
@@ -2368,47 +2361,12 @@ span.comm_title3 {
   padding:1rem;
 }
 
-.paiements_right_con_diff {
-  width: 100%;
-  height: 162px;
-  padding: 16px 16px 13px 20px;
-  background: $color_24;
-
-  float: right;
-  display: inline;
-  border-bottom: 5px solid $white;
-}
-
 #regulamin .checkbox2 {
   position: relative;
   top: 0;
   right: 0;
   width: 100%;
   height: auto;
-}
-
-.paydiff_tab_name {
-  width: 100%;
-  padding: 1px 0 0 18px;
-  height: 22px;
-  line-height: 23px;
-  background: $color_25;
-  color: $white;
-  font-size: 12px;
-  float: left;
-  display: inline;
-  margin: 0 5px 5px 0;
-  text-transform: uppercase;
-}
-
-.paydiff_tab_con {
-  position: relative;
-  float: left;
-  display: inline;
-  width: 100%;
-  padding: 18px;
-  background: $color_24;
-  color: $color_9;
 }
 
 span.pay_image {
@@ -2423,8 +2381,8 @@ span.pay_image2 {
 
 span.pay_carte_info {
   display: block;
-  margin: 5px 0 0 20px;
-  font-size: .7rem;
+  margin: 5px 0 0 1rem;
+  font-size: .75rem;
 }
 
 //----------------------------------------------------------------------------
@@ -2654,18 +2612,54 @@ SPAN {
   background: darken($bloc-base, 2%);
   line-height: 19px;
   padding: 1rem 1rem .5rem;
+
   .span7 {
     display: flex;
-display:-webkit-flex;
-
+    display:-webkit-flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 }
 
+.uploadbuttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 69%;
+}
+// boutons file upload ---------------------------------------------------------
+
+.fuselect, a.maquette {
+  @include buttonLog($cyan, 29%);
+  text-align: center;
+}
+
+.fustart {
+  @include buttonLog($color_29, 24%);
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+.fucancel {
+  @include buttonLog($text, 20%);
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+.fudelete {
+  @include buttonLog($text, 20%);
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
 .tdstart .fustart {
   width: 100%;
+  opacity: 1;
 }
+
 
 
 // tableau file uplaod--------------------------------------------------------
@@ -2859,6 +2853,7 @@ tbody {
     position: relative;
     width: 100%;
     height: 100%;
+    font-size: .8rem;
   }
 }
 
@@ -3050,7 +3045,7 @@ tbody {
     @include buttonLog($text,150px);
     position: relative;
     float: right;
-    width: 150px;
+    width: 100px;
     height: 25px;
     text-align: center;
     margin-bottom: 0;
@@ -3574,6 +3569,7 @@ display:-webkit-flex;
   line-height: erem;
   background: $color_26;
   color: $white;
+  //font-weight: bold;
   margin: 0;
   font-size: 1rem;
   text-align: center;
@@ -3590,7 +3586,7 @@ display:-webkit-flex;
   padding: 2rem;
   height: auto;
   display: inline-block;
-  min-height: 250px;
+  min-height: 240px;
   background: $bloc-base;
   color: $color_9;
   position: relative;
@@ -3740,7 +3736,9 @@ ul.regiform2 {
     float: left;
     display: block;
     width: 100%;
-    height: 50px;
+  }
+  #id_21{
+    text-align: center;
   }
   .form-line-error{
     box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
@@ -4525,6 +4523,14 @@ a.metaButton {
     transform: translateX(0);
   }
 }
+@keyframes anim4 {
+  0% {
+    transform: translateX(60%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 //----------------------------------------------------------------------------
 //                             STYLES INLINE RAPATRIES
 //----------------------------------------------------------------------------
@@ -4627,6 +4633,26 @@ DIV.ProgressBar {
 
 }
 
+// ----------------------------------------------------height: 1px;height: 1px;-------------------------
+//                          HELP PAGES
+// -----------------------------------------------------------------------------
+
+.helpPage1 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+h1.helpPageTitle {
+  margin: 0;
+  color: $text;
+  padding: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  font-style: normal;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+}
 
 // -----------------------------------------------------------------------------
 //                           BOUTONS
@@ -4706,7 +4732,7 @@ DIV.ProgressBar {
 #fbcart_buttons2 {
   position: relative;
   float: none;
-  margin: 25px auto;
+  margin: 0 auto 25px;
   background: none;
   padding: 0;
   text-align: center;
@@ -4899,6 +4925,21 @@ a#but_imprimerbon,
   right: 0;
 }
 
+a.notech,
+a.notech1 {
+  @include buttonLog($magenta, 150px);
+  float: right;
+  color: $white;
+  height: 30px;
+  padding-top: .5rem;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+  &:hover {
+    background-color: $cyan;
+    border:1px solid darken($cyan, 7%);
+  }
+}
 // boutons register ------------------------------------------------------------
 .form-input-wide {
   width: 100%;
@@ -4911,14 +4952,15 @@ display:-webkit-flex;
 .register-button,
 .edit-button {
   @include buttonLog($cyan, 150px);
-  position: absolute;
+  float: right;
   right: 0;
-  top: 100px;
-  margin-top: .3rem;
+  top: 0;
+  margin-top: 1rem;
 }
 
 .pushButton {
   display: block;
+  margin: 0 auto;
 }
 
 #but_retour2 {
@@ -4926,6 +4968,7 @@ display:-webkit-flex;
 }
 .register-button2 {
   @include buttonLog($cyan, 49%);
+  padding-top: .5rem;
 }
 
 // boutons écrire un commentaire -----------------------------------------------
@@ -4949,27 +4992,7 @@ a.but_espace {
   float: right;
 }
 
-// boutons file upload ---------------------------------------------------------
 
-.fuselect {
-  @include buttonLog($cyan, 29%);
-  text-align: center;
-}
-
-.fustart {
-  @include buttonLog($color_29, 29%);
-  padding-top: .3rem;
-}
-
-.fucancel {
-  @include buttonLog($text, 19%);
-  padding-top: .3rem;
-}
-
-.fudelete {
-  @include buttonLog($text, 19%);
-  padding-top: .3rem;
-}
 
 a.post-edit-link{
   @include buttonLog($text, 100px);
@@ -5008,15 +5031,7 @@ a.but_voiremaquette {
 }
 
 #but_imprimer_form {
-  margin-left: 14px;
-  margin-bottom: 10px;
-  width: 180px;
-  height: 19px;
-  background: url('../images/but_imprimer_form.png') no-repeat;
-  overflow: hidden;
-  border: none;
-  display: block;
-  float: left;
+  @include buttonLog($jaune, 24%);
 }
 
 #but_modifier {
@@ -5570,7 +5585,7 @@ a:hover {
   padding-left: 0;
 
   .banner1 img, .banner2 img {
-    width:100%;
+    width: 70%;
     margin-bottom: 10px;
     display: block;
     height: auto;
@@ -5764,6 +5779,7 @@ span#footer_links2 {
   height: auto;
   text-align: center;
   margin: 0 auto;
+  font-size: 1rem;
   font-family: $font-special;
   p{
     margin-bottom: 0;
@@ -5773,18 +5789,27 @@ span#footer_links2 {
     bottom: 0;
     left: 0;
     margin: 10px auto 0;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 15px;
     width: 100%;
+    text-transform: uppercase;
     display: block;
     background: darken($text,10%);
     color: $white;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
+
     letter-spacing: 2px;
-    a {
-      color: $white;
+    p.bloc.small {
+      font-family: $font-global;
+      font-weight: normal;
+      a {
+        color: $white;
+        text-transform: lowercase;
+        font-weight: normal;
+      }
     }
+
   }
 }
 
@@ -5822,4 +5847,140 @@ span#footer_links2 {
   p {
     width: 100%;
   }
+}
+
+// -----------------------------------------------------------------------------
+//                                POP UP / MODALS
+// -----------------------------------------------------------------------------
+
+.close-modal {
+    display: none;
+}
+
+.modal-wrapper {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-wrapper.show {
+    display: block;
+    transition: .8s;
+}
+
+.modal {
+    display: none;
+    position: relative;
+    background-color: #fefefe;
+    margin: 3% auto; /* 15% from the top and centered */
+    padding: 2rem;
+    border: 0;
+    /*border-radius: 10px;*/
+    width: 70%; /* Could be more or less, depending on screen size */
+    max-width: 1060px;
+    text-align: center;
+    transition: all 2s ease;
+    opacity: 0;
+    box-shadow: 0 4px 4px 4px rgba(0,0,0,0.20);
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+    animation: scale .5s 1;
+}
+
+.modal .close-modal {
+    @include close($text, 60px, 0, 20px);
+}
+.modal .close-modal:hover {
+  color: #ea2a6a;
+}
+
+.btn-fermer {
+  @include buttonLog($magenta, 150px);
+  margin: 15px 0 10px 0;
+  padding-top: .5rem;
+  &:hover {
+    background-color: #32A1CC;
+    border: 1px solid #2881a3;
+  }
+  i {
+    font-size: 1.5rem;
+    margin-left: 5px;
+    padding: 0;
+    vertical-align: middle;
+    line-height: .9rem;
+  }
+}
+
+.modal.show .close-modal {
+    display: block;
+}
+
+.modal h1 {
+    margin: 0;
+    color: $text;
+    padding: 2rem;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.modal p {
+  text-align: justify;
+}
+/*#modal-content {
+  max-height: 700px;
+  overflow-y: scroll;
+
+}*/
+.modal .entry-content p {
+    font-size: 1rem;
+}
+.modal .loading {
+    width: 100px;
+    margin-top: 20px;
+}
+
+@keyframes scale {
+  0% {
+    top: 0;
+    transform: scale(0);
+  }
+  100% {
+    top: 0;
+    transform: scale(1);
+  }
+}
+
+// Hack Chrome & Safari
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  // hauteur largeur des produits
+  .jotform-form {
+    .cmLeft,
+    .cmRight {
+      top: -1px;
+      left: 2px;
+    }
+    .mLeft,
+    .mRight {
+      top: -1px;
+      left: 0;
+    }
+    .mRight {
+      left: 2px;
+    }
+  }
+
 }

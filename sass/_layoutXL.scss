@@ -19,6 +19,7 @@
     background: $bloc-base;
     border-left: 1px solid darken($bloc-base, 5%);
     border-right: 1px solid darken($bloc-base, 5%);
+    //box-shadow: -5px 0 15px -5px rgba(0,0,0,0.1), 5px 0 15px -5px rgba(0,0,0,0.1);
   }
 
   #content {
@@ -32,13 +33,33 @@
   .izoneLeft {
     display: block;
     position: absolute;
-    left:-172px;
+    width: 170px;
+    left:-171px;
+    top: 0;
+    img {
+      position: fixed;
+    }
   }
 
   .izoneRight {
     display: block;
     position: absolute;
-    left: calc(100% + 12px);
+    top: 0px;
+    width: 170px;
+    left: calc(100% + 1px);
+    img {
+      position: fixed;
+    }
+  }
+
+  .iz1{
+
+  }
+  @media(max-width: 1350px) {
+    .izoneLeft,
+    .izoneRight {
+      display: none;
+    }
   }
 
   //----------------------------------------------------------------------------

@@ -2879,7 +2879,7 @@ SPAN.asyncUploader OBJECT {
   width: 69%;
 }
 
-.fuselect {
+.fuselect, a.maquette {
   position: relative;
   width: 29%;
   height: 40px;
@@ -2906,7 +2906,7 @@ SPAN.asyncUploader OBJECT {
   text-align: center;
 }
 
-.fuselect.active, .fuselect:hover {
+.fuselect.active, .fuselect:hover, a.maquette.active, a.maquette:hover {
   background-image: none;
   background-color: #EA2A6A;
   border: 1px solid #db1657;
@@ -2914,11 +2914,11 @@ SPAN.asyncUploader OBJECT {
   transition: .2s;
 }
 
-.fuselect.deactive {
+.fuselect.deactive, a.maquette.deactive {
   cursor: default !important;
 }
 
-.fuselect.deactive.active, .fuselect.deactive:hover {
+.fuselect.deactive.active, .fuselect.deactive:hover, a.maquette.deactive.active, a.maquette.deactive:hover {
   background: #32A1CC;
   border: 1px solid #2b8aaf;
 }
@@ -3259,6 +3259,7 @@ tbody {
   position: relative;
   width: 100%;
   height: 100%;
+  font-size: .8rem;
 }
 
 #fbcart_cart {
