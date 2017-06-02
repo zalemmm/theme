@@ -1451,16 +1451,20 @@ input::placeholder {
   background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
   background-position: center right;
   background-repeat: no-repeat;
-  background-color: #d7e6fc;
-  color: #2e57e7;
+  background-color: rgba(177, 211, 255, 0.8);
 }
 
 .jotform-form select option.ecofr {
-  background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/eco.png), url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
-  background-position: center 50%, center calc( 50% + 50px);
-  background-repeat: no-repeat, no-repeat;
-  background-color: #d7e6fc;
-  color: #0dda65;
+  background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mifeco.png);
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-color: #d8fce3;
+}
+
+.jotform-form select option .spanfr, .jotform-form select option .spaneco {
+  font-weight: 900;
+  display: inline-block;
+  margin-left: 50px;
 }
 
 .jotform-form select.option3, .jotform-form select.option4 {
@@ -2863,8 +2867,203 @@ SPAN.asyncUploader OBJECT {
           justify-content: space-between;
 }
 
+.uploadbuttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 69%;
+}
+
+.fuselect {
+  position: relative;
+  width: 29%;
+  height: 40px;
+  margin: 0 0 10px 0;
+  padding: .7rem .5rem .5rem;
+  display: inline-block;
+  float: none;
+  cursor: pointer;
+  background-image: none;
+  background-repeat: no-repeat;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  background: #32A1CC;
+  border: 1px solid #2b8aaf;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: .8rem;
+  line-height: .8rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-indent: 0;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.fuselect.active, .fuselect:hover {
+  background-image: none;
+  background-color: #EA2A6A;
+  border: 1px solid #db1657;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.fuselect.deactive {
+  cursor: default !important;
+}
+
+.fuselect.deactive.active, .fuselect.deactive:hover {
+  background: #32A1CC;
+  border: 1px solid #2b8aaf;
+}
+
+.fustart {
+  position: relative;
+  width: 24%;
+  height: 40px;
+  margin: 0 0 10px 0;
+  padding: .7rem .5rem .5rem;
+  display: inline-block;
+  float: none;
+  cursor: pointer;
+  background-image: none;
+  background-repeat: no-repeat;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  background: #74c012;
+  border: 1px solid #609f0f;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: .8rem;
+  line-height: .8rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-indent: 0;
+  vertical-align: middle;
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+.fustart.active, .fustart:hover {
+  background-image: none;
+  background-color: #EA2A6A;
+  border: 1px solid #db1657;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.fustart.deactive {
+  cursor: default !important;
+}
+
+.fustart.deactive.active, .fustart.deactive:hover {
+  background: #74c012;
+  border: 1px solid #609f0f;
+}
+
+.fucancel {
+  position: relative;
+  width: 20%;
+  height: 40px;
+  margin: 0 0 10px 0;
+  padding: .7rem .5rem .5rem;
+  display: inline-block;
+  float: none;
+  cursor: pointer;
+  background-image: none;
+  background-repeat: no-repeat;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  background: #555a61;
+  border: 1px solid #44484e;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: .8rem;
+  line-height: .8rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-indent: 0;
+  vertical-align: middle;
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+.fucancel.active, .fucancel:hover {
+  background-image: none;
+  background-color: #EA2A6A;
+  border: 1px solid #db1657;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.fucancel.deactive {
+  cursor: default !important;
+}
+
+.fucancel.deactive.active, .fucancel.deactive:hover {
+  background: #555a61;
+  border: 1px solid #44484e;
+}
+
+.fudelete {
+  position: relative;
+  width: 20%;
+  height: 40px;
+  margin: 0 0 10px 0;
+  padding: .7rem .5rem .5rem;
+  display: inline-block;
+  float: none;
+  cursor: pointer;
+  background-image: none;
+  background-repeat: no-repeat;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+  background: #555a61;
+  border: 1px solid #44484e;
+  border-radius: 3px;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: .8rem;
+  line-height: .8rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-indent: 0;
+  vertical-align: middle;
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+.fudelete.active, .fudelete:hover {
+  background-image: none;
+  background-color: #EA2A6A;
+  border: 1px solid #db1657;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.fudelete.deactive {
+  cursor: default !important;
+}
+
+.fudelete.deactive.active, .fudelete.deactive:hover {
+  background: #555a61;
+  border: 1px solid #44484e;
+}
+
 .tdstart .fustart {
   width: 100%;
+  opacity: 1;
 }
 
 #fileupload {
@@ -6465,182 +6664,6 @@ a.but_espace.deactive.active, a.but_espace.deactive:hover {
 }
 
 .but_ratingsubmit.deactive.active, .but_ratingsubmit.deactive:hover {
-  background: #555a61;
-  border: 1px solid #44484e;
-}
-
-.fuselect {
-  position: relative;
-  width: 29%;
-  height: 40px;
-  margin: 0 0 10px 0;
-  padding: .7rem .5rem .5rem;
-  display: inline-block;
-  float: none;
-  cursor: pointer;
-  background-image: none;
-  background-repeat: no-repeat;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  background: #32A1CC;
-  border: 1px solid #2b8aaf;
-  border-radius: 3px;
-  color: #fff;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: .8rem;
-  line-height: .8rem;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  text-indent: 0;
-  vertical-align: middle;
-  text-align: center;
-}
-
-.fuselect.active, .fuselect:hover {
-  background-image: none;
-  background-color: #EA2A6A;
-  border: 1px solid #db1657;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.fuselect.deactive {
-  cursor: default !important;
-}
-
-.fuselect.deactive.active, .fuselect.deactive:hover {
-  background: #32A1CC;
-  border: 1px solid #2b8aaf;
-}
-
-.fustart {
-  position: relative;
-  width: 29%;
-  height: 40px;
-  margin: 0 0 10px 0;
-  padding: .7rem .5rem .5rem;
-  display: inline-block;
-  float: none;
-  cursor: pointer;
-  background-image: none;
-  background-repeat: no-repeat;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  background: #74c012;
-  border: 1px solid #609f0f;
-  border-radius: 3px;
-  color: #fff;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: .8rem;
-  line-height: .8rem;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  text-indent: 0;
-  vertical-align: middle;
-  padding-top: .3rem;
-}
-
-.fustart.active, .fustart:hover {
-  background-image: none;
-  background-color: #EA2A6A;
-  border: 1px solid #db1657;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.fustart.deactive {
-  cursor: default !important;
-}
-
-.fustart.deactive.active, .fustart.deactive:hover {
-  background: #74c012;
-  border: 1px solid #609f0f;
-}
-
-.fucancel {
-  position: relative;
-  width: 19%;
-  height: 40px;
-  margin: 0 0 10px 0;
-  padding: .7rem .5rem .5rem;
-  display: inline-block;
-  float: none;
-  cursor: pointer;
-  background-image: none;
-  background-repeat: no-repeat;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  background: #555a61;
-  border: 1px solid #44484e;
-  border-radius: 3px;
-  color: #fff;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: .8rem;
-  line-height: .8rem;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  text-indent: 0;
-  vertical-align: middle;
-  padding-top: .3rem;
-}
-
-.fucancel.active, .fucancel:hover {
-  background-image: none;
-  background-color: #EA2A6A;
-  border: 1px solid #db1657;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.fucancel.deactive {
-  cursor: default !important;
-}
-
-.fucancel.deactive.active, .fucancel.deactive:hover {
-  background: #555a61;
-  border: 1px solid #44484e;
-}
-
-.fudelete {
-  position: relative;
-  width: 19%;
-  height: 40px;
-  margin: 0 0 10px 0;
-  padding: .7rem .5rem .5rem;
-  display: inline-block;
-  float: none;
-  cursor: pointer;
-  background-image: none;
-  background-repeat: no-repeat;
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
-  background: #555a61;
-  border: 1px solid #44484e;
-  border-radius: 3px;
-  color: #fff;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: .8rem;
-  line-height: .8rem;
-  font-weight: normal;
-  text-align: center;
-  text-transform: uppercase;
-  text-indent: 0;
-  vertical-align: middle;
-  padding-top: .3rem;
-}
-
-.fudelete.active, .fudelete:hover {
-  background-image: none;
-  background-color: #EA2A6A;
-  border: 1px solid #db1657;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.fudelete.deactive {
-  cursor: default !important;
-}
-
-.fudelete.deactive.active, .fudelete.deactive:hover {
   background: #555a61;
   border: 1px solid #44484e;
 }

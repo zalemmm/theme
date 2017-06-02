@@ -1345,18 +1345,20 @@ input::placeholder {
         background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
         background-position: center right;
         background-repeat: no-repeat;
-        background-color: rgba(215, 230, 252, 1);
-        color: #2e57e7;
+        background-color: rgba(177,211,255,.8);
       }
       &.ecofr {
-        background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/eco.png),
-                          url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
-        background-position: center 50%,
-                             center calc( 50% + 50px );
-        background-repeat: no-repeat,
-                           no-repeat;
-        background-color: rgba(215, 230, 252, 1);
-        color: #0dda65;
+        background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mifeco.png);
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-color: rgba(216,252,227,1);
+
+      }
+      .spanfr, .spaneco {
+        font-weight: 900;
+        display: inline-block;
+        margin-left: 50px;
+
       }
     }
 
@@ -2610,18 +2612,54 @@ SPAN {
   background: darken($bloc-base, 2%);
   line-height: 19px;
   padding: 1rem 1rem .5rem;
+
   .span7 {
     display: flex;
-display:-webkit-flex;
-
+    display:-webkit-flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 }
 
+.uploadbuttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 69%;
+}
+// boutons file upload ---------------------------------------------------------
+
+.fuselect {
+  @include buttonLog($cyan, 29%);
+  text-align: center;
+}
+
+.fustart {
+  @include buttonLog($color_29, 24%);
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+.fucancel {
+  @include buttonLog($text, 20%);
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
+.fudelete {
+  @include buttonLog($text, 20%);
+  padding-top: .3rem;
+  opacity: .2;
+  cursor: not-allowed;
+}
+
 .tdstart .fustart {
   width: 100%;
+  opacity: 1;
 }
+
 
 
 // tableau file uplaod--------------------------------------------------------
@@ -4953,27 +4991,7 @@ a.but_espace {
   float: right;
 }
 
-// boutons file upload ---------------------------------------------------------
 
-.fuselect {
-  @include buttonLog($cyan, 29%);
-  text-align: center;
-}
-
-.fustart {
-  @include buttonLog($color_29, 29%);
-  padding-top: .3rem;
-}
-
-.fucancel {
-  @include buttonLog($text, 19%);
-  padding-top: .3rem;
-}
-
-.fudelete {
-  @include buttonLog($text, 19%);
-  padding-top: .3rem;
-}
 
 a.post-edit-link{
   @include buttonLog($text, 100px);
@@ -5965,11 +5983,3 @@ span#footer_links2 {
   }
 
 }
-
-//
-
-
-
-
-
-//

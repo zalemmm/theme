@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-  $(".select7").select7();
+
   // bouton close messages d'erreur
   $(document).on('click', '.closeButton', function() {
     $('.closeButton').parent().fadeOut();
@@ -69,6 +69,13 @@ jQuery(document).ready(function ($) {
       MsTransition     : '0.5s',
       OTransition      : '0.5s',
       transition       : '0.5s'
+    });
+  });
+
+  $('.fileinput-button').click(function() {
+    $('.fustart, .fucancel, .fudelete').css({
+      opacity: '1',
+      cursor: 'pointer'
     });
   });
 
