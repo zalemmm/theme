@@ -41,9 +41,9 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 editor_section">
             <div id="content" class="tabing">
                 <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-                    <li class="active"><a ng-click="deactivateAll()" href="#Products" class="products" data-toggle="tab"><i class="glyphicon glyphicon-shopping-cart"></i>Products</a></li>
-                    <li><a ng-click="deactivateAll()" href="#Graphics" class="graphics" data-toggle="tab"><i class="glyphicon glyphicon-camera"></i>Graphics</a></li>
-                    <li><a ng-click="addTextByAction()" href="#Text" class="text" data-toggle="tab"><i class="glyphicon glyphicon-text-size"></i>Text</a></li>
+                    <li class="active"><a ng-click="deactivateAll()" href="#Products" class="products" data-toggle="tab"><i class="glyphicon glyphicon-shopping-cart"></i>Votre Produit</a></li>
+                    <li><a ng-click="deactivateAll()" href="#Graphics" class="graphics" data-toggle="tab"><i class="glyphicon glyphicon-camera"></i>Ajouter une image</a></li>
+                    <li><a ng-click="addTextByAction()" href="#Text" class="text" data-toggle="tab"><i class="glyphicon glyphicon-text-size"></i>Ajouter du texte</a></li>
                 </ul>
                 <div id="my-tab-content" class="tab-content action_tabs">
                     <div class="tab-pane active clearfix" id="Products">
@@ -76,7 +76,7 @@
                                 <div>
                                     <a class="" href="#clip_arts" aria-controls="clip_arts" role="tab" data-toggle="tab" ng-click="exitDrawing()">
                                         <i class="fa fa-camera-retro"></i>
-                                        <span>Art work</span>
+                                        <span>Choisir dans notre base d'images</span>
                                     </a>
                                 </div>
                             </li>
@@ -84,7 +84,7 @@
                                 <div>
                                     <a class="" href="#upload_own" aria-controls="upload_own" role="tab" data-toggle="tab" ng-click="exitDrawing()">
                                         <i class="fa fa-cloud-upload"></i>
-                                        <span>Upload own</span>
+                                        <span>Choisir depuis mon ordinateur</span>
                                     </a>
                                 </div>
                             </li>
@@ -100,7 +100,7 @@
                                 <div>
                                     <a class="" href="#hand_draw" aria-controls="hand_draw" role="tab" data-toggle="tab" ng-click="enterDrawing();">
                                         <i class="fa fa-pencil-square-o"></i>
-                                        <span>Hand draw</span>
+                                        <span>Dessiner</span>
                                     </a>
                                 </div>
                             </li>
@@ -119,12 +119,12 @@
                                     </div>
                                 </div>
                                 <span ng-show="graphic_icons" class="back_to_graphic" ng-click="ShowGraphicIcons()">
-                                    <i class="fa fa-angle-left"></i> Back
+                                    <i class="fa fa-angle-left"></i> Retour
                                 </span>
                                 <div class="graphic_icons" ng-show="graphic_icons">
                                     <div class="cal-lg-12 filter_by_cat">
                                         <md-input-container style="">
-                                            <label>Sort by category</label>
+                                            <label>Classer par catégorie</label>
                                             <md-select ng-model="graphicsCategory" ng-change="loadByGraphicsCategory();">
                                                 <md-option ng-repeat="graphicsCategory in graphicsCategories" value="{{graphicsCategory}}">{{graphicsCategory}}</md-option>
                                             </md-select>
@@ -134,7 +134,7 @@
                                         <ul>
                                             <li ng-repeat="graphic in graphics"><a href="javascript:void(0);" ng-click='addShape(graphic)'><img data-ng-src="{{graphic}}" alt="" width="120px;"></a></li>
                                         </ul>
-                                        <a ng-if="loadMore" class="loadMore" ng-click="graphics_load_more(graphicsPage)">Load More</a>
+                                        <a ng-if="loadMore" class="loadMore" ng-click="graphics_load_more(graphicsPage)">Charger plus</a>
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@
                                     <div class="well" >
                                         <div class="row form-group">
                                             <md-input-container flex>
-                                                <label>Enter website link or text here</label>
+                                                <label>Entrer le lien ou le texte ici</label>
                                                 <textarea  columns="1" id="textarea-text-qr-code" ng-model="fabric.selectedObject.textQRCode"></textarea>
                                             </md-input-container>
 
@@ -190,14 +190,14 @@
                                         <br />
                                         <div class="row form-group">
                                             <md-radio-group ng-model="drawing_mode_selector" ng-if="enter_drawing_mode == 'Cancel Drawing Mode'">
-                                                <md-radio-button value="Pencil" class="md-primary" ng-click="changeDrawingMode('Pencil');">Pencil</md-radio-button>
-                                                <md-radio-button value="Circle" class="md-primary" ng-click="changeDrawingMode('Circle');"> Circle </md-radio-button>
+                                                <md-radio-button value="Pencil" class="md-primary" ng-click="changeDrawingMode('Pencil');">Crayon</md-radio-button>
+                                                <md-radio-button value="Circle" class="md-primary" ng-click="changeDrawingMode('Circle');"> Cercle </md-radio-button>
                                                 <md-radio-button value="Spray" class="md-primary" ng-click="changeDrawingMode('Spray');">Spray</md-radio-button>
-                                                <md-radio-button value="Pattern" class="md-primary" ng-click="changeDrawingMode('Pattern');">Pattern</md-radio-button>
-                                                <md-radio-button value="hline" class="md-primary" ng-click="changeDrawingMode('hline');">H-line</md-radio-button>
-                                                <md-radio-button value="vline" class="md-primary" ng-click="changeDrawingMode('vline');">V-line</md-radio-button>
-                                                <md-radio-button value="square" class="md-primary" ng-click="changeDrawingMode('square');">Square</md-radio-button>
-                                                <md-radio-button value="diamond" class="md-primary" ng-click="changeDrawingMode('diamond');">Diamond</md-radio-button>
+                                                <md-radio-button value="Pattern" class="md-primary" ng-click="changeDrawingMode('Pattern');">Motif</md-radio-button>
+                                                <md-radio-button value="hline" class="md-primary" ng-click="changeDrawingMode('hline');">Ligne-H</md-radio-button>
+                                                <md-radio-button value="vline" class="md-primary" ng-click="changeDrawingMode('vline');">Lighe-V</md-radio-button>
+                                                <md-radio-button value="square" class="md-primary" ng-click="changeDrawingMode('square');">Carré</md-radio-button>
+                                                <md-radio-button value="diamond" class="md-primary" ng-click="changeDrawingMode('diamond');">Losange</md-radio-button>
                                             </md-radio-group>
 
                                         </div>
@@ -241,7 +241,7 @@
                                 <div>
                                     <a href="#text_design" aria-controls="text_design" role="tab" data-toggle="tab">
                                         <i class="fa fa-font"></i>
-                                        <span>Text Design</span>
+                                        <span>Texte</span>
                                     </a>
                                 </div>
                             </li>
@@ -264,12 +264,12 @@
                                     <div class="well" >
                                         <div class="row form-group">
                                             <md-input-container flex>
-                                                <label>Enter text below</label>
+                                                <label>Entrer le texte ci-dessous</label>
                                                 <textarea  columns="1" id="textarea-text" style="text-align: {{ fabric.selectedObject.textAlign }}" ng-model="fabric.selectedObject.text"></textarea>
                                             </md-input-container>
 
                                             <div class="clearfix">
-                                                <md-button class="md-raised md-cornered" ng-click="addText()" aria-label="Add Text"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Text</md-button>
+                                                <md-button class="md-raised md-cornered" ng-click="addText()" aria-label="Add Text"><i class="fa fa-plus"></i>&nbsp;&nbsp;Ajouter du texte</md-button>
                                             </div>
                                         </div>
 
@@ -283,11 +283,11 @@
                                     <div class="well" >
                                         <div class="row form-group">
                                             <md-input-container flex>
-                                                <label>Enter words below</label>
+                                                <label>Entrez votre texte</label>
                                                 <textarea  columns="1" id="textarea-text-word-cloud" style="text-align: {{ fabric.selectedObject.textAlign }}" ng-model="fabric.selectedObject.textWordCloud"></textarea>
                                             </md-input-container>
                                             <div class="clearfix">
-                                                <md-button class="md-raised md-cornered" ng-click="addWordCloud()" aria-label="Add Word Cloud"><i class="fa fa-plus"></i>&nbsp;&nbsp;Add Word Cloud</md-button>
+                                                <md-button class="md-raised md-cornered" ng-click="addWordCloud()" aria-label="Add Word Cloud"><i class="fa fa-plus"></i>&nbsp;&nbsp;Créer un nuage de mots</md-button>
                                             </div>
                                         </div>
 
@@ -299,7 +299,7 @@
                     </div>
 
                     <div class="tab-pane clearfix" id="Layers">
-                        <h1>Layers</h1>
+                        <h1>Calques</h1>
                         <div class="col-lg-12 layer_listing scrollme" rebuild-on="rebuild:layer" ng-scrollbar is-bar-shown="barShown">
 
                         <ul class="ul_layer_canvas row">
@@ -330,13 +330,13 @@
             <!---->
             <div class="col-lg-12" ng-class="fabric.selectedObject ? 'activeControlsElem' : ''" ng-if='fabric.selectedObject.type' ng-switch='fabric.selectedObject.type'>
 
-                <div class="close-circle"><i class="fa fa-angle-left" ng-click="deactivateAll();"><span>Back</span></i></div>
+                <div class="close-circle"><i class="fa fa-angle-left" ng-click="deactivateAll();"><span>Retour</span></i></div>
 
                 <div class="well">
 
                     <div class="row form-group" ng-show="fabric.selectedObject.type == 'text' || fabric.selectedObject.type == 'curvedText'">
                         <md-input-container flex>
-                            <label>Enter text below</label>
+                            <label>Entrer le texte ci-dessous</label>
                             <textarea  columns="1" id="textarea-text" style="text-align: {{ fabric.selectedObject.textAlign }}" ng-model="fabric.selectedObject.text"></textarea>
                         </md-input-container>
                     </div>
@@ -353,14 +353,14 @@
                         <div class="row col-lg-6" title="Font size" ng-show="fabric.selectedObject.type == 'text' || fabric.selectedObject.type == 'curvedText'">
 
                             <md-input-container flex>
-                                <label><i class="fa fa-text-height"></i> (Font size)</label>
+                                <label><i class="fa fa-text-height"></i> (taille)</label>
                                 <input type='number' class="" ng-model="fabric.selectedObject.fontSize" />
                             </md-input-container>
 
                         </div>
                         <div class="row col-lg-6" title="Line height" ng-show="fabric.selectedObject.type == 'text'">
                             <md-input-container flex>
-                                <label><i class="fa fa-align-left"></i> (Line height)</label>
+                                <label><i class="fa fa-align-left"></i> (hauteur ligne)</label>
                                 <input type='number' class="" ng-model="fabric.selectedObject.lineHeight" step=".1" />
                             </md-input-container>
 
@@ -380,11 +380,11 @@
                         <md-button class="md-raised md-cornered" ng-class="{ active: fabric.isLinethrough() }" ng-click="toggleLinethrough()" aria-label="Strike through"><i class='fa fa-strikethrough'></i></md-button>
                     </div>
                     <div class='row form-group curved_text' ng-show="fabric.selectedObject.type == 'text' || fabric.selectedObject.type == 'curvedText'">
-                        <md-switch ng-model="fabric.selectedObject.isCurved" aria-label="Switch 1" ng-change="curveText();">Curved text </md-switch>
+                        <md-switch ng-model="fabric.selectedObject.isCurved" aria-label="Switch 1" ng-change="curveText();">Texte incuvé</md-switch>
                     </div>
                     <div class="row form-group transparency" title="Radius" ng-show="fabric.selectedObject.type == 'curvedText'" style="margin-bottom: 0px;">
                         <md-input-container flex>
-                            <label for="Radius">Radius:</label>
+                            <label for="Radius">Rayon:</label>
                             <input class='col-sm-12' title="Radius" type='range' min="50" max="200" value="100" ng-model="fabric.selectedObject.radius" ng-change="radius(fabric.selectedObject.radius);"/>
                         </md-input-container>
                     </div>
@@ -392,7 +392,7 @@
 
                     <div class="row form-group transparency" title="Spacing" ng-show="fabric.selectedObject.type == 'curvedText'" style="margin-bottom: 35px;">
                         <md-input-container flex>
-                            <label for="Spacing">Spacing:</label>
+                            <label for="Spacing">Espacement:</label>
                             <input class='col-sm-12' title="Spacing" type='range' min="5" max="30" value="10" ng-model="fabric.selectedObject.spacing" ng-change="spacing(fabric.selectedObject.spacing);"/>
                         </md-input-container>
                     </div>
@@ -412,12 +412,12 @@
                     </div>
 
                     <div class="col-sm-12 input-group cloud-options" ng-show="fabric.selectedObject.type == 'image'">
-                        <label class="custom-label">Filters:</label>
+                        <label class="custom-label">Filtres:</label>
                         <br>
-                        <md-checkbox ng-model="fabric.selectedObject.isGrayscale" aria-label="Grayscale" ng-click="setImageFilter(fabric.selectedObject.isGrayscale, 0);">Grayscale</md-checkbox>
+                        <md-checkbox ng-model="fabric.selectedObject.isGrayscale" aria-label="Grayscale" ng-click="setImageFilter(fabric.selectedObject.isGrayscale, 0);">Noir et Blanc</md-checkbox>
                         <md-checkbox ng-model="fabric.selectedObject.isSepia" aria-label="Sepia" ng-click="setImageFilter(fabric.selectedObject.isSepia, 1);">Sepia</md-checkbox>
-                        <md-checkbox ng-model="fabric.selectedObject.isInvert" aria-label="Invert" ng-click="setImageFilter(fabric.selectedObject.isInvert, 2);">Invert</md-checkbox>
-                        <md-checkbox ng-model="fabric.selectedObject.isEmboss" aria-label="Emboss" ng-click="setImageFilter(fabric.selectedObject.isEmboss, 3);">Emboss</md-checkbox>
+                        <md-checkbox ng-model="fabric.selectedObject.isInvert" aria-label="Invert" ng-click="setImageFilter(fabric.selectedObject.isInvert, 2);">Inverser</md-checkbox>
+                        <md-checkbox ng-model="fabric.selectedObject.isEmboss" aria-label="Emboss" ng-click="setImageFilter(fabric.selectedObject.isEmboss, 3);">Embosser</md-checkbox>
                         <md-checkbox ng-model="fabric.selectedObject.isSharpen" aria-label="Sharpen" ng-click="setImageFilter(fabric.selectedObject.isSharpen, 4);">Sharpen</md-checkbox>
                     </div>
 
@@ -436,17 +436,14 @@
             <div class="row">
                 <div class="canvas_options">
                     <ul class="clearfix">
-                        <li ng-click="layers()" href="#Layers" data-toggle="tab"><i class="fa fa-object-ungroup"></i><span>Layers</span></li>
-                        <li ng-click="copyItem()"><i class="fa fa-copy"></i><span>Copy</span></li>
-                        <li ng-click="pasteItem()"><i class="fa fa-paste"></i><span>Paste</span></li>
-                        <li ng-click="forwardSwap()"><i class="fa fa-mail-forward"></i><span>Forward <br> Swap</span></li>
-                        <li ng-click="backwordSwap()"><i class="fa fa-mail-reply"></i><span>Backward <br> Swap</span></li>
-                        <li ng-click="horizontalAlign()"><i class="fa fa-arrows-h"></i><span>Horizontal <br> Align</span></li>
-                        <li ng-click="verticalAlign()"><i class="fa fa-arrows-v"></i><span>Vertical Align</span></li>
-                        <li ng-click="{ active: flipObject() }"><i class="fa fa-exchange fa-2"></i><span>Flip</span></li>
-                        <li ng-click="lockObject()"><i ng-class="isLocked() ? 'fa-lock' : 'fa-unlock'" class="fa fa-2"></i><span>Lock Layer</span></li>
-                        <li ng-click="removeSelectedObject()"><i class="fa fa-eraser"></i><span>Remove <br>Layer </span></li>
-                        <li ng-click="clearAll()"><i class="fa fa-trash"></i><span>Empty <br> Canvas</span></li>
+                        <li ng-click="layers()" href="#Layers" data-toggle="tab"><i class="fa fa-object-ungroup"></i><span>Calques</span></li>
+                        <li ng-click="copyItem()"><i class="fa fa-copy"></i><span>Copier</span></li>
+                        <li ng-click="pasteItem()"><i class="fa fa-paste"></i><span>Coller</span></li>
+                        <li ng-click="horizontalAlign()"><i class="fa fa-arrows-h"></i><span>Aligner <br> Horizontalement</span></li>
+                        <li ng-click="verticalAlign()"><i class="fa fa-arrows-v"></i><span>Aligner <br> Verticalement</span></li>
+                        <li ng-click="{ active: flipObject() }"><i class="fa fa-exchange fa-2"></i><span>Mirroir</span></li>
+                        <li ng-click="removeSelectedObject()"><i class="fa fa-eraser"></i><span>Supprimer <br>le calque </span></li>
+                        <li ng-click="clearAll()"><i class="fa fa-trash"></i><span>Tout effacer</span></li>
                     </ul>
                 </div>
                 <div class="canvas_image image-builder ng-isolate-scope">
@@ -557,24 +554,24 @@
 
 
 <section class="customizer" id="customizer">
-    <a href="http://designtailor.veepixel.com/"><img src="images/logo.png" alt="" class="logo"></a>
+
     <div class="selector">
-          <h2>Live Customizer</h2>
+          <h2>Configurer l'espace de travail</h2>
           <div class="color_section color_block">
 
 
-                <span class="customizer_headings">Color Changer</span>
+                <span class="customizer_headings">Couleurs</span>
 
               <div class="col-lg-12 color-mixer">
                   <div class="col-lg-12">
-                      <label class="customizer-label">Primary</label>
+                      <label class="customizer-label">Primaire</label>
                       <div class="input-group colorPicker2 colorpicker-element">
                               <input ng-model="primaryColor" colorpicker type="text" value="" class="form-control"/>
                               <span class="input-group-addon"><i style="background: {{primaryColor}};"></i></span>
                       </div>
                   </div>
                   <div class="col-lg-12">
-                      <label class="customizer-label">Secondary</label>
+                      <label class="customizer-label">Secondaire</label>
                       <div class="input-group colorPicker2 colorpicker-element">
                           <input ng-model="secondaryColor" colorpicker type="text" value="" class="form-control"/>
                           <span class="input-group-addon"><i style="background: {{secondaryColor}};"></i></span>
@@ -582,24 +579,19 @@
                   </div>
                   <hr /><br /><br />
                   <div class="col-lg-12">
-                  <center><input ng-model="colorResult" type="button" value="Apply Color Scheme" class="btn btn-info" ng-click="changeColorScheme()"/></center>
+                  <center><input ng-model="colorResult" type="button" value="Appliquer" class="btn btn-info" ng-click="changeColorScheme()"/></center>
                   </div>
 
               </div>
 
-                <span class="customizer_headings">Canvas Background</span>
+                <span class="customizer_headings">Arrière plan</span>
                 <ul id="canvas_color_selector" class="color_selector canvas_selector">
                       <li data-attr="images/site_bg_01.jpg" class="canvas_1"></li>
                       <li data-attr="images/site_bg_02.jpg" class="canvas_2"></li>
                       <li data-attr="images/site_bg_03.jpg" class="canvas_3"></li>
                       <li data-attr="images/site_bg_04.jpg" class="canvas_4"></li>
                 </ul>
-                <span class="customizer_headings">Page Layout</span>
-                <ul class="layout_options">
-                      <li><a href="index.html"><img src="images/layout_2.jpg" style="width: 60px;"></a></li>
-                      <li><a href="index_01.html"><img src="images/layout_1.jpg" style="width: 60px;"></a></li>
-                      <li><a href="index_02.html"><img src="images/layout_3.jpg" style="width: 60px;"></a></li>
-                </ul>
+
           </div>
     </div>
     <i class="fa fa-cog" id="selector_icon"></i>

@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.18.12",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.0.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^1.12.0",
     "jquery.uniform": "^4.2.0"
   },
   "devDependencies": {

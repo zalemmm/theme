@@ -3,15 +3,13 @@
    "products":[
       {
          "id":1,
-         "name":"Sport Tees",
-         "price":310,
-         "category": "clothes",
-         "currency":"USD",
-         "image":"dummy_data/products/t_shirts/20.png",
+         "name":"Aile d'avion",
+         "price":0,
+         "category": "oriflammes",
+         "currency":"EUR",
+         "image":"dummy_data/products/oriflammes/aile54x240.png",
          "sub_images":[
-            "dummy_data/products/t_shirts/20.png",
-            "dummy_data/products/t_shirts/20-1.png",
-            "dummy_data/products/t_shirts/20-2.png"
+            "dummy_data/products/oriflammes/aile54x240rv.png"
          ],
          "description":"Lorium ipsum dolor sit amet"
       },
@@ -81,7 +79,7 @@
             "dummy_data/products/t_shirts/22-1.png"
          ],
          "description":"Lorium ipsum dolor sit amet"
-      }, 
+      },
       {
          "id":9,
          "name":"White Shirt",
@@ -268,6 +266,19 @@
          "image":"dummy_data/products/mugs/13.png",
          "sub_images":[
             "dummy_data/products/mugs/13.png"
+         ],
+         "description":"Lorium ipsum dolor sit amet"
+      }
+
+      {
+         "id":24,
+         "name":"Oriflammes",
+         "price":0,
+         "category": "Oriflammes",
+         "currency":"USD",
+         "image":"dummy_data/products/oriflammes/aile54x240.png",
+         "sub_images":[
+            "dummy_data/products/oriflammes/aile54x240.png"
          ],
          "description":"Lorium ipsum dolor sit amet"
       }
