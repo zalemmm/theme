@@ -34,19 +34,13 @@
       "secondaryColor" : "#ffffff",
       "graphicsCategory": "Flat Icons",
       "graphicsCategories":{
-        "Flat Icons": "Flat Icons",
-        "ClipArts": "ClipArts",
-        "Flags": "Country Flags",
-        "Shapes": "Shapes",
-        "Quotes": "Quotes",
-        "Badges": "Badges",
-        "Zodiac": "Zodiac Sign"
+        "Shapes": "Shapes"
       },
       "productCategories":{
         "All" : "All",
         "Clothes" : "Clothes",
-        "Bottles" : "Bottles",
-        "Others" : "Others"
+        "Others" : "Others",
+        "oriflammes" : "oriflammes"
       },
       "productByName": "DESC",
       "productByNames":{

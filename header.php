@@ -34,16 +34,22 @@
 		<div id="main">
 
 			<div id="header">
+
+				<!-- Publicités sur les côtés -->
 				<?php
-				if(is_page('stand-parapluie')) {
-					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/stand-parapluie"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoLeft.png" title="promo stand tissu" alt="promo stand tissu"></a></div>';
-					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoRight.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
+				if(is_page('oriflammes') || is_page('banderoles') || is_page('plv-exterieur') || is_page('tente-publicitaire-barnum')) {
+					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/tente-publicitaire-barnum"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoTentes.png" title="promo tentes" alt="promo tente publicitaire"></a></div>';
+					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoGoutte.png" title="promo oriflamme beachflag" alt="promo oriflamme"></a></div>';
+				}else if(is_page('stand-parapluie') || is_page('roll-up') || is_page('totem')) {
+					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/roll-up"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoRollup.png" title="promo Rollup" alt="promo stand tissu"></a></div>';
+					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/totem"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoXscreen.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
 				}else{
-					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/stand-parapluie"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoLeft.png" title="promo stand tissu" alt="promo stand tissu"></a></div>';
-					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoRight.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
+					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/stand-parapluie"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoStand.png" title="promo stand tissu" alt="promo stand tissu"></a></div>';
+					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoOriflamme.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
 				}
 				?>
 
+				<!-- LOGO -->
 				<a href="<?php bloginfo('url'); ?>/index.php" id="logo" title="fabricant banderole"></a>
 
 				<div class="site-head">
@@ -51,6 +57,7 @@
 					<div class="site-subtitle">La qualité sans en payer le prix</div>
 				</div>
 
+				<!-- MENU CLIENT -->
 				<ul class="menu-client">
 
 					<li class="menu-client-item item1">
@@ -73,6 +80,7 @@
 					</li>
 					</ul>
 
+					<!-- MENU GLOBAL -->
 					<ul id="menu_top">
 						<li onmouseover="pokazt('produit_sub');" onmouseout="ukryjt('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
 
@@ -131,6 +139,7 @@
 
 						<li><a href="<?php bloginfo('url'); ?>/contact/"<?php if(is_page('contact')) echo ' id="active"'; ?>>CONTACT</a></li>
 					</ul>
+
 					<!--	<form name="search" id="search" method="get" action="<?php bloginfo('url'); ?>">
 					<input type="text" name="s" value="RECHERCHER" onfocus="if (this.value == 'RECHERCHER') {this.value = ''; this.style.color = '#000000';}" onblur="if (this.value == '') {this.value = 'RECHERCHER';this.style.color = '#e88c07';}" />
 					<input type="submit" id="submit_search" value="" />

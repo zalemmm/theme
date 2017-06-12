@@ -10,10 +10,7 @@ get_header();
   <div id="content_bg_top">
     <div id="content_zawartosc">
       <?php
-        //local echo do_shortcode("[metaslider id=3848]");
-        //dev   echo do_shortcode("[metaslider id=3870]");
-        //prod  echo do_shortcode("[metaslider id=4082]");
-        echo do_shortcode("[metaslider id=3848]");
+        echo do_shortcode("[metaslider id=4082]");
       ?>
       <div class="storycontent">
 
@@ -374,29 +371,28 @@ get_header();
 
           <hr class="hr-separator" />
 
-          <div class="important">
-            <h4 class="keepTxtColor">FRANCE BANDEROLE :</h4>
-            Imprimeur numérique grand format <a href="/kakemonos/" title="KAKEMONO">Kakemono</a> &amp; Banderole, Réalisation/impression/façonnage réalisés en France métropolitaine
-            <h4 class="keepTxtColor">TAILLES D'IMPRESSION :</h4>
-             Banderole jusqu'à 50m sur 3,20m . 7 matière de bâches : classées M1, écologique, PVC, micro-perforée... Voir rubrique <a href="/realisation/">Réalisation</a>
-            <h4 class="keepTxtColor">IMPRESSION NUMÉRIQUE 1440Dpi :</h4>
-            Tenue et respect des couleurs garantie 3 ans en exterieur / intérieur sur banderoles<br />
-            <h4 class="keepTxtColor">RAPIDITÉ D'EXECUTION :</h4>
-            Possibilité de réalisations et livraisons de vos commandes en 24/48H ou 72H au choix
-          </div>
+
+
+
 
           <hr class="hr-separator" />
 
             <div class="important mc_texte" itemscope itemtype="http://schema.org/Product">
-              Depuis maintenant 8 ans, <strong itemprop="brand">France Banderole</strong> vous offre le meilleur rapport qualité prix réactivité dans l'impression de bâche imprimée pour vous permmettre d'acheter des banderoles pour tous les usages. <button class="toggle-button"> Lire la suite... <i class="fa fa-caret-down" aria-hidden="true"></i></button>
-
+              <p class="depuis"><span class="ribbon">Depuis maintenant<br />8 ans</span><br />
+                <strong itemprop="brand">France Banderole</strong> vous offre le meilleur rapport qualité/prix/réactivité dans l'impression de bâche imprimée pour vous permmettre d'acheter des banderoles pour tous les usages.
+              </p>
+              <button class="toggle-button"> Lire la suite... <i class="fa fa-caret-down" aria-hidden="true"></i></button>
               <div class="toggle-block" style="display:none;">
-                Que votre banderole soit prévue pour être accrochée en intérieur ou en extérieur, vous avez le choix du matériau (bâche PVC, banderole écologique) adaptée en fonction de vos besoins. Les <span itemprop="name">banderoles</span> publicitaires sont devenues un élément incontournable de la communication institutionnelle pmour tous les communicants. En effet que vous soyez une Mairie, Un centre culturel, une Association, une Communauté de communes, une Agence de publicité, un marchand de bien, une Agence Immobilière, une concession automobile, une enseigne de la grande distribution ou bien même un de nos confrères imprimeurs ou toute autres sociétés, vous avez besoin de communiquer à moindre frais. Acheter des <span itemprop="name">banderoles</span> personnalisées étaient jusque là fastidieux. Depuis la création de <strong itemprop="brand">France Banderole</strong>, tous nos tarifs sont en ligne et vous pouvez calculer votre devis vous même. Plus besoin d'attendre un hypothétique mail pour avoir un prix chez un imprimeur numérique grand format local. Chez <strong itemprop="brand">France Banderole</strong>, c'est tout de suite ! et depuis 8 ans avec plus de 9500 clients et plus de 7000 colis expédiés dans tout l'exagone tous les ans, nous avons toujours été les plus rapide à vous livrer et n'avons à déplorer aucun retard dans les livraisons. Aujourd'hui, tous nos confrères nous copient, affichant leurs tarifs de <span itemprop="name">banderoles</span> et de bache publicitaires à grand coup de promotion, de gratuit et de prix au m² toujours plus bas. Soyez rassurés, chez nous, Tous nos produits sont exclusivement Français ou européen, nos encres éco-solvant ou UV sur nos traceurs grand format de dernière génération sont sans aucune conséquence sur l'environnement, et toutes nos impressions numériques grand format de banderole, bâche publicitaire, kakemono, Sticker, flyers, cartes de visites, dépliants, affiches sont réalisées en France, dans notre atelier de Vitrolles, situé entre Aix en Provence et Marseille. Nous sommes Français, Nous imprimons en France et nous en sommes fiers !<br />
+                Que votre banderole soit prévue pour être accrochée en intérieur ou en extérieur, vous avez le choix du matériau (bâche PVC, banderole écologique) adaptée en fonction de vos besoins. Les <span itemprop="name">banderoles</span> publicitaires sont devenues un élément incontournable de la communication institutionnelle pour tous les communicants. En effet que vous soyez une Mairie, un centre culturel, une association, une communauté de communes, une agence de publicité, un marchand de bien, une agence immobilière, une concession automobile, une enseigne de la grande distribution ou bien même un de nos confrères imprimeurs ou toute autres sociétés, vous avez besoin de communiquer à moindre frais. Acheter des <span itemprop="name">banderoles</span> personnalisées étaient jusque là fastidieux. Depuis la création de <strong itemprop="brand">France Banderole</strong>, tous nos tarifs sont en ligne et vous pouvez calculer votre devis vous même. Plus besoin d'attendre un hypothétique mail pour avoir un prix chez un imprimeur numérique grand format local. Chez <strong itemprop="brand">France Banderole</strong>, c'est tout de suite ! et depuis 8 ans avec plus de 9500 clients et plus de 7000 colis expédiés dans tout l'exagone tous les ans, nous avons toujours été les plus rapide à vous livrer et n'avons à déplorer aucun retard dans les livraisons. Aujourd'hui, tous nos confrères nous copient, affichant leurs tarifs de <span itemprop="name">banderoles</span> et de bache publicitaires à grand coup de promotion, de gratuit et de prix au m² toujours plus bas. Soyez rassurés, chez nous, Tous nos produits sont exclusivement Français ou européen, nos encres éco-solvant ou UV sur nos traceurs grand format de dernière génération sont sans aucune conséquence sur l'environnement, et toutes nos impressions numériques grand format de banderole, bâche publicitaire, kakemono, Sticker, flyers, cartes de visites, dépliants, affiches sont réalisées en France, dans notre atelier de Vitrolles, situé entre Aix en Provence et Marseille. Nous sommes Français, Nous imprimons en France et nous en sommes fiers !<br />
                 Le coût d'une <span itemprop="name">banderole</span> est aujourd'hui à si bas prix, qu'il devient impensable de s'en passer. Regardez autour de vous, dans la rue, dans l'entrée d'un salon évènementiel, sur des barrières de sécurité d'une mairie, les <span itemprop="name">banderoles</span> sont partout, pour la simple raison qu'elle vous permet de communiquer sur un support amovible facile à mettre en place, facile à retirer et qui vous permet rapidement de mettre en avant un produit ou d'un évènement en communiquant au plus grand nombre dans un minimum d'espace avec un prix très faible. Le retour sur investissement est donc assuré. Sur notre site de vente en ligne, vous trouverez le livre d'Or avec les appréciations de nos clients.<br />
                 Nous n'avons pas adhéré à un organisme quelconque sur lequel un prestataire d'impression numérique peut acheter des centaines ou milliers d'appréciations positives. NON, les commentaires laissés sur nos <span itemprop="name">banderoles</span>, kakemonos, oriflammes et autres produits que nous vendons et dont nous sommes fabricant, sont les appréciations de VRAIS CLIENTS qui ont acheté des bâches imprimées ou autre articles en ligne. Nous continuons à croire que d'être fidèle à nos engagements est la meilleure des solutions pour vous apporter les réponses à vos questions et que vous obteniez satisfaction. Nous n'achetons pas des listes d'e-mails pour communiquer à grand échelle. Pour recevoir les promotions mensuelles sur les <span itemprop="name">banderoles</span> publicitaires ou kakemonos grand format, vous devez avoir un compte client. Nos newsletters intègrent toujours un code de remise ou code promotionnel vous permettant d'acheter une <span itemprop="name">banderole</span> pas cher ou des dépliants avec une remise supplémentaire de 10% ou plus ! La fidélité, ca paie. Nous vous souhaitons une agréable navigation sur notre site de vente en ligne.
                 <img class="toggle-button goTop" title="remonter en haut de page" alt="remonter en haut de page" src="//www.france-banderole.com/wp-content/themes/fb/img/top.png" />
               </div>
             </div>
+
+
+
+
           </div>
           <div style="clear:both"></div>
         </div>

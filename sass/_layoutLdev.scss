@@ -22,6 +22,9 @@ a#corner_button_cart,
 #chat-application {
   display: none;
 }
+#chat-application {
+  margin-bottom: -20px;
+}
 
 iframe#sb-player {
   display: block;
@@ -129,28 +132,27 @@ body {
   @include container (100%);
   width: 100%;
   min-height: 400px;
-  height: auto !important;
-  height: 755px;
-  padding: 0 5% 15px;
+  height: auto;
+  padding: 0 5%;
+
 }
 
 .storycontent {
   //display: flex;
   //flex-direction: row;
   //flex-wrap: wrap;
+
 }
 
 //------------------------------------------------------------------------------
 //                        DECLARATIONS GENERALES
 //------------------------------------------------------------------------------
-
+.clear {
+  clear: both;
+}
 .split,
 .splitorhide{
   display: inline-block;
-}
-
-.small {
-  font-size: .75rem;
 }
 
 img {
@@ -189,6 +191,12 @@ hr {
   }
 }
 
+hr.imgSep {
+  height: 5px;
+  margin: 10px 0;
+  width: 100%;
+}
+
 .aligncenter {
   margin: 0 auto;
   text-align: center;
@@ -219,8 +227,12 @@ small {
   font-size: 0.8rem;
   line-height: 1rem;
 }
+.uppercase {
+  text-transform: uppercase;
+}
 
-span.pink {
+span.pink, .pink_link {
+  font-weight: bold;
   color: $magenta;
 }
 
@@ -327,7 +339,9 @@ a .highlight{
 .highlight.small {
   color: $white;
 }
-
+.green {
+  color: $green;
+}
 b {
   font-weight: 700;
   b{
@@ -367,10 +381,21 @@ input:focus {
 .bloc-right{
   width: 49%;
   float: right;
+  img {
+    max-width: 480px;
+    width: 100%;
+  }
 }
 
-.pink_link{
-  color: $magenta;
+
+.flex {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  img {
+    width: 32%;
+  }
 }
 
 //------------------------------------------------------------------------------
@@ -887,18 +912,41 @@ ul#tarifs {
   margin-right: 0;
 }
 
-// texte mots clés
+ul#introBlocs {
+  background: $bloc-base;
+  clear: both;
+  float: none;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
 
-  small {
-    font-size: .9rem;
-    font-weight: bold;
-    line-height: 1.1rem;
-    color: lighten($text, 20%);
-    a{
+  padding: 2rem 1rem;
 
-      text-decoration: none;
+  li {
+    text-align: center;
+    width: 24%; //120
+    height: auto; //160
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: normal;
+    font-size: .8rem;
+    line-height: .85rem;
+    i{
+      color: $text;
+      font-size: 80px;
+    }
+    h4 {
+      height: 40px;
+      text-align: center;
+      font-weight: 900;
     }
   }
+}
+
+
 
 
 .mc_texte {
@@ -910,13 +958,18 @@ ul#tarifs {
 // paragraphe important --------------------------------------------------------
 
 .important {
-  background: $bloc-base;
-  padding: 1rem;
+  padding: 0;
   font-family: $font-special;
   color: $text;
   font-size: .8rem;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   //box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+  .depuis {
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1rem;
+    max-width: 600px;
+  }
 }
 
 hr.hr-separator {
@@ -932,16 +985,33 @@ hr.hr-separator {
 // éléments cachés déroulants --------------------------------------------------
 
 .toggle-button {
+  position: relative;
   display: block;
-  margin: 20px auto;
+  margin: 40px auto -20px -5.7%;
   cursor: pointer;
   text-align: center;
   border: 0;
   background-color: transparent;
-  color: $jaune;
-  font-weight: bold;
-  font-family: $font-special;
-  font-size: 1.2rem;
+  background: darken($bloc-base, 5%);
+  width: calc(100% + 11.4%);
+  color: $text;
+  font-weight: 700;
+  font-family: $font-global;
+  font-size: .9rem;
+  line-height: .9rem;
+  height: 30px;
+
+  i {
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    top: 30px;
+    left: calc(50% - 20px);
+    background: darken($bloc-base, 5%);
+    border-radius:0 0 20px 20px;
+  }
+
   &:before{
     display: table;
     clear:both;
@@ -951,10 +1021,23 @@ hr.hr-separator {
 .toggle-block {
   clear: both;
   display: none;
+  padding: 5% 5% 20px 5%;
   font-family: $font-global;
   font-size: .85rem;
   line-height: 1rem;
   font-weight: normal;
+  margin-top: -20px;
+  margin-left: -5.6%;
+  background: darken($bloc-base,3%);
+  width: calc(100% + 11.2%);
+}
+
+img.toggle-button {
+  margin: 20px auto 0;
+  text-align: center;
+  background: 0;
+  width: 10px;
+  height: 10px;
 }
 
 //------------------------------------------------------------------------------
@@ -1021,12 +1104,15 @@ hr.hr-separator {
   margin-top: 1rem;
   float: right;
 }
-a.notice{
+a.notice,
+a.noticeFooter {
   display: block;
   float: left;
   margin: 15px 0 1rem 10px;
   border: 1px solid $border;
   background: darken($bloc-base,1%);
+  min-width: 30px;
+  min-height: 30px;
   border-radius: 20px;
   padding: 7px;
   text-align: center;
@@ -1046,6 +1132,11 @@ a.notice{
     display: block;
     margin-left: -10px;
   }
+}
+
+a.noticeFooter {
+  border: 1px solid darken($border,2%);
+  margin: 10px 0 0 10px;
 }
 
 .dis0 {
@@ -1245,6 +1336,7 @@ a.notice{
   clear: both;
   margin-top: 20px;
   h3{
+    position: relative;
     color: $white;
     font-style: normal;
     font-family: $font-global;
@@ -1254,6 +1346,26 @@ a.notice{
     font-size: .9rem;
     font-weight: 900;
     text-transform: uppercase;
+    .aideDevis {
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      left: calc(50% - 15px);
+      width: 30px;
+      height: 30px;
+      background: $white;
+      padding-left: 7px;
+      border-radius: 15px;
+      border: 1px solid $magenta;
+
+      color: $magenta;
+      i{
+        margin-left: 5px;
+        margin-top: 5px;
+        font-size: 1rem;
+
+      }
+    }
   }
 }
 
@@ -1969,6 +2081,7 @@ input:valid {
   background: $bloc-base;
   border: 1px solid $border;
   padding: 1rem;
+  margin-top: 20px;
   h1 {
     background: $magenta;
     padding: .7rem;
@@ -1995,7 +2108,7 @@ input:valid {
 }
 
 #contact3 {
-
+  min-height: 450px;
   display: inline-block;
   width: 49%;
 }
@@ -2628,9 +2741,15 @@ SPAN {
 }
 // boutons file upload ---------------------------------------------------------
 
-.fuselect, a.maquette {
+.fuselect {
   @include buttonLog($cyan, 29%);
   text-align: center;
+}
+a.maquette{
+  @include buttonLog($magenta, 150px);
+  float: right;
+  padding-top: .3rem;
+  height: 25px;
 }
 
 .fustart {
@@ -4217,9 +4336,41 @@ ul.regiform2 {
 
 #fbcart_rating {
   position: relative;
-  float: none;
+  float: right;
   display: inline-block;
-  width: 100%;
+  width: 62%;
+  border-collapse:separate;
+  border-spacing:0 10px;
+  tr{
+    outline: 1px solid $border;
+
+  }
+
+
+  tr:after, tr:before {
+  	right: 100%;
+  	top: 28px;
+  	border: solid transparent;
+  	content: " ";
+  	height: 0;
+  	width: 0;
+  	position: absolute;
+  	pointer-events: none;
+  }
+
+  tr:after {
+  	border-color: rgba(246, 246, 246, 0);
+  	border-right-color: #f6f6f6;
+  	border-width: 10px;
+  	margin-top: -10px;
+  }
+
+  tr:before {
+  	border-color: rgba(233, 233, 233, 0);
+  	border-right-color: #e9e9e9;
+  	border-width: 11px;
+  	margin-top: -11px;
+  }
 
   td {
     background: $bloc-base url('../images/bord4.png') top left no-repeat;
@@ -4228,20 +4379,19 @@ ul.regiform2 {
     text-align: left;
     padding: .7rem;
     vertical-align: top;
-    border-bottom: 4px solid $white;
     width: 60%;
 
     &.lefttd {
       background: $bloc-base;
       text-align: left;
-      width: 30%;
+      width: 20%;
       font-size: .8rem;
     }
 
     &.lefttd2 {
       background: $bloc-base url('../images/bord4.png') top left no-repeat;
       text-align: left;
-      width: 10%;
+      width: 20%;
       font-size: .8rem;
     }
   }
@@ -4253,9 +4403,15 @@ h1.comTitre {
   margin:10px auto;
 }
 
-.comVoir {
-  display: block;
+a.comVoir  {
+  @include buttonLog($cyan,35%);
+  top: 0;
+  right: 0;
+  padding-top: .5rem;
+  height: 30px;
   text-align: center;
+  border-radius: 0;
+  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
 }
 
 #rating_livre {
@@ -4269,18 +4425,18 @@ h1.comTitre {
 
 #rating_general {
   position: relative;
-  float: none;
+  float: left;
   display: block;
-  width: 100%;
-  height: 195px;
+  width: 35%;
+  height: 160px;
   background-image: none;
   background-color: $bloc-base;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
-  margin: 15px 0;
+  margin: 10px 0 0;
   text-align: center;
   h2 {
     font-size: 1.2rem;
-    padding-top: 30px;
+    padding-top: 0;
   }
 
   table {
@@ -4996,10 +5152,12 @@ a.but_espace {
 a.post-edit-link{
   @include buttonLog($text, 100px);
   height: 20px;
-  margin-top: 20px;
   padding-top: 0.2rem;
   font-size: .7em;
   float: right;
+  position: absolute;
+  bottom: -5px;
+  right: 10px;
 }
 
 // Boutons BAT------------------------------------------------------------------
@@ -5065,7 +5223,7 @@ a.but_voiremaquette {
   margin-right: 30px;
 }
 
-span.print_button {
+/*span.print_button {
   position: relative;
   float: left;
   display: inline;
@@ -5074,6 +5232,11 @@ span.print_button {
   padding-top: 14px;
   background: $bloc-base;
   text-align: center;
+}*/
+
+span.print_button a{
+  @include buttonLog($cyan, 150px);
+  margin: 0 auto;
 }
 
 .prom_sub2 {
@@ -5515,6 +5678,7 @@ a:hover {
 	overflow: hidden;
 }
 
+
 .video-container iframe,
 .video-container object,
 .video-container embed {
@@ -5524,6 +5688,24 @@ a:hover {
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+.vid-bloc-left{
+  width: 49%;
+  margin-right:2%;
+  float: left;
+}
+.vid-bloc-right{
+  width: 49%;
+  float: right;
+}
+.vid-bloc-left.video-container iframe{
+  min-height: 200px;
+  max-height: 300px;
+}
+.vid-bloc-right.video-container iframe{
+  min-height: 200px;
+  max-height: 300px;
 }
 
 // -----------------------------------------------------------------------------
@@ -5578,18 +5760,50 @@ a:hover {
 // images charte éco & réalisations --------------------------------------------
 
 #banners {
+  position: relative;
   @include span(6);
   height: auto;
-  margin-top: 0;
+  margin-top: 30px;
   padding-left: 0;
 
-  .banner1 img, .banner2 img {
-    width: 70%;
-    margin-bottom: 10px;
+  .banner1 {
+    width: 100%;
     display: block;
-    height: auto;
+    text-align: center;
+    margin: 20px auto 0;
+    padding-top: 35px;
+    font-size: 1rem;
+    color: $green;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    img {
+      display: block;
+      float: left;
+      margin-top: -35px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 15px;
+    }
   }
+
+  .banner2{
+    width: 100%;
+    display: inline-block;
+    margin: 20px auto 0;
+    font-size: 1rem;
+    color: $cyan;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    i {
+
+
+    }
+  }
+
 }
+
 
 // derniers commentaires -------------------------------------------------------
 
@@ -5632,6 +5846,9 @@ h4.clients_reviews_titre a{
   top: 0;
   width: 100%;
   height: auto;
+  background: $white;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.10);
+  padding: .7rem;
 }
 
 .singlerate {
@@ -5642,7 +5859,7 @@ h4.clients_reviews_titre a{
   height: 51px;
   margin: 0 0 5px;
   vertical-align: baseline;
-  color: darken($bloc-base,20%);
+  color: darken($bloc-base,50%);
 }
 
 .singlerate_content {
@@ -5656,10 +5873,11 @@ h4.clients_reviews_titre a{
   font-size: .72rem;
   font-weight: bold;
   font-style: italic;
-  color: darken($bloc-base,20%);
+  color: darken($bloc-base,50%);
   line-height: .9rem;
   margin: 10px 0 5px;
   text-transform: none;
+
 }
 
 .singlerate_rate {
@@ -5683,9 +5901,8 @@ h4.clients_reviews_titre a{
 }
 
 .clients_reviews {
-  border-bottom: 1px solid $border;
-  border-right: 1px solid $border;
-  border-left: 1px solid $border;
+  background: $white;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.10);
   text-align: center;
   padding:.7rem 0 0;
   font-size: 18px;
@@ -5710,6 +5927,8 @@ h4.clients_reviews_titre a{
   clear: both;
   height: auto;
   width: 100%;
+  padding-top: 2rem;
+  background: darken($bloc-base, 5%);
 }
 
 #footer {
@@ -5740,20 +5959,69 @@ h4.clients_reviews_titre a{
   position: relative;
   width: 100%;
   height: 100px;
-  margin: 20px auto 0;
-  background: $cyan;
+  margin: 60px auto 0;
+  background: darken($bloc-base, 20%);
   padding: 10px 0 100px;
   font-size: .9rem;
   text-align: center;
-  color: $white;
+  color: $text;
   a{
-    color: $white;
+    color: $text;
     font-weight: bold;
     text-transform: uppercase;
     &:hover {
       color: $border;
     }
   }
+
+}
+.gotop, .gorea {
+  display: block;
+  background: #3D4146;
+  position: absolute;
+  top: -40px;
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 30px;
+  border-radius: 30px 30px 0 0;
+  padding-top: 5px;
+  text-align: center;
+  i {
+    font-size: 25px;
+    color: $white;
+  }
+
+}
+.gorea {
+  top: -60px;
+  background: darken($bloc-base, 5%);
+  color: $text;
+  padding-top: 10px;
+
+  i {
+    font-size: 40px;
+    color: $text;
+  }
+}
+.exrea{
+  text-align: center;
+  margin-top: -25px;
+  text-transform: uppercase;
+  font-size: .7rem;
+}
+
+.ribbon {
+  display: block;
+  margin: 0 auto;
+  text-transform: uppercase;
+  color: $white;
+  background: url(../images/ribbon.png) top center no-repeat;
+  width: 185px;
+  height: 35px;
+  font-size: .7rem;
+  line-height: .7rem;
+  padding-top: .2rem;
+  background-size: cover;
 }
 
 span#footer_links,
@@ -5778,7 +6046,7 @@ span#footer_links2 {
   height: auto;
   text-align: center;
   margin: 0 auto;
-  font-size: 1rem;
+  font-size: .7rem;
   font-family: $font-special;
   p{
     margin-bottom: 0;
@@ -5796,12 +6064,14 @@ span#footer_links2 {
     background: darken($text,10%);
     color: $white;
     text-align: center;
-    font-size: 1rem;
+    font-size: .7rem;
 
     letter-spacing: 2px;
     p.bloc.small {
       font-family: $font-global;
       font-weight: normal;
+      font-size: .7rem;
+      letter-spacing: 0;
       a {
         color: $white;
         text-transform: lowercase;
@@ -5888,6 +6158,10 @@ span#footer_links2 {
     transition: all 2s ease;
     opacity: 0;
     box-shadow: 0 4px 4px 4px rgba(0,0,0,0.20);
+
+    .toggle-button {
+      display: none;
+    }
 }
 
 .modal.show {
@@ -5938,7 +6212,7 @@ span#footer_links2 {
 .modal p {
   text-align: justify;
 }
-/*#modal-content {
+/*#modal-ready {
   max-height: 700px;
   overflow-y: scroll;
 

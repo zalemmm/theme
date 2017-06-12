@@ -29,6 +29,26 @@
     font-size: 1.2rem !important;
     width: 80px;
   }
+
+  #banners {
+    .banner1 {
+      width: 100%;
+      float: none;
+    }
+    .banner2 {
+      width: 60%;
+      float: none;
+    }
+  }
+
+  #buying{
+    h3{
+      .aideDevis {
+        left: 80%;
+      }
+    }
+  }
+
 }
 
 @media(max-width: 540px) {

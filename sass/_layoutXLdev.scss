@@ -17,9 +17,9 @@
   body {
     width: 1024px;
     background: $bloc-base;
-    border-left: 1px solid darken($bloc-base, 5%);
-    border-right: 1px solid darken($bloc-base, 5%);
-    //box-shadow: -5px 0 15px -5px rgba(0,0,0,0.1), 5px 0 15px -5px rgba(0,0,0,0.1);
+    //border-left: 1px solid darken($bloc-base, 5%);
+    //border-right: 1px solid darken($bloc-base, 5%);
+    box-shadow: -5px 0 15px -5px rgba(0,0,0,0.1), 5px 0 15px -5px rgba(0,0,0,0.1);
   }
 
   #content {
@@ -113,6 +113,14 @@
   #banners {
     @include span(7);
     padding-left: 0;
+    .banner1 {
+      width: 60%;
+      float: left;
+    }
+    .banner2 {
+      width: 100%;
+      float: right;
+    }
   }
 
   //----------------------------------------------------------------------------

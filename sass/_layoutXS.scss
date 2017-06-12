@@ -230,10 +230,16 @@
   }
 
   // tableau ratings -----------------------------------------------------------
+  #rating_general {
+    width: 100%;
+  }
+
+  a.comVoir  {
+    width: 100%;
+  }
 
   #fbcart_rating {
     position: relative;
-    float: none;
     display: inline-block;
     width: 100%;
     border-bottom: 0;

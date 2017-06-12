@@ -5,30 +5,32 @@ var autoprefixer = require( 'gulp-autoprefixer' );
 var postcss      = require( 'gulp-postcss' );
 var imagemin     = require( 'gulp-imagemin' );
 var rename       = require( 'gulp-rename' );
-var gulpPrettyDiff = require( 'gulp-prettydiff' );
+var gulpPrettyDiff = require("gulp-prettydiff");
 var browserSync  = require( 'browser-sync' ).create();
 
 // Paths
 
 var susy    = './node_modules/susy/sass';
+var bourbon = './node_modules/bourbon/app/assets/stylesheets';
 
 // Start browserSync & watch css & html changes
 
 gulp.task( 'watch', ['sass'], function() {
     browserSync.init({
-        proxy: "http://127.0.0.1/wordpress",
-        port: 8000
+      injectChanges: true,
+      proxy: "http://127.0.0.1/wordpress",
+      port: 8000
     });
-    gulp.watch( './sass/**/*.scss', ['sass']);
-    gulp.watch( '*.html' ).on( 'change', browserSync.reload );
+    gulp.watch( './sass/*.scss', ['sass']).on( 'change', browserSync.reload );
+    gulp.watch( '*.php' ).on( 'change', browserSync.reload );
 });
 
 gulp.task( 'sass', function() {
-    return gulp.src( './sass/**/*.scss' )
+    return gulp.src( './sass/*.scss' )
         .pipe( sourcemaps.init() )
         .pipe( sass({
-            includePaths: [susy],
-            sourceComments: false,
+            includePaths: [susy, bourbon],
+            sourceComments: true,
             outputStyle: 'expanded'
         }).on( 'error', sass.logError ) )
         .pipe( autoprefixer(  ) )

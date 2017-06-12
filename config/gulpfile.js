@@ -12,12 +12,12 @@ gulp.task( 'watch', ['sass'], function() {
           baseDir: "./"
       }
   });
-  gulp.watch( './sass/**/*.scss', ['sass']);
+  gulp.watch( './scss/**/*.scss', ['sass']);
   gulp.watch( '*.html' ).on( 'change', browserSync.reload );
 });
 
 gulp.task( 'sass', function() {
-    return gulp.src( './sass/**/*.scss' )
+    return gulp.src( './scss/**/*.scss' )
         .pipe( sourcemaps.init() )
         .pipe( sass({
             sourceComments: false,

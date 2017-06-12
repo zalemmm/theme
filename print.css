@@ -23,6 +23,10 @@
   #header,
   #main2,
   #delcart,
+  #introBlocs,
+  .modal,
+  .btn-fermer,
+  .toggle-button,
   .noprint {
     display: none !important;
   }

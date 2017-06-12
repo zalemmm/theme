@@ -69,10 +69,10 @@ angular.module('productApp', [
         $scope.enterDrawingMode = function(){
             if($scope.fabric.checkBackgroundImage()){
                 if($scope.fabric.toggleDrawing() == 'Cancel'){
-                    $scope.enter_drawing_mode = 'Cancel Drawing Mode';
+                    $scope.enter_drawing_mode = 'Sortir du mode dessin';
                     $scope.enter_drawing_status = true;
                 }else{
-                    $scope.enter_drawing_mode = 'Enter Drawing Mode';
+                    $scope.enter_drawing_mode = 'Activer le mode dessin';
                     $scope.enter_drawing_status = false;
                     $scope.fabric.resetBrush($scope.drawing_mode_selector, $scope.drawing_color, $scope.drawing_line_width, $scope.drawing_line_shadow);
                 }
@@ -85,11 +85,11 @@ angular.module('productApp', [
 
         $scope.enterDrawing = function(){
             if($scope.fabric.checkBackgroundImage()){
-                
+
                 $scope.fabric.enterDrawing();
-                $scope.enter_drawing_mode = 'Cancel Drawing Mode';
+                $scope.enter_drawing_mode = 'Sortir du mode dessin';
                 $scope.enter_drawing_status = true;
-                
+
                 $scope.objectLayers = [];
                 $scope.objectLayers = $scope.fabric.canvasLayers();
             }else{
@@ -99,10 +99,10 @@ angular.module('productApp', [
 
         $scope.exitDrawing = function(){
             if($scope.fabric.checkBackgroundImage()){
-                
+
                 $scope.fabric.exitDrawing();
                 $scope.enter_drawing_status = true;
-                
+
                 $scope.objectLayers = [];
                 $scope.objectLayers = $scope.fabric.canvasLayers();
             }else{
@@ -381,7 +381,7 @@ angular.module('productApp', [
         };
 
         $scope.addTextByAction = function () {
-            
+
             $scope.deactivateAll();
 
             if($scope.fabric.checkBackgroundImage() && $scope.isMenuClicked){
@@ -457,7 +457,7 @@ angular.module('productApp', [
 
                 $scope.beforeSave();
                 var objects_svg = $scope.fabric.designedSVGObjects;
-            
+
                 $http({
                     method: 'post',
                     url:$scope.REQUEST_URL.SAVE_DESIGN,
@@ -468,14 +468,14 @@ angular.module('productApp', [
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     transformRequest: _this.transformRequest
                 }).success(function (data, status, headers, config) {
-                    
+
                 }).error(function (data, status, headers, config) {
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
 
                 $scope.beforeSave();
                 var objects_png = $scope.fabric.designedPNGObjects;
-            
+
                 $http({
                     method: 'post',
                     url:$scope.REQUEST_URL.SAVE_DESIGN,
@@ -486,14 +486,14 @@ angular.module('productApp', [
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     transformRequest: _this.transformRequest
                 }).success(function (data, status, headers, config) {
-                    
+
                 }).error(function (data, status, headers, config) {
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
 
                 $scope.beforeSave();
                 var objects_jpg = $scope.fabric.designedJPGObjects;
-            
+
                 $http({
                     method: 'post',
                     url:$scope.REQUEST_URL.SAVE_DESIGN,
@@ -504,7 +504,7 @@ angular.module('productApp', [
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     transformRequest: _this.transformRequest
                 }).success(function (data, status, headers, config) {
-                    
+
                 }).error(function (data, status, headers, config) {
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
@@ -521,10 +521,10 @@ angular.module('productApp', [
         $scope.saveObjectAsSvg = function () {
 
             if($scope.fabric.checkBackgroundImage()){
-                
+
                 $scope.beforeSave();
                 var objects = $scope.fabric.designedSVGObjects;
-            
+
                 $http({
                     method: 'post',
                     url:$scope.REQUEST_URL.SAVE_DESIGN,
@@ -562,7 +562,7 @@ angular.module('productApp', [
             if($scope.fabric.checkBackgroundImage()){
                 $scope.beforeSave();
                 var objects = $scope.fabric.designedPNGObjects;
-            
+
                 $http({
                     method: 'post',
                     url:$scope.REQUEST_URL.SAVE_DESIGN,
@@ -598,10 +598,10 @@ angular.module('productApp', [
         $scope.saveObjectAsJpg = function () {
 
             if($scope.fabric.checkBackgroundImage()){
-                
+
                 $scope.beforeSave();
                 var objects = $scope.fabric.designedJPGObjects;
-            
+
                 $http({
                     method: 'post',
                     url:$scope.REQUEST_URL.SAVE_DESIGN,
@@ -883,10 +883,10 @@ angular.module('productApp', [
            item.count += 1;
         };
 
-        $scope.counter = 1; 
+        $scope.counter = 1;
         $scope.increments = function() {
-            var countVal = $scope.counter; 
-                $scope.counter++; 
+            var countVal = $scope.counter;
+                $scope.counter++;
             $scope.updateQuantity($scope.counter);
         };
         $scope.decrement = function() {
@@ -937,7 +937,7 @@ angular.module('productApp', [
                 $scope.fabric.designedJPGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsJpg();
         };
 
-        $scope.prodctByCat = function (val){  
+        $scope.prodctByCat = function (val){
             $scope.productCategory = val;
         };
 
@@ -945,10 +945,10 @@ angular.module('productApp', [
             var category = angular.lowercase($scope.productCategory);
             var pCat = angular.lowercase(product.category);
             return (category == "all" || category == pCat);
-        }; 
+        };
 
         $scope.loadProduct = function (title, image, id, price, currency, indexKey = null) {
-            $scope.counter = 1; 
+            $scope.counter = 1;
             if(indexKey != null){
                 $scope.fabric.designedObjects[$scope.activeDesignObject]  = $scope.fabric.exportCanvasObjectAsJson();
 
@@ -968,14 +968,14 @@ angular.module('productApp', [
                 }
                 $scope.activeDesignObject = indexKey;
             }
-            
+
             if(indexKey == null){
                 $scope.clearCanvas();
-                setTimeout(function(){ 
+                setTimeout(function(){
                     $scope.fabric.addCanvasBackground(image);
                 },500);
-                
-                setTimeout(function(){ 
+
+                setTimeout(function(){
                    // $scope.addText('New Text');
                 }, 1000);
 
@@ -1152,7 +1152,7 @@ angular.module('productApp', [
 
         $scope.loadByGraphicsCategory = function (){
             $scope.graphicsPage = 1;
-            _this.initGraphics(); 
+            _this.initGraphics();
         };
 
         this.initGraphics = function () {
@@ -1288,7 +1288,7 @@ angular.module('productApp', [
             jQuery(window).load(function(){
                  jQuery(".editor_section").height(jQuery(".canvas_section").height());
                 // jQuery(".index_02 .tab-pane").height(jQuery(".canvas_section").height());
-            }); 
+            });
 
             $scope.fabric = new Fabric({
                 JSONExportProperties: FabricConstants.JSONExportProperties,

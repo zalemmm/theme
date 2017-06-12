@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
 
-  // bouton close messages d'erreur
+  /////////////////////////////////////////////// bouton close messages d'erreur
+
   $(document).on('click', '.closeButton', function() {
     $('.closeButton').parent().fadeOut();
     $('.box_info').fadeOut();
@@ -13,7 +14,12 @@ jQuery(document).ready(function ($) {
     $('.closeB').parent().fadeOut();
   });
 
-  // SlidesJS (slider carré des pages produits)
+  /////////////////////////////////////////////ajout icone info dans pages devis
+
+  $('#buying h3').append('<a class="aideDevis modal-link" href="//www.france-banderole.com/un-devis/" title="Aide pour le devis en ligne" target="_blank"><i class="fa fa-info" aria-hidden="true"></i></a>');
+
+  /////////////////////////////////// SlidesJS (slider carré des pages produits)
+
   $('#slides').slidesjs({
     width: 400,
     height: 400,
@@ -30,7 +36,8 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  // toggle (texte déroulant)
+  ///////////////////////////////////////////////////// toggle (texte déroulant)
+
   $('.toggle-button').click(function() {
     $('.toggle-block').slideToggle('slow');
   });
@@ -50,7 +57,8 @@ jQuery(document).ready(function ($) {
   });
 
 
-  //top icons menu hover
+  //////////////////////////////////////////////////////////top icons menu hover
+
   $('.menu-client-icon.phone a, .tel2 a').mouseover(function() {
     $('.menu-client-icon.phone a, .tel2 a').css({
       color: '#EA2A6A',
@@ -77,6 +85,41 @@ jQuery(document).ready(function ($) {
       opacity: '1',
       cursor: 'pointer'
     });
+  });
+
+  /////////////////////////////////////////////////////////////////smooth scroll
+
+  // Select all links with hashes
+  $('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          }
+        });
+      }
+    }
   });
 
 });
