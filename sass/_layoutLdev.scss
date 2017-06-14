@@ -22,8 +22,9 @@ a#corner_button_cart,
 #chat-application {
   display: none;
 }
+
 #chat-application {
-  margin-bottom: -20px;
+  margin-bottom: 0;
 }
 
 iframe#sb-player {
@@ -36,7 +37,7 @@ iframe#sb-player {
 }
 
 .modal-wrapper {
-    z-index: 9999;
+  z-index: 9999;
 }
 
 // extends ---------------------------------------------------------------------
@@ -70,12 +71,12 @@ iframe#sb-player {
 %buttonBaseAfter{
   color: $white;
   text-transform: uppercase;
-      padding: 10px 0;
+  padding: 10px 0;
 }
 
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                                LAYOUT
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 html { box-sizing: border-box; }
 * { box-sizing: inherit; }
@@ -102,9 +103,9 @@ body {
 .izoneRight {
   display: none;
 }
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                             HEADER
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #header {
   @include container (100%);
@@ -141,29 +142,20 @@ body {
   //display: flex;
   //flex-direction: row;
   //flex-wrap: wrap;
-
 }
 
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                        DECLARATIONS GENERALES
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
+
+// séparateurs -----------------------------------------------------------------
+
 .clear {
   clear: both;
 }
-.split,
-.splitorhide{
-  display: inline-block;
-}
-
-img {
-  border: 0;
-  }
-
-dd {
-  margin-left: 10px;
-}
 
 hr {
+  clear: both;
   position: relative;
   float: none;
   display: block;
@@ -197,22 +189,106 @@ hr.imgSep {
   width: 100%;
 }
 
+
+// alignements -----------------------------------------------------------------
+
+.alignright,
+.floatRight {
+  float: right;
+}
+
+.alignleft,,
+.floatLeft {
+  float: left;
+}
+
 .aligncenter {
   margin: 0 auto;
   text-align: center;
 }
 
-.alignleft {
+.floatLeftMg {
+  float: left;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.textleft {
   float: left;
 }
 
-.alignright {
-  float: right;
+.textright {
+  text-align: right;
 }
 
-.maj{
-  font-weight: 900;
+.textcenter {
+  text-align: center;
 }
+
+.textjustify {
+  text-align: justify;
+}
+
+// titres ----------------------------------------------------------------------
+
+h1, h2, h3 {
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  margin: 15px 0;
+  font-style: italic;
+  font-weight: bold;
+  color: $text;
+  font-family: $font-global;
+
+  &.categorytitle {
+    margin: 0;
+  }
+}
+
+.h1product {
+  display: none;
+}
+
+h2{
+  color: $color_12;
+  padding-bottom: 2px;
+  font-size: 1.4rem;
+}
+
+h3{
+  font-size: 1rem;
+}
+
+h4 {
+  color: $jaune;
+  margin: 20px auto 10px;
+  padding: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: $font-global;
+  line-height: 1rem;
+  text-transform: uppercase;
+  text-align:left;
+}
+h4.keepTxtColor {
+  color: $text;
+  margin-bottom: 0;
+}
+
+h5 {
+  font-family: $font-global;
+  text-transform: uppercase;
+  font-size: .8rem;
+  padding: 0;
+  margin: 0;
+}
+
+h6 {
+  font-family: $font-global;
+}
+
+
+// texte et paragraphes --------------------------------------------------------
 
 p {
   margin-top: 0;
@@ -227,6 +303,7 @@ small {
   font-size: 0.8rem;
   line-height: 1rem;
 }
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -247,80 +324,6 @@ span.subtitle {
 span.reg_info {
   font-size: .75rem;
   color: $color_12;
-}
-
-h1, h2, h3 {
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-  margin: 15px 0;
-  font-style: italic;
-  font-weight: bold;
-  color: $text;
-  font-family: $font-global;
-
-  &.categorytitle {
-    margin: 0;
-  }
-}
-
-h2{
-  color: $color_12;
-  padding-bottom: 2px;
-  font-size: 1.4rem;
-}
-
-h3{
-  font-size: 1rem;
-}
-
-.h1product {
-  display: none;
-}
-
-h5 {
-  font-family: $font-global;
-  padding: 0;
-  margin: 0;
-}
-
-h6 {
-  font-family: $font-global;
-}
-
-h4 {
-  color: $jaune;
-  margin: 20px auto 10px;
-  padding: 0;
-  font-size: 1rem;
-  font-weight: bold;
-  font-family: $font-global;
-  line-height: 1rem;
-  text-transform: uppercase;
-  text-align:left;
-}
-h4.keepTxtColor {
-  color: $text;
-  margin-bottom: 0;
-}
-.star-note{
-  display: block;
-}
-
-.hide {
-  visibility: hidden;
-}
-
-.floatLeft {
-  float: left;
-}
-.floatLeftMg {
-  float: left;
-  margin-right: 10px;
-  vertical-align: top;
-}
-
-.floatRight {
-  float: right;
 }
 
 .highlight {
@@ -349,9 +352,44 @@ b {
   }
 }
 
+// pour gérer les blocs de texte et les retours à la ligne
+.split,
+.splitorhide{
+  display: inline-block;
+}
+
+// images ----------------------------------------------------------------------
+
+img {
+  border: 0;
+}
+
+// divers ----------------------------------------------------------------------
+
+dd {
+  margin-left: 10px;
+}
+
+.maj{
+  font-weight: 900;
+}
+
+.star-note{
+  display: block;
+}
+
+// éléments cachés -------------------------------------------------------------
+
+.hide {
+  visibility: hidden;
+}
+
+// pour désactiver un élément sur mobile
 .disMob0 {
   display: none;
 }
+
+// formulaires -----------------------------------------------------------------
 
 form select {
   height: 40px;
@@ -371,36 +409,8 @@ input[type="submit"]{
 input:focus {
   border: 1px solid $cyan-bloc;
 }
-// blocs droite gauche
 
-.bloc-left{
-  width: 49%;
-  margin-right:2%;
-  float: left;
-}
-.bloc-right{
-  width: 49%;
-  float: right;
-  img {
-    max-width: 480px;
-    width: 100%;
-  }
-}
-
-
-.flex {
-  display: flex;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  img {
-    width: 32%;
-  }
-}
-
-//------------------------------------------------------------------------------
-//                                LINKS
-//------------------------------------------------------------------------------
+// liens -----------------------------------------------------------------------
 
 a {
   &:link {
@@ -448,7 +458,9 @@ a {
     }
   }
 
-
+  &.white {
+    color: $white;
+  }
 
   &.conditio {
     &:link {
@@ -502,9 +514,89 @@ a {
   }
 }
 
-//------------------------------------------------------------------------------
+
+// blocs de mise en page colonne -----------------------------------------------
+
+.bloc-left {
+  position: relative;
+  width: 49%;
+  margin-right:2%;
+  float: left;
+  text-align: justify;
+  ul li {
+    margin-bottom: 10px;
+  }
+}
+.bloc-right {
+  position: relative;
+  width: 49%;
+  float: right;
+  text-align: justify;
+  ul li {
+    margin-bottom: 10px;
+  }
+  img {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.encart, .encartFlottant {
+  background: $text;
+  padding: .5rem 1.5rem;
+  margin: 20px 0 30px;
+  color: lighten($text,35%);
+  text-align: justify;
+  h1,h2,h3,h4,h5,
+  b,
+  a,
+  span.pink {
+    color: $white;
+  }
+
+  b, span.pink {
+    text-transform: uppercase;
+    font-size: .8rem;
+  }
+
+}
+
+.encartFlottant {
+  float: right;
+  width: 49%;
+  margin-left: 20px;
+  a.white {
+    color: lighten($text,35%);
+    font-weight: normal;
+  }
+}
+
+.encartLigne {
+  border: 1px solid $text;
+  padding: .5rem 1.5rem;
+  margin: 0 0 30px;
+  text-align: center;
+  span.pink {
+    color: $text;
+    font-style: italic;
+  }
+}
+
+.flex {
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  img {
+    width: 32%;
+  }
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
 //                             MODULES
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 // logo ------------------------------------------------------------------------
 
@@ -826,9 +918,9 @@ ul#menu_top ul#produit_sub{
 
 }
 
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                      MODULES PAGE ACCUEIL
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 // icones page d'accueil et pages akilux, enseigne et stickers -----------------
 
@@ -911,43 +1003,6 @@ ul#tarifs {
 .b-it3 {
   margin-right: 0;
 }
-
-ul#introBlocs {
-  background: $bloc-base;
-  clear: both;
-  float: none;
-  display: flex;
-  display: -webkit-flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  list-style-type: none;
-  margin: 0;
-
-  padding: 2rem 1rem;
-
-  li {
-    text-align: center;
-    width: 24%; //120
-    height: auto; //160
-    margin-bottom: 0;
-    margin-top: 0;
-    font-weight: normal;
-    font-size: .8rem;
-    line-height: .85rem;
-    i{
-      color: $text;
-      font-size: 80px;
-    }
-    h4 {
-      height: 40px;
-      text-align: center;
-      font-weight: 900;
-    }
-  }
-}
-
-
-
 
 .mc_texte {
   padding: 10px 0px;
@@ -1040,12 +1095,12 @@ img.toggle-button {
   height: 10px;
 }
 
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                       MODULES PAGES PRODUITS
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 // Encart top description produit ----------------------------------------------
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #top_images {
   width: 100%;
@@ -1109,15 +1164,15 @@ a.noticeFooter {
   display: block;
   float: left;
   margin: 15px 0 1rem 10px;
-  border: 1px solid $border;
-  background: darken($bloc-base,1%);
+  border: 1px solid darken($border,2%);
+  background: darken($bloc-base,2%);
   min-width: 30px;
   min-height: 30px;
   border-radius: 20px;
   padding: 7px;
   text-align: center;
   text-transform: uppercase;
-  color: darken($bloc-base,35%);
+  color: darken($bloc-base,40%);
   letter-spacing: 1px;
   font-size: .9rem;
   .textHide{
@@ -1126,7 +1181,7 @@ a.noticeFooter {
   &:hover{
     border-bottom: none;
     border-left: none;
-    background: lighten($bloc-base,1%);
+    background: lighten($bloc-base,2%);
   }
   .helpExp{
     display: block;
@@ -1135,7 +1190,7 @@ a.noticeFooter {
 }
 
 a.noticeFooter {
-  border: 1px solid darken($border,2%);
+  border: 1px solid darken($border,4%);
   margin: 10px 0 0 10px;
 }
 
@@ -1161,7 +1216,7 @@ a.noticeFooter {
 }
 
 // module de sélection ---------------------------------------------------------
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 .productGrid {
   //display: flex;
@@ -1171,6 +1226,7 @@ a.noticeFooter {
 }
 
 // Prévisualisation produit ----------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #preview,
 #preview2,
@@ -1292,6 +1348,9 @@ a.noticeFooter {
 #preview_imag {
   z-index: 10;
 }
+#preview_imag1 {
+  z-index: 15;
+}
 #preview_imag2 {
   z-index: 20;
 }
@@ -1323,6 +1382,7 @@ a.noticeFooter {
 }
 
 // sélection produit -----------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #buying {
   width:59%;
@@ -1604,9 +1664,28 @@ input::placeholder {
     left: 2px;
   }
 }
-
+// Hack Chrome & Safari --------------------------------------------------------
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  // hauteur largeur des produits
+  .jotform-form {
+    .cmLeft,
+    .cmRight {
+      top: -1px;
+      left: 2px;
+    }
+    .mLeft,
+    .mRight {
+      top: -1px;
+      left: 0;
+    }
+    .mRight {
+      left: 2px;
+    }
+  }
+}
 
 // form sélection produit ------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 ul {
   padding-left: 0;
@@ -1756,6 +1835,7 @@ ul {
 }
 
 // affichage délais de livraison -----------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #livraisonComp {
     display: block;
@@ -1815,6 +1895,7 @@ a.linkUppercase {
 
 
 // Partie résultat devis -------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #wycena {
   //align-self: baseline;
@@ -1897,7 +1978,7 @@ a.linkUppercase {
   color: $magenta;
 }
 
-// boutons envoi formulaire
+// boutons envoi formulaire ----------------------------------------------------
 
 #submit_cart {
   @include buttonLog($cyan, 150px);
@@ -2062,9 +2143,9 @@ input:valid {
 	margin-top: -11px;
 }
 
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                                PAGE CONTACT
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #contact_bot,
 #contact_top {
@@ -2204,7 +2285,7 @@ div {
 
 
 
-// module recherche
+// module recherche ------------------------------------------------------------
 
 #search {
   input {
@@ -2234,7 +2315,7 @@ div {
 }
 
 
-// module page charte eco
+// module page charte eco ------------------------------------------------------
 
 #ceddretopten {
   position: relative;
@@ -2265,8 +2346,7 @@ div {
 }
 
 
-
-// alerte panier
+// alerte panier ---------------------------------------------------------------
 
 .box_info,
 .box_warning {
@@ -2397,11 +2477,9 @@ span.comm_title3 {
   background: darken($bloc-base, 2%);
 }
 
-
-
-// ---------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                                PAGE PAIEMENTS
-// ---------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #paiements {
   width: 100%;
@@ -2497,9 +2575,9 @@ span.pay_carte_info {
   font-size: .75rem;
 }
 
-//----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                            DEVIS
-//----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 .acces_tab_name_devis {
   span {
@@ -2572,7 +2650,7 @@ span.pay_carte_info {
 }
 
 // MODULE UPLOAD ---------------------------------------------------------------
-
+////////////////////////////////////////////////////////////////////////////////
 
 SPAN {
   &#uploadfile_completedMessage {
@@ -2756,7 +2834,6 @@ a.maquette{
   @include buttonLog($color_29, 24%);
   padding-top: .3rem;
   opacity: .2;
-  cursor: not-allowed;
 }
 
 .fucancel {
@@ -2901,9 +2978,9 @@ a.maquette{
 }
 
 
-// ---------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                           TABLEAU COMMANDES
-// ---------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 tbody {
   width: 100%;
@@ -2975,9 +3052,8 @@ tbody {
   }
 }
 
-
-
-// tableau panier ------------------------------------------------------------
+// tableau panier --------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #fbcart_cart {
   position: relative;
@@ -3073,7 +3149,7 @@ tbody {
 }
 
 
-// tableau prix total --------------------------------------------------------
+// tableau prix total ----------------------------------------------------------
 
 #fbcart_check {
   position: relative;
@@ -3117,7 +3193,7 @@ tbody {
   }
 }
 
-// tableau adresses livraison & facturation
+// tableau adresses livraison & facturation ------------------------------------
 
 #fbcart_address {
   position: relative;
@@ -3284,7 +3360,7 @@ tbody {
   }
 }
 
-// ---------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
 .virement_payement {
   position: relative;
@@ -3304,7 +3380,7 @@ tbody {
 }
 
 
-// tableau PLV ---------------------------------------------------------------
+// tableau PLV -----------------------------------------------------------------
 
 #promotions_table {
   position: relative;
@@ -3509,7 +3585,8 @@ tbody {
   display: block;
 }
 
-// bloc votre compte ---------------------------------------------------------
+// bloc votre compte -----------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #votre {
   position: relative;
@@ -3652,18 +3729,13 @@ display:-webkit-flex;
   width: auto;
 }
 
-
-
-
 #addingcomments {
   display: inline-block;
 }
 
-
-
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                      MODULES ACCES CLIENT
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 .acces_left {
   width: 49%;
@@ -3837,7 +3909,7 @@ a.forgetpass {
   font-size: 1rem;
 }
 
-// register-------------------------------------------------------------------
+// register---------------------------------------------------------------------
 
 ul.regiform,
 ul.regiform2 {
@@ -3926,7 +3998,7 @@ ul.regiform2 {
 
 
 
-// module rating -------------------------------------------------------------
+// module rating ---------------------------------------------------------------
 
 #rating {
   position: relative;
@@ -4001,7 +4073,7 @@ ul.regiform2 {
   }
 }
 
-// commentaires---------------------------------------------------------------
+// commentaires-----------------------------------------------------------------
 
 .star-rating {
   list-style: none;
@@ -4332,7 +4404,7 @@ ul.regiform2 {
   }
 }
 
-// tableau ratings
+// tableau ratings -------------------------------------------------------------
 
 #fbcart_rating {
   position: relative;
@@ -4469,7 +4541,7 @@ a.comVoir  {
   position: relative;
   float: right;
   display: block;
-  margin: 4px 0;
+  margin: 10px 0 50px;
 
   a {
     &:link {
@@ -4515,9 +4587,9 @@ a.comVoir  {
 // fin module commentaire
 
 
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                                  SLIDERS
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 // slider acceuil --------------------------------------------------------------
 
@@ -4686,6 +4758,7 @@ a.metaButton {
     transform: translateX(0);
   }
 }
+
 //----------------------------------------------------------------------------
 //                             STYLES INLINE RAPATRIES
 //----------------------------------------------------------------------------
@@ -4721,9 +4794,9 @@ a.metaButton {
 
 
 
-// ==========================================================================
+////////////////////////////////////////////////////////////////////////////////
 //                                    STYLES PROD PAGES
-// ==========================================================================
+////////////////////////////////////////////////////////////////////////////////
 
 #box {
   width: 200px;
@@ -4785,10 +4858,9 @@ DIV.ProgressBar {
   .starImg{
     display: none;
   }
-
 }
 
-// ----------------------------------------------------height: 1px;height: 1px;-------------------------
+// -----------------------------------------------------------------------------
 //                          HELP PAGES
 // -----------------------------------------------------------------------------
 
@@ -4809,9 +4881,9 @@ h1.helpPageTitle {
   text-align: center;
 }
 
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                           BOUTONS
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 // boutons délais de production/livraison --------------------------------------
 
@@ -5320,9 +5392,9 @@ span.print_button a{
   z-index: 900;
 }
 
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                                 relais colis
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 .relais_content {
   display: block;
@@ -5708,9 +5780,9 @@ a:hover {
   max-height: 300px;
 }
 
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                               PRINT
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 .logoprint,
 .logoprint2 {
@@ -5745,9 +5817,43 @@ a:hover {
   text-align: center;
 }
 
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                     MODULES PIED DE PAGE (avant footer)
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
+
+ul#introBlocs {
+  background: $bloc-base;
+  clear: both;
+  float: none;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+
+  padding: 2rem 1rem;
+
+  li {
+    text-align: center;
+    width: 24%; //120
+    height: auto; //160
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: normal;
+    font-size: .8rem;
+    line-height: .85rem;
+    i{
+      color: $text;
+      font-size: 80px;
+    }
+    h4 {
+      height: 40px;
+      text-align: center;
+      font-weight: 900;
+    }
+  }
+}
 
 #flink2 {
   position: relative;
@@ -5770,7 +5876,7 @@ a:hover {
     width: 100%;
     display: block;
     text-align: center;
-    margin: 20px auto 0;
+    margin: 0 auto;
     padding-top: 35px;
     font-size: 1rem;
     color: $green;
@@ -5803,7 +5909,6 @@ a:hover {
   }
 
 }
-
 
 // derniers commentaires -------------------------------------------------------
 
@@ -5916,9 +6021,9 @@ h4.clients_reviews_titre a{
 }
 
 
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                             FOOTER
-//------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 #main2 {
   @include container (100%);
@@ -6118,9 +6223,9 @@ span#footer_links2 {
   }
 }
 
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 //                                POP UP / MODALS
-// -----------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////
 
 .close-modal {
     display: none;
@@ -6236,24 +6341,8 @@ span#footer_links2 {
   }
 }
 
-// Hack Chrome & Safari
+// lity lightbox
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  // hauteur largeur des produits
-  .jotform-form {
-    .cmLeft,
-    .cmRight {
-      top: -1px;
-      left: 2px;
-    }
-    .mLeft,
-    .mRight {
-      top: -1px;
-      left: 0;
-    }
-    .mRight {
-      left: 2px;
-    }
-  }
-
+.lity-iframe .lity-container, .lity-youtube .lity-container, .lity-vimeo .lity-container, .lity-facebookvideo .lity-container, .lity-googlemaps .lity-container {
+    max-width: 1200px!important;
 }

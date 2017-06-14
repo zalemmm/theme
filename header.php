@@ -19,11 +19,12 @@
 
 		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
-		<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?d=11062012 );</style>
+		<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?d=11062012 );</style> <!--feuille de style globale-->
 		<link rel="icon" type="image/png" href="http://www.france-banderole.com/wp-content/themes/fb/images/favicon.png" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/print.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--librairie d'icones css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> <!--librairie d'icones css-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.2.2/lity.min.css"> <!-- ouvre les iframes dans une lightbox-->
+		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/print.css" /> <!--feuille de style pour le print-->
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 		<?php wp_head(); ?>
@@ -41,7 +42,7 @@
 					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/tente-publicitaire-barnum"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoTentes.png" title="promo tentes" alt="promo tente publicitaire"></a></div>';
 					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoGoutte.png" title="promo oriflamme beachflag" alt="promo oriflamme"></a></div>';
 				}else if(is_page('stand-parapluie') || is_page('roll-up') || is_page('totem')) {
-					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/roll-up"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoRollup.png" title="promo Rollup" alt="promo stand tissu"></a></div>';
+					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/roll-up"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoRollup.png" title="promo Rollup" alt="promo kakemono rollup"></a></div>';
 					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/totem"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoXscreen.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
 				}else{
 					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/stand-parapluie"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoStand.png" title="promo stand tissu" alt="promo stand tissu"></a></div>';
