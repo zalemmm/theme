@@ -48,7 +48,11 @@
       }
     }
   }
-
+  .cards {
+    .card {
+      width: 49%;
+    }
+  }
 }
 
 @media(max-width: 540px) {

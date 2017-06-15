@@ -45,7 +45,59 @@
   <div id="footer2">
 
     <!--Lien réalisations-->
-    <a rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-17.jpg" title="kakemono 120x200cm" class="gorea"><i class="ion-images"></i></a><br /><p class="exrea">Exemples de réalisations</p>
+    <a class="gorea" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-17.jpg" title="kakemono 120x200cm"><i class="ion-images"></i></a><br />
+    <!--galerie réalisations-->
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-04.jpg" title="banderole PVC géante 1000x160cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-06.jpg" title="kakemono "></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-05.jpg" title="banderole 400x80cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-07.jpg" title="impression bâche 600x250cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-08.jpg" title="calicot 350x90cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-18.jpg" title="kakemono 150x200cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-09.jpg" title="bâche imprimée 1000x100cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-10.jpg" title="banderole communication 300x80cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-11.jpg" title="banderolle 200x80cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-07.jpg" title="kakemonos"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-08.jpg" title="totems publicitaires"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-09.jpg" title="rollup"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-12.jpg" title="banderole publicité 150x100cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-13.jpg" title="banderoles PVC 400x80cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-01.jpg" title="kakemono roll-up"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-14.jpg" title="banderoles 700x60cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-15.jpg" title="kakemono hall d'entrée"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-16.jpg" title="kakemono salon exposition"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-17.jpg" title="kakemono 120x200cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-15.jpg" title="banderole de marché"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-16.jpg" title="banderole de foire"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-13.jpg" title="KAKEMONO"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-17.jpg" title="impression sur bache 16m x 1m"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-18.jpg" title="banderole intissée 400x80cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-19.jpg" title="banderole personnalisée"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-20.jpg" title="banderole PVC 500x50cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-21.jpg" title="impression sur bache 650x250cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-22.jpg" title="banderole exterieur PVC"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-23.jpg" title="bâches publicitaires"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-24.jpg" title="banderoles publicitaires"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-25.jpg" title="bache imprimée PVC 4mx1m"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-02.jpg" title="kakemono enrouleur"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-03.jpg" title="kakemonos publicitaires"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-04.jpg" title="totem 85x200cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-05.jpg" title="kakemono imprimé 80x200cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-10.jpg" title="roll-up"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-11.jpg" title="kakemonos enrouleurs"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-12.jpg" title="kakemono stand"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-14.jpg" title="KAKEMONOS"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-19.jpg" title="kakemono 100x200cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-20.jpg" title="kakemono écologique"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-21.jpg" title="impression kakemono"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-22.jpg" title="kakemono toile PVC"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-23.jpg" title="kakemono anti-feu"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-24.jpg" title="totem roll-up"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-25.jpg" title="roll-up imprimés"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-06.jpg" title="banderoles fete fin d année"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-02.jpg" title="banderole de noel 400x100cm"></a>
+    <a class="dis0" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-03.jpg" title="banderole publicitaire 250x103cm"></a>
+
+    <p class="exrea">Exemples de réalisations</p>
     <hr class="bottom_hr" />
 
     <div id="banners">
@@ -80,56 +132,7 @@
 
       <div class="clear"></div>
 
-      <!--galerie réalisations-->
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-04.jpg" title="banderole PVC géante 1000x160cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-06.jpg" title="kakemono "></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-05.jpg" title="banderole 400x80cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-07.jpg" title="impression bâche 600x250cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-08.jpg" title="calicot 350x90cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-18.jpg" title="kakemono 150x200cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-09.jpg" title="bâche imprimée 1000x100cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-10.jpg" title="banderole communication 300x80cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-11.jpg" title="banderolle 200x80cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-07.jpg" title="kakemonos"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-08.jpg" title="totems publicitaires"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-09.jpg" title="rollup"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-12.jpg" title="banderole publicité 150x100cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-13.jpg" title="banderoles PVC 400x80cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-01.jpg" title="kakemono roll-up"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-14.jpg" title="banderoles 700x60cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-15.jpg" title="kakemono hall d'entrée"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-16.jpg" title="kakemono salon exposition"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-17.jpg" title="kakemono 120x200cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-15.jpg" title="banderole de marché"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-16.jpg" title="banderole de foire"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-13.jpg" title="KAKEMONO"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-17.jpg" title="impression sur bache 16m x 1m"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-18.jpg" title="banderole intissée 400x80cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-19.jpg" title="banderole personnalisée"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-20.jpg" title="banderole PVC 500x50cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-21.jpg" title="impression sur bache 650x250cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-22.jpg" title="banderole exterieur PVC"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-23.jpg" title="bâches publicitaires"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-24.jpg" title="banderoles publicitaires"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-25.jpg" title="bache imprimée PVC 4mx1m"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-02.jpg" title="kakemono enrouleur"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-03.jpg" title="kakemonos publicitaires"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-04.jpg" title="totem 85x200cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-05.jpg" title="kakemono imprimé 80x200cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-10.jpg" title="roll-up"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-11.jpg" title="kakemonos enrouleurs"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-12.jpg" title="kakemono stand"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-14.jpg" title="KAKEMONOS"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-19.jpg" title="kakemono 100x200cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-20.jpg" title="kakemono écologique"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-21.jpg" title="impression kakemono"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-22.jpg" title="kakemono toile PVC"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-23.jpg" title="kakemono anti-feu"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-24.jpg" title="totem roll-up"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-25.jpg" title="roll-up imprimés"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-06.jpg" title="banderoles fete fin d année"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-02.jpg" title="banderole de noel 400x100cm"></a>
-      <a style="display: none;" rel="lightbox" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-03.jpg" title="banderole publicitaire 250x103cm"></a>
+
     </div>
 
     <!--derniers commentaires--->

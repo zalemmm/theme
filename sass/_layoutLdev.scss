@@ -541,10 +541,10 @@ a {
   }
 }
 
-.encart, .encartFlottant {
+.encart, .encartFlottant, .card {
   background: $text;
   padding: .5rem 1.5rem;
-  margin: 20px 0 30px;
+  margin: 20px 0;
   color: lighten($text,35%);
   text-align: justify;
   h1,h2,h3,h4,h5,
@@ -574,25 +574,99 @@ a {
 .encartLigne {
   border: 1px solid $text;
   padding: .5rem 1.5rem;
-  margin: 0 0 30px;
+  margin: 0 0 20px;
   text-align: center;
   span.pink {
     color: $text;
     font-style: italic;
   }
 }
+.encartLigneF {
+  border: 1px solid $text;
+  padding: .5rem 1.5rem;
+  margin: 0 0 20px 20px;
+  text-align: center;
+  float: right;
+  width: 50%;
 
-.flex {
+
+}
+
+.cards {
   display: flex;
   display: -webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  img {
-    width: 32%;
+
+
+  .card {
+    position: relative;
+    width: 33%;
+    margin-top: .5rem;
+    margin-bottom: .5rem ;
+    padding: 1rem;
+    text-align: center;
+    h5 {
+      margin-top: 10px;
+      font-size: 1rem;
+      text-align: center;
+    }
+    p {
+      color: $jaune;
+      font-weight: normal;
+      padding-top: 10px;
+      padding-bottom: 0;
+      text-align: center;
+    }
+    a {
+      margin: 0 auto;
+      display: block;
+      background: lighten($text,5%);
+      border: 1px solid darken($text,10%);
+      border-radius: 20px;
+      padding-top: 12px;
+      height: 38px;
+      vertical-align: middle;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: .8rem;
+      line-height: .8rem;
+      width: 170px;
+      &:hover {
+        background: $magenta;
+      }
+    }
+
   }
+  .cardHide {
+    width: 24%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: 0;
+  }
+
 }
 
-
+a.notech,
+a.notech1 {
+  margin: 1rem 0 1rem 1rem;
+  display: block;
+  background: $magenta;
+  border: 1px solid darken($text,10%);
+  border-radius: 20px;
+  padding-top: 12px;
+  width: 150px;
+  float: right;
+  height: 38px;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: .8rem;
+  line-height: .8rem;
+  &:hover {
+    background: lighten($text,5%);
+  }
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 //                             MODULES
@@ -5152,21 +5226,7 @@ a#but_imprimerbon,
   right: 0;
 }
 
-a.notech,
-a.notech1 {
-  @include buttonLog($magenta, 150px);
-  float: right;
-  color: $white;
-  height: 30px;
-  padding-top: .5rem;
-  border-radius: 15px;
-  margin-top: 10px;
-  margin-left: 10px;
-  &:hover {
-    background-color: $cyan;
-    border:1px solid darken($cyan, 7%);
-  }
-}
+
 // boutons register ------------------------------------------------------------
 .form-input-wide {
   width: 100%;
@@ -5748,6 +5808,7 @@ a:hover {
 	padding-top: 30px;
 	height: 0;
 	overflow: hidden;
+  border: 0;
 }
 
 
@@ -5756,29 +5817,13 @@ a:hover {
 .video-container embed {
   display: block;
 	position: absolute;
+  border: 0;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 }
 
-.vid-bloc-left{
-  width: 49%;
-  margin-right:2%;
-  float: left;
-}
-.vid-bloc-right{
-  width: 49%;
-  float: right;
-}
-.vid-bloc-left.video-container iframe{
-  min-height: 200px;
-  max-height: 300px;
-}
-.vid-bloc-right.video-container iframe{
-  min-height: 200px;
-  max-height: 300px;
-}
 
 ////////////////////////////////////////////////////////////////////////////////
 //                               PRINT
@@ -6257,7 +6302,7 @@ span#footer_links2 {
     padding: 2rem;
     border: 0;
     /*border-radius: 10px;*/
-    width: 70%; /* Could be more or less, depending on screen size */
+    width: 80%; /* Could be more or less, depending on screen size */
     max-width: 1060px;
     text-align: center;
     transition: all 2s ease;

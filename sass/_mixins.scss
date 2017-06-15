@@ -6,7 +6,50 @@
   }
 }
 
-// bouton fermer tooltips et modals
+// BOUTONS ---------------------------------------------------------------------
+
+// bouton de base
+
+@mixin buttonLog($bgcolor: $cyan, $largeur: 150px) {
+  position: relative;
+  width: $largeur;
+  height: 40px;
+  margin: 0 0 10px 0;
+  padding: .7rem .5rem .5rem;
+  display: inline-block;
+  float: none;
+  cursor: pointer;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
+  background: $bgcolor;
+  border: 1px solid darken($bgcolor, 7%);
+  border-radius: 3px;
+  color: #fff;
+  font-family: $font-global;
+  font-size: .8rem;
+  line-height: .8rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  text-indent: 0;
+  vertical-align: middle;
+  &.active,
+  &:hover {
+    background-image: none;
+    background-color: $magenta;
+    border:1px solid darken($magenta, 7%);
+    transition: .2s;
+  }
+  &.deactive {
+    cursor: default;
+    &.active,
+    &:hover {
+      background: $bgcolor;
+      border:1px solid darken($bgcolor, 7%);
+    }
+  }
+}
+
+// boutons fermer tooltips et modals
 
 @mixin close($color: $white, $size: 1rem, $top: 0, $right: 0) {
   background: none;
@@ -21,7 +64,7 @@
   cursor: pointer;
 }
 
-// BOUTONS ---------------------------------------------------------------------
+// boutons status devis
 
 @mixin buttonStatusBase($bgcolor){
   font-family: $font-global;
@@ -45,44 +88,22 @@
   }
 }
 
-@mixin buttonLog($bgcolor: $cyan, $largeur: 24px) {
-  position: relative;
-  width: $largeur;
-  height: 40px;
-  margin: 0 0 10px 0;
-  padding: .7rem .5rem .5rem;
-  display: inline-block;
-  float: none;
-  cursor: pointer;
-  background-image: none;
-  background-repeat: no-repeat;
-  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
-  background: $bgcolor;
-  border:1px solid darken($bgcolor, 7%);
-  border-radius: 3px;
-  color: #fff;
-  font-family: $font-global;
-  font-size: .8rem;
-  line-height: .8rem;
-  font-weight: normal;
+// boutons arrondis
+
+@mixin buttonSoft ($color, $borderc, $hover) {
+  display: block;
+  background: $color;
+  border: 1px solid $boderc;
+  border-radius: 20px;
+  padding-top: 12px;
+  width: 150px;
+  height: 38px;
+  vertical-align: middle;
   text-align: center;
   text-transform: uppercase;
-  text-indent: 0;
-  vertical-align: middle;
-
-  &.active,
+  font-size: .8rem;
+  line-height: .8rem;
   &:hover {
-    background-image: none;
-    background-color: $magenta;
-    border:1px solid darken($magenta, 7%);
-    transition: .2s;
-  }
-  &.deactive {
-    cursor: default !important;
-    &.active,
-    &:hover {
-      background: $bgcolor;
-      border:1px solid darken($bgcolor, 7%);
-    }
+    background: $hover;
   }
 }
