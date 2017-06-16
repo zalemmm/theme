@@ -16,7 +16,7 @@
 
   body {
     width: 1024px;
-    background: $bloc-base;
+    background: $bloc-base;//darken($text,20%);
     //border-left: 1px solid darken($bloc-base, 5%);
     //border-right: 1px solid darken($bloc-base, 5%);
     box-shadow: -5px 0 15px -5px rgba(0,0,0,0.1), 5px 0 15px -5px rgba(0,0,0,0.1);

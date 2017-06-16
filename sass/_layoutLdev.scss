@@ -132,13 +132,14 @@ body {
 #content_bg_top {
   @include container (100%);
   width: 100%;
-  min-height: 400px;
+
   height: auto;
   padding: 0 5%;
 
 }
 
 .storycontent {
+
   //display: flex;
   //flex-direction: row;
   //flex-wrap: wrap;
@@ -247,6 +248,10 @@ h1, h2, h3 {
 
 .h1product {
   display: none;
+}
+
+h1 .fa-lock {
+  color: $jaune;  
 }
 
 h2{
@@ -542,6 +547,8 @@ a {
 }
 
 .encart, .encartFlottant, .card {
+  position: relative;
+  z-index: 10;
   background: $text;
   padding: .5rem 1.5rem;
   margin: 20px 0;
@@ -558,7 +565,6 @@ a {
     text-transform: uppercase;
     font-size: .8rem;
   }
-
 }
 
 .encartFlottant {
@@ -587,9 +593,7 @@ a {
   margin: 0 0 20px 20px;
   text-align: center;
   float: right;
-  width: 50%;
-
-
+  width: 35%;
 }
 
 .cards {
@@ -634,6 +638,7 @@ a {
       width: 170px;
       &:hover {
         background: $magenta;
+        transition: .2s;
       }
     }
 
@@ -664,7 +669,8 @@ a.notech1 {
   font-size: .8rem;
   line-height: .8rem;
   &:hover {
-    background: lighten($text,5%);
+    background: $cyan;
+    transition: .2s;
   }
 }
 
@@ -5133,6 +5139,18 @@ form#delfromvosdevis,
 
 // boutons panier --------------------------------------------------------------
 
+.emptyCart {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  i {
+    display: block;
+    font-size: 2rem;
+    color:$magenta;
+  }
+}
+
 #but_continuer {
   @include buttonLog($cyan,24%);
 }
@@ -6386,8 +6404,20 @@ span#footer_links2 {
   }
 }
 
+.mfp-content {
+  animation: scale .3s 1;
+}
 // lity lightbox
+
+.lity {
+  background: rgba(0,0,0,0.75)!important;
+}
 
 .lity-iframe .lity-container, .lity-youtube .lity-container, .lity-vimeo .lity-container, .lity-facebookvideo .lity-container, .lity-googlemaps .lity-container {
     max-width: 1200px!important;
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
+//                             GALERIES WORDPRESS
+////////////////////////////////////////////////////////////////////////////////
