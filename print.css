@@ -27,6 +27,7 @@
   .modal,
   .btn-fermer,
   .toggle-button,
+  .toggle-block,
   .noprint {
     display: none !important;
   }
