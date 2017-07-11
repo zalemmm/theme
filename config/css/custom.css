@@ -167,10 +167,31 @@ body {
 
 .canvas-container-outer {
   display: block;
+  position: relative;
   float: none;
   margin: auto;
   max-width: 550px;
   border: 2px dashed #424242;
+}
+
+#svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 550px;
+  height: 550px;
+  display: block;
+  float: none;
+  margin: auto;
+  max-width: 550px;
+}
+
+#svg:first-child {
+  z-index: 100;
+}
+
+canvas {
+  z-index: 200;
 }
 
 .fabric-container {

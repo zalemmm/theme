@@ -372,7 +372,7 @@ get_header();
           <hr class="hr-separator" />
 
             <div class="important mc_texte" itemscope itemtype="http://schema.org/Product">
-              <p class="depuis"><span class="ribbon">Depuis maintenant<br />8 ans</span><br />
+              <p class="depuis"><span class="ribbon">Depuis maintenant<br />9 ans</span><br />
                 <strong itemprop="brand">France Banderole</strong> vous offre le meilleur rapport qualité/prix/réactivité dans l'impression de bâche imprimée pour vous permmettre d'acheter des banderoles pour tous les usages.
               </p>
               <button class="toggle-button"> Lire la suite... <i class="fa fa-caret-down" aria-hidden="true"></i></button>

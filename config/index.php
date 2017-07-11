@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css" >
     <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" type="text/css" href="css/angular-material.css">
+
     <!-- CSS End -->
 
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -28,6 +29,26 @@
 <body>
   <?php
     session_start();
+
+    $path = $_SERVER['DOCUMENT_ROOT'];
+
+    include_once $path . '/wp-config.php';
+    include_once $path . '/wp-load.php';
+    include_once $path . '/wp-includes/wp-db.php';
+    include_once $path . '/wp-includes/pluggable.php';
+
+    $prefix = $wpdb->prefix;
+    $fb_tablename_rating = $prefix."fbs_rating";
+    $fb_tablename_users = $prefix."fbs_users";
+    $fb_tablename_order = $prefix."fbs_order";
+    $fb_tablename_prods = $prefix."fbs_prods";
+    $fb_tablename_catprods = $prefix."fbs_catprods";
+    $fb_tablename_cache_notes = $prefix."fbs_cache_notes";
+    $fb_tablename_cache_comments = $prefix."fbs_cache_prodratings";
+    $fb_tablename_cache_ratings = $prefix."fbs_cache_ratings";
+
+    $prod_family = htmlentities(addslashes($_GET['prod']));
+    $full_list = htmlentities(addslashes($_GET['list']));
 
   ?>
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
@@ -57,9 +78,6 @@
                            <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>La bordure grise indique la marge de sécurité</b>. Evitez de faire déborder le texte et les éléments importants sur cette zone. Par contre si vous utilisez une couleur ou une image de fond, faites en sorte qu'elle recouvre cette marge.</p>
                            <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>Pour colorer le fond:</b> cliquez sur dessiner et utilisez l'outil pinceau sans vous soucier de déborder du cadre, tout ce qui déborde du cadre rouge du gabarit sera coupé. Idem si vous utilisez une image de fond: étirez là jusqu'à ce qu'elle dépasse du cadre. </p>
 
-
-
-
                         </div>
                         <div class="col-lg-12 thumb_listing">
 
@@ -69,7 +87,7 @@
 
                     <div class="graphic_options clearfix">
                         <ul>
-                          
+
                             <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6">
                                 <div>
                                     <a class="" href="#clip_arts" aria-controls="clip_arts" role="tab" data-toggle="tab" ng-click="exitDrawing()">
@@ -418,17 +436,12 @@
                         <md-checkbox ng-model="fabric.selectedObject.isEmboss" aria-label="Emboss" ng-click="setImageFilter(fabric.selectedObject.isEmboss, 3);">Embosser</md-checkbox>
                         <md-checkbox ng-model="fabric.selectedObject.isSharpen" aria-label="Sharpen" ng-click="setImageFilter(fabric.selectedObject.isSharpen, 4);">Sharpen</md-checkbox>
                     </div>
-
                 </div>
-
 
             </div>
 
             <!---->
-
-
         </div>
-
 
         <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 canvas_section pull-right">
             <div class="row">
@@ -441,7 +454,6 @@
                         <li ng-click="verticalAlign()"><i class="fa fa-arrows-v"></i><span>Aligner <br> Verticalement</span></li>
                         <li ng-click="{ active: flipObject() }"><i class="fa fa-exchange fa-2"></i><span>Mirroir</span></li>
                         <li ng-click="removeSelectedObject()"><i class="fa fa-eraser"></i><span>Supprimer <br>le calque </span></li>
-
 
                         <li>
                             <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" ng-click="undo()" href="#"><span class="ng-binding ng-scope"></span></a>
@@ -460,7 +472,7 @@
                 <div class="canvas_image image-builder ng-isolate-scope">
 
                     <div class='fabric-container'>
-                        <div class="canvas-container-outer">
+                        <div class="canvas-container-outer" id="svg">
                             <canvas fabric='fabric'></canvas>
                         </div>
                         <div class="btn-group-vertical">
@@ -553,53 +565,49 @@
 
         </div>
 
+    <!--<section class="customizer" id="customizer">
 
+        <div class="selector">
+              <h2>Configurer l'espace de travail</h2>
+              <div class="color_section color_block">
 
-<section class="customizer" id="customizer">
+                    <span class="customizer_headings">Couleurs</span>
 
-    <div class="selector">
-          <h2>Configurer l'espace de travail</h2>
-          <div class="color_section color_block">
-
-
-                <span class="customizer_headings">Couleurs</span>
-
-              <div class="col-lg-12 color-mixer">
-                  <div class="col-lg-12">
-                      <label class="customizer-label">Primaire</label>
-                      <div class="input-group colorPicker2 colorpicker-element">
-                              <input ng-model="primaryColor" colorpicker type="text" value="" class="form-control"/>
-                              <span class="input-group-addon"><i style="background: {{primaryColor}};"></i></span>
+                  <div class="col-lg-12 color-mixer">
+                      <div class="col-lg-12">
+                          <label class="customizer-label">Primaire</label>
+                          <div class="input-group colorPicker2 colorpicker-element">
+                                  <input ng-model="primaryColor" colorpicker type="text" value="" class="form-control"/>
+                                  <span class="input-group-addon"><i style="background: {{primaryColor}};"></i></span>
+                          </div>
                       </div>
-                  </div>
-                  <div class="col-lg-12">
-                      <label class="customizer-label">Secondaire</label>
-                      <div class="input-group colorPicker2 colorpicker-element">
-                          <input ng-model="secondaryColor" colorpicker type="text" value="" class="form-control"/>
-                          <span class="input-group-addon"><i style="background: {{secondaryColor}};"></i></span>
+                      <div class="col-lg-12">
+                          <label class="customizer-label">Secondaire</label>
+                          <div class="input-group colorPicker2 colorpicker-element">
+                              <input ng-model="secondaryColor" colorpicker type="text" value="" class="form-control"/>
+                              <span class="input-group-addon"><i style="background: {{secondaryColor}};"></i></span>
+                          </div>
                       </div>
+                      <hr /><br /><br />
+                      <div class="col-lg-12">
+                      <center><input ng-model="colorResult" type="button" value="Appliquer" class="btn btn-info" ng-click="changeColorScheme()"/></center>
+                      </div>
+
                   </div>
-                  <hr /><br /><br />
-                  <div class="col-lg-12">
-                  <center><input ng-model="colorResult" type="button" value="Appliquer" class="btn btn-info" ng-click="changeColorScheme()"/></center>
-                  </div>
+
+                    <span class="customizer_headings">Arrière plan</span>
+                    <ul id="canvas_color_selector" class="color_selector canvas_selector">
+                          <li data-attr="images/site_bg_01.jpg" class="canvas_1"></li>
+                          <li data-attr="images/site_bg_02.jpg" class="canvas_2"></li>
+                          <li data-attr="images/site_bg_03.jpg" class="canvas_3"></li>
+                          <li data-attr="images/site_bg_04.jpg" class="canvas_4"></li>
+                    </ul>
 
               </div>
-
-                <span class="customizer_headings">Arrière plan</span>
-                <ul id="canvas_color_selector" class="color_selector canvas_selector">
-                      <li data-attr="images/site_bg_01.jpg" class="canvas_1"></li>
-                      <li data-attr="images/site_bg_02.jpg" class="canvas_2"></li>
-                      <li data-attr="images/site_bg_03.jpg" class="canvas_3"></li>
-                      <li data-attr="images/site_bg_04.jpg" class="canvas_4"></li>
-                </ul>
-
-          </div>
-    </div>
-    <i class="fa fa-cog" id="selector_icon"></i>
-</section>
-    </div>
-
+        </div>
+        <i class="fa fa-cog" id="selector_icon"></i>
+    </section>-->
+  </div>
 </div>
 
 <script src="assets/angular.js"></script>
@@ -637,6 +645,17 @@
 
 <script src="assets/file/fileSaver.js"></script>
 <script src="assets/pdf/jspdf.debug.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.2/svg.js"></script>
+<script>
+var draw = SVG('svg').size(500, 500);
+var rect = draw.rect(500, 200).attr({
+  fill: '#00',
+  'fill-opacity': 0,
+  stroke: '#ccc',
+  'stroke-width': 10,
+  'stroke-opacity': 0.5
+});
+</script>
 
 <div id="qrcode"></div>
 <div id="wordcloud"></div>

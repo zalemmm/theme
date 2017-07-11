@@ -357,6 +357,11 @@ b {
   }
 }
 
+.bolder {
+  font-weight: 900;
+  letter-spacing: .2px;
+}
+
 // pour gérer les blocs de texte et les retours à la ligne
 .split,
 .splitorhide{
@@ -409,8 +414,8 @@ input[type="submit"]{
   @include buttonLog($cyan, 150px);
   height: 40px;
   margin-top: 9px;
-
 }
+
 input:focus {
   border: 1px solid $cyan-bloc;
 }
@@ -1259,8 +1264,7 @@ a.noticeFooter {
     font-size: .75rem;
   }
   &:hover{
-    border-bottom: none;
-    border-left: none;
+
     background: lighten($bloc-base,2%);
   }
   .helpExp{
@@ -1541,7 +1545,7 @@ input::placeholder {
     color: $cyan-bloc;
     font-weight: bold;
     cursor: pointer;
-    font-family: $font-global;
+    font-family: 'FontAwesome', $font-global;
     text-transform: uppercase;
     // reset styles navigateur
     margin: 0;
@@ -1578,9 +1582,9 @@ input::placeholder {
     }
 
     option {
-      font-family: $font-global;
+      font-family: 'FontAwesome', $font-global;
       color: $cyan-bloc;
-      text-transform: capitalize;
+      text-transform: none;
       line-height: 40px;
       padding:.2rem;
       font-size: .8rem;
@@ -1599,11 +1603,7 @@ input::placeholder {
         background-color: rgba(177,211,255,.8);
       }
       &.ecofr {
-        background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mifeco.png);
-        background-position: center right;
-        background-repeat: no-repeat;
-        background-color: rgba(216,252,227,1);
-
+        color: $green;
       }
       .spanfr, .spaneco {
         font-weight: 900;
@@ -4557,6 +4557,8 @@ h1.comTitre {
 
 a.comVoir  {
   @include buttonLog($cyan,35%);
+  display: block;
+  margin: 170px 0 10px 0;
   top: 0;
   right: 0;
   padding-top: .5rem;
@@ -4586,6 +4588,7 @@ a.comVoir  {
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
   margin: 10px 0 0;
   text-align: center;
+  font-size: .9rem;
   h2 {
     font-size: 1.2rem;
     padding-top: 0;
@@ -4618,6 +4621,7 @@ a.comVoir  {
 }
 
 #rating_pagination {
+  clear: both;
   position: relative;
   float: right;
   display: block;
@@ -5249,7 +5253,7 @@ a#but_imprimerbon,
 .form-input-wide {
   width: 100%;
   display: flex;
-display:-webkit-flex;
+  display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
 } // -----------------------------------------------------------------WTF???????
@@ -6411,6 +6415,7 @@ span#footer_links2 {
 
 .lity {
   background: rgba(0,0,0,0.75)!important;
+  z-index: 99999!important;
 }
 
 .lity-iframe .lity-container, .lity-youtube .lity-container, .lity-vimeo .lity-container, .lity-facebookvideo .lity-container, .lity-googlemaps .lity-container {
