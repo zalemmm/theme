@@ -131,10 +131,7 @@
         <?php }?>
 
       </div>
-
       <div class="clear"></div>
-
-
     </div>
 
     <!--derniers commentaires--->
@@ -187,8 +184,7 @@
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/affiches/">Affiches</a> |</span>
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/cartes/">Cartes de visite</a> |</span>
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/depliants/">Depliants</a> |</span>
-        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/accessoires/">PROMOTIONS</a> |</span>
-        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/contact/">contact</a></span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/accessoires/">PROMOTIONS</a> </span>
       </span>
 
 <!--Footer part4 (copyright)--------------------------------------------------->

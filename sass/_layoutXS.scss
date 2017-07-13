@@ -235,41 +235,7 @@
     }
   }
 
-  // tableau ratings -----------------------------------------------------------
-  #rating_general {
-    width: 100%;
-  }
 
-  a.comVoir  {
-    width: 100%;
-  }
-
-  #fbcart_rating {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    border-bottom: 0;
-    background-image: none;
-
-    td {
-      display: block;
-      width: 100%;
-
-      &.lefttd {
-        border-bottom: 0;
-        display: block;
-        width: 100%;
-      }
-
-      &.lefttd2 {
-        display: block;
-        width: 100%;
-        border-bottom: 0;
-        padding:0 .7rem;
-        background-image: none;
-      }
-    }
-  }
 
   // adaptation recaptcha responsive
 

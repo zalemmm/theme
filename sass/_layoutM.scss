@@ -257,7 +257,79 @@
     }
   }
 
+  // tableau ratings -----------------------------------------------------------
+  #rating_general {
+    width: 100%;
+    margin-bottom: 50px;
+  }
 
+  a.comVoir  {
+    width: 100%;
+    display: block;
+    .comVoirContent {
+      display: block;
+      position: absolute;
+      top: 8px;
+      left: 20px;
+    }
+  }
+
+  #fbcart_rating {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border-bottom: 0;
+    background-image: none;
+    tr{
+      outline: 1px solid #e9e9e9;
+    }
+
+    tr:after, tr:before {
+      top: -10px;
+      z-index: 100;
+    	left: 10%;
+    	border: solid transparent;
+    	content: " ";
+    	height: 0;
+    	width: 0;
+    	position: absolute;
+    	pointer-events: none;
+    }
+
+    tr:after {
+      border-color: rgba(246, 246, 246, 0);
+	    border-bottom-color: #f6f6f6;
+    	border-width: 15px;
+    	margin-left: -15px;
+    }
+
+    tr:before {
+      border-color: rgba(233, 233, 233, 0);
+	    border-bottom-color: #e9e9e9;
+      border-bottom: none;
+    	border-width: 16px;
+    	margin-left: -16px;
+    }
+
+    td {
+      display: block;
+      width: 100%;
+
+      &.lefttd {
+        border-bottom: 0;
+        display: block;
+        width: 100%;
+      }
+
+      &.lefttd2 {
+        display: block;
+        width: 100%;
+        border-bottom: 0;
+        padding:0 .7rem;
+        background-image: none;
+      }
+    }
+  }
   // tableau PLV ---------------------------------------------------------------
 
   #promotions_table {

@@ -252,6 +252,9 @@ h1, h2, h3 {
 h1 .fa-lock {
   color: $jaune;
 }
+h1 .fa-shopping-cart {
+  color: $magenta;
+}
 
 h2{
   color: $color_12;
@@ -4537,6 +4540,9 @@ ul.regiform2 {
       text-align: left;
       width: 20%;
       font-size: .8rem;
+      a {
+        text-transform: capitalize;
+      }
     }
 
     &.lefttd2 {
@@ -4555,16 +4561,30 @@ h1.comTitre {
 }
 
 a.comVoir  {
-  @include buttonLog($cyan,35%);
+  position: relative;
+  background: $cyan;
+  color: $white;
   display: block;
-  margin: 170px 0 10px 0;
+  margin: 170px 0 0 0;
   top: 0;
   right: 0;
   padding-top: .5rem;
+  width: 35%;
+  font-weight: normal;
+  text-transform: uppercase;
   height: 30px;
   text-align: center;
   border-radius: 0;
   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+  &:hover {
+    background: $magenta;
+    transition: .2s;
+  }
+  .comVoirContent {
+    display: block;
+    position: relative;
+    text-align: center;
+  }
 }
 
 #rating_livre {
@@ -6042,13 +6062,11 @@ h4.clients_reviews_titre a{
   height: auto;
   font-family:  $font-global;
   font-size: .72rem;
-  font-weight: bold;
-  font-style: italic;
+  font-weight: normal;
   color: darken($bloc-base,50%);
   line-height: .9rem;
   margin: 10px 0 5px;
   text-transform: none;
-
 }
 
 .singlerate_rate {
@@ -6058,7 +6076,6 @@ h4.clients_reviews_titre a{
   width: 48%;
   height: 20px;
   line-height: 20px;
-
 }
 
 .singlerate_date {
