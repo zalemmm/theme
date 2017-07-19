@@ -4,17 +4,12 @@
  * An example file that save encoded SVG, PNG and JPG URL and creates an image of it
  *
  */
-
+//$site_url = $_SERVER['DOCUMENT_ROOT'];
 $site_url = $_SERVER['HTTP_REFERER'];
-
 $site_ref_url = explode('/', $site_url);
-
 $site_url = $site_ref_url[2];
-
 $type = json_decode($_POST['type'], true);
-
 $post_data = json_decode($_POST['object'], true);
-
 
 
 if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
@@ -22,9 +17,8 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		$result = array();
 		$filenames = array();
 		foreach ($post_data as $key => $value) {
-		
+
 			if(!empty($value) && $value != null){
-				
 
 				$destination = dirname(dirname(__FILE__)).'/saved_design/svg/';
 
@@ -34,7 +28,7 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 				file_put_contents($destination.$filename, $contant);
 				$filenames[] = $site_url.'/saved_design/svg/'.$filename;
-				
+
 			}
 		}
 
@@ -43,7 +37,7 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		$result['message'] = 'Your designed object has been saved.';
 
 		echo json_encode($result);
-				
+
 		//send_design($destination, $filename);
 
 } else if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'png'){
@@ -54,8 +48,6 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 			if(!empty($value) && $value != null){
 
-				
-
 				$destination = dirname(dirname(__FILE__)).'/saved_design/png/';
 
 				$filename = $key.'design_'.time().'.png';
@@ -64,7 +56,7 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 				file_put_contents($destination.$filename, $contant);
 				$filenames[] = $site_url.'/saved_design/png/'.$filename;
-				
+
 			}
 		}
 
@@ -82,8 +74,7 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		$filenames = array();
 		foreach ($post_data as $key => $value) {
 			if(!empty($value) && $value != null){
-			
-				
+
 
 				$destination = dirname(dirname(__FILE__)).'/saved_design/jpg/';
 
@@ -93,7 +84,7 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 				file_put_contents($destination.$filename, $contant);
 				$filenames[] = $site_url.'/saved_design/jpg/'.$filename;
-				
+
 			}
 		}
 
@@ -117,36 +108,33 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 function send_design($filepath = null, $filename = null){
 
-
 	$my_file = $filename;
 	$my_path = $filepath;
-	
-	
+
 	$my_name    = "Design Tailor";
 	$my_mail    = "no-reply@xxxxxx.com";
 	$my_replyto = "no-reply@xxxxxx.com";
-	
-	
-	$to_email   = ''; 
+
+	$to_email   = '';
 	$my_subject = "Design Tailor :: Saved design";
 	$message     = "New design created using design tailor.";
-	
+
 	if(!empty($to_email)){
 		mail_attachment($my_file, $my_path, $to_email, $my_mail, $my_name, $my_replyto, $my_subject, $message);
 	}
 }
 
 function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
-	
+
 	    $file = $path.$filename;
 	    $file_size = filesize($file);
 	    $handle = fopen($file, "r");
 	    $content = fread($handle, $file_size);
 	    fclose($handle);
 	    $content = chunk_split(base64_encode($content));
-	    
+
 	    $uid = md5(uniqid(time()));
-	    
+
 	    $header = "From: ".$from_name." <".$from_mail.">\r\n";
 	    $header .= "Reply-To: ".$replyto."\r\n";
 	    $header .= "MIME-Version: 1.0\r\n";
@@ -162,9 +150,7 @@ function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $rep
 	    $header .= "Content-Disposition: attachment; filename=\"".$filename."\"\r\n\r\n";
 	    $header .= $content."\r\n\r\n";
 	    $header .= "--".$uid."--";
-	    
-	    
+
 	    mail($mailto, $subject, "", $header);
-	    
-	    
+
 }

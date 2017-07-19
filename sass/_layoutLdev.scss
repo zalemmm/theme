@@ -1590,7 +1590,7 @@ input::placeholder {
       line-height: 40px;
       padding:.2rem;
       font-size: .8rem;
-      font-weight: 700;
+      font-weight: normal;
       font-style: normal;
       &.option1 {
         background-color: $bloc-base;
@@ -1599,13 +1599,13 @@ input::placeholder {
         background-color: $white;
       }
       &.fr {
-        background-image: url(//www.france-banderole.com/wp-content/themes/fb/images/mif.png);
-        background-position: center right;
-        background-repeat: no-repeat;
-        background-color: rgba(177,211,255,.8);
+        color: #fff;
+        background-color: #5c97fc;
       }
-      &.ecofr {
-        color: $green;
+      &.ecofr,
+      &.ecotoile {
+        color: #fff;
+        background-color: $green;
       }
       .spanfr, .spaneco {
         font-weight: 900;
@@ -2431,13 +2431,14 @@ div {
 // alerte panier ---------------------------------------------------------------
 
 .box_info,
-.box_warning {
+.box_warning,
+.box_alert {
   position: relative;
   background-color: $bloc-base;
   width: auto;
   padding: 1rem;
   margin-bottom: 16px;
-  border: 2px solid $color_19;
+  border: 2px solid #177F22;
   background-color: $color_20;
   img{
     margin-right: 1rem;
@@ -2452,6 +2453,13 @@ div {
   background-color: $color_22;
   .closeButton {
     @include close($color_21, 2rem, 0, 10px);
+  }
+}
+.box_alert {
+  border: 2px solid $magenta;
+  background-color: ligthen($magenta,50%);
+  .closeButton {
+    @include close($magenta, 2rem, 0, 10px);
   }
 }
 

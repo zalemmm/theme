@@ -1,6 +1,7 @@
 jQuery(document).ready(function ($) {
 
-  /////////////////////////////////////////////// bouton close messages d'erreur
+  //////////////////////////////////////////// bouton close messages d'erreur //
+  //////////////////////////////////////////////////////////////////////////////
 
   $(document).on('click', '.closeButton', function() {
     $('.closeButton').parent().fadeOut();
@@ -14,11 +15,13 @@ jQuery(document).ready(function ($) {
     $('.closeB').parent().fadeOut();
   });
 
-  /////////////////////////////////////////////ajout icone info dans pages devis
+  ///////////////////////////////////////// ajout icone info dans pages devis //
+  //////////////////////////////////////////////////////////////////////////////
 
   $('#buying h3').append('<a class="aideDevis modal-link" href="//www.france-banderole.com/un-devis/" title="Aide pour le devis en ligne" target="_blank"><i class="fa fa-info" aria-hidden="true"></i></a>');
 
-  /////////////////////////////////// SlidesJS (slider carré des pages produits)
+  //////////////////////////////// SlidesJS (slider carré des pages produits) //
+  //////////////////////////////////////////////////////////////////////////////
 
   $('#slides').slidesjs({
     width: 400,
@@ -28,15 +31,16 @@ jQuery(document).ready(function ($) {
     play: {
       active: false, // [boolean] Generate the play and stop buttons.
       effect: "slide", // [string] Can be either "slide" or "fade".
-      interval: 3500, // [number] Time spent on each slide in milliseconds.
+      interval: 5000, // [number] Time spent on each slide in milliseconds.
       auto: true, // [boolean] Start playing the slideshow on load.
       swap: false, // [boolean] show/hide stop and play buttons
-      pauseOnHover: false, // [boolean] pause a playing slideshow on hover
+      pauseOnHover: true, // [boolean] pause a playing slideshow on hover
       restartDelay: 2500 // [number] restart delay on inactive slideshow
     }
   });
 
-  ///////////////////////////////////////////////////// toggle (texte déroulant)
+  ////////////////////////////////////////////////// toggle (texte déroulant) //
+  //////////////////////////////////////////////////////////////////////////////
 
   $('.toggle-button').click(function() {
     $('.toggle-block').slideToggle('slow');
@@ -56,8 +60,8 @@ jQuery(document).ready(function ($) {
     });
   });
 
-
-  //////////////////////////////////////////////////////////top icons menu hover
+  ////////////////////////////////////////////////////// top icons menu hover //
+  //////////////////////////////////////////////////////////////////////////////
 
   $('.menu-client-icon.phone a, .tel2 a').mouseover(function() {
     $('.menu-client-icon.phone a, .tel2 a').css({
@@ -87,7 +91,8 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  /////////////////////////////////////////////////////////////////smooth scroll
+  ///////////////////////////////////////////////////////////// smooth scroll //
+  //////////////////////////////////////////////////////////////////////////////
 
   // Select all links with hashes
   $('a[href*="#"]')
@@ -123,7 +128,8 @@ jQuery(document).ready(function ($) {
   });
 
 
-   // Instantiate Magnific Lightbox
+  ///////////////////////////////////////////////////////// Magnific Lightbox //
+  //////////////////////////////////////////////////////////////////////////////
   $('.gallery-item a').magnificPopup({
     type:'image',
     image: {
@@ -134,6 +140,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
+
   $('.lightboxGallery').each(function() { // the containers for all your galleries
     $(this).magnificPopup({
         delegate: 'a', // the selector for gallery item
@@ -143,5 +150,17 @@ jQuery(document).ready(function ($) {
         }
     });
   });
+
+  ////////////////////////////////// affichage conditionnel champs avec label //
+  //////////////////////////////////////////////////////////////////////////////
+  var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+  if (isMobile.matches) {
+    $('.ecofr').append('bâche 100% écologique M1');
+    $('.ecotoile').append('bâche éco toile &#xf1f9;');
+  } else {
+    $('.ecofr').append('bache 100% écologique M1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#xf299; écologique');
+    $('.ecotoile').append('bâche Eco Toile  &#xf25d; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#xf299; écologique');
+  }
 
 });

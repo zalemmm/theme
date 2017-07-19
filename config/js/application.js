@@ -1211,7 +1211,6 @@ angular.module('productApp', [
                 $scope.NOTIFICATION_MESSAGES = data.settings.notification_messages;
                 $scope.REQUEST_URL = data.settings.request_url;
 
-
                 $scope.fb_app_id = data.settings.social_settings.fb_app_id;
 
                 $scope.graphicsPage = data.settings.general_settings.graphicsPage;

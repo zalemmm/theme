@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css" >
     <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" type="text/css" href="css/angular-material.css">
-
     <!-- CSS End -->
 
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -29,6 +28,26 @@
 <body>
   <?php
     session_start();
+
+    $path = $_SERVER['DOCUMENT_ROOT'];
+
+    include_once $path . '/wp-config.php';
+    include_once $path . '/wp-load.php';
+    include_once $path . '/wp-includes/wp-db.php';
+    include_once $path . '/wp-includes/pluggable.php';
+
+    $prefix = $wpdb->prefix;
+    $fb_tablename_rating = $prefix."fbs_rating";
+    $fb_tablename_users = $prefix."fbs_users";
+    $fb_tablename_order = $prefix."fbs_order";
+    $fb_tablename_prods = $prefix."fbs_prods";
+    $fb_tablename_catprods = $prefix."fbs_catprods";
+    $fb_tablename_cache_notes = $prefix."fbs_cache_notes";
+    $fb_tablename_cache_comments = $prefix."fbs_cache_prodratings";
+    $fb_tablename_cache_ratings = $prefix."fbs_cache_ratings";
+
+    $prod_family = htmlentities(addslashes($_GET['prod']));
+    $full_list = htmlentities(addslashes($_GET['list']));
 
   ?>
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
@@ -189,11 +208,11 @@
                                                 <md-radio-button value="Pencil" class="md-primary" ng-click="changeDrawingMode('Pencil');"> <i class="fa fa-paint-brush" aria-hidden="true"></i> </md-radio-button>
                                                 <md-radio-button value="Circle" class="md-primary" ng-click="changeDrawingMode('Circle');"> <i class="fa fa-circle" aria-hidden="true"></i></md-radio-button>
                                                 <md-radio-button value="Spray" class="md-primary" ng-click="changeDrawingMode('Spray');"><i class="ti-spray"></i></md-radio-button>
-                                                <md-radio-button value="Pattern" class="md-primary" ng-click="changeDrawingMode('Pattern');">Motif</md-radio-button>
-                                                <md-radio-button value="hline" class="md-primary" ng-click="changeDrawingMode('hline');">Ligne <i class="fa fa-arrows-h" aria-hidden="true"></i></md-radio-button>
-                                                <md-radio-button value="vline" class="md-primary" ng-click="changeDrawingMode('vline');">Ligne <i class="fa fa-arrows-v" aria-hidden="true"></i></md-radio-button>
-                                                <md-radio-button value="square" class="md-primary" ng-click="changeDrawingMode('square');"><i class="fa fa-stop" aria-hidden="true"></i></md-radio-button>
-                                                <md-radio-button value="diamond" class="md-primary" ng-click="changeDrawingMode('diamond');">Losange</md-radio-button>
+                                                <!--<p style="clear:both;">Motifs / patterns :</p>
+                                                <md-radio-button value="Pattern" class="md-primary" ng-click="changeDrawingMode('Pattern');"> <i class="fa fa-circle" aria-hidden="true"></i></md-radio-button>
+                                                <md-radio-button value="hline" class="md-primary" ng-click="changeDrawingMode('hline');"> <i class="fa fa-arrows-h" aria-hidden="true"></i></md-radio-button>
+                                                <md-radio-button value="vline" class="md-primary" ng-click="changeDrawingMode('vline');"> <i class="fa fa-arrows-v" aria-hidden="true"></i></md-radio-button>
+                                                <md-radio-button value="square" class="md-primary" ng-click="changeDrawingMode('square');"><i class="fa fa-stop" aria-hidden="true"></i></md-radio-button>-->
                                             </md-radio-group>
 
                                         </div>

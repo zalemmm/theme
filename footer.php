@@ -153,7 +153,7 @@
           <?php echo $strmoyenne1; ?>
         </span><?php echo $strmoyenne2 . $strmoyenne3 . $strmoyenne4; ?>
 
-        <span class="star-note"><img src="<?php get_bloginfo("url"); ?>/wp-content/themes/fb/images/star-4_7.png" /></span><br />
+        <span class="star-note"><img src="//www.france-banderole.com/wp-content/themes/fb/images/star-4_7.png" /></span><br />
       </div>
 
       <a href="<?php echo get_bloginfo("url"); ?>/avis/" class="floatRight"></a>
