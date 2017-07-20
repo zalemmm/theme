@@ -131,14 +131,12 @@
         <?php }?>
 
       </div>
-
       <div class="clear"></div>
-
-
     </div>
 
     <!--derniers commentaires--->
-    <div id="derniers">
+    <div id="derniers" itemscope itemtype="http://schema.org/Product">
+
       <?php
         $prefix = $wpdb->prefix;
         $fb_tablename_rating = $prefix."fbs_rating";
@@ -149,14 +147,16 @@
         $strmoyenne3 = $total->nb_avis;
         $strmoyenne4 = " avis";
       ?>
-
+      <span class="dis0" itemprop="name">Impression numérique grand format</span>
       <h4 class="clients_reviews_titre"><span><a href="<?php bloginfo('url'); ?>/avis">Avis Clients sur France Banderole</a></span></h4>
-      <div class="clients_reviews">
-        <span class="client_reviews_1">
-          <?php echo $strmoyenne1; ?>
-        </span><?php echo $strmoyenne2 . $strmoyenne3 . $strmoyenne4; ?>
+      <div class="clients_reviews" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
 
-        <span class="star-note"><img src="<?php get_bloginfo("url"); ?>/wp-content/themes/fb/images/star-4_7.png" /></span><br />
+        <span class="client_reviews_1" itemprop="ratingValue" ><?php echo $strmoyenne1; ?></span>
+        <span><?php echo $strmoyenne2; ?></span>
+        <span itemprop="reviewCount"><?php echo $strmoyenne3; ?></span>
+        <span><?php echo $strmoyenne4; ?></span>
+
+        <span class="star-note"><img src="//www.france-banderole.com/wp-content/themes/fb/images/star-4_7.png" /></span><br />
       </div>
 
       <a href="<?php echo get_bloginfo("url"); ?>/avis/" class="floatRight"></a>
@@ -187,8 +187,7 @@
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/affiches/">Affiches</a> |</span>
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/cartes/">Cartes de visite</a> |</span>
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/depliants/">Depliants</a> |</span>
-        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/accessoires/">PROMOTIONS</a> |</span>
-        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/contact/">contact</a></span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/accessoires/">PROMOTIONS</a> </span>
       </span>
 
 <!--Footer part4 (copyright)--------------------------------------------------->

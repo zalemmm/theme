@@ -117,7 +117,7 @@ get_header();
             </div>
             </div> ';
             $div_3 = '
-            <div class="mc_sticker" itemscope itemtype="http://schema.org/Product">
+            <div class="mc_sticker">
             <div style="float:left; padding:10px">
             <h1><a href="http://www.france-banderole.com/panneaux-akilux-forex-dibond/">panneau akilux</a></h1>
             <h2><a href="panneaux-akilux-3mm">panneaux akilux</a></h2>
@@ -371,7 +371,7 @@ get_header();
 
           <hr class="hr-separator" />
 
-            <div class="important mc_texte" itemscope itemtype="http://schema.org/Product">
+            <div class="important mc_texte">
               <p class="depuis"><span class="ribbon">Depuis maintenant<br />9 ans</span><br />
                 <strong itemprop="brand">France Banderole</strong> vous offre le meilleur rapport qualité/prix/réactivité dans l'impression de bâche imprimée pour vous permmettre d'acheter des banderoles pour tous les usages.
               </p>
