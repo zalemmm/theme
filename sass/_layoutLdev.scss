@@ -1011,7 +1011,8 @@ ul#menu_top ul#produit_sub{
 
 // icones page d'accueil et pages akilux, enseigne et stickers -----------------
 
-ul#tarifs {
+ul#tarifs,
+ul#tarifs2, {
   clear: both;
   float: none;
   display: flex;
@@ -1076,6 +1077,12 @@ ul#tarifs {
         transition: .1s;
       }
     }
+  }
+}
+
+ul#tarifs2 {
+  li {
+    width: 19%;
   }
 }
 
@@ -1599,23 +1606,18 @@ input::placeholder {
         background-color: $white;
       }
       &.fr {
-        color: #fff;
-        background-color: #5c97fc;
+        color: $fr;
       }
       &.ecofr,
       &.ecotoile {
-        color: #fff;
-        background-color: $green;
+        color: $green;
       }
       .spanfr, .spaneco {
         font-weight: 900;
         display: inline-block;
         margin-left: 50px;
-
       }
     }
-
-
 
     &.option3,
     &.option4 {
@@ -2183,7 +2185,7 @@ input:valid {
   left: 100%;
   top: -10px;
   padding-left: 10px;
-  width: 270px;
+  width: 300px;
   color: darken($text, 10%);
   padding: .8rem;
   z-index: 999;
@@ -2223,6 +2225,14 @@ input:valid {
 	border-right-color: #e9e9e9;
 	border-width: 11px;
 	margin-top: -11px;
+}
+
+.helpfr {
+  color: $fr;
+}
+.fa-envira,
+.helpeco {
+  color: $green;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
