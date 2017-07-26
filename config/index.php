@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css" >
     <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" type="text/css" href="css/angular-material.css">
-
     <!-- CSS End -->
 
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -27,30 +26,12 @@
 
 </head>
 <body>
+  
   <?php
     session_start();
-
     $path = $_SERVER['DOCUMENT_ROOT'];
-
-    include_once $path . '/wp-config.php';
-    include_once $path . '/wp-load.php';
-    include_once $path . '/wp-includes/wp-db.php';
-    include_once $path . '/wp-includes/pluggable.php';
-
-    $prefix = $wpdb->prefix;
-    $fb_tablename_rating = $prefix."fbs_rating";
-    $fb_tablename_users = $prefix."fbs_users";
-    $fb_tablename_order = $prefix."fbs_order";
-    $fb_tablename_prods = $prefix."fbs_prods";
-    $fb_tablename_catprods = $prefix."fbs_catprods";
-    $fb_tablename_cache_notes = $prefix."fbs_cache_notes";
-    $fb_tablename_cache_comments = $prefix."fbs_cache_prodratings";
-    $fb_tablename_cache_ratings = $prefix."fbs_cache_ratings";
-
-    $prod_family = htmlentities(addslashes($_GET['prod']));
-    $full_list = htmlentities(addslashes($_GET['list']));
-
   ?>
+
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
     <div ng-show="loading" class="loading">
         <h1 class="lodingMessage">Initialisation<img src="images/ajax-loader.gif"></h1>
@@ -209,11 +190,11 @@
                                                 <md-radio-button value="Pencil" class="md-primary" ng-click="changeDrawingMode('Pencil');"> <i class="fa fa-paint-brush" aria-hidden="true"></i> </md-radio-button>
                                                 <md-radio-button value="Circle" class="md-primary" ng-click="changeDrawingMode('Circle');"> <i class="fa fa-circle" aria-hidden="true"></i></md-radio-button>
                                                 <md-radio-button value="Spray" class="md-primary" ng-click="changeDrawingMode('Spray');"><i class="ti-spray"></i></md-radio-button>
-                                                <md-radio-button value="Pattern" class="md-primary" ng-click="changeDrawingMode('Pattern');">Motif</md-radio-button>
-                                                <md-radio-button value="hline" class="md-primary" ng-click="changeDrawingMode('hline');">Ligne <i class="fa fa-arrows-h" aria-hidden="true"></i></md-radio-button>
-                                                <md-radio-button value="vline" class="md-primary" ng-click="changeDrawingMode('vline');">Ligne <i class="fa fa-arrows-v" aria-hidden="true"></i></md-radio-button>
-                                                <md-radio-button value="square" class="md-primary" ng-click="changeDrawingMode('square');"><i class="fa fa-stop" aria-hidden="true"></i></md-radio-button>
-                                                <md-radio-button value="diamond" class="md-primary" ng-click="changeDrawingMode('diamond');">Losange</md-radio-button>
+                                                <!--<p style="clear:both;">Motifs / patterns :</p>
+                                                <md-radio-button value="Pattern" class="md-primary" ng-click="changeDrawingMode('Pattern');"> <i class="fa fa-circle" aria-hidden="true"></i></md-radio-button>
+                                                <md-radio-button value="hline" class="md-primary" ng-click="changeDrawingMode('hline');"> <i class="fa fa-arrows-h" aria-hidden="true"></i></md-radio-button>
+                                                <md-radio-button value="vline" class="md-primary" ng-click="changeDrawingMode('vline');"> <i class="fa fa-arrows-v" aria-hidden="true"></i></md-radio-button>
+                                                <md-radio-button value="square" class="md-primary" ng-click="changeDrawingMode('square');"><i class="fa fa-stop" aria-hidden="true"></i></md-radio-button>-->
                                             </md-radio-group>
 
                                         </div>
@@ -472,7 +453,9 @@
                 <div class="canvas_image image-builder ng-isolate-scope">
 
                     <div class='fabric-container'>
-                        <div class="canvas-container-outer" id="svg">
+
+                        <div class="canvas-container-outer">
+                          <div id="svg"></div>
                             <canvas fabric='fabric'></canvas>
                         </div>
                         <div class="btn-group-vertical">
@@ -533,32 +516,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="canvas_details clearfix">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <span class="product_name">{{defaultProductTitle}}</span>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 clearfix">
-                        <span class="pull-left">Qty:</span>
-                        <div class="m-prod_detail_attr">
-                            <div class="pull-left m-prod_counter">
-                                <span ng-click="increments()"><i class="fa fa-plus"></i></span>
-                                <span ng-click="decrement()"><i class="fa fa-minus"></i></span>
-                                <input type="text" value="{{counter}}" id="m-prod_count" name="quantity" required>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12 clearfix pricing">
-                        <div class="col-lg-12 col-me-12 com-sm-12 col-xs-12">
-                            <span class="price_title">Price</span>
-                            <span class="price_amnt">{{defaultPrice}} {{defaultCurrency}}</span>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <a class="cart_icon" href="javascript:void(0)" ng-click="addToCart()">
-                            <i class="fa fa-shopping-cart"></i>
-                            Add to cart
-                        </a>
-                    </div>
+
                 </div>
 
             </div>

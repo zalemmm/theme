@@ -31,23 +31,6 @@
 
     $path = $_SERVER['DOCUMENT_ROOT'];
 
-    include_once $path . '/wp-config.php';
-    include_once $path . '/wp-load.php';
-    include_once $path . '/wp-includes/wp-db.php';
-    include_once $path . '/wp-includes/pluggable.php';
-
-    $prefix = $wpdb->prefix;
-    $fb_tablename_rating = $prefix."fbs_rating";
-    $fb_tablename_users = $prefix."fbs_users";
-    $fb_tablename_order = $prefix."fbs_order";
-    $fb_tablename_prods = $prefix."fbs_prods";
-    $fb_tablename_catprods = $prefix."fbs_catprods";
-    $fb_tablename_cache_notes = $prefix."fbs_cache_notes";
-    $fb_tablename_cache_comments = $prefix."fbs_cache_prodratings";
-    $fb_tablename_cache_ratings = $prefix."fbs_cache_ratings";
-
-    $prod_family = htmlentities(addslashes($_GET['prod']));
-    $full_list = htmlentities(addslashes($_GET['list']));
 
   ?>
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
