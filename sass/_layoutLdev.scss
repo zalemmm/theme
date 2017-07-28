@@ -1585,13 +1585,21 @@ input::placeholder {
     }
 
     optgroup {
-      font-family: $font-global;
+      font-family: 'FontAwesome', $font-global;
       font-style: normal;
-      font-weight: 900;
+      font-weight: 700;
+      i {
+        font-weight: normal;
+      }
+      &.eco {
+        color: $green;
+      }
+      &.fyah {
+        color: $magenta;
+      }
     }
 
     option {
-      font-family: 'FontAwesome', $font-global;
       color: $cyan-bloc;
       text-transform: none;
       line-height: 40px;
@@ -1605,18 +1613,7 @@ input::placeholder {
       &.option2 {
         background-color: $white;
       }
-      &.fr {
-        color: $fr;
-      }
-      &.ecofr,
-      &.ecotoile {
-        color: $green;
-      }
-      .spanfr, .spaneco {
-        font-weight: 900;
-        display: inline-block;
-        margin-left: 50px;
-      }
+
     }
 
     &.option3,
@@ -2171,9 +2168,9 @@ input:valid {
   background-size:cover;
   background-repeat: no-repeat;
   cursor: pointer;
-  animation: pulse 1.25s 1s cubic-bezier(0.66, 0, 0, 1);
+  //animation: pulse 1.25s 1s cubic-bezier(0.66, 0, 0, 1);
   &:hover{
-    animation-play-state: paused;
+    //animation-play-state: paused;
     transform: scale(1.2);
   }
 }

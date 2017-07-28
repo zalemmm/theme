@@ -151,16 +151,13 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  ////////////////////////////////// affichage conditionnel champs avec label //
+  ///////////////////////////////////////////// affichage conditionnel mobile //
   //////////////////////////////////////////////////////////////////////////////
   var isMobile = window.matchMedia("only screen and (max-width: 760px)");
-
   if (isMobile.matches) {
-    $('.ecofr').append('bâche 100% écologique M1');
-    $('.ecotoile').append('bâche éco toile <sup>&#xf1f9</sup>;');
+
   } else {
-    $('.ecofr').append('bâche 100% écologique M1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#xf299; écologique');
-    $('.ecotoile').append('bâche Eco Toile  &#xf25d; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#xf299; écologique');
+
   }
 
 });
