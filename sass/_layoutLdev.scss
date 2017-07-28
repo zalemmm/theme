@@ -574,6 +574,10 @@ a {
   }
 }
 
+.encartAlert {
+  background-color: $magenta;
+}
+
 .encartFlottant {
   float: right;
   width: 49%;
@@ -2186,7 +2190,7 @@ input:valid {
   color: darken($text, 10%);
   padding: .8rem;
   z-index: 999;
-  text-align: left;
+  text-align: justify;
   line-height: 1rem;
   font-size: .8rem;
 	background: #f6f6f6;
