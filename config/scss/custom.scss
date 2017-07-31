@@ -7,7 +7,7 @@ $white_40: rgba(255, 255, 255, 0.4);
 $black_20: rgba(0, 0, 0, 0.2);
 $color_cape_cod_approx: #424242;
 $color_bon_jour_approx: #dfdfdf;
-$black_haze: #f6f7f7;
+$black_haze: #f6f6f6;
 $color_limed_spruce_approx: #3e4954;
 $color_sunglow_approx: #ffc23f;
 $white_96: rgba(255, 255, 255, 0.96);
@@ -115,9 +115,16 @@ $url_0: url(/images/squareLoader.gif);
 .ng-hide-remove {
 	display: block!important;
 }
+
 body {
 	padding: 10px;
+	background: #f6f6f6 !important;
 }
+
+.container {
+	background: #464545;
+}
+
 .image-builder-container {
 	position: relative;
 	.image-builder {
@@ -200,17 +207,19 @@ body {
 		max-width: 70px;
 	}
 }
-
+.canvas_image {
+	padding: 0;
+}
 .canvas-container-outer {
 	display: block;
 	position: relative;
 	float: none;
 	margin: auto;
-	max-width: 550px;
-	border: 2px dashed $color_cape_cod_approx;
+	max-width: 750px;
+	border: 1px dashed white;
 }
 #svg {
-	position: absolute;
+/*	position: absolute;
 	left: 0;
 	top: 0;
 	width: 550px;
@@ -220,8 +229,8 @@ body {
 	margin: auto;
 	max-width: 550px;
 	&:first-child{
-		
-	}
+
+	}*/
 }
 
 

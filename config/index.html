@@ -26,13 +26,12 @@
 
 </head>
 <body>
+
   <?php
     session_start();
-
     $path = $_SERVER['DOCUMENT_ROOT'];
-
-
   ?>
+
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
     <div ng-show="loading" class="loading">
         <h1 class="lodingMessage">Initialisation<img src="images/ajax-loader.gif"></h1>
@@ -456,7 +455,7 @@
                     <div class='fabric-container'>
 
                         <div class="canvas-container-outer">
-                          <div id="svg"></div>
+
                             <canvas fabric='fabric'></canvas>
                         </div>
                         <div class="btn-group-vertical">
@@ -606,14 +605,14 @@
 <script src="assets/pdf/jspdf.debug.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.2/svg.js"></script>
 <script>
-var draw = SVG('svg').size(500, 500);
+/*var draw = SVG('svg').size(500, 500);
 var rect = draw.rect(500, 200).attr({
   fill: '#00',
   'fill-opacity': 0,
   stroke: '#ccc',
   'stroke-width': 10,
   'stroke-opacity': 0.5
-});
+});*/
 </script>
 
 <div id="qrcode"></div>

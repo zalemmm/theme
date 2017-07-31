@@ -135,7 +135,7 @@ angular.module('productApp', [
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
         };
-
+        
         $scope.changeDrawingShadow = function(shadow){
             if($scope.fabric.checkBackgroundImage()){
                 $scope.drawing_line_shadow = shadow;

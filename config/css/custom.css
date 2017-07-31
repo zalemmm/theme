@@ -71,6 +71,11 @@
 
 body {
   padding: 10px;
+  background: #f6f6f6 !important;
+}
+
+.container {
+  background: #464545;
 }
 
 .image-builder-container {
@@ -165,33 +170,32 @@ body {
   max-width: 70px;
 }
 
+.canvas_image {
+  padding: 0;
+}
+
 .canvas-container-outer {
   display: block;
   position: relative;
   float: none;
   margin: auto;
-  max-width: 550px;
-  border: 2px dashed #424242;
+  max-width: 750px;
+  border: 1px dashed white;
 }
 
 #svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 550px;
-  height: 550px;
-  display: block;
-  float: none;
-  margin: auto;
-  max-width: 550px;
-}
+  /*	position: absolute;
+	left: 0;
+	top: 0;
+	width: 550px;
+	height: 550px;
+	display: block;
+	float: none;
+	margin: auto;
+	max-width: 550px;
+	&:first-child{
 
-#svg:first-child {
-  z-index: 100;
-}
-
-canvas {
-  z-index: 200;
+	}*/
 }
 
 .fabric-container {
@@ -393,7 +397,7 @@ md-input-container.md-input-has-value label:not(.md-no-float) {
 }
 
 md-tabs.md-default-theme.md-accent > md-tabs-wrapper {
-  background-color: #f6f7f7;
+  background-color: #f6f6f6;
   border-top: 1px solid #cacaca;
 }
 
@@ -418,7 +422,7 @@ md-tabs.md-default-theme.md-accent > md-tabs-wrapper > md-tabs-canvas > md-pagin
 }
 
 md-tabs.md-accent > md-tabs-wrapper {
-  background-color: #f6f7f7;
+  background-color: #f6f6f6;
   border-top: 1px solid #cacaca;
 }
 
@@ -775,7 +779,7 @@ ng\:form {
 .icon-vertical ul {
   margin-right: 20px;
   border: 1px solid #dfdfdf;
-  background: #f6f7f7 none repeat scroll 0 0;
+  background: #f6f6f6 none repeat scroll 0 0;
 }
 
 .icon-vertical ul li {

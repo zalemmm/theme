@@ -1,7 +1,7 @@
 //                                           Template tablette: - de 960px/760px
 // -----------------------------------------------------------------------------
 @media(max-width: 960px) {
-  ul#tarifs {
+  ul#tarifs, ul#tarifs2 {
     li {
       .micro a {
         font-size: .7rem;
@@ -134,7 +134,7 @@
 
   // icones --------------------------------------------------------------------
 
-  ul#tarifs {
+  ul#tarifs, ul#tarifs2 {
     li {
       width: 32%; //120
     }

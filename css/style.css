@@ -9542,11 +9542,11 @@ span#footer_links2 {
 
 @media (max-width: 960px) {
   /* line 6, sass/_layoutM.scss */
-  ul#tarifs li .micro a {
+  ul#tarifs li .micro a, ul#tarifs2 li .micro a {
     font-size: .7rem;
   }
   /* line 8, sass/_layoutM.scss */
-  ul#tarifs li .micro a .micro-s {
+  ul#tarifs li .micro a .micro-s, ul#tarifs2 li .micro a .micro-s {
     display: block;
     font-size: .5rem;
     font-family: "Source Sans Pro", sans-serif;
@@ -9670,7 +9670,7 @@ span#footer_links2 {
     text-align: right;
   }
   /* line 138, sass/_layoutM.scss */
-  ul#tarifs li {
+  ul#tarifs li, ul#tarifs2 li {
     width: 32%;
   }
   /* line 144, sass/_layoutM.scss */
@@ -10265,7 +10265,7 @@ span#footer_links2 {
     min-height: 20px;
   }
   /* line 172, sass/_layoutS.scss */
-  ul#tarifs li {
+  ul#tarifs li, ul#tarifs2 li {
     width: 48%;
   }
   /* line 176, sass/_layoutS.scss */

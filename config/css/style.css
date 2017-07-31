@@ -63,11 +63,7 @@ label {
   font-weight: normal;
 }
 
-.container {
-  background: url(../images/pattern-bg.jpg);
-}
-
-.loadMore {
+c .loadMore {
   margin-top: 20px;
   color: #3e4954;
   cursor: pointer;
@@ -529,15 +525,15 @@ md-tab-content {
 }
 
 .canvas_2 {
-  background: url(../images/site_bg_02.jpg);
+  background: url(../images/site_bg_01.jpg);
 }
 
 .canvas_3 {
-  background: url(../images/site_bg_03.jpg);
+  background: url(../images/site_bg_01.jpg);
 }
 
 .canvas_4 {
-  background: url(../images/site_bg_04.jpg);
+  background: url(../images/site_bg_01.jpg);
 }
 
 #selector_icon {

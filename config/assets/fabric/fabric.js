@@ -16,10 +16,10 @@ angular.module('common.fabric', [
 		var JSONObject;
 		var self = angular.extend({
 			canvasBackgroundColor: '#ffffff',
-			canvasWidth: 600,
-			canvasHeight: 600,
-			canvasOriginalHeight: 500,
-			canvasOriginalWidth: 500,
+			canvasWidth: 750,
+			canvasHeight: 750,
+			canvasOriginalHeight: 700,
+			canvasOriginalWidth: 700,
 			maxContinuousRenderLoops: 25,
 			continuousRenderTimeDelay: 500,
 			editable: true,
@@ -388,8 +388,8 @@ angular.module('common.fabric', [
                     left: center.left,
                     originX: 'center',
                     originY: 'center',
-                    width:image.width,
-                    height:image.height,
+                    width:2000,
+                    height:200,
                     backgroundImageStretch: false
             });
         };
@@ -408,17 +408,18 @@ angular.module('common.fabric', [
         self.imageResize = function(src) {
 
             var MAX_HEIGHT = canvas.height;
+						var MAX_WIDTH = canvas.width;
             var w;
             var h;
 
             var image = new Image();
 
             image.src = src;
-            if(image.height > MAX_HEIGHT) {
-                image.width *= MAX_HEIGHT / image.height;
-                image.height = MAX_HEIGHT;
+            if(image.width > MAX_WIDTH) {
+                image.height *= MAX_WIDTH / image.width;
+                image.width = MAX_WIDTH;
                 w = image.width;
-                h = image.height;
+                h = image.height / 2;
             }else{
                 w = image.width;
                 h = image.height;
@@ -1569,10 +1570,10 @@ angular.module('common.fabric', [
             $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
             var svgResult = $(document).find('.svgElements').html();
 
-         
+
             // Create a Data URI.
             var svg = 'data:image/svg+xml;base64,'+window.btoa(svgResult);
-            
+
             return svg;
         };
 
@@ -1582,12 +1583,12 @@ angular.module('common.fabric', [
         self.saveCanvasObjectAsPng = function() {
 
             canvas.deactivateAll().renderAll();
-        
+
             var png = canvas.toDataURL({
               format: 'png',
               multiplier: 1
             });
-        
+
             return png;
         };
 
@@ -1597,12 +1598,12 @@ angular.module('common.fabric', [
         self.saveCanvasObjectAsJpg = function() {
 
             canvas.deactivateAll().renderAll();
-          
+
             var jpeg = canvas.toDataURL({
               format: 'jpeg',
               multiplier: 1
             });
-            
+
             return jpeg;
         };
 
@@ -1996,7 +1997,7 @@ angular.module('common.fabric', [
 		self.init = function() {
             var winWidth = $(window).width();
 			canvas = FabricCanvas.getCanvas();
-            var canvasSize = 550;
+            var canvasSize = 750;
 			self.canvasId = FabricCanvas.getCanvasId();
 			canvas.clear();
 
@@ -2005,7 +2006,7 @@ angular.module('common.fabric', [
                 canvasSize = 220;
             }else if(winWidth < 600){
                 canvasSize = 350;
-            } 
+            }
 
 			// For easily accessing the json
 			JSONObject = angular.fromJson(self.json);
