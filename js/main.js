@@ -3,16 +3,23 @@ jQuery(document).ready(function ($) {
   //////////////////////////////////////////// bouton close messages d'erreur //
   //////////////////////////////////////////////////////////////////////////////
 
-  $(document).on('click', '.closeButton', function() {
-    $('.closeButton').parent().fadeOut();
-    $('.box_info').fadeOut();
-    $('.box_warning').fadeOut();
+  // boxes accès client
+  $('.box_info').on('click', '.closeButton', function() {
+    $(this).closest('.box_info').fadeOut();
+  });
+  $('.box_warning').on('click', '.closeButton', function() {
+    $(this).closest('.box_warning').fadeOut();
+  });
+
+  // messages d'erreur
+  $('.form-button-error, #form-button-error2, #form-button-error3').on('click', '.closeButton', function() {
+    $(this).closest('.form-button-error, #form-button-error2, #form-button-error3').fadeOut();
   });
 
   // bouton close tooltips
   $('.helpText').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
   $(document).on('click', '.closeB', function() {
-    $('.closeB').parent().fadeOut();
+    $(this).parent().fadeOut();
   });
 
   ///////////////////////////////////////// ajout icone info dans pages devis //
@@ -46,14 +53,15 @@ jQuery(document).ready(function ($) {
     $('.toggle-block').slideToggle('slow');
   });
 
-  // home buttons hover
-  $('#tarifs li').mouseover(function() {
+  //////////////////////////////////////////////////////// home buttons hover //
+  //////////////////////////////////////////////////////////////////////////////
+  $('#tarifs li, #tarifs2 li').mouseover(function() {
     $(this).find('.micro a').css({
       background: '#EA2A6A',
       color: '#fff'
     });
   });
-  $('#tarifs li').mouseout(function() {
+  $('#tarifs li, #tarifs2 li').mouseout(function() {
     $(this).find('.micro a').css({
       background: '#f6f6f6',
       color: '#555a61'
@@ -126,7 +134,6 @@ jQuery(document).ready(function ($) {
       }
     }
   });
-
 
   ///////////////////////////////////////////////////////// Magnific Lightbox //
   //////////////////////////////////////////////////////////////////////////////

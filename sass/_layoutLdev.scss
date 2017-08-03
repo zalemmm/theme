@@ -553,7 +553,12 @@ a {
   }
 }
 
-.encart, .encartFlottant, .card {
+.labelIcons {
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.encart, .encartAlert, .encartFlottant, .card {
   position: relative;
   z-index: 10;
   background: $text;
@@ -572,10 +577,24 @@ a {
     text-transform: uppercase;
     font-size: .8rem;
   }
+
+  h5 {
+    clear: both;
+    margin-top: 10px;
+    .notech {
+      margin: 0 0 1rem 1rem;
+      padding-top: 8px;
+      height: 30px;
+    }
+  }
 }
 
 .encartAlert {
   background-color: $magenta;
+  color: lighten($magenta, 30%);
+  .fa-fire {
+    color: $white;
+  }
 }
 
 .encartFlottant {
@@ -1611,11 +1630,11 @@ input::placeholder {
       font-size: .8rem;
       font-weight: normal;
       font-style: normal;
-      &.option1 {
-        background-color: $bloc-base;
-      }
       &.option2 {
-        background-color: $white;
+        background-color: lighten($bloc-base, 2%);
+      }
+      &.option1 {
+        background-color: lighten($bloc-base, 4%);
       }
 
     }
@@ -2190,7 +2209,7 @@ input:valid {
   color: darken($text, 10%);
   padding: .8rem;
   z-index: 999;
-  text-align: justify;
+  text-align: left;
   line-height: 1rem;
   font-size: .8rem;
 	background: #f6f6f6;
@@ -2200,6 +2219,20 @@ input:valid {
   min-height: 100px;
   .closeB{
     @include close($text, 1rem, 3px, 6px);
+  }
+  a {
+    color: inherit;
+    text-decoration: underline;
+    &:hover {
+      color: lighten($text, 20%);
+    }
+  }
+  b {
+    font-size: .75rem;
+    text-transform: uppercase;
+    display: inline-block;
+    border-radius: 7px;
+    margin-right: 1px;
   }
 }
 
@@ -2235,7 +2268,9 @@ input:valid {
 .helpeco {
   color: $green;
 }
-
+.fa-fire{
+  color: $magenta;
+}
 ////////////////////////////////////////////////////////////////////////////////
 //                                PAGE CONTACT
 ////////////////////////////////////////////////////////////////////////////////

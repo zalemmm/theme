@@ -49,6 +49,8 @@
                     <div class="tab-pane active clearfix" id="Products">
                       <h2><?php echo $_GET['name']; ?></h2>
                       <p class="introTip"><?php echo $_GET['desc']; ?></p>
+                      <p class="introTip"><?php echo $_GET['hauteur']; ?></p>
+                      <p class="introTip"><?php echo $_GET['largeur']; ?></p>
                         <h1>Créez votre maquette en quelques clics:</h1>
                         <div class="col-lg-12">
                           <p class="intro"><b>Le gabarit du produit que vous avez commandé s'affiche ci-contre.</b> <br />
