@@ -388,8 +388,8 @@ angular.module('common.fabric', [
                     left: center.left,
                     originX: 'center',
                     originY: 'center',
-                    width:2000,
-                    height:200,
+                    width:canvas.width - 20,
+                    height:canvas.height/2 - 20,
                     backgroundImageStretch: false
             });
         };

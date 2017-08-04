@@ -572,7 +572,13 @@ a {
   span.pink {
     color: $white;
   }
-
+  a {
+    color: $jaune;
+    &:hover {
+      color: $cyan;
+      transition: .2s;
+    }
+  }
   b, span.pink {
     text-transform: uppercase;
     font-size: .8rem;
@@ -666,9 +672,11 @@ a {
       font-size: .8rem;
       line-height: .8rem;
       width: 170px;
+      color: $white;
       &:hover {
         background: $magenta;
         transition: .2s;
+        color: $white;
       }
     }
 
@@ -698,9 +706,12 @@ a.notech1 {
   text-transform: uppercase;
   font-size: .8rem;
   line-height: .8rem;
+  color: $white;
+
   &:hover {
     background: $cyan;
     transition: .2s;
+    color: $white;
   }
 }
 
@@ -2147,8 +2158,9 @@ input:valid {
 
 .form-error-message-reg {
   outline: 0;
+  box-shadow: none;
   padding-top: 0;
-  top: -21px;
+  top: -5px;
   z-index: 1;
 }
 
@@ -2211,13 +2223,13 @@ input:valid {
   z-index: 999;
   text-align: left;
   line-height: 1rem;
-  font-size: .8rem;
+  font-size: .75rem;
 	background: #f6f6f6;
 	border: 1px solid #e9e9e9;
   box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.2);
   font-weight: normal;
   min-height: 100px;
-  .closeB{
+  .closeB {
     @include close($text, 1rem, 3px, 6px);
   }
   a {
@@ -4068,6 +4080,7 @@ ul.regiform2 {
   }
   .form-line-error{
     box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
+    color: lighten($magenta,30%);
   }
   .form-error-message {
     position: relative;
