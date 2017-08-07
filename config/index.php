@@ -48,9 +48,8 @@
                 <div id="my-tab-content" class="tab-content action_tabs">
                     <div class="tab-pane active clearfix" id="Products">
                       <h2><?php echo $_GET['name']; ?></h2>
-                      <p class="introTip"><?php echo $_GET['desc']; ?></p>
-                      <p class="introTip"><?php echo $_GET['hauteur']; ?></p>
-                      <p class="introTip"><?php echo $_GET['largeur']; ?></p>
+                      <p><?php echo $_GET['desc']; ?></p>
+                      <p class="introTip">hauteur : <span id="hauteur"><?php echo $_GET['hauteur']; ?></span> cm x largeur : <span id="largeur"><?php echo $_GET['largeur']; ?></span> cm</p>
                         <h1>Créez votre maquette en quelques clics:</h1>
                         <div class="col-lg-12">
                           <p class="intro"><b>Le gabarit du produit que vous avez commandé s'affiche ci-contre.</b> <br />
@@ -458,7 +457,7 @@
 
                         <div class="canvas-container-outer">
 
-                            <canvas fabric='fabric'></canvas>
+                            <canvas fabric='fabric' style="max-width:750px;max-height:750px;"></canvas>
                         </div>
                         <div class="btn-group-vertical">
                             <div class="icon-vertical m-b-sm pull-right">
@@ -605,17 +604,17 @@
 
 <script src="assets/file/fileSaver.js"></script>
 <script src="assets/pdf/jspdf.debug.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.2/svg.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.2/svg.js"></script>
 <script>
-/*var draw = SVG('svg').size(500, 500);
-var rect = draw.rect(500, 200).attr({
+  var draw = SVG('svg').size(500, 500);
+  var rect = draw.rect(500, 200).attr({
   fill: '#00',
   'fill-opacity': 0,
   stroke: '#ccc',
   'stroke-width': 10,
   'stroke-opacity': 0.5
-});*/
-</script>
+});
+</script>-->
 
 <div id="qrcode"></div>
 <div id="wordcloud"></div>

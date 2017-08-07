@@ -16,10 +16,10 @@ angular.module('common.fabric', [
 		var JSONObject;
 		var self = angular.extend({
 			canvasBackgroundColor: '#ffffff',
-			canvasWidth: 750,
-			canvasHeight: 750,
-			canvasOriginalHeight: 700,
-			canvasOriginalWidth: 700,
+			canvasWidth: 3000,
+			canvasHeight: 3000,
+			canvasOriginalHeight: 3000,
+			canvasOriginalWidth: 3000,
 			maxContinuousRenderLoops: 25,
 			continuousRenderTimeDelay: 500,
 			editable: true,
@@ -388,8 +388,8 @@ angular.module('common.fabric', [
                     left: center.left,
                     originX: 'center',
                     originY: 'center',
-                    width:canvas.width - 20,
-                    height:canvas.height/2 - 20,
+										width: image.width,
+                    height: image.height,
                     backgroundImageStretch: false
             });
         };
@@ -407,23 +407,30 @@ angular.module('common.fabric', [
 
         self.imageResize = function(src) {
 
-            var MAX_HEIGHT = canvas.height;
-						var MAX_WIDTH = canvas.width;
+            var MAX_HEIGHT = canvas.height-20;
+						var MAX_WIDTH = canvas.width-20;
             var w;
             var h;
-
             var image = new Image();
+						var ratio;
 
             image.src = src;
-            if(image.width > MAX_WIDTH) {
-                image.height *= MAX_WIDTH / image.width;
-                image.width = MAX_WIDTH;
-                w = image.width;
-                h = image.height / 2;
-            }else{
+						if(image.height > image.width) {
+								ratio = image.height/image.width;
+                image.height = MAX_HEIGHT;
+                image.width = MAX_WIDTH/ratio;
                 w = image.width;
                 h = image.height;
-            }
+								console.log('hauteur supérieure à largeur ratio = '+ratio);
+						}else if(image.width > image.height) {
+								ratio = image.width/image.height;
+								image.width = MAX_WIDTH;
+								image.height = MAX_HEIGHT/ratio;
+                w = image.width;
+                h = image.height;
+								console.log('largeur supérieure à hauteur ratio = '+ratio);
+						}
+
             return {width:w,height:h}
         };
 
@@ -1995,14 +2002,12 @@ angular.module('common.fabric', [
 		// Constructor
 		// ==============================================================
 		self.init = function() {
-            var winWidth = $(window).width();
+      var winWidth = $(window).width();
 			canvas = FabricCanvas.getCanvas();
-            var canvasSize = 750;
+      var canvasSize = 750;
 			self.canvasId = FabricCanvas.getCanvasId();
 			canvas.clear();
-
-            if(winWidth < 400)
-            {
+            if(winWidth < 400) {
                 canvasSize = 220;
             }else if(winWidth < 600){
                 canvasSize = 350;

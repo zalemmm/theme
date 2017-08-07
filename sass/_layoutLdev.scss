@@ -2234,7 +2234,6 @@ input:valid {
   }
   a {
     color: inherit;
-    text-decoration: underline;
     &:hover {
       color: lighten($text, 20%);
     }
@@ -2274,10 +2273,9 @@ input:valid {
 }
 
 .helpfr {
-  color: $fr;
+
 }
-.fa-envira,
-.helpeco {
+.fa-envira {
   color: $green;
 }
 .fa-fire{
