@@ -94,6 +94,7 @@ c .loadMore {
   padding: 40px 10px 10px;
   text-align: center;
   font-size: 14px;
+  line-height: 14px;
   position: relative;
 }
 
@@ -748,7 +749,7 @@ md-tab-content {
   background: #fff none repeat scroll 0 0;
   display: inline-block;
   margin: auto 5px 5px;
-  max-width: 22%;
+  max-width: 29%;
   padding: 5px 0;
   text-align: center;
   width: 100%;
@@ -791,29 +792,6 @@ md-tab-content {
   display: inline-block;
   height: 50px;
   width: 50px;
-}
-
-.intro b {
-  color: #32A1CC;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  font-weight: normal;
-}
-
-.introTip {
-  font-size: .9rem;
-}
-
-.introTip b {
-  color: #32A1CC;
-  text-transform: uppercase;
-  font-weight: normal;
-  font-size: 1.2rem;
-}
-
-.introTip i {
-  color: #32A1CC;
-  font-size: 1.4rem;
 }
 
 .butLoad {

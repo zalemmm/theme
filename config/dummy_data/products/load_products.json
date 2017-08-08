@@ -9,7 +9,7 @@
          "currency":"EUR",
          "image":"dummy_data/products/oriflammes/aile54x240.png",
          "sub_images":[
-            "dummy_data/products/oriflammes/aile54x240rv.png"
+          
          ],
          "description":"Lorium ipsum dolor sit amet"
       },

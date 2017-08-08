@@ -135,7 +135,7 @@ angular.module('productApp', [
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
         };
-        
+
         $scope.changeDrawingShadow = function(shadow){
             if($scope.fabric.checkBackgroundImage()){
                 $scope.drawing_line_shadow = shadow;
@@ -188,7 +188,7 @@ angular.module('productApp', [
 
             var confirm = $mdDialog.confirm()
                 .title('')
-                .textContent('Are you sure you want to clear canvas? This will remove all design elements you have created.')
+                .textContent('Etes vous sur de vouloir tout effacer? Vous devrez fermer la fenêtre et relancer le configurateur pour retrouver votre gabarit')
                 .ariaLabel('Confirm')
                 .ok('Ok')
                 .cancel('Cancel');
@@ -214,7 +214,7 @@ angular.module('productApp', [
 
             var confirm = $mdDialog.confirm()
                 .title('')
-                .content('Are you sure you want to remove selected layer? this will remove the selected layer/design element.')
+                .content('Etes vous sur de vouloir supprimer le calque sélectionné?')
                 .ariaLabel('Confirm')
                 .ok('Ok')
                 .cancel('Cancel');
@@ -972,12 +972,12 @@ angular.module('productApp', [
             if(indexKey == null){
                 $scope.clearCanvas();
                 setTimeout(function(){
-                    $scope.fabric.addCanvasBackground(image);
+                  $scope.fabric.addCanvasBackground(image);
                 },500);
 
                 setTimeout(function(){
-                   // $scope.addText('New Text');
-                }, 1000);
+                  // $scope.addText('New Text');
+                },1000);
 
                 $scope.defaultPrice = price;
                 $scope.orignalPrice = price;

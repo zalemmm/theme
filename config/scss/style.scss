@@ -133,6 +133,7 @@ c
         padding: 40px 10px 10px;
         text-align: center;
         font-size: 14px;
+        line-height: 14px;
         position: relative;
         &:after {
           position: absolute;
@@ -730,7 +731,7 @@ md-tab-content {
     background: $white none repeat scroll 0 0;
     display: inline-block;
     margin: auto 5px 5px;
-    max-width: 22%;
+    max-width: 29%;
     padding: 5px 0;
     text-align: center;
     width: 100%;
@@ -768,28 +769,6 @@ md-tab-content {
   display: inline-block;
   height: 50px;
   width: 50px;
-}
-.intro {
-  b {
-    color: $cyan;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-}
-
-.introTip {
-  font-size: .9rem;
-  b {
-    color: $cyan;
-    text-transform: uppercase;
-    font-weight: normal;
-    font-size: 1.2rem;
-  }
-  i {
-    color: $cyan;
-    font-size: 1.4rem;
-  }
 }
 
 .butLoad {

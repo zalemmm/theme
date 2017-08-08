@@ -413,22 +413,59 @@ angular.module('common.fabric', [
             var h;
             var image = new Image();
 						var ratio;
+						var produit = $('#produit').text();
+						var hauteur = parseInt($('#hauteur').text(), 10);
+						var largeur = parseInt($('#largeur').text(), 10);
+						console.log(produit+' - '+hauteur+' x '+largeur)
 
             image.src = src;
-						if(image.height > image.width) {
-								ratio = image.height/image.width;
-                image.height = MAX_HEIGHT;
-                image.width = MAX_WIDTH/ratio;
-                w = image.width;
-                h = image.height;
+						if(hauteur > largeur) {
+								ratio = hauteur/largeur;
+                hauteur = MAX_HEIGHT;
+                largeur = MAX_WIDTH/ratio;
+                w = largeur;
+                h = hauteur;
 								console.log('hauteur supérieure à largeur ratio = '+ratio);
-						}else if(image.width > image.height) {
-								ratio = image.width/image.height;
-								image.width = MAX_WIDTH;
-								image.height = MAX_HEIGHT/ratio;
-                w = image.width;
-                h = image.height;
+
+								var center = canvas.getCenter();
+								var rect = new fabric.Rect({
+									originX: 'center',
+									originY: 'center',
+									top: center.top,
+									left: center.left,
+									fill: '#fff',
+								  //stroke: '#f6f6f6',
+								  //strokeWidth: 3,
+								  //strokeDashArray: [10, 5],
+									width: largeur,
+									height: hauteur,
+								});
+								// "add" rectangle onto canvas
+								canvas.add(rect);
+
+						}else if(largeur > hauteur) {
+								ratio = largeur/hauteur;
+								largeur = MAX_WIDTH;
+								hauteur = MAX_HEIGHT/ratio;
+                w = largeur;
+                h = hauteur;
 								console.log('largeur supérieure à hauteur ratio = '+ratio);
+
+								var center = canvas.getCenter();
+								var rect = new fabric.Rect({
+									originX: 'center',
+									originY: 'center',
+									top: center.top,
+									left: center.left,
+									fill: '#fff',
+								  //stroke: '#f6f6f6',
+								  //strokeWidth: 6,
+								  //strokeDashArray: [10, 5],
+									width: largeur,
+									height: hauteur,
+								});
+								// "add" rectangle onto canvas
+								canvas.add(rect);
 						}
 
             return {width:w,height:h}
@@ -1551,9 +1588,10 @@ angular.module('common.fabric', [
 
             // My SVG file as s string.
             var mySVG = canvas.toSVG();
-            var currentFontUrl = window.location.href.split('#')[0]+"css/fonts.css";
+            //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.css";
+						//@import url('+currentFontUrl+');
             $(document).find('.svgElements').html(mySVG);
-            var fonts = '<defs><style type="text/css">@import url("http://fonts.googleapis.com/css?family=Lato:400,300|Lobster|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");@import url('+currentFontUrl+');</style></defs>';
+            var fonts = '<defs><style type="text/css">@import url("http://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
             $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
             var svgResult = $(document).find('.svgElements').html();
 
@@ -1571,9 +1609,10 @@ angular.module('common.fabric', [
 
             // My SVG file as s string.
             var mySVG = canvas.toSVG();
-            var currentFontUrl = window.location.href.split('#')[0]+"css/fonts.css";
+            //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.csss";
+						//@import url('+currentFontUrl+');
             $(document).find('.svgElements').html(mySVG);
-            var fonts = '<defs><style type="text/css">@import url("http://fonts.googleapis.com/css?family=Lato:400,300|Lobster|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");@import url('+currentFontUrl+');</style></defs>';
+            var fonts = '<defs><style type="text/css">@import url("http://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
             $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
             var svgResult = $(document).find('.svgElements').html();
 
@@ -1789,7 +1828,6 @@ angular.module('common.fabric', [
 			});
 		};
 
-
 		//
 		// Set Global Defaults
 		// ==============================================================
@@ -1807,6 +1845,47 @@ angular.module('common.fabric', [
 		// Canvas Listeners
 		// ============================================================
 		self.startCanvasListeners = function() {
+
+			// surveille qu'un objet ne déborde pas du cadre lors de son déplacement
+			canvas.on('object:moving', function (e) {
+        var obj = e.target;
+         // if object is too big ignore
+        if(obj.currentHeight > obj.canvas.height || obj.currentWidth > obj.canvas.width){
+            return;
+        }
+        obj.setCoords();
+        // top-left  corner
+        if(obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0){
+            obj.top = Math.max(obj.top, obj.top-obj.getBoundingRect().top);
+            obj.left = Math.max(obj.left, obj.left-obj.getBoundingRect().left);
+        }
+        // bot-right corner
+        if(obj.getBoundingRect().top+obj.getBoundingRect().height  > obj.canvas.height || obj.getBoundingRect().left+obj.getBoundingRect().width  > obj.canvas.width){
+            obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top);
+            obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left);
+        }
+			});
+
+			// surveille qu'un objet ne déborde pas du cadre lors de son redimentionnement
+			canvas.on('object:scaling', function (e) {
+		    var obj = e.target;
+			  if(obj.getHeight() > obj.canvas.height || obj.getWidth() > obj.canvas.width){
+			    obj.setScaleY(obj.originalState.scaleY);
+			    obj.setScaleX(obj.originalState.scaleX);
+			  }
+			  obj.setCoords();
+			  if(obj.getBoundingRect().top - (obj.cornerSize / 2) < 0 ||
+			     obj.getBoundingRect().left -  (obj.cornerSize / 2) < 0) {
+			    obj.top = Math.max(obj.top, obj.top-obj.getBoundingRect().top + (obj.cornerSize / 2));
+			    obj.left = Math.max(obj.left, obj.left-obj.getBoundingRect().left + (obj.cornerSize / 2));
+			  }
+			  if(obj.getBoundingRect().top+obj.getBoundingRect().height + obj.cornerSize  > obj.canvas.height || obj.getBoundingRect().left+obj.getBoundingRect().width + obj.cornerSize  > obj.canvas.width) {
+
+			    obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top - obj.cornerSize / 2);
+			    obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left - obj.cornerSize /2);
+			  }
+			});
+
 			canvas.on('object:selected', function() {
 				self.stopContinuousRendering();
 				$timeout(function() {
@@ -2004,7 +2083,7 @@ angular.module('common.fabric', [
 		self.init = function() {
       var winWidth = $(window).width();
 			canvas = FabricCanvas.getCanvas();
-      var canvasSize = 750;
+      var canvasSize = 850;
 			self.canvasId = FabricCanvas.getCanvasId();
 			canvas.clear();
             if(winWidth < 400) {

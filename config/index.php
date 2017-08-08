@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Design Tailor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Source+Sans+Pro:400,700,700i,900|Lobster|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Source+Sans+Pro:400,700,700i,900|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka' rel='stylesheet' type='text/css'>
 
     <meta name="msapplication-TileColor">
     <meta name="theme-color">
@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/ng-scrollbar.min.css" >
     <link rel="stylesheet" type="text/css" href="css/style.css" >
     <link rel="stylesheet" type="text/css" href="css/custom.css" >
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" >
     <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" type="text/css" href="css/angular-material.css">
     <!-- CSS End -->
@@ -38,7 +39,7 @@
     </div>
     <div class="row clearfix" ng-cloak>
 
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 editor_section">
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 editor_section">
             <div id="content" class="tabing">
                 <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
                     <li class="active"><a ng-click="deactivateAll()" href="#Products" class="products" data-toggle="tab"><i class="glyphicon glyphicon-shopping-cart"></i>Votre Produit</a></li>
@@ -47,18 +48,26 @@
                 </ul>
                 <div id="my-tab-content" class="tab-content action_tabs">
                     <div class="tab-pane active clearfix" id="Products">
-                      <h2><?php echo $_GET['name']; ?></h2>
-                      <p><?php echo $_GET['desc']; ?></p>
-                      <p class="introTip">hauteur : <span id="hauteur"><?php echo $_GET['hauteur']; ?></span> cm x largeur : <span id="largeur"><?php echo $_GET['largeur']; ?></span> cm</p>
+                      <h2 id="produit"><?php echo $_GET['name']; ?></h2>
+                      <!--<p><?php echo $_GET['desc']; ?></p>-->
+                      <p class="intro">hauteur : <span id="hauteur"><?php echo $_GET['hauteur']; ?></span> cm x largeur : <span id="largeur"><?php echo $_GET['largeur']; ?></span> cm</p>
+
+
                         <h1>Créez votre maquette en quelques clics:</h1>
-                        <div class="col-lg-12">
-                          <p class="intro"><b>Le gabarit du produit que vous avez commandé s'affiche ci-contre.</b> <br />
-                            1. Commencez par importer vos images et/ou à entrer du texte à l'aide des boutons ci-dessus (<i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i>). <br />
-                            2. Vous pouvez ensuite manipuler à l'aide de la souris les calques ainsi créés, (déplacer, redimentionner, etc...)<br />
-                            3. Lorsque vous êtes satisfait de votre création, cliquez sur enregistrer (<span class="fa fa-save"></span>) pour nous la transmettre.</p>
-                           <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>Si votre commande comporte plusieurs produits</b>, renouvelez l'opération en cliquant sur "créer la maquette" pour chaque produit listé dans le détail de votre commande.</p>
-                           <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>La bordure grise indique la marge de sécurité</b>. Evitez de faire déborder le texte et les éléments importants sur cette zone. Par contre si vous utilisez une couleur ou une image de fond, faites en sorte qu'elle recouvre cette marge.</p>
-                           <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>Pour colorer le fond:</b> cliquez sur dessiner et utilisez l'outil pinceau sans vous soucier de déborder du cadre, tout ce qui déborde du cadre rouge du gabarit sera coupé. Idem si vous utilisez une image de fond: étirez là jusqu'à ce qu'elle dépasse du cadre. </p>
+                        <div class="aide">
+                          <div class="intro"><b>Le gabarit du produit que vous avez commandé s'affiche ci-contre.</b> <br /><br />
+                            <p>1. Vous pouvez commencer par cliquer sur votre gabarit pour changer sa couleur de fond.<br />
+                              <!--<span class="beware">Attention</span> Si vous le déplacez ou le redimentionnez, vous ne pourrez pas ensuite centrer vos calques.-->
+                            </p>
+                            <p>2. importez vos images et entrez du texte à l'aide des boutons ci-dessus <i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i></p>
+                            <p>3. Vous pouvez ensuite manipuler à l'aide de la souris les calques ainsi créés, (déplacer, redimentionner, etc...)</p>
+                            <p>4. Lorsque vous êtes satisfait de votre création, cliquez sur enregistrer (<span class="fa fa-save"></span>) pour nous la transmettre.</p>
+                          </div>
+                          <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>En cas de suppression par erreur de votre gabarit ou tout autre bug</b>, vous pouvez à tout moment fermer cette fenêtre et cliquez à nouveau sur le bouton "créer la maquette" pour réinitialiser votre gabarit.</p>
+
+                          <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>Si votre commande comporte un recto verso</b>, créez d'abord le recto, enregistrez, puis fermer cette fenêtre et cliquez à nouveau sur le bouton "créer la maquette" et renouvelez l'opération pour enregistrer le verso.</p>
+
+                          <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>Si votre commande comporte plusieurs produits</b>, renouvelez l'opération en cliquant sur "créer la maquette" pour chaque produit listé dans le détail de votre commande.</p>
 
                         </div>
                         <div class="col-lg-12 thumb_listing">
@@ -70,7 +79,7 @@
                     <div class="graphic_options clearfix">
                         <ul>
 
-                            <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6 active">
                                 <div>
                                     <a class="" href="#clip_arts" aria-controls="clip_arts" role="tab" data-toggle="tab" ng-click="exitDrawing()">
                                         <i class="fa fa-camera-retro"></i>
@@ -78,7 +87,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6 active">
+                            <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6">
                                 <div>
                                     <a class="" href="#upload_own" aria-controls="upload_own" role="tab" data-toggle="tab" ng-click="exitDrawing()">
                                         <i class="fa fa-cloud-upload"></i>
@@ -119,16 +128,16 @@
                                 <span ng-show="graphic_icons" class="back_to_graphic" ng-click="ShowGraphicIcons()">
                                     <i class="fa fa-angle-left"></i> Retour
                                 </span>
-                                <div class="graphic_icons" ng-show="graphic_icons">
-                                    <div class="cal-lg-12 filter_by_cat">
+                                <div class="graphic_icons" ng-show="!graphic_icons">
+                                    <!--<div class="filter_by_cat">
                                         <md-input-container style="">
                                             <label>Classer par catégorie</label>
                                             <md-select ng-model="graphicsCategory" ng-change="loadByGraphicsCategory();">
                                                 <md-option ng-repeat="graphicsCategory in graphicsCategories" value="{{graphicsCategory}}">{{graphicsCategory}}</md-option>
                                             </md-select>
                                         </md-input-container>
-                                    </div>
-                                    <div class="col-lg-12 thumb_listing scrollme" rebuild-on="rebuild:me" ng-scrollbar is-bar-shown="barShown" ng-class="fabric.selectedObject ? 'activeControls' : ''">
+                                    </div>-->
+                                    <div class="thumb_listing scrollme" rebuild-on="rebuild:me" ng-scrollbar is-bar-shown="barShown" ng-class="fabric.selectedObject ? 'activeControls' : ''">
                                         <ul>
                                             <li ng-repeat="graphic in graphics"><a href="javascript:void(0);" ng-click='addShape(graphic)'><img data-ng-src="{{graphic}}" alt="" width="120px;"></a></li>
                                         </ul>
@@ -326,7 +335,7 @@
 
 
             <!---->
-            <div class="col-lg-12" ng-class="fabric.selectedObject ? 'activeControlsElem' : ''" ng-if='fabric.selectedObject.type' ng-switch='fabric.selectedObject.type'>
+            <div ng-class="fabric.selectedObject ? 'activeControlsElem' : ''" ng-if='fabric.selectedObject.type' ng-switch='fabric.selectedObject.type'>
 
                 <div class="close-circle"><i class="fa fa-angle-left" ng-click="deactivateAll();"><span>Retour</span></i></div>
 
@@ -425,7 +434,7 @@
             <!---->
         </div>
 
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 canvas_section pull-right">
+        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 canvas_section pull-right">
             <div class="row">
                 <div class="canvas_options">
                     <ul class="clearfix">
@@ -447,7 +456,7 @@
                             <md-tooltip md-visible="redo.showTooltip" md-direction="left">Rétablir</md-tooltip>
                             <span>Rétablir</span>
                         </li>
-                        <li ng-click="clearAll()"><i class="fa fa-trash"></i><span>Tout effacer</span></li>
+                        <!--<li ng-click="clearAll()"><i class="fa fa-trash"></i><span>Tout effacer</span></li>-->
 
                     </ul>
                 </div>
@@ -457,7 +466,7 @@
 
                         <div class="canvas-container-outer">
 
-                            <canvas fabric='fabric' style="max-width:750px;max-height:750px;"></canvas>
+                            <canvas fabric='fabric' style="max-width:836px;max-height:836px;"></canvas>
                         </div>
                         <div class="btn-group-vertical">
                             <div class="icon-vertical m-b-sm pull-right">

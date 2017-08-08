@@ -23,7 +23,7 @@
       "quantity" : 1,
       "defaultPrice" : 0,
       "defaultCurrency" : "EUR",
-      "defaultProductTitle" : "Tees Nues",
+      "defaultProductTitle" : "kakemono",
       "qrCode" : "qrcode",
       "enter_drawing_mode" : "Enter Drawing Mode",
       "drawing_mode_selector" : "Pencil",
@@ -32,7 +32,7 @@
       "drawing_line_shadow" : 0,
       "primaryColor" : "#26C4E2",
       "secondaryColor" : "#ffffff",
-      "graphicsCategory": "Flat Icons",
+      "graphicsCategory": "Shapes",
       "graphicsCategories":{
         "Shapes": "Shapes"
       },

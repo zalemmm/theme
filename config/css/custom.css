@@ -74,8 +74,53 @@ body {
   background: #f6f6f6 !important;
 }
 
+.editor_section h1 {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.aide {
+  padding-right: 15px;
+}
+
+.intro {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  margin-top: 5px;
+}
+
+.intro b {
+  color: #26a7d9;
+  font-size: 1.2rem;
+  line-height: .9rem;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.introTip {
+  font-size: .9rem;
+}
+
+.introTip b {
+  color: #26a7d9;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1.2rem;
+  line-height: .9rem;
+}
+
+.introTip i {
+  color: #26a7d9;
+  font-size: 1.4rem;
+}
+
+.beware {
+  text-transform: uppercase;
+  color: #EA2A6A;
+}
+
 .container {
-  background: #464545;
+  background: url(../images/bg.jpg);
 }
 
 .image-builder-container {
@@ -179,7 +224,7 @@ body {
   position: relative;
   float: none;
   margin: auto;
-  max-width: 750px;
+  max-width: 836px;
   border: 1px dashed white;
 }
 
@@ -204,7 +249,7 @@ body {
 
 .btn-group-vertical {
   position: absolute;
-  right: 0;
+  right: -10px;
   top: 0;
 }
 
@@ -562,14 +607,23 @@ md-tab-item {
 }
 
 .filter_by_cat {
-  padding: 23px 20px 0;
+  padding: 0;
 }
 
 .close-circle {
+  font-family: verdana;
+  font-size: .8rem;
+  text-transform: uppercase;
+  display: inline-block;
   float: right;
+  color: white;
+  background: #26a7d9;
+  opacity: 1;
 }
 
 .close-circle i {
+  display: inline-block;
+  margin-right: 5px;
   cursor: pointer;
   font-size: 18px;
 }
@@ -672,7 +726,7 @@ md-select-value {
   margin-top: 36px;
 }
 
-.fa.fa-trash {
+.fa.fa-trash, .fa.fa-eraser {
   color: #ff0000;
 }
 
@@ -716,7 +770,7 @@ md-select-value {
     top: 0;
   }
   .editor_section {
-    background: #f1f2f2 none repeat scroll 0 0;
+    background: #f6f6f6 none repeat scroll 0 0;
   }
   .editor_section .activeControlsElem {
     position: static;
@@ -935,9 +989,9 @@ md-radio-group md-radio-button {
 }
 
 .editor_section .activeControlsElem {
-  background: #f1f2f2 none repeat scroll 0 0 !important;
+  background: #f6f6f6 none repeat scroll 0 0 !important;
   height: calc(100% - 70px);
-  padding: 20px;
+  padding: 0;
   position: absolute;
   top: 70px;
   width: 100%;
