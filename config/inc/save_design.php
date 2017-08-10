@@ -20,7 +20,7 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 			if(!empty($value) && $value != null){
 
-				$destination = dirname(dirname(__FILE__)).'/saved_design/svg/';
+				$destination = $site_url.'/saved_design/svg/';
 
 				$filename = $key.'design_'.time().'.svg';
 

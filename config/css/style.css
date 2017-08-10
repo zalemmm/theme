@@ -577,7 +577,7 @@ md-tab-content {
 }
 
 .social-share a.fa.fa-twitter {
-  color: #28a9e0;
+  color: #26a7d9;
 }
 
 .canvas-pos {
@@ -724,14 +724,6 @@ md-tab-content {
   background: #ffc23f;
 }
 
-.editor_section h1 {
-  text-align: center;
-  color: #3e4954;
-  font-size: 24px;
-  text-transform: uppercase;
-  padding: 15px 0 0;
-}
-
 .btn-group.open .dropdown-toggle {
   background: #3e4954;
   color: #fff;
@@ -795,6 +787,7 @@ md-tab-content {
 }
 
 .butLoad {
+  margin-top: 7px;
   min-height: 100px;
   background: #E7E7E7;
 }

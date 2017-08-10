@@ -1,10 +1,5 @@
-.icon-vertical ul li a, .icon-vertical ul li > span {
-  padding: 10px;
-  color: #3e4954;
-  text-align: center;
-  display: block;
-}
-
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700i,900");
+/*fonts*/
 .action_tabs .btn.active, .action_tabs .btn:active {
   background: #000000 none repeat scroll 0 0;
   border: medium none;
@@ -72,11 +67,63 @@
 body {
   padding: 10px;
   background: #f6f6f6 !important;
+  height: 100% !important;
+  min-height: 1000px !important;
 }
 
-.editor_section h1 {
-  font-size: 1.5rem;
+.encart {
+  position: relative;
+  background: #26a7d9;
+  color: white;
+  padding: 5px 5px 5px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 70px;
+  -webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.encart h2 {
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.encart:before {
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+  border-top: 35px solid transparent;
+  border-bottom: 35px solid transparent;
+  border-left: 35px solid #26a7d9;
+  z-index: 100;
+  position: absolute;
+  right: -35px;
+  top: 0;
+}
+
+.editor_section {
+  background: #f6f6f6;
+  min-height: 100%;
+}
+
+.editor_section h4 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
   text-align: left;
+  margin: 20px 0;
+}
+
+.dashed {
+  margin-top: 25px;
+  border: 3px dashed #ccc;
+  padding: 5px;
+  font-size: .75em;
+  line-height: 1.2rem;
+  text-transform: uppercase;
+  color: #a6a6a6;
+  text-align: justify;
 }
 
 .aide {
@@ -84,9 +131,23 @@ body {
 }
 
 .intro {
-  font-size: 1.2rem;
-  line-height: 1.4rem;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
   margin-top: 5px;
+  color: #555a61;
+}
+
+.intro p span {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  background: #26a7d9;
+  color: white;
+  font-weight: bold;
+  margin-right: 5px;
+  text-align: center;
+  vertical-align: baseline;
 }
 
 .intro b {
@@ -98,7 +159,7 @@ body {
 }
 
 .introTip {
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 .introTip b {
@@ -207,11 +268,11 @@ body {
 }
 
 .canvas_sub_image {
-  min-height: 150px;
+  height: 10px;
 }
 
 .canvas_sub_image > ul > li > img {
-  margin: 0 5px 20px;
+  margin: 0 5px;
   max-width: 70px;
 }
 
@@ -307,12 +368,15 @@ body {
 }
 
 .well {
-  background: transparent none repeat scroll 0 0 !important;
-  border: medium none;
+  background: #f6f6f6 none repeat scroll 0 0 !important;
+  border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
   margin-bottom: 0;
-  padding: 20px 0;
+  border-radius: 0;
+  min-height: 100%;
+  height: 100%;
+  margin-top: 10px;
 }
 
 .open .dropdown-menu {
@@ -417,7 +481,7 @@ md-input-container.md-input-has-value label:not(.md-no-float) {
 }
 
 .tabsdemoStaticTabs md-tab-content:nth-child(1) {
-  background-color: #42a5f5;
+  background-color: #26a7d9;
 }
 
 .tabsdemoStaticTabs md-tab-content:nth-child(2) {
@@ -425,7 +489,7 @@ md-input-container.md-input-has-value label:not(.md-no-float) {
 }
 
 .tabsdemoStaticTabs md-tab-content:nth-child(3) {
-  background-color: #26c6da;
+  background-color: #26a7d9;
 }
 
 .tabsdemoStaticTabs .after-tabs-area > span {
@@ -611,7 +675,7 @@ md-tab-item {
 }
 
 .close-circle {
-  font-family: verdana;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: .8rem;
   text-transform: uppercase;
   display: inline-block;
@@ -672,6 +736,7 @@ md-select-value {
 .graphic_options ul li > div {
   background: #e7e7e7 none repeat scroll 0 0;
   padding: 5px 0;
+  height: 90px;
 }
 
 .graphic_options ul li > div a {
@@ -684,6 +749,11 @@ md-select-value {
   line-height: 18px;
   position: relative;
   top: 10px;
+}
+
+.index_02 .tabing {
+  background: #f6f6f6;
+  min-height: 100%;
 }
 
 .index_02 .tabing ul#tabs li {
@@ -732,7 +802,7 @@ md-select-value {
 
 .fa.fa-long-arrow-left > span {
   display: inline-block;
-  font-family: verdana;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 14px;
   margin-left: 6px;
   position: relative;
@@ -778,7 +848,7 @@ md-select-value {
     margin-bottom: 30px;
   }
   .tab-content.action_tabs > div {
-    height: auto !important;
+    height: 100% !important;
   }
 }
 
@@ -832,17 +902,33 @@ ng\:form {
 
 .icon-vertical ul {
   margin-right: 20px;
-  border: 1px solid #dfdfdf;
-  background: #f6f6f6 none repeat scroll 0 0;
+  border: 0;
+  background: #EA2A6A none repeat scroll 0 0;
 }
 
 .icon-vertical ul li {
   border-bottom: 1px solid #dfdfdf;
 }
 
+.icon-vertical ul li a {
+  padding: 10px;
+  color: white;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+}
+
 .icon-vertical ul li a:hover {
   background: #ffc23f;
   text-decoration: none;
+}
+
+.icon-vertical ul li > span {
+  padding: 10px;
+  color: white;
+  text-align: center;
+  display: block;
+  cursor: pointer;
 }
 
 .icon-vertical ul li > span:hover {
@@ -984,25 +1070,26 @@ md-radio-group md-radio-button {
 }
 
 .input-group .form-control:last-child {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 4px;
+  border-radius: 0;
 }
 
 .editor_section .activeControlsElem {
   background: #f6f6f6 none repeat scroll 0 0 !important;
-  height: calc(100% - 70px);
+  height: 100%;
   padding: 0;
+  padding-top: 20px;
   position: absolute;
   top: 70px;
-  width: 100%;
   z-index: 2;
-  left: 0;
+  left: -10px;
+  border-radius: 0;
 }
 
 .editor_section .activeControlsElem > div.well {
-  margin: auto;
-  width: 94%;
-  min-height: auto;
+  background: #f6f6f6 none repeat scroll 0 0 !important;
+  margin: 0 auto;
+  width: 295px;
+  padding: 15px;
 }
 
 .editor_section .activeControlsElem > div.well .row {
@@ -1011,7 +1098,7 @@ md-radio-group md-radio-button {
 }
 
 .editor_section .activeControlsElem > div.well .row.row-margin {
-  margin: 0 -15px;
+  margin: 0;
 }
 
 .colorpicker-element span.input-group-addon {

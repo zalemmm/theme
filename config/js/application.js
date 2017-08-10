@@ -540,10 +540,10 @@ angular.module('productApp', [
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
-                                .title('Design Saved')
-                                .textContent('Design has been saved. You can find them into "saved_design" directory.')
+                                .title('Maquette enregistrée.')
+                                .textContent('Votre maquette a été enregistrée dans votre dossier client et envoyée à notre service infographie. Si vous avez cliqué ici par erreur ou souhaitez encore modifier votre maquette, continuez votre travail et réenregistrez-le, nous prendrons en compte votre fichier le plus récent. N\'hésitez pas à nous envoyer un commentaire en cas de doute.')
                                 .ariaLabel('Success')
-                                .ok('Got it!')
+                                .ok('OK!')
                         );
                     }
                 }).error(function (data, status, headers, config) {

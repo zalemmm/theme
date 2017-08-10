@@ -35,13 +35,12 @@ $color_masala_approx: #423d3e;
 $color_mountain_mist_approx: #969696;
 $mercury: #e5e5e5;
 $color_bon_jour_approx: #dfdfdf;
-$color_curious_blue_approx: #28a9e0;
 $text: #555a61;
 $light-grey: lighten($text,15%);
 $bloc-base: #f6f6f6;
 $border: darken($bloc-base,5%);
-$cyan: #32A1CC;
-$cyan-bloc: #3097C0;
+$cyan: #26a7d9;
+$cyan-bloc: #2ea0cd;
 $magenta:#EA2A6A;
 $maTransp: rgba(234, 42, 106, .5);
 $jaune: #F9B610;
@@ -561,7 +560,7 @@ md-tab-content {
         color: $color_azure_approx;
       }
       &.fa-twitter {
-        color: $color_curious_blue_approx;
+        color: $cyan;
       }
     }
   }
@@ -710,13 +709,7 @@ md-tab-content {
 .graphics i {
   @extend %extend_2;
 }
-.editor_section h1 {
-  text-align: center;
-  color: $color_limed_spruce_approx;
-  font-size: 24px;
-  text-transform: uppercase;
-  padding: 15px 0 0;
-}
+
 .btn-group.open .dropdown-toggle {
   background: $color_limed_spruce_approx;
   color: $white;
@@ -772,6 +765,7 @@ md-tab-content {
 }
 
 .butLoad {
+  margin-top: 7px;
   min-height: 100px;
   background: #E7E7E7;
 }

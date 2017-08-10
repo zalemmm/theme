@@ -42,32 +42,30 @@
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 editor_section">
             <div id="content" class="tabing">
                 <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-                    <li class="active"><a ng-click="deactivateAll()" href="#Products" class="products" data-toggle="tab"><i class="glyphicon glyphicon-shopping-cart"></i>Votre Produit</a></li>
+                    <li class="active"><a ng-click="deactivateAll()" href="#Products" class="products" data-toggle="tab"><i class="fa fa-shopping-cart"></i>Produit</a></li>
                     <li><a ng-click="deactivateAll()" href="#Graphics" class="graphics" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i>Image</a></li>
                     <li><a ng-click="addTextByAction()" href="#Text" class="text" data-toggle="tab"><i class="fa fa-font" aria-hidden="true"></i>Texte</a></li>
                 </ul>
                 <div id="my-tab-content" class="tab-content action_tabs">
                     <div class="tab-pane active clearfix" id="Products">
-                      <h2 id="produit"><?php echo $_GET['name']; ?></h2>
-                      <!--<p><?php echo $_GET['desc']; ?></p>-->
-                      <p class="intro">hauteur : <span id="hauteur"><?php echo $_GET['hauteur']; ?></span> cm x largeur : <span id="largeur"><?php echo $_GET['largeur']; ?></span> cm</p>
+                      <h5>commande n° <span id="number"><?php echo $_GET['number']; ?></span></h5>
+                      <div class="encart">
+                        <h2 id="produit"><?php echo $_GET['name']; ?></h2>
+                        <!--<p><?php echo $_GET['desc']; ?></p>-->
+                        <p>Gabarit <span id="hauteur"><?php echo $_GET['hauteur']; ?></span> x <span id="largeur"><?php echo $_GET['largeur']; ?></span> cm</p>
+                      </div>
 
-
-                        <h1>Créez votre maquette en quelques clics:</h1>
+                        <h4>Créez votre maquette en quelques clics:</h4>
                         <div class="aide">
-                          <div class="intro"><b>Le gabarit du produit que vous avez commandé s'affiche ci-contre.</b> <br /><br />
-                            <p>1. Vous pouvez commencer par cliquer sur votre gabarit pour changer sa couleur de fond.<br />
-                              <!--<span class="beware">Attention</span> Si vous le déplacez ou le redimentionnez, vous ne pourrez pas ensuite centrer vos calques.-->
+                          <div class="intro">
+                            <p><span>1</span> Vous pouvez commencer par cliquer sur votre gabarit pour changer sa couleur de fond.<br />
                             </p>
-                            <p>2. importez vos images et entrez du texte à l'aide des boutons ci-dessus <i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i></p>
-                            <p>3. Vous pouvez ensuite manipuler à l'aide de la souris les calques ainsi créés, (déplacer, redimentionner, etc...)</p>
-                            <p>4. Lorsque vous êtes satisfait de votre création, cliquez sur enregistrer (<span class="fa fa-save"></span>) pour nous la transmettre.</p>
+                            <p><span>2</span> importez vos images et entrez du texte à l'aide des boutons ci-dessus <i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i></p>
+                            <p><span>3</span> Vous pouvez ensuite sélectionner chaque élément par un simple clic et l'agencer (déplacer, incliner, redimentionner, etc...)</p>
+                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, cliquez sur enregistrer  <i class="fa fa-save"></i> dans le coin haut/droit pour nous la transmettre.</p>
+                            <p class="dashed">Vos éléments (exepté image de fond) ne doivent pas dépasser la marge technique en pointillés gris</p>
                           </div>
-                          <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>En cas de suppression par erreur de votre gabarit ou tout autre bug</b>, vous pouvez à tout moment fermer cette fenêtre et cliquez à nouveau sur le bouton "créer la maquette" pour réinitialiser votre gabarit.</p>
 
-                          <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>Si votre commande comporte un recto verso</b>, créez d'abord le recto, enregistrez, puis fermer cette fenêtre et cliquez à nouveau sur le bouton "créer la maquette" et renouvelez l'opération pour enregistrer le verso.</p>
-
-                          <p class="introTip"><i class="fa fa-info-circle" aria-hidden="true"></i> <b>Si votre commande comporte plusieurs produits</b>, renouvelez l'opération en cliquant sur "créer la maquette" pour chaque produit listé dans le détail de votre commande.</p>
 
                         </div>
                         <div class="col-lg-12 thumb_listing">
@@ -79,7 +77,7 @@
                     <div class="graphic_options clearfix">
                         <ul>
 
-                            <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6 active">
+                            <li class="butLoad col-lg-4 col-md-4 col-sm-4 col-xs-6 active">
                                 <div>
                                     <a class="" href="#clip_arts" aria-controls="clip_arts" role="tab" data-toggle="tab" ng-click="exitDrawing()">
                                         <i class="fa fa-camera-retro"></i>
@@ -87,7 +85,7 @@
                                     </a>
                                 </div>
                             </li>
-                            <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <li class="butLoad col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                 <div>
                                     <a class="" href="#upload_own" aria-controls="upload_own" role="tab" data-toggle="tab" ng-click="exitDrawing()">
                                         <i class="fa fa-cloud-upload"></i>
@@ -95,15 +93,15 @@
                                     </a>
                                 </div>
                             </li>
-                            <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <!--<li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6">
                                 <div>
                                     <a class="" href="#qr_code" aria-controls="qr_code" role="tab" data-toggle="tab" ng-click="exitDrawing()">
                                         <i class="fa fa-qrcode"></i>
                                         <span>Qr code</span>
                                     </a>
                                 </div>
-                            </li>
-                            <li class="butLoad col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            </li>-->
+                            <li class="butLoad col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                 <div>
                                     <a class="" href="#hand_draw" aria-controls="hand_draw" role="tab" data-toggle="tab" ng-click="enterDrawing();">
                                         <i class="fa fa-pencil-square-o"></i>
@@ -121,7 +119,7 @@
                                     <div ng-repeat="graphicsCategory in graphicsCategories" value="{{graphicsCategory}}"  ng-click="loadByGraphicsCat(graphicsCategory)" ng-model="graphicsCategory" >
                                       <div class="{{graphicsCategory.split(' ').join('') | lowercase}}" ></div>
                                        <span>
-                                          {{graphicsCategory}}
+                                          <!--{{graphicsCategory}}-->
                                         </span>
                                     </div>
                                 </div>
@@ -168,7 +166,7 @@
 
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="qr_code">
+                            <!--<div role="tabpanel" class="tab-pane fade" id="qr_code">
                                 <div class="col-lg-12 thumb_listing">
                                     <div class="well" >
                                         <div class="row form-group">
@@ -184,7 +182,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                             <div role="tabpanel" class="tab-pane fade" id="hand_draw">
                                 <div class="col-lg-12 thumb_listing">
@@ -242,7 +240,7 @@
 
                     </div>
                     <div class="tab-pane clearfix" id="Text">
-                        <div class="graphic_options clearfix">
+<!--                        <div class="graphic_options clearfix">
                             <ul>
                             <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 active">
                                 <div>
@@ -261,7 +259,7 @@
                                 </div>
                             </li>
                             </ul>
-                        </div>
+                        </div>-->
 
                         <div class="tab-content">
 
@@ -285,7 +283,7 @@
 
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane fade" id="word_cloud">
+<!--                            <div role="tabpanel" class="tab-pane fade" id="word_cloud">
                                 <div class="col-lg-12 thumb_listing">
                                     <div class="well" >
                                         <div class="row form-group">
@@ -300,7 +298,7 @@
 
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
 
                     </div>
@@ -337,7 +335,7 @@
             <!---->
             <div ng-class="fabric.selectedObject ? 'activeControlsElem' : ''" ng-if='fabric.selectedObject.type' ng-switch='fabric.selectedObject.type'>
 
-                <div class="close-circle"><i class="fa fa-angle-left" ng-click="deactivateAll();"><span>Retour</span></i></div>
+                <!--<div class="close-circle"><i class="fa fa-angle-left" ng-click="deactivateAll();"><span>Retour</span></i></div>-->
 
                 <div class="well">
 
@@ -367,7 +365,7 @@
                         </div>
                         <div class="row col-lg-6" title="Line height" ng-show="fabric.selectedObject.type == 'text'">
                             <md-input-container flex>
-                                <label><i class="fa fa-align-left"></i> (hauteur ligne)</label>
+                                <label><i class="fa fa-align-left"></i> (interligne)</label>
                                 <input type='number' class="" ng-model="fabric.selectedObject.lineHeight" step=".1" />
                             </md-input-container>
 
@@ -500,14 +498,14 @@
                                         <md-tooltip md-visible="download.showTooltip" md-direction="left">Download as PNG</md-tooltip>
                                     </li>-->
 
-                                    <li class="">
+                                    <!--<li class="">
                                         <a class="fa fa-search-plus ng-scope ng-isolate-scope" translate="" ng-click="zoomObject('zoomin')" href="#"><span class="ng-binding ng-scope"></span></a>
                                         <md-tooltip md-visible="zoomin.showTooltip" md-direction="left">Select object and Zoom In</md-tooltip>
                                     </li>
                                     <li>
                                         <a class="fa fa-search-minus ng-scope ng-isolate-scope" translate="" ng-click="zoomObject('zoomout')" href="#"><span class="ng-binding ng-scope"></span></a>
                                         <md-tooltip md-visible="zoomout.showTooltip" md-direction="left">Select object and  Zoom Out</md-tooltip>
-                                    </li>
+                                    </li>-->
                                 </ul>
 
                             </div>
@@ -520,11 +518,11 @@
 
                 </div>
                 <div class="canvas_sub_image">
-                    <ul>
+                    <!--<ul>
                         <li ng-repeat="prodImg in productImages">
                             <img ng-click='loadProduct(defaultProductTitle, prodImg, defaultProductId, defaultPrice, defaultCurrency, $index)' data-ng-src="{{prodImg}}" alt="" width="120px;">
                         </li>
-                    </ul>
+                    </ul>-->
                 </div>
 
                 </div>
@@ -588,8 +586,8 @@
 <script src="assets/ng-file-upload/angular-file-upload.js"></script>
 <script src="assets/ng-file-upload/angular-file-upload-shim.js"></script>
 
-<script type="text/javascript" src="assets/qr-code/raphael-2.1.0-min.js"></script>
-<script type="text/javascript" src="assets/qr-code/qrcodesvg.js"></script>
+<!--<script type="text/javascript" src="assets/qr-code/raphael-2.1.0-min.js"></script>
+<script type="text/javascript" src="assets/qr-code/qrcodesvg.js"></script>-->
 
 <script src='assets/word-cloud/d3.v3.min.js'></script>
 <script src='assets/word-cloud/d3.layout.cloud.js'></script>

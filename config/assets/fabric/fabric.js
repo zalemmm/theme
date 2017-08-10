@@ -16,10 +16,10 @@ angular.module('common.fabric', [
 		var JSONObject;
 		var self = angular.extend({
 			canvasBackgroundColor: '#ffffff',
-			canvasWidth: 3000,
-			canvasHeight: 3000,
-			canvasOriginalHeight: 3000,
-			canvasOriginalWidth: 3000,
+			canvasWidth: 850,
+			canvasHeight: 850,
+			canvasOriginalHeight: 850,
+			canvasOriginalWidth: 850,
 			maxContinuousRenderLoops: 25,
 			continuousRenderTimeDelay: 500,
 			editable: true,
@@ -412,6 +412,7 @@ angular.module('common.fabric', [
             var w;
             var h;
             var image = new Image();
+						var center = canvas.getCenter();
 						var ratio;
 						var produit = $('#produit').text();
 						var hauteur = parseInt($('#hauteur').text(), 10);
@@ -425,23 +426,42 @@ angular.module('common.fabric', [
                 largeur = MAX_WIDTH/ratio;
                 w = largeur;
                 h = hauteur;
-								console.log('hauteur supérieure à largeur ratio = '+ratio);
 
-								var center = canvas.getCenter();
+								var gabarit = new fabric.Rect({
+									originX: 'center',
+									originY: 'center',
+									top: center.top,
+									left: center.left,
+									fill: 'rgba(0,0,0,0)',
+									stroke: '#ccc',
+									strokeWidth: 3,
+									strokeDashArray: [10, 5],
+									width: largeur-16,
+									height: hauteur-16,
+									hasControls: false,
+									lockMovementX: true,
+									lockMovementY: true,
+									evented:false,
+									excludeFromExport: true
+								});
+
 								var rect = new fabric.Rect({
 									originX: 'center',
 									originY: 'center',
 									top: center.top,
 									left: center.left,
 									fill: '#fff',
-								  //stroke: '#f6f6f6',
-								  //strokeWidth: 3,
-								  //strokeDashArray: [10, 5],
 									width: largeur,
 									height: hauteur,
+									hasControls: false,
+									lockMovementX: true,
+									lockMovementY: true
 								});
-								// "add" rectangle onto canvas
+
+								// "add" gabarit onto canvas
 								canvas.add(rect);
+								// "add" rectangle onto canvas
+								canvas.add(gabarit);
 
 						}else if(largeur > hauteur) {
 								ratio = largeur/hauteur;
@@ -449,23 +469,85 @@ angular.module('common.fabric', [
 								hauteur = MAX_HEIGHT/ratio;
                 w = largeur;
                 h = hauteur;
-								console.log('largeur supérieure à hauteur ratio = '+ratio);
 
-								var center = canvas.getCenter();
+								var gabarit = new fabric.Rect({
+									originX: 'center',
+									originY: 'top',
+									top: 16,
+									left: center.left,
+									fill: 'rgba(0,0,0,0)',
+									stroke: '#ccc',
+									strokeWidth: 3,
+									strokeDashArray: [10, 5],
+									width: largeur-16,
+									height: hauteur-16,
+									hasControls: false,
+									lockMovementX: true,
+									lockMovementY: true,
+									evented:false,
+									excludeFromExport: true
+								});
+
+								var rect = new fabric.Rect({
+									originX: 'center',
+									originY: 'top',
+									top: 10,
+									left: center.left,
+									fill: '#fff',
+									width: largeur,
+									height: hauteur,
+									hasControls: false,
+									lockMovementX: true,
+									lockMovementY: true
+								});
+
+								// "add" gabarit onto canvas
+								canvas.add(rect);
+								// "add" rectangle onto canvas
+								canvas.add(gabarit);
+
+						}else if(largeur == hauteur) {
+								largeur = MAX_WIDTH;
+								hauteur = MAX_HEIGHT;
+                w = largeur;
+                h = hauteur;
+
+								var gabarit = new fabric.Rect({
+									originX: 'center',
+									originY: 'center',
+									top: center.top,
+									left: center.left,
+									fill: 'rgba(0,0,0,0)',
+									stroke: '#ccc',
+									strokeWidth: 3,
+									strokeDashArray: [10, 5],
+									width: largeur-16,
+									height: hauteur-16,
+									hasControls: false,
+									lockMovementX: true,
+									lockMovementY: true,
+									evented:false,
+									excludeFromExport: true
+								});
+
 								var rect = new fabric.Rect({
 									originX: 'center',
 									originY: 'center',
 									top: center.top,
 									left: center.left,
 									fill: '#fff',
-								  //stroke: '#f6f6f6',
-								  //strokeWidth: 6,
-								  //strokeDashArray: [10, 5],
 									width: largeur,
 									height: hauteur,
+									hasControls: false,
+									lockMovementX: true,
+									lockMovementY: true
 								});
-								// "add" rectangle onto canvas
+
+								// "add" gabarit onto canvas
 								canvas.add(rect);
+
+								// "add" rectangle onto canvas
+								canvas.add(gabarit);
 						}
 
             return {width:w,height:h}
@@ -1592,6 +1674,7 @@ angular.module('common.fabric', [
 						//@import url('+currentFontUrl+');
             $(document).find('.svgElements').html(mySVG);
             var fonts = '<defs><style type="text/css">@import url("http://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
+
             $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
             var svgResult = $(document).find('.svgElements').html();
 
@@ -1615,7 +1698,6 @@ angular.module('common.fabric', [
             var fonts = '<defs><style type="text/css">@import url("http://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
             $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
             var svgResult = $(document).find('.svgElements').html();
-
 
             // Create a Data URI.
             var svg = 'data:image/svg+xml;base64,'+window.btoa(svgResult);
@@ -1847,7 +1929,7 @@ angular.module('common.fabric', [
 		self.startCanvasListeners = function() {
 
 			// surveille qu'un objet ne déborde pas du cadre lors de son déplacement
-			canvas.on('object:moving', function (e) {
+			/*canvas.on('object:moving', function (e) {
         var obj = e.target;
          // if object is too big ignore
         if(obj.currentHeight > obj.canvas.height || obj.currentWidth > obj.canvas.width){
@@ -1864,10 +1946,10 @@ angular.module('common.fabric', [
             obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top);
             obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left);
         }
-			});
+			});*/
 
 			// surveille qu'un objet ne déborde pas du cadre lors de son redimentionnement
-			canvas.on('object:scaling', function (e) {
+			/*canvas.on('object:scaling', function (e) {
 		    var obj = e.target;
 			  if(obj.getHeight() > obj.canvas.height || obj.getWidth() > obj.canvas.width){
 			    obj.setScaleY(obj.originalState.scaleY);
@@ -1884,7 +1966,7 @@ angular.module('common.fabric', [
 			    obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top - obj.cornerSize / 2);
 			    obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left - obj.cornerSize /2);
 			  }
-			});
+			});*/
 
 			canvas.on('object:selected', function() {
 				self.stopContinuousRendering();
