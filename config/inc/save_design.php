@@ -5,12 +5,19 @@
  *
  */
 //$site_url = $_SERVER['DOCUMENT_ROOT'];
+session_start();
+
+
 $site_url = $_SERVER['HTTP_REFERER'];
 $site_ref_url = explode('/', $site_url);
 $site_url = $site_ref_url[2];
 $type = json_decode($_POST['type'], true);
 $post_data = json_decode($_POST['object'], true);
 
+$nbcom = $_SESSION['nbcom'];
+$nbname = $_SESSION['nbname'];
+$nbh = $_SESSION['nbh'];
+$nbl = $_SESSION['nbl'];
 
 if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
@@ -20,14 +27,18 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 			if(!empty($value) && $value != null){
 
-				$destination = $site_url.'/saved_design/svg/';
+				$destination = dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))).'/uploaded/'.$nbcom.'/';
 
-				$filename = $key.'design_'.time().'.svg';
+				if (!file_exists($destination)) {
+				    mkdir($destination, 0777, true);
+				}
+
+				$filename = $nbname.'-'.$nbh.'x'.$nbl.'-'.time().'.svg';
 
 				$contant = file_get_contents($value);
 
 				file_put_contents($destination.$filename, $contant);
-				$filenames[] = $site_url.'/saved_design/svg/'.$filename;
+				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
 
 			}
 		}

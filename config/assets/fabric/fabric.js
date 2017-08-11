@@ -16,10 +16,10 @@ angular.module('common.fabric', [
 		var JSONObject;
 		var self = angular.extend({
 			canvasBackgroundColor: '#ffffff',
-			canvasWidth: 850,
-			canvasHeight: 850,
-			canvasOriginalHeight: 850,
-			canvasOriginalWidth: 850,
+			canvasWidth: 836,
+			canvasHeight: 836,
+			canvasOriginalHeight: 836,
+			canvasOriginalWidth: 836,
 			maxContinuousRenderLoops: 25,
 			continuousRenderTimeDelay: 500,
 			editable: true,
@@ -2165,7 +2165,7 @@ angular.module('common.fabric', [
 		self.init = function() {
       var winWidth = $(window).width();
 			canvas = FabricCanvas.getCanvas();
-      var canvasSize = 850;
+      var canvasSize = 836;
 			self.canvasId = FabricCanvas.getCanvasId();
 			canvas.clear();
             if(winWidth < 400) {

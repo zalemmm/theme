@@ -541,7 +541,7 @@ angular.module('productApp', [
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
                                 .title('Maquette enregistrée.')
-                                .textContent('Votre maquette a été enregistrée dans votre dossier client et envoyée à notre service infographie. Si vous avez cliqué ici par erreur ou souhaitez encore modifier votre maquette, continuez votre travail et réenregistrez-le, nous prendrons en compte votre fichier le plus récent. N\'hésitez pas à nous envoyer un commentaire en cas de doute.')
+                                .textContent('Votre maquette a été enregistrée dans votre dossier client et envoyée à notre service infographie. Vous recevrez rapidement un BAT à valider pour lancer la production. Si vous avez cliqué ici par erreur, ou souhaitez encore apporter des modifications à votre maquette, vous pouvez continuer votre travail et le réengistrer tant que cette fenêtre reste ouverte. Si plusieurs maquettes sont enregistrées, nous prendrons en compte le fichier le plus récent.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
                         );

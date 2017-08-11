@@ -80,6 +80,7 @@ c .loadMore {
 .tabing {
   margin: 0 -15px;
   background: #f6f7f7;
+  height: 1000px;
 }
 
 .tabing .nav-tabs {
@@ -88,14 +89,22 @@ c .loadMore {
 
 .tabing .nav-tabs > li > a {
   border: none;
-  /*Instead of the line below you could use @include border-radius($radius, $vertical-radius)*/
+  background: url(../images/stripe2.png);
   border-radius: 0;
+  border-bottom: 1px solid #e9e9e9;
+  border-right: 1px solid #e9e9e9;
   color: #3e4954;
   padding: 40px 10px 10px;
   text-align: center;
   font-size: 14px;
   line-height: 14px;
   position: relative;
+}
+
+.tabing .nav-tabs > li > a:hover {
+  background: url(../images/stripehover.png);
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .tabing .nav-tabs > li > a:after {
@@ -108,6 +117,18 @@ c .loadMore {
   right: 0;
   top: 5px;
   margin: auto;
+}
+
+.tabing .nav-tabs > li.active > a {
+  border-top: 1px solid #1e86ae;
+}
+
+.tabing .nav-tabs > li.active > a:focus {
+  border-top: 1px solid #1e86ae;
+}
+
+.tabing .nav-tabs > li.active > a:hover {
+  border-top: 1px solid #1e86ae;
 }
 
 .tabing ul#tabs {
@@ -250,6 +271,14 @@ c .loadMore {
   text-align: center;
 }
 
+.canvas_options li a {
+  color: inherit;
+}
+
+.canvas_options li a:hover {
+  text-decoration: none;
+}
+
 .canvas_options li span {
   color: #3e4954;
   display: block;
@@ -257,6 +286,10 @@ c .loadMore {
   font-weight: 300;
   line-height: 13px;
   padding-top: 5px;
+}
+
+.canvas_options li span.nope {
+  padding-top: 2px;
 }
 
 .canvas_image {
@@ -314,6 +347,8 @@ c .loadMore {
   height: 80px;
   padding: 10px;
   position: relative;
+  padding-left: 0;
+  margin-left: 15px;
 }
 
 .ul_layer_canvas > li:last-child {
@@ -741,17 +776,17 @@ md-tab-content {
   background: #fff none repeat scroll 0 0;
   display: inline-block;
   margin: auto 5px 5px;
-  max-width: 29%;
+  max-width: 20%;
   padding: 5px 0;
   text-align: center;
   width: 100%;
 }
 
 .thumb_listing ul li.list-fonts {
-  background: #fff none repeat scroll 0 0;
+  background: transparent none repeat scroll 0 0;
   display: inline-block;
-  margin: auto 5px 10px;
-  max-width: 42.2%;
+  margin: auto 10px 10px;
+  max-width: 50%;
   padding: 10px 0 0;
   text-align: center;
   width: 100%;
@@ -759,7 +794,8 @@ md-tab-content {
 
 .thumb_listing ul li img {
   display: block;
-  max-width: 65px;
+  max-width: 40px;
+  height: 40px;
   margin: auto;
 }
 
@@ -787,9 +823,12 @@ md-tab-content {
 }
 
 .butLoad {
-  margin-top: 7px;
-  min-height: 100px;
+  margin: 1px 0 0 0;
   background: #E7E7E7;
+}
+
+.butLoad.active {
+  padding: 0;
 }
 
 .produitTitle {

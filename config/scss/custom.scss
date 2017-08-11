@@ -171,6 +171,7 @@ body {
 }
 .aide {
 	padding-right: 15px;
+	text-align: justify;
 }
 .intro {
 	font-size: 1.4rem;
@@ -336,10 +337,17 @@ body {
 }
 .btn-group-vertical {
 	position: absolute;
-	right: -10px;
+	right: 0;
 	top: 0;
+	background: $magenta;
+	z-index: 900;
+	.fa{
+		font-size: 24px;
+	}
+
 }
 .action_tabs {
+	margin-top: 5px;
 	padding-bottom: 0;
 	.btn {
 		background: $white none repeat scroll 0 0;
@@ -742,7 +750,7 @@ md-select-value {
 		margin: 5px 0 6px;
 	}
 	ul li {
-		padding: 5px 3px 0;
+		padding: 0 3px;
 		> div {
 			background: $color_mercury_approx none repeat scroll 0 0;
 			padding: 5px 0;
@@ -898,13 +906,13 @@ ng\:form {
 	display: block;
 }
 .icon-vertical ul {
-	margin-right: 20px;
+	margin-right: 0;
 	border: 0;
 	background: $magenta none repeat scroll 0 0;
 	li {
 		border-bottom: 1px solid $color_bon_jour_approx;
 		a {
-			padding: 10px;
+			padding: 0;
 			color: $white;
 			text-align: center;
 			display: block;
@@ -912,12 +920,14 @@ ng\:form {
 			&:hover {
 				background: $color_sunglow_approx;
 				text-decoration: none;
+				transition: .2s;
 			}
 		}
 		> span {
-			padding: 10px;
+			padding: 0;
 			color: $white;
 			text-align: center;
+			line-height: 20px;
 			display: block;
 			cursor: pointer;
 			&:hover {
@@ -1060,6 +1070,7 @@ md-radio-group md-radio-button {
 		margin: 0 auto;
 		width: 295px;
 		padding: 15px;
+		height: 900px;
 		.row {
 			margin-left: 0;
 			margin-right: 0;

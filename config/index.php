@@ -1,37 +1,37 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Design Tailor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Source+Sans+Pro:400,700,700i,900|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka' rel='stylesheet' type='text/css'>
+  <meta charset="utf-8">
+  <title>Design Tailor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Source+Sans+Pro:400,700,700i,900|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka' rel='stylesheet' type='text/css'>
 
-    <meta name="msapplication-TileColor">
-    <meta name="theme-color">
+  <meta name="msapplication-TileColor">
+  <meta name="theme-color">
 
-    <!-- CSS Start -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" >
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" >
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
-    <link rel="stylesheet" type="text/css" href="css/ng-scrollbar.min.css" >
-    <link rel="stylesheet" type="text/css" href="css/style.css" >
-    <link rel="stylesheet" type="text/css" href="css/custom.css" >
-    <link rel="stylesheet" type="text/css" href="css/fonts.css" >
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" type="text/css" href="css/angular-material.css">
-    <!-- CSS End -->
+  <!-- CSS Start -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" >
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" >
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+  <link rel="stylesheet" type="text/css" href="css/ng-scrollbar.min.css" >
+  <link rel="stylesheet" type="text/css" href="css/style.css" >
+  <link rel="stylesheet" type="text/css" href="css/custom.css" >
+  <link rel="stylesheet" type="text/css" href="css/fonts.css" >
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
+  <link rel="stylesheet" type="text/css" href="css/angular-material.css">
+  <!-- CSS End -->
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
-<body>
 
-  <?php
-    session_start();
-    $path = $_SERVER['DOCUMENT_ROOT'];
-  ?>
+<body id="body">
+
+<?php
+  session_start();
+  $path = $_SERVER['DOCUMENT_ROOT'];
+?>
 
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
     <div ng-show="loading" class="loading">
@@ -48,22 +48,35 @@
                 </ul>
                 <div id="my-tab-content" class="tab-content action_tabs">
                     <div class="tab-pane active clearfix" id="Products">
-                      <h5>commande n° <span id="number"><?php echo $_GET['number']; ?></span></h5>
+                      <h5>commande n° <span id="number">
+                        <?php
+                          $nbcom = $_GET['number'];
+                          $nbname = $_GET['name'];
+                          $nbh = $_GET['hauteur'];
+                          $nbl = $_GET['largeur'];
+                          $_SESSION['nbcom'] = $nbcom;
+                          $_SESSION['nbname'] = $nbname;
+                          $_SESSION['nbh'] = $nbh;
+                          $_SESSION['nbl'] = $nbl;
+                          echo $nbcom;
+                        ?></span>
+                      </h5>
+
                       <div class="encart">
-                        <h2 id="produit"><?php echo $_GET['name']; ?></h2>
-                        <!--<p><?php echo $_GET['desc']; ?></p>-->
-                        <p>Gabarit <span id="hauteur"><?php echo $_GET['hauteur']; ?></span> x <span id="largeur"><?php echo $_GET['largeur']; ?></span> cm</p>
+                        <h2 id="produit"><?php echo $nbname; ?></h2>
+
+                        <p>Gabarit <span id="hauteur"><?php echo $nbh; ?></span> x <span id="largeur"><?php echo $nbl; ?></span> cm</p>
                       </div>
 
                         <h4>Créez votre maquette en quelques clics:</h4>
                         <div class="aide">
                           <div class="intro">
-                            <p><span>1</span> Vous pouvez commencer par cliquer sur votre gabarit pour changer sa couleur de fond.<br />
-                            </p>
-                            <p><span>2</span> importez vos images et entrez du texte à l'aide des boutons ci-dessus <i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i></p>
-                            <p><span>3</span> Vous pouvez ensuite sélectionner chaque élément par un simple clic et l'agencer (déplacer, incliner, redimentionner, etc...)</p>
-                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, cliquez sur enregistrer  <i class="fa fa-save"></i> dans le coin haut/droit pour nous la transmettre.</p>
-                            <p class="dashed">Vos éléments (exepté image de fond) ne doivent pas dépasser la marge technique en pointillés gris</p>
+                            <p><span>1</span> Vous pouvez commencer par cliquer sur votre gabarit pour changer sa couleur de fond </p>
+                            <p><span>2</span> Importez vos images et entrez du texte à l'aide des boutons ci-dessus '<i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i>'</p>
+                            <p><span>3</span> Agencez vos calques : un simple clic dessus pour les déplacer, changer la taile... <br />
+                              Dans '<i class="fa fa-object-ungroup"></i> calques' vous pouvez gérer l'ordre de superposition de vos éléments</p>
+                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, vérifiez bien qu'il n'y ait pas d'erreurs, de fautes d'orthographe, et cliquez sur '<i class="fa fa-save"></i> enregistrer' pour nous la transmettre</p>
+                            <p class="dashed">Vos éléments (excepté image de fond) ne doivent pas dépasser la marge technique en pointillés gris</p>
                           </div>
 
 
@@ -146,7 +159,7 @@
 
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="upload_own">
-                                <div class="col-lg-12 thumb_listing">
+                                <div class="thumb_listing">
                                     <div class="well" >
                                         <form name="myForm">
                                             <div class="fileUpload btn btn-primary">
@@ -185,7 +198,7 @@
                             </div>-->
 
                             <div role="tabpanel" class="tab-pane fade" id="hand_draw">
-                                <div class="col-lg-12 thumb_listing">
+                                <div class="thumb_listing">
                                     <div class="well" >
                                         <div class="row form-group">
                                             <div class="clearfix">
@@ -265,7 +278,7 @@
 
                             <div role="tabpanel" class="tab-pane fade in active" id="text_design">
 
-                                <div class="col-lg-12 thumb_listing">
+                                <div class="thumb_listing">
                                     <div class="well" >
                                         <div class="row form-group">
                                             <md-input-container flex>
@@ -305,7 +318,7 @@
 
                     <div class="tab-pane clearfix" id="Layers">
                         <h1>Calques</h1>
-                        <div class="col-lg-12 layer_listing scrollme" rebuild-on="rebuild:layer" ng-scrollbar is-bar-shown="barShown">
+                        <div class="layer_listing scrollme" rebuild-on="rebuild:layer" ng-scrollbar is-bar-shown="barShown">
 
                         <ul class="ul_layer_canvas row">
 
@@ -439,24 +452,72 @@
                         <li ng-click="layers()" href="#Layers" data-toggle="tab"><i class="fa fa-object-ungroup"></i><span>Calques</span></li>
                         <li ng-click="copyItem()"><i class="fa fa-copy"></i><span>Copier</span></li>
                         <li ng-click="pasteItem()"><i class="fa fa-paste"></i><span>Coller</span></li>
-                        <li ng-click="horizontalAlign()"><i class="fa fa-arrows-h"></i><span>Aligner <br> Horizontalement</span></li>
-                        <li ng-click="verticalAlign()"><i class="fa fa-arrows-v"></i><span>Aligner <br> Verticalement</span></li>
+                        <li ng-click="horizontalAlign()"><i class="fa fa-arrows-h"></i><span>Centrer</span></li>
+                        <li ng-click="verticalAlign()"><i class="fa fa-arrows-v"></i><span>Centrer</span></li>
                         <li ng-click="{ active: flipObject() }"><i class="fa fa-exchange fa-2"></i><span>Mirroir</span></li>
-                        <li ng-click="removeSelectedObject()"><i class="fa fa-eraser"></i><span>Supprimer <br>le calque </span></li>
+                        <li ng-click="removeSelectedObject()"><i class="fa fa-eraser"></i><span>Supprimer</span></li>
 
-                        <li>
-                            <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" ng-click="undo()" href="#"><span class="ng-binding ng-scope"></span></a>
+                        <li ng-click="undo()">
+                            <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
                             <md-tooltip md-visible="undo.showTooltip" md-direction="left">Annuler</md-tooltip>
-                            <span>Annuler</span>
+                            <span class="nope">Annuler</span>
                         </li>
-                        <li>
-                            <a class="fa fa-repeat ng-scope ng-isolate-scope" translate="" ng-click="redo()" href="#"><span class="ng-binding ng-scope"></span></a>
+                        <li ng-click="redo()">
+                            <a class="fa fa-repeat ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
                             <md-tooltip md-visible="redo.showTooltip" md-direction="left">Rétablir</md-tooltip>
-                            <span>Rétablir</span>
+                            <span class="nope">Rétablir</span>
                         </li>
                         <!--<li ng-click="clearAll()"><i class="fa fa-trash"></i><span>Tout effacer</span></li>-->
 
                     </ul>
+
+                    <div class="btn-group-vertical">
+                        <div class="icon-vertical m-b-sm pull-right">
+                            <ul>
+                                <li class="saveObject">
+                                    <span><a ng-click="saveObjectAsSvg()" href="#" class="ng-scope"><i class="fa fa-save"></i><br /> Enregistrer</a></span>
+
+                                  <!--  <ul class="ulChildMenu">
+                                        <li class="childLi">
+                                            <a ng-click="saveObjectAsSvg()" href="#" class="ng-scope">Save as SVG</a>
+                                        </li>
+                                        <li class="childLi">
+                                            <a ng-click="saveObjectAsPng()" href="#" class="ng-scope">Save as PNG</a>
+                                        </li>
+                                        <li class="childLi">
+                                            <a ng-click="saveObjectAsJpg()" href="#" class="ng-scope">Save as JPG</a>
+                                        </li>
+                                        <li class="childLi">
+                                            <a ng-click="downloadObjectAsPdf()" href="#" class="ng-scope">Download as PDF</a>
+                                        </li>
+                                    </ul>-->
+                                </li>
+
+                                <!--<li>
+                                    <a ng-click="printObject()" href="#" class="ng-scope"><span class="fa fa-print"></span></a>
+                                    <md-tooltip md-visible="print.showTooltip" md-direction="left">Print</md-tooltip>
+                                </li>-->
+
+                                <!--<li>
+                                    <a ng-click="downloadObject()" href="#" class="ng-scope"><span class="fa fa-cloud-download"></span></a>
+                                    <md-tooltip md-visible="download.showTooltip" md-direction="left">Download as PNG</md-tooltip>
+                                </li>-->
+
+                                <!--<li class="">
+                                    <a class="fa fa-search-plus ng-scope ng-isolate-scope" translate="" ng-click="zoomObject('zoomin')" href="#"><span class="ng-binding ng-scope"></span></a>
+                                    <md-tooltip md-visible="zoomin.showTooltip" md-direction="left">Select object and Zoom In</md-tooltip>
+                                </li>
+                                <li>
+                                    <a class="fa fa-search-minus ng-scope ng-isolate-scope" translate="" ng-click="zoomObject('zoomout')" href="#"><span class="ng-binding ng-scope"></span></a>
+                                    <md-tooltip md-visible="zoomout.showTooltip" md-direction="left">Select object and  Zoom Out</md-tooltip>
+                                </li>-->
+                            </ul>
+
+                        </div>
+                        <!--<div class="social-share">
+                            <a href="javascript:void(0);" id="f_share_button" class="fa fa-facebook" ng-click="shareOnFacebook($event);"></a> <a href="javascript:void(0)" class="fa fa-twitter" ng-click="shareOnTwitter($event);"></a>
+                        </div>-->
+                    </div>
                 </div>
                 <div class="canvas_image image-builder ng-isolate-scope">
 
@@ -464,54 +525,7 @@
 
                         <div class="canvas-container-outer">
 
-                            <canvas fabric='fabric' style="max-width:836px;max-height:836px;"></canvas>
-                        </div>
-                        <div class="btn-group-vertical">
-                            <div class="icon-vertical m-b-sm pull-right">
-                                <ul>
-                                    <li class="saveObject">
-                                        <span class="fa fa-save"></span>
-
-                                        <ul class="ulChildMenu">
-                                            <li class="childLi">
-                                                <a ng-click="saveObjectAsSvg()" href="#" class="ng-scope">Save as SVG</a>
-                                            </li>
-                                            <li class="childLi">
-                                                <a ng-click="saveObjectAsPng()" href="#" class="ng-scope">Save as PNG</a>
-                                            </li>
-                                            <li class="childLi">
-                                                <a ng-click="saveObjectAsJpg()" href="#" class="ng-scope">Save as JPG</a>
-                                            </li>
-                                            <li class="childLi">
-                                                <a ng-click="downloadObjectAsPdf()" href="#" class="ng-scope">Download as PDF</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <!--<li>
-                                        <a ng-click="printObject()" href="#" class="ng-scope"><span class="fa fa-print"></span></a>
-                                        <md-tooltip md-visible="print.showTooltip" md-direction="left">Print</md-tooltip>
-                                    </li>-->
-
-                                    <!--<li>
-                                        <a ng-click="downloadObject()" href="#" class="ng-scope"><span class="fa fa-cloud-download"></span></a>
-                                        <md-tooltip md-visible="download.showTooltip" md-direction="left">Download as PNG</md-tooltip>
-                                    </li>-->
-
-                                    <!--<li class="">
-                                        <a class="fa fa-search-plus ng-scope ng-isolate-scope" translate="" ng-click="zoomObject('zoomin')" href="#"><span class="ng-binding ng-scope"></span></a>
-                                        <md-tooltip md-visible="zoomin.showTooltip" md-direction="left">Select object and Zoom In</md-tooltip>
-                                    </li>
-                                    <li>
-                                        <a class="fa fa-search-minus ng-scope ng-isolate-scope" translate="" ng-click="zoomObject('zoomout')" href="#"><span class="ng-binding ng-scope"></span></a>
-                                        <md-tooltip md-visible="zoomout.showTooltip" md-direction="left">Select object and  Zoom Out</md-tooltip>
-                                    </li>-->
-                                </ul>
-
-                            </div>
-                            <!--<div class="social-share">
-                                <a href="javascript:void(0);" id="f_share_button" class="fa fa-facebook" ng-click="shareOnFacebook($event);"></a> <a href="javascript:void(0)" class="fa fa-twitter" ng-click="shareOnTwitter($event);"></a>
-                            </div>-->
+                            <canvas fabric='fabric'></canvas>
                         </div>
 
                     </div>
@@ -611,17 +625,12 @@
 
 <script src="assets/file/fileSaver.js"></script>
 <script src="assets/pdf/jspdf.debug.js"></script>
-<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.2/svg.js"></script>
+
 <script>
-  var draw = SVG('svg').size(500, 500);
-  var rect = draw.rect(500, 200).attr({
-  fill: '#00',
-  'fill-opacity': 0,
-  stroke: '#ccc',
-  'stroke-width': 10,
-  'stroke-opacity': 0.5
+$(document).ready(function() {
+
 });
-</script>-->
+</script>
 
 <div id="qrcode"></div>
 <div id="wordcloud"></div>

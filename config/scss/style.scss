@@ -121,19 +121,26 @@ c
 .tabing {
   margin: 0 -15px;
   background: $black_haze;
+  height: 1000px;
   .nav-tabs {
     border: none;
     > li {
       > a {
         border: none;
-        /*Instead of the line below you could use @include border-radius($radius, $vertical-radius)*/
+        background: url(../images/stripe2.png);
         border-radius: 0;
+        border-bottom: 1px solid $border;
+        border-right: 1px solid $border;
         color: $color_limed_spruce_approx;
         padding: 40px 10px 10px;
         text-align: center;
         font-size: 14px;
         line-height: 14px;
         position: relative;
+        &:hover{
+          background: url(../images/stripehover.png);
+          transition: .2s;
+        }
         &:after {
           position: absolute;
           content: "";
@@ -148,11 +155,14 @@ c
       }
       &.active > a {
         @extend %extend_1;
+        border-top: 1px solid darken($cyan, 10%);
         &:focus {
           @extend %extend_1;
+          border-top: 1px solid darken($cyan, 10%);
         }
         &:hover {
           @extend %extend_1;
+          border-top: 1px solid darken($cyan, 10%);
         }
       }
     }
@@ -271,6 +281,12 @@ c
     margin: auto;
     padding: 10px 12.5px 0;
     text-align: center;
+    a {
+      color:inherit;
+      &:hover {
+        text-decoration: none;
+      }
+    }
     span {
       color: $color_limed_spruce_approx;
       display: block;
@@ -278,7 +294,11 @@ c
       font-weight: 300;
       line-height: 13px;
       padding-top: 5px;
+      &.nope {
+        padding-top: 2px;
+      }
     }
+
     &:hover {
       span {
       }
@@ -335,6 +355,8 @@ c
     height: 80px;
     padding: 10px;
     position: relative;
+    padding-left: 0;
+    margin-left: 15px;
     &:last-child {
       border-bottom: 1px solid $color_pumice_approx;
     }
@@ -724,22 +746,23 @@ md-tab-content {
     background: $white none repeat scroll 0 0;
     display: inline-block;
     margin: auto 5px 5px;
-    max-width: 29%;
+    max-width: 20%;
     padding: 5px 0;
     text-align: center;
     width: 100%;
     &.list-fonts {
-      background: $white none repeat scroll 0 0;
+      background: transparent none repeat scroll 0 0;
       display: inline-block;
-      margin: auto 5px 10px;
-      max-width: 42.2%;
+      margin: auto 10px 10px;
+      max-width: 50%;
       padding: 10px 0 0;
       text-align: center;
       width: 100%;
     }
     img {
       display: block;
-      max-width: 65px;
+      max-width: 40px;
+      height: 40px;
       margin: auto;
     }
   }
@@ -765,9 +788,11 @@ md-tab-content {
 }
 
 .butLoad {
-  margin-top: 7px;
-  min-height: 100px;
+  margin: 1px 0 0 0;
   background: #E7E7E7;
+  &.active {
+    padding: 0;
+  }
 }
 
 .produitTitle{
