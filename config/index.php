@@ -75,7 +75,7 @@
                             <p><span>2</span> Importez vos images et entrez du texte à l'aide des boutons ci-dessus '<i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i>'</p>
                             <p><span>3</span> Agencez vos calques : un simple clic dessus pour les déplacer, changer la taile... <br />
                               Dans '<i class="fa fa-object-ungroup"></i> calques' vous pouvez gérer l'ordre de superposition de vos éléments</p>
-                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, vérifiez bien qu'il n'y ait pas d'erreurs, de fautes d'orthographe, et cliquez sur '<i class="fa fa-save"></i> enregistrer' pour nous la transmettre</p>
+                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, vérifiez bien qu'il n'y ait pas d'erreurs et cliquez sur '<i class="fa fa-save"></i> enregistrer' pour nous la transmettre</p>
                             <p class="dashed">Vos éléments (excepté image de fond) ne doivent pas dépasser la marge technique en pointillés gris</p>
                           </div>
 
