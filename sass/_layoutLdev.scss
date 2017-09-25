@@ -783,18 +783,36 @@ ul.menu-client{
   li{
     text-align:left;
     height: 60px;
-    border-right:1px solid lighten($text, 30%);
-    &:last-of-type{
-      border-right:none;
-    }
+
   }
   .menu-client-item {
     @include span(3);
     text-align: center;
+    height: 75px;
   }
   .menu-client-item.item1{
     @include span(6);
     text-align:left;
+  }
+  .menu-client--devis {
+    &::after{
+      content: '';
+      margin-top: -65px;
+      display: block;
+      width: 1px;
+      height: 60px;
+      background: lighten($text, 30%);
+    }
+  }
+  .menu-client--panier {
+    &::after{
+      content: '';
+      margin-top: -65px;
+      display: block;
+      width: 1px;
+      height: 60px;
+      background: lighten($text, 30%);
+    }
   }
  .menu-client-icon {
     display: block;
@@ -1037,6 +1055,100 @@ ul#menu_top ul#produit_sub{
     }
   }
 
+}
+
+.bonjour {
+  text-transform: capitalize;
+}
+
+#acclient_sub,
+#panier_sub {
+  position: relative;
+  display: none;
+  width: 255px;
+  height: auto;
+  padding: 1.2rem 1rem .8rem ;
+  a {
+    color: $text;
+    font-weight: normal;
+  }
+  &.menu_hover {
+    margin-top: 5px;
+  }
+  &.menu_hover:after,
+  &.menu_hover:before {
+    left: 19%;
+  }
+  .closeB {
+    @include close($text, 1rem, 1px, 6px);
+  }
+  // boutons menu espace client --------------------------------------------------
+
+  .bt_connect,
+  a.bt_deconnect {
+    @include buttonLog($cyan, 60%);
+    height: 25px;
+    padding-top: 5px;
+    border-radius:14px;
+    color: $white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .bt_compte {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: $font-global;
+    font-size: .75rem;
+    &:hover {
+      color: $cyan;
+    }
+  }
+
+  .bt_bottom {
+    display: inline-block;
+    margin-top: 5px;
+    &:hover {
+      color: $cyan;
+    }
+  }
+}
+
+#panier_sub {
+  .ct_itname,
+  .ct_qte,
+  .ct_total {
+    display: inline-block;
+    width: 27%;
+  }
+  .ct_itname{
+    text-align: left;
+    text-transform: capitalize;
+  }
+  .ct_qte{
+    text-align: center;
+  }
+  .ct_total {
+    text-align: right;
+  }
+  .ct_totalt {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    width: 89%;
+  }
+  form#delcart_form {
+    display: inline-block;
+    width: 5%;
+  }
+  .emptyCart {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -2051,7 +2163,7 @@ a.linkUppercase {
 
 #dodaj_koszyk {
   float: left;
-  display: inline;
+  display: inline-block;
   width: 100%;
   height: auto;
   background: $bloc-base;
@@ -2234,6 +2346,7 @@ input:valid {
   }
   a {
     color: inherit;
+    text-decoration: underline;
     &:hover {
       color: lighten($text, 20%);
     }
@@ -2273,9 +2386,10 @@ input:valid {
 }
 
 .helpfr {
-
+  color: $fr;
 }
-.fa-envira {
+.fa-envira,
+.helpeco {
   color: $green;
 }
 .fa-fire{
@@ -2513,12 +2627,30 @@ div {
 }
 .box_alert {
   border: 2px solid $magenta;
-  background-color: ligthen($magenta,50%);
+  background-color: lighten($magenta, 50%);
   .closeButton {
     @include close($magenta, 2rem, 0, 10px);
   }
 }
 
+.logerror {
+  display: block;
+  position: relative;
+  background: $magenta;
+  min-height: 80px;
+  text-transform: uppercase;
+  width: 100%;
+  margin:20px auto;
+  padding:2rem;
+  float: none;
+  text-align: center;
+  font-weight: bold;
+  color: $white;
+  font-size: 1rem;
+  .closeButton {
+    @include close($white, 2rem, 0, 10px);
+  }
+}
 
 // Page écrire un commentaire ------------------------------------------------
 
@@ -2726,17 +2858,18 @@ span.pay_carte_info {
 ////////////////////////////////////////////////////////////////////////////////
 
 .acces_tab_name_devis {
-  span {
+  .etat {
     float: right;
     width: 200px;
     text-align: right;
+    margin: -4px -8px 0 0;
 
     span {
       float: right;
       width: 50%;
       text-align: center;
       margin: 0 5px 5px;
-      padding:.1rem 0;
+      padding:5px 0 0;
       height: 25px;
       font-size: .7rem;
       line-height: .7rem;
@@ -2965,15 +3098,25 @@ SPAN {
 }
 // boutons file upload ---------------------------------------------------------
 
-.fuselect {
-  @include buttonLog($cyan, 29%);
-  text-align: center;
-}
+
 a.maquette{
   @include buttonLog($magenta, 150px);
   float: right;
   padding-top: .3rem;
   height: 25px;
+  &:hover {
+    background-color: $cyan;
+    border:1px solid darken($cyan, 7%);
+  }
+}
+
+.maquetteRV{
+  float: right;
+}
+
+.fuselect {
+  @include buttonLog($cyan, 29%);
+  text-align: center;
 }
 
 .fustart {
@@ -3156,7 +3299,7 @@ tbody {
     &.leftth {
       width: 20%;
       padding: .2rem;
-      text-align: left;
+      text-align: center;
     }
 
     &.tddesc {
@@ -3176,13 +3319,13 @@ tbody {
 
     &.tddesc {
       text-align: left;
-      padding: .2rem;
+      padding: .2rem .2rem .2rem .7rem;
       width: 20%;
     }
 
     &.lefttd {
       background: darken($bloc-base, 1%) ;
-      text-align: left;
+      text-align: center;
       font-size: .8rem;
       line-height: .8rem;
       text-transform: uppercase;
@@ -3788,18 +3931,22 @@ tbody {
 
 .votre_tab_active,
 .votre_tab_inactive {
+  box-sizing: border-box;
   width: 50%;
   padding: 12px .5rem;
   height: auto;
   line-height: 1rem;
-  background: $color_12;
+  background: $border;
   font-size: .9rem;
   float: left;
   display: inline;
   margin: 25px auto 0;
   text-decoration: none;
   text-align: center;
-  color: $bloc-base;
+  color: $text;
+  border-bottom: 1px solid $bloc-base;
+  border-right: 1px solid $bloc-base;
+
   &:hover {
     cursor: pointer;
     background: $color_12;
@@ -3811,10 +3958,11 @@ tbody {
 
 .votre_tab_active {
   margin-right: 0;
+
 }
 .votre_tab_inactive {
-  background: $bloc-base;
-  color: $color_12;
+  background: url(../images/stripe_cancelled.png);
+  color: lighten($text, 30%);
 }
 
 .votre_tab_content,
@@ -3829,7 +3977,7 @@ tbody {
   margin: 0 auto;
   position: relative;
   display: flex;
-display:-webkit-flex;
+  display:-webkit-flex;
 
   flex-wrap: wrap;
   justify-content: space-between;
@@ -3939,7 +4087,8 @@ display:-webkit-flex;
   display: inline;
 }
 
-.loginlabel {
+.loginlabel,
+.loginlabel_sub {
   display: inline-block;
   float: none;
   width: 49%;
@@ -3949,7 +4098,8 @@ display:-webkit-flex;
   white-space: nowrap;
 }
 
-.logininput {
+.logininput,
+.logininput_sub {
   display: inline-block;
   float: none;
   width: 49%;
@@ -3960,6 +4110,17 @@ display:-webkit-flex;
   padding-left: 10px;
   margin-bottom: 11px;
 }
+
+.loginlabel_sub {
+  text-align: left;
+  width: 41%;
+}
+
+.logininput_sub {
+  height: 25px;
+  width: 57%;
+}
+
 .logininputOubli {
   display: inline-block;
   float: none;
@@ -3983,6 +4144,7 @@ display:-webkit-flex;
   margin: 10px auto 0;
   width: 150px;
   text-indent: 0;
+  border-radius:26px;
 }
 
 a.pleaseregister {
@@ -3999,6 +4161,7 @@ a.pleaseregister {
     text-align: center;
     padding: 9px 0;
     font-size: .9rem;
+    border-radius:26px;
     &:after{
       @extend %buttonBaseAfter;
       content: '';
@@ -4038,22 +4201,7 @@ a.forgetpass {
   }
 }
 
-.logerror {
-  display: block;
-  position: relative;
-  top: 0;
-  height: 40px;
-  width: 80%;
-  margin:20px auto;
-  padding:20px auto;
-  float: none;
-  text-align: center;
-  font-weight: bold;
-  color: $alert;
-  margin-top: 0;
 
-  font-size: 1rem;
-}
 
 // register---------------------------------------------------------------------
 
@@ -4793,7 +4941,7 @@ a.comVoir  {
 
 h1.metaTitle {
   font-family: $font-global;
-  line-height: 1.8rem !important;
+  line-height: 1.6rem !important;
   font-size: 1.8rem !important;
   float: right;
   text-align: right;
@@ -4844,11 +4992,19 @@ a.metaButton {
   border: none;
   font-size: 1.4rem !important;
   border-radius: 20px;
-
+  font-weight: 900;
   &:hover {
     background: $jaune;
     transition: .2s;
   }
+}
+
+a.metaButton.promo {
+  float: none;
+  position: absolute;
+  padding-top: 7px !important;
+  bottom: 0;
+  left: 170px/2-50px;
 }
 
 // sliders pages produits ------------------------------------------------------
@@ -5120,6 +5276,10 @@ h1.helpPageTitle {
 }
 
 
+
+
+
+
 // containers pour accès clients -----------------------------------------------
 
 #fbcart_buttons,
@@ -5174,21 +5334,16 @@ form#delfromvosdevis,
 // bouton gérer la commande ----------------------------------------------------
 
 .but_details {
-  width: 100%;
-  height: 40px;
-  background-image: none;
-  background: $bt-gerer;
-  color: $white;
-  overflow: hidden;
-  border: none;
-  cursor: pointer;
-  display: block;
-  margin: 0;
-  &.active,
+  @include buttonLog($magenta, auto);
+  margin: 0 auto;
+  height: 28px;
+  border-radius: 14px;
+  padding-top: 7px;
+  text-align: left;
   &:hover {
-    background-color: $cyan;
+    background: $cyan;
+    transition: .2s;
     border:1px solid darken($cyan, 7%);
-    transiton:.2s;
   }
 }
 
@@ -5486,7 +5641,21 @@ span.print_button a{
     clear: both;
   }
 }
-
+.stat {
+  @include buttonStatusBase(transparent);
+  color:$text;
+  font-weight: 900;
+  text-align: left;
+  cursor: default;
+  height: auto;
+  min-height: 40px;
+  font-size: .77rem;
+  line-height: .77rem;
+  padding-top: 15px;
+  &:hover{
+    background: transparent;
+  }
+}
 .stat0 {
   @include buttonStatusBase($color_29);
 }
@@ -5506,14 +5675,16 @@ span.print_button a{
   @include buttonStatusBase($color_8);
 }
 .stat6 {
-  @include buttonStatusBase($text);
+  @include buttonStatusBase(transparent);
+  background: url(../images/stripe_cancelled.png);
+  color: $text;
+  font-weight: 900;
   padding-top: .7rem;
   cursor: default;
   font-size: .75rem;
   &.active,
   &:hover {
-    background-image: none;
-    background-color: $text;
+    background: url(../images/stripe_cancelled.png) transparent;
   }
 }
 .stat7 {
@@ -5540,22 +5711,51 @@ span.print_button a{
   .stat7 {
     padding-top: 2px;
   }
+
+}
+
+.statusChecked {
+  display: block;
+  float: right;
+  z-index: 10;
+  font-weight: normal;
+  margin-top: -5px;
+
+  .fa {
+
+    font-size: 22px;
+    vertical-align: middle;
+  }
+}
+
+td.lefttd4 .statusChecked .fa {
+  font-size: 44px;
+  margin-right: 10px;
+
+}
+
+.statusChecked .fa-check-circle{
+  color: #6aba20;
+
+}
+.statusChecked .fa-exclamation-circle{
+  color: darken($jaune,5%);
+
+}
+.statusChecked.statusVerybad .fa-exclamation-circle{
+  color: $magenta;
 }
 
 .comment_new {
-  display: inline-block;
-  width: 100%;
-  color: $white;
+  @include buttonStatusBase($magenta);
+  z-index: 5;
+  height: auto;
+  margin-top: 4px;
   font-size: .7rem;
-  line-height: .7rem;
-  background: $alert;
-  position: relative;
-  top: -5px;
-  right: 0;
-  margin:-20px auto 0;
-  height: 23px;
-  padding: 5px 0 0;
-  z-index: 900;
+  &:hover {
+    background: $cyan;
+    transition: .2s;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -5582,36 +5782,8 @@ span.print_button a{
   height: 400px;
 }
 
-.tntRCHeader {
-  background-color: $bloc-base;
-  border: 1px solid $border;
-	background-image: url(../img/logotnt.png);
-  background-size: contain;
-	background-position: 10px center;
-	background-repeat: no-repeat;
-	color: #a0a0a0;
-	font-family: arial,helvetica,sans-serif;
-	font-size: 15pt;
-	font-style: italic;
-	height: 40px;
-	padding-right: 10px;
-	padding-top: 10px;
-	text-align: right;
-	width: 100%;
-}
-
-.tntRCSubHeader {
-	background-color: #ffffff;
-	border-width: 0px;
-	color: #a0a0a0;
-	font-size: .9rem;
-	font-weight: bold;
-	padding-bottom: 5px;
-	padding-top: 5px;
-	width: 100%;
-}
-
 .tntRCBody {
+
 	background-color: $bloc-base;
 	border: 1px solid $border;
 	color: $text;
@@ -5625,6 +5797,9 @@ span.print_button a{
 }
 
 .tntRCBodySearch {
+  //position: absolute;
+  bottom: 0;
+  left: 0;
   background-color: $bloc-base;
   border-top: 1px solid $border;
   color:$text;
@@ -5637,8 +5812,35 @@ span.print_button a{
 }
 
 #blocCodePostal {
+  position: relative;
   background-color: $bloc-base;
   border: 1px solid $border;
+  height: auto;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#tntBodyContentSC {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.tntLogo {
+  display: none;
+}
+
+
+.codePost {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+input.itiOK {
+  float: right;
+  height: 20px;
+  width: 60px;
+  margin: 0;
+  padding-top: 2px;
 }
 
 .tntRCError {
@@ -5649,20 +5851,45 @@ span.print_button a{
 	font-size: 12pt;
 	font-weight: bold;
 	width: 580px;
+  text-align: center;
 }
+
 
 .tntRCGray {
 	display: none;
 }
 
 .tntRCInput {
+  position: relative;
 	background-color: #ffffff;
   border:1px solid $color_7;
 	font-size: 10pt;
 	font-weight: normal;
 	text-align: center;
-	width: 70px;
-  height: 24px;
+	width: 120px;
+  height: 32px;
+  border-radius: 3px;
+}
+
+a.tntRCButton {
+  display: block;
+  height: 32px;
+  background: $cyan;
+  text-align: center;
+  color: $white;
+  border: 1px solid darken($cyan,7%);
+  border-radius: 3px;
+  width: 40px;
+  height: 30px;
+  padding-top: 5px;
+	vertical-align: middle;
+	text-decoration: none;
+  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.10);
+  &:hover {
+    background: $magenta;
+    border: 1px solid darken($magenta,7%);
+    transition: .2s;
+  }
 }
 
 .tntRCWhite {
@@ -5726,10 +5953,12 @@ span.print_button a{
 }
 
 table.tntRCHoraire td {
-	border: 1px solid gray;
-	font-family: arial,helvetica,sans-serif;
+	border: 1px solid white;
+  background: $bloc-base;
+	font-family: $font-global;
 	font-size: 10pt;
 	vertical-align: middle;
+  color: $text;
 }
 
 .tntRCHoraireJour{
@@ -5782,13 +6011,19 @@ table.tntRCHoraire td {
 	vertical-align: text-bottom;
 }
 
-.tntRCBoutonLoupe {
+a.tntRCBoutonLoupe {
+  background: $jaune;
+  color: $white;
 	font-size: 12px;
-	padding-top: 4px;
-	padding-bottom: 3px;
+  text-transform: uppercase;
+	padding: 4px;
 	text-decoration: none;
 	vertical-align: middle;
-  background-color: transparent;
+  border-radius: 3px;
+  &:hover{
+    background: $magenta;
+    transition: .2s;
+  }
 }
 .jqmWindow {
 	background-color: #FFF;
@@ -5823,11 +6058,7 @@ div.tntRCfermeture a.jqmClose:hover{ background-position: 0 -20px; }
 	top: expression((document.documentElement.scrollTop || document.body.scrollTop) + Math.round(17 * (document.documentElement.offsetHeight || document.body.clientHeight) / 100) + 'px');
 }
 
-img.tntRCButton {
-	border: 0px;
-	vertical-align: middle;
-	text-decoration: none;
-}
+
 
 sup.tntRCSup {
 
@@ -5870,13 +6101,13 @@ sup.tntRCSup {
 	}
 
 	div.ag {
-		background-image: url(/relaiscolis/img/google/agenceTnt.png);
+		background-image: url(../../../plugins/fbshop/relaiscolis/img/google/agenceTnt.png);
 		background-repeat: no-repeat;
 		padding-left:60px;
 	}
 
 	div.rc {
-		background-image: url(/relaiscolis/img/google/relaisColis.png);
+		background-image: url(../../../plugins/fbshop/relaiscolis/img/google/relaisColis2.png);
 		background-repeat: no-repeat;
 		padding-left:50px;
 	}
@@ -6435,8 +6666,8 @@ span#footer_links2 {
   margin: 15px 0 10px 0;
   padding-top: .5rem;
   &:hover {
-    background-color: #32A1CC;
-    border: 1px solid #2881a3;
+    background-color: $cyan;
+    border:1px solid darken($cyan, 7%);
   }
   i {
     font-size: 1.5rem;

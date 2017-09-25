@@ -3,6 +3,9 @@
 
 @media(max-width: 480px) {
 
+  .disno480{
+    display: none;
+  }
   //----------------------------------------------------------------------------
   //                                 HEADER
   //----------------------------------------------------------------------------
@@ -149,43 +152,7 @@
     padding-top: .8rem;
   }
 
-  // tableau commandes ---------------------------------------------------------
-
-  #fbcart_votre{
-    table, tbody {
-      display: block;
-    }
-    .kontener{
-      text-align: center;
-      font-size: 1rem;
-      line-height: 1.2rem;
-      font-weight: bold;
-      background: darken($bloc-base, 2%);
-      border-bottom: darken($bloc-base, 5%);
-      color: $cyan-bloc;
-      height: auto;
-      padding: .5rem;
-    }
-    td.lefttd {
-      display: none;
-    }
-    tr {
-      width: 100%;
-      display: table;
-      &:first-of-type{
-        display: none;
-      }
-    }
-    th {
-       font-size: 0;
-       border: none;
-       visibility: hidden;
-    }
-    td, th {
-      display: table-row;
-
-    }
-  }
+  
 
   // tableau dernier commentaire -----------------------------------------------
 

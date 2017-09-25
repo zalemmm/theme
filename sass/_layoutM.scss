@@ -45,11 +45,17 @@
   #banners {
     margin-top: 0;
   }
+
+  .disno960{
+    display: none;
+  }
 }
 
 @media(max-width: 760px) {
 
   // invisible -----------------------------------------------------------------
+
+  .disno760,
   .textHide{
     display: none;
   }
@@ -476,7 +482,7 @@
 
   // ajustements padding top status commandes
   .comment_new {
-    padding-top: 0;
+    
   }
 
 

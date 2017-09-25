@@ -288,6 +288,26 @@
     width: 50%;
   }
 
+  #blocCodePostal {
+    position: relative;
+    background-color: $bloc-base;
+    border: 1px solid $border;
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  #tntBodyContentSC {
+    margin-left: 70px;
+    margin-top: 100px;
+  }
+
+  .tntLogo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
   //----------------------------------------------------------------------------
 
 }

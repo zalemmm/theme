@@ -17,8 +17,8 @@ angular.module('common.fabric', [
 		var self = angular.extend({
 			canvasBackgroundColor: '#ffffff',
 			canvasWidth: 836,
-			canvasHeight: 836,
-			canvasOriginalHeight: 836,
+			canvasHeight: 540,
+			canvasOriginalHeight: 540,
 			canvasOriginalWidth: 836,
 			maxContinuousRenderLoops: 25,
 			continuousRenderTimeDelay: 500,
@@ -31,7 +31,7 @@ angular.module('common.fabric', [
 			downloadMultipler: 2,
 			imageDefaults: {},
 			textDefaults: {},
-            curvedTextDefaults: {},
+      curvedTextDefaults: {},
 			shapeDefaults: {},
 			windowDefaults: {
                 rotatingPointOffset: 20,
@@ -44,7 +44,7 @@ angular.module('common.fabric', [
                 centerTransform: true
 			},
 			canvasDefaults: {
-				selection: false
+				selection: true
 			}
 		}, options);
 
@@ -141,16 +141,16 @@ angular.module('common.fabric', [
         /***************** for corner icons  ****************/
 
         fabric.Object.prototype.setControlsVisibility( {
-            ml: false,
+/*            ml: false,
             mr: false,
             mb: false,
-            mt: false
+            mt: false*/
         } );
 
         fabric.Canvas.prototype.customiseControls( {
             tl: {
                 action: 'rotate',
-                cursor: 'crosshair'
+                cursor: 'grab'
             },
             tr: {
                 action: 'scale'
@@ -160,26 +160,24 @@ angular.module('common.fabric', [
                 cursor: 'pointer'
             },
             br: {
-                action: 'moveUp',
-                cursor: 'move'
+                action: 'scale',
+                cursor: 'nwse-resize'
             },
             mb: {
-                action: 'moveDown',
-                cursor: 'pointer'
+                action: 'scaleY',
+                cursor: 'ns-resize'
             },
             mt: {
-                action: {
-                    'rotateByDegrees': 30
-                },
-                cursor: 'pointer'
+                action: 'scaleY',
+                cursor: 'ns-resize'
             },
             ml: {
-                action: 'moveDown',
-                cursor: 'pointer'
+                action: 'scaleX',
+                cursor: 'ew-resize'
             },
             mr: {
-                action: 'moveDown',
-                cursor: 'pointer'
+                action: 'scaleX',
+                cursor: 'ew-resize'
             }
         } );
 
@@ -196,25 +194,25 @@ angular.module('common.fabric', [
                 icon: 'images/icons/rotate.jpg'
             },
             tr: {
-                icon: 'images/icons/resize.jpg'
+                icon: 'images/icons/resize.png'
             },
             bl: {
                 icon: 'images/icons/delete.png'
             },
             br: {
-                icon: 'images/icons/move.jpg'
+                icon: 'images/icons/resize2.png'
             },
             mb: {
-                icon: 'images/icons/move.jpg'
+                icon: 'images/icons/moveY.png'
             },
             mt: {
-                icon: 'images/icons/move.jpg'
+                icon: 'images/icons/moveY.png'
             },
             ml: {
-                icon: 'images/icons/move.jpg'
+                icon: 'images/icons/moveX.png'
             },
             mr: {
-                icon: 'images/icons/move.jpg'
+                icon: 'images/icons/moveX.png'
             }
         } );
 
@@ -339,11 +337,16 @@ angular.module('common.fabric', [
 
 			canvas.add(object);
 			self.setObjectZoom(object);
-			canvas.setActiveObject(object);
+			canvas.setActiveObject(object.set({
+		        left: canvas.width/2,
+		        top: canvas.height/2,
+						originX: 'center',
+						originY: 'center'
+		    })
+			);
 			object.bringToFront();
-			self.center();
-            self.render();
 
+			self.render();
 		};
 
 		//
@@ -365,8 +368,73 @@ angular.module('common.fabric', [
 				});
 				object.filters.push(filter);
 				object.applyFilters(canvas.renderAll.bind(canvas));
+				object.globalCompositeOperation = 'source-atop';
+
+				if ((object.width >= canvas.width) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width-60);
+				}
+				if ((object.height >= canvas.height) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height-60);
+				}
+
+				if ((object.width <= 3000) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/1.5);
+				}
+				if ((object.width <= 2400) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/2);
+				}
+				if ((object.width <= 1600) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/4);
+				}
+				if ((object.width <= 800) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/8);
+				}
+				if ((object.width <= 400) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/16);
+				}
+				if ((object.width <= 200) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/32);
+				}
+				if ((object.width <= 100) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/64);
+				}
+				if ((object.width <= 50) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/128);
+				}
+				if ((object.width <= 25) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/256);
+				}
+
+				if ((object.height <= 3000) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/1.5);
+				}
+				if ((object.height <= 2400) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/2);
+				}
+				if ((object.height <= 1600) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/4);
+				}
+				if ((object.height <= 800) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/8);
+				}
+				if ((object.height <= 400) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/16);
+				}
+				if ((object.height <= 200) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/32);
+				}
+				if ((object.height <= 100) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/64);
+				}
+				if ((object.height <= 50) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/128);
+				}
+				if ((object.height <= 25) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/256);
+				}
 
 				self.addObjectToCanvas(object);
+
 			}, self.imageDefaults);
 		};
 
@@ -382,16 +450,17 @@ angular.module('common.fabric', [
             var center = canvas.getCenter();
 
             canvas.setBackgroundImage(src, canvas.renderAll.bind(canvas), {
-                    scaleX:1,
-                    scaleY:1,
-                    top: center.top,
-                    left: center.left,
-                    originX: 'center',
-                    originY: 'center',
-										width: image.width,
-                    height: image.height,
-                    backgroundImageStretch: false
+              scaleX:1,
+              scaleY:1,
+              top: 10,
+              left: center.left,
+              originX: 'center',
+              originY: 'top',
+							width: image.width,
+              height: image.height,
+              backgroundImageStretch: false
             });
+
         };
 
         //
@@ -402,8 +471,8 @@ angular.module('common.fabric', [
         };
 
         //
-        // Resize Image
-        // ==============================================================
+        // Resize Image ----------------------------------- Générer les gabarits
+        // =====================================================================
 
         self.imageResize = function(src) {
 
@@ -415,142 +484,351 @@ angular.module('common.fabric', [
 						var center = canvas.getCenter();
 						var ratio;
 						var produit = $('#produit').text();
+						var rectoVerso = $('#desc').text().indexOf('recto-verso') > -1;
 						var hauteur = parseInt($('#hauteur').text(), 10);
 						var largeur = parseInt($('#largeur').text(), 10);
-						console.log(produit+' - '+hauteur+' x '+largeur)
-
+						console.log(produit+' - '+hauteur+' x '+largeur);
             image.src = src;
+
+						// ratio gabarit/canvas suivant le format
+
+						// portrait
 						if(hauteur > largeur) {
 								ratio = hauteur/largeur;
                 hauteur = MAX_HEIGHT;
-                largeur = MAX_WIDTH/ratio;
+                largeur = MAX_HEIGHT/ratio;
                 w = largeur;
                 h = hauteur;
 
-								var gabarit = new fabric.Rect({
-									originX: 'center',
-									originY: 'center',
-									top: center.top,
-									left: center.left,
-									fill: 'rgba(0,0,0,0)',
-									stroke: '#ccc',
-									strokeWidth: 3,
-									strokeDashArray: [10, 5],
-									width: largeur-16,
-									height: hauteur-16,
-									hasControls: false,
-									lockMovementX: true,
-									lockMovementY: true,
-									evented:false,
-									excludeFromExport: true
-								});
-
-								var rect = new fabric.Rect({
-									originX: 'center',
-									originY: 'center',
-									top: center.top,
-									left: center.left,
-									fill: '#fff',
-									width: largeur,
-									height: hauteur,
-									hasControls: false,
-									lockMovementX: true,
-									lockMovementY: true
-								});
-
-								// "add" gabarit onto canvas
-								canvas.add(rect);
-								// "add" rectangle onto canvas
-								canvas.add(gabarit);
-
+						// paysage
 						}else if(largeur > hauteur) {
 								ratio = largeur/hauteur;
 								largeur = MAX_WIDTH;
-								hauteur = MAX_HEIGHT/ratio;
+								hauteur = MAX_WIDTH/ratio;
                 w = largeur;
                 h = hauteur;
 
-								var gabarit = new fabric.Rect({
-									originX: 'center',
-									originY: 'top',
-									top: 16,
-									left: center.left,
-									fill: 'rgba(0,0,0,0)',
-									stroke: '#ccc',
-									strokeWidth: 3,
-									strokeDashArray: [10, 5],
-									width: largeur-16,
-									height: hauteur-16,
-									hasControls: false,
-									lockMovementX: true,
-									lockMovementY: true,
-									evented:false,
-									excludeFromExport: true
-								});
+								if (hauteur <= canvas.height) {
 
-								var rect = new fabric.Rect({
-									originX: 'center',
-									originY: 'top',
-									top: 10,
-									left: center.left,
-									fill: '#fff',
-									width: largeur,
-									height: hauteur,
-									hasControls: false,
-									lockMovementX: true,
-									lockMovementY: true
-								});
+								}
+						// paysage avec hauteur
 
-								// "add" gabarit onto canvas
-								canvas.add(rect);
-								// "add" rectangle onto canvas
-								canvas.add(gabarit);
-
+						// carré
 						}else if(largeur == hauteur) {
-								largeur = MAX_WIDTH;
+								largeur = MAX_HEIGHT;
 								hauteur = MAX_HEIGHT;
                 w = largeur;
                 h = hauteur;
-
-								var gabarit = new fabric.Rect({
-									originX: 'center',
-									originY: 'center',
-									top: center.top,
-									left: center.left,
-									fill: 'rgba(0,0,0,0)',
-									stroke: '#ccc',
-									strokeWidth: 3,
-									strokeDashArray: [10, 5],
-									width: largeur-16,
-									height: hauteur-16,
-									hasControls: false,
-									lockMovementX: true,
-									lockMovementY: true,
-									evented:false,
-									excludeFromExport: true
-								});
-
-								var rect = new fabric.Rect({
-									originX: 'center',
-									originY: 'center',
-									top: center.top,
-									left: center.left,
-									fill: '#fff',
-									width: largeur,
-									height: hauteur,
-									hasControls: false,
-									lockMovementX: true,
-									lockMovementY: true
-								});
-
-								// "add" gabarit onto canvas
-								canvas.add(rect);
-
-								// "add" rectangle onto canvas
-								canvas.add(gabarit);
 						}
 
-            return {width:w,height:h}
+						// si recto-verso format portrait ou carré, afficher les 2 gabarits côte à côte
+						if (rectoVerso && ((hauteur > largeur) || (hauteur == largeur)) ){
+
+							// pour format carré réduction de la taille pour que les 2 carrés rentrent dans le canvas
+							if(largeur == hauteur) {
+									largeur = MAX_HEIGHT/1.15-50;
+									hauteur = MAX_HEIGHT/1.15-50;
+							}
+
+							var gabarit = new fabric.Rect({
+								id: 'gabarit1',
+								originX: 'left',
+								originY: 'center',
+								top: center.top,
+								left: 15,
+								fill: 'rgba(0,0,0,0)',
+								stroke: '#ccc',
+								strokeWidth: 2,
+								strokeDashArray: [10, 5],
+								width: largeur-12,
+								height: hauteur-12,
+								hasControls: false,
+								evented:false
+							});
+
+							var gabarit2 = new fabric.Rect({
+								id: 'gabarit2',
+								originX: 'left',
+								originY: 'center',
+								top: center.top,
+								left: largeur+25,
+								fill: 'rgba(0,0,0,0)',
+								stroke: '#ccc',
+								strokeWidth: 2,
+								strokeDashArray: [10, 5],
+								width: largeur-12,
+								height: hauteur-12,
+								hasControls: false,
+								evented:false
+							});
+
+							var rect = new fabric.Rect({
+								originX: 'left',
+								originY: 'center',
+								top: center.top,
+								left: 10,
+								fill: '#fff',
+								width: largeur,
+								height: hauteur,
+								hasControls: false
+							});
+
+							var rect2 = new fabric.Rect({
+								originX: 'left',
+								originY: 'center',
+								top: center.top,
+								left: largeur+20,
+								fill: '#fff',
+								width: largeur,
+								height: hauteur,
+								hasControls: false
+							});
+
+							/*var group1 = new fabric.Group([rect, gabarit], {
+								lockScalingY: true,
+								lockScalingX: true,
+								lockUniScaling: true,
+								lockRotation: true,
+								hasControls: false,
+								hasBorders: true,
+
+							});
+							var group2 = new fabric.Group([rect2, gabarit2], {
+								lockScalingY: true,
+								lockScalingX: true,
+								lockUniScaling: true,
+								lockRotation: true,
+								hasControls: false,
+								hasBorders: true,
+							});*/
+
+							//canvas.add(group1);
+							//canvas.add(group2);
+
+							canvas.add(rect);
+							canvas.add(gabarit);
+							canvas.add(rect2);
+							canvas.add(gabarit2);
+
+							// lier les calques rect & gabarit -------------------------------
+							function rectMouseMove(option){
+							 gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
+							 gabarit.top = rect.gabaritTop+ rect.top- rect.mousesDownTop;
+							 gabarit.setCoords();
+
+							 gabarit2.left = rect2.gabaritLeft+ rect2.left - rect2.mousesDownLeft ;
+							 gabarit2.top = rect2.gabaritTop+ rect2.top- rect2.mousesDownTop;
+							 gabarit2.setCoords();
+							}
+
+							function rectMouseDown(option){
+							 rect.mousesDownLeft = rect.left;
+							 rect.mousesDownTop = rect.top;
+							 rect.gabaritLeft = gabarit.left;
+							 rect.gabaritTop = gabarit.top;
+
+							 rect2.mousesDownLeft = rect2.left;
+							 rect2.mousesDownTop = rect2.top;
+							 rect2.gabaritLeft = gabarit2.left;
+							 rect2.gabaritTop = gabarit2.top;
+							}
+
+							register();
+							function register(){
+							 rect.on('moving',rectMouseMove);
+							 rect.on('mousedown',rectMouseDown);
+							 rect2.on('moving',rectMouseMove);
+							 rect2.on('mousedown',rectMouseDown);
+							}
+
+						// si recto-verso format paysage, afficher les 2 gabarits l'un sur l'autre
+						}else if (rectoVerso && (largeur > hauteur)){
+
+							// réduction de la taille si hauteurx2 supérieure à la hauteur du canvas
+							if(h >= MAX_HEIGHT/2) {
+								hauteur = MAX_HEIGHT/2-10;
+								largeur = hauteur*ratio;
+							}
+
+							var gabarit = new fabric.Rect({
+								id: 'gabarit1',
+								originX: 'center',
+								originY: 'top',
+								top: 15,
+								left: center.left,
+								fill: 'rgba(0,0,0,0)',
+								stroke: '#ccc',
+								strokeWidth: 2,
+								strokeDashArray: [10, 5],
+								width: largeur-12,
+								height: hauteur-12,
+								hasControls: false,
+								evented:false
+							});
+
+							var gabarit2 = new fabric.Rect({
+								id: 'gabarit2',
+								originX: 'center',
+								originY: 'top',
+								top: hauteur+25,
+								left: center.left,
+								fill: 'rgba(0,0,0,0)',
+								stroke: '#ccc',
+								strokeWidth: 2,
+								strokeDashArray: [10, 5],
+								width: largeur-12,
+								height: hauteur-12,
+								hasControls: false,
+								evented:false
+							});
+
+							var rect = new fabric.Rect({
+								originX: 'center',
+								originY: 'top',
+								top: 10,
+								left: center.left,
+								fill: '#fff',
+								width: largeur,
+								height: hauteur,
+								hasControls: false
+							});
+
+							var rect2 = new fabric.Rect({
+								originX: 'center',
+								originY: 'top',
+								top: hauteur+20,
+								left: center.left,
+								fill: '#fff',
+								width: largeur,
+								height: hauteur,
+								hasControls: false
+							});
+
+							/*var group1 = new fabric.Group([rect, gabarit], {
+								lockScalingY: true,
+								lockScalingX: true,
+								lockUniScaling: true,
+								lockRotation: true,
+								hasControls: false,
+								hasBorders: true,
+
+							});
+							var group2 = new fabric.Group([rect2, gabarit2], {
+								lockScalingY: true,
+								lockScalingX: true,
+								lockUniScaling: true,
+								lockRotation: true,
+								hasControls: false,
+								hasBorders: true,
+
+							});*/
+
+							//canvas.add(group1);
+							//canvas.add(group2);
+
+							canvas.add(rect);
+							canvas.add(gabarit);
+							canvas.add(rect2);
+							canvas.add(gabarit2);
+
+							// lier les calques rect & gabarit -------------------------------
+							function rectMouseMove(option){
+							 gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
+							 gabarit.top = rect.gabaritTop+ rect.top- rect.mousesDownTop;
+							 gabarit.setCoords();
+
+							 gabarit2.left = rect2.gabaritLeft+ rect2.left - rect2.mousesDownLeft ;
+							 gabarit2.top = rect2.gabaritTop+ rect2.top- rect2.mousesDownTop;
+							 gabarit2.setCoords();
+							}
+
+							function rectMouseDown(option){
+							 rect.mousesDownLeft = rect.left;
+							 rect.mousesDownTop = rect.top;
+							 rect.gabaritLeft = gabarit.left;
+							 rect.gabaritTop = gabarit.top;
+
+							 rect2.mousesDownLeft = rect2.left;
+							 rect2.mousesDownTop = rect2.top;
+							 rect2.gabaritLeft = gabarit2.left;
+							 rect2.gabaritTop = gabarit2.top;
+							}
+
+							register();
+							function register(){
+							 rect.on('moving',rectMouseMove);
+							 rect.on('mousedown',rectMouseDown);
+							 rect2.on('moving',rectMouseMove);
+							 rect2.on('mousedown',rectMouseDown);
+							}
+
+
+						// affichage gabarit simple centré ---------------------------------
+						}else{
+							var gabarit = new fabric.Rect({
+
+								originX: 'center',
+								originY: 'center',
+								top: center.top,
+								left: center.left,
+								fill: 'rgba(0,0,0,0)',
+								stroke: '#ccc',
+								strokeWidth: 2,
+								strokeDashArray: [10, 5],
+								width: largeur-12,
+								height: hauteur-12,
+								hasControls: false,
+								evented:false
+							});
+
+							var rect = new fabric.Rect({
+
+								originX: 'center',
+								originY: 'center',
+								top: center.top,
+								left: center.left,
+								fill: '#fff',
+								width: largeur,
+								height: hauteur,
+								hasControls: false
+							});
+
+							/*var group = new fabric.Group([rect, gabarit], {
+								lockScalingY: true,
+								lockScalingX: true,
+								lockUniScaling: true,
+								lockRotation: true,
+								hasControls: false,
+								hasBorders: true,
+							});*/
+
+							//canvas.add(group);
+							canvas.add(rect);
+							canvas.add(gabarit);
+
+							// lier les calques rect & gabarit -------------------------------
+							function rectMouseMove(option){
+							 gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
+							 gabarit.top = rect.gabaritTop+ rect.top- rect.mousesDownTop;
+							 gabarit.setCoords();
+							}
+
+							function rectMouseDown(option){
+							 rect.mousesDownLeft = rect.left;
+							 rect.mousesDownTop = rect.top;
+							 rect.gabaritLeft = gabarit.left;
+							 rect.gabaritTop = gabarit.top;
+							}
+
+							register();
+							function register(){
+							 rect.on('moving',rectMouseMove);
+							 rect.on('mousedown',rectMouseDown);
+							}
+
+						};
+
+            return {width:w,height:h};
         };
 
         //
@@ -575,15 +853,44 @@ angular.module('common.fabric', [
             return canvas.backgroundImage;
         };
 
+				//
+        // no controls on group selection
+        // ==============================================================
+				fabric.Group.prototype.hasControls = false;
+				fabric.Group.prototype.hasBorders = false;
+
+
+				self.getSelection = function(){
+				  return canvas.getActiveObject() == null ? canvas.getActiveGroup() : canvas.getActiveObject()
+				}
+				//
+        // tout sélectionner
+        // ==============================================================
+				self.selectA = function (){
+						var objs = canvas.getObjects().map(function(o) {
+							return o.set('active', true);
+						});
+						var center = canvas.getCenter();
+						var group = new fabric.Group(objs, {
+							originX: 'center',
+							originY: 'center',
+						});
+
+						canvas._activeObject = null;
+						canvas.setActiveGroup(group.setCoords()).renderAll();
+				}
+
         //
         // canvas Layers
         // ==============================================================
         self.canvasLayers = function (){
-            var layers = [];
-            $.each(canvas.getObjects(), function (index,value) {
-                layers.push({"id": "Layer "+(index+1), "src":self.convertToSVG(value), "object":value});
-            });
-            return layers.reverse();
+          var layers = [];
+          $.each(canvas.getObjects(), function (index,value) {
+							layers.push({"id": "Layer "+(index+1), "src":self.convertToSVG(value), "object":value});
+          });
+
+          return layers.reverse();
+
         };
 
         self.convertToSVG = function (value){
@@ -624,7 +931,9 @@ angular.module('common.fabric', [
                         object.paths[i].setFill(object.paths[i].fill);
                     }
                 }
+
                 self.addObjectToCanvas(object);
+
             });
 		};
 
@@ -648,6 +957,7 @@ angular.module('common.fabric', [
                         object.paths[i].setFill(object.paths[i].fill);
                     }
                 }
+
                 self.addObjectToCanvas(object);
 
             });
@@ -704,7 +1014,8 @@ angular.module('common.fabric', [
         //Undo
         // ==============================================================
         self.undo = function() {
-            if(canvas._objects.length>0){
+					// lenght>1 pour ne pas effacer le 1er object soit le gabarit en revenant en arrière
+            if(canvas._objects.length>1){
                 h.push(canvas._objects.pop());
                 canvas.renderAll();
             }
@@ -728,8 +1039,9 @@ angular.module('common.fabric', [
 
 			var object = new FabricWindow.Text(str, self.textDefaults);
 			object.id = self.createId();
-
+			object.globalCompositeOperation = 'source-atop';
 			self.addObjectToCanvas(object);
+
 		};
 
         //
@@ -1239,68 +1551,64 @@ angular.module('common.fabric', [
 				}
 			}
 		};
-        //
-        // Zoom In
-        // ===============================================================
-        self.zoomInObject = function () {
-            var SCALE_FACTOR = 1.05;
 
+    //
+    // Zoom In
+    // ===============================================================
+    self.zoomInObject = function () {
+        var SCALE_FACTOR = 1.05;
 
-            var activeObject = canvas.getActiveObject();
+				var objects = canvas.getObjects();
+				for (var i in objects) {
+						var scaleX = objects[i].scaleX;
+						var scaleY = objects[i].scaleY;
+						var left = objects[i].left;
+						var top = objects[i].top;
 
-            if(activeObject) {
+						var tempScaleX = scaleX * SCALE_FACTOR;
+						var tempScaleY = scaleY * SCALE_FACTOR;
+						var tempLeft = left * SCALE_FACTOR;
+						var tempTop = top * SCALE_FACTOR;
 
-                var scaleX = activeObject.scaleX;
-                var scaleY = activeObject.scaleY;
-                var left = activeObject.left;
-                var top = activeObject.top;
+						objects[i].scaleX = tempScaleX;
+						objects[i].scaleY = tempScaleY;
+						objects[i].left = tempLeft;
+						objects[i].top = tempTop;
 
-                var tempScaleX = scaleX * SCALE_FACTOR;
-                var tempScaleY = scaleY * SCALE_FACTOR;
-                //var tempLeft = left * SCALE_FACTOR;
-                //var tempTop = top * SCALE_FACTOR;
+						objects[i].setCoords();
+				}
 
-                activeObject.scaleX = tempScaleX;
-                activeObject.scaleY = tempScaleY;
-                //activeObject.left = tempLeft;
-                //activeObject.top = tempTop;
+				canvas.renderAll();
+    };
 
-                activeObject.setCoords();
+    //
+    // Zoom Out
+    // ==============================================================
+    self.zoomOutObject = function () {
+        var SCALE_FACTOR = 1.05;
 
-                canvas.renderAll();
+				var objects = canvas.getObjects();
+				for (var i in objects) {
+						 var scaleX = objects[i].scaleX;
+						 var scaleY = objects[i].scaleY;
+						 var left = objects[i].left;
+						 var top = objects[i].top;
 
-            }
-        };
-        //
-        // Zoom Out
-        // ==============================================================
-        self.zoomOutObject = function () {
-            var SCALE_FACTOR = 1.05;
+						 var tempScaleX = scaleX * (1 / SCALE_FACTOR);
+						 var tempScaleY = scaleY * (1 / SCALE_FACTOR);
+						 var tempLeft = left * (1 / SCALE_FACTOR);
+						 var tempTop = top * (1 / SCALE_FACTOR);
 
-            var activeObject = canvas.getActiveObject();
+						 objects[i].scaleX = tempScaleX;
+						 objects[i].scaleY = tempScaleY;
+						 objects[i].left = tempLeft;
+						 objects[i].top = tempTop;
 
-            if(activeObject) {
+						 objects[i].setCoords();
+				 }
 
-                var scaleX = activeObject.scaleX;
-                var scaleY = activeObject.scaleY;
-                var left = activeObject.left;
-                var top = activeObject.top;
-
-                var tempScaleX = scaleX * (1 / SCALE_FACTOR);
-                var tempScaleY = scaleY * (1 / SCALE_FACTOR);
-               // var tempLeft = left * (1 / SCALE_FACTOR);
-                //var tempTop = top * (1 / SCALE_FACTOR);
-
-                activeObject.scaleX = tempScaleX;
-                activeObject.scaleY = tempScaleY;
-               // activeObject.left = tempLeft;
-               // activeObject.top = tempTop;
-
-                activeObject.setCoords();
-
-                canvas.renderAll();
-            }
-        };
+				 canvas.renderAll();
+    };
 
 		//
 		// Canvas Zoom
@@ -1442,9 +1750,9 @@ angular.module('common.fabric', [
 
 			self.selectedObject = activeObject;
 			self.selectedObject.text = self.getText();
-            self.selectedObject.textWordCloud = "";
-            self.selectedObject.isCurved = self.getIsCurved();
-            self.selectedObject.isReversed = self.getIsReversed();
+      self.selectedObject.textWordCloud = "";
+      self.selectedObject.isCurved = self.getIsCurved();
+      self.selectedObject.isReversed = self.getIsReversed();
 			self.selectedObject.fontSize = self.getFontSize();
 			self.selectedObject.lineHeight = self.getLineHeight();
 			self.selectedObject.textAlign = self.getTextAlign();
@@ -1580,7 +1888,10 @@ angular.module('common.fabric', [
 
 		self.deleteActiveObject = function() {
 			var activeObject = canvas.getActiveObject();
-			canvas.remove(activeObject);
+			// permettre de supprimer l'objet si l'objet n'est pas le gabarit :
+			if (activeObject != canvas.item(0)){
+				canvas.remove(activeObject);
+			}
 			self.render();
 		};
 
@@ -1589,7 +1900,9 @@ angular.module('common.fabric', [
         // ============================================================
 
         self.deleteObject = function(activeObj) {
-            canvas.remove(activeObj);
+					if (activeObj != canvas.item(0)){
+						canvas.remove(activeObj);
+					}
             self.render();
         };
 
@@ -1620,6 +1933,7 @@ angular.module('common.fabric', [
 			return self.initialized;
 		};
 
+		
 		//
 		// JSON
 		// ==============================================================
@@ -1668,12 +1982,25 @@ angular.module('common.fabric', [
 
             canvas.deactivateAll().renderAll();
 
-            // My SVG file as s string.
-            var mySVG = canvas.toSVG();
+						var obj = canvas.item(0);
+
+						var hauteur = parseInt($('#hauteur').text(), 10);
+						var largeur = parseInt($('#largeur').text(), 10);
+
+						// My SVG file as s string.
+						var mySVG = canvas.toSVG({width: largeur,
+																		 	height: hauteur,
+																		  viewBox: {
+																					x:10,
+																				  y:10,
+																				  width: largeur-20,
+																				  height: hauteur-20
+																			}
+																		 });
             //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.css";
 						//@import url('+currentFontUrl+');
             $(document).find('.svgElements').html(mySVG);
-            var fonts = '<defs><style type="text/css">@import url("http://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
+            var fonts = '<defs><style type="text/css">@import url("https://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
 
             $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
             var svgResult = $(document).find('.svgElements').html();
@@ -1690,12 +2017,44 @@ angular.module('common.fabric', [
 
             canvas.deactivateAll().renderAll();
 
-            // My SVG file as s string.
-            var mySVG = canvas.toSVG();
+						canvas.item(1).remove();
+						var obj = canvas.item(0);
+						var hauteur = obj.height;
+						var largeur = obj.width;
+
+						var objs = canvas.getObjects().map(function(o) {
+						  return o.set('active', true);
+						});
+
+						var group = new fabric.Group(objs, {
+						  originX: 'left',
+						  originY: 'top',
+							left: 0,
+							top: 0,
+							width: largeur,
+							height: hauteur
+						});
+
+						canvas._activeObject = null;
+						canvas.setActiveGroup(group.setCoords()).renderAll();
+
+						canvas.width = largeur;
+						canvas.height = hauteur;
+
+            var mySVG = canvas.toSVG({width: largeur,
+																		  height: hauteur,
+																			viewBox: {
+																				  x:0,
+																				  y:0,
+																				  width: largeur,
+																				  height: hauteur
+																		 	}
+																		});
             //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.csss";
 						//@import url('+currentFontUrl+');
             $(document).find('.svgElements').html(mySVG);
-            var fonts = '<defs><style type="text/css">@import url("http://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
+            var fonts = '<defs><style type="text/css">@import url("https://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
+
             $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
             var svgResult = $(document).find('.svgElements').html();
 
@@ -1714,7 +2073,7 @@ angular.module('common.fabric', [
 
             var png = canvas.toDataURL({
               format: 'png',
-              multiplier: 1
+              multiplier: 12
             });
 
             return png;
@@ -1765,12 +2124,13 @@ angular.module('common.fabric', [
         // =============================================================
         self.downloadCanvasObjectAsPDF = function () {
             canvas.deactivateAll().renderAll();
-
+						var hauteur = parseInt($('#hauteur').text(), 10);
+						var largeur = parseInt($('#largeur').text(), 10);
             try {
                 canvas.getContext('2d');
                 var imgData = canvas.toDataURL("image/jpeg", 1.0);
-                var pdf = new jsPDF('p', 'mm', [297, 210]);
-                pdf.addImage(imgData, 'JPEG', 5, 5);
+                var pdf = new jsPDF('p', 'cm', [hauteur, largeur]);
+                pdf.addImage(imgData, 'JPEG', 5, 5, hauteur, largeur);
                 var namefile = 'export';
                 if(namefile != null) {
                     pdf.save(namefile + ".pdf");
@@ -1968,6 +2328,7 @@ angular.module('common.fabric', [
 			  }
 			});*/
 
+
 			canvas.on('object:selected', function() {
 				self.stopContinuousRendering();
 				$timeout(function() {
@@ -1978,6 +2339,7 @@ angular.module('common.fabric', [
 
 			canvas.on('selection:created', function() {
 				self.stopContinuousRendering();
+
 			});
 
 			canvas.on('selection:cleared', function() {
@@ -1997,7 +2359,19 @@ angular.module('common.fabric', [
 					self.setDirty(true);
 				});
 			});
+
+			canvas.on('object:added', function() {
+
+			});
+
+
 		};
+
+
+
+
+
+	// drawing mode //////////////////////////////////////////////////////////////
 
         self.toggleDrawing = function (){
             canvas.isDrawingMode = !canvas.isDrawingMode;
@@ -2165,13 +2539,16 @@ angular.module('common.fabric', [
 		self.init = function() {
       var winWidth = $(window).width();
 			canvas = FabricCanvas.getCanvas();
-      var canvasSize = 836;
+      var canvasW = 836;
+			var canvasH = 540;
 			self.canvasId = FabricCanvas.getCanvasId();
 			canvas.clear();
             if(winWidth < 400) {
-                canvasSize = 220;
+							var canvasW = 380;
+							var canvasH = 380;
             }else if(winWidth < 600){
-                canvasSize = 350;
+							var canvasW = 580;
+							var canvasH = 580;
             }
 
 			// For easily accessing the json
@@ -2186,10 +2563,10 @@ angular.module('common.fabric', [
 			self.setCanvasBackgroundColor(JSONObject.background);
 
 			// Set the size of the canvas
-			JSONObject.width = JSONObject.width || canvasSize;
+			JSONObject.width = JSONObject.width || canvasW;
 			self.canvasOriginalWidth = JSONObject.width;
 
-			JSONObject.height = JSONObject.height || canvasSize;
+			JSONObject.height = JSONObject.height || canvasH;
 			self.canvasOriginalHeight = JSONObject.height;
 
 			self.setCanvasSize(self.canvasOriginalWidth, self.canvasOriginalHeight);

@@ -1,13 +1,17 @@
 'use strict';
+
 angular.module('productApp', [
     'common.fabric',
     'common.fabric.utilities',
     'common.fabric.constants',
     'colorpicker.module',
+
     'ngSanitize',
     'ngMaterial',
     'ngScrollbar',
-    'ngFileUpload'
+    'ngFileUpload',
+    'ngProgressLite'
+
 ]).controller('ProductCtrl', [
     '$scope',
     'Fabric',
@@ -18,7 +22,10 @@ angular.module('productApp', [
     '$mdDialog',
     '$mdToast',
     'Upload',
-    function ($scope, Fabric, FabricConstants, Keypress, $http, $timeout, $mdDialog, $mdToast, Upload) {
+    '$interval',
+    'ngProgressLite',
+
+    function ($scope, Fabric, FabricConstants, Keypress, $http, $timeout, $mdDialog, $mdToast, Upload, $interval, ngProgressLite) {
         $scope.fabric = {};
         $scope.status = '  ';
 
@@ -191,7 +198,7 @@ angular.module('productApp', [
                 .textContent('Etes vous sur de vouloir tout effacer? Vous devrez fermer la fenêtre et relancer le configurateur pour retrouver votre gabarit')
                 .ariaLabel('Confirm')
                 .ok('Ok')
-                .cancel('Cancel');
+                .cancel('Annuler');
             $mdDialog.show(confirm).then(function() {
                 $scope.fabric.clearCanvas();
                 $scope.fabric.setDirty(true);
@@ -214,10 +221,10 @@ angular.module('productApp', [
 
             var confirm = $mdDialog.confirm()
                 .title('')
-                .content('Etes vous sur de vouloir supprimer le calque sélectionné?')
+                .content('Etes vous sur de vouloir supprimer le calque sélectionné ?')
                 .ariaLabel('Confirm')
                 .ok('Ok')
-                .cancel('Cancel');
+                .cancel('Annuler');
             $mdDialog.show(confirm).then(function() {
                 $scope.fabric.deleteActiveObject();
                 $scope.fabric.setDirty(true);
@@ -520,6 +527,10 @@ angular.module('productApp', [
 
         $scope.saveObjectAsSvg = function () {
 
+            ngProgressLite.start();
+            $scope.loader = true;
+
+            $scope.$apply();
             if($scope.fabric.checkBackgroundImage()){
 
                 $scope.beforeSave();
@@ -534,19 +545,29 @@ angular.module('productApp', [
                     },
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     transformRequest: _this.transformRequest
+
                 }).success(function (data, status, headers, config) {
+
+                    ngProgressLite.done();
+                    $scope.loader = false;
+
                     if(data.status){
                         $mdDialog.show(
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
                                 .title('Maquette enregistrée.')
-                                .textContent('Votre maquette a été enregistrée dans votre dossier client et envoyée à notre service infographie. Vous recevrez rapidement un BAT à valider pour lancer la production. Si vous avez cliqué ici par erreur, ou souhaitez encore apporter des modifications à votre maquette, vous pouvez continuer votre travail et le réengistrer tant que cette fenêtre reste ouverte. Si plusieurs maquettes sont enregistrées, nous prendrons en compte le fichier le plus récent.')
+                                .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
                         );
                     }
+
                 }).error(function (data, status, headers, config) {
+
+                    ngProgressLite.done();
+                    $scope.loader = false;
+
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
 
@@ -558,6 +579,9 @@ angular.module('productApp', [
         };
 
         $scope.saveObjectAsPng = function () {
+
+            ngProgressLite.start();
+            $scope.loader = true;
 
             if($scope.fabric.checkBackgroundImage()){
                 $scope.beforeSave();
@@ -573,18 +597,26 @@ angular.module('productApp', [
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     transformRequest: _this.transformRequest
                 }).success(function (data, status, headers, config) {
+
+                    ngProgressLite.done();
+                    $scope.loader = false;
+
                     if(data.status){
                         $mdDialog.show(
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
-                                .title('Design Saved')
-                                .textContent('Design has been saved. You can find them into "saved_design" directory.')
+                                .title('Maquette enregistrée.')
+                                .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours..')
                                 .ariaLabel('Success')
-                                .ok('Got it!')
+                                .ok('OK!')
                         );
                     }
                 }).error(function (data, status, headers, config) {
+
+                    ngProgressLite.done();
+                    $scope.loader = false;
+
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
 
@@ -686,6 +718,14 @@ angular.module('productApp', [
             }
         };
 
+      $scope.selectA = function () {
+            if($scope.fabric.checkBackgroundImage()){
+                $scope.fabric.selectA();
+            }else{
+                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
+            }
+        };
+
         $scope.zoomObject = function (action) {
 
             if($scope.fabric.checkBackgroundImage()){
@@ -693,7 +733,7 @@ angular.module('productApp', [
                     $scope.fabric.zoomInObject();
                 }else if(action == 'zoomout'){
                     $scope.fabric.zoomOutObject();
-                }else{
+                }else if(action == 'zoomreset') {
                     $scope.fabric.resetZoom();
                 }
                 $scope.objectLayers = [];
@@ -834,10 +874,10 @@ angular.module('productApp', [
 
             var confirm = $mdDialog.confirm()
                 .title('')
-                .content('Are you sure you want to remove selected object?')
+                .content('Etes-vous sûr de vouloir supprimer ce calque ?')
                 .ariaLabel('Confirm')
                 .ok('Ok')
-                .cancel('Cancel');
+                .cancel('Annuler');
             $mdDialog.show(confirm).then(function() {
                 $scope.fabric.deleteObject(object);
                 $scope.fabric.setDirty(true);
@@ -913,7 +953,7 @@ angular.module('productApp', [
 
         };
 
-        $scope.addToCart = function () {
+        /*$scope.addToCart = function () {
 
             if($scope.fabric.checkBackgroundImage()){
                 $scope.saveObjectAllFormat();
@@ -929,12 +969,12 @@ angular.module('productApp', [
             }else{
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
-        };
+        };*/
 
         $scope.beforeSave = function () {
-                $scope.fabric.designedSVGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsSvg();
-                $scope.fabric.designedPNGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsPng();
-                $scope.fabric.designedJPGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsJpg();
+            $scope.fabric.designedSVGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsSvg();
+            $scope.fabric.designedPNGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsPng();
+            $scope.fabric.designedJPGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsJpg();
         };
 
         $scope.prodctByCat = function (val){
@@ -1016,7 +1056,7 @@ angular.module('productApp', [
             });
         };
 
-        $scope.shareOnFacebook = function (e){
+/*        $scope.shareOnFacebook = function (e){
             e.preventDefault();
             FB.ui(
                 {
@@ -1035,7 +1075,7 @@ angular.module('productApp', [
             e.preventDefault();
             window.open("https://twitter.com/share?url=" + escape(window.location.href) + "&text=" + document.title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
             return false;
-        };
+        };*/
 
         $scope.graphics_load_more = function (page){
 
@@ -1211,17 +1251,17 @@ angular.module('productApp', [
                 $scope.NOTIFICATION_MESSAGES = data.settings.notification_messages;
                 $scope.REQUEST_URL = data.settings.request_url;
 
-                $scope.fb_app_id = data.settings.social_settings.fb_app_id;
+                //$scope.fb_app_id = data.settings.social_settings.fb_app_id;
 
                 $scope.graphicsPage = data.settings.general_settings.graphicsPage;
                 $scope.defaultProductId = data.settings.general_settings.defaultProductId;
                 $scope.defaultProductImage = data.settings.general_settings.defaultProductImage;
-                $scope.quantity = data.settings.general_settings.quantity;
-                $scope.defaultPrice = data.settings.general_settings.defaultPrice;
-                $scope.orignalPrice = $scope.defaultPrice;
-                $scope.defaultCurrency = data.settings.general_settings.defaultCurrency;
+                //$scope.quantity = data.settings.general_settings.quantity;
+                //$scope.defaultPrice = data.settings.general_settings.defaultPrice;
+                //$scope.orignalPrice = $scope.defaultPrice;
+                //$scope.defaultCurrency = data.settings.general_settings.defaultCurrency;
                 $scope.defaultProductTitle = data.settings.general_settings.defaultProductTitle;
-                $scope.qrCode = data.settings.general_settings.qrCode;
+                //$scope.qrCode = data.settings.general_settings.qrCode;
                 $scope.enter_drawing_mode = data.settings.general_settings.enter_drawing_mode;
                 $scope.drawing_mode_selector = data.settings.general_settings.drawing_mode_selector;
                 $scope.drawing_line_width = data.settings.general_settings.drawing_line_width;

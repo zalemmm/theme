@@ -2,7 +2,8 @@
 // -----------------------------------------------------------------------------
 
 @media(max-width: 650px) {
-  .prezHide {
+  .prezHide,
+  .disno650 {
     display: none;
   }
 
@@ -53,12 +54,72 @@
       width: 49%;
     }
   }
+
+  // tableau commandes ---------------------------------------------------------
+
+  #fbcart_votre{
+    table, tbody {
+      display: block;
+    }
+    .kontener{
+      display: none;
+    }
+    td {
+      &.lefttd {
+        display: block;
+        position: absolute;
+        float: right;
+        right: 30px;
+        top: 5px;
+        border: 0;
+      }
+      &.tddesc {
+        text-align: center;
+
+      }
+    }
+    tr {
+      position: relative;
+      width: 100%;
+      display: table;
+      &:first-of-type{
+        display: none;
+      }
+    }
+    th {
+       font-size: 0;
+       border: none;
+       visibility: hidden;
+    }
+    td, th {
+      display: table-row;
+
+    }
+  }
+
+  .but_details {
+    width: auto;
+    min-width:70px;
+  }
+  .stat, .stat6 {
+    background-image: none;
+    background: $border;
+    &:hover {
+      background-image: none;
+      background: $border;
+    }
+  }
+  .votre_tab_active,
+  .votre_tab_inactive {
+    border-bottom: 0;
+  }
 }
 
 @media(max-width: 540px) {
   // invisible -----------------------------------------------------------------
   #preview,
-  #preview2 {
+  #preview2,
+  .disno540 {
     display: none;
   }
 
@@ -231,6 +292,9 @@
       }
     }
   }
+
+
+
   #comment_left{
     padding: 1rem;
   }

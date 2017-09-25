@@ -251,19 +251,24 @@ include('nom_du_fichier_de_conf.php');
 
 
     <!-- api google+ -->
+    <?php
+    if (strpos($_SERVER['REQUEST_URI'], 'vos-devis') == false) {?>
+      <!-- Smartsupp Live Chat script -->
+      <script type="text/javascript">
+        var _smartsupp = _smartsupp || {};
+        _smartsupp.key = 'aa96cf08ffab720bc4442f3af79d2257a0b5aac7';
+        window.smartsupp||(function(d) {
+        	var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+        	s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+        	c.type='text/javascript';c.charset='utf-8';c.async=true;
+        	c.src='//www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+        })(document);
+      </script>
+    <?php
+    }
+    ?>
 
 
-    <!-- Smartsupp Live Chat script -->
-    <script type="text/javascript">
-      var _smartsupp = _smartsupp || {};
-      _smartsupp.key = 'aa96cf08ffab720bc4442f3af79d2257a0b5aac7';
-      window.smartsupp||(function(d) {
-      	var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
-      	s=d.getElementsByTagName('script')[0];c=d.createElement('script');
-      	c.type='text/javascript';c.charset='utf-8';c.async=true;
-      	c.src='//www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
-      })(document);
-    </script>
 
     <!-- Google analytics -->
     <script type="text/javascript">

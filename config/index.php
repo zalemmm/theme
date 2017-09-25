@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Design Tailor</title>
+  <title>Créez votre maquette en ligne - France-Banderole.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Source+Sans+Pro:400,700,700i,900|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka' rel='stylesheet' type='text/css'>
 
@@ -16,10 +16,10 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
   <link rel="stylesheet" type="text/css" href="css/ng-scrollbar.min.css" >
   <link rel="stylesheet" type="text/css" href="css/style.css" >
-  <link rel="stylesheet" type="text/css" href="css/custom.css" >
   <link rel="stylesheet" type="text/css" href="css/fonts.css" >
   <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
   <link rel="stylesheet" type="text/css" href="css/angular-material.css">
+
   <!-- CSS End -->
 
   <script type="text/javascript" src="js/jquery.js"></script>
@@ -31,11 +31,33 @@
 <?php
   session_start();
   $path = $_SERVER['DOCUMENT_ROOT'];
+  $nbcom = $_GET['number'];
+  $nbname = $_GET['name'];
+  $nbdesc = $_GET['desc'];
+  $nbh = $_GET['hauteur'];
+  $nbl = $_GET['largeur'];
+  $_SESSION['nbcom'] = $nbcom;
+  $_SESSION['nbname'] = $nbname;
+  $_SESSION['nbdesc'] = $nbdesc;
+  $_SESSION['nbh'] = $nbh;
+  $_SESSION['nbl'] = $nbl;
+
+  $find = '/recto-verso/';
+  $rectoVerso = preg_match_all($find, $nbdesc, $resultat);
+  $rectoVerso = count($resultat[0]);
+
+  $find2 = '/minia3/';
+  $minia3 = preg_match_all($find2, $nbdesc, $resultat2);
+  $minia3 = count($resultat2[0]);
+
+  $find3 = '/minia4/';
+  $minia4 = preg_match_all($find3, $nbdesc, $resultat3);
+  $minia4 = count($resultat3[0]);
 ?>
 
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
     <div ng-show="loading" class="loading">
-        <h1 class="lodingMessage">Initialisation<img src="images/ajax-loader.gif"></h1>
+        <h1 class="lodingMessage">Initialisation<img src="images/ajax-loader.gif" alt="loading" /></h1>
     </div>
     <div class="row clearfix" ng-cloak>
 
@@ -48,28 +70,20 @@
                 </ul>
                 <div id="my-tab-content" class="tab-content action_tabs">
                     <div class="tab-pane active clearfix" id="Products">
-                      <h5>commande n° <span id="number">
-                        <?php
-                          $nbcom = $_GET['number'];
-                          $nbname = $_GET['name'];
-                          $nbh = $_GET['hauteur'];
-                          $nbl = $_GET['largeur'];
-                          $_SESSION['nbcom'] = $nbcom;
-                          $_SESSION['nbname'] = $nbname;
-                          $_SESSION['nbh'] = $nbh;
-                          $_SESSION['nbl'] = $nbl;
-                          echo $nbcom;
-                        ?></span>
-                      </h5>
+                      <h5>commande n° <span id="number"><?php echo $nbcom;?></span></h5>
 
                       <div class="encart">
                         <h2 id="produit"><?php echo $nbname; ?></h2>
-
-                        <p>Gabarit <span id="hauteur"><?php echo $nbh; ?></span> x <span id="largeur"><?php echo $nbl; ?></span> cm</p>
+                        <p>Gabarit <?php
+                          if ($minia3 >= 1){echo 'A3';}
+                          if ($minia4 >= 1){echo 'A4';} ?>
+                          <span id="hauteur"><?php echo $nbh; ?></span> x <span id="largeur"><?php echo $nbl; ?></span> cm <?php if ($rectoVerso >= 1){echo 'recto/verso';}?> </p>
                       </div>
 
                         <h4>Créez votre maquette en quelques clics:</h4>
+                        <span id="desc" style="display:none;"><?php echo $nbdesc; ?></span>
                         <div class="aide">
+
                           <div class="intro">
                             <p><span>1</span> Vous pouvez commencer par cliquer sur votre gabarit pour changer sa couleur de fond </p>
                             <p><span>2</span> Importez vos images et entrez du texte à l'aide des boutons ci-dessus '<i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i>'</p>
@@ -77,14 +91,52 @@
                               Dans '<i class="fa fa-object-ungroup"></i> calques' vous pouvez gérer l'ordre de superposition de vos éléments</p>
                             <p><span>4</span> Lorsque vous êtes satisfait de votre création, vérifiez bien qu'il n'y ait pas d'erreurs et cliquez sur '<i class="fa fa-save"></i> enregistrer' pour nous la transmettre</p>
                             <p class="dashed">Vos éléments (excepté image de fond) ne doivent pas dépasser la marge technique en pointillés gris</p>
-                          </div>
+
+                            <!-- modal astuces -->
+                            <div id="faq" class="modal" tabindex="-1" style="display: none;">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                  <h4 class="modal-title">Astuces / FAQ</h4>
+                                                    <p class="alert alert-info alert-dismissable">
+                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        Pour déplacer ensemble vos calques dans l'espace de travail, pensez à d'abord appuyer sur le bouton '<i class="fa fa-object-group"></i> Tout sélectionner' (vous pouvez aussi les sélectionner avec la souris).
+                                                    </p>
+                                                    <p class="alert alert-danger alert-dismissable">
+                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        Si vous supprimez des calques, veillez à ne pas supprimer le calque initial (gabarit).
+                                                    </p>
+                                                    <p class="alert alert-info alert-dismissable">
+                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        Si par erreur votre gabarit disparait, fermer la popup et relancer l'application avec le bouton "créer la maquette" pour retrouver un gabarit vierge.
+                                                    </p>
+                                                    <p  class="alert alert-danger alert-dismissable">
+                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        Attention votre maquette n'est pas sauvegardée automatiquement: il n'est pas possible de fermer cette fenêtre et de la réouvrir plus tard pour terminer votre travail. Vous devez terminer votre maquette et l'enregistrer dans la même session.
+                                                    </p>
+                                                    <p  class="alert alert-info alert-dismissable">
+                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        '<i class="fa fa-save" ></i> Enregistrer' envoie votre maquette à notre service infographie. Suivant la taille des fichiers que vous avez uploadé, l'enregistrement peut prendre quelques minutes, veillez à garder l'application ouverte jusqu'à voir un message de confirmation.
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- fin modal astuces -->
+
+                            <button class="astuces" data-toggle="modal" data-target="#faq">Plus d'astuces / FAQ</button>
+                          </div><!-- fin div intro -->
+
+                        </div><!-- fin modal aide -->
 
 
-                        </div>
-                        <div class="col-lg-12 thumb_listing">
+                    </div><!-- fin modal astuces -->
 
-                        </div>
-                    </div>
                     <div class="tab-pane clearfix" id="Graphics">
 
                     <div class="graphic_options clearfix">
@@ -163,15 +215,15 @@
                                     <div class="well" >
                                         <form name="myForm">
                                             <div class="fileUpload btn btn-primary">
-                                                <span>Sélectionner</span>
-                                                <input type="file" ngf-select="onFileSelect(picFile);" ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" class="upload">
+                                                <span>Sélectionner une image</span>
+                                                <input type="file" ngf-select="onFileSelect(picFile);" ng-model="picFile" name="file" accept="image/*" ngf-max-size="10MB" class="upload">
                                             </div>
                                             <input id="uploadFile" placeholdFile NameName disabled="disabled" />
                                             <span class="has-error" ng-show="myForm.file.$error.maxSize">File too large {{picFile.size / 1000000|number:1}}MB: max 2M</span>
                                             <div class="clearfix"></div>
-                                            <span class="has-error" ng-show="myForm.file.$error.maxWidth">File width too large : Max Width 300px</span>
+                                            <span class="has-error" ng-show="myForm.file.$error.maxWidth">File width too large : Max Width 3000px</span>
                                             <div class="clearfix"></div>
-                                            <span class="has-error" ng-show="myForm.file.$error.maxHeight">File height too large : Max Height 300px</span>
+                                            <span class="has-error" ng-show="myForm.file.$error.maxHeight">File height too large : Max Height 3000px</span>
                                             <div class="clearfix"></div>
                                             <span class="has-error" ng-show="uploadErrorMsg">{{uploadErrorMsg}}</span>
                                         </form>
@@ -418,10 +470,11 @@
                     <div class="row form-group input-group colorPicker2" ng-show="fabric.selectedObject.type != 'image' && fabric.selectedObject.type != 'path'">
                             <md-input-container flex>
                                 <label for="Color">Couleur:</label>
-                                <input type="text" value="" class="" colorpicker ng-model="fabric.selectedObject.fill" ng-change="fillColor(fabric.selectedObject.fill);"/>
+                                <input type="text" value="" class="" colorpicker ng-model="fabric.selectedObject.fill" ng-change="fillColor(fabric.selectedObject.fill);" />
                             </md-input-container>
-                            <span class="input-group-addon" style="border: medium none #000000; background-color: {{fabric.selectedObject.fill}}"><i></i></span>
+                            <span class="input-group-addon" colorpicker ng-model="fabric.selectedObject.fill" ng-change="fillColor(fabric.selectedObject.fill);" style="border: 2px solid #ccc; background-color: {{fabric.selectedObject.fill}}"><i></i></span>
                     </div>
+
                     <div class="row form-group transparency" ng-show="fabric.selectedObject.type != 'curvedText'">
                         <md-input-container flex>
                             <label for="Transparency">Transparence:</label>
@@ -456,7 +509,11 @@
                         <li ng-click="verticalAlign()"><i class="fa fa-arrows-v"></i><span>Centrer</span></li>
                         <li ng-click="{ active: flipObject() }"><i class="fa fa-exchange fa-2"></i><span>Mirroir</span></li>
                         <li ng-click="removeSelectedObject()"><i class="fa fa-eraser"></i><span>Supprimer</span></li>
-
+                        <li ng-click="selectA()">
+                            <a class="fa fa-object-group ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                            <md-tooltip md-visible="redo.showTooltip" md-direction="left">Tout sélectionner</md-tooltip>
+                            <span class="nope">Tout sélectionner</span>
+                        </li>
                         <li ng-click="undo()">
                             <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
                             <md-tooltip md-visible="undo.showTooltip" md-direction="left">Annuler</md-tooltip>
@@ -467,6 +524,7 @@
                             <md-tooltip md-visible="redo.showTooltip" md-direction="left">Rétablir</md-tooltip>
                             <span class="nope">Rétablir</span>
                         </li>
+
                         <!--<li ng-click="clearAll()"><i class="fa fa-trash"></i><span>Tout effacer</span></li>-->
 
                     </ul>
@@ -475,9 +533,17 @@
                         <div class="icon-vertical m-b-sm pull-right">
                             <ul>
                                 <li class="saveObject">
-                                    <span><a ng-click="saveObjectAsSvg()" href="#" class="ng-scope"><i class="fa fa-save"></i><br /> Enregistrer</a></span>
 
-                                  <!--  <ul class="ulChildMenu">
+                                      <a ng-hide="loader" ng-click="saveObjectAsSvg()" href="#" class="ng-scope">
+                                          <i class="fa fa-save" ></i>
+                                          <br />Enregistrer
+                                      </a>
+                                      <a ng-show="loader" href="#" class="ng-scope">
+                                          <i class="fa fa-spinner fa-pulse fa-fw"></i>
+                                          <br />Veuillez patienter
+                                      </a>
+
+                                  <!--<ul class="ulChildMenu">
                                         <li class="childLi">
                                             <a ng-click="saveObjectAsSvg()" href="#" class="ng-scope">Save as SVG</a>
                                         </li>
@@ -490,7 +556,7 @@
                                         <li class="childLi">
                                             <a ng-click="downloadObjectAsPdf()" href="#" class="ng-scope">Download as PDF</a>
                                         </li>
-                                    </ul>-->
+                                      </ul>-->
                                 </li>
 
                                 <!--<li>
@@ -503,14 +569,6 @@
                                     <md-tooltip md-visible="download.showTooltip" md-direction="left">Download as PNG</md-tooltip>
                                 </li>-->
 
-                                <!--<li class="">
-                                    <a class="fa fa-search-plus ng-scope ng-isolate-scope" translate="" ng-click="zoomObject('zoomin')" href="#"><span class="ng-binding ng-scope"></span></a>
-                                    <md-tooltip md-visible="zoomin.showTooltip" md-direction="left">Select object and Zoom In</md-tooltip>
-                                </li>
-                                <li>
-                                    <a class="fa fa-search-minus ng-scope ng-isolate-scope" translate="" ng-click="zoomObject('zoomout')" href="#"><span class="ng-binding ng-scope"></span></a>
-                                    <md-tooltip md-visible="zoomout.showTooltip" md-direction="left">Select object and  Zoom Out</md-tooltip>
-                                </li>-->
                             </ul>
 
                         </div>
@@ -520,6 +578,20 @@
                     </div>
                 </div>
                 <div class="canvas_image image-builder ng-isolate-scope">
+                  <ul class="zoomButtons pull-right">
+                    <li ng-click="zoomObject('zoomin')">
+                        <a class="fa fa-search-plus fa-flip-horizontal ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                        <md-tooltip md-visible="zoomin.showTooltip" md-direction="left">Zoom +</md-tooltip>
+                    </li>
+                    <li ng-click="zoomObject('zoomout')">
+                        <a class="fa fa-search-minus ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                        <md-tooltip md-visible="zoomout.showTooltip" md-direction="left">Zoom -</md-tooltip>
+                    </li>
+                    <li ng-click="zoomObject('zoomreset')">
+                        <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                        <md-tooltip md-visible="zoomreset.showTooltip" md-direction="left">Taille initiale</md-tooltip>
+                    </li>
+                  </ul>
 
                     <div class='fabric-container'>
 
@@ -609,8 +681,10 @@
 <script src="assets/angular-sanitize.min.js"></script>
 <script src="assets/ng-scrollbar.min.js"></script>
 
-<script src="assets/fabric/fabric.js"></script>
+
 <script src="assets/fabric/fabric.min.js"></script>
+<!--<script src="assets/fabric/fabricExtensions.js"></script>-->
+<script src="assets/fabric/fabric.js"></script>
 <script src="assets/fabric/fabricCanvas.js"></script>
 <script src="assets/fabric/fabricConstants.js"></script>
 <script src="assets/fabric/fabricDirective.js"></script>
@@ -619,6 +693,11 @@
 <script src="assets/fabric/fabricWindow.js"></script>
 <script src="assets/fabric/fabric.curvedText.js"></script>
 <script src="assets/fabric/fabric.customiseControls.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>-->
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>-->
+<script src="js/ngprogress-lite.min.js"></script>
 
 <script src="assets/colorpicker/bootstrap-colorpicker-module.js"></script>
 <script src="js/application.js"></script>
@@ -627,8 +706,10 @@
 <script src="assets/pdf/jspdf.debug.js"></script>
 
 <script>
-$(document).ready(function() {
-
+jQuery(document).ready(function() {
+/*  $(document).on('click','.saveObject', function() {
+    NProgress.start();
+  });*/
 });
 </script>
 

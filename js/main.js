@@ -3,23 +3,16 @@ jQuery(document).ready(function ($) {
   //////////////////////////////////////////// bouton close messages d'erreur //
   //////////////////////////////////////////////////////////////////////////////
 
-  // boxes accès client
-  $('.box_info').on('click', '.closeButton', function() {
-    $(this).closest('.box_info').fadeOut();
-  });
-  $('.box_warning').on('click', '.closeButton', function() {
-    $(this).closest('.box_warning').fadeOut();
-  });
-
-  // messages d'erreur
-  $('.form-button-error, #form-button-error2, #form-button-error3').on('click', '.closeButton', function() {
-    $(this).closest('.form-button-error, #form-button-error2, #form-button-error3').fadeOut();
+  $(document).on('click', '.closeButton', function() {
+    $('.closeButton').parent().fadeOut();
+    $('.box_info').fadeOut();
+    $('.box_warning').fadeOut();
   });
 
   // bouton close tooltips
-  $('.helpText').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
+  $('.helpText, #acclient_sub, #panier_sub').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
   $(document).on('click', '.closeB', function() {
-    $(this).parent().fadeOut();
+    $('.closeB').parent().fadeOut();
   });
 
   ///////////////////////////////////////// ajout icone info dans pages devis //
@@ -55,13 +48,25 @@ jQuery(document).ready(function ($) {
 
   //////////////////////////////////////////////////////// home buttons hover //
   //////////////////////////////////////////////////////////////////////////////
-  $('#tarifs li, #tarifs2 li').mouseover(function() {
+  $('#tarifs li').mouseover(function() {
     $(this).find('.micro a').css({
       background: '#EA2A6A',
       color: '#fff'
     });
   });
-  $('#tarifs li, #tarifs2 li').mouseout(function() {
+  $('#tarifs li').mouseout(function() {
+    $(this).find('.micro a').css({
+      background: '#f6f6f6',
+      color: '#555a61'
+    });
+  });
+  $('#tarifs2 li').mouseover(function() {
+    $(this).find('.micro a').css({
+      background: '#EA2A6A',
+      color: '#fff'
+    });
+  });
+  $('#tarifs2 li').mouseout(function() {
     $(this).find('.micro a').css({
       background: '#f6f6f6',
       color: '#555a61'
@@ -99,6 +104,10 @@ jQuery(document).ready(function ($) {
     });
   });
 
+
+
+
+
   ///////////////////////////////////////////////////////////// smooth scroll //
   //////////////////////////////////////////////////////////////////////////////
 
@@ -135,6 +144,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
+
   ///////////////////////////////////////////////////////// Magnific Lightbox //
   //////////////////////////////////////////////////////////////////////////////
   $('.gallery-item a').magnificPopup({
@@ -158,13 +168,59 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  //////////////////////////////////////////////// warning configurateur lity //
+  //////////////////////////////////////////////////////////////////////////////
+
+  if (window.location.href.indexOf("vos-devis") != -1) {
+
+    var currentUrl = window.location.href;
+    $(document).on('lity:open', function(event, instance) {
+
+      instance.element().addClass('lity-iframe')
+      .off('click', '[data-lity-close]')
+      .on('click', '[data-lity-close]', function(e) {
+          if (e.target === this) {
+            if (!confirm('ATTENTION: êtes-vous sûr de vouloir fermer cette fenêtre ?')) {
+              return;
+            }
+            instance.close();
+            window.location.reload(currentUrl);
+          }
+      });
+    });
+  }
+
   ///////////////////////////////////////////// affichage conditionnel mobile //
   //////////////////////////////////////////////////////////////////////////////
-  var isMobile = window.matchMedia("only screen and (max-width: 760px)");
-  if (isMobile.matches) {
+  var isDesktop = window.matchMedia("only screen and (min-width: 740px)");
+  if (isDesktop.matches) {
+    ///////////////////// hover accès client: affichage du module de connection //
+    //////////////////////////////////////////////////////////////////////////////
 
-  } else {
+    $('.menu-client--devis').mouseover(function() {
+      $('#acclient_sub').show();
+    });
 
+    $('.menu-client--panier').mouseover(function() {
+      $('#panier_sub').show();
+    });
+
+    $('.menu-client--panier, #content_bg_top').mouseover(function() {
+      $('#acclient_sub').hide();
+    });
+
+    $('#content_bg_top, .menu-client--devis').mouseover(function() {
+      $('#panier_sub').hide();
+    });
+
+    // disparition au clic outside
+    $(document).mouseup(function(e) {
+      var container = $("#acclient_sub");
+      // if the target of the click isn't the container nor a descendant of the container
+      if (!container.is(e.target) && container.has(e.target).length === 0)  {
+          container.fadeOut();
+      }
+    });
   }
 
 });

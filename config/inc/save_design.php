@@ -7,7 +7,6 @@
 //$site_url = $_SERVER['DOCUMENT_ROOT'];
 session_start();
 
-
 $site_url = $_SERVER['HTTP_REFERER'];
 $site_ref_url = explode('/', $site_url);
 $site_url = $site_ref_url[2];
@@ -27,17 +26,20 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 			if(!empty($value) && $value != null){
 
-				$destination = dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))).'/uploaded/'.$nbcom.'/';
+				//$destination = dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))).'/uploaded/'.$nbcom.'/';
+				//$destination = (dirname(__FILE__).'/../../../../../uploaded/'.$nbcom.'/');
+				$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
 
-				if (!file_exists($destination)) {
+				if (!is_dir($destination)) {
 				    mkdir($destination, 0777, true);
 				}
 
-				$filename = $nbname.'-'.$nbh.'x'.$nbl.'-'.time().'.svg';
+				$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.svg';
 
 				$contant = file_get_contents($value);
 
 				file_put_contents($destination.$filename, $contant);
+				//chmod($filename, 0664);
 				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
 
 			}
@@ -59,14 +61,19 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 			if(!empty($value) && $value != null){
 
-				$destination = dirname(dirname(__FILE__)).'/saved_design/png/';
+				$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
 
-				$filename = $key.'design_'.time().'.png';
+				if (!is_dir($destination)) {
+						mkdir($destination, 0777, true);
+				}
+
+				$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.png';
 
 				$contant = file_get_contents($value);
 
 				file_put_contents($destination.$filename, $contant);
-				$filenames[] = $site_url.'/saved_design/png/'.$filename;
+				//chmod($filename, 0664);
+				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
 
 			}
 		}

@@ -9,7 +9,8 @@
 <html <?php language_attributes(); ?>>
 
 	<head profile="http://gmpg.org/xfn/11">
-		<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+
+
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 		<meta name="keywords" content="Banderole, Banderoles, Banderole publicitaire,  banderole de, banderole d', banderoles publicitaires, bache, baches, bâche, bâches, calicot, calicots, kakemono, kakemonos, banderole de pub, banderole de marché, banderole de foire, banderole exposition, forain, banderole evenementiel, banderole de communication, communication, banderole de publicité, banderole+paris, banderole+lyon, banderole+marseille, banderole+lille, banderole+strasbourg, banderole+auxerre, banderole+montpellier, banderole+toulouse, banderole+beziers, banderole+perpignan, banderole+dijon, banderole+metz, banderole+bordeaux, pas cher " />
 		<meta name="Author" content="france banderole" />
@@ -20,6 +21,7 @@
 		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 		<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?d=11062012 );</style> <!--feuille de style globale-->
+		<link rel="stylesheet" href="js/responsive.min.css"> <!--feuille de style globale-->
 		<link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.2.2/lity.min.css"> <!-- lightbox pour les iframes, pdf, etc.-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"> <!-- lightbox pour les images -->
@@ -38,14 +40,14 @@
 				<!-- Publicités sur les côtés -->
 				<?php
 				if(is_page('oriflammes') || is_page('banderoles') || is_page('plv-exterieur') || is_page('tente-publicitaire-barnum')) {
-					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/tente-publicitaire-barnum"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoTentes.png" title="promo tentes" alt="promo tente publicitaire"></a></div>';
-					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoGoutte.png" title="promo oriflamme beachflag" alt="promo oriflamme"></a></div>';
+					echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoTentes.png" title="promo tentes" alt="promo tente publicitaire"><a href="'.get_bloginfo('url').'/tente-publicitaire-barnum" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+					echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoGoutte.png" title="promo oriflamme beachflag" alt="promo oriflamme"><a href="'.get_bloginfo('url').'/oriflammes" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
 				}else if(is_page('stand-parapluie') || is_page('roll-up') || is_page('totem')) {
-					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/roll-up"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoRollup.png" title="promo Rollup" alt="promo kakemono rollup"></a></div>';
-					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/totem"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoXscreen.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
+					echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoRollup.png" title="promo Rollup" alt="promo kakemono rollup"><a href="'.get_bloginfo('url').'/roll-up" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+					echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoXscreen.png" title="promo oriflamme" alt="promo oriflamme"><a href="'.get_bloginfo('url').'/totem" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
 				}else{
-					echo '<div class="izoneLeft"><a href="'.get_bloginfo('url').'/stand-parapluie"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoStand.png" title="promo stand tissu" alt="promo stand tissu"></a></div>';
-					echo '<div class="izoneRight"><a href="'.get_bloginfo('url').'/oriflammes"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoOriflamme.png" title="promo oriflamme" alt="promo oriflamme"></a></div>';
+					echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoAkilux.png" title="panneaux akilux pas cher" alt="akilux agence immobilière" /><a href="'.get_bloginfo('url').'/panneaux-akilux" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+					echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoLux.png" title="roll-up conçu pour durer" alt="roll-up luxe modulable" /><a href="'.get_bloginfo('url').'/roll-up" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
 				}
 				?>
 
@@ -69,14 +71,95 @@
 						</div>
 					</li>
 
+					<?php
+					if ( fb_is_logged() ) {
+						$connect = 'Espace client';
+					}else{
+						$connect = 'Espace client';
+					}
+					?>
 					<li class="menu-client-item menu-client--devis">
 						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/vos-devis/"><i class="fa fa-lock" aria-hidden="true"></i></a></span>
-						<span class="menu-client-label">Espace Client</span>
+						<span class="menu-client-label"><?php echo $connect; ?></span>
+
+						<ul id="acclient_sub" class="menu_hover">
+						<?php
+							session_start();
+
+							$login = $_POST['loginname'];
+							$pass = $_POST['loginpass'];
+							$user = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE login='$login' AND pass='$pass'");
+							$name = $_SESSION['loggeduser'];
+
+							if (fb_is_logged()) {
+								$acclient = '<p class="bonjour">Bienvenue '.stripslashes($name->f_name).' !</p>
+								<a href="'.get_bloginfo('url').'/inscription/" class="bt_compte">Mon compte</a> | <a href="'.get_bloginfo('url').'/vos-devis/" class="bt_compte">Mes commandes</a>
+								<a href="'.get_bloginfo('url').'/?logout=true" class="bt_deconnect">Se déconnecter </a>';
+
+							}else if (($_POST['logme']=='logme')) {
+
+								$acclient = '<p class="bonjour">Bienvenue '.$login.' !</p>
+								<a href="'.get_bloginfo('url').'/inscription/" class="bt_compte">Mon compte</a> | <a href="'.get_bloginfo('url').'/vos-devis/" class="bt_compte">Mes commandes</a>
+								<a href="'.get_bloginfo('url').'/?logout=true" class="bt_deconnect">Se déconnecter </a>';
+
+							}else{
+								$acclient = '<form id="loginform" name="loginform" method="post" action="'.get_bloginfo('url').'/vos-devis/">
+								<input type="hidden" name="logme" value="logme" />
+								<label class="loginlabel_sub" for="loginname">nom d\'utilisateur:</label>
+								<input class="logininput_sub" type="text" name="loginname" />
+								<label class="loginlabel_sub" for="loginpass">mot de passe:</label>
+								<input class="logininput_sub"type="password" name="loginpass" />
+								<button class="bt_connect" type="submit">Se connecter</button>
+								</form>
+								<a href="'.get_bloginfo('url').'/acces-client/?resend=pass" class="bt_bottom">Mot de passe oublié ?</a> |
+								<a href="'.get_bloginfo('url').'/inscription" class="bt_bottom"> Pas encore inscrit ?</a>';
+							}
+							echo $acclient;
+						?>
+						</ul>
+
 					</li>
 
 					<li class="menu-client-item menu-client--panier">
-						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><?php echo getCartCount(); ?> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
+						<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><!--<?php echo getCartCount(); ?>--> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
 						<span class="menu-client-label">Panier</span>
+
+						<ul id="panier_sub" class="menu_hover">
+						<?php
+
+						if (is_cart_not_empty()) {
+							$products = $_SESSION['fbcart'];
+							$user = $_SESSION['loggeduser'];
+							$panier .= '';
+							$licznik = 0;
+							$kosztcalosci = 0;
+							foreach ( $products as $products => $item ) {
+								$licznik++;
+								$panier .= '
+								<div class="ct_item">
+									<span class="ct_itname">'.$item[rodzaj].'</span>
+									<span class="ct_qte">'.$item[ilosc].'</span>
+									<span class="ct_total">'.$item[total].'</span>
+									<form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" />
+									<button id="delcart" type="submit">DEL</button>
+									</form>
+								</div>';
+								$koszttotal = str_replace(',', '.', $item[total]);
+								$kosztcalosci = $kosztcalosci + $koszttotal;
+								$transportcalosci = $transportcalosci + $item[transport];
+							}
+							$kosztcalosci = $kosztcalosci + $transportcalosci;
+
+							$panier .='
+								<span class="ct_totalt">Total HT: '.$kosztcalosci.' &euro;</span>
+								<a href="'.get_bloginfo('url').'/votre-panier/" class="bt_deconnect">Voir mon panier </a>
+							';
+						} else {
+							$panier .= '<p class="emptyCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></p> <p>Votre panier est vide !</p>';
+						}
+						echo $panier;
+						?>
+						</ul>
 					</li>
 					</ul>
 
@@ -100,7 +183,6 @@
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/affiches/" class="menu_sub"<?php if(is_page('affiches')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-affiche.png" alt="affiches">affiche</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/cartes/" class="menu_sub"<?php if(is_page('cartes')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-carte.png" alt="cartes de visite">carte de visite</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/france-banderole/depliants/" class="menu_sub"<?php if(is_page('depliants')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-depliant.png" alt="dépliants">dépliant</a></li>
-
 							</ul>
 						</li>
 

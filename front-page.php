@@ -23,7 +23,7 @@ get_header();
             <?php
             $div_1 = '
             <div class="mc_banderole">
-            <h1><a href="http://www.france-banderole.com/banderoles/">Banderole</a></h1>
+            <h1><a href="banderoles">Banderole</a></h1>
             <div style="float:left; padding:10px">
             <h2><a href="banderoles">banderoles</a></h2>
             <h2><a href="banderole-publicitaire">banderole publicitaire</a></h2>
@@ -84,7 +84,7 @@ get_header();
             </div>';
             $div_2 = '
             <div class="mc_kakemono">
-            <h1><a href="http://www.france-banderole.com/kakemonos/">Kakemono</a></h1>
+            <h1><a href="kakemonos">Kakemono</a></h1>
             <div style="float:left; padding:10px">
             <h2><a href="kakemonos">kakemonos</a></h2>
             <h2><a href="kakemonos">kakemono enrouleur</a></h2>
@@ -119,7 +119,7 @@ get_header();
             $div_3 = '
             <div class="mc_sticker">
             <div style="float:left; padding:10px">
-            <h1><a href="http://www.france-banderole.com/panneaux-akilux-forex-dibond/">panneau akilux</a></h1>
+            <h1><a href="panneaux-akilux-forex-dibond">panneau akilux</a></h1>
             <h2><a href="panneaux-akilux-3mm">panneaux akilux</a></h2>
             <h2><a href="panneaux-akilux-3mm">panneaux akilux pas cher</a></h2>
             <h2><a href="panneaux-akilux-3mm">prix panneaux akilux</a></h2>
@@ -134,7 +134,7 @@ get_header();
             <h2><a href="panneaux-akilux-forex-dibond">panneaux pvc</a></h2>
             </div>
             <div style="float:left; padding:10px">
-            <h1><a href="http://www.france-banderole.com/panneaux-akilux-forex-dibond/">panneau Forex</a></h1>
+            <h1><a href="panneaux-akilux-forex-dibond">panneau Forex</a></h1>
             <h2><a href="panneaux-akilux-forex-dibond">panneaux Forex</a></h2>
             <h2><a href="panneaux-akilux-forex-dibond">panneaux PVC prix</a></h2>
             <h2><a href="panneaux-akilux-forex-dibond">pancarte intérieur pvc</a></h2>
@@ -149,7 +149,7 @@ get_header();
             <h2><a href="panneaux-akilux-forex-dibond">panneaux pvc rigide</a></h2>
             </div>
             <div style="float:left; padding:10px">
-            <h1><a href="http://www.france-banderole.com/panneaux-akilux-forex-dibond/">enseigne Dibond</a></h1>
+            <h1><a href="panneaux-akilux-forex-dibond">enseigne Dibond</a></h1>
             <h2><a href="panneaux-dibond">enseignes rigide alu</a></h2>
             <h2><a href="panneaux-dibond">enseigne pas chère</a></h2>
             <h2><a href="panneaux-dibond">panneau alu dibond</a></h2>
@@ -164,7 +164,7 @@ get_header();
             <h2><a href="panneaux-dibond">enseigne publicitaire pvc</a></h2>
             </div>
             <div style="float:left; padding:10px">
-            <h1><a href="http://www.france-banderole.com/stickers/">stickers</a></h1>
+            <h1><a href="stickers">stickers</a></h1>
             <h2><a href="stickers">sticker</a></h2>
             <h2><a href="stickers">vinyle</a></h2>
             <h2><a href="stickers">vinyle adhésif</a></h2>
@@ -183,7 +183,7 @@ get_header();
             </div> ';
             $div_4 = '
             <div class="mc_papier">
-            <h1><a href="http://www.france-banderole.com/depliants/">imprimerie-papier</a></h1>
+            <h1><a href="depliants">imprimerie-papier</a></h1>
             <div style="float:left; padding:10px">
             <h2><a href="flyers">flyer pas cher</a></h2>
             <h2><a href="flyers">flyers</a></h2>
@@ -249,7 +249,7 @@ get_header();
             </div> ';
             $div_5 = '
             <div class="mc_oriflammes">
-            <h1><a href="http://www.france-banderole.com/oriflammes/">ORIFLAMMES - BEACHFLAG - WINDFLAG - FLYING BANNER - DRAPEAUX MANIFESTATION</a></h1>
+            <h1><a href="oriflammes">ORIFLAMMES - BEACHFLAG - WINDFLAG - FLYING BANNER - DRAPEAUX MANIFESTATION</a></h1>
             <div style="float:left; padding:10px">
             <h2><a href="oriflammes">oriflamme</a></h2>
             <h2><a href="oriflammes">oriflamme publicitaire</a></h2>
@@ -313,7 +313,7 @@ get_header();
             </div>';
             $div_6 = '
             <div class="mc_cadre-exterieur-bache">
-            <h1><a href="http://www.france-banderole.com/cadre-exterieur-bache/">CADRE EXTERIEUR BACHE - SUPPORT BACHE TENSION</a></h1>
+            <h1><a href="cadre-exterieur-bache">CADRE EXTERIEUR BACHE - SUPPORT BACHE TENSION</a></h1>
             <div style="float:left; padding:10px">
             <h2><a href="cadre-exterieur-bache">cadre extérieur bâche</a></h2>
             <h2><a href="cadre-exterieur-bache">cadre pour bache publicitaire</a></h2>
