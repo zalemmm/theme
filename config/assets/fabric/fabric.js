@@ -781,25 +781,38 @@ angular.module('common.fabric', [
 
 							// lier les calques rect & gabarit -------------------------------
 							function rectMouseMove(option){
-							 gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
-							 gabarit.top = rect.gabaritTop+ rect.top- rect.mousesDownTop;
-							 gabarit.setCoords();
+							  gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
+							  gabarit.top = rect.gabaritTop+ rect.top- rect.mousesDownTop;
+							  gabarit.setCoords();
 							}
 
 							function rectMouseDown(option){
-							 rect.mousesDownLeft = rect.left;
-							 rect.mousesDownTop = rect.top;
-							 rect.gabaritLeft = gabarit.left;
-							 rect.gabaritTop = gabarit.top;
+							  rect.mousesDownLeft = rect.left;
+							  rect.mousesDownTop = rect.top;
+							  rect.gabaritLeft = gabarit.left;
+							  rect.gabaritTop = gabarit.top;
 							}
+
+/*							function gabaritMouseMove(option){
+							  rect.left = gabarit.rectLeft+ gabarit.left - gabarit.mousesDownLeft ;
+							  rect.top = gabarit.rectTop+ gabarit.top- gabarit.mousesDownTop;
+							  rect.setCoords();
+							}
+
+							function gabaritMouseDown(option){
+							  gabarit.mousesDownLeft = gabarit.left;
+							  gabarit.mousesDownTop = gabarit.top;
+							  gabarit.rectLeft = rect.left;
+							  gabarit.rectTop = rect.top;
+							}*/
 
 							register();
 							function register(){
-							 rect.on('moving',rectMouseMove);
-							 rect.on('mousedown',rectMouseDown);
-
-
-						};
+							  rect.on('moving',rectMouseMove);
+							  rect.on('mousedown',rectMouseDown);
+								//gabarit.on('moving',gabaritMouseMove);
+							  //gabarit.on('mousedown',gabaritMouseDown);
+							}
 
             return {width:w,height:h};
         };
@@ -2029,10 +2042,7 @@ angular.module('common.fabric', [
 						});
 
 						canvas._activeObject = null;
-						canvas.setActiveGroup(group.setCoords()).renderAll().toDataURL({
-              format: 'png',
-              multiplier: 12
-            });
+						canvas.setActiveGroup(group.setCoords()).renderAll();
 
 						// =================================================================
 
