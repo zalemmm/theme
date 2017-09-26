@@ -530,7 +530,7 @@ angular.module('productApp', [
             ngProgressLite.start();
             $scope.loader = true;
 
-            $scope.$apply();
+            //$scope.$apply();
             if($scope.fabric.checkBackgroundImage()){
 
                 $scope.beforeSave();

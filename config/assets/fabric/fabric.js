@@ -344,7 +344,15 @@ angular.module('common.fabric', [
 						originY: 'center'
 		    })
 			);
-			object.bringToFront();
+			object.bringForward();
+
+			function findObjectWithPropertyValue(canvas, propertyName, propertyValue) {
+        var condition = {};
+        condition[propertyName] = propertyValue;
+        return _(canvas.getObjects()).filter( condition ).first()
+			}
+			var gaba = findObjectWithPropertyValue(canvas, 'id', 'gabarit');
+			canvas.bringToFront(gaba);
 
 			self.render();
 		};
@@ -434,7 +442,7 @@ angular.module('common.fabric', [
 				}
 
 				self.addObjectToCanvas(object);
-				canvas.item(1).bringToFront();
+
 			}, self.imageDefaults);
 		};
 
@@ -522,7 +530,7 @@ angular.module('common.fabric', [
                 h = hauteur;
 						}
 
-						// si recto-verso format portrait ou carré, afficher les 2 gabarits côte à côte
+/*						// si recto-verso format portrait ou carré, afficher les 2 gabarits côte à côte
 						if (rectoVerso && (hauteur >= largeur) ){
 
 							// pour format carré réduction de la taille pour que les 2 carrés rentrent dans le canvas
@@ -587,32 +595,10 @@ angular.module('common.fabric', [
 								hasControls: false
 							});
 
-							/*var group1 = new fabric.Group([rect, gabarit], {
-								lockScalingY: true,
-								lockScalingX: true,
-								lockUniScaling: true,
-								lockRotation: true,
-								hasControls: false,
-								hasBorders: true,
-
-							});
-							var group2 = new fabric.Group([rect2, gabarit2], {
-								lockScalingY: true,
-								lockScalingX: true,
-								lockUniScaling: true,
-								lockRotation: true,
-								hasControls: false,
-								hasBorders: true,
-							});*/
-
-							//canvas.add(group1);
-							//canvas.add(group2);
-
 							canvas.add(rect);
 							canvas.add(gabarit);
 							canvas.add(rect2);
 							canvas.add(gabarit2);
-
 
 							// lier les calques rect & gabarit -------------------------------
 							function rectMouseMove(option){
@@ -710,28 +696,6 @@ angular.module('common.fabric', [
 								hasControls: false
 							});
 
-							/*var group1 = new fabric.Group([rect, gabarit], {
-								lockScalingY: true,
-								lockScalingX: true,
-								lockUniScaling: true,
-								lockRotation: true,
-								hasControls: false,
-								hasBorders: true,
-
-							});
-							var group2 = new fabric.Group([rect2, gabarit2], {
-								lockScalingY: true,
-								lockScalingX: true,
-								lockUniScaling: true,
-								lockRotation: true,
-								hasControls: false,
-								hasBorders: true,
-
-							});*/
-
-							//canvas.add(group1);
-							//canvas.add(group2);
-
 							canvas.add(rect);
 							canvas.add(gabarit);
 							canvas.add(rect2);
@@ -770,7 +734,8 @@ angular.module('common.fabric', [
 
 
 						// affichage gabarit simple centré ---------------------------------
-						}else{
+						}else{*/
+
 							var gabarit = new fabric.Rect({
 								id: 'gabarit',
 								originX: 'center',
@@ -832,7 +797,7 @@ angular.module('common.fabric', [
 							function register(){
 							 rect.on('moving',rectMouseMove);
 							 rect.on('mousedown',rectMouseDown);
-							}
+
 
 						};
 
@@ -942,7 +907,7 @@ angular.module('common.fabric', [
                 }
 
                 self.addObjectToCanvas(object);
-								canvas.item(1).bringToFront();
+
             });
 		};
 
@@ -1420,17 +1385,15 @@ angular.module('common.fabric', [
 			}
 		};
 
-
-        //
-        // Object Layer Position
-        // ==============================================================
-        self.objectSendBackwards = function(activeObj) {
-            if (activeObj) {
-                canvas.sendBackwards(activeObj);
-                self.render();
-            }
-        };
-
+    //
+    // Object Layer Position
+    // ==============================================================
+    self.objectSendBackwards = function(activeObj) {
+        if (activeObj) {
+            canvas.sendBackwards(activeObj);
+            self.render();
+        }
+    };
 
 		self.sendToBack = function() {
 			var activeObject = canvas.getActiveObject();
@@ -1448,12 +1411,12 @@ angular.module('common.fabric', [
 			}
 		};
 
-        self.objectBringForward = function(activeObj) {
-            if (activeObj) {
-                canvas.bringForward(activeObj);
-                self.render();
-            }
-        };
+    self.objectBringForward = function(activeObj) {
+        if (activeObj) {
+            canvas.bringForward(activeObj);
+            self.render();
+        }
+    };
 
 		self.bringToFront = function() {
 			var activeObject = canvas.getActiveObject();
@@ -1887,92 +1850,92 @@ angular.module('common.fabric', [
         // deselect Active object
         // ============================================================
 
-		self.deselectActiveObject = function() {
-			self.selectedObject = false;
-		};
+				self.deselectActiveObject = function() {
+					self.selectedObject = false;
+				};
 
         //
         // delete Active object
         // ============================================================
 
-		self.deleteActiveObject = function() {
-			var activeObject = canvas.getActiveObject();
-			// permettre de supprimer l'objet si l'objet n'est pas le gabarit :
-			if (activeObject != canvas.item(0)){
-				canvas.remove(activeObject);
-			}
-			self.render();
-		};
+				self.deleteActiveObject = function() {
+					var activeObject = canvas.getActiveObject();
+					// permettre de supprimer l'objet si l'objet n'est pas le gabarit :
+					if ((activeObject != canvas.item(0)) && (activeObject != canvas.item(1))){
+						canvas.remove(activeObject);
+					}
+					self.render();
+				};
 
         //
         // delete object
         // ============================================================
 
         self.deleteObject = function(activeObj) {
-					if (activeObj != canvas.item(0)){
+					if ((activeObj != canvas.item(0)) && (activeObj != canvas.item(1))){
 						canvas.remove(activeObj);
 					}
             self.render();
         };
 
-		//
-		// State Managers
-		// ==============================================================
-		self.isLoading = function() {
-			return self.loading;
-		};
+				//
+				// State Managers
+				// ==============================================================
+				self.isLoading = function() {
+					return self.loading;
+				};
 
-		self.setLoading = function(value) {
-			self.loading = value;
-		};
+				self.setLoading = function(value) {
+					self.loading = value;
+				};
 
-		self.setDirty = function(value) {
-			FabricDirtyStatus.setDirty(value);
-		};
+				self.setDirty = function(value) {
+					FabricDirtyStatus.setDirty(value);
+				};
 
-		self.isDirty = function() {
-			return FabricDirtyStatus.isDirty();
-		};
+				self.isDirty = function() {
+					return FabricDirtyStatus.isDirty();
+				};
 
-		self.setInitalized = function(value) {
-			self.initialized = value;
-		};
+				self.setInitalized = function(value) {
+					self.initialized = value;
+				};
 
-		self.isInitalized = function() {
-			return self.initialized;
-		};
+				self.isInitalized = function() {
+					return self.initialized;
+				};
 
 
-		//
-		// JSON
-		// ==============================================================
-		self.getJSON = function() {
-			var initialCanvasScale = self.canvasScale;
-			self.canvasScale = 1;
-			self.resetZoom();
+				//
+				// JSON
+				// ==============================================================
+				self.getJSON = function() {
+					var initialCanvasScale = self.canvasScale;
+					self.canvasScale = 1;
+					self.resetZoom();
 
-			var json = JSON.stringify(canvas.toJSON(self.JSONExportProperties));
+					var json = JSON.stringify(canvas.toJSON(self.JSONExportProperties));
 
-			self.canvasScale = initialCanvasScale;
-			self.setZoom();
+					self.canvasScale = initialCanvasScale;
+					self.setZoom();
 
-			return json;
-		};
+					return json;
+				};
 
-		self.loadJSON = function(json) {
-			self.setLoading(true);
-			canvas.loadFromJSON(json, function() {
-				$timeout(function() {
-					self.setLoading(false);
+				self.loadJSON = function(json) {
+					self.setLoading(true);
+					canvas.loadFromJSON(json, function() {
+						$timeout(function() {
+							self.setLoading(false);
 
-					if (!self.editable) {
-						self.disableEditing();
-					}
+							if (!self.editable) {
+								self.disableEditing();
+							}
 
-					self.render();
-				});
-			});
-		};
+							self.render();
+						});
+					});
+				};
 
         //
         // Save Canvas
@@ -2021,18 +1984,37 @@ angular.module('common.fabric', [
 
         //
         // Save Canvas
-        // ==============================================================
+        // =====================================================================
         self.saveCanvasObjectAsSvg = function() {
 
             canvas.deactivateAll().renderAll();
 
+						// ================================ enlever le gabarit en pointillés
+						// =================================================================
+						function findObjectWithPropertyValue(canvas, propertyName, propertyValue) {
+			        var condition = {};
+			        condition[propertyName] = propertyValue;
+			        return _(canvas.getObjects()).filter( condition ).first()
+						}
+						var gaba = findObjectWithPropertyValue(canvas, 'id', 'gabarit');
+						canvas.remove(gaba);
+						// =================================================================
+
 						//var gabarit = self.gabaritResize(gabarit);
+						//canvas.item(canvas.getObjects().length-1).remove();
 
-
+						// ================================== récupérer la taille de l'objet
+						// =================================================================
 						var obj = canvas.item(0);
 						var hauteur = obj.height;
 						var largeur = obj.width;
+						var objx = obj.x;
+						var objy = obj.y;
+						// =================================================================
+						var br = obj.getBoundingRect();
 
+						// ======================================== grouper tous les calques
+						// =================================================================
 						var objs = canvas.getObjects().map(function(o) {
 						  return o.set('active', true);
 						});
@@ -2047,20 +2029,28 @@ angular.module('common.fabric', [
 						});
 
 						canvas._activeObject = null;
-						canvas.setActiveGroup(group.setCoords()).renderAll();
+						canvas.setActiveGroup(group.setCoords()).renderAll().toDataURL({
+              format: 'png',
+              multiplier: 12
+            });
 
-						canvas.width = largeur;
-						canvas.height = hauteur;
+						// =================================================================
 
-            var mySVG = canvas.toSVG({width: largeur,
-																		  height: hauteur,
-																			viewBox: {
+						//canvas.width = largeur;
+						//canvas.height = hauteur;
+
+						// ================================================== exorter le SVG
+						// =================================================================
+						var mySVG = canvas.toSVG({ width: largeur,
+																		   height: hauteur,
+																			 viewBox: {
 																				  x:0,
 																				  y:0,
 																				  width: largeur,
 																				  height: hauteur
 																		 	}
 																		});
+            //var mySVG = canvas.toSVG();
             //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.csss";
 						//@import url('+currentFontUrl+');
             $(document).find('.svgElements').html(mySVG);
@@ -2073,6 +2063,8 @@ angular.module('common.fabric', [
             var svg = 'data:image/svg+xml;base64,'+window.btoa(svgResult);
 
             return svg;
+
+						// =================================================================
         };
 
         //
