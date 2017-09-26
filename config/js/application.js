@@ -977,9 +977,9 @@ angular.module('productApp', [
             $scope.fabric.designedJPGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsJpg();
         };
 
-        $scope.prodctByCat = function (val){
+        /*$scope.prodctByCat = function (val){
             $scope.productCategory = val;
-        };
+        };*/
 
         $scope.hasCategory = function (product){
             var category = angular.lowercase($scope.productCategory);

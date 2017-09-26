@@ -434,7 +434,7 @@ angular.module('common.fabric', [
 				}
 
 				self.addObjectToCanvas(object);
-
+				canvas.item(1).bringToFront();
 			}, self.imageDefaults);
 		};
 
@@ -443,7 +443,7 @@ angular.module('common.fabric', [
         // ==============================================================
         self.addCanvasBackground = function(src) {
 
-            var image = self.imageResize(src);
+            var gabarit = self.gabaritResize();
             var ctx = canvas.getContext("2d");
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -456,8 +456,8 @@ angular.module('common.fabric', [
               left: center.left,
               originX: 'center',
               originY: 'top',
-							width: image.width,
-              height: image.height,
+							width: gabarit.width,
+              height: gabarit.height,
               backgroundImageStretch: false
             });
 
@@ -474,13 +474,13 @@ angular.module('common.fabric', [
         // Resize Image ----------------------------------- Générer les gabarits
         // =====================================================================
 
-        self.imageResize = function(src) {
+        self.gabaritResize = function(gabarit, rect, gabarit2, rect2) {
 
             var MAX_HEIGHT = canvas.height-20;
 						var MAX_WIDTH = canvas.width-20;
             var w;
             var h;
-            var image = new Image();
+            //var image = new Image();
 						var center = canvas.getCenter();
 						var ratio;
 						var produit = $('#produit').text();
@@ -488,7 +488,7 @@ angular.module('common.fabric', [
 						var hauteur = parseInt($('#hauteur').text(), 10);
 						var largeur = parseInt($('#largeur').text(), 10);
 						console.log(produit+' - '+hauteur+' x '+largeur);
-            image.src = src;
+            //image.src = src;
 
 						// ratio gabarit/canvas suivant le format
 
@@ -507,9 +507,10 @@ angular.module('common.fabric', [
 								hauteur = MAX_WIDTH/ratio;
                 w = largeur;
                 h = hauteur;
-
-								if (hauteur <= canvas.height) {
-
+								// cas particulier où la hauteur = presque la largeur et dépasse MAX_HEIGHT
+								if (h >= canvas.height) {
+									largeur = MAX_HEIGHT;
+									hauteur = MAX_HEIGHT/ratio;
 								}
 						// paysage avec hauteur
 
@@ -522,7 +523,7 @@ angular.module('common.fabric', [
 						}
 
 						// si recto-verso format portrait ou carré, afficher les 2 gabarits côte à côte
-						if (rectoVerso && ((hauteur > largeur) || (hauteur == largeur)) ){
+						if (rectoVerso && (hauteur >= largeur) ){
 
 							// pour format carré réduction de la taille pour que les 2 carrés rentrent dans le canvas
 							if(largeur == hauteur) {
@@ -563,6 +564,7 @@ angular.module('common.fabric', [
 							});
 
 							var rect = new fabric.Rect({
+								id: 'recbg1',
 								originX: 'left',
 								originY: 'center',
 								top: center.top,
@@ -574,6 +576,7 @@ angular.module('common.fabric', [
 							});
 
 							var rect2 = new fabric.Rect({
+								id: 'recbg2',
 								originX: 'left',
 								originY: 'center',
 								top: center.top,
@@ -609,6 +612,7 @@ angular.module('common.fabric', [
 							canvas.add(gabarit);
 							canvas.add(rect2);
 							canvas.add(gabarit2);
+
 
 							// lier les calques rect & gabarit -------------------------------
 							function rectMouseMove(option){
@@ -683,6 +687,7 @@ angular.module('common.fabric', [
 							});
 
 							var rect = new fabric.Rect({
+								id: 'recbg1',
 								originX: 'center',
 								originY: 'top',
 								top: 10,
@@ -694,6 +699,7 @@ angular.module('common.fabric', [
 							});
 
 							var rect2 = new fabric.Rect({
+								id: 'recbg2',
 								originX: 'center',
 								originY: 'top',
 								top: hauteur+20,
@@ -766,7 +772,7 @@ angular.module('common.fabric', [
 						// affichage gabarit simple centré ---------------------------------
 						}else{
 							var gabarit = new fabric.Rect({
-
+								id: 'gabarit',
 								originX: 'center',
 								originY: 'center',
 								top: center.top,
@@ -782,7 +788,7 @@ angular.module('common.fabric', [
 							});
 
 							var rect = new fabric.Rect({
-
+								id: 'recbg',
 								originX: 'center',
 								originY: 'center',
 								top: center.top,
@@ -805,6 +811,8 @@ angular.module('common.fabric', [
 							//canvas.add(group);
 							canvas.add(rect);
 							canvas.add(gabarit);
+
+
 
 							// lier les calques rect & gabarit -------------------------------
 							function rectMouseMove(option){
@@ -885,6 +893,7 @@ angular.module('common.fabric', [
         // ==============================================================
         self.canvasLayers = function (){
           var layers = [];
+
           $.each(canvas.getObjects(), function (index,value) {
 							layers.push({"id": "Layer "+(index+1), "src":self.convertToSVG(value), "object":value});
           });
@@ -933,7 +942,7 @@ angular.module('common.fabric', [
                 }
 
                 self.addObjectToCanvas(object);
-
+								canvas.item(1).bringToFront();
             });
 		};
 
@@ -1933,7 +1942,7 @@ angular.module('common.fabric', [
 			return self.initialized;
 		};
 
-		
+
 		//
 		// JSON
 		// ==============================================================
@@ -2017,7 +2026,9 @@ angular.module('common.fabric', [
 
             canvas.deactivateAll().renderAll();
 
-						canvas.item(1).remove();
+						//var gabarit = self.gabaritResize(gabarit);
+
+
 						var obj = canvas.item(0);
 						var hauteur = obj.height;
 						var largeur = obj.width;
