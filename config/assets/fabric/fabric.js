@@ -234,9 +234,9 @@ angular.module('common.fabric', [
             })
         ];
 
-        self.addQRCode = function(text){
+        /*self.addQRCode = function(text){
 
-        };
+        };*/
 
         self.applyImageFilter = function (isChecked, filter){
             var obj = canvas.getActiveObject();
@@ -388,67 +388,84 @@ angular.module('common.fabric', [
 				if ((object.width <= 3000) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/1.5);
 				}
-				if ((object.width <= 2400) && (object.width >= object.height)) {
+				if ((object.width <= 3000) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/2);
 				}
-				if ((object.width <= 1600) && (object.width >= object.height)) {
+				if ((object.width <= 2400) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/4);
 				}
-				if ((object.width <= 800) && (object.width >= object.height)) {
+				if ((object.width <= 1600) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/8);
 				}
-				if ((object.width <= 400) && (object.width >= object.height)) {
+				if ((object.width <= 800) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/16);
 				}
-				if ((object.width <= 200) && (object.width >= object.height)) {
+				if ((object.width <= 400) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/32);
 				}
-				if ((object.width <= 100) && (object.width >= object.height)) {
+				if ((object.width <= 200) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/64);
 				}
-				if ((object.width <= 50) && (object.width >= object.height)) {
+				if ((object.width <= 100) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/128);
 				}
-				if ((object.width <= 25) && (object.width >= object.height)) {
+				if ((object.width <= 50) && (object.width >= object.height)) {
 					object.scaleToWidth(canvas.width/256);
 				}
+				if ((object.width <= 25) && (object.width >= object.height)) {
+					object.scaleToWidth(canvas.width/500);
+				}
 
-				if ((object.height <= 3000) && (object.height > object.width)) {
+				if ((object.height <= 4000) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/1.5);
 				}
-				if ((object.height <= 2400) && (object.height > object.width)) {
+				if ((object.height <= 3000) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/2);
 				}
-				if ((object.height <= 1600) && (object.height > object.width)) {
+				if ((object.height <= 2400) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/4);
 				}
-				if ((object.height <= 800) && (object.height > object.width)) {
+				if ((object.height <= 1600) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/8);
 				}
-				if ((object.height <= 400) && (object.height > object.width)) {
+				if ((object.height <= 800) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/16);
 				}
-				if ((object.height <= 200) && (object.height > object.width)) {
+				if ((object.height <= 400) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/32);
 				}
-				if ((object.height <= 100) && (object.height > object.width)) {
+				if ((object.height <= 200) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/64);
 				}
-				if ((object.height <= 50) && (object.height > object.width)) {
+				if ((object.height <= 100) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/128);
 				}
-				if ((object.height <= 25) && (object.height > object.width)) {
+				if ((object.height <= 50) && (object.height > object.width)) {
 					object.scaleToHeight(canvas.height/256);
 				}
+				if ((object.height <= 25) && (object.height > object.width)) {
+					object.scaleToHeight(canvas.height/500);
+				}
 
-				self.addObjectToCanvas(object);
+				if((object.width <= 800) || (object.height <= 800)){
+						if (!confirm('l\'image que vous avez sélectionné semble être de qualité insuffisante (trop petite). Etes-vous sur de vouloir continuer ?')) {
+              return;
+            }
+						else  {
+						    self.addObjectToCanvas(object);
+						}
+				}else{
+					self.addObjectToCanvas(object);
+				}
+
+
 
 			}, self.imageDefaults);
 		};
 
         //
         // Canvas Image
-        // ==============================================================
+        // =====================================================================
         self.addCanvasBackground = function(src) {
 
             var gabarit = self.gabaritResize();
@@ -473,14 +490,14 @@ angular.module('common.fabric', [
 
         //
         // Resize Canvas
-        // ==============================================================
+        // =====================================================================
         self.resizeCanvas = function() {
 
         };
 
-        //
-        // Resize Image ----------------------------------- Générer les gabarits
-        // =====================================================================
+        // ========================================================================================================================================================
+        // 																																																																		Générer les gabarits
+        // ========================================================================================================================================================
 
         self.gabaritResize = function(gabarit, rect, gabarit2, rect2) {
 
@@ -778,7 +795,6 @@ angular.module('common.fabric', [
 							canvas.add(gabarit);
 
 
-
 							// lier les calques rect & gabarit -------------------------------
 							function rectMouseMove(option){
 							  gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
@@ -793,7 +809,7 @@ angular.module('common.fabric', [
 							  rect.gabaritTop = gabarit.top;
 							}
 
-/*							function gabaritMouseMove(option){
+/*						function gabaritMouseMove(option){
 							  rect.left = gabarit.rectLeft+ gabarit.left - gabarit.mousesDownLeft ;
 							  rect.top = gabarit.rectTop+ gabarit.top- gabarit.mousesDownTop;
 							  rect.setCoords();
@@ -813,93 +829,94 @@ angular.module('common.fabric', [
 								//gabarit.on('moving',gabaritMouseMove);
 							  //gabarit.on('mousedown',gabaritMouseDown);
 							}
-
+					//}
             return {width:w,height:h};
         };
-
-        //
-        //Get Image Meta
-        //===============================================================
-        self.getImageMeta = function (url){
-            var w; var h;
-            var img = new Image();
-
-            img.src = url;
-            h = img.height;
-            w = img.width;
-
-            return {width:w,height:h}
-        };
-
-        //
-        // checkBackgroundImage
-        // ==============================================================
-
-        self.checkBackgroundImage = function () {
-            return canvas.backgroundImage;
-        };
-
-				//
-        // no controls on group selection
-        // ==============================================================
-				fabric.Group.prototype.hasControls = false;
-				fabric.Group.prototype.hasBorders = false;
+				// =======================================================================================================================================================
 
 
-				self.getSelection = function(){
-				  return canvas.getActiveObject() == null ? canvas.getActiveGroup() : canvas.getActiveObject()
-				}
-				//
-        // tout sélectionner
-        // ==============================================================
-				self.selectA = function (){
-						var objs = canvas.getObjects().map(function(o) {
-							return o.set('active', true);
-						});
-						var center = canvas.getCenter();
-						var group = new fabric.Group(objs, {
-							originX: 'center',
-							originY: 'center',
-						});
+    //
+    // Get Image Meta
+    //==========================================================================
+    self.getImageMeta = function (url){
+        var w; var h;
+        var img = new Image();
 
-						canvas._activeObject = null;
-						canvas.setActiveGroup(group.setCoords()).renderAll();
-				}
+        img.src = url;
+        h = img.height;
+        w = img.width;
 
-        //
-        // canvas Layers
-        // ==============================================================
-        self.canvasLayers = function (){
-          var layers = [];
+        return {width:w,height:h}
+    };
 
-          $.each(canvas.getObjects(), function (index,value) {
-							layers.push({"id": "Layer "+(index+1), "src":self.convertToSVG(value), "object":value});
-          });
+    //
+    // checkBackgroundImage
+    // =========================================================================
 
-          return layers.reverse();
-
-        };
-
-        self.convertToSVG = function (value){
-          return value.toDataURL();
-        };
-
-        //
-        // isTainted
-        // ==============================================================
-        self.isTainted = function (){
-            var ctx = canvas.getContext("2d");
-            try {
-                var pixel = ctx.getImageData(0, 0, 1, 1);
-                return false;
-            } catch(err) {
-                return (err.code === 18);
-            }
-        };
+    self.checkBackgroundImage = function () {
+        return canvas.backgroundImage;
+    };
 
 		//
+    // no controls on group selection
+    // =========================================================================
+		fabric.Group.prototype.hasControls = false;
+		fabric.Group.prototype.hasBorders = false;
+
+		self.getSelection = function(){
+		  return canvas.getActiveObject() == null ? canvas.getActiveGroup() : canvas.getActiveObject()
+		}
+
+		//
+    // tout sélectionner
+    // =========================================================================
+
+		self.selectA = function (){
+				var objs = canvas.getObjects().map(function(o) {
+					return o.set('active', true);
+				});
+				var center = canvas.getCenter();
+				var group = new fabric.Group(objs, {
+					originX: 'center',
+					originY: 'center',
+				});
+
+				canvas._activeObject = null;
+				canvas.setActiveGroup(group.setCoords()).renderAll();
+		}
+
+    // canvas Layers
+    // ========================================================================= CALQUES
+
+    self.canvasLayers = function (){
+      var layers = [];
+
+      $.each(canvas.getObjects(), function (index,value) {
+					layers.push({"id": "Layer "+(index+1), "src":self.convertToSVG(value), "object":value});
+      });
+
+      return layers.reverse();
+
+    };
+
+    self.convertToSVG = function (value){
+      return value.toDataURL();
+    };
+
+    // isTainted
+    // =========================================================================
+    self.isTainted = function (){
+        var ctx = canvas.getContext("2d");
+        try {
+            var pixel = ctx.getImageData(0, 0, 1, 1);
+            return false;
+        } catch(err) {
+            return (err.code === 18);
+        }
+    };
+
 		// Shape
-		// ==============================================================
+		// ========================================================================= FORMES
 		self.addShape = function(svgURL) {
 
             fabric.loadSVGFromURL(svgURL, function (objects, options) {
@@ -924,103 +941,103 @@ angular.module('common.fabric', [
             });
 		};
 
-        //
-        // Shape String
-        // ==============================================================
-        self.addShapeString = function(svg) {
+    // Shape String
+    // =========================================================================
+    self.addShapeString = function(svg) {
 
-            fabric.loadSVGFromString(svg, function (objects, options) {
-                var newOptions = self.merge_options(options,self.shapeDefaults);
-                var object = fabric.util.groupSVGElements(objects, newOptions);
-                object.id = self.createId();
+        fabric.loadSVGFromString(svg, function (objects, options) {
+            var newOptions = self.merge_options(options,self.shapeDefaults);
+            var object = fabric.util.groupSVGElements(objects, newOptions);
+            object.id = self.createId();
 
-                for (var p in self.shapeDefaults) {
-                    object[p] = self.shapeDefaults[p];
-                }
-                if (object.isSameColor && object.isSameColor() || !object.paths) {
-                    object.setFill('#000000');
-                } else if (object.paths) {
-                    for (var i = 0; i < object.paths.length; i++) {
-                        object.paths[i].setFill(object.paths[i].fill);
-                    }
-                }
-
-                self.addObjectToCanvas(object);
-
-            });
-        };
-
-        //
-        //Copy
-        // ==============================================================
-        self.copyItem = function() {
-            if(canvas.getActiveGroup()){
-                for(var i in canvas.getActiveGroup().objects){
-                    var object = fabric.util.object.clone(canvas.getActiveGroup().objects[i]);
-                    object.set("top", object.top+5);
-                    object.set("left", object.left+5);
-                    copiedObjects[i] = object;
-                }
-                return 'DONE';
+            for (var p in self.shapeDefaults) {
+                object[p] = self.shapeDefaults[p];
             }
-            else if(canvas.getActiveObject()){
-                var object = fabric.util.object.clone(canvas.getActiveObject());
+            if (object.isSameColor && object.isSameColor() || !object.paths) {
+                object.setFill('#000000');
+            } else if (object.paths) {
+                for (var i = 0; i < object.paths.length; i++) {
+                    object.paths[i].setFill(object.paths[i].fill);
+                }
+            }
+
+            self.addObjectToCanvas(object);
+
+        });
+    };
+
+    // ========================================================================= COPIER COLLER
+
+    // Copy
+
+    self.copyItem = function() {
+        if(canvas.getActiveGroup()){
+            for(var i in canvas.getActiveGroup().objects){
+                var object = fabric.util.object.clone(canvas.getActiveGroup().objects[i]);
                 object.set("top", object.top+5);
                 object.set("left", object.left+5);
-                copiedObject = object;
-                return 'DONE';
-            }else{
-                return 'ERROR';
+                copiedObjects[i] = object;
             }
-        };
+            return 'DONE';
+        }
+        else if(canvas.getActiveObject()){
+            var object = fabric.util.object.clone(canvas.getActiveObject());
+            object.set("top", object.top+5);
+            object.set("left", object.left+5);
+            copiedObject = object;
+            return 'DONE';
+        }else{
+            return 'ERROR';
+        }
+    };
 
-        //
-        //Paste
-        // ==============================================================
-        self.pasteItem = function() {
-            if(copiedObjects.length > 0){
-                for(var i in copiedObjects){
-                    canvas.add(copiedObjects[i]);
-                }
-                canvas.renderAll();
-                copiedObject = null;
-                return 'DONE';
-            }
-            else if(copiedObject){
-                canvas.add(copiedObject);
-                canvas.renderAll();
-                copiedObject = null;
-                return 'DONE';
-            }else{
-                return 'ERROR';
-            }
 
-        };
+    // Paste
 
-        //
-        //Undo
-        // ==============================================================
-        self.undo = function() {
-					// lenght>1 pour ne pas effacer le 1er object soit le gabarit en revenant en arrière
-            if(canvas._objects.length>1){
-                h.push(canvas._objects.pop());
-                canvas.renderAll();
+    self.pasteItem = function() {
+        if(copiedObjects.length > 0){
+            for(var i in copiedObjects){
+                canvas.add(copiedObjects[i]);
             }
-        };
+            canvas.renderAll();
+            copiedObject = null;
+            return 'DONE';
+        }
+        else if(copiedObject){
+            canvas.add(copiedObject);
+            canvas.renderAll();
+            copiedObject = null;
+            return 'DONE';
+        }else{
+            return 'ERROR';
+        }
 
-        //
-        //Redo
-        // ==============================================================
-        self.redo = function() {
-            if(h.length>0){
-                isRedoing = true;
-                canvas.add(h.pop());
-            }
-        };
+    };
+
+		// ========================================================================= UNDO REDO
+
+    //Undo
+
+    self.undo = function() {
+			// lenght>1 pour ne pas effacer le 1er object soit le gabarit en revenant en arrière
+        if(canvas._objects.length>1){
+            h.push(canvas._objects.pop());
+            canvas.renderAll();
+        }
+    };
+
+    //Redo
+
+    self.redo = function() {
+        if(h.length>0){
+            isRedoing = true;
+            canvas.add(h.pop());
+        }
+    };
 
 		//
 		// Text
-		// ==============================================================
+		// ========================================================================= TEXT
 		self.addText = function(str) {
 			str = str || 'New Text';
 
@@ -1031,16 +1048,16 @@ angular.module('common.fabric', [
 
 		};
 
-        //
-        // Curved Text
-        // ==============================================================
-        self.addCurvedText = function(str) {
-            str = str || 'Curved Text';
+    //
+    // Curved Text
+    // =========================================================================
+    self.addCurvedText = function(str) {
+        str = str || 'Curved Text';
 
-            var CurvedText = new FabricWindow.CurvedText(str, self.textDefaults);
-            CurvedText.id = self.createId();
-            self.addObjectToCanvas(CurvedText);
-        };
+        var CurvedText = new FabricWindow.CurvedText(str, self.textDefaults);
+        CurvedText.id = self.createId();
+        self.addObjectToCanvas(CurvedText);
+    };
 
 		self.getText = function() {
                 return getActiveProp('text');
@@ -1058,119 +1075,119 @@ angular.module('common.fabric', [
             }
 		};
 
-        self.merge_options = function (obj1,obj2){
-            for (var p in obj2) {
-                try {
-                    // Property in destination object set; update its value.
-                    if ( obj2[p].constructor==Object ) {
-                        obj1[p] = MergeRecursive(obj1[p], obj2[p]);
+    self.merge_options = function (obj1,obj2){
+        for (var p in obj2) {
+            try {
+                // Property in destination object set; update its value.
+                if ( obj2[p].constructor==Object ) {
+                    obj1[p] = MergeRecursive(obj1[p], obj2[p]);
 
-                    } else {
-                        obj1[p] = obj2[p];
-
-                    }
-
-                } catch(e) {
-                    // Property in destination object not set; create it and set its value.
+                } else {
                     obj1[p] = obj2[p];
 
                 }
+
+            } catch(e) {
+                // Property in destination object not set; create it and set its value.
+                obj1[p] = obj2[p];
+
             }
+        }
 
-            return obj1;
-        };
+        return obj1;
+    };
 
-        self.toggleText = function(){
-            var props = {};
-            var obj = canvas.getActiveObject();
-            if(obj){
-                if(/curvedText/.test(obj.type)) {
-                    var default_text = obj.getText();
-                    props = obj.toObject();
-                    delete props['type'];
-                    var newProp = self.merge_options(props,self.textDefaults);
-                    var textSample = new fabric.Text(default_text, newProp);
-                }else if(/text/.test(obj.type)) {
-                    var default_text = obj.getText();
-                    props = obj.toObject();
-                    delete props['type'];
-                    var newProp = self.merge_options(props,self.curvedTextDefaults);
-                    var textSample = new fabric.CurvedText(default_text, newProp);
-                }
-                canvas.remove(obj);
-                canvas.add(textSample).renderAll();
-                canvas.setActiveObject(canvas.item(canvas.getObjects().length-1));
+    self.toggleText = function(){
+        var props = {};
+        var obj = canvas.getActiveObject();
+        if(obj){
+            if(/curvedText/.test(obj.type)) {
+                var default_text = obj.getText();
+                props = obj.toObject();
+                delete props['type'];
+                var newProp = self.merge_options(props,self.textDefaults);
+                var textSample = new fabric.Text(default_text, newProp);
+            }else if(/text/.test(obj.type)) {
+                var default_text = obj.getText();
+                props = obj.toObject();
+                delete props['type'];
+                var newProp = self.merge_options(props,self.curvedTextDefaults);
+                var textSample = new fabric.CurvedText(default_text, newProp);
             }
-        };
+            canvas.remove(obj);
+            canvas.add(textSample).renderAll();
+            canvas.setActiveObject(canvas.item(canvas.getObjects().length-1));
+        }
+    };
 
-        self.toggleReverse = function (value) {
+    self.toggleReverse = function (value) {
 
-            var obj = canvas.getActiveObject();
-            if(obj) {
-                if (typeof value !== "undefined") {
-                    if (value == true) {
-                        obj.set('reverse',false);
-                        canvas.renderAll();
-                    } else {
-                        obj.set('reverse',true);
-                        canvas.renderAll();
-                    }
+        var obj = canvas.getActiveObject();
+        if(obj) {
+            if (typeof value !== "undefined") {
+                if (value == true) {
+                    obj.set('reverse',false);
+                    canvas.renderAll();
                 } else {
                     obj.set('reverse',true);
                     canvas.renderAll();
                 }
+            } else {
+                obj.set('reverse',true);
+                canvas.renderAll();
             }
-        };
+        }
+    };
 
-        self.renderBridgeText = function () {
+    self.renderBridgeText = function () {
 
-            var curve = parseInt(iCurve.value, 10);
-            var offsetY = parseInt(iOffset.value, 10);
-            var textHeight = parseInt(iHeight.value, 10);
-            var bottom = parseInt(iBottom.value, 10);
-            var isTri = iTriangle.checked;
+        var curve = parseInt(iCurve.value, 10);
+        var offsetY = parseInt(iOffset.value, 10);
+        var textHeight = parseInt(iHeight.value, 10);
+        var bottom = parseInt(iBottom.value, 10);
+        var isTri = iTriangle.checked;
 
-            vCurve.innerHTML = curve;
-            vOffset.innerHTML = offsetY;
-            vHeight.innerHTML = textHeight;
-            vBottom.innerHTML = bottom;
+        vCurve.innerHTML = curve;
+        vOffset.innerHTML = offsetY;
+        vHeight.innerHTML = textHeight;
+        vBottom.innerHTML = bottom;
 
-            octx.clearRect(0, 0, w, h);
-            ctx.clearRect(0, 0, w, h);
+        octx.clearRect(0, 0, w, h);
+        ctx.clearRect(0, 0, w, h);
 
-            octx.fillText(iText.value.toUpperCase(), w * 0.5, 0);
+        octx.fillText(iText.value.toUpperCase(), w * 0.5, 0);
 
-            /// slide and dice
-            var i = w;
-            var dltY = curve / textHeight;
-            var y = 0;
-            while (i--) {
-                if (isTri) {
-                    y += dltY;
-                    if (i === (w * 0.5)|0) dltY = -dltY;
-                } else {
-                    y = bottom - curve * Math.sin(i * angleSteps * Math.PI / 180);
-                }
-                ctx.drawImage(os, i, 0, 1, textHeight,
-                    i, h * 0.5 - offsetY / textHeight * y, 1, y);
+        /// slide and dice
+        var i = w;
+        var dltY = curve / textHeight;
+        var y = 0;
+        while (i--) {
+            if (isTri) {
+                y += dltY;
+                if (i === (w * 0.5)|0) dltY = -dltY;
+            } else {
+                y = bottom - curve * Math.sin(i * angleSteps * Math.PI / 180);
             }
-        };
+            ctx.drawImage(os, i, 0, 1, textHeight,
+                i, h * 0.5 - offsetY / textHeight * y, 1, y);
+        }
+    };
 
-        self.radius = function (value) {
-            var obj = canvas.getActiveObject();
-            if(obj){
-                obj.set('radius',value);
-            }
-            canvas.renderAll();
-        };
+    self.radius = function (value) {
+        var obj = canvas.getActiveObject();
+        if(obj){
+            obj.set('radius',value);
+        }
+        canvas.renderAll();
+    };
 
-        self.spacing = function (value) {
-            var obj = canvas.getActiveObject();
-            if(obj){
-                obj.set('spacing',value);
-            }
-            canvas.renderAll();
-        };
+    self.spacing = function (value) {
+        var obj = canvas.getActiveObject();
+        if(obj){
+            obj.set('spacing',value);
+        }
+        canvas.renderAll();
+    };
 
 
 		//
@@ -1402,7 +1419,7 @@ angular.module('common.fabric', [
     // Object Layer Position
     // ==============================================================
     self.objectSendBackwards = function(activeObj) {
-        if (activeObj) {
+        if (activeObj != canvas.item(0)) {
             canvas.sendBackwards(activeObj);
             self.render();
         }
@@ -1410,7 +1427,7 @@ angular.module('common.fabric', [
 
 		self.sendToBack = function() {
 			var activeObject = canvas.getActiveObject();
-			if (activeObject) {
+			if (activeObject != canvas.item(0)) {
 				canvas.sendToBack(activeObject);
 				self.render();
 			}
@@ -1418,14 +1435,14 @@ angular.module('common.fabric', [
 
 		self.bringForward = function() {
 			var activeObject = canvas.getActiveObject();
-			if (activeObject) {
+			if (activeObject != canvas.item(0)) {
 				canvas.bringForward(activeObject);
 				self.render();
 			}
 		};
 
     self.objectBringForward = function(activeObj) {
-        if (activeObj) {
+        if (activeObj != canvas.item(0)) {
             canvas.bringForward(activeObj);
             self.render();
         }
@@ -1433,7 +1450,7 @@ angular.module('common.fabric', [
 
 		self.bringToFront = function() {
 			var activeObject = canvas.getActiveObject();
-			if (activeObject) {
+			if (activeObject != canvas.item(0)) {
 				canvas.bringToFront(activeObject);
 				self.render();
 			}
@@ -1441,7 +1458,7 @@ angular.module('common.fabric', [
 
 		//
 		// Active Object Tint Color
-		// ==============================================================
+		// =========================================================================
 		self.isTinted = function() {
 			return getActiveProp('isTinted');
 		};
@@ -1457,25 +1474,25 @@ angular.module('common.fabric', [
             }
 		};
 
-        self.applyTint = function() {
-            var activeObject = canvas.getActiveObject();
-            if(activeObject !==undefined && activeObject !==null) {
-                if (activeObject.filters[0] !== undefined && activeObject.filters[0] !== null) {
-                    activeObject.filters[0].opacity = 1;
-                    activeObject.applyFilters(canvas.renderAll.bind(canvas));
-                }
+    self.applyTint = function() {
+        var activeObject = canvas.getActiveObject();
+        if(activeObject !==undefined && activeObject !==null) {
+            if (activeObject.filters[0] !== undefined && activeObject.filters[0] !== null) {
+                activeObject.filters[0].opacity = 1;
+                activeObject.applyFilters(canvas.renderAll.bind(canvas));
             }
-        };
+        }
+    };
 
-        self.resetTint = function() {
-            var activeObject = canvas.getActiveObject();
-            if(activeObject !==undefined && activeObject !==null) {
-                if (activeObject.filters[0] !== undefined && activeObject.filters[0] !== null) {
-                    activeObject.filters[0].opacity = 0;
-                    activeObject.applyFilters(canvas.renderAll.bind(canvas));
-                }
+    self.resetTint = function() {
+        var activeObject = canvas.getActiveObject();
+        if(activeObject !==undefined && activeObject !==null) {
+            if (activeObject.filters[0] !== undefined && activeObject.filters[0] !== null) {
+                activeObject.filters[0].opacity = 0;
+                activeObject.applyFilters(canvas.renderAll.bind(canvas));
             }
-        };
+        }
+    };
 
 
 		self.getTint = function() {
@@ -1537,9 +1554,10 @@ angular.module('common.fabric', [
 			}
 		};
 
-    //
+    // ========================================================================= 	ZOOM
+
     // Zoom In
-    // ===============================================================
+
     self.zoomInObject = function () {
         var SCALE_FACTOR = 1.05;
 
@@ -1566,9 +1584,8 @@ angular.module('common.fabric', [
 				canvas.renderAll();
     };
 
-    //
     // Zoom Out
-    // ==============================================================
+
     self.zoomOutObject = function () {
         var SCALE_FACTOR = 1.05;
 
@@ -1595,14 +1612,26 @@ angular.module('common.fabric', [
 				 canvas.renderAll();
     };
 
-		//
-		// Canvas Zoom
-		// ==============================================================
+		// RESET ZOOM ============================================================== !! BUG !!
+
 		self.resetZoom = function() {
+			function findObjectWithPropertyValue(canvas, propertyName, propertyValue) {
+				var condition = {};
+				condition[propertyName] = propertyValue;
+				return _(canvas.getObjects()).filter( condition ).first()
+			}
+			var gaba = findObjectWithPropertyValue(canvas, 'id', 'gabarit');
+			var bg = findObjectWithPropertyValue(canvas, 'id', 'recbg');
+
 			self.canvasScale = 1;
-			self.setZoom();
+			self.setZoom(1.0);
+			//self.centerH();
+			//self.centerV();
 		};
 
+
+		// Canvas Zoom
+		// =========================================================================
 		self.setZoom = function() {
 			var objects = canvas.getObjects();
 			for (var i in objects) {
@@ -1674,55 +1703,55 @@ angular.module('common.fabric', [
 			}
 		};
 
-        //
-        // Object Lock
-        // ==============================================================
-        self.toggleLockObject = function(activeObj) {
+    //
+    // Object Lock
+    // ==============================================================
+    self.toggleLockObject = function(activeObj) {
 
-            if (activeObj) {
-                activeObj.lockMovementX = !activeObj.lockMovementX;
-                activeObj.lockMovementY = !activeObj.lockMovementY;
-                activeObj.lockScalingX = !activeObj.lockScalingX;
-                activeObj.lockScalingY = !activeObj.lockScalingY;
-                activeObj.lockUniScaling = !activeObj.lockUniScaling;
-                activeObj.lockRotation = !activeObj.lockRotation;
-                activeObj.lockObject = !activeObj.lockObject;
-                self.render();
-            }
-        };
+        if (activeObj) {
+            activeObj.lockMovementX = !activeObj.lockMovementX;
+            activeObj.lockMovementY = !activeObj.lockMovementY;
+            activeObj.lockScalingX = !activeObj.lockScalingX;
+            activeObj.lockScalingY = !activeObj.lockScalingY;
+            activeObj.lockUniScaling = !activeObj.lockUniScaling;
+            activeObj.lockRotation = !activeObj.lockRotation;
+            activeObj.lockObject = !activeObj.lockObject;
+            self.render();
+        }
+    };
 
-        //
-        // Lock Status
-        // ==============================================================
+    //
+    // Lock Status
+    // ==============================================================
 
-        self.isLocked = function() {
-            var activeObject = canvas.getActiveObject();
-            if (null != activeObject) {
-                if (activeObject.lockObject) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }else{
+    self.isLocked = function() {
+        var activeObject = canvas.getActiveObject();
+        if (null != activeObject) {
+            if (activeObject.lockObject) {
+                return true;
+            } else {
                 return false;
             }
-        };
+        }else{
+            return false;
+        }
+    };
 
-        //
-        // Object Lock Status
-        // ==============================================================
+    //
+    // Object Lock Status
+    // ==============================================================
 
-        self.isObjectLocked = function(activeObj) {
-            if (null != activeObj) {
-                if (activeObj.lockObject) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }else{
+    self.isObjectLocked = function(activeObj) {
+        if (null != activeObj) {
+            if (activeObj.lockObject) {
+                return true;
+            } else {
                 return false;
             }
-        };
+        }else{
+            return false;
+        }
+    };
 
 		//
 		// Active Object
@@ -1748,441 +1777,426 @@ angular.module('common.fabric', [
 
 		};
 
-        self.addWordCloud = function (wordsStr) {
-            var words = self.generateWordCloudText(wordsStr);
-            d3.layout.cloud().size([400, 300])
-                .padding(3)
-                .words(words)
-                .rotate(function() { return ~~(Math.random() * 2) * 90; })
-                .fontSize(function(d) { return d.size; })
-                .on("end", self.drawWordCloud)
-                .start();
-        };
-
-        self.drawWordCloud = function (wordsInit) {
-
-            var color = d3.scale.linear()
-                .domain([0,1,2,3,4,5,6,10,15,20,40,60,80,100])
-                .range(["#5254A3", "#8CA252", "#DE9ED6", "#6B6ECF", "#A55194", "#D6616B", "#E7BA52", "#9C9EDE", "#393B79", "#B51E1E", "#045725", "#1759BB", "#78243d", "#008080"]);
-            $('#wordcloud').html('');
-
-            d3.select("#wordcloud").append("svg")
-                .attr("width", '400px')
-                .attr("height", '400px')
-                .append("g")
-                .attr("transform", "translate(195,200)")
-                .selectAll("text")
-                .data(wordsInit)
-                .enter().append("text")
-                .style("font-size", function(d) { return d.size + "px"; })
-                .style("font-family", "Impact")
-                .style("fill", function(d, i) { return color(i); })
-                .attr("text-anchor", "middle")
-                .attr("transform", function(d) {
-                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-                })
-                .text(function(d) { return d.text; });
-
-
-            var html = d3.select("svg")
-                .attr("version", 1.1)
-                .attr("xmlns", "http://www.w3.org/2000/svg")
-                .node().parentNode.innerHTML;
-
-            //self.addShapeString(html);
-
-            var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
-            self.addImage(imgsrc);
-            $('#wordcloud').html('');
-
-
-        };
-
-
-
-        self.generateWordCloudText = function (str){
-
-            var generatedObj = [];
-            var res = str.split(" ");
-            var textLen = res.length;
-            var wordsNew = [""];
-            if(textLen < 200){
-                for(i=0; i<=199; i++){
-                    var res2 = wordsNew[0].split(" ");
-                    var textLenNew = res2.length;
-                    if(textLenNew < 200) {
-                        wordsNew[0] += " " + str;
-                    }
-                }
-
-                var wordsNew2 = wordsNew[0].split(" ");
-
-                for ( var i = 0, l = wordsNew2.length; i < l; i++ ) {
-                    generatedObj.push({"text":wordsNew2[ i ],"size":self.getRandomArbitrary()});
-                }
-
-            }else{
-                for ( var i = 0, l = res.length; i < l; i++ ) {
-                    generatedObj.push({"text":res[ i ],"size":self.getRandomArbitrary()});
-                }
-            }
-
-            return generatedObj;
-        };
-
-        self.getRandomArbitrary = function (){
-            var min = 13;
-            var max = 40;
-            var result =  Math.floor(Math.random() * (max - min));
-            return result;
-        };
-
-
-
-        self.getIsCurved = function (){
-            var obj = canvas.getActiveObject();
-            if(obj){
-                if(/curvedText/.test(obj.type)) {
-                    return true;
-                }else if(/text/.test(obj.type)) {
-                    return false;
-                }
-            }
-        };
-
-        self.getIsReversed = function () {
-            var obj = canvas.getActiveObject();
-            if(obj){
-                if(/curvedText/.test(obj.type)) {
-                    return getActiveStyle('reverse');
-                }
-            }
-        };
-
-        //
-        // deselect Active object
-        // ============================================================
-
-				self.deselectActiveObject = function() {
-					self.selectedObject = false;
-				};
-
-        //
-        // delete Active object
-        // ============================================================
-
-				self.deleteActiveObject = function() {
-					var activeObject = canvas.getActiveObject();
-					// permettre de supprimer l'objet si l'objet n'est pas le gabarit :
-					if ((activeObject != canvas.item(0)) && (activeObject != canvas.item(1))){
-						canvas.remove(activeObject);
-					}
-					self.render();
-				};
-
-        //
-        // delete object
-        // ============================================================
-
-        self.deleteObject = function(activeObj) {
-					if ((activeObj != canvas.item(0)) && (activeObj != canvas.item(1))){
-						canvas.remove(activeObj);
-					}
-            self.render();
-        };
-
-				//
-				// State Managers
-				// ==============================================================
-				self.isLoading = function() {
-					return self.loading;
-				};
-
-				self.setLoading = function(value) {
-					self.loading = value;
-				};
-
-				self.setDirty = function(value) {
-					FabricDirtyStatus.setDirty(value);
-				};
-
-				self.isDirty = function() {
-					return FabricDirtyStatus.isDirty();
-				};
-
-				self.setInitalized = function(value) {
-					self.initialized = value;
-				};
-
-				self.isInitalized = function() {
-					return self.initialized;
-				};
-
-
-				//
-				// JSON
-				// ==============================================================
-				self.getJSON = function() {
-					var initialCanvasScale = self.canvasScale;
-					self.canvasScale = 1;
-					self.resetZoom();
-
-					var json = JSON.stringify(canvas.toJSON(self.JSONExportProperties));
-
-					self.canvasScale = initialCanvasScale;
-					self.setZoom();
-
-					return json;
-				};
-
-				self.loadJSON = function(json) {
-					self.setLoading(true);
-					canvas.loadFromJSON(json, function() {
-						$timeout(function() {
-							self.setLoading(false);
-
-							if (!self.editable) {
-								self.disableEditing();
-							}
-
-							self.render();
-						});
-					});
-				};
-
-        //
-        // Save Canvas
-        // ==============================================================
-        self.exportCanvasObjectAsJson = function() {
-
-            canvas.deactivateAll().renderAll();
-            return canvas.toJSON();
-        };
-
-
-        //
-        // Save Canvas
-        // ==============================================================
-        self.saveCanvasObject = function() {
-
-            canvas.deactivateAll().renderAll();
-
-						var obj = canvas.item(0);
-
-						var hauteur = parseInt($('#hauteur').text(), 10);
-						var largeur = parseInt($('#largeur').text(), 10);
-
-						// My SVG file as s string.
-						var mySVG = canvas.toSVG({width: largeur,
-																		 	height: hauteur,
-																		  viewBox: {
-																					x:10,
-																				  y:10,
-																				  width: largeur-20,
-																				  height: hauteur-20
-																			}
-																		 });
-            //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.css";
-						//@import url('+currentFontUrl+');
-            $(document).find('.svgElements').html(mySVG);
-            var fonts = '<defs><style type="text/css">@import url("https://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
-
-            $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
-            var svgResult = $(document).find('.svgElements').html();
-
-            // Create a Data URI.
-            var svg = 'data:image/svg+xml;base64,'+window.btoa(svgResult);
-            window.open(svg);
-        };
-
-        //
-        // Save Canvas
-        // =====================================================================
-        self.saveCanvasObjectAsSvg = function() {
-
-            canvas.deactivateAll().renderAll();
-
-						// ================================ enlever le gabarit en pointillés
-						// =================================================================
-						function findObjectWithPropertyValue(canvas, propertyName, propertyValue) {
-			        var condition = {};
-			        condition[propertyName] = propertyValue;
-			        return _(canvas.getObjects()).filter( condition ).first()
-						}
-						var gaba = findObjectWithPropertyValue(canvas, 'id', 'gabarit');
-						canvas.remove(gaba);
-						// =================================================================
-
-						//var gabarit = self.gabaritResize(gabarit);
-						//canvas.item(canvas.getObjects().length-1).remove();
-
-						// ================================== récupérer la taille de l'objet
-						// =================================================================
-						var obj = canvas.item(0);
-						var hauteur = obj.height;
-						var largeur = obj.width;
-						var objx = obj.x;
-						var objy = obj.y;
-						// =================================================================
-						var br = obj.getBoundingRect();
-
-						// ======================================== grouper tous les calques
-						// =================================================================
-						var objs = canvas.getObjects().map(function(o) {
-						  return o.set('active', true);
-						});
-
-						var group = new fabric.Group(objs, {
-						  originX: 'left',
-						  originY: 'top',
-							left: 0,
-							top: 0,
-							width: largeur,
-							height: hauteur
-						});
-
-						canvas._activeObject = null;
-						canvas.setActiveGroup(group.setCoords()).renderAll();
-
-						// =================================================================
-
-						//canvas.width = largeur;
-						//canvas.height = hauteur;
-
-						// ================================================== exorter le SVG
-						// =================================================================
-						var mySVG = canvas.toSVG({ width: largeur,
-																		   height: hauteur,
-																			 viewBox: {
-																				  x:0,
-																				  y:0,
-																				  width: largeur,
-																				  height: hauteur
-																		 	}
-																		});
-            //var mySVG = canvas.toSVG();
-            //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.csss";
-						//@import url('+currentFontUrl+');
-            $(document).find('.svgElements').html(mySVG);
-            var fonts = '<defs><style type="text/css">@import url("https://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
-
-            $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
-            var svgResult = $(document).find('.svgElements').html();
-
-            // Create a Data URI.
-            var svg = 'data:image/svg+xml;base64,'+window.btoa(svgResult);
-
-            return svg;
-
-						// =================================================================
-        };
-
-        //
-        // Save Canvas
-        // ==============================================================
-        self.saveCanvasObjectAsPng = function() {
-
-            canvas.deactivateAll().renderAll();
-
-            var png = canvas.toDataURL({
-              format: 'png',
-              multiplier: 12
-            });
-
-            return png;
-        };
-
-        //
-        // Save Canvas
-        // ==============================================================
-        self.saveCanvasObjectAsJpg = function() {
-
-            canvas.deactivateAll().renderAll();
-
-            var jpeg = canvas.toDataURL({
-              format: 'jpeg',
-              multiplier: 1
-            });
-
-            return jpeg;
-        };
-
-        //
-        // Export Canvas
-        // ==============================================================
-        self.downloadCanvasObject = function() {
-            canvas.deactivateAll().renderAll();
-
-            var data = canvas.toDataURL({
-              format: 'png',
-              multiplier: 1
-            });
-
-            var img = document.createElement('img');
-            img.src = data;
-
-            var a = document.createElement('a');
-            a.setAttribute("download", "export.png");
-            a.setAttribute("href", data);
-            a.appendChild(img);
-
-            var w = open();
-            w.document.title = 'Export Image';
-            w.document.body.appendChild(a);
-
-        };
-
-        //
-        // download Canvas As PDF
-        // =============================================================
-        self.downloadCanvasObjectAsPDF = function () {
-            canvas.deactivateAll().renderAll();
-						var hauteur = parseInt($('#hauteur').text(), 10);
-						var largeur = parseInt($('#largeur').text(), 10);
-            try {
-                canvas.getContext('2d');
-                var imgData = canvas.toDataURL("image/jpeg", 1.0);
-                var pdf = new jsPDF('p', 'cm', [hauteur, largeur]);
-                pdf.addImage(imgData, 'JPEG', 5, 5, hauteur, largeur);
-                var namefile = 'export';
-                if(namefile != null) {
-                    pdf.save(namefile + ".pdf");
-                    return true;
-                }else{
-                    return false;
-                }
-            } catch(e) {
-                alert("Error description: " + e.message);
-            }
-        };
-
-        //
-        // Print Canvas
-        // =============================================================
-        self.printCanvasObject = function () {
-            canvas.deactivateAll().renderAll();
-
-            var dataUrl = canvas.toDataURL(); //attempt to save base64 string to server using this var
-            var windowContent = '<!DOCTYPE html>';
-            windowContent += '<html>'
-            windowContent += '<head><title>Print canvas</title></head>';
-            windowContent += '<body>'
-            windowContent += '<img src="' + dataUrl + '">';
-            windowContent += '</body>';
-            windowContent += '</html>';
-            var printWin = window.open('','','width=440,height=360');
-            printWin.document.open();
-            printWin.document.write(windowContent);
-            printWin.document.close();
-            printWin.focus();
-            printWin.print();
-            printWin.close();
-
-        };
+		/*  self.addWordCloud = function (wordsStr) {
+		    var words = self.generateWordCloudText(wordsStr);
+		    d3.layout.cloud().size([400, 300])
+		        .padding(3)
+		        .words(words)
+		        .rotate(function() { return ~~(Math.random() * 2) * 90; })
+		        .fontSize(function(d) { return d.size; })
+		        .on("end", self.drawWordCloud)
+		        .start();
+		};
+
+		self.drawWordCloud = function (wordsInit) {
+
+		    var color = d3.scale.linear()
+		        .domain([0,1,2,3,4,5,6,10,15,20,40,60,80,100])
+		        .range(["#5254A3", "#8CA252", "#DE9ED6", "#6B6ECF", "#A55194", "#D6616B", "#E7BA52", "#9C9EDE", "#393B79", "#B51E1E", "#045725", "#1759BB", "#78243d", "#008080"]);
+		    $('#wordcloud').html('');
+
+		    d3.select("#wordcloud").append("svg")
+		        .attr("width", '400px')
+		        .attr("height", '400px')
+		        .append("g")
+		        .attr("transform", "translate(195,200)")
+		        .selectAll("text")
+		        .data(wordsInit)
+		        .enter().append("text")
+		        .style("font-size", function(d) { return d.size + "px"; })
+		        .style("font-family", "Impact")
+		        .style("fill", function(d, i) { return color(i); })
+		        .attr("text-anchor", "middle")
+		        .attr("transform", function(d) {
+		            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+		        })
+		        .text(function(d) { return d.text; });
+
+
+		    var html = d3.select("svg")
+		        .attr("version", 1.1)
+		        .attr("xmlns", "http://www.w3.org/2000/svg")
+		        .node().parentNode.innerHTML;
+
+		    //self.addShapeString(html);
+
+		    var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
+		    self.addImage(imgsrc);
+		    $('#wordcloud').html('');
+
+
+		};
+
+
+
+		self.generateWordCloudText = function (str){
+
+		    var generatedObj = [];
+		    var res = str.split(" ");
+		    var textLen = res.length;
+		    var wordsNew = [""];
+		    if(textLen < 200){
+		        for(i=0; i<=199; i++){
+		            var res2 = wordsNew[0].split(" ");
+		            var textLenNew = res2.length;
+		            if(textLenNew < 200) {
+		                wordsNew[0] += " " + str;
+		            }
+		        }
+
+		        var wordsNew2 = wordsNew[0].split(" ");
+
+		        for ( var i = 0, l = wordsNew2.length; i < l; i++ ) {
+		            generatedObj.push({"text":wordsNew2[ i ],"size":self.getRandomArbitrary()});
+		        }
+
+		    }else{
+		        for ( var i = 0, l = res.length; i < l; i++ ) {
+		            generatedObj.push({"text":res[ i ],"size":self.getRandomArbitrary()});
+		        }
+		    }
+
+		    return generatedObj;
+		};*/
+
+		self.getRandomArbitrary = function (){
+		    var min = 13;
+		    var max = 40;
+		    var result =  Math.floor(Math.random() * (max - min));
+		    return result;
+		};
+
+
+
+		self.getIsCurved = function (){
+		    var obj = canvas.getActiveObject();
+		    if(obj){
+		        if(/curvedText/.test(obj.type)) {
+		            return true;
+		        }else if(/text/.test(obj.type)) {
+		            return false;
+		        }
+		    }
+		};
+
+		self.getIsReversed = function () {
+		    var obj = canvas.getActiveObject();
+		    if(obj){
+		        if(/curvedText/.test(obj.type)) {
+		            return getActiveStyle('reverse');
+		        }
+		    }
+		};
 
 		//
-		// Download Canvas
+		// deselect Active object
+		// ============================================================
+
+		self.deselectActiveObject = function() {
+			self.selectedObject = false;
+		};
+
+		//
+		// delete Active object
+		// ============================================================
+
+		self.deleteActiveObject = function() {
+			var activeObject = canvas.getActiveObject();
+			// permettre de supprimer l'objet si l'objet n'est pas le gabarit :
+			if (activeObject != canvas.item(0)) {
+				canvas.remove(activeObject);
+			}
+			self.render();
+		};
+
+		//
+		// delete object
+		// ============================================================
+
+		self.deleteObject = function(activeObj) {
+			if (activeObj != canvas.item(0)) {
+				canvas.remove(activeObj);
+			}
+		    self.render();
+		};
+
+		//
+		// State Managers
 		// ==============================================================
+		self.isLoading = function() {
+			return self.loading;
+		};
+
+		self.setLoading = function(value) {
+			self.loading = value;
+		};
+
+		self.setDirty = function(value) {
+			FabricDirtyStatus.setDirty(value);
+		};
+
+		self.isDirty = function() {
+			return FabricDirtyStatus.isDirty();
+		};
+
+		self.setInitalized = function(value) {
+			self.initialized = value;
+		};
+
+		self.isInitalized = function() {
+			return self.initialized;
+		};
+
+
+
+		// =======================================================================================================================================================
+		//                                                                                                                                                  EXPORT
+		// =======================================================================================================================================================
+
+
+		// ========================================================================= JSON
+		self.getJSON = function() {
+			var initialCanvasScale = self.canvasScale;
+			self.canvasScale = 1;
+			self.resetZoom();
+
+			var json = JSON.stringify(canvas.toJSON(self.JSONExportProperties));
+
+			self.canvasScale = initialCanvasScale;
+			self.setZoom();
+
+			return json;
+		};
+
+		self.loadJSON = function(json) {
+			self.setLoading(true);
+			canvas.loadFromJSON(json, function() {
+				$timeout(function() {
+					self.setLoading(false);
+
+					if (!self.editable) {
+						self.disableEditing();
+					}
+
+					self.render();
+				});
+			});
+		};
+
+		self.exportCanvasObjectAsJson = function() {
+		    canvas.deactivateAll().renderAll();
+		    return canvas.toJSON();
+		};
+
+
+		// ========================================================================= saveCanvasObject
+		self.saveCanvasObject = function() {
+
+		    canvas.deactivateAll().renderAll();
+
+				var obj = canvas.item(0);
+				//var hauteur = parseInt($('#hauteur').text(), 10);
+				//var largeur = parseInt($('#largeur').text(), 10);
+
+				// My SVG file as s string.
+				var mySVG = canvas.toSVG();
+		    //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.css";
+				//@import url('+currentFontUrl+');
+		    $(document).find('.svgElements').html(mySVG);
+		    var fonts = '<defs><style type="text/css">@import url("https://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
+
+		    $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
+		    var svgResult = $(document).find('.svgElements').html();
+
+		    // Create a Data URI.
+		    var svg = 'data:image/svg+xml;base64,'+window.btoa(svgResult);
+		    window.open(svg);
+		};
+
+		// ========================================================================= SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG
+
+		self.saveCanvasObjectAsSvg = function() {
+
+		    canvas.deactivateAll().renderAll();
+
+				// ==================================== enlever le gabarit en pointillés
+
+				function findObjectWithPropertyValue(canvas, propertyName, propertyValue) {
+		      var condition = {};
+		      condition[propertyName] = propertyValue;
+		      return _(canvas.getObjects()).filter( condition ).first()
+				}
+				var gaba = findObjectWithPropertyValue(canvas, 'id', 'gabarit');
+				canvas.remove(gaba);
+
+				// ====================================== récupérer la taille de l'objet
+
+				var obj = canvas.item(0);
+				var hauteur = obj.height;
+				var largeur = obj.width;
+				var br = obj.getBoundingRect();
+				var originalScaleX = obj.setScaleX(obj.originalState.scaleX);
+				var originalScaleY = obj.setScaleY(obj.originalState.scaleY);
+
+
+
+
+				// ============================================ grouper tous les calques
+				var center = canvas.getCenter();
+				var objs = canvas.getObjects().map(function(o) {
+				  return o.set('active', true);
+				});
+
+				var group = new fabric.Group(objs, {
+				  originX: 'center',
+				  originY: 'center',
+					left: center.left,
+					top: center.top,
+					scaleX:1,
+					scaleY:1
+				});
+
+				canvas.setActiveGroup(group.setCoords()).renderAll();
+
+				// =====================================================================
+
+				//canvas.width = largeur;
+				//canvas.height = hauteur;
+
+				// ====================================================== exorter le SVG
+
+				/*var mySVG = canvas.toSVG({ width: largeur,
+																   height: hauteur,
+																	 viewBox: {
+																		  x:0,
+																		  y:0,
+																		  width: largeur,
+																		  height: hauteur
+																 	}
+																});
+		    //var mySVG = canvas.toSVG();
+		    //var currentFontUrl = "http://localhost:8000/wordpress/wp-content/themes/fb/config/css/fonts.csss";
+				//@import url('+currentFontUrl+');
+		    $(document).find('.svgElements').html(mySVG);
+		    var fonts = '<defs><style type="text/css">@import url("https://fonts.googleapis.com/css?family=Lato:400,300|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka");</style></defs>';
+
+		    $( fonts ).insertAfter( $(document).find( ".svgElements > svg > desc" ) );
+		    var svgResult = $(document).find('.svgElements').html();
+
+		    // Create a Data URI.
+		    var svg = 'data:image/svg+xml;base64,'+window.btoa(svgResult);
+				console.log(svgResult);
+		    return svg;*/
+
+				// ===================================================================== fin svg
+		};
+
+
+		// ========================================================================= PNG
+		self.saveCanvasObjectAsPng = function() {
+
+		    canvas.deactivateAll().renderAll();
+
+		    var png = canvas.toDataURL({
+		      format: 'png',
+		      multiplier: 12
+		    });
+
+		    return png;
+		};
+
+		// ========================================================================= JPG
+		self.saveCanvasObjectAsJpg = function() {
+
+				var br = canvas.item(0).getBoundingRect();
+
+		    canvas.deactivateAll().renderAll();
+
+		    var jpeg = canvas.toDataURL({
+		      format: 'jpeg',
+					quality: '1.0',
+					left: br.left+11,
+					top: br.top+11,
+					width: br.width-22,
+					height: br.height-22,
+					multiplier: 16
+		    });
+
+		    return jpeg;
+		};
+
+		// =====================================================================================================================================================
+		// 																																																																							DOWNLOAD
+		// =====================================================================================================================================================
+
+		// ========================================================================= PNG
+		self.downloadCanvasObject = function() {
+		    canvas.deactivateAll().renderAll();
+
+		    var data = canvas.toDataURL({
+		      format: 'png',
+		      multiplier: 12
+		    });
+
+		    var img = document.createElement('img');
+		    img.src = data;
+
+		    var a = document.createElement('a');
+		    a.setAttribute("download", "export.png");
+		    a.setAttribute("href", data);
+		    a.appendChild(img);
+
+		    var w = open();
+		    w.document.title = 'Export Image';
+		    w.document.body.appendChild(a);
+		};
+
+		// ======================================================================== PDF
+		self.downloadCanvasObjectAsPDF = function () {
+		    canvas.deactivateAll().renderAll();
+				var hauteur = parseInt($('#hauteur').text(), 10);
+				var largeur = parseInt($('#largeur').text(), 10);
+		    try {
+		        canvas.getContext('2d');
+		        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+		        var pdf = new jsPDF('p', 'cm', [hauteur+10, largeur+10]);
+		        pdf.addImage(imgData, 'JPEG', 5, 5, hauteur, largeur);
+		        var namefile = 'export';
+		        if(namefile != null) {
+		            pdf.save(namefile + ".pdf");
+		            return true;
+		        }else{
+		            return false;
+		        }
+		    } catch(e) {
+		        alert("Error description: " + e.message);
+		    }
+		};
+
+		// ======================================================================== PRINT
+		self.printCanvasObject = function () {
+		    canvas.deactivateAll().renderAll();
+
+		    var dataUrl = canvas.toDataURL(); //attempt to save base64 string to server using this var
+		    var windowContent = '<!DOCTYPE html>';
+		    windowContent += '<html>'
+		    windowContent += '<head><title>Print canvas</title></head>';
+		    windowContent += '<body>'
+		    windowContent += '<img src="' + dataUrl + '">';
+		    windowContent += '</body>';
+		    windowContent += '</html>';
+		    var printWin = window.open('','','width=440,height=360');
+		    printWin.document.open();
+		    printWin.document.write(windowContent);
+		    printWin.document.close();
+		    printWin.focus();
+		    printWin.print();
+		    printWin.close();
+
+		};
+
+		// Download Canvas
+		// =========================================================================  DOWNLOAD
 		self.getCanvasData = function() {
 			var data = canvas.toDataURL({
 				width: canvas.getWidth(),
@@ -2222,7 +2236,7 @@ angular.module('common.fabric', [
 
 		//
 		// Continuous Rendering
-		// ==============================================================
+		// =========================================================================
 		// Upon initialization re render the canvas
 		// to account for fonts loaded from CDN's
 		// or other lazy loaded items.
@@ -2335,7 +2349,6 @@ angular.module('common.fabric', [
 			    obj.left = Math.max(obj.left, obj.left-obj.getBoundingRect().left + (obj.cornerSize / 2));
 			  }
 			  if(obj.getBoundingRect().top+obj.getBoundingRect().height + obj.cornerSize  > obj.canvas.height || obj.getBoundingRect().left+obj.getBoundingRect().width + obj.cornerSize  > obj.canvas.width) {
-
 			    obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top - obj.cornerSize / 2);
 			    obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left - obj.cornerSize /2);
 			  }
@@ -2386,165 +2399,165 @@ angular.module('common.fabric', [
 
 	// drawing mode //////////////////////////////////////////////////////////////
 
-        self.toggleDrawing = function (){
-            canvas.isDrawingMode = !canvas.isDrawingMode;
-            if (canvas.isDrawingMode) {
-                return 'Cancel';
-            }
-            else {
-                return 'Enter';
-            }
+    self.toggleDrawing = function (){
+        canvas.isDrawingMode = !canvas.isDrawingMode;
+        if (canvas.isDrawingMode) {
+            return 'Cancel';
+        }
+        else {
+            return 'Enter';
+        }
 
-        };
+    };
 
-        self.enterDrawing = function (){
-            canvas.isDrawingMode = true;
+    self.enterDrawing = function (){
+        canvas.isDrawingMode = true;
 
-        };
+    };
 
-        self.exitDrawing = function (){
-            canvas.isDrawingMode = false;
+    self.exitDrawing = function (){
+        canvas.isDrawingMode = false;
 
-        };
+    };
 
-        self.changeDrawingMode = function (mode, color, width, shadow){
+    self.changeDrawingMode = function (mode, color, width, shadow){
 
-            if (fabric.PatternBrush) {
+        if (fabric.PatternBrush) {
 
-                var vLinePatternBrush = new fabric.PatternBrush(canvas);
-                vLinePatternBrush.getPatternSrc = function() {
-                    var patternCanvas = fabric.document.createElement('canvas');
-                    patternCanvas.width = patternCanvas.height = 10;
-                    var ctx = patternCanvas.getContext('2d');
+            var vLinePatternBrush = new fabric.PatternBrush(canvas);
+            vLinePatternBrush.getPatternSrc = function() {
+                var patternCanvas = fabric.document.createElement('canvas');
+                patternCanvas.width = patternCanvas.height = 10;
+                var ctx = patternCanvas.getContext('2d');
 
-                    ctx.strokeStyle = this.color;
-                    ctx.lineWidth = 5;
-                    ctx.beginPath();
-                    ctx.moveTo(0, 5);
-                    ctx.lineTo(10, 5);
-                    ctx.closePath();
-                    ctx.stroke();
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 5;
+                ctx.beginPath();
+                ctx.moveTo(0, 5);
+                ctx.lineTo(10, 5);
+                ctx.closePath();
+                ctx.stroke();
 
-                    return patternCanvas;
-                };
+                return patternCanvas;
+            };
 
-                var hLinePatternBrush = new fabric.PatternBrush(canvas);
-                hLinePatternBrush.getPatternSrc = function() {
+            var hLinePatternBrush = new fabric.PatternBrush(canvas);
+            hLinePatternBrush.getPatternSrc = function() {
 
-                    var patternCanvas = fabric.document.createElement('canvas');
-                    patternCanvas.width = patternCanvas.height = 10;
-                    var ctx = patternCanvas.getContext('2d');
+                var patternCanvas = fabric.document.createElement('canvas');
+                patternCanvas.width = patternCanvas.height = 10;
+                var ctx = patternCanvas.getContext('2d');
 
-                    ctx.strokeStyle = this.color;
-                    ctx.lineWidth = 5;
-                    ctx.beginPath();
-                    ctx.moveTo(5, 0);
-                    ctx.lineTo(5, 10);
-                    ctx.closePath();
-                    ctx.stroke();
+                ctx.strokeStyle = this.color;
+                ctx.lineWidth = 5;
+                ctx.beginPath();
+                ctx.moveTo(5, 0);
+                ctx.lineTo(5, 10);
+                ctx.closePath();
+                ctx.stroke();
 
-                    return patternCanvas;
-                };
+                return patternCanvas;
+            };
 
-                var squarePatternBrush = new fabric.PatternBrush(canvas);
-                squarePatternBrush.getPatternSrc = function() {
+            var squarePatternBrush = new fabric.PatternBrush(canvas);
+            squarePatternBrush.getPatternSrc = function() {
 
-                    var squareWidth = 10, squareDistance = 2;
+                var squareWidth = 10, squareDistance = 2;
 
-                    var patternCanvas = fabric.document.createElement('canvas');
-                    patternCanvas.width = patternCanvas.height = squareWidth + squareDistance;
-                    var ctx = patternCanvas.getContext('2d');
+                var patternCanvas = fabric.document.createElement('canvas');
+                patternCanvas.width = patternCanvas.height = squareWidth + squareDistance;
+                var ctx = patternCanvas.getContext('2d');
 
-                    ctx.fillStyle = this.color;
-                    ctx.fillRect(0, 0, squareWidth, squareWidth);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(0, 0, squareWidth, squareWidth);
 
-                    return patternCanvas;
-                };
+                return patternCanvas;
+            };
 
-                var diamondPatternBrush = new fabric.PatternBrush(canvas);
-                diamondPatternBrush.getPatternSrc = function() {
+            var diamondPatternBrush = new fabric.PatternBrush(canvas);
+            diamondPatternBrush.getPatternSrc = function() {
 
-                    var squareWidth = 10, squareDistance = 6;
-                    var patternCanvas = fabric.document.createElement('canvas');
-                    var rect = new fabric.Rect({
-                        width: squareWidth,
-                        height: squareWidth,
-                        angle: 45,
-                        fill: this.color
-                    });
+                var squareWidth = 10, squareDistance = 6;
+                var patternCanvas = fabric.document.createElement('canvas');
+                var rect = new fabric.Rect({
+                    width: squareWidth,
+                    height: squareWidth,
+                    angle: 45,
+                    fill: this.color
+                });
 
-                    var canvasWidth = rect.getBoundingRectWidth();
-                    var canvasWidth  = canvasWidth - 28;
-                    patternCanvas.width = patternCanvas.height = canvasWidth + squareDistance;
-                    rect.set({ left: canvasWidth / 2, top: canvasWidth / 2 });
+                var canvasWidth = rect.getBoundingRectWidth();
+                var canvasWidth  = canvasWidth - 28;
+                patternCanvas.width = patternCanvas.height = canvasWidth + squareDistance;
+                rect.set({ left: canvasWidth / 2, top: canvasWidth / 2 });
 
-                    var ctx = patternCanvas.getContext('2d');
-                    rect.render(ctx);
+                var ctx = patternCanvas.getContext('2d');
+                rect.render(ctx);
 
-                    return patternCanvas;
-                };
-
-
-
-            }
-
-            if (mode === 'hline') {
-                canvas.freeDrawingBrush = vLinePatternBrush;
-            }
-            else if (mode === 'vline') {
-                canvas.freeDrawingBrush = hLinePatternBrush;
-            }
-            else if (mode === 'square') {
-                canvas.freeDrawingBrush = squarePatternBrush;
-            }
-            else if (mode === 'diamond') {
-                canvas.freeDrawingBrush = diamondPatternBrush;
-            }
-            else if (mode === 'texture') {
-                canvas.freeDrawingBrush = texturePatternBrush;
-            }
-            else {
-
-                canvas.freeDrawingBrush = new fabric[mode + 'Brush'](canvas);
-            }
-
-            canvas.freeDrawingBrush.color = color;
-            canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
-            canvas.freeDrawingBrush.shadowBlur = parseInt(shadow, 10) || 0;
+                return patternCanvas;
+            };
 
 
-        };
 
-        self.resetBrush = function (mode, color, width, shadow){
+        }
+
+        if (mode === 'hline') {
+            canvas.freeDrawingBrush = vLinePatternBrush;
+        }
+        else if (mode === 'vline') {
+            canvas.freeDrawingBrush = hLinePatternBrush;
+        }
+        else if (mode === 'square') {
+            canvas.freeDrawingBrush = squarePatternBrush;
+        }
+        else if (mode === 'diamond') {
+            canvas.freeDrawingBrush = diamondPatternBrush;
+        }
+        else if (mode === 'texture') {
+            canvas.freeDrawingBrush = texturePatternBrush;
+        }
+        else {
 
             canvas.freeDrawingBrush = new fabric[mode + 'Brush'](canvas);
-            canvas.freeDrawingBrush.color = color;
-            canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
-            canvas.freeDrawingBrush.shadowBlur = parseInt(shadow, 10) || 0;
-        };
+        }
 
-        self.fillDrawing = function (color){
-            canvas.freeDrawingBrush.color = color;
-        };
+        canvas.freeDrawingBrush.color = color;
+        canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
+        canvas.freeDrawingBrush.shadowBlur = parseInt(shadow, 10) || 0;
 
-        self.changeDrawingWidth = function (width){
-            canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
-        };
 
-        self.changeDrawingShadow = function (shadow){
-            canvas.freeDrawingBrush.shadowBlur = parseInt(shadow, 10) || 0;
-        };
+    };
 
-        self.readyHandTool = function (dBrush, dColor, dWidth, dShadow){
+    self.resetBrush = function (mode, color, width, shadow){
 
-            if (canvas.freeDrawingBrush) {
-                canvas.freeDrawingBrush = new fabric[dBrush+'Brush'](canvas);
-                canvas.freeDrawingBrush.color = dColor;
-                canvas.freeDrawingBrush.width = parseInt(dWidth, 10) || 1;
-                canvas.freeDrawingBrush.shadowBlur = parseInt(dShadow, 10) || 0;
-            }
+        canvas.freeDrawingBrush = new fabric[mode + 'Brush'](canvas);
+        canvas.freeDrawingBrush.color = color;
+        canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
+        canvas.freeDrawingBrush.shadowBlur = parseInt(shadow, 10) || 0;
+    };
 
-        };
+    self.fillDrawing = function (color){
+        canvas.freeDrawingBrush.color = color;
+    };
+
+    self.changeDrawingWidth = function (width){
+        canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
+    };
+
+    self.changeDrawingShadow = function (shadow){
+        canvas.freeDrawingBrush.shadowBlur = parseInt(shadow, 10) || 0;
+    };
+
+    self.readyHandTool = function (dBrush, dColor, dWidth, dShadow){
+
+        if (canvas.freeDrawingBrush) {
+            canvas.freeDrawingBrush = new fabric[dBrush+'Brush'](canvas);
+            canvas.freeDrawingBrush.color = dColor;
+            canvas.freeDrawingBrush.width = parseInt(dWidth, 10) || 1;
+            canvas.freeDrawingBrush.shadowBlur = parseInt(dShadow, 10) || 0;
+        }
+
+    };
 
 		//
 		// Constructor

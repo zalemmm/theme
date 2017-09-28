@@ -649,7 +649,7 @@ md-tab-content {
     max-width: 31.9%;
   }
   .thumb_listing ul li img {
-    max-width: 150px;
+    max-width: 30px;
   }
   .canvas_options li {
     margin: auto 12px;
@@ -680,7 +680,7 @@ md-tab-content {
     max-width: 31.6%;
   }
   .thumb_listing ul li img {
-    max-width: 150px;
+    max-width: 30px;
   }
   .m-prod_detail_attr .m-prod_counter {
     padding-left: 0 !important;
@@ -701,7 +701,7 @@ md-tab-content {
     max-width: 47.6%;
   }
   .thumb_listing ul li img {
-    max-width: 170px;
+    max-width: 30px;
   }
 }
 
@@ -776,7 +776,7 @@ md-tab-content {
   background: #fff none repeat scroll 0 0;
   display: inline-block;
   margin: auto 5px 5px;
-  max-width: 20%;
+  max-width: 10%;
   padding: 5px 0;
   text-align: center;
   width: 100%;
@@ -794,8 +794,8 @@ md-tab-content {
 
 .thumb_listing ul li img {
   display: block;
-  max-width: 40px;
-  height: 40px;
+  max-width: 30px;
+  height: 20px;
   margin: auto;
 }
 
@@ -1247,7 +1247,13 @@ body {
 }
 
 .alert {
+  font-size: 14px;
+}
 
+.alert  strong {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 900;
 }
 
 .ulChildMenu {

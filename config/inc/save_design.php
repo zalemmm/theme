@@ -91,17 +91,24 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		$result = array();
 		$filenames = array();
 		foreach ($post_data as $key => $value) {
+
+
+
 			if(!empty($value) && $value != null){
 
+				$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
 
-				$destination = dirname(dirname(__FILE__)).'/saved_design/jpg/';
+				if (!is_dir($destination)) {
+						mkdir($destination, 0777, true);
+				}
 
-				$filename = $key.'design_'.time().'.jpg';
+				$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.jpg';
 
 				$contant = file_get_contents($value);
 
 				file_put_contents($destination.$filename, $contant);
-				$filenames[] = $site_url.'/saved_design/jpg/'.$filename;
+				//chmod($filename, 0664);
+				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
 
 			}
 		}
@@ -112,7 +119,7 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 		echo json_encode($result);
 
-		send_design($destination, $filename);
+		//send_design($destination, $filename);
 
 } else{
 

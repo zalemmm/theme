@@ -101,25 +101,21 @@
                                                 <div class="col-md-12">
                                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                   <h4 class="modal-title">Astuces / FAQ</h4>
-                                                    <p class="alert alert-info alert-dismissable">
-                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                        Pour déplacer ensemble vos calques dans l'espace de travail, pensez à d'abord appuyer sur le bouton '<i class="fa fa-object-group"></i> Tout sélectionner' (vous pouvez aussi les sélectionner avec la souris).
-                                                    </p>
-                                                    <p class="alert alert-danger alert-dismissable">
-                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                        Si vous supprimez des calques, veillez à ne pas supprimer le calque initial (gabarit).
-                                                    </p>
-                                                    <p class="alert alert-info alert-dismissable">
-                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                        Si par erreur votre gabarit disparait, fermer la popup et relancer l'application avec le bouton "créer la maquette" pour retrouver un gabarit vierge.
-                                                    </p>
                                                     <p  class="alert alert-danger alert-dismissable">
                                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                        Attention votre maquette n'est pas sauvegardée automatiquement: il n'est pas possible de fermer cette fenêtre et de la réouvrir plus tard pour terminer votre travail. Vous devez terminer votre maquette et l'enregistrer dans la même session.
+                                                        <strong>Attention votre maquette n'est pas sauvegardée automatiquement:</strong> il n'est pas possible de fermer cette fenêtre et de la réouvrir plus tard pour terminer votre travail. Vous devez terminer votre maquette et l'enregistrer dans la même session.
+                                                    </p>
+                                                    <p class="alert alert-info alert-dismissable">
+                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        <strong>Pour déplacer ensemble vos calques</strong> dans l'espace de travail, pensez à d'abord appuyer sur le bouton '<i class="fa fa-object-group"></i> Tout sélectionner' (vous pouvez aussi les sélectionner avec la souris).
                                                     </p>
                                                     <p  class="alert alert-info alert-dismissable">
                                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                        '<i class="fa fa-save" ></i> Enregistrer' envoie votre maquette à notre service infographie. Suivant la taille des fichiers que vous avez uploadé, l'enregistrement peut prendre quelques minutes, veillez à garder l'application ouverte jusqu'à voir un message de confirmation.
+                                                        '<i class="fa fa-save" ></i> <strong>Enregistrer' envoie votre maquette à notre service infographie</strong>. Suivant la taille des fichiers que vous avez uploadé, l'enregistrement peut prendre quelques minutes, veillez à garder l'application ouverte jusqu'à voir un message de confirmation.
+                                                    </p>
+                                                    <p class="alert alert-info alert-dismissable">
+                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        <strong>Les pointillés gris représentent la marge technique</strong>, ce calque est indicatif et sera automatiquement retiré à l'enregistrement de votre maquette. Il est déconseillé de placer du texte ou vos logos trop près dès bords pour éviter qu'ils soient tronqués.
                                                     </p>
                                                 </div>
 
@@ -534,7 +530,7 @@
                             <ul>
                                 <li class="saveObject">
 
-                                      <a ng-hide="loader" ng-click="saveObjectAsSvg()" href="#" class="ng-scope">
+                                      <a ng-hide="loader" ng-click="saveObjectAsJpg()" href="#" class="ng-scope">
                                           <i class="fa fa-save" ></i>
                                           <br />Enregistrer
                                       </a>

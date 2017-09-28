@@ -152,10 +152,10 @@ angular.module('productApp', [
             }
         };
 
-        $scope.makeCode = function(elText) {
+/*        $scope.makeCode = function(elText) {
             var qrcodesvg 	= new Qrcodesvg( elText, $scope.qrCode, 150);
             qrcodesvg.draw();
-        };
+        };*/
 
         $scope.addShape = function (path) {
             if($scope.fabric.checkBackgroundImage()){
@@ -359,7 +359,7 @@ angular.module('productApp', [
             }
         };
 
-        $scope.addQRCode = function(text){
+/*        $scope.addQRCode = function(text){
             if($scope.fabric.checkBackgroundImage()){
                 if(typeof text != "undefined") {
                     $scope.makeCode(text);
@@ -374,7 +374,7 @@ angular.module('productApp', [
             }else{
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
-        };
+        };*/
 
         $scope.addText = function () {
 
@@ -399,7 +399,7 @@ angular.module('productApp', [
             }
         };
 
-        $scope.addWordCloud = function () {
+/*        $scope.addWordCloud = function () {
             if($scope.fabric.checkBackgroundImage()){
                 if(typeof $scope.fabric.selectedObject.textWordCloud != "undefined" && $scope.fabric.selectedObject.textWordCloud != '') {
                     $scope.fabric.addWordCloud($scope.fabric.selectedObject.textWordCloud);
@@ -411,7 +411,7 @@ angular.module('productApp', [
             }else{
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
-        };
+        };*/
 
         $scope.lockObject = function () {
             if($scope.fabric.checkBackgroundImage()){
@@ -527,8 +527,8 @@ angular.module('productApp', [
 
         $scope.saveObjectAsSvg = function () {
 
-            ngProgressLite.start();
-            $scope.loader = true;
+            //ngProgressLite.start();
+            //$scope.loader = true;
 
             //$scope.$apply();
             if($scope.fabric.checkBackgroundImage()){
@@ -548,8 +548,8 @@ angular.module('productApp', [
 
                 }).success(function (data, status, headers, config) {
 
-                    ngProgressLite.done();
-                    $scope.loader = false;
+                    //ngProgressLite.done();
+                    //$scope.loader = false;
 
                     if(data.status){
                         $mdDialog.show(
@@ -565,8 +565,8 @@ angular.module('productApp', [
 
                 }).error(function (data, status, headers, config) {
 
-                    ngProgressLite.done();
-                    $scope.loader = false;
+                    //ngProgressLite.done();
+                    //$scope.loader = false;
 
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
@@ -580,8 +580,8 @@ angular.module('productApp', [
 
         $scope.saveObjectAsPng = function () {
 
-            ngProgressLite.start();
-            $scope.loader = true;
+            //ngProgressLite.start();
+            //$scope.loader = true;
 
             if($scope.fabric.checkBackgroundImage()){
                 $scope.beforeSave();
@@ -607,15 +607,15 @@ angular.module('productApp', [
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
                                 .title('Maquette enregistrée.')
-                                .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours..')
+                                .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
                         );
                     }
                 }).error(function (data, status, headers, config) {
 
-                    ngProgressLite.done();
-                    $scope.loader = false;
+                    //ngProgressLite.done();
+                    //$scope.loader = false;
 
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
@@ -629,7 +629,11 @@ angular.module('productApp', [
 
         $scope.saveObjectAsJpg = function () {
 
+          ngProgressLite.start();
+          $scope.loader = true;
+
             if($scope.fabric.checkBackgroundImage()){
+
 
                 $scope.beforeSave();
                 var objects = $scope.fabric.designedJPGObjects;
@@ -644,18 +648,26 @@ angular.module('productApp', [
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     transformRequest: _this.transformRequest
                 }).success(function (data, status, headers, config) {
+
+                    ngProgressLite.done();
+                    $scope.loader = false;
+
                     if(data.status){
                         $mdDialog.show(
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
-                                .title('Design Saved')
-                                .textContent('Design has been saved. You can find them into "saved_design" directory.')
+                                .title('Maquette enregistrée.')
+                                .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
                                 .ariaLabel('Success')
-                                .ok('Got it!')
+                                .ok('OK!')
                         );
                     }
                 }).error(function (data, status, headers, config) {
+
+                    ngProgressLite.done();
+                    $scope.loader = false;
+
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
 
