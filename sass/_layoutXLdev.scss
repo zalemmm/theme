@@ -38,10 +38,7 @@
     width: 170px;
     left:-171px;
     top: 0;
-    .izoneInner {
-      position: fixed;
-      height: 640px;
-    }
+
   }
 
   .izoneRight {
@@ -51,15 +48,14 @@
     top: 0px;
     width: 170px;
     left: calc(100% + 1px);
-    .izoneInner {
-      position: fixed;
-      height: 640px;
-    }
   }
 
-  .iz1{
-
+  .izoneInL,
+  .izoneInR {
+    position: fixed;
+    height: 640px;
   }
+  
   @media(max-width: 1350px) {
     .izoneLeft,
     .izoneRight {

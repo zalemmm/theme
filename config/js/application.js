@@ -743,10 +743,13 @@ angular.module('productApp', [
             if($scope.fabric.checkBackgroundImage()){
                 if(action == 'zoomin') {
                     $scope.fabric.zoomInObject();
+                    _this.showNotification($scope.NOTIFICATION_MESSAGES.ZOOMPLUS, true);
                 }else if(action == 'zoomout'){
                     $scope.fabric.zoomOutObject();
+                    _this.showNotification($scope.NOTIFICATION_MESSAGES.ZOOMMOINS, true);
                 }else if(action == 'zoomreset') {
-                    $scope.fabric.resetZoom();
+                    $scope.fabric.resetZoooom();
+                    _this.showNotification($scope.NOTIFICATION_MESSAGES.ZOOMCENT, true);
                 }
                 $scope.objectLayers = [];
                 $scope.objectLayers = $scope.fabric.canvasLayers();

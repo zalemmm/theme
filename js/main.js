@@ -39,6 +39,38 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  //////////////////////////////////////////////////////////////////// Promos //
+  //////////////////////////////////////////////////////////////////////////////
+  var imageLeft = new Array ();
+  imageLeft[0] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/promoAkilux.png" title="panneaux akilux pas cher" alt="akilux agence immobilière" />';
+  imageLeft[1] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/promoGoutte.png" title="promo oriflamme beachflag" alt="promo oriflamme" />';
+  imageLeft[2] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/promoRollup.png" title="Rollup meilleur prix: 28€" alt="promo kakemono rollup" />';
+
+
+  var linkLeft = new Array ();
+  linkLeft[0] = '<a href="https://www.france-banderole.com/panneaux-akilux" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
+  linkLeft[1] = '<a href="https://www.france-banderole.com/oriflammes" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
+  linkLeft[2] = '<a href="https://www.france-banderole.com/roll-up" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
+
+
+  var imageRight = new Array ();
+  imageRight[0] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/promoStands.png" title="meilleur prix stand parapluie tissu tendu : 257€ !" alt="stand tissu pas cher" />';
+  imageRight[1] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/promoLux.png" title="roll-up conçu pour durer" alt="roll-up luxe modulable" />';
+  imageRight[2] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/promoTente.png" title="meilleur prix tentes publicitaires : 347€ !" alt="tente publicitaire pas cher" />';
+
+
+  var linkRight = new Array ();
+  linkRight[0] = '<a href="https://www.france-banderole.com/stand-parapluie/" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
+  linkRight[1] = '<a href="https://www.france-banderole.com/roll-up" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
+  linkRight[2] = '<a href="https://www.france-banderole.com/tente-publicitaire-barnum" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
+
+  var sizeL = imageLeft.length;
+  var sizeR = imageRight.length;
+  var x = Math.floor(sizeL*Math.random());
+  var y = Math.floor(sizeR*Math.random());
+  $('.izoneInL').append(imageLeft[x]+linkLeft[x]);
+  $('.izoneInR').append(imageRight[y]+linkRight[y]);
+
   ////////////////////////////////////////////////// toggle (texte déroulant) //
   //////////////////////////////////////////////////////////////////////////////
 

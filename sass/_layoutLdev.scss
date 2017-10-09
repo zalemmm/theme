@@ -3102,8 +3102,9 @@ SPAN {
 a.maquette{
   @include buttonLog($magenta, 150px);
   float: right;
-  padding-top: .3rem;
-  height: 25px;
+  padding-top: .4rem;
+  height: 28px;
+  border-radius: 14px;
   &:hover {
     background-color: $cyan;
     border:1px solid darken($cyan, 7%);

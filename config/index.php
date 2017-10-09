@@ -36,13 +36,14 @@
   $nbdesc = $_GET['desc'];
   $nbh = $_GET['hauteur'];
   $nbl = $_GET['largeur'];
+  $verso = $_GET['verso'];
   $_SESSION['nbcom'] = $nbcom;
   $_SESSION['nbname'] = $nbname;
   $_SESSION['nbdesc'] = $nbdesc;
   $_SESSION['nbh'] = $nbh;
   $_SESSION['nbl'] = $nbl;
 
-  $find = '/recto-verso/';
+  $find = '/verso/';
   $rectoVerso = preg_match_all($find, $nbdesc, $resultat);
   $rectoVerso = count($resultat[0]);
 
@@ -77,7 +78,15 @@
                         <p>Gabarit <?php
                           if ($minia3 >= 1){echo 'A3';}
                           if ($minia4 >= 1){echo 'A4';} ?>
-                          <span id="hauteur"><?php echo $nbh; ?></span> x <span id="largeur"><?php echo $nbl; ?></span> cm <?php if ($rectoVerso >= 1){echo 'recto/verso';}?> </p>
+                          <span id="hauteur"><?php echo $nbh; ?></span> x <span id="largeur"><?php echo $nbl; ?></span> cm
+                          <?php if ($rectoVerso >= 1){
+                            if ($verso != 1) {
+                              echo '<span id="rectvers">Recto</span>';
+                            }else if ($verso == 1){
+                              echo '<span id="rectvers">Verso</span>';
+                            }else{}
+                          }?>
+                        </p>
                       </div>
 
                         <h4>Créez votre maquette en quelques clics:</h4>
@@ -86,11 +95,26 @@
 
                           <div class="intro">
                             <p><span>1</span> Vous pouvez commencer par cliquer sur votre gabarit pour changer sa couleur de fond </p>
-                            <p><span>2</span> Importez vos images et entrez du texte à l'aide des boutons ci-dessus '<i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i>'</p>
-                            <p><span>3</span> Agencez vos calques : un simple clic dessus pour les déplacer, changer la taile... <br />
-                              Dans '<i class="fa fa-object-ungroup"></i> calques' vous pouvez gérer l'ordre de superposition de vos éléments</p>
-                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, vérifiez bien qu'il n'y ait pas d'erreurs et cliquez sur '<i class="fa fa-save"></i> enregistrer' pour nous la transmettre</p>
-                            <p class="dashed">Vos éléments (excepté image de fond) ne doivent pas dépasser la marge technique en pointillés gris</p>
+                            <p><span>2</span> Importez vos images et entrez du texte à l'aide des boutons ci-dessus <strong><i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i></strong></p>
+                            <p><span>3</span> Agencez vos calques : un simple clic dessus pour les déplacer, les redimentionner, etc. <br />
+                              Dans <strong>calques <i class="fa fa-object-ungroup"></i></strong> vous pouvez gérer l'ordre de superposition de vos éléments</p>
+                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, si besoin faites un <strong>reset zoom <i class="fa fa-undo" aria-hidden="true"></i></strong> pour la recentrer à sa taille maximale, puis <strong>enregistrez <i class="fa fa-save"></i></strong> pour nous la transmettre.</p>
+                            <p><i class="fa fa-warning" style="color:#ea2a6a"></i> L'enregistrement peut prendre quelques minutes, attendez le message de confirmation avant de quitter l'application !</p>
+
+                            <div class="advToggle">
+                            <!--  <div class="advanced">
+                                Activer le mode utilisateur avancé <a href="#" data-toggle="tooltip" data-placement="right" class="tooltip-wide" title="En mode avancé vous pouvez zoomer/dézoomer, attention toutefois car votre mise en page risque d'être bousculée à l'enregistrement si vous ajoutez des éléments à votre maquette en cours de zoom !"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+                              </div>
+                               Rounded switch
+                              <label class="switch">
+                                <input type="checkbox" class="checkbox">
+                                <span class="slider round"></span>
+                              </label>-->
+                            </div>
+
+                            <p class="dashed">
+                              En général, ne laissez déborder que le fond des pointillés gris (marge technique).<br /> Pour certains gabarits (stands), ils indiquent l'emplacement du design frontal.
+                            </p>
 
                             <!-- modal astuces -->
                             <div id="faq" class="modal" tabindex="-1" style="display: none;">
@@ -105,13 +129,17 @@
                                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                                         <strong>Attention votre maquette n'est pas sauvegardée automatiquement:</strong> il n'est pas possible de fermer cette fenêtre et de la réouvrir plus tard pour terminer votre travail. Vous devez terminer votre maquette et l'enregistrer dans la même session.
                                                     </p>
-                                                    <p class="alert alert-info alert-dismissable">
-                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                                        <strong>Pour déplacer ensemble vos calques</strong> dans l'espace de travail, pensez à d'abord appuyer sur le bouton '<i class="fa fa-object-group"></i> Tout sélectionner' (vous pouvez aussi les sélectionner avec la souris).
-                                                    </p>
                                                     <p  class="alert alert-info alert-dismissable">
                                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                                         '<i class="fa fa-save" ></i> <strong>Enregistrer' envoie votre maquette à notre service infographie</strong>. Suivant la taille des fichiers que vous avez uploadé, l'enregistrement peut prendre quelques minutes, veillez à garder l'application ouverte jusqu'à voir un message de confirmation.
+                                                    </p>
+                                                    <p class="alert alert-danger alert-dismissible">
+                                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        <strong>Avant d'enregister votre maquette</strong>, si vous l'avez déplacé, assurez vous de la disposer de manière à ce qu'elle soit entièrement visible dans l'espace de travail. Si vous avez modifié le niveau de zoom, réglez le de façon à ce que votre maquette occupe le maximum d'espace possible mais toujours sans dépasser de l'espace de travail.
+                                                    </p>
+                                                    <p class="alert alert-info alert-dismissable">
+                                                      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                        <strong>Pour déplacer votre maquette</strong> dans l'espace de travail sans décaler votre mise en page, pensez à d'abord appuyer sur le bouton '<i class="fa fa-object-group"></i> Tout sélectionner' (vous pouvez aussi les sélectionner avec la souris), de manière à faire bouger ensemble vos calques.
                                                     </p>
                                                     <p class="alert alert-info alert-dismissable">
                                                       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -576,7 +604,7 @@
                 <div class="canvas_image image-builder ng-isolate-scope">
                   <ul class="zoomButtons pull-right">
                     <li ng-click="zoomObject('zoomin')">
-                        <a class="fa fa-search-plus fa-flip-horizontal ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                        <a class="fa fa-search-plus ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
                         <md-tooltip md-visible="zoomin.showTooltip" md-direction="left">Zoom +</md-tooltip>
                     </li>
                     <li ng-click="zoomObject('zoomout')">
@@ -693,7 +721,7 @@
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
-<script src="js/ngprogress-lite.min.js"></script>
+<script src="js/ngprogress-lite.js"></script>
 
 <script src="assets/colorpicker/bootstrap-colorpicker-module.js"></script>
 <script src="js/application.js"></script>
@@ -702,10 +730,28 @@
 <script src="assets/pdf/jspdf.debug.js"></script>
 
 <script>
-jQuery(document).ready(function() {
-/*  $(document).on('click','.saveObject', function() {
-    NProgress.start();
-  });*/
+$(document).ready(function() {
+  // activer les tooltips bootstrap
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // toggle mode simple / avancé
+  $(".checkbox").change(function() {
+    if(this.checked) {
+      $(".zoomButtons").removeClass('disno');
+      $('.advanced').text('mode avancé');
+      $('.advanced').css({
+        color: '#26A7D9',
+        fontSize: '12px'
+      });
+    }else{
+      $(".zoomButtons").addClass('disno');
+      $('.advanced').text('mode simple');
+      $('.advanced').css({
+        color: '#a6a6a6',
+        fontSize: '12px'
+      });
+    }
+  });
 });
 </script>
 

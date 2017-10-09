@@ -2,8 +2,11 @@
   "status":true,
   "settings": {
     "notification_messages": {
-      "GENERAL_ERROR" : "Error. Unknown system response. Controller: ProductController",
+      "GENERAL_ERROR" : "",
       "CANVAS_EMPTY": "Select product to perform this action",
+      "ZOOMPLUS": "ZOOM +10%",
+      "ZOOMMOINS": "ZOOM -10%",
+      "ZOOMCENT": "ZOOM 100%",
       "IMAGE_SIZE": "Image is too large (MAX SIZE: 8000*8000)",
       "WORDCLOUD_EMPTY": "Please enter some words for generate wordcloud.",
       "TYPE_NUMBER_REQUIRED": "Only numbers is allowed"

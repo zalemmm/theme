@@ -958,10 +958,10 @@ body {
 }
 
 .dashed {
-  margin-top: 25px;
-  border: 3px dashed #ccc;
+  margin-top: 10px;
+  border: 2px dashed #ccc;
   padding: 5px;
-  font-size: .75em;
+  font-size: 10px;
   line-height: 1.2rem;
   text-transform: uppercase;
   color: #a6a6a6;
@@ -973,10 +973,14 @@ body {
 }
 
 .intro {
-  font-size: 1.4rem;
-  line-height: 1.6rem;
+  font-size: 13px;
+  line-height: 14px;
   margin-top: 5px;
   color: #555a61;
+}
+
+.intro p {
+  text-align: justify;
 }
 
 .intro p span {
@@ -990,6 +994,13 @@ body {
   margin-right: 5px;
   text-align: center;
   vertical-align: baseline;
+}
+
+.intro p strong {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #26a7d9;
 }
 
 .intro b {
@@ -1206,6 +1217,21 @@ body {
 .zoomButtons li a:focus,
 .zoomButtons li a:active {
   text-decoration: none;
+}
+
+.zoomButtons li a.fa-search-plus:hover {
+  transform: scale(1.05);
+  transition: .3s;
+}
+
+.zoomButtons li a.fa-search-minus:hover {
+  transform: scale(0.95);
+  transition: .3s;
+}
+
+.zoomButtons li a.fa-undo:hover {
+  transform:rotate(-20deg);
+  transition: .3s;
 }
 
 .action_tabs {
@@ -2036,12 +2062,12 @@ md-radio-group md-radio-button {
 
 .ngProgressLiteBar {
 	background: #ea2a6a;
-	position: fixed;
+	position: absolute;
 	z-index: 99999;
-	bottom: 0;
+	top: -10px;
 	left: 0;
-	height: 20px;
-/*  box-shadow: 0 0 10px #ea2a6a, 0 0 5px #ea2a6a;*/
+	height: 10px;
+  box-shadow: 0 0 2px #ea2a6a;
 }
 
 .ngProgressLite .ngProgressLiteBarShadow {
@@ -2054,7 +2080,128 @@ md-radio-group md-radio-button {
 
 }
 
+/* The switch - the box around the slider */
+.switch {
+ position: relative;
+ display: inline-block;
+ width: 40px;
+ height: 22px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+ position: absolute;
+ cursor: pointer;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: #ccc;
+ -webkit-transition: .4s;
+ transition: .4s;
+}
+
+.slider:before {
+ position: absolute;
+ content: "";
+ height: 18px;
+ width: 18px;
+ left: 2px;
+ bottom: 2px;
+ background-color: white;
+ -webkit-transition: .4s;
+ transition: .4s;
+}
+
+input:checked + .slider {
+ background-color: #26A7D9;
+}
+
+input:focus + .slider {
+ box-shadow: 0 0 1px #26A7D9;
+}
+
+input:checked + .slider:before {
+ -webkit-transform: translateX(18px);
+ -ms-transform: translateX(18px);
+ transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+ border-radius: 34px;
+}
+
+.slider.round:before {
+ border-radius: 50%;
+}
+
+.advToggle {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 3px;
+}
+
+.advanced {
+  float: right;
+  margin-top: 0;
+  color: #a6a6a6;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 10px;
+}
 
 
+.advanced .fa {
+  display: inline-block;
+  margin-left: 5px;
+  color: #26A7D9;
+  font-size: 20px;
+}
 
-/*# sourceMappingURL=maps/style.css.map */
+.disno {
+  display: none;
+}
+
+.tooltip-wide + .tooltip > .tooltip-inner {
+  max-width: 100%;
+  width: 200px;
+  font-size: 10px;
+  text-align: justify;
+  background: #26A7D9;
+  border-radius: 0;
+  padding: 10px;
+}
+
+.tooltip.in{opacity:1!important;}
+[data-placement="top"] + .tooltip > .tooltip-arrow { border-top-color: #26A7D9;}
+
+[data-placement="right"] + .tooltip > .tooltip-arrow { border-right-color: #26A7D9;}
+
+[data-placement="bottom"] + .tooltip > .tooltip-arrow {border-bottom-color: #26A7D9;}
+
+[data-placement="left"] + .tooltip > .tooltip-arrow {border-left-color: #26A7D9; }
+
+.alert {
+  margin-bottom: 10px;
+}
+
+p.alert strong {
+  color: white;
+}
+
+.alert-danger {
+  background: #ea2a6a;
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+}
+.alert-info {
+  background: #26A7D9;
+  color: #fff;
+  border: 0;
+  border-radius: 0;
+}

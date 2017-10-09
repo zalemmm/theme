@@ -37,18 +37,24 @@
 
 			<div id="header">
 
+
 				<!-- Publicités sur les côtés -->
+				<div class="izoneLeft"><div class="izoneInL"></div></div>
+				<div class="izoneRight"><div class="izoneInR"></div></div>
+
 				<?php
-				if(is_page('oriflammes') || is_page('banderoles') || is_page('plv-exterieur') || is_page('tente-publicitaire-barnum')) {
-					echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoTentes.png" title="promo tentes" alt="promo tente publicitaire"><a href="'.get_bloginfo('url').'/tente-publicitaire-barnum" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
-					echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoGoutte.png" title="promo oriflamme beachflag" alt="promo oriflamme"><a href="'.get_bloginfo('url').'/oriflammes" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
-				}else if(is_page('stand-parapluie') || is_page('roll-up') || is_page('totem')) {
-					echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoRollup.png" title="promo Rollup" alt="promo kakemono rollup"><a href="'.get_bloginfo('url').'/roll-up" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
-					echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoXscreen.png" title="promo oriflamme" alt="promo oriflamme"><a href="'.get_bloginfo('url').'/totem" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
-				}else{
-					echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoAkilux.png" title="panneaux akilux pas cher" alt="akilux agence immobilière" /><a href="'.get_bloginfo('url').'/panneaux-akilux" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
-					echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoLux.png" title="roll-up conçu pour durer" alt="roll-up luxe modulable" /><a href="'.get_bloginfo('url').'/roll-up" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
-				}
+				// if(is_page('oriflammes') || is_page('banderoles') || is_page('plv-exterieur') || is_page('tente-publicitaire-barnum')) {
+				// 	echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoAkilux.png" title="panneaux akilux pas cher" alt="akilux agence immobilière" /><a href="'.get_bloginfo('url').'/panneaux-akilux" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+				// 	echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoGoutte.png" title="promo oriflamme beachflag" alt="promo oriflamme"><a href="'.get_bloginfo('url').'/oriflammes" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+				// }else if(is_page('stand-parapluie') || is_page('roll-up') || is_page('totem')) {
+				// 	echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoRollup.png" title="Rollup meilleur prix: 28€" alt="promo kakemono rollup"><a href="'.get_bloginfo('url').'/roll-up" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+				// 	echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoStands.png" title="meilleur prix stand parapluie tissu tendu : 257€ !" alt="stand tissu pas cher"><a href="'.get_bloginfo('url').'/stand-parapluie/" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+				//
+				// 	//echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoXscreen.png" title="promo oriflamme" alt="promo oriflamme"><a href="'.get_bloginfo('url').'/totem" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+				// }else{
+				// 	echo '<div class="izoneLeft"><div class="izoneInner"><img class="iz1"  src="'.get_bloginfo("template_url").'/images/promoStands.png" title="meilleur prix stand parapluie tissu tendu : 257€ !" alt="stand tissu pas cher"><a href="'.get_bloginfo('url').'/stand-parapluie/" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+				// 	echo '<div class="izoneRight"><div class="izoneInner"><img class="iz1" src="'.get_bloginfo("template_url").'/images/promoLux.png" title="roll-up conçu pour durer" alt="roll-up luxe modulable" /><a href="'.get_bloginfo('url').'/roll-up" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a></div></div>';
+				// }
 				?>
 
 				<!-- LOGO -->
