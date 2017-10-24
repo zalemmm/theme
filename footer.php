@@ -112,23 +112,12 @@
       <!--boutons contact, cgv... -->
       <div class="banner2">
 
-        <?php if(is_page('paiement') || is_page('vos-devis')) {?>
-          <a href="<?php bloginfo('url'); ?>/contact-s/" class="noticeFooter modal-link" title="contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span class="textHide">contact</span></a>
-          <a href="<?php bloginfo('url'); ?>/france-banderole/" class="noticeFooter modal-link" title="qui est france banderole"><i class="fa fa-question" aria-hidden="true"></i> <span class="textHide">Qui sommes nous</span></a>
-          <a href="<?php bloginfo('url'); ?>/references/" class="noticeFooter modal-link" title="références"><i class="fa fa-address-book" aria-hidden="true"></i> <span class="textHide">Références</span></a>
-          <a href="<?php bloginfo('url'); ?>/cgv-s/" class="noticeFooter modal-link" title="conditions générales de vente"><i class="fa fa-money" aria-hidden="true"></i> <span class="textHide">Conditions de vente</span></a>
-          <a href="<?php bloginfo('url'); ?>/etre-livre-rapidement-s/" class="noticeFooter modal-link" title="être livré rapidement"><i class="fa fa-truck" aria-hidden="true"></i> <span class="textHide">livraison</span></a>
-          <a href="<?php bloginfo('url'); ?>/tarifs-revendeurs-s/" class="noticeFooter modal-link" title="tarifs revendeurs"><i class="fa fa-eur" aria-hidden="true"></i> <span class="textHide">tarifs revendeurs</span></a>
-
-        <?php }else{ ?>
           <a href="<?php bloginfo('url'); ?>/contact/" class="noticeFooter modal-link" title="contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span class="textHide">contact</span></a>
           <a href="<?php bloginfo('url'); ?>/france-banderole/" class="noticeFooter modal-link" title="qui est france banderole"><i class="fa fa-question" aria-hidden="true"></i> <span class="textHide">Qui sommes nous</span></a>
           <a href="<?php bloginfo('url'); ?>/references/" class="noticeFooter modal-link" title="références"><i class="fa fa-address-book" aria-hidden="true"></i> <span class="textHide">Références</span></a>
           <a href="<?php bloginfo('url'); ?>/cgv/" class="noticeFooter modal-link" title="conditions générales de vente"><i class="fa fa-money" aria-hidden="true"></i> <span class="textHide">Conditions de vente</span></a>
           <a href="<?php bloginfo('url'); ?>/etre-livre-rapidement/" class="noticeFooter modal-link" title="être livré rapidement"><i class="fa fa-truck" aria-hidden="true"></i> <span class="textHide">livraison</span></a>
           <a href="<?php bloginfo('url'); ?>/tarifs-revendeurs/" class="noticeFooter modal-link" title="tarifs revendeurs"><i class="fa fa-eur" aria-hidden="true"></i> <span class="textHide">tarifs revendeurs</span></a>
-
-        <?php }?>
 
       </div>
 
@@ -247,6 +236,7 @@ include('nom_du_fichier_de_conf.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script> <!-- lightbox images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.2.2/lity.min.js"></script> <!-- ouvre les iframes dans une lightbox -->
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/pokaz.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.spinner.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/main.js"></script> <!-- js global -->
 
 

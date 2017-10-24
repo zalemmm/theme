@@ -15,7 +15,7 @@
   //----------------------------------------------------------------------------
 
   body {
-    z-index: 10;
+    z-index: 9;
     width: 1024px;
     background: $bloc-base;//darken($text,20%);
     //border-left: 1px solid darken($bloc-base, 5%);
@@ -36,7 +36,7 @@
     display: block;
     position: absolute;
     width: 170px;
-    left:-171px;
+    left:-170px;
     top: 0;
 
   }
@@ -47,15 +47,16 @@
     position: absolute;
     top: 0px;
     width: 170px;
-    left: calc(100% + 1px);
+    left: calc(100%);
   }
 
   .izoneInL,
   .izoneInR {
+    z-index: 1;
     position: fixed;
     height: 640px;
   }
-  
+
   @media(max-width: 1350px) {
     .izoneLeft,
     .izoneRight {

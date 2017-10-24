@@ -1436,6 +1436,7 @@ a.noticeFooter {
 .dis0 {
   display: none;
 }
+
 #top_slideshow {
   display: none;
 }
@@ -1851,7 +1852,8 @@ input::placeholder {
   }
 
   .cmLeft,
-  .cmRight {
+  .cmRight,
+  .spinner-controls {
     display: inline-block;
     position: relative;
     top: -2px;
@@ -1890,13 +1892,26 @@ input::placeholder {
   .mRight {
     left: 2px;
   }
+  .spinner-controls {
+    padding: 0 8px 0 11px;
+    margin-left: -31px;
+    a {
+      font-size: 10px;
+      color: #fff;
+      display: block;
+      max-height: 15px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
 }
 // Hack Chrome & Safari --------------------------------------------------------
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   // hauteur largeur des produits
   .jotform-form {
     .cmLeft,
-    .cmRight {
+    .cmRight,
+    .spinner-controls  {
       top: -1px;
       left: 2px;
     }
@@ -3402,7 +3417,7 @@ tbody {
     padding: 13px 2px 21px;
     vertical-align: top;
     border-bottom: 1px solid $border;
-
+    position: relative;
     &.lefttd {
       background: $bloc-base;
       text-align: left;
@@ -3411,6 +3426,9 @@ tbody {
     &.noprint{
       width: 5%;
     }
+  }
+  tr {
+
   }
 }
 
@@ -3422,8 +3440,20 @@ tbody {
   text-indent: -999em;
   overflow: hidden;
   border: none;
-  margin: 0 5px;
+  margin: 0 5px 0;
   display: block;
+}
+
+#adcart {
+  @include buttonLog($cyan, 100px);
+  position: absolute;
+  font-size: .75rem;
+  bottom: .2rem;
+  right: .7rem;
+  float: right;
+  padding-top: .25rem;
+  height: 24px;
+  border-radius: 12px;
 }
 
 .delbut {

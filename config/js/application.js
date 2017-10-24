@@ -823,9 +823,6 @@ angular.module('productApp', [
         };
 
 
-
-
-
         $scope.$on('AjaxCallHappened', function (event, data) {
             if (data.status == true) {
                 _this.showNotification(data.message, false);
@@ -1126,7 +1123,7 @@ angular.module('productApp', [
                 return false;
             });
         };
-
+        
         $scope.CanvasBgSelector = function (){
             $("#canvas_color_selector > li").on('click', function(event) {
                 $('.canvas_section').attr('id', $(this).attr('class'));

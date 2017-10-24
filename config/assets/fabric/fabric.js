@@ -2045,17 +2045,17 @@ angular.module('common.fabric', [
 		};
 
 		self.setFill = function(value) {
-            value = $.trim(value);
-            if(typeof value != "undefined" && value.length>0){
-                var object = canvas.getActiveObject();
-                if (object) {
-                    if (object.type === 'text') {
-                        setActiveStyle('fill', value);
-                    } else {
-                        self.setFillPath(object, value);
-                    }
-                }
-            }
+      value = $.trim(value);
+      if(typeof value != "undefined" && value.length>0){
+          var object = canvas.getActiveObject();
+          if (object) {
+              if (object.type === 'text') {
+                  setActiveStyle('fill', value);
+              } else {
+                  self.setFillPath(object, value);
+              }
+          }
+      }
 		};
 
 		self.setFillPath = function(object, value) {
