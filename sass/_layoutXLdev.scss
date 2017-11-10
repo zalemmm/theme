@@ -38,9 +38,7 @@
     width: 170px;
     left:-170px;
     top: 0;
-
   }
-
   .izoneRight {
     z-index: 1;
     display: block;
@@ -68,8 +66,8 @@
   //                             HEADER
   //----------------------------------------------------------------------------
 
-  #header {
-    height: 240px;
+  header {
+    height: 245px;
     background-size: cover;
   }
 
@@ -103,6 +101,16 @@
     @include container (42%);
     top: 20px;
     left:25%;
+  }
+
+  .cartCount {
+    right: 27px;
+  }
+  .fixed {
+    .cartCount {
+      top: -15px;
+      right: 255px;
+    }
   }
 
   // derniers commentaires

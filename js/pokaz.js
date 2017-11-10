@@ -8,6 +8,6 @@ function ukryjt(id) {
   	e.style.visibility="hidden";
 }
 
-$(document).ready(function(){
-	$(".deactive").css("opacity", 0.2);
+jQuery(document).ready(function(){
+	jQuery(".deactive").css("opacity", 0.2);
 });

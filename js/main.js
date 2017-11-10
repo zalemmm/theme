@@ -1,5 +1,18 @@
+
+
+
+
+//------------------------------------------------------------------------------
+//                                                                        JQUERY
+//------------------------------------------------------------------------------
 jQuery(document).ready(function ($) {
+	//////////////////////////////////////////////////////////////// quantité+- //
   $("#spinner").spinner();
+
+
+
+
+
   //////////////////////////////////////////// bouton close messages d'erreur //
   //////////////////////////////////////////////////////////////////////////////
 
@@ -192,7 +205,7 @@ jQuery(document).ready(function ($) {
 
   ///////////////////////////////////// affichage conditionnel mobile/desktop //
   //////////////////////////////////////////////////////////////////////////////
-  var isDesktop = window.matchMedia("only screen and (min-width: 740px)");
+  var isDesktop = window.matchMedia("only screen and (min-width: 1024px)");
 
   if (isDesktop.matches) {
     /////////////////// hover accès client: affichage du module de connection //
@@ -218,6 +231,23 @@ jQuery(document).ready(function ($) {
           container.fadeOut();
       }
     });
+
+		/////////////////////////////////////////////////////////////// sticky menu //
+		//////////////////////////////////////////////////////////////////////////////
+
+		$(window).scroll(function() {
+	    if ($(window).scrollTop() > 150) {
+	      $("nav").addClass('fixed');
+				$('.navContainer').addClass('fixed');
+				$('.logoSmall').css('display','inline-block');
+				$('.izoneLeft, .izoneRight').css('top','50px');
+	    } else {
+	      $("nav").removeClass('fixed');
+				$('.navContainer').removeClass('fixed');
+				$('.logoSmall').css('display','none');
+				$('.izoneLeft, .izoneRight').css('top','0');
+	    }
+		});
 
     ////////////////////////////////////////////////////////////////// Promos //
     ////////////////////////////////////////////////////////////////////////////
@@ -251,6 +281,86 @@ jQuery(document).ready(function ($) {
     $('.izoneInL').append(imageLeft[x]+linkLeft[x]);
     $('.izoneInR').append(imageRight[y]+linkRight[y]);
 
+		///////////////////////////////////////////////////////////////// addtocart //
+		//////////////////////////////////////////////////////////////////////////////
+		var frm = jQuery('#cart_form');
+		frm.submit(function (e) {
+			e.preventDefault();
+
+			jQuery.ajax({
+				type: frm.attr('method'),
+				url: frm.attr('action'),
+				data: frm.serialize(),
+				success: function (data) {
+					//Select item image and pass to the function
+					var itemImg = jQuery('#submit_cart');
+					flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
+				},
+				complete: function(data) {
+					location.href = location.href;
+				},
+				error: function (data) {
+					alert('une erreur s\'est produite, veuillez réessayer.');
+				},
+			});
+		});
+
+  }else{
+		var frm = jQuery('#cart_form');
+		frm.submit(function (e) {
+			e.preventDefault();
+
+			jQuery.ajax({
+				type: frm.attr('method'),
+				url: frm.attr('action'),
+				data: frm.serialize(),
+				success: function (data) {
+        	jQuery('html, body').animate({
+						'scrollTop' : jQuery(".menu-client--panier").position().top
+					});
+					//Select item image and pass to the function
+					var itemImg = jQuery('#submit_cart');
+					flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
+				},
+				complete: function(data) {
+					location.href = location.href;
+				},
+				error: function (data) {
+					alert('une erreur s\'est produite, veuillez réessayer.');
+				},
+			});
+		});
+	}
+
+
+  //----------------------------------------------------------script fly to cart
+  function flyToElement(flyer, flyingTo) {
+    var $func = jQuery(this);
+    var divider = 3;
+    var flyerClone = jQuery(flyer).clone();
+    jQuery(flyerClone).css({position: 'absolute', top: jQuery(flyer).offset().top + "px", left: jQuery(flyer).offset().left + "px", opacity: 1, 'z-index': 1000});
+    jQuery('body').append(jQuery(flyerClone));
+    var gotoX = jQuery(flyingTo).offset().left + (jQuery(flyingTo).width() / 2) - (jQuery(flyer).width()/divider)/2;
+    var gotoY = jQuery(flyingTo).offset().top + (jQuery(flyingTo).height() / 2) - (jQuery(flyer).height()/divider)/2;
+
+    jQuery(flyerClone).animate({
+        opacity: 0.4,
+        left: gotoX,
+        top: gotoY,
+        width: jQuery(flyer).width()/divider,
+        height: jQuery(flyer).height()/divider
+    }, 700,
+    function () {
+        jQuery(flyingTo).fadeOut('fast', function () {
+            jQuery(flyingTo).fadeIn('fast', function () {
+                jQuery(flyerClone).fadeOut('fast', function () {
+                    jQuery(flyerClone).remove();
+                });
+            });
+        });
+    });
   }
+
+
 
 });
