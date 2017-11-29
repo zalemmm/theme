@@ -121,6 +121,40 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 		//send_design($destination, $filename);
 
+}  else if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'json'){
+
+		$result = array();
+		$filenames = array();
+		foreach ($post_data as $key => $value) {
+
+
+			if(!empty($value) && $value != null){
+
+				$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
+
+				if (!is_dir($destination)) {
+						mkdir($destination, 0777, true);
+				}
+
+				$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.json';
+				
+				$contant = file_get_contents($value);
+
+				file_put_contents($destination.$filename, $contant);
+				//chmod($filename, 0664);
+				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
+
+			}
+		}
+
+		$result['status'] = true;
+		$result['filename'] = $filenames;
+		$result['message'] = 'Your designed object has been saved.';
+
+		echo json_encode($result);
+
+		//send_design($destination, $filename);
+
 } else{
 
 	$result['status'] = false;

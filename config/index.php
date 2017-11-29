@@ -98,7 +98,7 @@
                             <p><span>2</span> Importez vos images et entrez du texte à l'aide des boutons ci-dessus <strong><i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i></strong></p>
                             <p><span>3</span> Agencez vos calques : un simple clic dessus pour les déplacer, les redimentionner, etc. <br />
                               Dans <strong>calques <i class="fa fa-object-ungroup"></i></strong> vous pouvez gérer l'ordre de superposition de vos éléments</p>
-                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, si besoin faites un <strong>reset zoom <i class="fa fa-undo" aria-hidden="true"></i></strong> pour la recentrer à sa taille maximale, puis <strong>enregistrez <i class="fa fa-save"></i></strong> pour nous la transmettre.</p>
+                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, si elle n'est pas centrée et entièrement visible faites un <strong>reset zoom <i class="fa fa-undo" aria-hidden="true"></i></strong>, puis <strong>enregistrez <i class="fa fa-save"></i></strong> pour nous la transmettre.</p>
                             <p><i class="fa fa-warning" style="color:#ea2a6a"></i> L'enregistrement peut prendre quelques minutes, attendez le message de confirmation avant de quitter l'application !</p>
 
                             <div class="advToggle">

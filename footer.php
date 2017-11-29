@@ -235,8 +235,8 @@ include('nom_du_fichier_de_conf.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.min.js"></script> <!-- sliders pages produits -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script> <!-- lightbox images -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.2.2/lity.min.js"></script> <!-- ouvre les iframes dans une lightbox -->
-    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/pokaz.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.spinner.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/promo.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/main.js"></script> <!-- js global -->
 
 

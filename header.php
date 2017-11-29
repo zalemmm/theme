@@ -118,7 +118,7 @@
 							</li>
 
 							<!--panier----------------------------------------------------------->
-							<li class="menu-client-item menu-client--panier">
+							<li class="menu-client-item menu-client--panier" id="menuPanier">
 								<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><span class="cartCount"><?php echo getCartCount(); ?></span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
 								<span class="menu-client-label">Panier</span>
 
@@ -165,7 +165,7 @@
 						<!--------------------------------------------------------------------->
 						<ul id="menu_top">
 						<a href="<?php bloginfo('url'); ?>/index.php"><img class="logoSmall" src="https://www.france-banderole.com/wp-content/themes/fb/images/logoSmall.png" alt="logo france banderole" /></a>
-							<li onmouseover="pokazt('produit_sub');" onmouseout="ukryjt('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
+							<li onmouseover="tipShow('produit_sub');" onmouseout="tipHide('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
 
 								<ul id="produit_sub" class="menu_hover">
 									<li><a href="<?php bloginfo('url'); ?>/banderoles/" class="menu_sub"<?php if(is_page('banderoles')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-banderole.png" alt="banderoles">banderole</a></li>
@@ -186,7 +186,7 @@
 								</ul>
 							</li>
 
-							<li onmouseover="pokazt('comment_sub');" onmouseout="ukryjt('comment_sub');"><a href="<?php bloginfo('url'); ?>/les-maquettes/"<?php if(is_page('les-maquettes') || is_page('un-devis') || is_page('choisir-sa-bache') || is_page('choisir-son-kakemono') || is_page('telecharger-une-maquette') || is_page('payer-sa-commande') || is_page('etre-livre-rapidement') || is_page('tarifs-revendeurs')) echo ' id="active"'; ?>>comment faire?</a>
+							<li onmouseover="tipShow('comment_sub');" onmouseout="tipHide('comment_sub');"><a href="<?php bloginfo('url'); ?>/les-maquettes/"<?php if(is_page('les-maquettes') || is_page('un-devis') || is_page('choisir-sa-bache') || is_page('choisir-son-kakemono') || is_page('telecharger-une-maquette') || is_page('payer-sa-commande') || is_page('etre-livre-rapidement') || is_page('tarifs-revendeurs')) echo ' id="active"'; ?>>comment faire?</a>
 
 								<ul id="comment_sub" class="menu_hover">
 									<li><a href="<?php bloginfo('url'); ?>/les-maquettes/" class="menu_sub"<?php if(is_page('les-maquettes')) echo ' id=active_sub'; ?>>les maquettes</a></li>
@@ -200,7 +200,7 @@
 								</ul>
 							</li>
 
-							<li onmouseover="pokazt('qui_sub');" onmouseout="ukryjt('qui_sub');"><a href="<?php bloginfo('url'); ?>/"<?php if(is_page('france-banderole') || is_page('cgv') || is_page('realisation') || is_page('references')) echo ' id="active"'; ?>>QUI SOMMES-NOUS</a>
+							<li onmouseover="tipShow('qui_sub');" onmouseout="tipHide('qui_sub');"><a href="<?php bloginfo('url'); ?>/"<?php if(is_page('france-banderole') || is_page('cgv') || is_page('realisation') || is_page('references')) echo ' id="active"'; ?>>QUI SOMMES-NOUS</a>
 
 								<ul id="qui_sub" class="menu_hover">
 									<li><a href="<?php bloginfo('url'); ?>/" class="menu_sub"<?php if(is_page('france-banderole')) echo ' id=active_sub'; ?>>FRANCE BANDEROLE</a></li>
@@ -225,6 +225,22 @@
 				</div>
 
 				<!--fin menu global---------------------------------------------------->
+
+				<!-- Button trigger modal
+				<a href="#test-popup" class="open-popup-link">Show inline popup</a>-->
+
+				<!--modal confirmation ajout au panier--------------------------------->
+
+				<div id="cartConfirm" class="white-popup mfp-hide">
+					<div class="modalContent">
+				  	Votre produit a bien été ajouté au panier.
+
+						<div class="btBar">
+							<a href="'.get_bloginfo('url').'/votre-panier/" class="btModal">Voir mon panier </a>
+							<button class="btModal btContinue">Continuer mes achats</button>
+						</div>
+					</div>
+				</div>
 
 				<!--	<form name="search" id="search" method="get" action="<?php bloginfo('url'); ?>">
 				<input type="text" name="s" value="RECHERCHER" onfocus="if (this.value == 'RECHERCHER') {this.value = ''; this.style.color = '#000000';}" onblur="if (this.value == '') {this.value = 'RECHERCHER';this.style.color = '#e88c07';}" />

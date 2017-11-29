@@ -2577,8 +2577,15 @@ angular.module('common.fabric', [
 				var largeur = obj.width;
 				var br = obj.getBoundingRect();
 
-				//self.resetZoooom();
+				if( br.width > canvas.width+40 || br.height > canvas.height+40) {
+ 				 	alert('Votre maquette déborde de l\'espace de travail. Elle va être repositionnée automatiquement, mais pour éviter tout éventuel décalage il est conseillé de faire un reset zoom avant d\'enregistrer. ');
+ 				  self.resetZoooom();
+			 	}else if(br.top - obj.cornerSize  <  0 - 40 || br.left - obj.cornerSize  < 0 - 40 || br.top+br.height + obj.cornerSize > obj.canvas.height + 40 || br.left+br.width + obj.cornerSize > obj.canvas.width + 40) {
+					alert('Votre maquette déborde de l\'espace de travail. Elle va être repositionnée automatiquement, mais pour éviter tout éventuel décalage il est conseillé de veiller à ce que votre maquette soit entièrement visible dans l\'espace de travail avant d\'enregistrer. ');
+  				self.resetZoooom();
+			  }else{
 
+				}
 
 
 				//canvas.width = largeur;
@@ -2632,6 +2639,7 @@ angular.module('common.fabric', [
 
 				var obj = canvas.item(0);
 				var br = obj.getBoundingRect();
+				// if object is too big ignore
 
 		    var jpeg = canvas.toDataURL({
 		      format: 'jpeg',
@@ -2855,6 +2863,7 @@ angular.module('common.fabric', [
             obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left);
         }
 			});*/
+
 
 			// surveille qu'un objet ne déborde pas du cadre lors de son redimentionnement
 			/*canvas.on('object:scaling', function (e) {
