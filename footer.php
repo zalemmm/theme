@@ -239,6 +239,36 @@ include('nom_du_fichier_de_conf.php');
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/promo.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/main.js"></script> <!-- js global -->
 
+    <!-- jquery ui seulement sur pages spécifiques ---------------------------->
+    <?php if (is_page('vos-devis')){
+			echo '<script src="'.get_bloginfo('stylesheet_directory').'/js/jquery-ui.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+      <script>
+      jQuery(document).ready(function ($) {
+        $("#curseur").slider({
+            value: 0,
+            min: 0,
+            max: 100,
+            step: 1,
+            slide: function( event, ui ) {
+              $("#amount").val( ui.value );
+            }
+        });
+
+        $("#amount").val($("#curseur").slider("value"));
+      });
+      </script>
+      ';
+		}else{
+      echo '<script>
+      jQuery(document).ready(function ($) {
+        $.fn.snow({ minSize: 3, maxSize: 20, newOn: 1000 });
+      });
+      </script>
+      ';
+
+    }
+		?>
 
     <!-- api google+ -->
     <?php
@@ -257,8 +287,6 @@ include('nom_du_fichier_de_conf.php');
     <?php
     }
     ?>
-
-
 
     <!-- Google analytics -->
     <script type="text/javascript">

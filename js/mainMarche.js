@@ -8,38 +8,12 @@ function tipHide(id) {
    var e = document.getElementById(id);
   	e.style.visibility="hidden";
 }
-
-var toCopy  = document.getElementById( 'to-copy' ),
-    btnCopy = document.getElementById( 'copy' );
-
-btnCopy.addEventListener( 'click', function(){
-  toCopy.select();
-  document.execCommand( 'copy' );
-
-  if ( document.execCommand( 'copy' ) ) {
-      btnCopy.classList.add( 'copied' );
-
-      var temp = setInterval( function(){
-        btnCopy.classList.remove( 'copied' );
-        clearInterval(temp);
-      }, 600 );
-
-  } else {
-    console.info( 'document.execCommand went wrong…' )
-  }
-
-  return false;
-} );
-
-
 //------------------------------------------------------------------------------
 //                                                                        JQUERY
 //------------------------------------------------------------------------------
 jQuery(document).ready(function ($) {
 
-  $('.btn').removeClass('.ui-button');
-
-  $(".deactive").css("opacity", 0.2);
+  jQuery(".deactive").css("opacity", 0.2);
 
 	//////////////////////////////////////////////////////////////// quantité+- //
   $("#spinner").spinner();
@@ -48,11 +22,10 @@ jQuery(document).ready(function ($) {
   //////////////////////////////////////////////////////////////////////////////
 
   $(document).on('click', '.closeButton', function() {
-    $(this).parent().fadeOut();
+    $('.closeButton').parent().fadeOut();
     $('.box_info').fadeOut();
     $('.box_warning').fadeOut();
   });
-
 
   // bouton close tooltips
   $('.helpText, #acclient_sub, #panier_sub').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
@@ -271,7 +244,7 @@ jQuery(document).ready(function ($) {
         if (r == true) {
           window.location.href = check.attr('action');
         } else {
-          window.location.href = window.location.href;
+          window.location.href = window.location.href
         }
       },
       error: function (data) {
@@ -279,58 +252,6 @@ jQuery(document).ready(function ($) {
       },
     });
   });
-
-  ////////////////////////////////////////////////////////////// export devis //
-  //////////////////////////////////////////////////////////////////////////////
-
-  var expfrm = $('#marge');
-  expfrm.submit(function (e) {
-    e.preventDefault();
-    $.ajax({
-      type: expfrm.attr('method'),
-      url: expfrm.attr('action'),
-      data: expfrm.serialize(),
-      success: function(data) {
-        var marge = $("#amount").val();
-        var ht = $("#toutht").val();
-        ht = ht.toString().replace(/\,/g, '.');
-        ht = ht.toString().replace(/\€/g, '');
-
-        var totalmarge = ht*marge/100;
-        var totalht = parseFloat(ht) + parseFloat(totalmarge);
-        totalht = parseFloat(totalht).toFixed(2);
-        var tva = parseFloat(totalht*20/100).toFixed(2);
-        var totalttc = parseFloat(totalht) + parseFloat(tva);
-        totalttc = parseFloat(totalttc).toFixed(2);
-
-        var numItems = $('.prixu').length;
-        var sharedMarge = totalmarge/numItems;
-
-        $(".produit").each(function(i) {
-          var prixu = $(this).find('.prixu').attr("data-id");
-          var qte = $(this).find('.qte').attr("data-id");
-          var sharedAg = sharedMarge/qte;
-          var prixrevu = parseFloat(prixu) + parseFloat(sharedAg);
-          var prixtt = prixrevu*(qte);
-          prixrevu = parseFloat(prixrevu).toFixed(2);
-          prixtt = parseFloat(prixtt).toFixed(2);
-          $(this).find('.prixu').text(prixrevu + ' €');
-          $(this).find('.prixi').text(prixtt + ' €');
-        });
-
-        $("#totalMarge").text('+' + totalmarge.toFixed(2) + ' €');
-        $("#loadht").text(totalht + ' €');
-        $("#loadtva").text(tva + ' €');
-        $("#loadttc").text(totalttc + ' €');
-      },
-      error: function (data) {
-        alert('une erreur s\'est produite, veuillez réessayer.');
-      }
-    });
-
-  });
-
-
   //----------------------------------- affichage conditionnel mobile/desktop //
   //////////////////////////////////////////////////////////////////////////////
   var isDesktop = window.matchMedia("only screen and (min-width: 1024px)");
@@ -510,7 +431,6 @@ jQuery(document).ready(function ($) {
   ///////////////////////////////////////////////////////////////////// print //
   //////////////////////////////////////////////////////////////////////////////
   function print(selector) {
-    //$('#cgv').addClass('noprint');
     var $print = $(selector)
         .clone()
         .addClass('print')
@@ -525,32 +445,19 @@ jQuery(document).ready(function ($) {
 
   //////////////////////////////////////////////////////////////// export pdf //
   //////////////////////////////////////////////////////////////////////////////
-  /*var doc = new jsPDF('portrait', 'mm', 'a4');
-
+  var doc = new jsPDF('portrait', 'mm', 'letter');
+  var specialElementHandlers = {
+      '#editor': function (element, renderer) {
+          return true;
+      }
+  };
   $('#cmd').click(function () {
-    $('#order_inscription, #cmd, #print, #curseurWrapper').hide();
-    $('#modalDevis').css({
-      margin: '20px auto 0',
-      background: '#fff',
-      border: 'none'
-    });
-    $('#modalDevis table').css({
-      width: '90%',
-      background: '#fff'
-    });
-    $('#modalDevis table#fbcart_check').css({
-      width: '45%',
-      marginRight: '10%',
-      background: '#fff'
-    });
-    $('#modalDevis table td').css({
-      background: '#fff'
-    });
-    doc.addHTML($('#modalDevis')[0], 15, 15, {
+    var doc = new jsPDF();
+    doc.addHTML($('#expop')[0], 15, 15, {
+      'background': '#fff',
     }, function() {
       doc.save('devis.pdf');
     });
-    $('#order_inscription, #cmd, #print, #curseurWrapper').show();
-  });*/
+  });
 
 });

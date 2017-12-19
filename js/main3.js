@@ -8,38 +8,28 @@ function tipHide(id) {
    var e = document.getElementById(id);
   	e.style.visibility="hidden";
 }
-
-var toCopy  = document.getElementById( 'to-copy' ),
-    btnCopy = document.getElementById( 'copy' );
-
-btnCopy.addEventListener( 'click', function(){
-  toCopy.select();
-  document.execCommand( 'copy' );
-
-  if ( document.execCommand( 'copy' ) ) {
-      btnCopy.classList.add( 'copied' );
-
-      var temp = setInterval( function(){
-        btnCopy.classList.remove( 'copied' );
-        clearInterval(temp);
-      }, 600 );
-
-  } else {
-    console.info( 'document.execCommand went wrong…' )
-  }
-
-  return false;
-} );
-
-
+function printDiv() {
+    var divToPrint = document.getElementById('printable');
+    var htmlToPrint = '' +
+        '<style type="text/css">' +
+        'table th, table td {' +
+        'border:1px solid #000;' +
+        'padding;0.5em;' +
+        '}' +
+        '</style>';
+    htmlToPrint += divToPrint.outerHTML;
+    newWin = window.open("");
+    newWin.document.write("<h3 align='center'>Print Page</h3>");
+    newWin.document.write(htmlToPrint);
+    newWin.print();
+    newWin.close();
+}
 //------------------------------------------------------------------------------
 //                                                                        JQUERY
 //------------------------------------------------------------------------------
 jQuery(document).ready(function ($) {
 
-  $('.btn').removeClass('.ui-button');
-
-  $(".deactive").css("opacity", 0.2);
+  jQuery(".deactive").css("opacity", 0.2);
 
 	//////////////////////////////////////////////////////////////// quantité+- //
   $("#spinner").spinner();
@@ -48,11 +38,10 @@ jQuery(document).ready(function ($) {
   //////////////////////////////////////////////////////////////////////////////
 
   $(document).on('click', '.closeButton', function() {
-    $(this).parent().fadeOut();
+    $('.closeButton').parent().fadeOut();
     $('.box_info').fadeOut();
     $('.box_warning').fadeOut();
   });
-
 
   // bouton close tooltips
   $('.helpText, #acclient_sub, #panier_sub').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
@@ -282,10 +271,20 @@ jQuery(document).ready(function ($) {
 
   ////////////////////////////////////////////////////////////// export devis //
   //////////////////////////////////////////////////////////////////////////////
+  $( "#curseur" ).slider({
+      value: 0,
+      min: 0,
+      max: 100,
+      step: 1,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( ui.value );
+      }
+  });
+  $( "#amount" ).val( $( "#curseur" ).slider( "value" ) );
 
-  var expfrm = $('#marge');
+  var expfrm = jQuery('#marge');
   expfrm.submit(function (e) {
-    e.preventDefault();
+		e.preventDefault();
     $.ajax({
       type: expfrm.attr('method'),
       url: expfrm.attr('action'),
@@ -318,19 +317,34 @@ jQuery(document).ready(function ($) {
           $(this).find('.prixi').text(prixtt + ' €');
         });
 
-        $("#totalMarge").text('+' + totalmarge.toFixed(2) + ' €');
+        $("#totalMarge").text('+' + totalmarge + ' €');
         $("#loadht").text(totalht + ' €');
         $("#loadtva").text(tva + ' €');
         $("#loadttc").text(totalttc + ' €');
       },
       error: function (data) {
         alert('une erreur s\'est produite, veuillez réessayer.');
-      }
+      },
     });
 
   });
 
+  var doc = new jsPDF('portrait', 'mm', 'letter');;
+  var specialElementHandlers = {
+      '#editor': function (element, renderer) {
+          return true;
+      }
+  };
+  $('#cmd').click(function () {
+    var doc = new jsPDF();
+    doc.addHTML($('#expop')[0], 15, 15, {
+      'background': '#fff',
+    }, function() {
+      doc.save('devis.pdf');
+    });
+  });
 
+va
   //----------------------------------- affichage conditionnel mobile/desktop //
   //////////////////////////////////////////////////////////////////////////////
   var isDesktop = window.matchMedia("only screen and (min-width: 1024px)");
@@ -380,7 +394,7 @@ jQuery(document).ready(function ($) {
 
 		/////////////////////////////////////////////////////////////// addtocart //
 		////////////////////////////////////////////////////////////////////////////
-		var frm = jQuery('#cart_form');
+  var frm = jQuery('#cart_form');
 		frm.submit(function (e) {
 			e.preventDefault();
 
@@ -444,7 +458,7 @@ jQuery(document).ready(function ($) {
 
   //-----------------------------------------------------------------fin desktop
   }else{
-		var frm = jQuery('#cart_form');
+var frm = jQuery('#cart_form');
 		frm.submit(function (e) {
 			e.preventDefault();
 
@@ -509,8 +523,8 @@ jQuery(document).ready(function ($) {
 
   ///////////////////////////////////////////////////////////////////// print //
   //////////////////////////////////////////////////////////////////////////////
+
   function print(selector) {
-    //$('#cgv').addClass('noprint');
     var $print = $(selector)
         .clone()
         .addClass('print')
@@ -523,34 +537,5 @@ jQuery(document).ready(function ($) {
     $print.remove();
   }
 
-  //////////////////////////////////////////////////////////////// export pdf //
-  //////////////////////////////////////////////////////////////////////////////
-  /*var doc = new jsPDF('portrait', 'mm', 'a4');
-
-  $('#cmd').click(function () {
-    $('#order_inscription, #cmd, #print, #curseurWrapper').hide();
-    $('#modalDevis').css({
-      margin: '20px auto 0',
-      background: '#fff',
-      border: 'none'
-    });
-    $('#modalDevis table').css({
-      width: '90%',
-      background: '#fff'
-    });
-    $('#modalDevis table#fbcart_check').css({
-      width: '45%',
-      marginRight: '10%',
-      background: '#fff'
-    });
-    $('#modalDevis table td').css({
-      background: '#fff'
-    });
-    doc.addHTML($('#modalDevis')[0], 15, 15, {
-    }, function() {
-      doc.save('devis.pdf');
-    });
-    $('#order_inscription, #cmd, #print, #curseurWrapper').show();
-  });*/
 
 });
