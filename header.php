@@ -233,14 +233,14 @@
 						<button class="btModal btContinue">Continuer mes achats</button>
 					</div>
 					<?php
-					if(is_page('plv-interieur') || is_page('roll-up') || is_page('totem') || is_page('stand-parapluie') || is_page('promotions')) {
+					if(is_page('plv-interieur') || is_page('roll-up') || is_page('totem') || is_page('stand-parapluie') || is_page('promotions') || is_page('nappes-publicitaires')) {
 						echo '
 						<div class="box_info">Pour la communication et publicités sur lieu de vente en intérieur, salons, expositions, retrouvez tous nos produits dans les rubriques:</div>
 						<ul class="modalMore">
 							<li><a href="'.get_bloginfo('url').'/roll-up/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-roll-up.png" alt="roll-up"><br />roll-up</a></li>
 							<li><a href="'.get_bloginfo('url').'/totem/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-totem.png" alt="roll-up"><br />totem</a></li>
 							<li><a href="'.get_bloginfo('url').'/stand-parapluie/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-stand.png" alt="roll-up"><br />stand</a></li>
-							<li><a href="'.get_bloginfo('url').'/plv-interieur/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-PLV-int.png" alt="banderoles"><br />PLV</a></li>
+							<li><a href="'.get_bloginfo('url').'/nappes-publicitaires/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-nappes.png" alt="banderoles"><br />Nappe</a></li>
 						</ul>
 						';
 					}
@@ -318,5 +318,5 @@
 		</header>
 		<!--fin header------------------------------------------------------------->
 
-<div class="box_warn noprint"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><span class="pink">Chers clients, veuillez prendre en compte nos congés d'hiver :<br /></span>  Nous serons fermés<strong> du 25/12 au 02/01 inclus</strong>. Vos commandes express ou demandes urgentes seront traitées par notre service commercial online si besoin. <br />Toute l'équipe de france banderole vous souhaite de joyeuses fêtes de fin d'année</p></div>
+<!--<div class="box_warn noprint"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><span class="pink">Chers clients, veuillez prendre en compte nos congés d'hiver :<br /></span>  Nous serons fermés<strong> du 25/12 au 02/01 inclus</strong>. Vos commandes express ou demandes urgentes seront traitées par notre service commercial online si besoin. <br />Toute l'équipe de france banderole vous souhaite de joyeuses fêtes de fin d'année</p></div>-->
 		<!--V MAIN CONTENT V------------------------------------------------------->

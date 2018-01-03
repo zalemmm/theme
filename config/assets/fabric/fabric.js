@@ -530,6 +530,8 @@ angular.module('common.fabric', [
 				var comptoir = $('#desc').text().indexOf('Comptoir') > -1;
 				var valise = $('#desc').text().indexOf('Valise') > -1;
 
+				var rond = $('#desc').text().indexOf('forme ronde') > -1;
+
 				// variables orfilammes ------------------------------------------------
 				var aile1 = $('#desc').text().indexOf('aile d’avion 54x240') > -1;
 				var aile2 = $('#desc').text().indexOf('aile d’avion 85x308') > -1;
@@ -572,7 +574,7 @@ angular.module('common.fabric', [
 				}
 
 				/////////////////////// tous les gabarits rectangulaires hors formats spéciaux oriflammes //
-				if (!aile1 && !aile2 && !aile3 && !aile4 && !goutte1 && !goutte2 && !goutte3 && !goutte4){
+				if (!aile1 && !aile2 && !aile3 && !aile4 && !goutte1 && !goutte2 && !goutte3 && !goutte4 && !rond){
 
 					//////////////////////////////////////////////////////////// STANDS //
 					if (trois1) {
@@ -783,8 +785,58 @@ angular.module('common.fabric', [
 					  rect.on('mousedown',rectMouseDown);
 					}
 
-				////////////////////////////////////////////////////////// ORIFLAMMES //
-				}else{
+			////////////////////////////////////////////////////////////////// ROND //
+			}else if(rond){
+				var gabarit = new fabric.Circle({
+					id: 'gabarit',
+					originX: 'center',
+					originY: 'center',
+					top: center.top,
+					left: center.left,
+					fill: 'rgba(0,0,0,0)',
+					stroke: '#ccc',
+					strokeWidth: 2,
+					strokeDashArray: [10, 5],
+					radius: canvas.height/2-20-10,
+					hasControls: false,
+					evented:false
+				});
+
+				var rect = new fabric.Circle({
+					id: 'recbg',
+					originX: 'center',
+					originY: 'center',
+					top: center.top,
+					left: center.left,
+					fill: '#fff',
+					radius: canvas.height/2-20,
+					hasControls: false
+				});
+
+				canvas.add(rect);
+				canvas.add(gabarit);
+
+				// lier les calques rect & gabarit -----------------------------------
+				function rectMouseMove(option){
+					gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
+					gabarit.top = rect.gabaritTop+ rect.top- rect.mousesDownTop;
+					gabarit.setCoords();
+				}
+
+				function rectMouseDown(option){
+					rect.mousesDownLeft = rect.left;
+					rect.mousesDownTop = rect.top;
+					rect.gabaritLeft = gabarit.left;
+					rect.gabaritTop = gabarit.top;
+				}
+
+				register();
+				function register(){
+					rect.on('moving',rectMouseMove);
+					rect.on('mousedown',rectMouseDown);
+				}
+			//////////////////////////////////////////////////////////// ORIFLAMMES //
+			}else{
 					///////////////////////////////////////////////////// ailes d'avion //
 					//--------------------------------------------------------------------
 					if ((aile1) && (verso != 'Verso')) {
@@ -2317,87 +2369,6 @@ angular.module('common.fabric', [
 
 		};
 
-		/*  self.addWordCloud = function (wordsStr) {
-		    var words = self.generateWordCloudText(wordsStr);
-		    d3.layout.cloud().size([400, 300])
-		        .padding(3)
-		        .words(words)
-		        .rotate(function() { return ~~(Math.random() * 2) * 90; })
-		        .fontSize(function(d) { return d.size; })
-		        .on("end", self.drawWordCloud)
-		        .start();
-		};
-
-		self.drawWordCloud = function (wordsInit) {
-
-		    var color = d3.scale.linear()
-		        .domain([0,1,2,3,4,5,6,10,15,20,40,60,80,100])
-		        .range(["#5254A3", "#8CA252", "#DE9ED6", "#6B6ECF", "#A55194", "#D6616B", "#E7BA52", "#9C9EDE", "#393B79", "#B51E1E", "#045725", "#1759BB", "#78243d", "#008080"]);
-		    $('#wordcloud').html('');
-
-		    d3.select("#wordcloud").append("svg")
-		        .attr("width", '400px')
-		        .attr("height", '400px')
-		        .append("g")
-		        .attr("transform", "translate(195,200)")
-		        .selectAll("text")
-		        .data(wordsInit)
-		        .enter().append("text")
-		        .style("font-size", function(d) { return d.size + "px"; })
-		        .style("font-family", "Impact")
-		        .style("fill", function(d, i) { return color(i); })
-		        .attr("text-anchor", "middle")
-		        .attr("transform", function(d) {
-		            return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-		        })
-		        .text(function(d) { return d.text; });
-
-
-		    var html = d3.select("svg")
-		        .attr("version", 1.1)
-		        .attr("xmlns", "http://www.w3.org/2000/svg")
-		        .node().parentNode.innerHTML;
-
-		    //self.addShapeString(html);
-
-		    var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
-		    self.addImage(imgsrc);
-		    $('#wordcloud').html('');
-
-
-		};
-
-
-
-		self.generateWordCloudText = function (str){
-
-		    var generatedObj = [];
-		    var res = str.split(" ");
-		    var textLen = res.length;
-		    var wordsNew = [""];
-		    if(textLen < 200){
-		        for(i=0; i<=199; i++){
-		            var res2 = wordsNew[0].split(" ");
-		            var textLenNew = res2.length;
-		            if(textLenNew < 200) {
-		                wordsNew[0] += " " + str;
-		            }
-		        }
-
-		        var wordsNew2 = wordsNew[0].split(" ");
-
-		        for ( var i = 0, l = wordsNew2.length; i < l; i++ ) {
-		            generatedObj.push({"text":wordsNew2[ i ],"size":self.getRandomArbitrary()});
-		        }
-
-		    }else{
-		        for ( var i = 0, l = res.length; i < l; i++ ) {
-		            generatedObj.push({"text":res[ i ],"size":self.getRandomArbitrary()});
-		        }
-		    }
-
-		    return generatedObj;
-		};*/
 
 		self.getRandomArbitrary = function (){
 		    var min = 13;

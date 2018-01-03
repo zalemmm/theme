@@ -925,7 +925,7 @@ a.notech1:hover {
 /* line 761, sass/_layoutLdev.scss */
 a#logo {
   position: absolute;
-  top: 60px;
+  top: 65px;
   left: 20px;
   width: 25%;
   height: 240px;
@@ -2497,7 +2497,7 @@ input::placeholder {
 /* line 1991, sass/_layoutLdev.scss */
 .jotform-form input.form-textbox, .jotform-form input.form-textbox2 {
   display: inline;
-  width: 26%;
+  width: 18%;
   height: 33px;
   line-height: .8rem;
   background: #fff;

@@ -260,12 +260,6 @@ include('nom_du_fichier_de_conf.php');
       </script>
       ';
 		}else{
-      echo '<script>
-      jQuery(document).ready(function ($) {
-        $.fn.snow({ minSize: 3, maxSize: 20, newOn: 1000 });
-      });
-      </script>
-      ';
 
     }
 		?>
