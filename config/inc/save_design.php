@@ -1,12 +1,16 @@
 <?php
-/*
- *
- * An example file that save encoded SVG, PNG and JPG URL and creates an image of it
- *
- */
 //$site_url = $_SERVER['DOCUMENT_ROOT'];
 session_start();
+//------------------------------------------------------------------------------
+//                       ENREGISTREMENT DES MAQUETTES
+// -------------------------------------------------connexion à la bdd wordpress
+define( 'SHORTINIT', true );
+require( '../../../../../wp-load.php' );
+global $wpdb;
+$prefix = $wpdb->prefix;
+$fb_tablename_maquette = $prefix."fbs_maquette";
 
+//------------------------------------------------------------------------------
 $site_url = $_SERVER['HTTP_REFERER'];
 $site_ref_url = explode('/', $site_url);
 $site_url = $site_ref_url[2];
@@ -17,6 +21,9 @@ $nbcom = $_SESSION['nbcom'];
 $nbname = $_SESSION['nbname'];
 $nbh = $_SESSION['nbh'];
 $nbl = $_SESSION['nbl'];
+$saveref = $_SESSION['saveref'];
+
+//------------------------------------------------------------------- format SVG
 
 if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
@@ -26,8 +33,6 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 			if(!empty($value) && $value != null){
 
-				//$destination = dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))).'/uploaded/'.$nbcom.'/';
-				//$destination = (dirname(__FILE__).'/../../../../../uploaded/'.$nbcom.'/');
 				$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
 
 				if (!is_dir($destination)) {
@@ -42,9 +47,18 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 				//chmod($filename, 0664);
 				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
 
+
+
 			}
 		}
-
+		//-------------------------------------------------------------insertion bdd
+		$maquette = $wpdb->get_row("SELECT * FROM `$fb_tablename_maquette` WHERE item = '$saveref'");
+		if(!$maquette){
+			$wpdb->query("INSERT INTO `$fb_tablename_maquette` VALUES ('','$nbcom','$saveref','$contant')");
+		}else{
+			$wpdb->query("DELETE FROM `$fb_tablename_maquette` WHERE item='$saveref'");
+			$wpdb->query("INSERT INTO `$fb_tablename_maquette` VALUES ('','$nbcom','$saveref','$contant')");
+		}
 		$result['status'] = true;
 		$result['filename'] = $filenames;
 		$result['message'] = 'Your designed object has been saved.';
@@ -52,6 +66,8 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		echo json_encode($result);
 
 		//send_design($destination, $filename);
+
+//------------------------------------------------------------------- format PNG
 
 } else if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'png'){
 
@@ -86,6 +102,7 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 		//send_design($destination, $filename);
 
+//------------------------------------------------------------------- format JPG
 } else if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'jpg'){
 
 		$result = array();
@@ -121,31 +138,33 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 
 		//send_design($destination, $filename);
 
+//------------------------------------------------------------------ format JSON
 }  else if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'json'){
-
 		$result = array();
 		$filenames = array();
-		foreach ($post_data as $key => $value) {
+		$value = $_POST['object'];
 
+		$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
 
-			if(!empty($value) && $value != null){
-
-				$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
-
-				if (!is_dir($destination)) {
-						mkdir($destination, 0777, true);
-				}
-
-				$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.json';
-				
-				$contant = file_get_contents($value);
-
-				file_put_contents($destination.$filename, $contant);
-				//chmod($filename, 0664);
-				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
-
-			}
+		if (!is_dir($destination)) {
+				mkdir($destination, 0777, true);
 		}
+
+		$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.json';
+		file_put_contents($destination.$filename, $value);
+		//chmod($filename, 0664);
+		$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
+
+		//-------------------------------------------------------------insertion bdd
+		$maquette = $wpdb->get_row("SELECT * FROM `$fb_tablename_maquette` WHERE item = '$saveref'");
+		if(!$maquette){
+			$wpdb->query("INSERT INTO `$fb_tablename_maquette` VALUES ('','$nbcom','$saveref','$value')");
+		}else{
+			$wpdb->query("DELETE FROM `$fb_tablename_maquette` WHERE item='$saveref'");
+			$wpdb->query("INSERT INTO `$fb_tablename_maquette` VALUES ('','$nbcom','$saveref','$value')");
+		}
+
+		//--------------------------------------------------------------------------
 
 		$result['status'] = true;
 		$result['filename'] = $filenames;
@@ -182,6 +201,8 @@ function send_design($filepath = null, $filename = null){
 		mail_attachment($my_file, $my_path, $to_email, $my_mail, $my_name, $my_replyto, $my_subject, $message);
 	}
 }
+
+//--------------------------------------------------------------- envoi par mail
 
 function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
 

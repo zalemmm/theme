@@ -578,60 +578,6 @@ angular.module('productApp', [
             }
         };
 
-        $scope.saveObjectAsJSON = function () {
-
-            //ngProgressLite.start();
-            $scope.loader = true;
-
-            //$scope.$apply();
-            if($scope.fabric.checkBackgroundImage()){
-
-                $scope.beforeSave();
-
-                var objects = $scope.fabric.designedSVGObjects;
-                var json = $scope.fabric.sauvegarder()
-                $http({
-                    method: 'post',
-                    url:$scope.REQUEST_URL.SAVE_DESIGN,
-                    data: {
-                        type: 'json',
-                        object: $scope.fabric.sauvegarder()
-                    },
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    transformRequest: _this.transformRequest
-
-                }).success(function (data, status, headers, config) {
-
-                    //ngProgressLite.done();
-                    $scope.loader = false;
-
-                    if(data.status){
-                        $mdDialog.show(
-                            $mdDialog.alert()
-                                .parent(angular.element(document.querySelector('#popupContainer')))
-                                .clickOutsideToClose(true)
-                                .title('Maquette enregistrée.')
-                                .textContent('Votre maquette est bien sauvegardée, vous pourrez revenir dans votre espace client reprendre votre travail quand vous le souhaitez. Vous pouvez fermer la fenêtre en cours')
-                                .ariaLabel('Success')
-                                .ok('OK!')
-                        );
-                    }
-
-                }).error(function (data, status, headers, config) {
-
-                    //ngProgressLite.done();
-                    $scope.loader = false;
-
-                    $scope.$broadcast("AjaxCallHappened",false);
-                });
-
-                $scope.objectLayers = [];
-                $scope.objectLayers = $scope.fabric.canvasLayers();
-            }else{
-                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
-            }
-        };
-
         $scope.saveObjectAsPng = function () {
 
             //ngProgressLite.start();
@@ -661,7 +607,7 @@ angular.module('productApp', [
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
                                 .title('Maquette enregistrée.')
-                                .textContent('Votre maquette est bien enregistrée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
+                                .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
                         );
@@ -1359,7 +1305,7 @@ angular.module('productApp', [
             });
         };
 
-        $scope.initFBUi = function (){
+        /*$scope.initFBUi = function (){
             window.fbAsyncInit = function() {
                 FB.init({
                     appId      : $scope.fb_app_id,
@@ -1375,7 +1321,7 @@ angular.module('productApp', [
                 js.src = "//connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-        };
+        };*/
 
         $scope.init = function () {
 
@@ -1391,7 +1337,7 @@ angular.module('productApp', [
 
                 $scope.CanvasPosition();
 
-                $scope.initFBUi();
+                //$scope.initFBUi();
 
             jQuery(window).load(function(){
                  jQuery(".editor_section").height(jQuery(".canvas_section").height());

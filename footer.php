@@ -139,13 +139,16 @@
         $strmoyenne4 = " avis";
       ?>
 
-      <h4 class="clients_reviews_titre"><span><a href="<?php bloginfo('url'); ?>/avis">Avis Clients sur France Banderole</a></span></h4>
-      <div class="clients_reviews">
-        <span class="client_reviews_1">
-          <?php echo $strmoyenne1; ?>
-        </span><?php echo $strmoyenne2 . $strmoyenne3 . $strmoyenne4; ?>
+      <div  itemscope itemtype="http://schema.org/AggregateRating" itemprop="aggregateRating">
+        <h4 class="clients_reviews_titre"><span><a href="<?php bloginfo('url'); ?>/avis/">Avis Clients sur <span  itemprop="itemReviewed">France Banderole</span></a></span></h4>
+        <div class="clients_reviews">
+          <span class="client_reviews_1"  itemprop="ratingValue"><?php echo $strmoyenne1; ?></span>
+          <span><?php echo $strmoyenne2; ?></span>
+          <span  itemprop="ratingCount"><?php echo $strmoyenne3; ?></span>
+          <span><?php echo $strmoyenne4; ?></span>
 
-        <span class="star-note"><img src="<?php get_bloginfo("url"); ?>/wp-content/themes/fb/images/star-4_7.png" /></span><br />
+          <span class="star-note"><img src="<?php get_bloginfo("url"); ?>/wp-content/themes/fb/images/star-4_7.png" /></span><br />
+        </div>
       </div>
 
       <a href="<?php echo get_bloginfo("url"); ?>/avis/" class="floatRight"></a>

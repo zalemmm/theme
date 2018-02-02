@@ -1,60 +1,3 @@
-<?php
-  session_start();
-  // -----------------------------------------------connexion à la bdd wordpress
-  define( 'SHORTINIT', true );
-  require( '../../../../wp-load.php' );
-  global $wpdb;
-  $prefix = $wpdb->prefix;
-  $fb_tablename_maquette = $prefix."fbs_maquette";
-
-  //-------------------------------------------------------------------variables
-  $path = $_SERVER['DOCUMENT_ROOT'];
-  $nbcom = $_GET['number'];
-  $nbname = $_GET['name'];
-  $nbdesc = $_GET['desc'];
-  $nbh = $_GET['hauteur'];
-  $nbl = $_GET['largeur'];
-  $verso = $_GET['verso'];
-  $ref = $_GET['ref'];
-  $_SESSION['nbcom'] = $nbcom;
-  $_SESSION['nbname'] = $nbname;
-  $_SESSION['nbdesc'] = $nbdesc;
-  $_SESSION['nbh'] = $nbh;
-  $_SESSION['nbl'] = $nbl;
-  $_SESSION['ref'] = $ref;
-
-  // cas particuliers
-
-  $find = '/verso/';
-  $rectoVerso = preg_match_all($find, $nbdesc, $resultat);
-  $rectoVerso = count($resultat[0]);
-
-  $find2 = '/minia3/';
-  $minia3 = preg_match_all($find2, $nbdesc, $resultat2);
-  $minia3 = count($resultat2[0]);
-
-  $find3 = '/minia4/';
-  $minia4 = preg_match_all($find3, $nbdesc, $resultat3);
-  $minia4 = count($resultat3[0]);
-
-  //---------------------création d'un numéro unique maquette pour la sauvegarde
-  $saveref = $nbcom.'-'.$nbname.$nbh.'x'.$nbl.'-'.$verso.$ref;
-  $_SESSION['saveref'] = $saveref;
-
-  //------------------------- vérifier s'il existe une sauvegarde de la maquette
-  $maquette = $wpdb->get_row("SELECT * FROM `$fb_tablename_maquette` WHERE item = '$saveref'");
-  if (!$maquette){
-    $save = 'non';
-    $json = '';
-  }
-  else{
-    $save = 'oui';
-    $json = $maquette->json;
-  }
-
-  //----------------------------------------------------------------------------
-?>
-
 <!doctype html>
 <html>
 <head>
@@ -77,13 +20,44 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
   <link rel="stylesheet" type="text/css" href="css/angular-material.css">
 
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="css/jquery.colorpicker.css">
   <!-- CSS End -->
 
   <script type="text/javascript" src="js/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 
 <body id="body">
+
+<?php
+  session_start();
+  $path = $_SERVER['DOCUMENT_ROOT'];
+  $nbcom = $_GET['number'];
+  $nbname = $_GET['name'];
+  $nbdesc = $_GET['desc'];
+  $nbh = $_GET['hauteur'];
+  $nbl = $_GET['largeur'];
+  $verso = $_GET['verso'];
+  $_SESSION['nbcom'] = $nbcom;
+  $_SESSION['nbname'] = $nbname;
+  $_SESSION['nbdesc'] = $nbdesc;
+  $_SESSION['nbh'] = $nbh;
+  $_SESSION['nbl'] = $nbl;
+
+  $find = '/verso/';
+  $rectoVerso = preg_match_all($find, $nbdesc, $resultat);
+  $rectoVerso = count($resultat[0]);
+
+  $find2 = '/minia3/';
+  $minia3 = preg_match_all($find2, $nbdesc, $resultat2);
+  $minia3 = count($resultat2[0]);
+
+  $find3 = '/minia4/';
+  $minia4 = preg_match_all($find3, $nbdesc, $resultat3);
+  $minia4 = count($resultat3[0]);
+?>
 
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
     <div ng-show="loading" class="loading">
@@ -114,11 +88,8 @@
                             }else if ($verso == 1){
                               echo '<span id="rectvers">Verso</span>';
                             }else{}
-                          } ?>
-                          sauvegarde: <span id="saved"><?php echo $save; ?></span>
-                          <span id="json" style="visibility:hidden;"><?php echo $json; ?></span>
+                          }?>
                         </p>
-
                       </div>
 
                         <h4>Créez votre maquette en quelques clics:</h4>
@@ -130,21 +101,23 @@
                             <p><span>2</span> Importez vos images et entrez du texte à l'aide des boutons ci-dessus <strong><i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i></strong></p>
                             <p><span>3</span> Agencez vos calques : un simple clic dessus pour les déplacer, les redimentionner, etc. <br />
                               Dans <strong>calques <i class="fa fa-object-ungroup"></i></strong> vous pouvez gérer l'ordre de superposition de vos éléments</p>
-                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, <strong>enregistrez <i class="fa fa-save"></i></strong> pour nous la transmettre.</p>
+                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, si elle n'est pas centrée et entièrement visible faites un <strong>reset zoom <i class="fa fa-undo" aria-hidden="true"></i></strong>, puis <strong>enregistrez <i class="fa fa-save"></i></strong> pour nous la transmettre.</p>
                             <p><i class="fa fa-warning" style="color:#ea2a6a"></i> L'enregistrement peut prendre quelques minutes, attendez le message de confirmation avant de quitter l'application !</p>
 
                             <div class="advToggle">
-                              <div class="advanced">
-                                Activer le mode utilisateur avancé <a href="#" data-toggle="tooltip" data-placement="right" class="tooltip-wide" title="En mode avancé vous pouvez zoomer/dézoomer, déplacer votre gabarit etc. Attention toutefois avant d'enregistrer à recentrer votre composition de manière à ce qu'elle soit visible entièrement dans l'espace de travail pour éviter tout décalage de votre mise en page. (Note: le mode avancé n'est pas disponible pour les oriflammes.)"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+                            <!--  <div class="advanced">
+                                Activer le mode utilisateur avancé <a href="#" data-toggle="tooltip" data-placement="right" class="tooltip-wide" title="En mode avancé vous pouvez zoomer/dézoomer, attention toutefois car votre mise en page risque d'être bousculée à l'enregistrement si vous ajoutez des éléments à votre maquette en cours de zoom !"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                               </div>
-
+                               Rounded switch
                               <label class="switch">
                                 <input type="checkbox" class="checkbox">
                                 <span class="slider round"></span>
-                              </label>
+                              </label>-->
                             </div>
 
-                            <p class="dashed">Gardez vos textes, logos à l'intérieur des pointillés gris (marge technique).</p>
+                            <p class="dashed">
+                              En général, ne laissez déborder que le fond des pointillés gris (marge technique).<br /> Pour certains gabarits (stands), ils indiquent l'emplacement du design frontal.
+                            </p>
 
                             <!-- modal astuces -->
                             <div id="faq" class="modal" tabindex="-1" style="display: none;">
@@ -330,9 +303,9 @@
                                         <div class="col-sm-12 input-group colorPicker2" ng-if="enter_drawing_mode == 'Sortir du mode dessin'">
                                             <md-input-container flex>
                                                  <label for="Line color">Couleur:</label>
-                                                 <input type="text" value="" class="" colorpicker ng-model="drawing_color" ng-change="fillDrawing(drawing_color);"/>
+                                                 <input type="text" value="" class="cpick" ng-model="drawing_color" ng-change="fillDrawing(drawing_color);"/>
                                             </md-input-container>
-                                            <span class="input-group-addon" style="border: medium none #000000; background-color: {{drawing_color}}"><i></i></span>
+                                            <span class="input-group-addon cpick" style="border: medium none #000000; background-color: {{drawing_color}}"><i></i></span>
                                         </div>
 
                                         <br />
@@ -524,9 +497,9 @@
                     <div class="row form-group input-group colorPicker2" ng-show="fabric.selectedObject.type != 'image' && fabric.selectedObject.type != 'path'">
                             <md-input-container flex>
                                 <label for="Color">Couleur:</label>
-                                <input type="text" value="" class="" colorpicker ng-model="fabric.selectedObject.fill" ng-change="fillColor(fabric.selectedObject.fill);" />
+                                <input type="text" value="" id="cpick1" class="cpick" colorpicker onclick="colorpick();" ng-model="fabric.selectedObject.fill" ng-change="fillColor(fabric.selectedObject.fill);" />
                             </md-input-container>
-                            <span class="input-group-addon" colorpicker ng-model="fabric.selectedObject.fill" ng-change="fillColor(fabric.selectedObject.fill);" style="border: 2px solid #ccc; background-color: {{fabric.selectedObject.fill}}"><i></i></span>
+                            <span class="input-group-addon cpick" id="cpick2" colorpicker onclick="colorpick();" ng-model="fabric.selectedObject.fill" ng-change="fillColor(fabric.selectedObject.fill);" style="border: 2px solid #ccc; background-color: {{fabric.selectedObject.fill}}"><i></i></span>
                     </div>
 
                     <div class="row form-group transparency" ng-show="fabric.selectedObject.type != 'curvedText'">
@@ -563,24 +536,21 @@
                         <li ng-click="verticalAlign()"><i class="fa fa-arrows-v"></i><span>Centrer</span></li>
                         <li ng-click="{ active: flipObject() }"><i class="fa fa-exchange fa-2"></i><span>Mirroir</span></li>
                         <li ng-click="removeSelectedObject()"><i class="fa fa-eraser"></i><span>Supprimer</span></li>
-                        <span class="unredo disno">
-                          <li ng-click="selectA()">
-                              <a class="fa fa-object-group ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
-                              <md-tooltip md-visible="redo.showTooltip" md-direction="left">Tout sélectionner</md-tooltip>
-                              <span class="nope">Tout sélectionner</span>
-                          </li>
-
-                          <li ng-click="undo()">
-                              <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
-                              <md-tooltip md-visible="undo.showTooltip" md-direction="left">Annuler</md-tooltip>
-                              <span class="nope">Annuler</span>
-                          </li>
-                          <li ng-click="redo()">
-                              <a class="fa fa-repeat ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
-                              <md-tooltip md-visible="redo.showTooltip" md-direction="left">Rétablir</md-tooltip>
-                              <span class="nope">Rétablir</span>
-                          </li>
-                        </span>
+                        <li ng-click="selectA()">
+                            <a class="fa fa-object-group ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                            <md-tooltip md-visible="redo.showTooltip" md-direction="left">Tout sélectionner</md-tooltip>
+                            <span class="nope">Tout sélectionner</span>
+                        </li>
+                        <li ng-click="undo()">
+                            <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                            <md-tooltip md-visible="undo.showTooltip" md-direction="left">Annuler</md-tooltip>
+                            <span class="nope">Annuler</span>
+                        </li>
+                        <li ng-click="redo()">
+                            <a class="fa fa-repeat ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                            <md-tooltip md-visible="redo.showTooltip" md-direction="left">Rétablir</md-tooltip>
+                            <span class="nope">Rétablir</span>
+                        </li>
 
                         <!--<li ng-click="clearAll()"><i class="fa fa-trash"></i><span>Tout effacer</span></li>-->
 
@@ -591,7 +561,7 @@
                             <ul>
                                 <li class="saveObject">
 
-                                      <a ng-hide="loader" href="#" class="ng-scope">
+                                      <a ng-hide="loader" ng-click="saveObjectAsJpg()" href="#" class="ng-scope">
                                           <i class="fa fa-save" ></i>
                                           <br />Enregistrer
                                       </a>
@@ -600,21 +570,20 @@
                                           <br />Veuillez patienter
                                       </a>
 
-                                  <ul class="ulChildMenu">
-
+                                  <!--<ul class="ulChildMenu">
                                         <li class="childLi">
-                                            <a ng-click="saveObjectAsJpg()" href="#" class="ng-scope"><i class="fa fa-send" ></i><br />Terminé ? Envoyer</a>
+                                            <a ng-click="saveObjectAsSvg()" href="#" class="ng-scope">Save as SVG</a>
                                         </li>
                                         <li class="childLi">
-                                            <a ng-click="saveObjectAsJSON()" href="#" class="ng-scope"><i class="fa fa-save" ></i><br />Terminer plus tard</a>
-                                        </li>
-                                        <!--<li class="childLi">
                                             <a ng-click="saveObjectAsPng()" href="#" class="ng-scope">Save as PNG</a>
                                         </li>
                                         <li class="childLi">
+                                            <a ng-click="saveObjectAsJpg()" href="#" class="ng-scope">Save as JPG</a>
+                                        </li>
+                                        <li class="childLi">
                                             <a ng-click="downloadObjectAsPdf()" href="#" class="ng-scope">Download as PDF</a>
-                                        </li>-->
-                                      </ul>
+                                        </li>
+                                      </ul>-->
                                 </li>
 
                                 <!--<li>
@@ -636,7 +605,7 @@
                     </div>
                 </div>
                 <div class="canvas_image image-builder ng-isolate-scope">
-                  <ul class="zoomButtons pull-right disno">
+                  <ul class="zoomButtons pull-right">
                     <li ng-click="zoomObject('zoomin')">
                         <a class="fa fa-search-plus ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
                         <md-tooltip md-visible="zoomin.showTooltip" md-direction="left">Zoom +</md-tooltip>
@@ -739,6 +708,8 @@
 <script src="assets/angular-sanitize.min.js"></script>
 <script src="assets/ng-scrollbar.min.js"></script>
 
+<script src="js/colors.js"></script>
+<script src="js/jQueryColorPicker.min.js"></script>
 
 <script src="assets/fabric/fabric.min.js"></script>
 <!--<script src="assets/fabric/fabricExtensions.js"></script>-->
@@ -754,19 +725,58 @@
 <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>-->
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>-->
 <script src="js/ngprogress-lite.js"></script>
 
 <script src="assets/colorpicker/bootstrap-colorpicker-module.js"></script>
+
+
 <script src="js/application.js"></script>
 
 <script src="assets/file/fileSaver.js"></script>
 <script src="assets/pdf/jspdf.debug.js"></script>
 
 <script>
+function toHexRgb(color) {
+    var rgb = color.getRGB();
+    return "#" + Math.floor(rgb.r * 255.0).toString(16) + Math.floor(rgb.g * 255.0).toString(16) + Math.floor(rgb.b * 255.0).toString(16);
+}
+
 $(document).ready(function() {
+  colorpick = function () {
+    $('.cpick').colorPicker();
+    console.log('click click');
+
+    if(ngModel) {
+      ngModel.$render = function () {
+        elem.val(ngModel.$viewValue);
+      };
+    }
+  };
+
   // activer les tooltips bootstrap
   $('[data-toggle="tooltip"]').tooltip();
+
+  // toggle mode simple / avancé
+  $(".checkbox").change(function() {
+    if(this.checked) {
+      $(".zoomButtons").removeClass('disno');
+      $('.advanced').text('mode avancé');
+      $('.advanced').css({
+        color: '#26A7D9',
+        fontSize: '12px'
+      });
+    }else{
+      $(".zoomButtons").addClass('disno');
+      $('.advanced').text('mode simple');
+      $('.advanced').css({
+        color: '#a6a6a6',
+        fontSize: '12px'
+      });
+    }
+  });
+
+
 });
 </script>
 

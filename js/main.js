@@ -1,4 +1,8 @@
-//-------------------------------------affichage des tooltips / sous menus hover
+//------------------------------------------------------------------------------
+//                                                                       VANILLA
+//------------------------------------------------------------------------------
+
+//----------------affichage des tooltips / sous menus hover --------------------
 function tipShow(id) {
    var e = document.getElementById(id);
   	e.style.visibility="visible";
@@ -25,34 +29,36 @@ btnCopy.addEventListener( 'click', function(){
       }, 600 );
 
   } else {
-    console.info( 'document.execCommand went wrong…' )
+    console.info( 'document.execCommand went wrong…' );
   }
 
   return false;
 } );
 
-
 //------------------------------------------------------------------------------
 //                                                                        JQUERY
 //------------------------------------------------------------------------------
+
 jQuery(document).ready(function ($) {
 
   $('.btn').removeClass('.ui-button');
 
   $(".deactive").css("opacity", 0.2);
 
-	//////////////////////////////////////////////////////////////// quantité+- //
+	//------------------------------ quantité+- ----------------------------------
   $("#spinner").spinner();
 
-  //////////////////////////////////////////// bouton close messages d'erreur //
-  //////////////////////////////////////////////////////////////////////////////
+  //------------------ bouton close messages d'erreur --------------------------
+  //----------------------------------------------------------------------------
+  $(document).on('click', '.closeTip', function() {
+    $(this).parent().fadeOut();
+  });
 
   $(document).on('click', '.closeButton', function() {
-    $(this).parent().fadeOut();
+    $('.closeButton').parent().fadeOut();
     $('.box_info').fadeOut();
     $('.box_warning').fadeOut();
   });
-
 
   // bouton close tooltips
   $('.helpText, #acclient_sub, #panier_sub').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
@@ -60,13 +66,13 @@ jQuery(document).ready(function ($) {
     $('.closeB').parent().fadeOut();
   });
 
-  ///////////////////////////////////////// ajout icone info dans pages devis //
-  //////////////////////////////////////////////////////////////////////////////
+  //---------------- ajout icone info dans pages devis -------------------------
+  //----------------------------------------------------------------------------
 
   $('#buying h3').append('<a class="aideDevis modal-link" href="//www.france-banderole.com/un-devis/" title="Aide pour le devis en ligne" target="_blank"><i class="fa fa-info" aria-hidden="true"></i></a>');
 
-  //////////////////////////////// SlidesJS (slider carré des pages produits) //
-  //////////////////////////////////////////////////////////////////////////////
+  //---------------- SlidesJS (slider carré des pages produits) ----------------
+  //----------------------------------------------------------------------------
 
   $('#slides').slidesjs({
     width: 400,
@@ -84,15 +90,15 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  ////////////////////////////////////////////////// toggle (texte déroulant) //
-  //////////////////////////////////////////////////////////////////////////////
+  //----------------------- toggle (texte déroulant) ---------------------------
+  //----------------------------------------------------------------------------
 
   $('.toggle-button').click(function() {
     $('.toggle-block').slideToggle('slow');
   });
 
-  //////////////////////////////////////////////////////// home buttons hover //
-  //////////////////////////////////////////////////////////////////////////////
+  //-------------------------- home buttons hover ------------------------------
+  //----------------------------------------------------------------------------
   $('#tarifs li').mouseover(function() {
     $(this).find('.micro a').css({
       background: '#EA2A6A',
@@ -118,8 +124,8 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  ////////////////////////////////////////////////////// top icons menu hover //
-  //////////////////////////////////////////////////////////////////////////////
+  //-----------------------top icons menu hover --------------------------------
+  //----------------------------------------------------------------------------
 
   $('.menu-client-icon.phone a, .tel2 a').mouseover(function() {
     $('.menu-client-icon.phone a, .tel2 a').css({
@@ -149,8 +155,8 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  ///////////////////////////////////////////////////////////// smooth scroll //
-  //////////////////////////////////////////////////////////////////////////////
+  //-------------------------smooth scroll -------------------------------------
+  //----------------------------------------------------------------------------
 
   // Select all links with hashes
   $('a[href*="#"]')
@@ -186,8 +192,8 @@ jQuery(document).ready(function ($) {
   });
 
 
-  ///////////////////////////////////////////////////////// Magnific Lightbox //
-  //////////////////////////////////////////////////////////////////////////////
+  //-------------------------------- Magnific Lightbox -------------------------
+  //----------------------------------------------------------------------------
   $('.gallery-item a').magnificPopup({
     type:'image',
     image: {
@@ -209,7 +215,7 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  // initialisation popup confirmation ajout panier
+  //----------------------------- initialisation popup confirmation ajout panier
   $('.open-popup-link').magnificPopup({
     type:'inline',
     midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
@@ -218,8 +224,9 @@ jQuery(document).ready(function ($) {
   $('.btContinue').click(function(){
     $.magnificPopup.close();
   });
-  //////////////////////////////////////////////// warning configurateur lity //
-  //////////////////////////////////////////////////////////////////////////////
+
+  //-------------------------warning configurateur lity ------------------------
+  //----------------------------------------------------------------------------
 
   if (window.location.href.indexOf("vos-devis") != -1) {
 
@@ -242,7 +249,33 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  /////////////////////////////////////////////////////////// toggle adresses //
+  //-----------------------------------------------------------demande de rappel
+  function explode(){
+    $('#butrappel').toggle( "slide" )
+  }
+  setTimeout(explode, 60000);
+
+  var rappel = jQuery('#subrappel');
+  rappel.submit(function(e) {
+    e.preventDefault();
+     jQuery.ajax({
+       type: rappel.attr('method'),
+       url: rappel.attr('action'),
+       data: rappel.serialize(),
+       success: function (data) {
+         $(".modalContent").html("<div class='successmsg'>Merci, un conseiller va vous rappeler!<div>");
+         $("#butrappel").fadeOut();
+       },
+       complete: function(data) {
+
+      },
+       error: function (data) {
+         alert('une erreur s\'est produite, veuillez réessayer.');
+       },
+     });
+  });
+
+  //------------------------------------------------------------ toggle adresses
   $(".checkbox").change(function() {
     if(this.checked) {
       $(".blocAdresse").removeClass('blocSelect');
@@ -280,8 +313,8 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  ////////////////////////////////////////////////////////////// export devis //
-  //////////////////////////////////////////////////////////////////////////////
+  //-------------------------------- export devis ------------------------------
+  //----------------------------------------------------------------------------
 
   var expfrm = $('#marge');
   expfrm.submit(function (e) {
@@ -331,13 +364,14 @@ jQuery(document).ready(function ($) {
   });
 
 
-  //----------------------------------- affichage conditionnel mobile/desktop //
-  //////////////////////////////////////////////////////////////////////////////
+  //---------------------- affichage conditionnel desktop ----------------------
+  //----------------------------------------------------------------------------
+
   var isDesktop = window.matchMedia("only screen and (min-width: 1024px)");
 
   if (isDesktop.matches) {
-    /////////////////// hover accès client: affichage du module de connection //
-    ////////////////////////////////////////////////////////////////////////////
+    //-------------------- hover accès client: affichage du module de connection
+
     $('.menu-client--devis').mouseover(function() {
       $('#acclient_sub').show();
     });
@@ -360,8 +394,7 @@ jQuery(document).ready(function ($) {
       }
     });
 
-		///////////////////////////////////////////////////////////// sticky menu //
-		////////////////////////////////////////////////////////////////////////////
+		//-------------------------------------------------------------- sticky menu
 
 		$(window).scroll(function() {
 	    if ($(window).scrollTop() > 150) {
@@ -377,9 +410,7 @@ jQuery(document).ready(function ($) {
 	    }
 		});
 
-
-		/////////////////////////////////////////////////////////////// addtocart //
-		////////////////////////////////////////////////////////////////////////////
+		//---------------------------------------------------------------- addtocart
 		var frm = jQuery('#cart_form');
 		frm.submit(function (e) {
 			e.preventDefault();
@@ -391,9 +422,9 @@ jQuery(document).ready(function ($) {
 				success: function (data) {
 					//Select item image and pass to the function
 					var itemImg = jQuery('#submit_cart');
+          $("#nomp").load("index.php #nomp");
 					flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
           $("#menuPanier").load("index.php #menuPanier");
-
 				},
 				complete: function(data) {
           setTimeout(function(){
@@ -422,6 +453,7 @@ jQuery(document).ready(function ($) {
          url: frm2.attr('action'),
          data: frm2.serialize(),
          success: function (data) {
+           $("#nomp").load("index.php #nomp");
            flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
            $("#menuPanier").load("index.php #menuPanier");
          },
@@ -442,7 +474,10 @@ jQuery(document).ready(function ($) {
     });
 
 
-  //-----------------------------------------------------------------fin desktop
+
+
+  //---------------------- affichage conditionnel mobile -----------------------
+  //----------------------------------------------------------------------------
   }else{
 		var frm = jQuery('#cart_form');
 		frm.submit(function (e) {
@@ -458,6 +493,7 @@ jQuery(document).ready(function ($) {
 					});
 					//Select item image and pass to the function
 					var itemImg = jQuery('#submit_cart');
+          $("#nomp").load("index.php #nomp");
 					flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
           $("#menuPanier").load("index.php #menuPanier");
 				},
@@ -479,7 +515,8 @@ jQuery(document).ready(function ($) {
 	}
   //------------------------------------------------------------------fin mobile
 
-  //----------------------------------------------------------script fly to cart
+  //--------------------------script fly to cart--------------------------------
+  //----------------------------------------------------------------------------
   function flyToElement(flyer, flyingTo) {
     var $func = jQuery(this);
     var divider = 3;
@@ -507,8 +544,8 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  ///////////////////////////////////////////////////////////////////// print //
-  //////////////////////////////////////////////////////////////////////////////
+  //-------------------------- print -------------------------------------------
+  //----------------------------------------------------------------------------
   function print(selector) {
     //$('#cgv').addClass('noprint');
     var $print = $(selector)
@@ -523,8 +560,8 @@ jQuery(document).ready(function ($) {
     $print.remove();
   }
 
-  //////////////////////////////////////////////////////////////// export pdf //
-  //////////////////////////////////////////////////////////////////////////////
+  //-------------------------------------------------------------/ export pdf //
+  //----------------------------------------------------------------------------
   /*var doc = new jsPDF('portrait', 'mm', 'a4');
 
   $('#cmd').click(function () {
@@ -553,4 +590,52 @@ jQuery(document).ready(function ($) {
     $('#order_inscription, #cmd, #print, #curseurWrapper').show();
   });*/
 
+  //-----------------------------------modes de paiement: affichage bouton payer
+  $('input[value=carte]').click(function() {
+    $('.pch, .pvi, .p30, .p60, .pad').css('display', 'none');
+    $('.pcb').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=cheque]').click(function() {
+    $('.pcb, .pvi, .p30, .p60, .pad').css('display', 'none');
+    $('.pch').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=virement]').click(function() {
+    $('.pcb, .pch, .p30, .p60, .pad').css('display', 'none');
+    $('.pvi').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=trente]').click(function() {
+    $('.pcb, .pvi, .pch, .p60, .pad').css('display', 'none');
+    $('.pc30').fadeOut();
+    $('.p30').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=soixante]').click(function() {
+    $('.pcb, .pvi, .pch, .p30, .pad').css('display', 'none');
+    $('.pc60').fadeOut();
+    $('.p60').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=administratif]').click(function() {
+    $('.pcb, .pvi, .pch, .p30, .p60').css('display', 'none');
+    $('.pcAD').fadeOut();
+    $('.pad').fadeIn().css('display', 'block');
+  });
+
+  //------------------------------------------------------------- validation cgv
+  $('#suivant_reg').click(function(){
+    $(this)
+    .html('<i class="fa fa-check" aria-hidden="true"></i> OK')
+    .css({
+      background: '#ececec',
+      border: '1px solid #e0e0e0',
+      color: '#ccc',
+      cursor: 'default'
+    });
+  });
+
+
+  // ------------------------------------------------------------------------FIN
 });

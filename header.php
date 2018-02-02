@@ -218,68 +218,83 @@
 				</nav>
 			</div>
 
-			<!--fin menu global---------------------------------------------------->
+			<!--fin menu global------------------------------------------------------->
 
 			<!-- Button trigger modal
 			<a href="#test-popup" class="open-popup-link">Show inline popup</a>-->
 
-			<!--modal confirmation ajout au panier--------------------------------->
+			<!--modal confirmation ajout au panier------------------------------------>
 
 			<div id="cartConfirm" class="white-popup mfp-hide">
 				<div class="modalContent">
-			  	<h3 class="popTitle">Votre produit a bien été ajouté au panier.</h3>
-					<div class="btBar">
-						<a href="<?php bloginfo('url'); ?>/votre-panier/" class="btModal">Voir mon panier </a>
-						<button class="btModal btContinue">Continuer mes achats</button>
-					</div>
 					<?php
-					if(is_page('plv-interieur') || is_page('roll-up') || is_page('totem') || is_page('stand-parapluie') || is_page('promotions') || is_page('nappes-publicitaires')) {
-						echo '
+					$products = $_SESSION['fbcart'];
+					$lastit = array_values(array_slice($products, -1))[0];
+					if ($lastit[ilosc] == 1) $qtit = '';
+					else $qtit = ' (<span class="small">x</span>'.$lastit[ilosc].') ';
+					$confirm = 'Votre '.$lastit[rodzaj].$qtit.' a bien été ajouté(e) au panier.';
+
+					//-----------------------------------------------définition catégories
+					if(is_page('roll-up')) $cat='Roll';             if(is_page('banderoles')) $cat='Banderole';       if(is_page('nappes-publicitaires')) $cat='Nappe';
+					if(is_page('stand-parapluie')) $cat='Stand';    if(is_page('totem')) $cat='Totem';                if(is_page('oriflammes')) $cat='Oriflamme';
+					if(is_page('affiches')) $cat='Affiche';         if(is_page('panneaux-dibond')) $cat='Dibond';     if(is_page('tente-publicitaire-barnum')) $cat='Tente';
+					if(is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm')) $cat='Forex';                  if(is_page('pvc-300-microns')) $cat='PVC';
+					if(is_page('flyers') || is_page('depliants') || is_page('cartes')) $cat='Papier';
+					if(is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm')) $cat='Akilux';
+					if(is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) $cat='Sticker';
+
+					//---------------------------------------------------------temp popups
+					if(is_page('promotions') || is_page('nappes-publicitaires') || is_page('totem') || is_page('plv-interieur')) {
+						$view = '
 						<div class="box_info">Pour la communication et publicités sur lieu de vente en intérieur, salons, expositions, retrouvez tous nos produits dans les rubriques:</div>
 						<ul class="modalMore">
 							<li><a href="'.get_bloginfo('url').'/roll-up/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-roll-up.png" alt="roll-up"><br />roll-up</a></li>
 							<li><a href="'.get_bloginfo('url').'/totem/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-totem.png" alt="roll-up"><br />totem</a></li>
 							<li><a href="'.get_bloginfo('url').'/stand-parapluie/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-stand.png" alt="roll-up"><br />stand</a></li>
 							<li><a href="'.get_bloginfo('url').'/nappes-publicitaires/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-nappes.png" alt="banderoles"><br />Nappe</a></li>
-						</ul>
-						';
-					}
-					if(is_page('banderoles') || is_page('tente-publicitaire-barnum') || is_page('oriflammes') || is_page('plv-exterieur')) {
-						echo '
+						</ul>';
+					}else if(is_page('banderoles') || is_page('tente-publicitaire-barnum') || is_page('oriflammes') || is_page('plv-exterieur')) {
+						$view = '
             <div class="box_info">Pour vos évènements et communication en extérieur retrouvez tous nos produits dans les rubriques:</div>
 						<ul class="modalMore">
 							<li><a href="'.get_bloginfo('url').'/banderoles/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-banderole.png" alt="roll-up"><br />banderoles</a></li>
 							<li><a href="'.get_bloginfo('url').'/tente-publicitaire-barnum/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-tentes.png" alt="roll-up"><br />tente barnum</a></li>
 							<li><a href="'.get_bloginfo('url').'/oriflammes/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-oriflamme.png" alt="roll-up"><br />oriflamme</a></li>
 							<li><a href="'.get_bloginfo('url').'/plv-exterieur/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-PLV-ext.png" alt="banderoles"><br />PLV</a></li>
-						</ul>
-						';
-					}
-					if(is_page('flyers') || is_page('depliants') || is_page('cartes') || is_page('affiches')) {
-						echo '
+						</ul>';
+					}else	if(is_page('flyers') || is_page('depliants') || is_page('cartes') || is_page('affiches')) {
+						$confirm = 'Vos '.$lastit[rodzaj].' ont bien été ajouté(<span class="small">e</span>)s au panier.';
+						$view = '
             <div class="box_info">Retrouvez toute notre gamme impression papier dans les rubriques:</div>
 						<ul class="modalMore">
 							<li><a href="'.get_bloginfo('url').'/flyers/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-flyer.png" alt="roll-up"><br />flyers</a></li>
 							<li><a href="'.get_bloginfo('url').'/depliants/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-depliant.png" alt="roll-up"><br />dépliants</a></li>
 							<li><a href="'.get_bloginfo('url').'/cartes/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-carte.png" alt="roll-up"><br />cartes</a></li>
 							<li><a href="'.get_bloginfo('url').'/affiches/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-affiche.png" alt="banderoles"><br />affiche</a></li>
-						</ul>
-						';
-					}
-					if(is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-dibond') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) {
-						echo '
+						</ul>';
+					}else if(is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-dibond') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) {
+						$view = '
            <div class="box_info">Dévouvrez tous nos supports de signalisation muraux, vitraux, extérieur et intérieur dans les rubriques:</div>
 						<ul class="modalMore">
 							<li><a href="'.get_bloginfo('url').'/panneaux-akilux/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-panneau.png" alt="roll-up"><br />Akilux</a></li>
 							<li><a href="'.get_bloginfo('url').'/panneaux-forex-dibond/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="roll-up"><br />Enseignes</a></li>
 							<li><a href="'.get_bloginfo('url').'/stickers/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-stickers.png" alt="roll-up"><br />stickers</a></li>
 							<li><a href="'.get_bloginfo('url').'/banderoles/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-banderole.png" alt="roll-up"><br />banderoles</a></li>
-						</ul>
-						';
+						</ul>';
+					//---------------------------------------------popup produits connexes
+					}else{
+						$view = '<div class="box_info">Avec ce produit, nos clients ont également choisi en complément :</div>
+						<ul class="modalMore">'.get_accessoires($cat).'</ul>';
 					}
+
 					?>
 
-
+					<h3 id="nomp" class="popTitle"><?php echo $confirm ?></h3>
+					<div class="btBar">
+						<a href="<?php bloginfo('url'); ?>/votre-panier/" class="btModal">Voir mon panier</a>
+						<button class="btModal btContinue">Continuer mes achats</button>
+					</div>
+					<?php echo $view ?>
 				</div>
 			</div>
 
@@ -288,12 +303,15 @@
 		$prefix = $wpdb->prefix;
 		$fb_tablename_users_cf = $prefix."fbs_users_cf";
 		$fb_tablename_users_co = $prefix."fbs_users_co";
+		$fb_tablename_tel = $prefix."fbs_tel";
 		$user = $_SESSION['loggeduser'];
 		$id = $user->f_name;
 		$uid = $user->id;
 		$revendeur = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_cf` WHERE att_value = 'compte revendeur' AND uid = '$uid'");
 		$exco = $wpdb->get_row("SELECT * FROM `$fb_tablename_users_co` WHERE uid = '$uid'");
 		$log = '';
+
+		//------------------------------------------ check user connecté / revendeur
 		if ($user) {
 			if ($revendeur) {
 				if      ($exco->sign == 0 && $exco->coli == 0) $rev = 'noremise';
@@ -309,14 +327,45 @@
 			//echo '<div class="log_info"><span class="bonjourMsg">vous n\'êtes pas connecté</span></div>';
 		}
 
+		$prodpages = is_page('stand-parapluie') || is_page('roll-up') || is_page('promotions') || is_page('nappes-publicitaires') || is_page('totem') || is_page('plv-interieur') || is_page('banderoles') || is_page('tente-publicitaire-barnum') || is_page('oriflammes') || is_page('plv-exterieur') || is_page('flyers') || is_page('depliants') || is_page('cartes') || is_page('affiches') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-dibond') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural');
+
+		//------------------------------------------------------popup demande rappel
+		if ($prodpages) {
+
+			if(isset($_POST['tel'])) {
+				$now = date('d-m-Y H:i');
+				$tel = $_POST["tel"];
+				$heure = $_POST["heure"];
+				$savetel = $wpdb->query("INSERT INTO `$fb_tablename_tel` VALUES( '', '$_POST[tel]', '$now', '$_POST[heure]' )");
+			}
+
+			echo '<div id="butrappel"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><a href="#rappel" class="open-popup-link"><h3>Besoin d\'aide?</h3> Faites vous rappeler<br/> par un conseiller</a></div>
+			<div id="rappel" class="white-popup mfp-hide">
+				<div class="modalContent">
+
+					<h3>Un conseiller vous rappelle quand vous le souhaitez :</h3>
+					<p>Entrez votre numéro de téléphone</p>
+					<form action="" method="post" name="rappel" id="subrappel">
+						<input type="text" name="tel" placeholder="téléphone" />
+						<select name="heure" id="">
+							<option value="dès que possible">Dès que possible</option>
+							<option value="dans 10min">dans 10min</option>
+							<option value="dans 30min">dans 30min</option>
+							<option value="dans 1h">dans 1h</option>
+						</select>
+						<button name="subrappel" type="submit">Envoyer</button>
+						<p><i class="fa fa-info-circle"></i> Nos conseillers sont là pour vous aider du lundi au vendredi de <strong>9 à 12h</strong> et de <strong>14 à 18h</strong><br />
+						<small>- Votre numéro de téléphone ne sera pas utilisé à des fins de marketing -</small></p>
+					</form>
+				</div>
+			</div>';
+			//'.do_shortcode(' 	[ninja_form id=2] ').'
+		}
+
 		?>
-		<!--	<form name="search" id="search" method="get" action="<?php bloginfo('url'); ?>">
-		<input type="text" name="s" value="RECHERCHER" onfocus="if (this.value == 'RECHERCHER') {this.value = ''; this.style.color = '#000000';}" onblur="if (this.value == '') {this.value = 'RECHERCHER';this.style.color = '#e88c07';}" />
-		<input type="submit" id="submit_search" value="" />
-		</form>-->
 
 		</header>
 		<!--fin header------------------------------------------------------------->
 
-<!--<div class="box_warn noprint"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><span class="pink">Chers clients, veuillez prendre en compte nos congés d'hiver :<br /></span>  Nous serons fermés<strong> du 25/12 au 02/01 inclus</strong>. Vos commandes express ou demandes urgentes seront traitées par notre service commercial online si besoin. <br />Toute l'équipe de france banderole vous souhaite de joyeuses fêtes de fin d'année</p></div>-->
+		<!--<div class="box_warn noprint"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><span class="pink">Chers clients, veuillez prendre en compte nos congés d'hiver :<br /></span>  Nous serons fermés<strong> du 25/12 au 02/01 inclus</strong>. Vos commandes express ou demandes urgentes seront traitées par notre service commercial online si besoin. <br />Toute l'équipe de france banderole vous souhaite de joyeuses fêtes de fin d'année</p></div>-->
 		<!--V MAIN CONTENT V------------------------------------------------------->

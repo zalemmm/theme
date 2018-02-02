@@ -17,16 +17,15 @@ var bourbon = './node_modules/bourbon/app/assets/stylesheets';
 
 gulp.task( 'watch', ['sass'], function() {
     browserSync.init({
-      injectChanges: true,
-      proxy: "http://127.0.0.1/wordpress",
-      port: 8000
+        proxy: "http://127.0.0.1/wordpress",
+        port: 8000
     });
-    gulp.watch( './sass/*.scss', ['sass']).on( 'change', browserSync.reload );
-    gulp.watch( '*.php' ).on( 'change', browserSync.reload );
+    gulp.watch( './sass/**/*.scss', ['sass']);
+    gulp.watch( '*.html' ).on( 'change', browserSync.reload );
 });
 
 gulp.task( 'sass', function() {
-    return gulp.src( './sass/*.scss' )
+    return gulp.src( './sass/**/*.scss' )
         .pipe( sourcemaps.init() )
         .pipe( sass({
             includePaths: [susy, bourbon],

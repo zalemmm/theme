@@ -958,14 +958,14 @@ body {
 }
 
 .dashed {
-  margin-top: 10px;
+  margin-top: 0;
   border: 2px dashed #ccc;
   padding: 5px;
   font-size: 10px;
   line-height: 1.2rem;
   text-transform: uppercase;
   color: #a6a6a6;
-  text-align: justify;
+  text-align: left;
 }
 
 .aide {
@@ -2140,9 +2140,9 @@ input:checked + .slider:before {
 }
 
 .advToggle {
-  margin-top: 0;
-  margin-bottom: 0;
-  height: 3px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: auto;
 }
 
 .advanced {
@@ -2170,7 +2170,7 @@ input:checked + .slider:before {
   max-width: 100%;
   width: 200px;
   font-size: 10px;
-  text-align: justify;
+  text-align: left;
   background: #26A7D9;
   border-radius: 0;
   padding: 10px;
@@ -2451,4 +2451,7 @@ p.alert strong {
 
 .ui-colorpicker-disabled * {
 	cursor:					default !important;
+}
+.cp-app{
+  z-index: 900;
 }
