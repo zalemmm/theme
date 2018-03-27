@@ -107,3 +107,52 @@
     background: $hover;
   }
 }
+
+//-------------------------------------------------------------------hack chrome
+@mixin hackChrome {
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    @content;
+  }
+}
+
+// ------------------------------------------------------------------ responsive
+@mixin s1600 {
+  @media (max-width: 1600px) {
+    @content;
+  }
+}
+@mixin s1366 {
+  @media (max-width: 1366px) {
+    @content;
+  }
+}
+@mixin s1200 {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin s1024 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin s960 {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+@mixin s760 {
+  @media (max-width: 760px) {
+    @content;
+  }
+}
+@mixin s540 {
+  @media (max-width: 540px) {
+    @content;
+  }
+}
+@mixin s480 {
+  @media (max-width: 480px) {
+    @content;
+  }
+}

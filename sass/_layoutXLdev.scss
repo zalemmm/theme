@@ -106,6 +106,7 @@
 
   a#logo {
     height: 170px;
+    background: url('../img/logo170.png') top left no-repeat;
   }
 
   // titre site ----------------------------------------------------------------
@@ -153,14 +154,38 @@
 
   #banners {
     @include span(7);
-    padding-left: 0;
-    .banner1 {
-      width: 60%;
-      float: left;
+
+    .banner0 {
+
+      width: 35%;
+
     }
-    .banner2 {
+    .banner1 {
+
+      width: 55%;
+      margin-left: 9%;
+
+      p {
+
+        width: 75%;
+
+      }
+      img {
+
+        width: 20%;
+
+      }
+    }
+
+    .banner2{
       width: 100%;
-      float: right;
+      display: inline-block;
+      margin: 10px auto 0;
+      font-size: 1rem;
+      color: $cyan;
+      text-transform: uppercase;
+      font-weight: 900;
+      text-align: center;
     }
   }
 
@@ -299,6 +324,10 @@
   .exclam{
     margin-right: 5px;
     vertical-align: middle;
+  }
+
+  .helpText{
+    width: 360px;
   }
 
   //----------------------------------------------------------------------------

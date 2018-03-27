@@ -2,16 +2,18 @@
 //                                                                       VANILLA
 //------------------------------------------------------------------------------
 
-//----------------affichage des tooltips / sous menus hover --------------------
+//-------------------------------------affichage des tooltips / sous menus hover
 function tipShow(id) {
-   var e = document.getElementById(id);
-  	e.style.visibility="visible";
+  var e = document.getElementById(id);
+  e.style.visibility="visible";
 }
 
 function tipHide(id) {
-   var e = document.getElementById(id);
-  	e.style.visibility="hidden";
+  var e = document.getElementById(id);
+  e.style.visibility="hidden";
 }
+
+//------------------------------------------------------bouton copier url panier
 
 var toCopy  = document.getElementById( 'to-copy' ),
     btnCopy = document.getElementById( 'copy' );
@@ -21,19 +23,19 @@ btnCopy.addEventListener( 'click', function(){
   document.execCommand( 'copy' );
 
   if ( document.execCommand( 'copy' ) ) {
-      btnCopy.classList.add( 'copied' );
+    btnCopy.classList.add( 'copied' );
 
-      var temp = setInterval( function(){
-        btnCopy.classList.remove( 'copied' );
-        clearInterval(temp);
-      }, 600 );
+    var temp = setInterval( function(){
+      btnCopy.classList.remove( 'copied' );
+      clearInterval(temp);
+    }, 600 );
 
   } else {
     console.info( 'document.execCommand went wrong…' );
   }
 
   return false;
-} );
+});
 
 //------------------------------------------------------------------------------
 //                                                                        JQUERY
@@ -99,25 +101,13 @@ jQuery(document).ready(function ($) {
 
   //-------------------------- home buttons hover ------------------------------
   //----------------------------------------------------------------------------
-  $('#tarifs li').mouseover(function() {
+  $('#tarifs li, #tarifs2 li').mouseover(function() {
     $(this).find('.micro a').css({
       background: '#EA2A6A',
       color: '#fff'
     });
   });
-  $('#tarifs li').mouseout(function() {
-    $(this).find('.micro a').css({
-      background: '#f6f6f6',
-      color: '#555a61'
-    });
-  });
-  $('#tarifs2 li').mouseover(function() {
-    $(this).find('.micro a').css({
-      background: '#EA2A6A',
-      color: '#fff'
-    });
-  });
-  $('#tarifs2 li').mouseout(function() {
+  $('#tarifs li, #tarifs2 li').mouseout(function() {
     $(this).find('.micro a').css({
       background: '#f6f6f6',
       color: '#555a61'
@@ -241,39 +231,11 @@ jQuery(document).ready(function ($) {
               return;
             }
             instance.close();
-            $('#fbcart_fileupload3').load('index.php #fbcart_fileupload3');
-            $('modal-gallery').show();
-            $('#fbcart_lastcomment').show();
           }
       });
     });
   }
 
-  //-----------------------------------------------------------demande de rappel
-  function explode(){
-    $('#butrappel').toggle( "slide" )
-  }
-  setTimeout(explode, 60000);
-
-  var rappel = jQuery('#subrappel');
-  rappel.submit(function(e) {
-    e.preventDefault();
-     jQuery.ajax({
-       type: rappel.attr('method'),
-       url: rappel.attr('action'),
-       data: rappel.serialize(),
-       success: function (data) {
-         $(".modalContent").html("<div class='successmsg'>Merci, un conseiller va vous rappeler!<div>");
-         $("#butrappel").fadeOut();
-       },
-       complete: function(data) {
-
-      },
-       error: function (data) {
-         alert('une erreur s\'est produite, veuillez réessayer.');
-       },
-     });
-  });
 
   //------------------------------------------------------------ toggle adresses
   $(".checkbox").change(function() {
@@ -363,6 +325,66 @@ jQuery(document).ready(function ($) {
 
   });
 
+  //-----------------------------------modes de paiement: affichage bouton payer
+  $('input[value=carte]').click(function() {
+    $('.pch, .pvi, .p30, .p60, .pad').css('display', 'none');
+    $('.pcb').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=cheque]').click(function() {
+    $('.pcb, .pvi, .p30, .p60, .pad').css('display', 'none');
+    $('.pch').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=virement]').click(function() {
+    $('.pcb, .pch, .p30, .p60, .pad').css('display', 'none');
+    $('.pvi').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=trente]').click(function() {
+    $('.pcb, .pvi, .pch, .p60, .pad').css('display', 'none');
+    $('.pc30').fadeOut();
+    $('.p30').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=soixante]').click(function() {
+    $('.pcb, .pvi, .pch, .p30, .pad').css('display', 'none');
+    $('.pc60').fadeOut();
+    $('.p60').fadeIn().css('display', 'block');
+  });
+
+  $('input[value=administratif]').click(function() {
+    $('.pcb, .pvi, .pch, .p30, .p60').css('display', 'none');
+    $('.pcAD').fadeOut();
+    $('.pad').fadeIn().css('display', 'block');
+  });
+
+  //------------------------------------------------------------- validation cgv
+  $('#suivant_reg').click(function(){
+    $(this)
+    .html('<i class="fa fa-check" aria-hidden="true"></i> OK')
+    .css({
+      background: '#ececec',
+      border: '1px solid #e0e0e0',
+      color: '#ccc',
+      cursor: 'default'
+    });
+  });
+
+  //-----------------------------------------------------------helptext tooltips
+
+  $('.helpButton').mouseover(function(){
+    $('.helpText').css('visibility', 'hidden');
+    var thishelper = $(this).find('.helpText');
+    thishelper.css('visibility', 'visible').fadeIn();
+    $(document).click(function(event) {
+      if(!$(event.target).closest(thishelper).length) {
+          if($(thishelper).is(":visible")) {
+              $(thishelper).css('visibility', 'hidden');
+          }
+      }
+    });
+  });
 
   //---------------------- affichage conditionnel desktop ----------------------
   //----------------------------------------------------------------------------
@@ -370,6 +392,17 @@ jQuery(document).ready(function ($) {
   var isDesktop = window.matchMedia("only screen and (min-width: 1024px)");
 
   if (isDesktop.matches) {
+    //---------------------------------------------------------helptext tooltips
+    $('li.form-line.select').focusin(function(){
+      $(this).find('.helpText').css('visibility', 'visible').fadeIn();
+    });
+    $('li.form-line.select').change(function() {
+      $(this).find('.helpText').css('visibility', 'hidden').fadeOut();
+    });
+    $('li.form-line.select').focusout(function(){
+      $(this).find('.helpText').css('visibility', 'hidden').fadeOut();
+    });
+
     //-------------------- hover accès client: affichage du module de connection
 
     $('.menu-client--devis').mouseover(function() {
@@ -402,13 +435,54 @@ jQuery(document).ready(function ($) {
 				$('.navContainer').addClass('fixed');
 				$('.logoSmall').css('display','inline-block');
 				$('.izoneLeft, .izoneRight').css('top','50px');
+        $('.log_info').css('display','none');
 	    } else {
 	      $("nav").removeClass('fixed');
 				$('.navContainer').removeClass('fixed');
 				$('.logoSmall').css('display','none');
 				$('.izoneLeft, .izoneRight').css('top','0');
+        $('.log_info').css('display','block');
 	    }
 		});
+
+    //---------------------------------------------------------demande de rappel
+    function explode(){
+      var curdate = new Date();
+      var curhour = curdate.getHours();
+      if(curdate.getDay() != 6 && curdate.getDay() != 0) { // si ce n'est pas le week end
+        if ((curhour >= 9 && curhour < 12) || (curhour >= 14 && curhour < 18) ) { // et si on est dans les horaires bureau
+          $('#butrappel').toggle( "slide" ); // affiche le bouton demande rappel
+        }
+      }
+    }
+    setTimeout(explode, 10000); // apparait au bout de 20 secondes
+    // cacher au click en dehors du div
+    /*$(document).click(function(event) {
+      if(!$(event.target).closest('#butrappel').length) {
+          if($('#butrappel').is(":visible")) {
+              $('#butrappel').hide();
+          }
+      }
+    });*/
+
+    var rappel = jQuery('#subrappel');
+    rappel.submit(function(e) {
+      e.preventDefault();
+       jQuery.ajax({
+         type: rappel.attr('method'),
+         url: rappel.attr('action'),
+         data: rappel.serialize(),
+         success: function (data) {
+           $("#rappel .modalContent").html("<div class='successmsg'>Merci, un conseiller va vous rappeler!<div>");
+           $("#butrappel").fadeOut();
+         },
+         complete: function(data) {
+         },
+         error: function (data) {
+           alert('une erreur s\'est produite, veuillez réessayer.');
+         },
+       });
+    });
 
 		//---------------------------------------------------------------- addtocart
 		var frm = jQuery('#cart_form');
@@ -472,8 +546,6 @@ jQuery(document).ready(function ($) {
          },
        });
     });
-
-
 
 
   //---------------------- affichage conditionnel mobile -----------------------
@@ -590,51 +662,8 @@ jQuery(document).ready(function ($) {
     $('#order_inscription, #cmd, #print, #curseurWrapper').show();
   });*/
 
-  //-----------------------------------modes de paiement: affichage bouton payer
-  $('input[value=carte]').click(function() {
-    $('.pch, .pvi, .p30, .p60, .pad').css('display', 'none');
-    $('.pcb').fadeIn().css('display', 'block');
-  });
 
-  $('input[value=cheque]').click(function() {
-    $('.pcb, .pvi, .p30, .p60, .pad').css('display', 'none');
-    $('.pch').fadeIn().css('display', 'block');
-  });
 
-  $('input[value=virement]').click(function() {
-    $('.pcb, .pch, .p30, .p60, .pad').css('display', 'none');
-    $('.pvi').fadeIn().css('display', 'block');
-  });
-
-  $('input[value=trente]').click(function() {
-    $('.pcb, .pvi, .pch, .p60, .pad').css('display', 'none');
-    $('.pc30').fadeOut();
-    $('.p30').fadeIn().css('display', 'block');
-  });
-
-  $('input[value=soixante]').click(function() {
-    $('.pcb, .pvi, .pch, .p30, .pad').css('display', 'none');
-    $('.pc60').fadeOut();
-    $('.p60').fadeIn().css('display', 'block');
-  });
-
-  $('input[value=administratif]').click(function() {
-    $('.pcb, .pvi, .pch, .p30, .p60').css('display', 'none');
-    $('.pcAD').fadeOut();
-    $('.pad').fadeIn().css('display', 'block');
-  });
-
-  //------------------------------------------------------------- validation cgv
-  $('#suivant_reg').click(function(){
-    $(this)
-    .html('<i class="fa fa-check" aria-hidden="true"></i> OK')
-    .css({
-      background: '#ececec',
-      border: '1px solid #e0e0e0',
-      color: '#ccc',
-      cursor: 'default'
-    });
-  });
 
 
   // ------------------------------------------------------------------------FIN

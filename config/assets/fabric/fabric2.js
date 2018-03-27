@@ -141,11 +141,10 @@ angular.module('common.fabric', [
         /***************** for corner icons  ****************/
 
         fabric.Object.prototype.setControlsVisibility( {
-/*          ml: false,
+/*            ml: false,
             mr: false,
             mb: false,
             mt: false*/
-						mtr: false
         } );
 
         fabric.Canvas.prototype.customiseControls( {
@@ -1515,15 +1514,10 @@ angular.module('common.fabric', [
 
 
 		// ========================================================================= LOAD BASE 64
-		self.adb64 = function(b64object, w, h) {
+		self.adb64 = function(b64object) {
 			fabric.Image.fromURL(b64object, function(object) {
 				object.globalCompositeOperation = 'source-atop';
 				self.addObjectToCanvas(object);
-				canvas.setActiveObject(object.set({
-							width: w,
-							height: h
-					})
-				);
 			});
 		}
 
@@ -1566,75 +1560,75 @@ angular.module('common.fabric', [
 					}
 					//----------------------------------------------------scale horizontal
 					if ((object.width <= 3500) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/1.2);
+						object.scaleToWidth(canvas.width/1);
 					}
 					if ((object.width <= 3000) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/1.4);
+						object.scaleToWidth(canvas.width/1.5);
 					}
-					if ((object.width <= 2500) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/1.8);
-					}
-					if ((object.width <= 2000) && (object.width >= object.height)) {
+					if ((object.width <= 2400) && (object.width >= object.height)) {
 						object.scaleToWidth(canvas.width/2);
 					}
+					if ((object.width <= 2000) && (object.width >= object.height)) {
+						object.scaleToWidth(canvas.width/4);
+					}
 					if ((object.width <= 1600) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/3);
+						object.scaleToWidth(canvas.width/8);
 					}
 					if ((object.width <= 800) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/6);
+						object.scaleToWidth(canvas.width/16);
 					}
 					if ((object.width <= 400) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/15);
+						object.scaleToWidth(canvas.width/32);
 					}
 					if ((object.width <= 200) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/20);
+						object.scaleToWidth(canvas.width/64);
 					}
 					if ((object.width <= 100) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/30);
+						object.scaleToWidth(canvas.width/128);
 					}
 					if ((object.width <= 50) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/50);
+						object.scaleToWidth(canvas.width/256);
 					}
 					if ((object.width <= 25) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/100);
+						object.scaleToWidth(canvas.width/500);
 					}
 					//------------------------------------------------------scale vertical
 					if ((object.height <= 3500) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/1.2);
+						object.scaleToHeight(canvas.height/1);
 					}
 					if ((object.height <= 3000) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/1.4);
+						object.scaleToHeight(canvas.height/1.5);
 					}
-					if ((object.height <= 2500) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/1.8);					}
-
 					if ((object.height <= 2400) && (object.height > object.width)) {
 						object.scaleToHeight(canvas.height/2);
 					}
+					if ((object.height <= 2000) && (object.height > object.width)) {
+						object.scaleToHeight(canvas.height/4);
+					}
 					if ((object.height <= 1600) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/3);
+						object.scaleToHeight(canvas.height/8);
 					}
 					if ((object.height <= 800) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/6);
+						object.scaleToHeight(canvas.height/16);
 					}
 					if ((object.height <= 400) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/15);
+						object.scaleToHeight(canvas.height/32);
 					}
 					if ((object.height <= 200) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/20);
+						object.scaleToHeight(canvas.height/64);
 					}
 					if ((object.height <= 100) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/30);
+						object.scaleToHeight(canvas.height/128);
 					}
 					if ((object.height <= 50) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/50);
+						object.scaleToHeight(canvas.height/256);
 					}
 					if ((object.height <= 25) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/100);
+						object.scaleToHeight(canvas.height/500);
 					}
 					//--------------------------- si résolution trop petite, avertissement
-					if((object.width <= 800) || (object.height <= 800)){
-							if (!confirm('l\'image que vous avez sélectionné semble être de trop petite pour une impression grand format. Etes-vous sur de vouloir continuer ?')) {
+if((object.width <= 800) || (object.height <= 800)){
+							if (!confirm('l\'image que vous avez sélectionné semble être de qualité insuffisante (trop petite). Etes-vous sur de vouloir continuer ?')) {
 	              return;
 	            }
 							else  {
@@ -1642,7 +1636,7 @@ angular.module('common.fabric', [
 							}
 					}else{
 						self.addObjectToCanvas(object);
-					}
+}
 
 				//---------------------------------------------------------------------- Petits formats
 				}else{
@@ -1709,12 +1703,11 @@ angular.module('common.fabric', [
 					left: 11,
 					top: 11,
 					width: br.width-22,
-					height: br.height-22,
-					multiplier: 12
+					height: br.height-22
 				});
 
 				canvas.remove(object);
-				self.adb64(newimg, br.width-22, br.height-22);
+				self.adb64(newimg);
 
 			}, self.imageDefaults);
 
@@ -1863,8 +1856,6 @@ angular.module('common.fabric', [
         }
     };
 
-		//
-		// Text
 		// ========================================================================= TEXT
 		self.addText = function(str) {
 			str = str || 'New Text';

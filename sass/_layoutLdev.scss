@@ -323,6 +323,7 @@ h4.keepTxtColor {
 h5 {
   font-family: $font-global;
   text-transform: uppercase;
+  text-align: left;
   font-size: .8rem;
   padding: 0;
   margin: 0;
@@ -1032,7 +1033,7 @@ a .fa-lock{
     margin-left: -23px;
   }
   // hack chrome
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
+  @include hackChrome {
     .menu_hover#panier_sub  {
       margin-top: -7px;
     }
@@ -1068,6 +1069,7 @@ a .fa-lock{
   }
 
   #menu_top {
+    left: 0;
     &::after {
       display: none;
     }
@@ -1099,25 +1101,23 @@ ul {
   list-style-type: none;
 
   &#menu_top {
-    width:75%;
+    width:82%;
     position: absolute;
-    //width: 708px;
     height: 40px;
     top: 0;
-    left: 0;
+    left: 40px;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 1rem ;
-    background-color: transparent;
-    &::after {
+
+    /*&::after {
       content: '';
       display: block;
       margin-top: 10px;
-      margin-left: 45px;
+      margin-left: 10px;
       height: 1px;
-      width: 95%;
+      width: 75%;
       background: $border;
-    }
+    }*/
     li {
       position: relative;
       float: none;
@@ -1127,27 +1127,33 @@ ul {
       z-index: 1;
       text-align: center;
       vertical-align: middle;
-      width:24%;
+      width:15%;
+      &:last-of-type{
+        width: 130px;
+      }
       a {
         &:link,
         &:visited {
           padding: 10px auto;
-          display: block;
-          font-size: .8rem;
-          line-height: 22px;
+          display: inline-block;
+          font-size: .75rem;
+          line-height: .9rem;
           color: $text;
-          text-align: center;
+          text-align: left;
           text-decoration: none;
           width: 100%;
           height: 40px;
-          padding-top: 1rem;
+          padding-top: .7rem;
+          padding-left: .7rem;
+          border-left: 1px solid $border;
+          vertical-align: baseline;
         }
 
         &#active,
         &:hover {
-          background: transparent;
           color:$jaune;
           transition: .2s;
+          border-left: 1px solid $jaune;
         }
       }
     }
@@ -1163,10 +1169,23 @@ ul {
       visibility: hidden;
 
       li {
+        position: relative;
         display: block;
         width: 250px;
         height: 32px;
         margin-left: 0;
+        .menu-details {
+          position: absolute;
+          top: 40px;
+          left: 61px;
+          a:link {
+            display: inline;
+            font-size: .61rem;
+            line-height: .8rem;
+            color: lighten($text,10%) !important;
+            border: none;
+          }
+        }
       }
     }
 
@@ -1229,9 +1248,14 @@ ul {
 	border-width: 11px;
 	margin-left: -11px;
 }
-ul#menu_top ul#produit_sub{
+
+ul#menu_top ul#ban_sub,
+ul#menu_top ul#plv_sub,
+ul#menu_top ul#ext_sub,
+ul#menu_top ul#sti_sub,
+ul#menu_top ul#pap_sub{
   z-index: 700;
-  width: 600px;
+  width: 500px;
   display: flex;
   display: -webkit-flex;
   flex-wrap: wrap;
@@ -1243,7 +1267,7 @@ ul#menu_top ul#produit_sub{
 
   li {
     min-height: 60px;
-    width: 33%;
+    width: 49%;
   }
   img {
     display: inline-block;
@@ -1387,7 +1411,7 @@ ul#tarifs2, {
     width: 24%; //120
     height: auto; //160
     margin-bottom: 0;
-    background: $jaune;
+    background: url('../images/bt/btbg.png');
     background-size: contain;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
     margin-top: 15px;
@@ -1643,7 +1667,7 @@ a.noticeFooter {
 
 a.noticeFooter {
   border: 1px solid darken($border,4%);
-  margin: 10px 0 0 10px;
+  margin: 10px 10px 0 0;
 }
 
 .dis0 {
@@ -2125,7 +2149,7 @@ input::placeholder {
 }
 
 // Hack Chrome & Safari --------------------------------------------------------
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+@include hackChrome {
   // hauteur largeur des produits
 
     .cmLeft,
@@ -2582,7 +2606,7 @@ input:valid {
   padding-left: 10px;
   width: 300px;
   color: darken($text, 10%);
-  padding: .8rem;
+  padding: 1rem;
   z-index: 999;
   text-align: left;
   line-height: 1rem;
@@ -2593,7 +2617,7 @@ input:valid {
   font-weight: normal;
   min-height: 100px;
   .closeB {
-    @include close($text, 1rem, 3px, 6px);
+    @include close($text, 2rem, -5px, 6px);
   }
   a {
     color: inherit;
@@ -2608,6 +2632,9 @@ input:valid {
     display: inline-block;
     border-radius: 7px;
     margin-right: 1px;
+  }
+  img{
+    max-width: 200px;
   }
 }
 
@@ -2867,7 +2894,6 @@ a.textLink{
 .box_alert,
 .box_warn {
   position: relative;
-  background-color: $bloc-base;
   width: auto;
   padding: 1rem;
   margin-bottom: 16px;
@@ -2899,11 +2925,41 @@ a.textLink{
     @include close($white, 2rem, 0, 10px);
   }
 }
+
 .box_alert {
   background-color: lighten($magenta, 50%);
   .closeButton {
     @include close($magenta, 2rem, 0, 10px);
   }
+}
+
+.checkRem {
+  width: 100%;
+  height: 30px;
+  padding: .5rem 1rem 1rem 1rem;
+  margin-bottom: 16px;
+  background: $green;
+  text-align: right;
+  height: auto;
+  color: #fff;
+
+}
+.codeInfo {
+  position: relative;
+  width: auto;
+  padding: 1rem;
+  margin-bottom: 16px;
+  background: $green;
+  color: #fff;
+}
+
+.codeWarning {
+  position: relative;
+  width: auto;
+  padding: 1rem;
+  margin-bottom: 16px;
+  background: $jaune;
+  color: #fff;
 }
 
 .logerror {
@@ -4441,11 +4497,14 @@ button#copy {
 
 .votre_tab_active {
   margin-right: 0;
-
+  text-transform: uppercase;
+  font-weight: 900;
 }
 .votre_tab_inactive {
   background: url(../images/stripe_cancelled.png);
   color: lighten($text, 30%);
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 .votre_tab_content,
@@ -6978,43 +7037,54 @@ ul#introBlocs {
   position: relative;
   @include span(6);
   height: auto;
-  margin-top: 30px;
+  margin-top: 0;
   padding-left: 0;
-
-  .banner1 {
+  .banner0 {
+    position: relative;
+    display: inline-block;
     width: 100%;
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 35px;
-    font-size: 1rem;
+    text-align: left;
+    h3 {
+      border-bottom: 1px solid $text;
+    }
+    a:link {
+      font-weight: normal;
+      color: $text;
+      text-transform: capitalize;
+    }
+  }
+  .banner1 {
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    display: inline-block;
+    font-size: .9rem;
     color: $green;
     text-transform: uppercase;
     font-weight: 900;
-    text-align: center;
+    vertical-align: top;
+    p {
+      display: inline-block;
+      width: 75%;
+      vertical-align: middle;
+      margin: 0;
+    }
     img {
-      display: block;
-      float: left;
-      margin-top: -35px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 15px;
+      display: inline-block;
+      width: 20%;
+      vertical-align: middle;
     }
   }
 
   .banner2{
     width: 100%;
     display: inline-block;
-    margin: 20px auto 0;
+    margin: 10px auto 0;
     font-size: 1rem;
     color: $cyan;
     text-transform: uppercase;
     font-weight: 900;
     text-align: center;
-    i {
-
-
-    }
   }
 
 }
@@ -7118,6 +7188,10 @@ h4.clients_reviews_titre a{
   padding:.7rem 0 0;
   font-size: 18px;
   margin-top: -10px;
+  a {
+    display: inline-block;
+    width: 100%;
+  }
 }
 
 .client_reviews_1 {
@@ -7779,21 +7853,31 @@ a.shareFacebook{
 //------------------------------------------------------------------modal rappel
 
 #butrappel {
-  width: 270px;
-  position: absolute;
-  top: 250%;
-  right: calc(50% - 135px);
-  background:$jaune url(../images/phone2.png) .7rem .7rem no-repeat;
-  color: $white;
+  width: 300px;
+  height: 150px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  //background:$white url(../images/phone2.png) 0 0 no-repeat;
+  background-size: contain;
+  color: $text;
   text-transform: uppercase;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   display: none;
+  z-index: 900;
   a {
     display: inline-block;
     width: 100%;
-    padding: .7rem;
-    padding-left: 84px;
+    height: 100%;
+    text-align: right;
+    //background: rgba(0,0,0,0.4);
+    padding-top: 80px;
+    padding-right: .7rem;
     color: $white;
+    &:hover{
+      background-color: rgba(249, 182, 16, .4);
+      transition: .2s
+    }
   }
   h3{
     color: $white;
@@ -7802,12 +7886,12 @@ a.shareFacebook{
     font-weight: 900;
   }
   .closeButton{
-    @include close($white, 2rem, -10px, 5px)
+    @include close($white, 2rem, -10px, 5px);
+    @include hackChrome {
+      @include close($white, 2rem, -5px, 5px);
+    }
   }
-  &:hover{
-    background-color: $text;
-    transition: .2s
-  }
+
 }
 
 #rappel {

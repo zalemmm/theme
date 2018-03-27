@@ -144,16 +144,6 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		$filenames = array();
 		$value = $_POST['object'];
 
-		$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
-
-		if (!is_dir($destination)) {
-				mkdir($destination, 0777, true);
-		}
-
-		$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.json';
-		file_put_contents($destination.$filename, $value);
-		//chmod($filename, 0664);
-		$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
 
 		//-------------------------------------------------------------insertion bdd
 		$maquette = $wpdb->get_row("SELECT * FROM `$fb_tablename_maquette` WHERE item = '$saveref'");

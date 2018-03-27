@@ -167,7 +167,15 @@ angular.module('productApp', [
             }
         };
         $scope.addImage = function (image) {
-
+            if($scope.fabric.checkBackgroundImage()){
+                $scope.fabric.addImage(image);
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+            }else{
+                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
+            }
+        };
+        $scope.addPNG = function (image) {
             if($scope.fabric.checkBackgroundImage()){
                 $scope.fabric.addImage(image);
                 $scope.objectLayers = [];
@@ -182,7 +190,13 @@ angular.module('productApp', [
                 if ($scope.fabric.checkBackgroundImage()) {
                     var URL = window.URL || window.webkitURL;
                     var srcTmp = URL.createObjectURL(file);
-                    $scope.fabric.addImage(srcTmp);
+                    //------------------------------------
+                    if (file.type.match(/svg/) != null) {
+                      $scope.fabric.addShape(srcTmp);
+                    }else{
+                      $scope.fabric.addImage(srcTmp);
+                    }
+                    //------------------------------------
                     $scope.objectLayers = [];
                     $scope.objectLayers = $scope.fabric.canvasLayers();
                 } else {
@@ -321,6 +335,7 @@ angular.module('productApp', [
                 $("#my-tab-content > div.active").removeClass('active');
                 $(activeTab).removeClass('active');
                 $('#Layers').addClass('active');
+
                 $scope.objectLayers = [];
                 $scope.objectLayers = $scope.fabric.canvasLayers();
                 $scope.$broadcast('rebuild:layer');
@@ -610,8 +625,8 @@ angular.module('productApp', [
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
-                                .title('Maquette enregistrée.')
-                                .textContent('Votre maquette est bien sauvegardée, vous pourrez revenir dans votre espace client reprendre votre travail quand vous le souhaitez. Vous pouvez fermer la fenêtre en cours')
+                                .title('Maquette sauvegardée.')
+                                .textContent('Vous pouvez quitter l\'application et revenir dans votre espace client reprendre votre travail quand vous le souhaitez.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
                         );
@@ -660,7 +675,7 @@ angular.module('productApp', [
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
-                                .title('Maquette enregistrée.')
+                                .title('Nous avons bien reçu votre maquette.')
                                 .textContent('Votre maquette est bien enregistrée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
@@ -688,10 +703,27 @@ angular.module('productApp', [
 
             if($scope.fabric.checkBackgroundImage()){
 
+                $scope.beforeSave();
+                var objects = $scope.fabric.designedSVGObjects;
+                var json = $scope.fabric.sauvegarder()
+                $http({
+                    method: 'post',
+                    url:$scope.REQUEST_URL.SAVE_DESIGN,
+                    data: {
+                        type: 'json',
+                        object: $scope.fabric.sauvegarder()
+                    },
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    transformRequest: _this.transformRequest
+
+                }).success(function (data, status, headers, config) {
+
+                }).error(function (data, status, headers, config) {
+                    $scope.$broadcast("AjaxCallHappened",false);
+                });
 
                 $scope.beforeSave();
                 var objects = $scope.fabric.designedJPGObjects;
-
                 $http({
                     method: 'post',
                     url:$scope.REQUEST_URL.SAVE_DESIGN,
@@ -711,7 +743,7 @@ angular.module('productApp', [
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
-                                .title('Maquette enregistrée.')
+                                .title('Nous avons bien reçu votre maquette.')
                                 .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
@@ -876,10 +908,6 @@ angular.module('productApp', [
             }
         };
 
-
-
-
-
         $scope.$on('AjaxCallHappened', function (event, data) {
             if (data.status == true) {
                 _this.showNotification(data.message, false);
@@ -887,16 +915,19 @@ angular.module('productApp', [
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.GENERAL_ERROR, false);
             }
         });
+
         $scope.addImageUpload = function (data) {
             var obj = angular.fromJson(data);
             $scope.addImage(obj.filename);
         };
+
         $scope.selectCanvas = function () {
             $scope.canvasCopy = {
                 width: $scope.fabric.canvasOriginalWidth,
                 height: $scope.fabric.canvasOriginalHeight
             };
         };
+
         $scope.setCanvasSize = function () {
             $scope.fabric.setCanvasSize($scope.canvasCopy.width, $scope.canvasCopy.height);
             $scope.fabric.setDirty(true);
@@ -905,6 +936,7 @@ angular.module('productApp', [
 
         $scope.fillColor  = function (value) {
             $scope.fabric.selectedObject.fill = value;
+
         };
 
         $scope.fillTint = function (value){
@@ -1041,8 +1073,8 @@ angular.module('productApp', [
         };*/
 
         $scope.beforeSave = function () {
-            $scope.fabric.designedSVGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsSvg();
-            $scope.fabric.designedPNGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsPng();
+            //$scope.fabric.designedSVGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsSvg();
+            //$scope.fabric.designedPNGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsPng();
             $scope.fabric.designedJPGObjects[$scope.activeDesignObject] = $scope.fabric.saveCanvasObjectAsJpg();
         };
 

@@ -29,6 +29,7 @@
 		<?php if (is_page('vos-devis')){
 			echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/jquery-ui.min.css">';
 		}
+
 		?>
 		<?php wp_head(); ?>
 
@@ -75,12 +76,15 @@
 
 							<ul id="acclient_sub" class="menu_hover">
 							<?php
+
 								session_start();
 
 								$login = $_POST['loginname'];
 								$pass = $_POST['loginpass'];
+
 								$user = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE login='$login' AND pass='$pass'");
 								$name = $_SESSION['loggeduser'];
+								//echo 'user -> ' .$_COOKIE['user'];
 
 								if (fb_is_logged()) {
 									$acclient = '<p class="bonjour">Bienvenue '.stripslashes($name->f_name).' !</p>
@@ -88,7 +92,6 @@
 									<a href="'.get_bloginfo('url').'/?logout=true" class="bt_deconnect">Se déconnecter </a>';
 
 								}else if (($_POST['logme']=='logme')) {
-
 									$acclient = '<p class="bonjour">Bienvenue '.$login.' !</p>
 									<a href="'.get_bloginfo('url').'/inscription/" class="bt_compte">Mon compte</a> | <a href="'.get_bloginfo('url').'/vos-devis/" class="bt_compte">Mes commandes</a>
 									<a href="'.get_bloginfo('url').'/?logout=true" class="bt_deconnect">Se déconnecter </a>';
@@ -158,51 +161,79 @@
 					<!-- MENU GLOBAL ------------------------------------------------------>
 					<!--------------------------------------------------------------------->
 					<ul id="menu_top">
-					<a href="<?php bloginfo('url'); ?>/index.php"><img class="logoSmall" src="https://www.france-banderole.com/wp-content/themes/fb/images/logoSmall.png" alt="logo france banderole" /></a>
-						<li onmouseover="tipShow('produit_sub');" onmouseout="tipHide('produit_sub');"><a href="<?php bloginfo('url'); ?>/index.php"<?php if(is_page('Accueil')) echo ' id="active"'; ?>>Tarifs en ligne</a>
+					<!--<a href="<?php bloginfo('url'); ?>/index.php"><img class="logoSmall" src="https://www.france-banderole.com/wp-content/themes/fb/images/logoSmall.png" alt="logo france banderole" /></a>-->
 
-							<ul id="produit_sub" class="menu_hover">
+						<!--<li onmouseover="tipShow('band_sub');" onmouseout="tipHide('band_sub');"><a href="<?php bloginfo('url'); ?>/index.php">Banderoles & bâches</a>-->
+						<li><a href="<?php bloginfo('url'); ?>/banderoles/" <?php if(is_page('banderoles')) echo ' id=active'; ?>>Banderoles & bâches</a>
+							<!--<ul id="band_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/banderoles/" class="menu_sub"<?php if(is_page('banderoles')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-banderole.png" alt="banderoles">banderole</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/choisir-sa-bache/" class="menu_sub"<?php if(is_page('choisir-sa-bache')) echo ' id=active_sub'; ?>>choisir sa bâche</a></li>
+							</ul>-->
+						</li>
+
+						<li onmouseover="tipShow('plv_sub');" onmouseout="tipHide('plv_sub');"><a href="<?php bloginfo('url'); ?>/stand-exposition-plv-interieur/" <?php if(is_page('stand-exposition-plv-interieur') || is_page('roll-up') || is_page('totem') || is_page('stand-parapluie') || is_page('nappes-publicitaires') || is_page('plv-interieur') || is_page('cadre-tissu') || is_page('enseigne-suspendue-textile')) echo ' id="active"'; ?>>Stand Expo <br />& PLV</a>
+
+							<ul id="plv_sub" class="menu_hover">
+
+								<li><a href="<?php bloginfo('url'); ?>/cadre-tissu/" class="menu_sub"<?php if(is_page('cadre-tissu')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-cadre.png" alt="cadre textile plv pas cher">Cadre textile</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/enseigne-suspendue-textile/" class="menu_sub"<?php if(is_page('enseigne-suspendue-textile')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-susp.png" alt="enseignes suspendues pas cher">Enseigne suspendue textile</a></li>
+
 								<li><a href="<?php bloginfo('url'); ?>/roll-up/" class="menu_sub"<?php if(is_page('roll-up')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-roll-up.png" alt="kakemono roll-up">roll-up</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/totem/" class="menu_sub"<?php if(is_page('totem')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-totem.png" alt="kakemono totem">totem</a></li>
+
 								<li><a href="<?php bloginfo('url'); ?>/stand-parapluie/" class="menu_sub"<?php if(is_page('stand-parapluie')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-stand.png" alt="stand expo parapluie">stand parapluie</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/oriflammes/" class="menu_sub"<?php if(is_page('oriflammes')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-oriflamme.png" alt="oriflammes, beachflags, windflags">oriflamme</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/panneaux-forex-dibond/" class="menu_sub"<?php if(is_page('panneaux-forex-dibond')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="panneau forex dibond">enseigne</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/panneaux-akilux/" class="menu_sub"<?php if(is_page('panneaux-akilux')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-panneau.png" alt="panneau akilux PVC">panneau akilux</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/tente-publicitaire-barnum/" class="menu_sub"<?php if(is_page('tente-pliante-exposition')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-tentes.png" alt="tentes publicitaires barnum">tente publicitaire Barnum</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/nappes-publicitaires/" class="menu_sub"<?php if(is_page('nappes-publicitaires')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-nappes.png" alt="dépliants">nappe publicitaire</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/plv-interieur/" class="menu_sub"<?php if(is_page('plv-interieur')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-PLV-int.png" alt="plv intérieur">plv intérieur</a></li>
+							</ul>
+						</li>
+
+						<li onmouseover="tipShow('ext_sub');" onmouseout="tipHide('ext_sub');"><a href="<?php bloginfo('url'); ?>/signaletique-exterieur" <?php if(is_page('signaletique-exterieur') || is_page('oriflammes') || is_page('tente-publicitaire-barnum') || is_page('panneaux-forex-dibond') || is_page('panneaux-akilux') || is_page('plv-exterieur') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-dibond') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns')) echo ' id="active"'; ?>>Signalétique extérieur</a>
+
+							<ul id="ext_sub" class="menu_hover">
+								<li><a href="<?php bloginfo('url'); ?>/oriflammes/" class="menu_sub"<?php if(is_page('oriflammes')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-oriflamme.png" alt="oriflammes, beachflags, windflags">oriflamme</a>
+								</li>
+
+								<li><a href="<?php bloginfo('url'); ?>/tente-publicitaire-barnum/" class="menu_sub" <?php if(is_page('tente-publicitaire-barnum')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-tentes.png" alt="tentes publicitaires barnum">tente publicitaire Barnum</a>
+								</li>
+
+								<li><a href="<?php bloginfo('url'); ?>/panneaux-forex-dibond/" class="menu_sub"<?php if(is_page('panneaux-forex-dibond')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="panneau forex dibond">enseigne</a>
+									<div class="menu-details">
+										<a href="<?php bloginfo('url'); ?>/panneaux-forex-3mm/">Forex 3mm</a>
+										<a href="<?php bloginfo('url'); ?>/panneaux-forex-5mm/">Forex 5mm</a>
+										<a href="<?php bloginfo('url'); ?>/panneaux-dibond/">Dibond</a>
+									</div>
+								</li>
+
+								<li><a href="<?php bloginfo('url'); ?>/panneaux-akilux/" class="menu_sub" <?php if(is_page('panneaux-akilux')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-panneau.png" alt="panneau akilux PVC">panneau akilux</a>
+									<div class="menu-details">
+										<a href="<?php bloginfo('url'); ?>/panneaux-akilux-3mm/">3mm</a>
+										<a href="<?php bloginfo('url'); ?>/panneaux-akilux-3_5mm/">3.5mm</a>
+										<a href="<?php bloginfo('url'); ?>/panneaux-akilux-5mm/">5mm</a>
+										<a href="<?php bloginfo('url'); ?>/pvc-300-microns/">PVC</a>
+									</div>
+								</li>
+
 								<li><a href="<?php bloginfo('url'); ?>/plv-exterieur/" class="menu_sub"<?php if(is_page('plv-exterieur')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-PLV-ext.png" alt="plv extérieur">plv extérieur</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/stickers/" class="menu_sub"<?php if(is_page('stickers')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-stickers.png" alt="stickers, autocollants, vitrophanie">sticker</a></li>
+							</ul>
+						</li>
+
+						<li onmouseover="tipShow('sti_sub');" onmouseout="tipHide('sti_sub');"><a href="<?php bloginfo('url'); ?>/stickers/" <?php if(is_page('stickers') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) echo ' id=active'; ?>>Stickers & autocollants</a>
+
+							<ul id="sti_sub" class="menu_hover">
+								<li><a href="<?php bloginfo('url'); ?>/autocollant/" class="menu_sub"<?php if(is_page('autocollant')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-autocollant.png" alt="stickers, autocollants, vitrophanie">autocollant</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/sticker-predecoupe/" class="menu_sub"<?php if(is_page('sticker-predecoupe')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-stickers-predecoupe.png" alt="stickers, autocollants, vitrophanie">sticker prédécoupé</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/sticker-lettrage-predecoupe/" class="menu_sub"<?php if(is_page('sticker-lettrage-predecoupe')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-stickers-lettrage-predec.png" alt="stickers, autocollants, vitrophanie">sticker lettrage</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/vitrophanie/" class="menu_sub"<?php if(is_page('vitrophanie')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-vitrophanie.png" alt="stickers, autocollants, vitrophanie">vitrophanie</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/sticker-mural/" class="menu_sub"<?php if(is_page('stickers-mural')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-stickers-mur.png" alt="stickers, autocollants, vitrophanie">sticker mural</a></li>
+							</ul>
+						</li>
+
+						<li onmouseover="tipShow('pap_sub');" onmouseout="tipHide('pap_sub');"><a href="<?php bloginfo('url'); ?>/imprimerie-papier"<?php if(is_page('imprimerie-papier') || is_page('affiches') || is_page('cartes') || is_page('flyers')) echo ' id="active"'; ?>>Imprimerie<br /> papier & affiches</a>
+
+							<ul id="pap_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/affiches/" class="menu_sub"<?php if(is_page('affiches')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-affiche.png" alt="affiches">affiche</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/cartes/" class="menu_sub"<?php if(is_page('cartes')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-carte.png" alt="cartes de visite">carte de visite</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/flyers/" class="menu_sub"<?php if(is_page('flyers')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-flyer.png" alt="flyers">flyer - dépliant</a></li>
-							</ul>
-						</li>
-
-						<li onmouseover="tipShow('comment_sub');" onmouseout="tipHide('comment_sub');"><a href="<?php bloginfo('url'); ?>/les-maquettes/"<?php if(is_page('les-maquettes') || is_page('un-devis') || is_page('choisir-sa-bache') || is_page('choisir-son-kakemono') || is_page('telecharger-une-maquette') || is_page('payer-sa-commande') || is_page('etre-livre-rapidement') || is_page('tarifs-revendeurs')) echo ' id="active"'; ?>>comment faire?</a>
-
-							<ul id="comment_sub" class="menu_hover">
-								<li><a href="<?php bloginfo('url'); ?>/les-maquettes/" class="menu_sub"<?php if(is_page('les-maquettes')) echo ' id=active_sub'; ?>>les maquettes</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/un-devis/" class="menu_sub"<?php if(is_page('un-devis')) echo ' id=active_sub'; ?>>un devis</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/choisir-sa-bache/" class="menu_sub"<?php if(is_page('choisir-sa-bache')) echo ' id=active_sub'; ?>>choisir sa bâche</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/choisir-son-kakemono/" class="menu_sub"<?php if(is_page('choisir-son-kakemono')) echo ' id=active_sub'; ?>>choisir son kakemono</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/telecharger-une-maquette/" class="menu_sub"<?php if(is_page('telecharger-une-maquette')) echo ' id=active_sub'; ?>>télécharger une maquette</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/payer-sa-commande/" class="menu_sub"<?php if(is_page('payer-sa-commande')) echo ' id=active_sub'; ?>>payer sa commande</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/etre-livre-rapidement/" class="menu_sub"<?php if(is_page('etre-livre-rapidement')) echo ' id=active_sub'; ?>>être livré rapidement</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/tarifs-revendeurs/" class="menu_sub"<?php if(is_page('tarifs-revendeurs')) echo ' id=active_sub'; ?>>tarifs revendeurs</a></li>
-							</ul>
-						</li>
-
-						<li onmouseover="tipShow('qui_sub');" onmouseout="tipHide('qui_sub');"><a href="<?php bloginfo('url'); ?>/"<?php if(is_page('france-banderole') || is_page('cgv') || is_page('realisation') || is_page('references')) echo ' id="active"'; ?>>QUI SOMMES-NOUS</a>
-
-							<ul id="qui_sub" class="menu_hover">
-								<li><a href="<?php bloginfo('url'); ?>/" class="menu_sub"<?php if(is_page('france-banderole')) echo ' id=active_sub'; ?>>FRANCE BANDEROLE</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/la-ceddre/" class="menu_sub"<?php if(is_page('la-ceddre')) echo ' id="active_sub"'; ?>>Charte écocitoyenne</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/realisation/" class="menu_sub"<?php if(is_page('realisation')) echo ' id=active_sub'; ?>>Réalisation</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/references/" class="menu_sub"<?php if(is_page('references')) echo ' id=active_sub'; ?>>Références</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/avis/" class="menu_sub"<?php if(is_page('avis')) echo ' id="active_sub"'; ?>>Avis France Banderole</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/cgv/" class="menu_sub"<?php if(is_page('cgv')) echo ' id=active_sub'; ?>>C.G.V.</a></li>
 							</ul>
 						</li>
 
@@ -213,10 +244,10 @@
 						}
 						?>
 
-						<li><a href="<?php bloginfo('url'); ?>/contact/"<?php if(is_page('contact')) echo ' id="active"'; ?>>CONTACT</a></li>
+						<!--<li><a href="<?php bloginfo('url'); ?>/contact/"<?php if(is_page('contact')) echo ' id="active"'; ?>>CONTACT</a></li>-->
 					</ul>
 				</nav>
-			</div>
+			</ul>
 
 			<!--fin menu global------------------------------------------------------->
 
@@ -303,7 +334,6 @@
 		$prefix = $wpdb->prefix;
 		$fb_tablename_users_cf = $prefix."fbs_users_cf";
 		$fb_tablename_users_co = $prefix."fbs_users_co";
-		$fb_tablename_tel = $prefix."fbs_tel";
 		$user = $_SESSION['loggeduser'];
 		$id = $user->f_name;
 		$uid = $user->id;
@@ -325,41 +355,6 @@
 			}
 		} else {
 			//echo '<div class="log_info"><span class="bonjourMsg">vous n\'êtes pas connecté</span></div>';
-		}
-
-		$prodpages = is_page('stand-parapluie') || is_page('roll-up') || is_page('promotions') || is_page('nappes-publicitaires') || is_page('totem') || is_page('plv-interieur') || is_page('banderoles') || is_page('tente-publicitaire-barnum') || is_page('oriflammes') || is_page('plv-exterieur') || is_page('flyers') || is_page('depliants') || is_page('cartes') || is_page('affiches') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-dibond') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural');
-
-		//------------------------------------------------------popup demande rappel
-		if ($prodpages) {
-
-			if(isset($_POST['tel'])) {
-				$now = date('d-m-Y H:i');
-				$tel = $_POST["tel"];
-				$heure = $_POST["heure"];
-				$savetel = $wpdb->query("INSERT INTO `$fb_tablename_tel` VALUES( '', '$_POST[tel]', '$now', '$_POST[heure]' )");
-			}
-
-			echo '<div id="butrappel"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><a href="#rappel" class="open-popup-link"><h3>Besoin d\'aide?</h3> Faites vous rappeler<br/> par un conseiller</a></div>
-			<div id="rappel" class="white-popup mfp-hide">
-				<div class="modalContent">
-
-					<h3>Un conseiller vous rappelle quand vous le souhaitez :</h3>
-					<p>Entrez votre numéro de téléphone</p>
-					<form action="" method="post" name="rappel" id="subrappel">
-						<input type="text" name="tel" placeholder="téléphone" />
-						<select name="heure" id="">
-							<option value="dès que possible">Dès que possible</option>
-							<option value="dans 10min">dans 10min</option>
-							<option value="dans 30min">dans 30min</option>
-							<option value="dans 1h">dans 1h</option>
-						</select>
-						<button name="subrappel" type="submit">Envoyer</button>
-						<p><i class="fa fa-info-circle"></i> Nos conseillers sont là pour vous aider du lundi au vendredi de <strong>9 à 12h</strong> et de <strong>14 à 18h</strong><br />
-						<small>- Votre numéro de téléphone ne sera pas utilisé à des fins de marketing -</small></p>
-					</form>
-				</div>
-			</div>';
-			//'.do_shortcode(' 	[ninja_form id=2] ').'
 		}
 
 		?>
