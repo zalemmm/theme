@@ -52,18 +52,18 @@ iframe#sb-player {
   height: 40px;
   margin-right: .5%;
   border-radius: 3px;
-  border:1px solid darken($cyan, 7%);
   color: #fff;
   font-size: .8rem;
   font-weight: normal;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.3);
+  border: 0;
+  //box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.3);
   &.active,
   &:hover {
+    border: 0;
     background-image: none;
     background-color: $magenta;
-    border:1px solid darken($magenta, 7%);
     transition: .2s;
   }
 }
@@ -87,7 +87,7 @@ body {
   margin: 0 auto;
   font-family: $font-global;
   background-color: $white;
-  background-image: url('../images/bottombg.png') bottom left repeat-x;
+  background-image: url('../img/cream_pixels.png');
   color: $text;
   font-size: 1em;
   line-height: 1.2em;
@@ -104,25 +104,291 @@ body {
 .izoneRight {
   display: none;
 }
-////////////////////////////////////////////////////////////////////////////////
-//                             HEADER
-////////////////////////////////////////////////////////////////////////////////
+//==============================================================================
+//                                                                        HEADER
+//==============================================================================
 
 header {
   @include container (100%);
   width: 100%;
-  height: 295px;
+  height: 220px;
   position: relative;
   margin: 0 auto;
   text-align: left;
   z-index: 100;
-  background-image: url(../images/desktop.png);
+  background-image: url(../img/corner.png);
+  background-color: $white;
   background-repeat: no-repeat;
-  background-position: center top;
-  background-size: contain;
+  background-position: right top;
+  background-size: 358px 100px;
+
+  @include s1024 {
+    height: 220px;
+  }
+
+  @include s740 {
+    background-image: none;
+    height: 130px;
+  }
+
 }
 
+// logo ------------------------------------------------------------------------
 
+a#logo {
+  position: absolute;
+  top: 70px;
+  left: 5px;
+  width: 20%;
+  height: 140px;
+  background-image: url('../img/logo140.png');
+  background-position:  top left;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @include s740 {
+    top: 10px;
+    left: 0;
+    width: 15%;
+  }
+}
+
+// titre site ------------------------------------------------------------------
+
+.site-head{
+  width: 81.7%;
+  top: 100px;
+  left: 12.5%;
+  position: relative;
+  font-family: $font-special;
+  letter-spacing: 1px;
+
+  @include s860 {
+    width: 77.4%;
+    left: 18%;
+  }
+
+  @include s740 {
+    width: 84%;
+    top: 16px;
+    width: 70%;
+    left: 15%;
+  }
+
+  .site-title{
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+
+    @include s860 {
+      font-size: 2rem;
+    }
+    @include s740 {
+      font-size: 1.6rem;
+      line-height: 1.8rem;
+    }
+
+    a {
+      color: $text;
+    }
+    &:after{
+      content: '';
+      background: url('../images/ligne-titre.png') top left repeat-y;
+      display: block;
+      width: 107%;
+      height: 5px;
+      margin: 0 0 0 2px;
+
+      @include s740 {
+        width: 110%;
+        display: none;
+      }
+    }
+  }
+
+  .site-subtitle{
+    color: $text;
+    text-align: left;
+    padding: 0 5px 0 0;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    margin: 2px 0 0 2px;
+    @include s740 {
+      font-size: .8rem;
+      line-height: .9rem;
+      display: none;
+    }
+  }
+}
+
+// menu accès client -----------------------------------------------------------
+
+ul.menu-client{
+  @include container (35%);
+  position: absolute;
+  top: 85px;
+  right: .7%;
+  font-size: .7rem;
+  line-height: 1.2rem;
+  height: 60px;
+  background-color: transparent;
+  list-style: none;
+  font-family: $font-special;
+
+  @include s960 {
+    @include container (40%);
+  }
+
+  @include s740 {
+    @include container (100%);
+    top: auto;
+    bottom: -5px;
+  }
+
+  li{
+    text-align:left;
+    height: 60px;
+  }
+
+  .menu-client-item {
+    @include span(3);
+    text-align: center;
+    height: 65px;
+  }
+
+  .menu-client-item.item1{
+    @include span(6);
+    text-align:left;
+  }
+
+  .menu-client--devis,
+  .menu-client--panier {
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0px;
+      display: block;
+      width: 1px;
+      height: 50px;
+      background: $border;
+    }
+  }
+
+ .menu-client-icon {
+    display: block;
+    font-size: 1.7rem;
+    color: $text;
+    margin-top: 5px;
+  }
+
+  .menu-client-icon.phone {
+    @include span (1 of 5);
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+
+  .menu-client-phone{
+    @include span (4 of 5);
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 10px;
+  }
+
+  a {
+    color: $text;
+    text-decoration: none;
+
+    &:hover{
+      color: $magenta !important;
+      transition-duration: .2s;
+    }
+  }
+
+  .tel1{
+    display: inline-block;
+    font-size: .8rem;
+    line-height: .8rem;
+
+    @include s860 {
+      font-size: .7rem;
+    }
+    &:after{
+      position: relative;
+      left: 0;
+      display: block;
+      content: '';
+      width: 100%;
+      height:1px;
+      background: $text;
+      margin-bottom: 2px;
+    }
+  }
+
+  .tel2 {
+    display: inline-block;
+    font-size: 1.1rem;
+    line-height: .9rem;
+    @include s860 {
+      font-size: .9rem;
+    }
+    a:hover{
+      color: $magenta;
+      transition-duration: .5s;
+    }
+  }
+
+  .tel3 {
+    display: inline-block;
+    font-size: .7rem;
+    line-height: .7rem;
+    text-align: right;
+    vertical-align: top;
+  }
+}
+
+// couleur des icones
+
+a .fa-lock{
+  //color: $jaune;
+  &:hover {
+    //color: $cyan;
+    transition-duration: .5s;
+  }
+}
+.menu-client-icon a{
+  //color: $magenta !important;
+  &:hover {
+    //color: $cyan;
+    transition-duration: .5s;
+  }
+}
+.menu-client-icon.phone a{
+  //color: $cyan !important;
+  &:hover {
+    //color: $magenta;
+    transition-duration: .5s;
+  }
+}
+
+.cartCount {
+  display: block;
+  position: absolute;
+  font-size: 10px;
+  color: $white;
+  background: $magenta;
+  width: 16px;
+  height: 16px;
+  font-family: $font-global;
+  border-radius: 8px;
+  top: 0px;
+  right: 20px;
+  padding: 0;
+}
+
+//==============================================================================
+//                                                                       CONTENT
+//==============================================================================
 
 #content {
   position: relative;
@@ -135,10 +401,9 @@ header {
 #content_bg_top {
   @include container (100%);
   width: 100%;
-
   height: auto;
-  padding: 0 5%;
-
+  padding: 10px 4% 0;
+  background: $white;
 }
 
 .storycontent {
@@ -150,39 +415,23 @@ header {
 
 .log_info {
   display: block;
-  position: relative;
-  width: auto;
-  margin-top: -20px;
-  padding: 0 1rem;
-  padding-right: 2.8rem;
+  position: absolute;
+  width: 100%;
   margin-bottom: 0;
   text-align: right;
   font-size: .72rem;
-  color: $white;
+  top: 152px;
+  right: 1%;
 
-  .bonjour{
-    display: inline-block;
-    height: 20px;
-    width: auto;
-    padding: .07rem .5rem 0;
-    text-transform: uppercase;
-    background: $text;
-    //border-radius: 15px 0 0 15px;
-    margin-right: 0;
-  }
-
-  .bonjourMsg{
-    display: inline-block;
-    margin-left: -5px;
-    display: inline-block;
-    height: 20px;
-    padding: .07rem .5rem 0;
-    background: #F8BD14;
-
-    //border-radius: 0 15px 15px 0;
+  @include s740 {
+    display: none;
   }
 }
 
+a.upp {
+  text-transform: uppercase;
+  font-size: .7rem;
+}
 ////////////////////////////////////////////////////////////////////////////////
 //                        DECLARATIONS GENERALES
 ////////////////////////////////////////////////////////////////////////////////
@@ -271,10 +520,11 @@ hr.imgSep {
 // titres ----------------------------------------------------------------------
 
 h1, h2, h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.4rem;
   margin: 5px 0;
-  font-weight: bold;
+  letter-spacing: 1px;
+  font-weight: normal;
   color: $text;
   font-family: $font-global;
 
@@ -350,6 +600,22 @@ small {
   line-height: 1rem;
 }
 
+.smallit {
+  font-style: italic;
+  font-size: .7rem;
+  position: absolute;
+  bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  span a{
+    font-size: .8rem !important;
+    text-transform: uppercase;
+    color: $cyan;
+    display: block;
+    font-style: normal;
+  }
+}
+
 .uppercase {
   text-transform: uppercase;
 }
@@ -359,7 +625,7 @@ span.pink, .pink_link {
   color: $magenta;
 }
 
-span.colblue {
+span.colblue, .cyan {
   color: $cyan;
 }
 
@@ -603,14 +869,15 @@ a {
   z-index: 10;
   background: $text;
   padding: .5rem 1.5rem;
-  margin: 20px 0;
-  color: lighten($text,35%);
+  margin: 20px 0 0;
+  color: lighten($text,45%);
   text-align: justify;
   h1,h2,h3,h4,h5,
   b,
   a,
-  span.pink {
-    color: $white;
+  span.pink,
+  strong {
+    color: darken($white,5%) !important;
   }
   a {
     color: $jaune;
@@ -759,52 +1026,7 @@ a.notech1 {
 //                             MODULES
 ////////////////////////////////////////////////////////////////////////////////
 
-// logo ------------------------------------------------------------------------
 
-a#logo {
-  position: absolute;
-  top: 65px;
-  left: 20px;
-  width: 25%;
-  height: 240px;
-  background: url('../img/logo.png') top left no-repeat;
-  background-size: contain;
-}
-
-// titre site ------------------------------------------------------------------
-
-.site-head{
-  width: 72%;
-  position: relative;
-  display: block;
-  top: 95px;
-  left: 24%;
-  font-family: $font-special;
-  letter-spacing: 1px;
-  .site-title{
-    font-size: 2.8rem;
-    line-height: 2.8rem;
-    a {
-      color: $text;
-    }
-    &:after{
-      content: '';
-      background: url('../images/ligne-titre.png') top left repeat-y;
-      display: block;
-      width: 99%;
-      height: 5px;
-      margin: 0 0 0 2px;
-    }
-  }
-  .site-subtitle{
-    color: $text;
-    text-align: left;
-    padding: 0 5px 0 0;
-    font-size: 1.2rem;
-    line-height: 1.4rem;
-    margin: 2px 0 0 2px;
-  }
-}
 
 // menu stikcky ----------------------------------------------------------------
 
@@ -868,142 +1090,9 @@ a#logo {
 }
 
 
-// menu accès client -----------------------------------------------------------
-
-ul.menu-client{
-  @include container (55%);
-  font-size: .7rem;
-  line-height: 1.2rem;
-  top:110px;
-  left:20%;
-  height:80px;
-  position: relative;
-  background-color: transparent;
-  list-style: none;
-  font-family: $font-special;
-
-  li{
-    text-align:left;
-    height: 60px;
-
-  }
-  .menu-client-item {
-    @include span(3);
-    text-align: center;
-    height: 75px;
-  }
-  .menu-client-item.item1{
-    @include span(6);
-    text-align:left;
-  }
-  .menu-client--devis,
-  .menu-client--panier {
-    &::before{
-      content: '';
-      position: absolute;
-      top: 0px;
-      display: block;
-      width: 1px;
-      height: 50px;
-      background: $border;
-    }
-  }
- .menu-client-icon {
-    display: block;
-    font-size: 2.8rem;
-    color: $cyan;
-  }
-  .menu-client-icon.phone {
-    @include span (1 of 5);
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-left: 10px;
-  }
-  .menu-client-phone{
-    @include span (4 of 5);
-    box-sizing: border-box;
-    padding-left: 15px;
-  }
-  a {
-    text-decoration: none;
-  }
-  .tel1{
-    font-size: 1rem;
-    &:after{
-      position: relative;
-      left: 0;
-      display: block;
-      content: '';
-      width: 100%;
-      height:1px;
-      background: $border;
-      margin-bottom: 2px;
-    }
-  }
-  .tel2 {
-    font-size: 1.3rem;
-    a:hover{
-      color: $magenta;
-      transition-duration: .5s;
-    }
-  }
-  .tel3 {
-    font-size: .7rem;
-    line-height: .7rem;
-    text-align: right;
-  }
-}
-
-// couleur des icones
-
-a .fa-lock{
-  color: $jaune;
-  &:hover {
-    color: $cyan;
-    transition-duration: .5s;
-  }
-}
-.menu-client-icon a{
-  color: $magenta;
-  &:hover {
-    color: $cyan;
-    transition-duration: .5s;
-  }
-}
-.menu-client-icon.phone a{
-  color: $cyan;
-  &:hover {
-    color: $magenta;
-    transition-duration: .5s;
-  }
-}
-
-.cartCount {
-  display: block;
-  position: absolute;
-  font-size: 11px;
-  color: $white;
-  background: $cyan;
-  width: 18px;
-  height: 18px;
-  font-family: $font-global;
-  border-radius: 9px;
-  top: 3px;
-  right: 40px;
-}
-
-
 //------------------------------------------------------------------- menu fixed
-.logoSmall {
-  display: none;
-  position: absolute;
-  margin-top: -15px;
-  height: 85px;
-  width: auto;
-  top: 0;
-  left: -18px;
-  z-index: 9999;
-}
+
+
 .navContainer.fixed {
   position: fixed;
   top: 0;
@@ -1011,10 +1100,12 @@ a .fa-lock{
   width: 100%;
   left: 50%;
   margin-left: -50%;
-  z-index: 99;
+  z-index: 999;
   background: $bloc-base;
   box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.2);
+
 }
+
 .fixed {
   position: fixed;
   top: 0;
@@ -1025,41 +1116,43 @@ a .fa-lock{
   height: 40px;
 
   .menu_hover#panier_sub  {
-    margin-top: -8px;
+    margin-top: -11px;
     margin-left: -20px;
   }
   .menu_hover#acclient_sub {
-    margin-top: -27px;
+    margin-top: -31px;
     margin-left: -23px;
   }
   // hack chrome
   @include hackChrome {
     .menu_hover#panier_sub  {
-      margin-top: -7px;
+      margin-top: -11px;
     }
     .menu_hover#acclient_sub {
-      margin-top: -26px;
+      margin-top: -30px;
     }
   }
   ul.menu-client {
-    left:52%;
+    top: 10px;
     height:40px;
-    position: relative;
+
 
     .menu-client-item {
-      margin-top: 0;
+      margin-top: 0px;
       height: 40px;
       width: 60px;
       right: 0;
     }
+
     .menu-client-item.item1,
     .menu-client-label{
       visibility: hidden;
     }
 
     .menu-client-icon {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
     }
+
     .menu-client--devis,
     .menu-client--panier {
       &::before{
@@ -1086,6 +1179,11 @@ a .fa-lock{
       }
     }
   }
+
+  .cartCount {
+    top: 0px;
+    right: 10px;
+  }
 }
 // menu génénéral --------------------------------------------------------------
 
@@ -1105,19 +1203,10 @@ ul {
     position: absolute;
     height: 40px;
     top: 0;
-    left: 40px;
+    left: 0;
     text-transform: uppercase;
     font-weight: bold;
 
-    /*&::after {
-      content: '';
-      display: block;
-      margin-top: 10px;
-      margin-left: 10px;
-      height: 1px;
-      width: 75%;
-      background: $border;
-    }*/
     li {
       position: relative;
       float: none;
@@ -1147,6 +1236,7 @@ ul {
           padding-left: .7rem;
           border-left: 1px solid $border;
           vertical-align: baseline;
+          font-weight: 900;
         }
 
         &#active,
@@ -1172,12 +1262,15 @@ ul {
         position: relative;
         display: block;
         width: 250px;
-        height: 32px;
+        height: 75px;
         margin-left: 0;
+        vertical-align: middle;
         .menu-details {
           position: absolute;
           top: 40px;
           left: 61px;
+
+          text-align:left;
           a:link {
             display: inline;
             font-size: .61rem;
@@ -1191,14 +1284,17 @@ ul {
 
     a {
       &.menu_sub {
+        img {
+          vertical-align: middle;
+        }
         &:link {
           display: block;
-          width: 250px;
           float: left;
-          height: 32px;
+          width: 100%;
+          height: 100%;
           background: $bloc-base;
-          padding-top: 5px;
           text-decoration: none;
+          vertical-align: middle;
         }
 
         &:hover {
@@ -1219,11 +1315,11 @@ ul {
 .menu_hover {
 	position: relative;
 	background: $bloc-base;
-	border: 1px solid #e9e9e9;
+	border: 1px solid $border;
   margin-top: 10px;
   transition: .2s;
   z-index: 800;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
 }
 .menu_hover:after, .menu_hover:before {
 	bottom: 100%;
@@ -1244,7 +1340,7 @@ ul {
 }
 .menu_hover:before {
 	border-color: rgba(233, 233, 233, 0);
-	border-bottom-color: #e9e9e9;
+	border-bottom-color: $border;
 	border-width: 11px;
 	margin-left: -11px;
 }
@@ -1267,7 +1363,7 @@ ul#menu_top ul#pap_sub{
 
   li {
     min-height: 60px;
-    width: 49%;
+    width: 50%;
   }
   img {
     display: inline-block;
@@ -1281,7 +1377,7 @@ ul#menu_top ul#pap_sub{
       &:link {
         display: inline-block;
         text-align: left;
-        padding: 5px;
+        padding: 10px 5px;
         width: 100%;
         min-height: 60px;
         vertical-align: middle;
@@ -1304,13 +1400,16 @@ ul#menu_top ul#pap_sub{
   display: none;
   width: 255px;
   height: auto;
-  padding: 1.2rem 1rem .8rem ;
+  padding: 1rem 1rem .8rem;
   a {
     color: $text;
     font-weight: normal;
   }
   &.menu_hover {
-    margin-top: 5px;
+    margin-top: 9px;
+    @include hackChrome {
+      margin-top: 8px;
+    }
   }
   &.menu_hover:after,
   &.menu_hover:before {
@@ -1323,13 +1422,17 @@ ul#menu_top ul#pap_sub{
 
   .bt_connect,
   a.bt_deconnect {
-    @include buttonLog($cyan, 60%);
+    @include buttonLog($text, 60%);
     height: 25px;
-    padding-top: 5px;
+    padding-top: 6px;
     border-radius:14px;
     color: $white;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: .7rem;
+    &:hover {
+      color: $white !important;
+    }
   }
 
   .bt_compte {
@@ -1340,7 +1443,7 @@ ul#menu_top ul#pap_sub{
     text-transform: uppercase;
     font-weight: 900;
     font-family: $font-global;
-    font-size: .75rem;
+    font-size: .7rem;
     &:hover {
       color: $cyan;
     }
@@ -1356,17 +1459,32 @@ ul#menu_top ul#pap_sub{
 }
 
 #panier_sub {
-  .ct_itname,
-  .ct_qte,
+  .ct_item {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 51px;
+    border-bottom:1px solid $border;
+    vertical-align: middle;
+    margin-bottom: 5px;
+  }
+
   .ct_total {
     display: inline-block;
-    width: 27%;
+    width: 25%;
   }
   .ct_itname{
+    isplay: inline-block;
+    width: 50%;
     text-align: left;
     text-transform: capitalize;
+
+    clear: both;
+
   }
   .ct_qte{
+    width: 15%;
     text-align: center;
   }
   .ct_total {
@@ -1376,7 +1494,7 @@ ul#menu_top ul#pap_sub{
     display: block;
     text-align: right;
     margin-top: 10px;
-    width: 89%;
+    width: 100%;
   }
   form#delcart_form {
     display: inline-block;
@@ -1395,7 +1513,8 @@ ul#menu_top ul#pap_sub{
 // icones page d'accueil et pages akilux, enseigne et stickers -----------------
 
 ul#tarifs,
-ul#tarifs2, {
+ul#tarifs2,
+ul#tarifs3 {
   clear: both;
   float: none;
   display: flex;
@@ -1403,7 +1522,7 @@ ul#tarifs2, {
   flex-wrap: wrap;
   justify-content: space-between;
   list-style-type: none;
-  margin: 0;
+  margin: 0 0 15px 0;
   padding: 0;
   a{display:block}
 
@@ -1411,9 +1530,9 @@ ul#tarifs2, {
     width: 24%; //120
     height: auto; //160
     margin-bottom: 0;
-    background: url('../images/bt/btbg.png');
-    background-size: contain;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    background: $bloc-base;
+    //box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid $border;
     margin-top: 15px;
 
     &:hover {
@@ -1431,6 +1550,7 @@ ul#tarifs2, {
     &.separator_con {
       display: none;
     }
+
 
     .micro a {
       display: block;
@@ -1460,12 +1580,46 @@ ul#tarifs2, {
         transition: .1s;
       }
     }
+
+    .micro2 a{
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      background: $cyan;
+      font-size: .85rem;
+      line-height: .87rem;
+      letter-spacing: 0;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: $font-global;
+      color: $white;
+      font-weight: 700;
+      margin-top: -10px;
+      padding: 14px 2px 0;
+      height: 45px;
+      vertical-align: middle;
+      .micro-s {
+        display: block;
+        font-size: .65rem;
+        font-family: $font-global;
+      }
+      &:hover {
+        background: $magenta;
+        color: $white;
+        transition: .1s;
+      }
+    }
   }
 }
 
 ul#tarifs2 {
   li {
     width: 19%;
+  }
+}
+ul#tarifs3 {
+  li:hover {
+    background: transparent;
   }
 }
 
@@ -1518,30 +1672,39 @@ hr.hr-separator {
 
 .toggle-button {
   position: relative;
+  clear: both;
   display: block;
-  margin: 40px auto -20px -5.5%;
+  margin: 40px auto 0 -4.5%;
   cursor: pointer;
   text-align: center;
-  border: 0;
+  border: 1px solid $text;
+  border-left: none;
+  border-right: none;
   background-color: transparent;
-  background: darken($bloc-base, 5%);
-  width: calc(100% + 11.1%);
+  background: white;
+  width: calc(100% + 9%);
   color: $text;
   font-weight: 700;
   font-family: $font-global;
-  font-size: .9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: .8rem;
   line-height: .9rem;
   height: 30px;
+  z-index: 10;
 
   i {
     display: block;
     position: absolute;
     width: 40px;
     height: 20px;
-    top: 30px;
+    top: 28px;
     left: calc(50% - 20px);
-    background: darken($bloc-base, 5%);
+    background: white;
+    z-index: 20;
     border-radius:0 0 20px 20px;
+    border: 1px solid $text;
+    border-top: none;
   }
 
   &:before{
@@ -1553,15 +1716,29 @@ hr.hr-separator {
 .toggle-block {
   clear: both;
   display: none;
-  padding: 5% 5% 20px 5%;
+  padding: 5% 5% 20px 4.5%;
   font-family: $font-global;
   font-size: .85rem;
   line-height: 1rem;
   font-weight: normal;
   margin-top: -20px;
-  margin-left: -5.6%;
-  background: darken($bloc-base,3%);
-  width: calc(100% + 11.2%);
+  margin-left: -4.5%;
+  //background: darken($bloc-base,3%);
+  border-bottom: 1px solid $text;
+  width: calc(100% + 9%);
+  h4 {
+    color: $text;
+  }
+  h3 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 900;
+  }
+  strong {
+    text-transform: uppercase;
+    color: #ccc;
+  }
 }
 
 img.toggle-button {
@@ -1571,6 +1748,56 @@ img.toggle-button {
   width: 10px;
   height: 10px;
 }
+
+// youtube/iframes responsive --------------------------------------------------
+
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+  border: 0;
+  margin-top: 20px;
+}
+
+.pic-container {
+	position: relative;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  p {
+    display: inline;
+  }
+  a {
+    display: inline-block;
+    width: 30%;
+    float: none;
+    margin-top: 20px;
+
+  }
+  img{
+    width: 100%;
+    height: auto;
+    max-height: 135px;
+  }
+}
+.freepic{
+  margin-top: 20px;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  display: block;
+	position: absolute;
+  border: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////
 //                       MODULES PAGES PRODUITS
@@ -1593,13 +1820,14 @@ img.toggle-button {
   height: auto;
   margin-top: 0;
   margin-bottom: 0;
-  background: $bloc-base;
-  padding: 1rem 1rem 0;
-  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
+  background-image: url('../img/cream_pixels.png');
+  padding: 1rem 0;
+  border-top: 1px solid $text;
+  border-bottom: 1px solid $text;
 
   .front img{
     display: inline-block;
-    @include span (3);
+    @include span (2);
     height: auto;
 
     vertical-align: middle;
@@ -1608,56 +1836,61 @@ img.toggle-button {
 
   #top_info_info,
   #top_info_info2 {
-    @include span (9);
+    @include span (10);
     height: auto;
     padding: 0;
     vertical-align: middle;
     background: 0;
-    font-size: .9rem;
-    padding: 1rem 0 0 1rem;
+    font-size: .8rem;
+    padding: 0 0 0 1rem;
+    color: $text;
+
     span.info_nag {
       font-family: $font-special;
       font-weight: 700;
       display: block;
-      color: $cyan;
-      padding-bottom: 2px;
-      font-size: 1.2rem;
+      color: $text;
+      font-size: 1rem;
       letter-spacing: 1px;
+
+      @include s740 {
+        font-size: 1rem;
+      }
     }
     .prod-desc .highlight{
-      color: darken($bloc-base,35%);
+      color: lighten($text,15%);
       font-size: .75rem;
       float: right;
+
     }
   }
 }
 
-.helpMenu{
-  margin-top: 1rem;
-  float: right;
-}
+
 a.notice,
 a.noticeFooter {
   display: block;
   float: left;
   margin: 15px 0 1rem 10px;
-  border: 1px solid darken($border,2%);
-  background: darken($bloc-base,2%);
+  border: 1px solid $text;
+  //background: darken($bloc-base,2%);
   min-width: 30px;
-  min-height: 30px;
+  min-height: 25px;
   border-radius: 20px;
-  padding: 7px;
+  padding: 5px 10px;
   text-align: center;
   text-transform: uppercase;
-  color: darken($bloc-base,40%);
+  color: $text;
   letter-spacing: 1px;
-  font-size: .9rem;
+  font-size: .8rem;
   .textHide{
     font-size: .75rem;
   }
   &:hover{
-
-    background: lighten($bloc-base,2%);
+    color: $white;
+    background: $magenta;
+    border: none;
+    transition: .2s;
   }
   .helpExp{
     display: block;
@@ -1666,7 +1899,7 @@ a.noticeFooter {
 }
 
 a.noticeFooter {
-  border: 1px solid darken($border,4%);
+  border: 1px solid $text;
   margin: 10px 10px 0 0;
 }
 
@@ -1705,116 +1938,13 @@ a.noticeFooter {
 // Prévisualisation produit ----------------------------------------------------
 ////////////////////////////////////////////////////////////////////////////////
 
-#preview,
-#preview2,
-#preview3 {
-  width: 39%;
-  height: auto;
-  float: right;
-  top: 0;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 10px;
-  margin-top: 20px;
-  display: inline-block;
-  min-height: 350px;
-  //min-height: 350px;
 
-  .arrow {
-    position: absolute;
-    top: 20px;
-    left: -1px;
-    z-index: 950;
-    height: 80px;
-  }
-}
 
-#preview_con {
-  float: none;
-  display: inline-block;
-  width: 30%;
-}
 
-#preview_name,
-#preview_name2 {
-  display: block;
-  width: 100%;
-  height: 40px;
-  vertical-align: middle;
-  padding: .7rem;
-  background: $magenta;
-  color: $white;
-  font-size: .9rem;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-#preview_info,
-#preview_info2 {
-  display: block;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  max-width: 100%;
-  height: auto !important;
-  background: $bloc-base;
-
-  ul {
-    margin: 0;
-    font-size: .8rem;
-    padding: 0 1rem;
-    width: 100%;
-  }
-
-  li {
-    &#iden1,
-    &#iden2 {
-      list-style-type: none;
-    }
-  }
-}
-
-#preview_info_title,
-#preview_info_title2 {
-  float: none;
-  display: inline-block;
-  padding: .4rem;
-  width: 100%;
-  height: 30px;
-  text-align: center;
-  font-size: .8rem;
-  color: $white;
-  background: $color_18;
-  text-transform: uppercase;
-}
-
-#preview_imag,
-#preview_imag1,
-#preview_imag2,
-#preview_imag3,
-#preview_imag4,
-#preview_imag5,
-#preview_imag6,
-#preview_imag7 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  float: none;
-  width: 100%;
-  display: block;
-  overflow-x: hidden;
-  margin-left: 0;
-  min-height: 350px;
+#canvas {
+  background-image: url(../images/canvasbg.png);
   background-size: contain;
   background-repeat: no-repeat;
-
-  &::before {
-    content: "";
-    display: block;
-    padding-top: 100%; 	/* initial ratio of 1:1*/
-  }
 }
 
 .slideIn{
@@ -1822,41 +1952,7 @@ a.noticeFooter {
     transition: left 0.3s ease-out;
 }
 
-#preview_imag {
-  z-index: 10;
-}
-#preview_imag1 {
-  z-index: 15;
-}
-#preview_imag2 {
-  z-index: 20;
-}
-#preview_imag3 {
-  z-index: 30;
-}
-#preview_imag4 {
-  z-index: 40;
-}
-#preview_imag5 {
-  z-index: 50;
-}
-#preview_imag6 {
-  z-index: 60;
-}
-#preview_imag7 {
-  z-index: 70;
-}
 
-.previewTitle{
-  display: block;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  max-width: 100%;
-  height: 50px !important;
-  background: $cyan;
-  color: $white;
-}
 
 // sélection produit -----------------------------------------------------------
 ////////////////////////////////////////////////////////////////////////////////
@@ -1907,13 +2003,13 @@ a.noticeFooter {
 }
 
 input::placeholder {
-  color: $cyan;
+  color: $text;
   font-family: $font-global;
-  text-transform: capitalize;
   font-weight: normal;
 }
 
-.jotform-form {
+.jotform-form,
+.vueForm {
   clear: both;
   box-sizing: border-box;
   width: 100%;
@@ -1961,6 +2057,11 @@ input::placeholder {
       outline: 0;
     }
 
+    &.required{
+      color: $magenta !important;
+      border-color: $magenta !important;
+    }
+
     .titre {
       color: $magenta;
       background-color: $white;
@@ -2005,6 +2106,9 @@ input::placeholder {
     &.option4 {
       width: 90%;
     }
+    &.option6 {
+      width: 30%;
+    }
 
     &.quan {
       float: none;
@@ -2032,6 +2136,10 @@ input::placeholder {
       border: 1px solid $border;
       &:focus {
         border: 1px solid $cyan-bloc;
+      }
+      &.required{
+        color: $magenta !important;
+        border-color: $magenta !important;
       }
     }
 
@@ -2097,11 +2205,8 @@ input::placeholder {
   position: relative;
   top: -2px;
   left: 1px;
-  border-right: 1px solid darken($cyan, 10%);
-  border-top: 1px solid  darken($cyan, 10%);
-  border-bottom: 1px solid  darken($cyan, 10%);
   margin-left: -29px;
-  background: $cyan;
+  background: $text;
   border-radius: 0 3px 3px 0;
   height: 33px;
   vertical-align: middle;
@@ -2258,6 +2363,7 @@ ul {
               background: url("../images/question.png") no-repeat;
               text-decoration: none;
               background-size: cover;
+              cursor: pointer;
             }
 
             a.options_pytajnik {
@@ -2289,6 +2395,7 @@ ul {
             width: 100%;
             display: block;
             line-height: 22px;
+            margin-top: 5px;
           }
         }
       }
@@ -2374,9 +2481,16 @@ ul {
 }
 
 a.linkUppercase {
+  display: inline-block;
+  margin-left: 5px;
   text-decoration: none;
-  font-size: 1rem;
-  color: $cyan;
+  font-size: 1.2rem;
+  color: $text !important;
+
+  &:hover {
+    color: $magenta !important;
+    transition: .2s;
+  }
 }
 
 
@@ -2434,6 +2548,7 @@ a.linkUppercase {
   margin-bottom: 20px;
 
   #cart_form {
+    display: block;
     padding: .7rem;
     font-size: .75rem;
     line-height: .75rem;
@@ -2467,15 +2582,19 @@ a.linkUppercase {
 // boutons envoi formulaire ----------------------------------------------------
 
 #submit_cart {
-  @include buttonLog($cyan, 150px);
+  @include buttonLog($magenta, 150px);
   float: right;
   padding-bottom: .7rem;
   margin: 0 0 15px;
   border-radius:20px;
+
+  &:hover {
+    color: $cyan;
+  }
 }
 
 .form-submit-button {
-  @include buttonLog($cyan, 150px);
+  @include buttonLog($magenta, 150px);
   margin-top: 15px;
 }
 
@@ -2483,7 +2602,12 @@ a.linkUppercase {
 
 .form-line{
   width: 80%;
+  &.ch{
+    width: 100%;
+  }
 }
+
+
 
 input:invalid {
   border: 1px solid $magenta;
@@ -2495,7 +2619,7 @@ input:valid {
 .form-line-error {
   background: $magenta;
   border: 1px solid $magenta;
-  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .form-validation-error {
@@ -2599,12 +2723,12 @@ input:valid {
 
 @keyframes pulse {to {box-shadow: 0 0 0 20px rgba(232, 76, 61, 0);}}
 
-.helpText {
+.helpText, .helpPay {
   position: absolute;
   left: 100%;
   top: -10px;
   padding-left: 10px;
-  width: 300px;
+  width: 330px;
   color: darken($text, 10%);
   padding: 1rem;
   z-index: 999;
@@ -2616,6 +2740,7 @@ input:valid {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   font-weight: normal;
   min-height: 100px;
+
   .closeB {
     @include close($text, 2rem, -5px, 6px);
   }
@@ -2630,15 +2755,36 @@ input:valid {
     font-size: .75rem;
     text-transform: uppercase;
     display: inline-block;
-    border-radius: 7px;
     margin-right: 1px;
+  }
+  & > div {
+    background: darken($bloc-base,6%);
+    margin-bottom: 5px;
+    padding: 6px;
+    text-align: justify;
+    > b:first-child {
+      display: inline-block;
+      margin-top: -6px;
+      margin-left: -6px;
+      width: calc(100% + 12px);
+      background: $bloc-base;
+      color: $text;
+      padding: 6px 0;
+    }
   }
   img{
     max-width: 200px;
   }
 }
 
-.helpText:after, .helpText:before {
+.helpPay{
+  right: -50px;
+  left: auto;
+  top: 40px;
+  width: 150px;
+}
+
+.helpText:after, .helpText:before, .helpPay:after, .helpPay:before {
 	right: 100%;
 	top: 28px;
 	border: solid transparent;
@@ -2649,18 +2795,23 @@ input:valid {
 	pointer-events: none;
 }
 
-.helpText:after {
+.helpText:after, .helpPay:after {
 	border-color: rgba(246, 246, 246, 0);
 	border-right-color: $bloc-base;
 	border-width: 10px;
 	margin-top: -10px;
 }
 
-.helpText:before {
+.helpText:before, .helpPay:before {
 	border-color: rgba(233, 233, 233, 0);
 	border-right-color: #e9e9e9;
 	border-width: 11px;
 	margin-top: -11px;
+}
+
+.optionsright .helpText, .optionsleft .helpText {
+  top: -20px;
+  left: calc(100% + 10);
 }
 
 .helpfr {
@@ -2889,6 +3040,7 @@ a.textLink{
   text-transform: uppercase;
   color: $cyan;
 }
+
 .box_info,
 .box_warning,
 .box_alert,
@@ -2897,19 +3049,25 @@ a.textLink{
   width: auto;
   padding: 1rem;
   margin-bottom: 16px;
-  background-color: $color_20;
+  background-color: $green;
+  color: $white;
+  a {
+    color: $white;
+    font-weight: bold;
+  }
   img{
     margin-right: 1rem;
   }
   .closeButton {
-    @include close($color_19, 2rem, 0, 10px);
+    @include close($white, 2rem, 0, 10px);
   }
 }
 
 .box_warning {
-  background-color: $color_22;
+  background-color: $jaune;
+  color: $white;
   .closeButton {
-    @include close($color_21, 2rem, 0, 10px);
+    @include close($white, 2rem, 0, 10px);
   }
 }
 .box_warn {
@@ -2987,53 +3145,38 @@ a.textLink{
 }
 
 .otip {
+  display: none;
   position: absolute;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 900;
-  width: 215px;
-  background: $jaune;
-  color: $white;
-  padding: 1rem;
+  box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.2);
+  z-index: 500;
+  width: 190px;
+  background: $bloc-base;
+  color: lighten($magenta, 15%);
+  padding: .5rem .5rem;
   .closeTip {
     display: block;
-    @include close($white, 2rem, -5px, 5px);
+    @include close(lighten($magenta, 15%), 2rem, -5px, 5px);
   }
   .exclam{
     float: left;
+    font-size: 22px;
+    padding-top: 2px;
   }
   .alertText{
     display: inline-block;
     text-align: left;
     width: 80%;
     text-transform: uppercase;
-    font-size: .75rem;
+    font-size: .7rem;
     line-height: .8rem;
   }
 
 }
 
-.ptip, .btip{
+.ptip, .btip, .ftip, .mtip {
   right: 0;
-  top: 45px;
-  &:after {
-    z-index: 900;
-  	bottom: 100%;
-  	left: 80%;
-  	border: solid transparent;
-  	content: " ";
-  	height: 0;
-  	width: 0;
-  	position: absolute;
-  	pointer-events: none;
-  	border-bottom-color: $jaune;
-  	border-width: 10px;
-  	margin-left: -10px;
-  }
-}
-
-.ftip{
-  left: -1px;
-  top: -65px;
+  top: -50px;
+  font-weight: normal;
   &:after {
     z-index: 900;
     top: 100%;
@@ -3045,12 +3188,26 @@ a.textLink{
   	position: absolute;
   	pointer-events: none;
   	border-color: rgba(255, 255, 255, 0);
-  	border-top-color: $jaune;
+  	border-top-color: $bloc-base;
   	border-width: 10px;
   	margin-left: -10px;
   }
 }
 
+.mtip {
+  top: 100px;
+  right: 20px;
+  &.mtipIE {
+    top: 60px;
+    width: 400px;
+    font-size: .65rem;
+  }
+  &.mtipSm {
+    top: 60px;
+    width: 300px;
+    font-size: .65rem;
+  }
+}
 
 // Page écrire un commentaire ------------------------------------------------
 
@@ -3263,6 +3420,9 @@ span.comm_title3 {
   margin-bottom: 15px;
   &.nomb{
     margin-bottom: 0;
+    &.gray{
+      color: lighten($text, 30% );
+    }
   }
 }
 
@@ -3528,15 +3688,16 @@ SPAN {
   display: block;
   width: 100%;
   margin: 0;
-  background: darken($bloc-base, 2%);
+  //background: darken($bloc-base, 2%);
   line-height: 19px;
-  padding: 1rem 1rem .5rem;
+  padding: .5rem 1rem;
 
   .span7 {
     display: flex;
     display:-webkit-flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
   }
 }
 
@@ -3546,48 +3707,59 @@ SPAN {
   justify-content: space-between;
   width: 69%;
 }
-// boutons file upload ---------------------------------------------------------
 
 
-a.maquette{
-  @include buttonLog($magenta, 150px);
-  float: right;
+// boutons maquette ------------------------------------------------------------
+a.maquette,
+a.gabarit {
+  @include buttonLog($text, 150px);
+  margin-bottom: 10px;
   padding-top: .4rem;
   height: 28px;
   border-radius: 14px;
-  &:hover {
-    background-color: $cyan;
-    border:1px solid darken($cyan, 7%);
+  display: inline-block;
+  &.deactive {
+    background-color: $color_5;
+    border:none;
+    pointer-events: none;
   }
 }
 
-.maquetteRV{
-  float: right;
+.maquetteRV,
+.gabaritRV{
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  @include s540{
+    display: none;
+  }
 }
 
+// boutons file upload ---------------------------------------------------------
 .fuselect.ui-button {
-  @include buttonLog($cyan, 29%);
+  @include buttonLog($cyan, 24%);
   text-align: center;
+  padding-top: 0.4rem;
+  height: 28px;
+  border-radius: 14px;
 }
 
 .fustart.ui-button {
-  @include buttonLog($color_29, 24%);
-  padding-top: .3rem;
+  @include buttonLog($altg, 24%);
   opacity: .2;
+  padding-top: 0.4rem;
+  height: 28px;
+  border-radius: 14px;
 }
 
-.fucancel.ui-button {
-  @include buttonLog($text, 20%);
-  padding-top: .3rem;
-  opacity: .2;
-  cursor: not-allowed;
-}
-
+.fucancel.ui-button,
 .fudelete.ui-button {
   @include buttonLog($text, 20%);
-  padding-top: .3rem;
   opacity: .2;
   cursor: not-allowed;
+  padding-top: 0.4rem;
+  height: 28px;
+  border-radius: 14px;
 }
 
 .tdstart .fustart {
@@ -3601,10 +3773,50 @@ a.maquette{
 
 #fileupload {
   position: relative;
-  float: none;
-  display: block;
-  width: 100%;
-  margin: 20px 0 30px;
+  display: table-cell;
+  width: 83%;
+  border-bottom: 15px solid #fff;
+  background: darken($bloc-base, 2%);
+  vertical-align: top;
+  .acces_tab_name2 {
+    background: none;
+    height: 20px;
+    color: $text;
+    font-weight: 900;
+    padding: 0;
+    margin-top: 10px;
+  }
+}
+
+#dropZone {
+  display: table-cell;
+  width: 17%;
+  background: darken($bloc-base, 2%);
+  padding: 4px;
+  border-bottom: 15px solid #fff;
+  .dropin{
+    border: 4px dashed #ccc;
+    width: 100%;
+    color: darken(#ccc, 5%);
+    background: $white;
+    font-weight: 900;
+    font-size: .8rem;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px 20px;
+    &.fade {
+      transition: all 0.3s ease-out;
+      opacity: 1;
+    }
+    &.in {
+
+    }
+    &.hover {
+      background: darken($bloc-base, 12%);
+    }
+  }
+
 }
 
 #viewsendfiles {
@@ -3626,14 +3838,12 @@ a.maquette{
   font-size: .8rem;
   th {
     text-transform: uppercase;
-    background: $bloc-base;
-    padding: .7rem;
+    padding: .2rem;
     font-size: .8rem;
     vertical-align: top;
-    color: #008EBB;
+    //color: #008EBB;
   }
   .lefttd {
-    background: $bloc-base;
     text-align: left;
     padding: .7rem;
     width: 0;
@@ -3642,7 +3852,6 @@ a.maquette{
     width: 20%;
     text-align: left;
     padding-left: 0 !important;
-    background: $bloc-base;
   }
   .tabsize {
     width: 15%;
@@ -3658,7 +3867,7 @@ a.maquette{
     padding-top: .4rem;
   }
   .tabwykrzyknik {
-    background: $bloc-base url(../img/wykrzyknik2.png) center 7px no-repeat;
+    background: url(../img/wykrzyknik2.png) center 7px no-repeat;
   }
   .fustart {
     margin-left: 0 !important;
@@ -3666,18 +3875,16 @@ a.maquette{
   }
 
   td {
-    background: $bloc-base url(../images/bord2.png) top left no-repeat;
+    background: url(../images/bord2.png) top left no-repeat;
     text-align: center;
     height: 19px;
     padding: .7rem;
     vertical-align: top;
     &.lefttd_none {
       width: 30px;
-      background-color: $bloc-base;
     }
     &.lefttd {
       width: 30px;
-      background-color: $bloc-base;
     }
   }
 }
@@ -3742,7 +3949,7 @@ tbody {
     padding: .2rem;
     border-bottom: 1px solid $border;
     text-transform: uppercase;
-    color: $cyan;
+    //color: $cyan;
     width: 15%;
     line-height: 1rem;
     font-size: .8rem;
@@ -3816,6 +4023,11 @@ tbody {
     &.therest {
       font-size: .75rem;
     }
+    &.reference {
+      //display: none;
+      font-size: 10px;
+    }
+
   }
 
   th {
@@ -3824,7 +4036,7 @@ tbody {
     padding: 3px 20px;
     border-bottom: 1px solid $border;
     text-transform: uppercase;
-    color: $cyan;
+
     width: 12%;
     padding: 1rem;
     font-size: .8rem;
@@ -3872,6 +4084,42 @@ tbody {
   }
 }
 
+.prodpic {
+  margin-right: 10px;
+  margin-left: -5px;
+  float: left;
+  @include hackEdge {
+    display: none;
+  }
+  img {
+    margin-top: -5px;
+    width: 160px;
+    height: auto;
+    @include s1024{
+      width: 80px;
+      height: auto;
+    }
+  }
+}
+
+.prodpicModal {
+  width: 160px;
+  height: auto;
+  @include hackEdge {
+    display: none;
+  }
+}
+.prodpicCart {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+  vertical-align: top;
+  @include hackEdge {
+    display: none;
+  }
+}
 #delcart {
   width: 16px;
   height: 16px;
@@ -3885,15 +4133,16 @@ tbody {
 }
 
 #adcart {
-  @include buttonLog($cyan, 100px);
+  @include buttonLog($text, 100px);
   position: absolute;
-  font-size: .75rem;
+  font-size: .7rem;
   bottom: .2rem;
   right: .7rem;
   float: right;
-  padding-top: .25rem;
+  padding-top: .3rem;
   height: 24px;
   border-radius: 12px;
+
 }
 
 .delbut.ui-button {
@@ -3956,7 +4205,8 @@ button#copy {
 
 .shareURL {
   @include buttonLog($jaune, 140px);
-  padding-top: .25rem;
+  font-size: .75rem;
+  padding-top: .4rem;
   height: 24px;
   border-radius: 12px;
 }
@@ -4033,7 +4283,7 @@ button#copy {
   th {
     padding: .7rem .7rem 0.7rem;
     text-transform: uppercase;
-    color: $cyan;
+    //color: $cyan;
     width: 50%;
     height:20px;
     text-align: left;
@@ -4085,7 +4335,7 @@ button#copy {
     padding: .7rem;
     border-bottom: 1px solid $border;
     text-transform: uppercase;
-    color: $cyan;
+    //color: $cyan;
     width: 15%;
     font-size: .8rem;
     &.leftth {
@@ -4173,12 +4423,40 @@ button#copy {
 }
 
 .review_answer {
-  background-color: $border;
+  position: relative;
+  border: 1px solid $border;
+  background: 0;
   margin-left: 0;
   padding: .7rem;
   p{
     margin-bottom: 0;
   }
+}
+
+.review_answer:after, .review_answer:before {
+	bottom: 100%;
+	left: 10%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+
+.review_answer:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #ffffff;
+	border-width: 9px;
+	margin-left: -9px;
+}
+
+.review_answer:before {
+	border-color: rgba(217, 217, 217, 0);
+	border-bottom-color: $border;
+	border-width: 10px;
+	margin-left: -10px;
 }
 
 // -----------------------------------------------------------------------------
@@ -4262,7 +4540,7 @@ button#copy {
       text-align: left;
 
       .prom_sub {
-        @include buttonLog($cyan, 40%);
+        @include buttonLog($green, 40%);
         position: absolute;
         right: 10px;
         top:  122px;
@@ -4458,7 +4736,7 @@ button#copy {
   padding: 12px 0 4px;
   height: 40px;
   line-height: 1rem;
-  background: $cyan;
+  background: $text;
   color: $white;
   margin: 0;
   font-size: 1rem;
@@ -4587,6 +4865,7 @@ button#copy {
 
 .acces_tab_name,
 .acces_tab_name2,
+.acces_tab_name3,
 .acces_tab_name_devis {
   z-index: 100;
   width: 100%;
@@ -4598,12 +4877,18 @@ button#copy {
   //font-weight: bold;
   margin: 0;
   font-size: 1rem;
-  text-align: center;
+  font-weight: 900;
+  text-align: left;
   text-transform: uppercase;
 }
 
 .acces_tab_name2 {
   background: $cyan;
+  text-align: center;
+}
+.acces_tab_name3 {
+  background: $jaune;
+
 }
 
 .acces_tab_content,
@@ -4677,38 +4962,44 @@ button#copy {
 
 .loginbutton,
 .loginbutton2,
-.resendbutton {
+.resendbutton,
+a.pleaseregister {
   position: relative;
   bottom: 0;
   left: 0;
-  @extend %buttonBase;
+  border: 1px solid $text;
+  color: $text;
+  background: $white;
+  height: 40px;
   display: block;
   margin: 10px auto 0;
   width: 150px;
   text-indent: 0;
   border-radius:26px;
+  cursor: pointer;
+  &:hover {
+    background: $magenta;
+    color: $white;
+    border: none;
+    transition: .2s;
+  }
 }
 
 a.pleaseregister {
-  &:link,
-  &:visited {
-    display: block;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    @extend %buttonBase;
-    margin: 60px auto 0;
+
+    font-weight: 300 !important;
+
+    margin: 50px auto 0;
     width: 150px;
     text-indent: 0;
     text-align: center;
-    padding: 9px 0;
-    font-size: .9rem;
+    padding: 10px 0;
     border-radius:26px;
     &:after{
       @extend %buttonBaseAfter;
       content: '';
     }
-  }
+
 }
 
 .info_unique {
@@ -4730,12 +5021,13 @@ a.forgetpass {
     bottom: 0;
     width: 100%;
     height: 20px;
-    color: $cyan;
+    color: $text;
     text-decoration: none;
     text-align: center;
     display: block;
     font-size: .9rem;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-weight: normal;
   }
 
   &:hover {
@@ -4745,9 +5037,8 @@ a.forgetpass {
 
 //-------------------------------------------------------------carnet d'adresses
 .adresses {
-  width: calc(100% + 1.4rem);
-  margin-left: -.7rem;
-  margin-top: -.7rem;
+  width: 100%;
+
   display: flex;
   display:-webkit-flex;
   flex-wrap: wrap;
@@ -4761,15 +5052,15 @@ a.forgetpass {
 }
 .blocAdresse {
   position: relative;
-  width: 24%;
-  min-height: 180px;
+  width: 32%;
+  min-height: 250px;
   height: auto;
   background: $white;
   padding: 10px;
-  margin-right: .7rem;
-  margin-bottom: .7rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
   box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.10);
-  &:nth-of-type(4n){
+  &:nth-of-type(3n){
     margin-right: 0;
   }
   &.blocSelect,
@@ -4808,7 +5099,7 @@ a.forgetpass {
   .addNew {
     position: relative;
     display: inline-block;
-    height: 120px;
+    height: 180px;
     width: 100%;
     background: transparent;
     cursor: pointer;
@@ -4824,8 +5115,27 @@ a.forgetpass {
       color: $text;
     }
   }
-  input{
+
+  label{
+    display: block;
+    position: relative;
+    margin-bottom: 5px;
+
+
+    input{
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: $text;
+    }
+  }
+
+  .titreAdresse {
+    display: block;
+    text-transform: uppercase;
     font-weight: bold;
+    color: $magenta;
+    margin-bottom: 10px;
   }
 }
 
@@ -4833,18 +5143,19 @@ a.forgetpass {
   margin-bottom: 4px;
 }
 .editAdBtn{
-  @include buttonLog($cyan, 30px);
+  @include buttonLog($cyan, 100px);
   position: absolute;
   padding: 3px;
   bottom: 0;
   right: 10px;
   height: 28px;
+  border-radius: 30px;
 }
 .blocAdresseSelect{
   position: absolute;
   bottom: 10px;
   left: 10px;
-  background: $border;
+  background: $text;
   width: calc(100%);
   height: 40px;
   margin: 12px 0 -10px -10px;
@@ -4852,11 +5163,10 @@ a.forgetpass {
   text-transform: uppercase;
   font-size: .75rem;
   font-weight: 900;
-  color: $cyan;
+  color: $white;
   vertical-align: middle;
   &.headSelect {
-    background: $text;
-    color: $white;
+    background: $magenta;
   }
   &.headNew {
     background:  $border;
@@ -4864,14 +5174,15 @@ a.forgetpass {
     text-align: center;
   }
   .selectionner {
-    color: darken(#ccc, 10%);
     font-weight: normal;
   }
+
 }
 .showRight{
   display: block;
   width: 100%;
   color: #ccc;
+  margin-top: 20px;
   text-align: center;
   font-size: 4rem;
 }
@@ -4970,8 +5281,11 @@ ul.regiform2 {
     text-align: center;
   }
   .form-line-error{
-    box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
     color: lighten($magenta,30%);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    p{
+      color: lighten($magenta,30%);
+    }
   }
   .form-error-message {
     position: relative;
@@ -4994,6 +5308,11 @@ ul.regiform2 {
   line-height: .9rem;
 }
 
+p.checklab{
+  float: left;
+  width: 80%;
+}
+
 .registerinput {
   float: right;
   display: inline;
@@ -5007,6 +5326,17 @@ ul.regiform2 {
   font-size: .9rem;
   line-height: 1rem;
   padding-left: 10px;
+}
+
+.registercheck {
+  float: right;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid $border;
+  border-radius: 3px;
+  background: $white;
+  margin: 0;
 }
 
 .registerWarning{
@@ -5456,7 +5786,7 @@ ul.regiform2 {
   border-collapse:separate;
   border-spacing:0 10px;
   tr{
-    outline: 1px solid $border;
+    outline: 1px solid $text;
 
   }
 
@@ -5473,21 +5803,21 @@ ul.regiform2 {
   }
 
   tr:after {
-  	border-color: rgba(246, 246, 246, 0);
-  	border-right-color: $bloc-base;
+  	border-color: rgba(#4f4f4f,0);
+  	border-right-color: $white;
   	border-width: 10px;
   	margin-top: -10px;
   }
 
   tr:before {
-  	border-color: rgba(233, 233, 233, 0);
-  	border-right-color: #e9e9e9;
+  	border-color: rgba(#4f4f4f,0);
+  	border-right-color: $text;
   	border-width: 11px;
   	margin-top: -11px;
   }
 
   td {
-    background: $bloc-base url('../images/bord4.png') top left no-repeat;
+    background: $white url('../images/bord4.png') top left no-repeat;
     font-size: .8rem;
     line-height: .9rem;
     text-align: left;
@@ -5496,7 +5826,7 @@ ul.regiform2 {
     width: 60%;
 
     &.lefttd {
-      background: $bloc-base;
+      background: $white;
       text-align: left;
       width: 20%;
       font-size: .8rem;
@@ -5504,7 +5834,7 @@ ul.regiform2 {
     }
 
     &.lefttd2 {
-      background: $bloc-base url('../images/bord4.png') top left no-repeat;
+      background: $white url('../images/bord4.png') top left no-repeat;
       text-align: left;
       width: 20%;
       font-size: .8rem;
@@ -5520,10 +5850,10 @@ h1.comTitre {
 
 a.comVoir  {
   position: relative;
-  background: $cyan;
+  background: $text;
   color: $white;
   display: block;
-  margin: 170px 0 0 0;
+  margin: 190px 0 0 0;
   top: 0;
   right: 0;
   padding-top: .5rem;
@@ -5533,7 +5863,7 @@ a.comVoir  {
   height: 35px;
   text-align: center;
   border-radius: 0;
-  box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
+  //box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.15);
   &:hover {
     background: $magenta;
     transition: .2s;
@@ -5561,15 +5891,17 @@ a.comVoir  {
   width: 35%;
   height: 160px;
   background-image: none;
-  background-color: $bloc-base;
-  box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
+  //background-color: $bloc-base;
+  //box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.15);
   margin: 10px 0 0;
   text-align: center;
   font-size: .9rem;
-  padding-top: 20px;
+  padding-top: 5px;
+  border: 1px solid $text;
   h2 {
     font-size: 1.2rem;
     padding-top: 0;
+    color: $text;
   }
 
   table {
@@ -5685,6 +6017,18 @@ a.comVoir  {
   }
 }
 
+.ms_content_wrap{
+  background-color: transparent !important;
+
+}
+
+.metaslider .msHtmlOverlay .layer * {
+  line-height: 32px !important;
+  .metaDesc {
+    line-height: 25px !important;
+  }
+}
+
 h1.metaTitle {
   font-family: $font-global;
   line-height: 1.6rem !important;
@@ -5695,7 +6039,7 @@ h1.metaTitle {
   text-transform: uppercase;
   font-style: normal;
   color: $white;
-  margin-bottom: 10px !important;
+  margin-bottom: 35px !important;
 }
 
 .metaDesc, .metaAP {
@@ -5725,6 +6069,7 @@ h1.metaTitle {
 
 a.metaButton {
   clear: both;
+  bottom: 0;
   float: right;
   display: block;
   text-transform: uppercase;
@@ -5739,6 +6084,7 @@ a.metaButton {
   font-size: 1.4rem !important;
   border-radius: 20px;
   font-weight: 900;
+  margin-top: 30px !important;
   &:hover {
     background: $jaune;
     transition: .2s;
@@ -5753,25 +6099,8 @@ a.metaButton.promo {
   left: 170px/2-50px;
 }
 
-// sliders pages produits ------------------------------------------------------
 
-#slides {
-  display: none;
-  li {
-    list-style-type: none;
-  }
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
 
-/* Center the slideshow */
-#container {
-  width: 100%;
-  height: auto;
-  z-index: 1;
-}
 
 // délai effet ombre sous le slide
 
@@ -5874,30 +6203,6 @@ a.metaButton.promo {
   background-color: $alert;
 }
 
-#production,
-#delivery {
-  display: block;
-  width: 100%;
-}
-#delivery {
-  margin-top: 10px;
-}
-
-.production {
-  width: auto;
-  height: 20px;
-  border-top-width: 0;
-  border-right-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-top-style: none;
-  border-right-style: none;
-  border-bottom-style: none;
-  border-left-style: none;
-  cursor: pointer;
-}
-
-
 DIV.ProgressBar {
   float: left;
   width: 100px;
@@ -5930,6 +6235,10 @@ DIV.ProgressBar {
   }
 }
 
+#livraisonrapide{
+  float: left;
+}
+
 // -----------------------------------------------------------------------------
 //                          HELP PAGES
 // -----------------------------------------------------------------------------
@@ -5957,6 +6266,17 @@ h1.helpPageTitle {
 
 // boutons délais de production/livraison --------------------------------------
 
+#production,
+#delivery {
+  display: block;
+  width: 100%;
+}
+#delivery {
+  margin-top: 10px;
+}
+
+
+
 #p1 {
   @extend %buttonBase;
   &:after{
@@ -5980,20 +6300,6 @@ h1.helpPageTitle {
     @extend %buttonBaseAfter;
     content: 'Express - 1 jour';
   }
-}
-
-.delivery {
-  width: 90px;
-  height: 20px;
-  border-top-width: 0;
-  border-right-width: 0;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-top-style: none;
-  border-right-style: none;
-  border-bottom-style: none;
-  border-left-style: none;
-  cursor: pointer;
 }
 
 #l1 {
@@ -6027,13 +6333,13 @@ h1.helpPageTitle {
 
 
 // containers pour accès clients -----------------------------------------------
-
+.fbcart_buttons,
 #fbcart_buttons,
 #fbcart_buttons3,
 #fbcart_buttons2 {
   position: relative;
   float: none;
-  margin: 0 auto 25px;
+  margin: 0 auto 15px;
   background: none;
   padding: 0;
   text-align: center;
@@ -6058,11 +6364,11 @@ h1.helpPageTitle {
 // boutons géréer mon compte ---------------------------------------------------
 
 a#votre_mod {
-  @include buttonLog($cyan, 49%);
+  @include buttonLine($white, 49%);
 }
 
 a#votre_dec {
-  @include buttonLog($text, 49%);
+  @include buttonLine($white, 49%);
 }
 
 // conteneur (form) des boutons validation formulaire -- c'est eux qui déterminent la taille des boutons, fixer les boutons correspondants à 100%
@@ -6090,7 +6396,6 @@ form#delfromvosdevis,
   &:hover {
     background: $cyan;
     transition: .2s;
-    border:1px solid darken($cyan, 7%);
   }
 }
 
@@ -6112,20 +6417,19 @@ form#delfromvosdevis,
     &:hover {
       background-image: none;
       background-color: $cyan;
-      border:1px solid darken($cyan, 7%);
     }
   }
 }
 
 #but_voir_bat {
-  @include buttonLog($color_29, 100%);
+  @include buttonLog($altg, 100%);
   padding-top: .7rem;
   border-radius:20px;
 }
 
 // bouton valider BAT (dans shadowbox fichier val_bat) pour l'instant en inline
 .but_val_bat{
-  @include buttonLog($color_29, 200px);
+  @include buttonLog($altg, 200px);
   padding-top: .5rem;
 }
 
@@ -6159,7 +6463,6 @@ form#delfromvosdevis,
   &.active,
   &:hover {
     background-color: $cyan;
-    border:1px solid darken($cyan, 7%);
   }
 }
 
@@ -6172,12 +6475,12 @@ form#delfromvosdevis,
   &:hover {
     background-image: none;
     background-color: $cyan;
-    border:1px solid darken($cyan, 7%);
   }
 }
 
 #but_payer.deactive {
-  @include buttonLog($text, 24%);
+  @include buttonLog($text, 100%);
+  padding-top: .3rem;
 }
 #but_retour {
   @include buttonLog($text, 24%);
@@ -6284,14 +6587,22 @@ a#but_imprimerbon,
 
 .register-button,
 .edit-button {
-  @include buttonLog($cyan, 150px);
+  @include buttonLog($white, 150px);
   display: block;
+  border: 1px solid $text;
+  color: $text;
+  text-transform: capitalize;
   border-radius:20px;
   padding-top: .5rem;
   margin-top: 1rem;
   margin-bottom: 0;
   margin-right: auto;
   margin-left: auto;
+  &:hover {
+    background: $magenta;
+    color: $white;
+    border: none;
+  }
 }
 
 .pushButton {
@@ -6348,7 +6659,6 @@ a.post-edit-link{
   &:hover {
     background-image: none;
     background-color: $cyan;
-    border:1px solid darken($cyan, 7%);
   }
 }
 
@@ -6358,7 +6668,6 @@ a.but_voiremaquette {
   &:hover {
     background-image: none;
     background-color: $cyan;
-    border:1px solid darken($cyan, 7%);
   }
 }
 
@@ -6419,7 +6728,7 @@ span.print_button a{
 }
 
 .prom_sub2 {
-  @include buttonLog($cyan, 50%);
+  @include buttonLog($green, 50%);
   display: block;
   margin: 0 auto;
   float: right;
@@ -6443,7 +6752,7 @@ span.print_button a{
   }
 }
 .stat0 {
-  @include buttonStatusBase($color_29);
+  @include buttonStatusBase($altg);
 }
 .stat1 {
   @include buttonStatusBase($color_30);
@@ -6923,29 +7232,6 @@ a:hover {
 	margin-top: 10px;
 }
 
-// youtube/iframes responsive --------------------------------------------------
-
-.video-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 30px;
-	height: 0;
-	overflow: hidden;
-  border: 0;
-}
-
-
-.video-container iframe,
-.video-container object,
-.video-container embed {
-  display: block;
-	position: absolute;
-  border: 0;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -6990,7 +7276,7 @@ a:hover {
 ////////////////////////////////////////////////////////////////////////////////
 
 ul#introBlocs {
-  background: $bloc-base;
+  background: transparent;
   clear: both;
   float: none;
   display: flex;
@@ -6999,7 +7285,8 @@ ul#introBlocs {
   justify-content: space-between;
   list-style-type: none;
   margin: 0;
-
+  margin-top: -15px;
+  background-image: url('../img/cream_pixels.png');
   padding: 2rem 1rem;
 
   li {
@@ -7037,15 +7324,28 @@ ul#introBlocs {
   position: relative;
   @include span(6);
   height: auto;
-  margin-top: 0;
+  margin-top: 20px;
   padding-left: 0;
+
+  h3 {
+    text-transform: uppercase;
+    font-size: .8rem;
+  }
   .banner0 {
     position: relative;
     display: inline-block;
     width: 100%;
     text-align: left;
+    font-size: .8rem;
+    margin-top: -26px;
+
+    @include s740 {
+      margin-top: 0;
+    }
+
     h3 {
       border-bottom: 1px solid $text;
+      letter-spacing: 1px;
     }
     a:link {
       font-weight: normal;
@@ -7061,13 +7361,18 @@ ul#introBlocs {
     font-size: .9rem;
     color: $green;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 300;
     vertical-align: top;
+    letter-spacing: 2px;
+    border-top: 1px solid $green;
+    border-bottom: 1px solid $green;
+    padding: 5px 0 7px;
     p {
       display: inline-block;
       width: 75%;
       vertical-align: middle;
       margin: 0;
+      text-align: right;
     }
     img {
       display: inline-block;
@@ -7079,7 +7384,7 @@ ul#introBlocs {
   .banner2{
     width: 100%;
     display: inline-block;
-    margin: 10px auto 0;
+    margin: 50px auto 0;
     font-size: 1rem;
     color: $cyan;
     text-transform: uppercase;
@@ -7096,7 +7401,7 @@ ul#introBlocs {
   @include span(6 last);
   height: auto;
   text-transform: uppercase;
-  margin: -19px auto 0;
+  margin: 0 auto;
   display: block;
   font-weight: bold;
   vertical-align: top;
@@ -7108,7 +7413,7 @@ h4.clients_reviews_titre a{
   display: inline-block;
   background-image: none;
   width: 100%;
-  background: $jaune;
+  background: $text;
   color:$white;
   padding: .7rem;
   margin-top: 0;
@@ -7130,8 +7435,9 @@ h4.clients_reviews_titre a{
   top: 0;
   width: 100%;
   height: auto;
-  background: $white;
-  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.10);
+  //background: $white;
+  //box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.10);
+  border: 1px solid $text;
   padding: .7rem;
 }
 
@@ -7182,22 +7488,25 @@ h4.clients_reviews_titre a{
 }
 
 .clients_reviews {
-  background: $white;
-  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.10);
+  //background: $white;
+  //box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.10);
   text-align: center;
   padding:.7rem 0 0;
   font-size: 18px;
   margin-top: -10px;
+  border: 1px solid $text;
+  border-top: none;
   a {
     display: inline-block;
     width: 100%;
+    color: $text;
   }
 }
 
 .client_reviews_1 {
   font-size: 20px;
   font-weight: bold;
-  color: $color_15;
+  color: $green;
 }
 
 
@@ -7207,13 +7516,14 @@ h4.clients_reviews_titre a{
 
 #main2 {
   @include container (100%);
+  border-top: 1px solid $text;
   margin-top: 0;
-  background: #fff;
+  background: $white;
   clear: both;
   height: auto;
   width: 100%;
   padding-top: 2rem;
-  background: darken($bloc-base, 5%);
+  //background: darken($bloc-base, 5%);
 }
 
 #footer {
@@ -7245,7 +7555,7 @@ h4.clients_reviews_titre a{
   width: 100%;
   height: 100px;
   margin: 60px auto 0;
-  background: darken($bloc-base, 20%);
+  background: $white;
   padding: 10px 0 100px;
   font-size: .9rem;
   text-align: center;
@@ -7262,26 +7572,28 @@ h4.clients_reviews_titre a{
 }
 .gotop, .gorea {
   display: block;
-  background: #3D4146;
+  background: darken($text,10%);
   position: absolute;
-  top: -40px;
+  top: -38px;
   left: calc(50% - 30px);
   width: 60px;
   height: 30px;
   border-radius: 30px 30px 0 0;
-  padding-top: 5px;
+  padding-top: 8px;
   text-align: center;
   i {
-    font-size: 25px;
+    font-size: 20px;
     color: $white;
   }
 
 }
 .gorea {
-  top: -60px;
-  background: darken($bloc-base, 5%);
+  top: -62px;
+  background: $white;
   color: $text;
   padding-top: 10px;
+  border: 1px solid $text;
+  border-bottom: none;
 
   i {
     font-size: 40px;
@@ -7293,6 +7605,7 @@ h4.clients_reviews_titre a{
   margin-top: -25px;
   text-transform: uppercase;
   font-size: .7rem;
+  letter-spacing: 1px;
 }
 
 .ribbon {
@@ -7469,7 +7782,6 @@ span#footer_links2 {
   border-radius:20px;
   &:hover {
     background-color: $cyan;
-    border:1px solid darken($cyan, 7%);
   }
   i {
     font-size: 1.5rem;
@@ -7552,10 +7864,13 @@ span#footer_links2 {
   }
 
   h3.popTitle {
+    position: relative;
+    width: 100%;
     text-transform: uppercase;
     font-size: 1rem;
     letter-spacing: 0;
     color: $text;
+
     .small {
       text-transform: lowercase;
     }
@@ -7566,6 +7881,7 @@ span#footer_links2 {
     background: transparent;
     font-size: .8rem;
     padding: 0;
+    color: $text;
   }
 
   .btBar{
@@ -7580,12 +7896,19 @@ span#footer_links2 {
 
   .btModal,
   a.btModal {
-    @include buttonLog($cyan, 45%);
+    @include buttonLog($white, 45%);
     display: block;
     height: 40px;
     padding-top: 7px;
     border-radius:20px;
-    color: $white;
+    color: $text;
+    border: 1px solid $text;
+    &:hover {
+      color: $white;
+      background: $magenta;
+      border: 0;
+      transition: .2s;
+    }
   }
 
   a.btModal {
@@ -7767,6 +8090,7 @@ a.shareFacebook{
 //-------------------------------------------------------modal produits connexes
 
 #explode{
+  width: 100%;
   display: flex;
   display: -webkit-flex;
   flex-wrap: wrap;
@@ -7780,9 +8104,10 @@ a.shareFacebook{
       font-weight: 900;
       font-size: 1rem;
       margin: 15px 0 0;
-      background: $jaune;
-      color: $white;
+      color: $text;
       padding: 3px 5px;
+      border-top: 1px solid $text;
+      border-bottom: 1px solid $text;
     }
     .accdesc  {
       font-size: .75em;
@@ -7792,7 +8117,7 @@ a.shareFacebook{
       background: $bloc-base;
       padding: 5px;
       position: relative;
-      &:after {
+      /*&:after {
         z-index: 200;
         top: 100%;
       	left: 80%;
@@ -7805,7 +8130,7 @@ a.shareFacebook{
       	border-top-color: $bloc-base;
       	border-width: 10px;
       	margin-left: -10px;
-      }
+      }*/
     }
     .accmini {
       img{
@@ -7821,10 +8146,11 @@ a.shareFacebook{
       font-weight: 900;
       font-size: 1rem;
       height: 25px;
-      background: $jaune;
-      color: $white;
+      color: $text;
       padding: 3px 5px;
       margin-bottom: 5px;
+      border-top: 1px solid $text;
+      border-bottom: 1px solid $text;
     }
     .accadd {
       .inp_ilosc{
@@ -7839,11 +8165,12 @@ a.shareFacebook{
         width: 49%;
       }
       .prom_sub{
-        @include buttonLog($cyan, 49%);
+        @include buttonLog($jaune, 49%);
         display: inline-block;
-        height: 30px;
+        height: 32px;
         padding-top: .5rem;
-        margin: -4px auto 0;
+        margin: 0 auto 0;
+        border-radius: 16px;
       }
     }
   }
@@ -7865,6 +8192,8 @@ a.shareFacebook{
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   display: none;
   z-index: 900;
+  font-size: .8rem;
+  line-height: 1rem;
   a {
     display: inline-block;
     width: 100%;
@@ -7882,6 +8211,7 @@ a.shareFacebook{
   h3{
     color: $white;
     margin: 0;
+    margin-bottom: 5px;
     font-size: 1.4rem;
     font-weight: 900;
   }
@@ -7928,4 +8258,1127 @@ a.shareFacebook{
   p{
     margin-top: 15px;
   }
+}
+
+a.open-popup-auto {
+  display: none !important;
+}
+
+#alertCodepostal {
+  max-width: 700px;
+  text-align: left;
+  h3 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+  }
+  a {
+    color: $magenta;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  li {
+    text-transform: uppercase;
+    display: block;
+    width: 49%;
+    background: $magenta;
+    padding: 10px;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: $white;
+    }
+
+    &:hover {
+      background: $cyan;
+      transition: .2s;
+    }
+  }
+}
+
+//==============================================================================
+//                                              NOUVEAUX STYLES PRODPAGES VUE.JS
+//==============================================================================
+
+//====================================================================ANIMATIONS
+
+.slideDown-enter-active, .slideDown-leave-active {
+  transition: all .2s;
+}
+
+.slideDown-enter, .slideDown-leave-active {
+  opacity: 0;
+  transform: translateY(-20%);
+}
+
+.slideLeft-enter-active, .slideLeft-leave-active {
+  transition: all .35s;
+}
+.slideLeft-enter, .slideLeft-leave-to{
+  transform: translateX(60%);
+}
+
+//====================================================================FORMULAIRE
+
+/*ul.form-section li#id_options{
+  margin-top: 0;
+}
+*/
+
+.row {
+  display: flex;
+  min-height: 620px;
+  margin-bottom: 30px;
+  @include s740 {
+    display: block;
+    min-height: none;
+  }
+}
+
+.column {
+
+  @include s860{
+    width: 49% !important;
+  }
+
+  @include s740 {
+    width: 100% !important;
+    margin-bottom: 15px !important;
+  }
+}
+
+#previewContainer {
+  width: 43.5%;
+  position: relative;
+  //background: $bloc-base;
+}
+
+#choicesContainer {
+  width: 54.5%;
+  position: relative;
+  margin-right: 2%;
+  font-size: .8rem;
+
+  h3 {
+    position: relative;
+    color: $white;
+    font-style: normal;
+    font-family: $font-global;
+    background: $magenta;
+    margin: 0;
+    padding: .5rem .5rem .5rem .8rem;
+    font-size: .9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+
+    @include s860 {
+      display: none;
+    }
+  }
+}
+
+.formSelect{
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.toggle {
+  position: relative;
+  border: 1px solid $text;
+  height: 35px;
+  background: $white;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: .9rem;
+  text-align: center;
+  z-index: 70;
+  color: $text;
+  &.required {
+    border: 1px solid $magenta;
+    color: $magenta;
+  }
+
+  @include s860 {
+    font-size: .8rem;
+  }
+}
+
+.boutonsSelect {
+  display: block;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 15px;
+  color: $text;
+  z-index: 100;
+
+  div{
+    position: relative;
+    display: block;
+    width: 24%;
+    height: 110px;
+    border: 1px solid $border;
+    margin-right: 1.33%;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    overflow: hidden;
+
+    // pas de marge droite tous les 4 éléments
+    &:nth-child(4n+4) {
+      margin-right: 0;
+    }
+
+    @include s860 {
+      width: 49%;
+      &:nth-child(odd){
+        margin-right: 2%;
+      }
+      &:nth-child(even){
+        margin-right: 0;
+      }
+    }
+
+    &.selectQte{
+      width: 19%;
+      height: 80px;
+      font-size: 15px;
+      margin-right: 1%;
+
+      &:nth-child(4n+4) {
+        margin-right: 1%;
+      }
+
+      @include s860 {
+        width: 32%;
+        &:nth-child(odd){
+          margin-right: 1%;
+        }
+        &:nth-child(even){
+          margin-right: 1%;
+        }
+      }
+
+
+    }
+
+
+    .corneco, .cornfire {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      height: 60px;
+      width: 60px;
+      background: $green;
+      transform: rotate(45deg);
+      color: $white;
+      font-size: 1rem;
+      .fa {
+        display: block;
+        position: absolute;
+        transform: rotate(-45deg);
+        bottom: 0;
+        left: 45%;
+      }
+    }
+    .cornfire {
+      background: $magenta;
+    }
+
+    img{
+      height: 70px;
+      margin-top: -10px;
+      width: auto;
+    }
+
+    i {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      &.fagreen {
+        color: $green;
+      }
+      &.fared {
+        color: $magenta;
+      }
+      &.facyan {
+        color: $cyan;
+      }
+      &.fapurple {
+        color: #b346ec;
+      }
+
+      &.bat {
+        display: inline-block;
+        margin-top: 15px;
+
+        font-style: normal;
+        font-weight: 900;
+        margin-bottom: 10px;
+      }
+      &.num {
+        display: inline-block;
+        margin-top: 20px;
+
+        font-style: normal;
+        font-weight: 900;
+        margin-bottom: 10px;
+      }
+    }
+
+    span{
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: $text;
+      font-size: .75rem;
+      line-height: .7rem;
+      padding: 2px;
+
+      &.smalls {
+        font-size: .65rem;
+        line-height: .67rem;
+        text-align: left;
+      }
+    }
+
+    &:hover{
+      background: $magenta;
+      color: $bloc-base;
+      transform: scale(1.1);
+      transition: all .2s;
+      span{
+        color: $white;
+      }
+    }
+
+    &.empty {
+
+      &:hover{
+        background: transparent;
+        transform: none;
+        transition: none;
+        cursor: default;
+      }
+      @include s860 {
+        display: none;
+      }
+    }
+  }
+}
+
+.optionsBlock {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+.qteContainer,
+.sizeContainer {
+  background: $white;
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid $text;
+  height: 40px;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: .9rem;
+  color: $text;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  z-index: 70;
+  &.active, &.required {
+    border: 1px solid $magenta;
+    color: $magenta;
+  }
+}
+
+.optQuantite {
+  margin-bottom: 15px;
+}
+
+.optSize {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:  flex-start;
+}
+
+.optReto {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.sizeContainer {
+  width: 49%;
+  &:first-of-type{
+    margin-right: 2%;
+  }
+}
+
+.qteLabel,
+.sizeLabel {
+  box-sizing: border-box;
+  width: 33%;
+  line-height: .9rem;
+  background: $text;
+  color: $white;
+  padding: 5px 10px 0;
+  font-size: .9rem;
+
+  @include s860 {
+    font-size: .8rem;
+    padding: 10px 0 0;
+    text-align: center;
+  }
+
+  .small {
+    display: block;
+    font-size: .8em;
+    @include s860 {
+      display: none;
+    }
+  }
+
+  &.active, &.required {
+    background: $magenta;
+  }
+}
+
+.sizeLabel{
+  width: 50%;
+}
+
+.qteInput,
+.sizeInput {
+  box-sizing: border-box;
+  width: 33%;
+  height: 38px;
+  border: none;
+  text-align: center;
+  color: $text;
+  font-size: .9rem;
+  font-weight: 900;
+
+  &:focus{
+    border:none !important;
+  }
+}
+
+.sizeInput{
+  width: 50%;
+}
+
+.qteBtn,
+.sizeBtn {
+  box-sizing: border-box;
+  width: 33%;
+  background: $text;
+  text-align: center;
+  padding: 5px 0 0;
+  @include s860 {
+    padding: 7px 0 0;
+  }
+  &.active, &.required {
+    background: $magenta;
+  }
+  button {
+    color: $white;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+    &:first-of-type{
+      margin-right: 5px;
+    }
+    &:hover {
+      color: $border;
+    }
+    @include s860 {
+      font-size: .9rem;
+    }
+  }
+}
+
+.fieldError {
+  display: inline-block;
+  background: $magenta;
+  color: $white;
+  margin: 10px 0 0;
+  padding: 10px;
+  font-size: .8rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  text-align: center;
+}
+
+h5.optionsTitle {
+  color: $text;
+  font-weight: 900;
+  font-size: .88rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+h5.delaisTitle {
+  color: $text;
+  font-weight: 900;
+  font-size: .8rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.optionsCheck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: .9rem;
+
+  .optCheck {
+    position: relative;
+    display: inline-block;
+    width: 49%;
+    margin-bottom: 5px;
+
+    @include s860 {
+      width: 100%;
+    }
+
+    input {
+      position: absolute;
+      top: 0px;
+      right: 25px;
+    }
+
+    .opHelp {
+      position: absolute;
+      top: 0px;
+      right: 0;
+      width: 18px;
+      height: 18px;
+      font-size: 18px;
+      text-decoration: none;
+      color: $text;
+      cursor: pointer;
+      &:hover {
+        color: $magenta;
+      }
+    }
+  }
+}
+
+.noDisXS {
+  @include s860 {
+    display: none;
+  }
+}
+
+.delaisBloc{
+
+  .delaisBtn {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .dclic {
+      width: 32%;
+      height: 40px;
+      font-family: $font-global;
+      font-weight: 900;
+      text-align: center;
+      border-radius: 0;
+      border: 1px solid $text;
+      color: $text;
+      background-color: transparent;
+      cursor: pointer;
+      text-transform: uppercase;
+      &:hover, {
+        background: $magenta;
+        color: $white;
+        transition: .2s;
+        border: 1px solid $magenta;
+      }
+      &.active {
+        background: $text;
+        color: $white;
+        transition: .2s;
+        border: 1px solid $text;
+        &:hover, {
+          background: $magenta;
+          color: $white;
+          transition: .2s;
+          border: 1px solid $magenta;
+        }
+      }
+      &.desactive {
+        border: 1px solid lighten($text, 50%);
+        color: lighten($text, 50%);
+        cursor: default;
+        &:hover, {
+          background: transparent;
+          color: lighten($text, 50%);
+          border: 1px solid lighten($text, 50%);
+        }
+      }
+    }
+  }
+}
+
+#prodApp{
+  margin-top: 20px;
+}
+
+
+.delivBlock {
+  //align-self: baseline;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-top: 15px;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+.delivDate {
+  display: block;
+  color: $text;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: .9rem;
+  border: 1px solid $text;
+  text-align: center;
+  padding: .7rem;
+}
+
+/* Center the slideshow */
+
+
+
+#previewImg {
+  width: 100%;
+  top: 0;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 15px;
+  margin-top: 0;
+  display: inline-block;
+  padding-top: 100%;
+
+  #slides,
+  .preview_imag,
+  .preview_imag0,
+  .preview_imag1,
+  .preview_imag2,
+  .preview_imag3,
+  .preview_imag4,
+  .preview_imag5,
+  .preview_imagH,
+  .preview_imagV {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-top: 100%;
+
+    @include s740 {
+
+    }
+  }
+
+  #slides {
+    z-index: 10;
+    top: -100%;
+
+    @include s740 {
+      top: -88%;
+    }
+
+    li {
+      list-style-type: none;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .preview_imag0 {
+    z-index: 10;
+  }
+  .preview_imag1 {
+    z-index: 15;
+    img, video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+
+  }
+  .preview_imag2 {
+    z-index: 20;
+  }
+  .preview_imag3 {
+    z-index: 30;
+  }
+  .preview_imag4 {
+    z-index: 40;
+  }
+  .preview_imag5 {
+    z-index: 50;
+  }
+  .preview_imag6 {
+    z-index: 60;
+  }
+  .preview_imag7 {
+    z-index: 70;
+  }
+  .preview_imagH {
+    z-index: 100;
+
+    ackground-size: contain;
+    p {
+      background: rgba(0,0,0,.8);
+      display: table;
+      position: absolute;
+      width: 60%;
+      height: 80px;
+      top: calc(50% - 40px);
+      left: calc(50% - 30%);
+      padding: 0 10px;
+
+      span {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        line-height: 1.4rem;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        color: $white;
+        font-weight: 900;
+        font-family: $font-global;
+      }
+    }
+  }
+
+
+}
+
+.imgBar {
+  width: 10%;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 200;
+
+  img {
+    width: 100%;
+    margin-bottom: 5px;
+    border: 2px solid rgba(255,255,255,.5);
+  }
+}
+
+
+//=============================================================BLOC AJOUT PANIER
+
+#estimation {
+
+  z-index: 110;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  background: $white;
+  border: 1px solid $text;
+
+  @include hackIE {
+   position: relative;
+  }
+
+  @include s740 {
+    position: relative;
+    height: auto;
+  }
+
+  &.required {
+    border: 1px solid $magenta;
+  }
+  &.validate {
+    border: 1px solid $text;
+  }
+
+  #estimationTitre {
+    width: 100%;
+    height: 35px;
+    background: $text;
+    padding: 10px 0;
+    color: $white;
+    font-size: .9rem;
+    &.required {
+      background: $magenta;
+    }
+    &.validate {
+      background: $text;
+    }
+  }
+
+  #estimationPrix {
+    float: left;
+    display: inline;
+    width: 100%;
+    height: 40px;
+    background: $white;
+    padding: 10px 0;
+    color: $text;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  #estimationInfos {
+    float: left;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    color: $text;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0;
+
+    #cartData {
+      padding: .7rem;
+      font-size: .8rem;
+      line-height: .8rem;
+      color: $text;
+      font-weight: bold;
+      text-transform: uppercase;
+      height: 60px;
+    }
+
+    #livraisonComp {
+      display: block;
+      padding: 0 1.7rem;
+      text-align: right;
+      font-size: .8rem;
+      text-transform: uppercase;
+      color: $magenta;
+    }
+
+    #submit_cart {
+      @include buttonLog($green, 150px);
+      display: block;
+      float: right;
+      padding-bottom: .7rem;
+      margin: 0 0 15px;
+      border-radius:20px;
+      border: none;
+    }
+  }
+
+  .formError, .formWarng {
+    z-index: 900;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 1.5rem .3rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .8rem;
+    color: $white;
+    background: $magenta;
+    margin-top: 0;
+    line-height: .9rem;
+  }
+
+  .formWarng {
+    background: $jaune;
+    text-align: left;
+    padding: .7rem;
+  }
+
+  .estimationData {
+    float: left;
+    display: inline;
+    height: 10px;
+    width: 33%;
+    text-align: center;
+    line-height: .7rem;
+    font-weight: 900;
+  }
+}
+
+//==========================================================BLOC GABARIT NOTICES
+.helpMenu {
+  width: 100%;
+  position: absolute;
+  bottom: -40px;
+  left: 10px;
+  z-index: 999;
+
+  @include hackIE {
+   bottom: 10px;
+  }
+
+  @include s740 {
+    position: relative;
+    bottom: 0;
+    padding-top: 15px;
+  }
+
+  .notice {
+    position: relative;
+    width: 29%;
+    height: 18px;
+    margin: 0 4% 0 0;
+    padding: 4px;
+    border: 1px solid $text;
+    color: $text;
+    overflow: hidden;
+    background-color: rgba(255,255,255,0.5);
+
+
+    &:last-of-type{
+      margin-right: 0;
+    }
+    &:hover {
+      background: $magenta;
+      color: $white;
+      border: none;
+      transition: .2s;
+    }
+  }
+
+}
+
+//======================================================================TOOLTIPS
+
+.tooltip {
+  display: block !important;
+  z-index: 10000;
+  max-width: 220px;
+  border: 1px solid $border;
+
+  .tooltip-inner {
+    background: $white;
+  	color: $text;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: justify;
+
+    @include  hackChrome{
+
+    }
+
+    b {
+      display: block;
+
+      text-align: left;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: $magenta;
+      &:first-child {
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+      &:last-child {
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+      &:only-child {
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+      sub {
+        vertical-align: baseline;
+      }
+    }
+    .highlight {
+      color: $magenta;
+    }
+
+    img{
+      max-width: 180px;
+      margin-top: 5px;
+    }
+  }
+
+  .tooltip-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    margin: 5px;
+    border-color: $white;
+    z-index: 1;
+  }
+
+  &[x-placement^="top"] {
+    margin-bottom: 5px;
+
+    .tooltip-arrow {
+      border-width: 5px 5px 0 5px;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+      bottom: -5px;
+      left: calc(50% - 5px);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &[x-placement^="bottom"] {
+    margin-top: 5px;
+
+    .tooltip-arrow {
+      border-width: 0 5px 5px 5px;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-top-color: transparent !important;
+      top: -5px;
+      left: calc(50% - 5px);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &[x-placement^="right"] {
+    margin-left: 5px;
+
+    .tooltip-arrow {
+      border-width: 5px 5px 5px 0;
+      border-left-color: transparent !important;
+      border-top-color: transparent !important;
+      border-bottom-color: transparent !important;
+      left: -5px;
+      top: calc(50% - 5px);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &[x-placement^="left"] {
+    margin-right: 5px;
+
+    .tooltip-arrow {
+      border-width: 5px 0 5px 5px;
+      border-top-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+      right: -5px;
+      top: calc(50% - 5px);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &.popover {
+    $color: #f9f9f9;
+
+    .popover-inner {
+      background: $color;
+      color: black;
+      padding: 24px;
+      border-radius: 5px;
+      box-shadow: 0 5px 30px rgba(black, .1);
+    }
+
+    .popover-arrow {
+      border-color: $color;
+    }
+  }
+
+  &[aria-hidden='true'] {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .15s, visibility .15s;
+  }
+
+  &[aria-hidden='false'] {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .15s;
+  }
+}
+
+
+.clEco {
+  background: lighten($green, 45%);
+}
+.clNml {
+  background: lighten($text, 60%);
+}
+.clFeu {
+  background: lighten($magenta, 42%);
+}
+.clTis {
+  background: lighten($cyan, 45%);
+}
+.clAll {
+  background: lighten($text, 60%);
+}
+
+.supCat {
+  width: 100%;
+  height: 28px;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 1px solid $border;
+
+  @include s860 {
+    display: none;
+  }
+
+  .scat {
+    width: 20%;
+    color: $text;
+    font-size: .7rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 5px;
+    cursor: default;
+    border-right: 1px solid $border;
+    &:last-of-type {
+      border: none;
+    }
+  }
+}
+
+.loader {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: calc(50vh - 50px);
+  background-color: rgba(255,255,255,0.5);
+  color: $cyan;
 }

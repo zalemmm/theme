@@ -22,4 +22,8 @@
 @import 'layoutXS'; // max 480px (mobile)
 @import 'layoutXLdev'; // min 1025px (desktop)
 
-//@import 'layoutXL'; // min 1025px (desktop)
+.dn960 {
+  @include s960 {
+    display: none;
+  }
+}

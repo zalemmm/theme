@@ -63,10 +63,22 @@ jQuery(document).ready(function ($) {
   });
 
   // bouton close tooltips
-  $('.helpText, #acclient_sub, #panier_sub').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
+  $('.helpText').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
   $(document).on('click', '.closeB', function() {
     $('.closeB').parent().fadeOut();
   });
+
+  setTimeout(function(){
+    $('.ptip').toggle( "slide" );
+  }, 2000);
+
+  setTimeout(function(){
+    $('.btip').toggle( "slide" );
+  }, 3000);
+
+  setTimeout(function(){
+    $('.ftip, .mtip').toggle( "slide" );
+  }, 4000);
 
   //---------------- ajout icone info dans pages devis -------------------------
   //----------------------------------------------------------------------------
@@ -102,14 +114,14 @@ jQuery(document).ready(function ($) {
   //-------------------------- home buttons hover ------------------------------
   //----------------------------------------------------------------------------
   $('#tarifs li, #tarifs2 li').mouseover(function() {
-    $(this).find('.micro a').css({
+    $(this).find('.micro a, micro2 a').css({
       background: '#EA2A6A',
       color: '#fff'
     });
   });
   $('#tarifs li, #tarifs2 li').mouseout(function() {
     $(this).find('.micro a').css({
-      background: '#f6f6f6',
+      background: '#fefefe',
       color: '#555a61'
     });
   });
@@ -129,7 +141,7 @@ jQuery(document).ready(function ($) {
   });
   $('.menu-client-icon.phone a, .tel2 a').mouseout(function() {
     $('.menu-client-icon.phone a, .tel2 a').css({
-      color: '#32A1CC',
+      color: '#4f4f4f',
       WebkitTransition : '0.5s',
       MozTransition    : '0.5s',
       MsTransition     : '0.5s',
@@ -218,7 +230,7 @@ jQuery(document).ready(function ($) {
   //-------------------------warning configurateur lity ------------------------
   //----------------------------------------------------------------------------
 
-  if (window.location.href.indexOf("vos-devis") != -1) {
+  /*if (window.location.href.indexOf("vos-devis") != -1) {
 
     var currentUrl = window.location.href;
     $(document).on('lity:open', function(event, instance) {
@@ -234,7 +246,7 @@ jQuery(document).ready(function ($) {
           }
       });
     });
-  }
+  }*/
 
 
   //------------------------------------------------------------ toggle adresses
@@ -250,7 +262,7 @@ jQuery(document).ready(function ($) {
     $('#adresseCheck').submit();
   });
 
-  var check = $('#adresseCheck');
+  /*var check = $('#adresseCheck');
   check.submit(function (e) {
     e.preventDefault();
 
@@ -262,18 +274,34 @@ jQuery(document).ready(function ($) {
 
       },
       complete: function(data) {
-        var r = confirm('L\'adresse de livraison a bien été mise à jour. Retourner sur votre commande ?');
-        if (r == true) {
           window.location.href = check.attr('action');
-        } else {
-          window.location.href = window.location.href;
-        }
       },
       error: function (data) {
         alert('une erreur s\'est produite, veuillez réessayer.');
       },
     });
-  });
+  });*/
+
+  /*var addressForms = $('#addressForm1, #addressForm2, #addressForm3, #addressForm4, #addressForm5, #addressForm6, #addressForm7, #addressForm8, #addressForm9, #addressForm10, #addressForm11, #addressForm1, #addressForm12, #addressForm13, #addressForm14, #addressForm15, #addressForm16, #addressForm17, #addressForm18, #addressForm19, #addressForm20');
+
+  addressForms.submit(function (e) {
+    e.preventDefault();
+
+    $.ajax({
+      type: addressForms.attr('method'),
+      url: addressForms.attr('action'),
+      data: addressForms.serialize(),
+      success: function (data) {
+
+      },
+      complete: function(data) {
+        window.location.href = window.location.href;
+      },
+      error: function (data) {
+
+      },
+    });
+  });*/
 
   //-------------------------------- export devis ------------------------------
   //----------------------------------------------------------------------------
@@ -386,6 +414,16 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  //------------------------------------------------------------tooltip paiement
+  $('.paiements_right_con').mouseover(function(){
+    $(this).find('.helpPay').css('visibility', 'visible');
+  });
+  $('.paiements_right_con').mouseout(function(){
+    $(this).find('.helpPay').css('visibility', 'hidden');
+  });
+
+  $('.radiod').prop("disabled", true);
+
   //---------------------- affichage conditionnel desktop ----------------------
   //----------------------------------------------------------------------------
 
@@ -433,13 +471,11 @@ jQuery(document).ready(function ($) {
 	    if ($(window).scrollTop() > 150) {
 	      $("nav").addClass('fixed');
 				$('.navContainer').addClass('fixed');
-				$('.logoSmall').css('display','inline-block');
 				$('.izoneLeft, .izoneRight').css('top','50px');
         $('.log_info').css('display','none');
 	    } else {
 	      $("nav").removeClass('fixed');
 				$('.navContainer').removeClass('fixed');
-				$('.logoSmall').css('display','none');
 				$('.izoneLeft, .izoneRight').css('top','0');
         $('.log_info').css('display','block');
 	    }
@@ -488,6 +524,7 @@ jQuery(document).ready(function ($) {
 		var frm = jQuery('#cart_form');
 		frm.submit(function (e) {
 			e.preventDefault();
+      $('.loader').show();
 
 			jQuery.ajax({
 				type: frm.attr('method'),
@@ -495,12 +532,16 @@ jQuery(document).ready(function ($) {
 				data: frm.serialize(),
 				success: function (data) {
 					//Select item image and pass to the function
-					var itemImg = jQuery('#submit_cart');
+					/*var itemImg = jQuery('#preview');
+          flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));*/
+
           $("#nomp").load("index.php #nomp");
-					flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
           $("#menuPanier").load("index.php #menuPanier");
 				},
 				complete: function(data) {
+
+          $('.loader').hide();
+
           setTimeout(function(){
             $.magnificPopup.open({
                   items: {
@@ -508,7 +549,8 @@ jQuery(document).ready(function ($) {
                   },
                   type: 'inline'
             });
-          }, 700);
+          }, 0);
+
 				},
 				error: function (data) {
 					alert('une erreur s\'est produite, veuillez réessayer.');
@@ -519,7 +561,7 @@ jQuery(document).ready(function ($) {
     //-------------------------------------------------addtocart modèle page PLV
     $("[data-cartform]").submit(function(e) {
         var frm2 = $(this);
-        var itemImg = $('.prom_sub');
+        var itemImg = $('.imgtd');
         e.preventDefault();
 
        jQuery.ajax({
@@ -564,7 +606,7 @@ jQuery(document).ready(function ($) {
 						'scrollTop' : jQuery(".menu-client--panier").position().top
 					});
 					//Select item image and pass to the function
-					var itemImg = jQuery('#submit_cart');
+					var itemImg = jQuery('#preview');
           $("#nomp").load("index.php #nomp");
 					flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
           $("#menuPanier").load("index.php #menuPanier");
@@ -593,6 +635,8 @@ jQuery(document).ready(function ($) {
     var $func = jQuery(this);
     var divider = 3;
     var flyerClone = jQuery(flyer).clone();
+    var startpoint = '#submit_cart';
+
     jQuery(flyerClone).css({position: 'absolute', top: jQuery(flyer).offset().top + "px", left: jQuery(flyer).offset().left + "px", opacity: 1, 'z-index': 1000});
     jQuery('body').append(jQuery(flyerClone));
     var gotoX = jQuery(flyingTo).offset().left + (jQuery(flyingTo).width() / 2) - (jQuery(flyer).width()/divider)/2;
@@ -616,6 +660,39 @@ jQuery(document).ready(function ($) {
     });
   }
 
+  //----------------désactiver boutons maquette sous IE et ecran moins de 1280px
+
+  function GetIEVersion() {
+    var sAgent = window.navigator.userAgent;
+    var Idx = sAgent.indexOf("MSIE");
+
+    // If IE, return version number.
+    if (Idx > 0)
+    return parseInt(sAgent.substring(Idx+ 5, sAgent.indexOf(".", Idx)));
+
+    // If IE 11 then look for Updated user agent string.
+    else if (!!navigator.userAgent.match(/Trident\/7\./))
+    return 11;
+
+    else
+    return 0; //It is not IE
+  }
+
+  var isnotDesktop = window.matchMedia("only screen and (max-width: 1279px)");
+
+  if (isnotDesktop.matches) { //------------------------- écrans moins de 1280px
+    $('.maquette').addClass('deactive');
+    $('.mtip').addClass('mtipSm');
+    $('.mtip').html('<i class="fa fa-exclamation-triangle exclam" aria-hidden="true"></i><span class="alertText">Pour créer votre maquette en ligne il vous faut être sur un ordinateur avec un écran de minimum 1280 pixels de large.<span class="closeTip"><i class="ion-ios-close-empty" aria-hidden="true"></i></span>');
+  }
+
+  if (GetIEVersion() > 0) { // --------------------------------------------if IE
+    $('.maquette').addClass('deactive');
+    $('.mtip').addClass('mtipIE');
+  }
+
+
+
   //-------------------------- print -------------------------------------------
   //----------------------------------------------------------------------------
   function print(selector) {
@@ -632,8 +709,18 @@ jQuery(document).ready(function ($) {
     $print.remove();
   }
 
-  //-------------------------------------------------------------/ export pdf //
-  //----------------------------------------------------------------------------
+  //-------------------------------------------------------------- export pdf //
+/*  var doc = new jsPDF('portrait', 'mm', 'a4');
+
+  $('#but_imprimer').click(function () {
+
+    doc.addHTML($('#fbcart_cart')[0], 15, 15, {
+    }, function() {
+      doc.save('devis.pdf');
+    });
+
+  });*/
+
   /*var doc = new jsPDF('portrait', 'mm', 'a4');
 
   $('#cmd').click(function () {
@@ -662,9 +749,14 @@ jQuery(document).ready(function ($) {
     $('#order_inscription, #cmd, #print, #curseurWrapper').show();
   });*/
 
+  //---------------------------------------------------------------- drag & drop
+  $('.dropin').on('dragenter', function() {
+    $(this).css({'background-color' : 'rgba(0,0,0,0.1)'});
+  });
 
-
-
+  $('.dropin').on('dragleave', function() {
+    $(this).css({'background-color' : ''});
+  });
 
   // ------------------------------------------------------------------------FIN
 });

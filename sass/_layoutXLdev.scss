@@ -18,6 +18,9 @@
     z-index: 9;
     width: 1024px;
     background-color: $bloc-base;
+  /*  @include x1366 {
+      width: 1180px !important;
+    }*/
     //border-left: 1px solid darken($bloc-base, 5%);
     //border-right: 1px solid darken($bloc-base, 5%);
     //box-shadow: -5px 0 15px -5px rgba(0,0,0,0.1), 5px 0 15px -5px rgba(0,0,0,0.1);
@@ -62,88 +65,10 @@
     }
   }
 
-  //----------------------------------------------------------------------------
-  //                             HEADER
-  //----------------------------------------------------------------------------
 
-  header {
-    height: 230px;
-    background-size: cover;
-  }
-
-  .log_info {
-    display: block;
-    position: relative;
-    width: auto;
-    height: 20px;
-    margin-top: -5px;
-    padding: 0 1rem;
-    padding-right: 3.35rem;
-    text-align: right;
-    font-size: .72rem;
-    color: $white;
-
-    .bonjour{
-      display: inline-block;
-      width: auto;
-      padding: .07rem .5rem 0;
-      text-transform: uppercase;
-      background: $text;
-      //border-radius: 15px 0 0 15px;
-      margin-right: 0;
-    }
-
-    .bonjourMsg{
-      display: inline-block;
-      height: 20px;
-      padding: .07rem .5rem 0;
-      background: #F8BD14;
-
-      //border-radius: 0 15px 15px 0;
-    }
-  }
-  // logo ----------------------------------------------------------------------
-
-  a#logo {
-    height: 170px;
-    background: url('../img/logo170.png') top left no-repeat;
-  }
 
   // titre site ----------------------------------------------------------------
 
-  .site-head{
-    width: 79.4%;
-    top: 110px;
-    left: 16%;
-    .site-title{
-      &:after{
-        width: 99%;
-        height: 7px;
-      }
-    }
-    .site-subtitle{
-      padding: 0 5px 0 0;
-      font-size: 1.2rem;
-      line-height: 1.4rem;
-    }
-  }
-
-  // module accès client
-  ul.menu-client{
-    @include container (42%);
-    top: 10px;
-    left:25%;
-  }
-
-  .cartCount {
-    right: 27px;
-  }
-  .fixed {
-    .cartCount {
-      top: -5px;
-      right: 255px;
-    }
-  }
 
   // derniers commentaires
 
@@ -180,7 +105,7 @@
     .banner2{
       width: 100%;
       display: inline-block;
-      margin: 10px auto 0;
+      margin: 50px auto 0;
       font-size: 1rem;
       color: $cyan;
       text-transform: uppercase;
@@ -295,24 +220,23 @@
     min-height: 400px;
   }
 
-  #slides {
+/*  #slides {
     display: none;
     img {
       width: 400px;
       height: 400px;
     }
-  }
+  }*/
 
   /* Center the slideshow */
-  #container {
+  /*#container {
     width: 400px;
     height: 400px;
-  }
+  }*/
 
-  #wycena {
+  #wycena, #estimation {
     margin-top: 20px;
     float: right;
-    width: 400px;
   }
 
   .dateLivraison{

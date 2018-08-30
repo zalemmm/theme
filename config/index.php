@@ -37,21 +37,41 @@
   $minia4 = preg_match_all($find3, $nbdesc, $resultat3);
   $minia4 = count($resultat3[0]);
 
+  $find4 = '/fourreaux haut/';
+  $fhb = preg_match_all($find4, $nbdesc, $resultat4);
+  $fhb = count($resultat4[0]);
+
+  $find5 = '/fourreaux gauche/';
+  $fgd = preg_match_all($find5, $nbdesc, $resultat5);
+  $fgd = count($resultat5[0]);
+
   //---------------------création d'un numéro unique maquette pour la sauvegarde
   $saveref = $nbcom.'-'.$nbname.$nbh.'x'.$nbl.'-'.$verso.$ref;
   $_SESSION['saveref'] = $saveref;
 
   //------------------------- vérifier s'il existe une sauvegarde de la maquette
+  // dans la bdd
   $maquette = $wpdb->get_row("SELECT * FROM `$fb_tablename_maquette` WHERE item = '$saveref'");
-  if (!$maquette){
+  // dans le json
+  $from = (__DIR__).'/../../../../uploaded/'.$nbcom.'/'.$saveref.'.json';
+
+  if (!file_exists($from) && !$maquette){
     $save = 'non';
     $json = '';
-  }
-  else{
+  }elseif (file_exists($from)){
+    $save = 'oui';
+    $json = file_get_contents($from);
+  }elseif($maquette) {
     $save = 'oui';
     $json = $maquette->json;
   }
 
+  $dashdesc = 'Gardez vos textes, logos à l\'intérieur des pointillés gris (marge technique).';
+
+  if ($nbname == 'Nappe') $dashdesc = 'A l\'intérieur des pointillés: votre visuel plateau, à l\'extérieur placez les éléments à imprimer sur la retombée de la nappe.';
+  if ($nbname == 'Stand Tissu') $dashdesc = 'Les pointillés englobent le visuel frontal, l\'espacement à gauche et à droite représentent les retours cotés.';
+  if ($fgd >= 1) $dashdesc = 'Les espaces à gauche et à droite des pointillés représentent le repli de matière des fourreaux: attention ce que vous placerez ici ne sera pas visible!';
+  if ($fhb >= 1) $dashdesc = 'Les espaces au dessus et au dessous des pointillés représentent le repli de matière des fourreaux: attention ce que vous placerez ici ne sera pas visible!';
   //----------------------------------------------------------------------------
 ?>
 
@@ -61,10 +81,22 @@
   <meta charset="utf-8">
   <title>Créez votre maquette en ligne - France-Banderole.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Source+Sans+Pro:400,700,700i,900|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka' rel='stylesheet' type='text/css'>
-
   <meta name="msapplication-TileColor">
   <meta name="theme-color">
+
+  <!-- Google Analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-3325076-4', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Source+Sans+Pro:400,700,700i,900|Architects+Daughter|Roboto|Oswald|Montserrat|Lora|PT+Sans|Ubuntu|Roboto+Slab|Fjalla+One|Indie+Flower|Playfair+Display|Poiret+One|Dosis|Oxygen|Lobster|Play|Shadows+Into+Light|Pacifico|Dancing+Script|Kaushan+Script|Gloria+Hallelujah|Black+Ops+One|Lobster+Two|Satisfy|Pontano+Sans|Domine|Russo+One|Handlee|Courgette|Special+Elite|Amaranth|Vidaloka' rel='stylesheet' type='text/css'>
 
   <!-- CSS Start -->
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" >
@@ -76,7 +108,7 @@
   <link rel="stylesheet" type="text/css" href="css/fonts.css" >
   <link rel="stylesheet" type="text/css" href="css/bootstrap-colorpicker.min.css">
   <link rel="stylesheet" type="text/css" href="css/angular-material.css">
-
+  <link rel="icon" href="images/favicon.png" type="image/png">
   <!-- CSS End -->
 
   <script type="text/javascript" src="js/jquery.js"></script>
@@ -86,17 +118,18 @@
 <body id="body">
 
 <div class="container ng-scope" ng-controller="ProductCtrl" ng-app="productApp" id="productApp">
-    <div ng-show="loading" class="loading">
+    <!--<div ng-show="loading" class="loading">
         <h1 class="lodingMessage">Initialisation<img src="images/ajax-loader.gif" alt="loading" /></h1>
-    </div>
+    </div>-->
     <div class="row clearfix" ng-cloak>
 
         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 editor_section">
             <div id="content" class="tabing">
                 <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-                    <li class="active"><a ng-click="deactivateAll()" href="#Products" class="products" data-toggle="tab"><i class="fa fa-shopping-cart"></i>Produit</a></li>
+                    <li class="active"><a ng-click="deactivateAll()" href="#Products" class="products" data-toggle="tab"><i class="fa fa-info-circle"></i>Info</a></li>
                     <li><a ng-click="deactivateAll()" href="#Graphics" class="graphics" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i>Image</a></li>
-                    <li><a ng-click="addTextByAction()" href="#Text" class="text" data-toggle="tab"><i class="fa fa-font" aria-hidden="true"></i>Texte</a></li>
+                    <li><a ng-click="deactivateAll()" href="#Text" class="text" data-toggle="tab"><i class="fa fa-font" aria-hidden="true"></i>Texte</a></li>
+                    <li><a ng-click="layers()" href="#Layers"  class="calques" data-toggle="tab" data-toggle="tab"><i class="fa fa-object-ungroup"></i>Calques</a></li>
                 </ul>
                 <div id="my-tab-content" class="tab-content action_tabs">
                     <div class="tab-pane active clearfix" id="Products">
@@ -118,6 +151,7 @@
                           <span class="sauvegarde">
                              / sauvegarde: <span id="saved"><?php echo $save; ?></span>
                             <span id="json"><?php echo $json; ?></span>
+                            <span id="rset">non</span>
                           </span>
                         </p>
 
@@ -129,24 +163,13 @@
 
                           <div class="intro">
                             <p><span>1</span> Vous pouvez commencer par cliquer sur votre gabarit pour changer sa couleur de fond </p>
-                            <p><span>2</span> Importez vos images et entrez du texte à l'aide des boutons ci-dessus <strong><i class="fa fa-picture-o" aria-hidden="true"></i> / <i class="fa fa-font" aria-hidden="true"></i></strong></p>
+                            <p><span>2</span> Importez vos <strong><i class="fa fa-picture-o" aria-hidden="true"></i> images</strong> et entrez du <strong><i class="fa fa-font" aria-hidden="true"></i> texte</strong> à l'aide des boutons ci-dessus  </p>
                             <p><span>3</span> Agencez vos calques : un simple clic dessus pour les déplacer, les redimentionner, etc. <br />
-                              Dans <strong>calques <i class="fa fa-object-ungroup"></i></strong> vous pouvez gérer l'ordre de superposition de vos éléments</p>
-                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, <strong>enregistrez <i class="fa fa-save"></i></strong> pour nous la transmettre.</p>
-                            <p><i class="fa fa-warning" style="color:#ea2a6a"></i> L'enregistrement peut prendre quelques minutes, attendez le message de confirmation avant de quitter l'application !</p>
+                              Dans <strong><i class="fa fa-object-ungroup"></i> calques</strong> vous pouvez gérer l'ordre de superposition de vos éléments</p>
+                            <p><span>4</span> Lorsque vous êtes satisfait de votre création, cliquez sur <br /><strong><i class="fa fa-send"></i> envoyer </strong> pour nous la transmettre.</p>
+                            <p><i class="fa fa-warning" style="color:#ea2a6a"></i> L'envoi peut prendre quelques minutes, attendez le message de confirmation avant de quitter l'application !</p>
 
-                            <div class="advToggle">
-                              <div class="advanced">
-                                Activer le mode utilisateur avancé <a href="#" data-toggle="modal" data-target="#avance"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
-                              </div>
-
-                              <label class="switch">
-                                <input type="checkbox" class="checkbox">
-                                <span class="slider round"></span>
-                              </label>
-                            </div>
-
-                            <p class="dashed">Gardez vos textes, logos à l'intérieur des pointillés gris (marge technique).</p>
+                            <p class="dashed"><?php echo $dashdesc; ?></p>
 
                             <!-- modal mode avancé -->
                             <div id="avance" class="modal" tabindex="-1" style="display: none;">
@@ -157,10 +180,9 @@
                                                 <div class="col-md-12">
                                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
-                                                    <h4 class="h4adv alert alert-info">Mode avancé :</h4>
+                                                    <h4 class="h4adv alert alert-info">Mode utilisateur avancé :</h4>
                                                     <p class="alert alert-info">
-                                                        <strong>Le mode avancé</strong> vous permet de manipuler librement votre maquette dans l'espace de travail (zoom / déplacement). Utiles pour travailler avec plus de précision, ces manipulations peuvent cependant causer des décalages de mise en page à l'enregistrement. Pour les éviter, veuillez suivre les instructions ci-dessous.<br />
-                                                        N.B. Le mode avancé n'est actuellement pas disponible pour les produits de type Oriflamme.
+                                                        <strong>Le mode utilisateur avancé</strong> vous permet de manipuler librement votre maquette dans l'espace de travail (zoom / déplacement). Utiles pour travailler avec plus de précision, ces manipulations peuvent cependant causer des décalages de mise en page à l'enregistrement. Pour les éviter, veuillez suivre les instructions ci-dessous.<br />
                                                     </p>
                                                     <p class="alert alert-info">
                                                         <strong>Avant d'enregister votre maquette en mode avancé</strong>, assurez-vous de la disposer de manière à ce qu'elle soit <strong>entièrement visible</strong> dans l'espace de travail : '<i class="fa fa-object-group"></i> Tout sélectionner' vous permet de déplacer tous vos calques ensemble sans décaler la mise en page. Si besoin, réduire le zoom ou appuyez sur le bouton <i class="fa fa-undo"></i> de l'outil zoom pour revenir à la taille initiale.
@@ -181,21 +203,34 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                  <h4 class="alert alert-info">Astuces / FAQ</h4>
-                                                    <p  class="alert alert-info">
-                                                        <strong>Nouveau ! Sauvegardez votre maquette pour la retravailler à tout moment :</strong><br /> Au survol du bouton 'Enregistrer', choisissez 'Terminer plus tard'.
+                                                  <h4 class="alert alert-info"><i class="fa fa-question-circle"></i> Astuces / FAQ</h4>
+                                                    <p class="alert alert-warning">
+                                                        <i class="fa fa-warning"></i> <strong>attention si vous importez vos images dans cette application:</strong> Les images que vous importez doivent être d'assez haute résolution pour une impression de bonne qualité. Cependant pour des raisons de charge serveur et pour garantir la sauvegarde de votre maquette il est important de ne pas surcharger cette application: il est donc conseillé de ne pas en importer plus de 2/3 idéalement (5 max suivant les résolutions) et de privilégier au maximum les ressources intégrées à l'application (textes, formes, icones etc). Vous pouvez par contre importer sans limite des ressources au format 'svg': ce type d'image est redimentionnable sans souci de charge serveur et de résolution. Si votre composition requier d'importer beaucoup d'images de type 'jpeg' ou 'png', il est vivement conseillé de passer par une solution logicielle type Photoshop.
                                                     </p>
+
                                                     <p  class="alert alert-info">
-                                                        <strong>L'application se bloque lorsque je rajoute une image ou du texte !</strong><br /> Ce bug peut se produire sur une maquette sauvegardée où vous avez importé des images depuis votre ordinateur: Fermer puis relancer l'application, supprimer les images importées, sauvegarder, fermer et ouvrir à nouveau. Vous pourrez alors réimporter vos images et ajouter de nouveaux élements.
+                                                        <strong>J'ai sauvegardé ma maquette mais lorsque je rouvre l'application elle n'apparait pas et plus rien ne fonctionne</strong>
+                                                        Celà peut se produire si vous avez importé plusieurs images d'assez grosse résolution. Pour débloquer le configurateur contactez un conseiller par commentaire dans votre espace client et demandez la réinitialisation de votre maquette. Reportez-vous au paragraphe précédent pour savoir comment mieux gérer votre composition et vos images importées.
                                                     </p>
+
+                                                    <p  class="alert alert-info">
+                                                        <strong>J'ai déjà envoyé ma maquette mais je souhaiterais la modifier :</strong><br /> Il est plutôt conseillé de bien vérifier sa maquette avant l'envoi mais la modification après est tout à fait possible puisqu'une sauvegarde est faite automatiquement, veuillez alors :<br />
+                                                        - soit directement après l'envoi rafraichir la page<br />
+                                                        - soit depuis votre accès client cliquer sur le bouton "finir la maquette" ou le bouton de l'élément (recto/verso par ex.) que vous souhaitez modifier.<br />
+                                                        Faites vos modifications, renvoyez votre fichier, puis retournez dans votre accès client pour nous écrire un commentaire indiquant que vous avez modifié votre maquette et de prendre en compte votre fichier le plus récent.
+                                                    </p>
+
                                                     <p class="alert alert-info">
                                                         <strong>Lorsque vous envoyez votre maquette, attendez le message confirmation </strong> avant de fermer l'application. Votre maquette sera ensuite contrôlée par un infographiste qui vous la retournera sous forme de BAT à valider.
                                                     </p>
+
                                                     <p class="alert alert-info">
-                                                        <strong>Les pointillés gris / marge grise :</strong> ce calque est indicatif et sera automatiquement retiré à l'enregistrement. Il sert de repère pour vos textes ou logos et éviter qu'ils soient tronqués à l'impression. Sur certains produits comme nos stands tissus, il sert à indiquer la partie frontale de l'objet.
+                                                        <strong>Les pointillés gris / marge grise :</strong> ce calque est indicatif et sera automatiquement retiré à l'enregistrement. Il sert de repère pour vos textes ou logos et éviter qu'ils soient tronqués à l'impression. <br>
+                                                        <strong>Pour le produit actuel:</strong>  <?php echo $dashdesc; ?>
                                                     </p>
-                                                    <p class="alert alert-info">
-                                                        <strong>Pensez grand format !</strong> Les images que vous importez doivent être d'assez haute résolution pour une impression de bonne qualité. Evitez de les étirer. Pour vos logos ou icônes, nous vous recommandons de les importer au format '.svg', ils seront ainsi redimentionnables sans souci de résolution.
+
+                                                    <p  class="alert alert-info">
+                                                        <strong>L'application ne fonctionne pas !</strong><br /> Cette application est conçue pour être utilisée sur un ordinateur avec une résolution d'écran minimum de  1280x720 pixels, avec un navigateur récent (ex: fonctionne bien avec Edge mais pas Internet Explorer). Si vous remarquez des anomalies, essayez de mettre votre navigateur à jour ou installez les dernières versions de Chrome ou Firefox pour lesquels notre application est optimisée.
                                                     </p>
                                                 </div>
                                             </div>
@@ -204,7 +239,7 @@
                                 </div>
                             </div><!-- fin modal astuces -->
 
-                            <button class="astuces" data-toggle="modal" data-target="#faq">Plus d'astuces / FAQ</button>
+                            <button class="astuces" data-toggle="modal" data-target="#faq"><i class="fa fa-question-circle"></i> Plus d'astuces / FAQ</button>
                           </div><!-- fin div intro -->
 
                         </div><!-- fin modal aide -->
@@ -216,12 +251,11 @@
 
                     <div class="graphic_options clearfix">
                         <ul>
-
                             <li class="butLoad col-lg-4 col-md-4 col-sm-4 col-xs-6 active">
                                 <div>
                                     <a class="" href="#clip_arts" aria-controls="clip_arts" role="tab" data-toggle="tab" ng-click="exitDrawing()">
-                                        <i class="fa fa-camera-retro"></i>
-                                        <span>Formes</span>
+                                        <i class="fa  fa-smile-o"></i>
+                                        <span>Formes & icones</span>
                                     </a>
                                 </div>
                             </li>
@@ -243,7 +277,7 @@
                             </li>-->
                             <li class="butLoad col-lg-4 col-md-4 col-sm-4 col-xs-6">
                                 <div>
-                                    <a class="" href="#hand_draw" aria-controls="hand_draw" role="tab" data-toggle="tab" ng-click="enterDrawing();">
+                                    <a class="" href="#hand_draw" aria-controls="hand_draw" role="tab" data-toggle="tab" ng-click="enterDrawing()">
                                         <i class="fa fa-pencil-square-o"></i>
                                         <span>Dessiner</span>
                                     </a>
@@ -267,14 +301,13 @@
                                     <i class="fa fa-angle-left"></i> Retour
                                 </span>
                                 <div class="graphic_icons" ng-show="!graphic_icons">
-                                    <!--<div class="filter_by_cat">
-                                        <md-input-container style="">
-                                            <label>Classer par catégorie</label>
-                                            <md-select ng-model="graphicsCategory" ng-change="loadByGraphicsCategory();">
+                                  <div class="filter_by_cat">
+                                        <md-input-container class="tooltip-wide" data-toggle="tooltip" data-placement="bottom" title="Sélectionner une catégorie.">
+                                            <md-select ng-model="graphicsCategory" ng-change="loadByGraphicsCategory();" >
                                                 <md-option ng-repeat="graphicsCategory in graphicsCategories" value="{{graphicsCategory}}">{{graphicsCategory}}</md-option>
                                             </md-select>
                                         </md-input-container>
-                                    </div>-->
+                                    </div>
                                     <div class="thumb_listing scrollme" rebuild-on="rebuild:me" ng-scrollbar is-bar-shown="barShown" ng-class="fabric.selectedObject ? 'activeControls' : ''">
                                         <ul>
                                             <li ng-repeat="graphic in graphics"><a href="javascript:void(0);" ng-click='addShape(graphic)'><img data-ng-src="{{graphic}}" alt="" width="120px;"></a></li>
@@ -290,18 +323,25 @@
                                     <div class="well" >
                                         <form name="myForm">
                                             <div class="fileUpload btn btn-primary">
-                                                <span>Sélectionner une image</span>
+                                                <span><i class="fa fa-plus"></i>&nbsp;&nbsp;Sélectionner une image</span>
                                                 <input id="upfile" type="file" ngf-select="onFileSelect(picFile);" ng-model="picFile" name="file" accept="image/*" ngf-max-size="30MB" class="upload">
                                             </div>
+
+
+
                                             <input id="uploadFile" placeholdFile NameName disabled="disabled" />
-                                            <span class="has-error" ng-show="myForm.file.$error.maxSize">File too large {{picFile.size / 1000000|number:1}}MB: max 2M</span>
+                                            <span class="has-error" ng-show="myForm.file.$error.maxSize">File too large {{picFile.size / 1000000|number:1}}MB: max 30M</span>
                                             <div class="clearfix"></div>
-                                            <span class="has-error" ng-show="myForm.file.$error.maxWidth">File width too large : Max Width 3000px</span>
+                                            <span class="has-error" ng-show="myForm.file.$error.maxWidth">File width too large : Max Width 9000px</span>
                                             <div class="clearfix"></div>
-                                            <span class="has-error" ng-show="myForm.file.$error.maxHeight">File height too large : Max Height 3000px</span>
+                                            <span class="has-error" ng-show="myForm.file.$error.maxHeight">File height too large : Max Height 9000px</span>
                                             <div class="clearfix"></div>
                                             <span class="has-error" ng-show="uploadErrorMsg">{{uploadErrorMsg}}</span>
                                         </form>
+
+                                        <div class="alert alert-warning" style="margin-left:-10px;margin-top: 5px;width:95%;">
+                                            <i class="fa fa-warning"></i> <strong>attention:</strong> Les images que vous importez doivent être d'assez haute résolution pour une impression de bonne qualité. Cependant pour des raisons de charge serveur et pour garantir la sauvegarde de votre maquette il est important de ne pas surcharger cette application: il est donc conseillé de ne pas en importer plus de 2/3 idéalement (5 max suivant les résolutions) et de privilégier au maximum les ressources intégrées à l'application (textes, formes, icones etc). Vous pouvez par contre importer sans limite des ressources au format 'svg': ce type d'image est redimentionnable sans souci de charge serveur et de résolution. Si votre composition requier d'importer beaucoup d'images de type 'jpeg' ou 'png', il est vivement conseillé de passer par une solution logicielle type Photoshop.
+                                        </div>
                                     </div>
 
                                 </div>
@@ -409,7 +449,7 @@
                                     <div class="well" >
                                         <div class="row form-group">
                                             <md-input-container flex>
-                                                <textarea  columns="1" id="textarea-text" style="text-align: {{ fabric.selectedObject.textAlign }}" ng-model="fabric.selectedObject.text"></textarea>
+                                                <textarea  columns="1" id="textarea-text" style="text-align: {{ fabric.selectedObject.textAlign }}" ng-model="fabric.selectedObject.text" placeholder="Votre texte..."></textarea>
                                             </md-input-container>
 
                                             <div class="clearfix">
@@ -443,14 +483,13 @@
                     </div>
 
                     <div class="tab-pane clearfix" id="Layers">
-                        <h1>Calques</h1>
                         <div class="layer_listing scrollme" rebuild-on="rebuild:layer" ng-scrollbar is-bar-shown="barShown">
 
                         <ul class="ul_layer_canvas row">
 
                                 <li ng-repeat="layer in objectLayers" class="ng-scope">
                                     <span>{{layer.id}}</span>
-                                    <img ng-src="{{layer.src}}" alt=""/>
+                                    <div class="imgbg"><img ng-src="{{layer.src}}" alt=""/></div>
 
                                     <div class="f-right inner">
                                         <ul class="ulInner actions">
@@ -551,7 +590,7 @@
                     <!-- on remplace le bloc précédent par le sélecteur cmyk ci dessous -->
 
                     <div class="w3-container w3-padding-large" ng-show="fabric.selectedObject.type != 'image' && fabric.selectedObject.type != 'path'">
-                    <div class="w3-row">
+                    <div class="w3-row1">
                       <input id="result01" class="w3-col m2" value="{{fabric.selectedObject.fill}}" ng-model="fabric.selectedObject.fill" ng-change="fillColor(fabric.selectedObject.fill);" style="background-color: {{fabric.selectedObject.fill}}" type="text" onclick="setFullColor();">
 
                       <div class="w3-col m8">
@@ -574,18 +613,18 @@
                           <button class="swatch" style="background-color:#cccccc;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#cccccc');" onclick="setFullColor();"></button>
                           <button class="swatch" style="background-color:#ffffff;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#ffffff');" onclick="setFullColor();"></button>
                           <button class="swatch" style="background-color:#ffff00;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#ffff00');" onclick="setFullColor();"></button>
-                          <button class="swatch" style="background-color:#f2bb05;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#f2bb05');" onclick="setFullColor();"></button>
+                          <button class="swatch" style="background-color:#ffed00;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#ffed00');" onclick="setFullColor();"></button>
                           <button class="swatch" style="background-color:#ff9f1c;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#ff9f1c');" onclick="setFullColor();"></button>
                           <button class="swatch" style="background-color:#137547;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#137547');" onclick="setFullColor();"></button>
-                          <button class="swatch" style="background-color:#00ff00;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#00ff00');" onclick="setFullColor();"></button>
-                          <button class="swatch" style="background-color:#00ffff;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#00ffff');" onclick="setFullColor();"></button>
+                          <button class="swatch" style="background-color:#009036;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#009036');" onclick="setFullColor();"></button>
+                          <button class="swatch" style="background-color:#009cdd;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#009cdd');" onclick="setFullColor();"></button>
                           <button class="swatch" style="background-color:#028482;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#028482');" onclick="setFullColor();"></button>
-                          <button class="swatch" style="background-color:#12355b;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#12355b');" onclick="setFullColor();"></button>
+                          <button class="swatch" style="background-color:#172983;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#172983');" onclick="setFullColor();"></button>
                           <button class="swatch" style="background-color:#011627;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#011627');" onclick="setFullColor();"></button>
                           <button class="swatch" style="background-color:#4c0055;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#4c0055');" onclick="setFullColor();"></button>
                           <button class="swatch" style="background-color:#6b0f1a;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#6b0f1a');" onclick="setFullColor();"></button>
-                          <button class="swatch" style="background-color:#ff0000;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#ff0000');" onclick="setFullColor();"></button>
-                          <button class="swatch" style="background-color:#ef4060;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#ef4060');" onclick="setFullColor();"></button>
+                          <button class="swatch" style="background-color:#e2001a;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#e2001a');" onclick="setFullColor();"></button>
+                          <button class="swatch" style="background-color:#ff0066;" ng-model="fabric.selectedObject.fill" ng-click="fillColor(fabric.selectedObject.fill = '#ff0066');" onclick="setFullColor();"></button>
                         </div>
                       </div>
 
@@ -659,65 +698,79 @@
             <div class="row">
                 <div class="canvas_options">
                     <ul class="clearfix">
-                        <li ng-click="layers()" href="#Layers" data-toggle="tab"><i class="fa fa-object-ungroup"></i><span>Calques</span></li>
-                        <li ng-click="copyItem()"><i class="fa fa-copy"></i><span>Copier</span></li>
-                        <li ng-click="pasteItem()"><i class="fa fa-paste"></i><span>Coller</span></li>
-                        <li ng-click="horizontalAlign()"><i class="fa fa-arrows-h"></i><span>Centrer</span></li>
-                        <li ng-click="verticalAlign()"><i class="fa fa-arrows-v"></i><span>Centrer</span></li>
-                        <li ng-click="{ active: flipObject() }"><i class="fa fa-exchange fa-2"></i><span>Mirroir</span></li>
-                        <li ng-click="removeSelectedObject()"><i class="fa fa-eraser"></i><span>Supprimer</span></li>
+                        <!--<li ng-click="layers()" href="#Layers" data-toggle="tab"><i class="fa fa-object-ungroup"></i><span>Calques</span></li>-->
+
+                        <li ng-click="copyItem()" title="copier le calque sélectionné"><i class="fa fa-copy"></i><span>Copier</span>
+                        </li>
+                        <li ng-click="pasteItem()" title="coller le calque sélectionné"><i class="fa fa-paste"></i><span>Coller</span></li>
+                        <li ng-click="globalAlign();" title="centrer le calque sélectionné"><i class="fa fa-bullseye"></i><span>Centrer</span></li>
+                        <li ng-click="horizontalAlign()" title="centrer horizontalement"><i class="fa fa-arrows-h"></i><span>Centrer H</span></li>
+                        <li ng-click="verticalAlign()" title="centrer verticalement"><i class="fa fa-arrows-v"></i><span>Centrer V</span></li>
+                        <li ng-click="{ active: flipObject() }" title="symétrie"><i class="fa fa-exchange fa-2"></i><span>Mirroir</span></li>
+                        <li ng-click="removeSelectedObject()" title="supprimer le calque sélectionné"><i class="fa fa-trash"></i><span>Supprimer</span></li>
+                        <!--<li ng-click="undo()">
+                            <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                            <span class="nope">Annuler</span>
+                        </li>
+                        <li ng-click="redo()">
+                            <a class="fa fa-repeat ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
+                            <span class="nope">Rétablir</span>
+                        </li>-->
+                        <li ng-click="retour()" title="rétablir la dernière sauvegarde"><i class="fa fa-undo"></i><span>Rétablir</span></li>
+                        <li ng-click="reinitialize()" id="reset" title="rétablir gabarit vierge" class="pink"><i class="fa fa-eraser"></i><span>Réinitialiser</span></li>
+
                         <span class="unredo disno">
                           <li ng-click="selectA()">
                               <a class="fa fa-object-group ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
-                              <md-tooltip md-visible="redo.showTooltip" md-direction="left">Tout sélectionner</md-tooltip>
                               <span class="nope">Tout sélectionner</span>
                           </li>
 
-                          <li ng-click="undo()">
-                              <a class="fa fa-undo ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
-                              <md-tooltip md-visible="undo.showTooltip" md-direction="left">Annuler</md-tooltip>
-                              <span class="nope">Annuler</span>
-                          </li>
-                          <li ng-click="redo()">
-                              <a class="fa fa-repeat ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
-                              <md-tooltip md-visible="redo.showTooltip" md-direction="left">Rétablir</md-tooltip>
-                              <span class="nope">Rétablir</span>
-                          </li>
+
                         </span>
+
 
                         <!--<li ng-click="clearAll()"><i class="fa fa-trash"></i><span>Tout effacer</span></li>-->
 
                     </ul>
 
-                    <div class="btn-group-vertical">
-                        <div class="icon-vertical m-b-sm pull-right">
-                            <ul>
-                                <li class="saveObject">
+                    <div class="btnTopright">
 
-                                      <a ng-hide="loader" href="#" class="ng-scope">
-                                          <i class="fa fa-save" ></i>
-                                          <br />Enregistrer
-                                      </a>
+                            <ul>
+                              <!--<li>
+
+                                  <a ng-click="downloadObjectAsPdf()" href="#" class="ng-scope">Download as PDF</a>
+                              </li>-->
+                                <li class="retourCom" title="retour à votre commande">
+                                  <a ng-click="quicksaveJSON()" href="/vos-devis/?detail=<?php echo $nbcom; ?>" class="ng-scope tooltip-wide" data-toggle="tooltip" data-placement="bottom" title="Revenir au détail de votre commande"><i class="fa fa-shopping-cart"></i><span>Retour commande</span></a>
+                                </li>
+
+                                <li class="saveModif" ng-click="saveObjectAsJSON()" title="sauvegarder mes modifications">
+                                  <a href="#" class="ng-scope tooltip-wide" data-toggle="tooltip" data-placement="bottom" title="Vous permet de retrouver vos modifications et de retravailler votre maquette une prochaine fois."><i class="fa fa-save"></i><span>Sauvegarder<br /> </span></a>
+                                </li>
+
+                                <li class="saveObject">
+                                      <a ng-hide="loader" ng-click="saveObjectAsJpg();" href="#" class="ng-scope tooltip-wide" data-toggle="tooltip" data-placement="bottom" title="Envoyer votre maquette pour validation à notre service infographie. Veuillez patienter jusqu'au message de confirmation indiquant que nous avons bien reçu votre maquette."><i class="fa fa-send" ></i><br /><span>Terminé ? Envoyer</span></a>
+
                                       <a ng-show="loader" href="#" class="ng-scope">
                                           <i class="fa fa-spinner fa-pulse fa-fw"></i>
-                                          <br />Veuillez patienter
+                                          <br /><span>Veuillez patienter</span>
                                       </a>
 
                                   <ul class="ulChildMenu">
 
-                                        <li class="childLi">
+                                      <!--  <li class="childLi">
                                             <a ng-click="saveObjectAsJpg();" href="#" class="ng-scope tooltip-wide" data-toggle="tooltip" data-placement="left" title="Envoyer votre maquette pour validation à notre service infographie. Veuillez patienter jusqu'au message de confirmation indiquant que nous avons bien reçu votre maquette."><i class="fa fa-send" ></i><br />Terminé ? Envoyer</a>
                                         </li>
                                         <li class="childLi">
                                             <a ng-click="saveObjectAsJSON()" href="#" class="ng-binding ng-scope tooltip-wide" data-toggle="tooltip" data-placement="left" title="Sauvegarder votre mise en page, formes, couleurs, images et textes."><i class="fa fa-save" ></i><br />Terminer plus tard</a>
                                         </li>
-                                        <!--<li class="childLi">
-                                            <a ng-click="saveObjectAsPng()" href="#" class="ng-scope">Save as PNG</a>
-                                        </li>
                                         <li class="childLi">
+                                            <a ng-click="saveObjectAsPng()" href="#" class="ng-scope">Save as PNG</a>
+                                        </li>-->
+                                        <!--<li class="childLi">
                                             <a ng-click="downloadObjectAsPdf()" href="#" class="ng-scope">Download as PDF</a>
                                         </li>-->
-                                      </ul>
+                                    </ul>
                                 </li>
 
                                 <!--<li>
@@ -732,14 +785,14 @@
 
                             </ul>
 
-                        </div>
+
                         <!--<div class="social-share">
                             <a href="javascript:void(0);" id="f_share_button" class="fa fa-facebook" ng-click="shareOnFacebook($event);"></a> <a href="javascript:void(0)" class="fa fa-twitter" ng-click="shareOnTwitter($event);"></a>
                         </div>-->
                     </div>
                 </div>
                 <div class="canvas_image image-builder ng-isolate-scope">
-                  <ul class="zoomButtons pull-right disno">
+                  <ul class="zoomButtons pull-right">
                     <li ng-click="zoomObject('zoomin')">
                         <a class="fa fa-search-plus ng-scope ng-isolate-scope" translate="" href="#"><span class="ng-binding ng-scope"></span></a>
                         <md-tooltip md-visible="zoomin.showTooltip" md-direction="left">Zoom +</md-tooltip>
@@ -819,6 +872,36 @@
         </div>
         <i class="fa fa-cog" id="selector_icon"></i>
     </section>-->
+    <footer class="footer">
+      <div class="logofb"><span></span></div>
+      <div class="txta">
+        <div class="bienv">Bienvenue sur notre module de création de maquette en ligne !</div>
+        <div class="advToggle">
+          <label class="switch">
+            <input type="checkbox" class="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <div class="advanced">
+            utilisateur avancé <span class="onoff">OFF</span> <a href="#" data-toggle="modal" data-target="#avance"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+          </div>
+
+
+        </div>
+      </div>
+      <a class="btret" href="" data-toggle="modal" data-target="#faq">
+        <i class="fa fa-question-circle"></i> astuces / FAQ
+        <!--<span class="waiting" ng-show="saving" href="#" class="ng-scope">
+            <i class="fa fa-spinner fa-pulse fa-fw"></i> Votre maquette est en cours de sauvegarde...
+        </span>
+        <span class="waiting" ng-show="sending" href="#" class="ng-scope">
+            <i class="fa fa-spinner fa-pulse fa-fw"></i> Votre maquette est en cours d'envoi...
+        </span>
+        <span class="waiting" ng-show="imging" href="#" class="ng-scope">
+            <i class="fa fa-spinner fa-pulse fa-fw"></i> Votre image est en cours d'importation...
+        </span>-->
+      </a>
+
+    </footer>
   </div>
 </div>
 
@@ -843,6 +926,17 @@
 
 <script src="js/w3color.js"></script>
 
+<script>
+window.paceOptions = {
+  ajax: {
+      trackMethods: ["GET", "POST"],
+      trackWebSockets: false
+  },
+  document: false,
+  restartOnPushState: false
+};
+</script>
+<script src="js/pace.min.js"></script>
 <script src="assets/fabric/fabric.min.js"></script>
 <!--<script src="assets/fabric/fabricExtensions.js"></script>-->
 <script src="assets/fabric/fabric.js"></script>
@@ -869,23 +963,21 @@
 
 <script>
   $(document).ready(function() {
+
     // activer les tooltips bootstrap
     $('[data-toggle="tooltip"]').tooltip();
+
     // charger la modal faq au démarrage
-    $(window).on('load',function(){
+    /*$(window).on('load',function(){
       $('#faq').modal('show');
-    });
-    // mode avancé activé
-    $(".checkbox").change(function() {
-      if(this.checked) {
-        $('#avance').modal('show');
-        $('.h4adv').text('mode avancé activé');
-      }
-    });
-    // je sais plus ce que ça fait
-    $('.childLi').on(click, function(){
+    });*/
+
+    // cacher les boutons sauvegarder au clic
+    /*$('.childLi').on(click, function(){
       $('.childLi').hide();
     });
+    */
+
   });
   //------------------------------------------------------------------------CMJN
   function setColor(elmnt) {

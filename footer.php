@@ -47,7 +47,7 @@
   $prefix = $wpdb->prefix;
   $fb_tablename_tel = $prefix."fbs_tel";
 
-  $prodpages = is_page('stand-parapluie') || is_page('roll-up') || is_page('promotions') || is_page('nappes-publicitaires') || is_page('totem') || is_page('plv-interieur') || is_page('banderoles') || is_page('tente-publicitaire-barnum') || is_page('oriflammes') || is_page('plv-exterieur') || is_page('flyers') || is_page('depliants') || is_page('cartes') || is_page('affiches') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-dibond') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural') || is_page('cadre-tissu') || is_page('enseigne-suspendue-textile') || is_page('stand-exposition-plv-interieur') || is_page('signaletique-exterieur') || is_page('stickers') || is_page('imprimerie-papier');
+  $prodpages = is_page('stand-parapluie') || is_page('roll-up') || is_page('promotions') || is_page('nappes-publicitaires') || is_page('totem') || is_page('plv-interieur') || is_page('banderoles') || is_page('tente-publicitaire-barnum') || is_page('oriflammes') || is_page('plv-exterieur') || is_page('flyers') || is_page('depliants') || is_page('cartes') || is_page('affiches') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-alu-dibond') || is_page('panneaux-komadur') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural') || is_page('cadre-tissu') || is_page('enseigne-suspendue-textile') || is_page('stand-exposition-plv-interieur') || is_page('signaletique-exterieur') || is_page('stickers') || is_page('imprimerie-papier');
 
   //--------------------------------------------------------popup demande rappel
   if ($prodpages) {
@@ -68,7 +68,7 @@
     }
 
     echo '<div id="butrappel" style="background: url('.get_bloginfo('stylesheet_directory').'/images/'.$selectedBg.'") no-repeat;><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><a href="#rappel" class="open-popup-link">
-    <h3>'.$selectedQt.'</h3> Faites vous rappeler<br/> par un conseiller</a></div>
+    <h3>'.$selectedQt.'</h3>Un conseiller France-Banderole<br/> vous rappelle gratuitement</a></div>
     <div id="rappel" class="white-popup mfp-hide">
       <div class="modalContent">
 
@@ -84,11 +84,12 @@
           </select>
           <button name="subrappel" type="submit">Envoyer</button>
           <p><i class="fa fa-info-circle"></i> Nos conseillers sont là pour vous aider du lundi au vendredi de <strong>9 à 12h</strong> et de <strong>14 à 18h</strong><br />
-          <small>- Votre numéro de téléphone ne sera pas utilisé à des fins de marketing -</small></p>
+          <small>- Votre n° de téléphone ne sera ni conservé, ni utilisé à des fin marketing -</small></p>
         </form>
       </div>
     </div>';
     //'.do_shortcode(' 	[ninja_form id=2] ').'
+
   }
 
   ?>
@@ -176,12 +177,12 @@
       <!--boutons contact, cgv... -->
       <div class="banner2">
 
-          <a href="<?php bloginfo('url'); ?>/contact/" class="noticeFooter modal-link" title="contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span class="textHide">contact</span></a>
-          <a href="<?php bloginfo('url'); ?>/france-banderole/" class="noticeFooter modal-link" title="qui est france banderole"><i class="fa fa-question" aria-hidden="true"></i> <span class="textHide">Qui sommes nous</span></a>
-          <a href="<?php bloginfo('url'); ?>/references/" class="noticeFooter modal-link" title="références"><i class="fa fa-address-book" aria-hidden="true"></i> <span class="textHide">Références</span></a>
-          <a href="<?php bloginfo('url'); ?>/cgv/" class="noticeFooter modal-link" title="conditions générales de vente"><i class="fa fa-money" aria-hidden="true"></i> <span class="textHide">Conditions de vente</span></a>
-          <a href="<?php bloginfo('url'); ?>/etre-livre-rapidement/" class="noticeFooter modal-link" title="être livré rapidement"><i class="fa fa-truck" aria-hidden="true"></i> <span class="textHide">livraison</span></a>
-          <a href="<?php bloginfo('url'); ?>/tarifs-revendeurs/" class="noticeFooter modal-link" title="tarifs revendeurs"><i class="fa fa-eur" aria-hidden="true"></i> <span class="textHide">tarifs revendeurs</span></a>
+          <a href="<?php bloginfo('url'); ?>/contact/" class="noticeFooter modal-link" title="contact"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>contact</span></a>
+          <a href="<?php bloginfo('url'); ?>/france-banderole/" class="noticeFooter modal-link" title="qui est france banderole"><i class="fa fa-question" aria-hidden="true"></i> <span>Qui sommes nous</span></a>
+          <a href="<?php bloginfo('url'); ?>/references/" class="noticeFooter modal-link" title="références"><i class="fa fa-address-book" aria-hidden="true"></i> <span>Références</span></a>
+          <a href="<?php bloginfo('url'); ?>/cgv/" class="noticeFooter modal-link" title="conditions générales de vente"><i class="fa fa-money" aria-hidden="true"></i> <span>Conditions de vente</span></a>
+          <a href="<?php bloginfo('url'); ?>/etre-livre-rapidement/" class="noticeFooter modal-link" title="être livré rapidement"><i class="fa fa-truck" aria-hidden="true"></i> <span>livraison</span></a>
+          <a href="<?php bloginfo('url'); ?>/tarifs-revendeurs/" class="noticeFooter modal-link" title="tarifs revendeurs"><i class="fa fa-eur" aria-hidden="true"></i> <span>tarifs revendeurs</span></a>
 
       </div>
 
@@ -300,9 +301,20 @@ include('nom_du_fichier_de_conf.php');
 
 <!-- javascript  -------------------------------------------------------------->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slidesjs/3.0/jquery.slides.min.js"></script> <!-- sliders pages produits -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script> <!-- lightbox images -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.2.2/lity.min.js"></script> <!-- ouvre les iframes dans une lightbox -->
+    <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.slides.min.js"></script> <!-- sliders pages produits -->
+    <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.magnific-popup.min.js"></script> <!-- lightbox images -->
+    <script src="<?php bloginfo('stylesheet_directory'); ?>/js/lity.min.js"></script> <!-- ouvre les iframes dans une lightbox -->
+
+    <!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/html2canvas.min.js"></script>-->
+    <!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/fabric.min.js"></script>-->
+
+    <script type="text/javascript">
+    if(!document.documentMode ){ // ne pas charger ce script sous IE (8-11)
+      document.write('<script src="<?php bloginfo('stylesheet_directory'); ?>\/js\/dom-to-image.min.js"><\/script>');
+    }
+    </script>
+
+    <!--<![endif]-->
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.spinner.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/promo.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/help.js"></script>

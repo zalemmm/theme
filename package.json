@@ -31,7 +31,8 @@
     "postcss-discard-unused": "^2.2.3",
     "scss-unused": "0.0.3",
     "susy": "^2.2.12",
-    "unused-selectors": "^1.0.0"
+    "unused-selectors": "^1.0.0",
+    "vuelidate": "^0.7.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

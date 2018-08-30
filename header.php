@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
-	<!--HEAD--------------------------------------------------------------------->
 	<head profile="http://gmpg.org/xfn/11">
 
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
@@ -19,11 +18,11 @@
 
 		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
-		<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?d=11062012 );</style> <!--feuille de style globale-->
+		<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?v=2.92 );</style> <!--feuille de style globale-->
 
 		<link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.2.2/lity.min.css"> <!-- lightbox pour les iframes, pdf, etc.-->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"> <!-- lightbox pour les images -->
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/lity.min.css"> <!-- lightbox pour les iframes, pdf, etc.-->
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/magnific-popup.css"> <!-- lightbox pour les images -->
 		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/css/print.css" /> <!--feuille de style pour le print-->
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<?php if (is_page('vos-devis')){
@@ -34,17 +33,18 @@
 		<?php wp_head(); ?>
 
 	</head>
-	<!--fin head----------------------------------------------------------------->
 
 	<body>
+
+		<div class="loader">
+			<i class="fa fa-circle-o-notch fa-spin" style="font-size:100px"></i>
+		</div>
+
 		<header id="header">
 
-			<!-- Publicités sur les côtés ----------------------------------------->
 			<div class="izoneLeft"><div class="izoneInL"></div></div>
 			<div class="izoneRight"><div class="izoneInR"></div></div>
 
-			<!-- LOGO ------------------------------------------------------------->
-			<!--------------------------------------------------------------------->
 			<a href="<?php bloginfo('url'); ?>/index.php" id="logo" title="fabricant banderole"></a>
 
 			<div class="site-head">
@@ -52,8 +52,6 @@
 				<div class="site-subtitle">La qualité sans en payer le prix</div>
 			</div>
 
-			<!-- MENU CLIENT ------------------------------------------------------>
-			<!--------------------------------------------------------------------->
 			<div class="navContainer">
 
 				<nav>
@@ -69,7 +67,6 @@
 							</div>
 						</li>
 
-						<!--espace client---------------------------------------------------->
 						<li class="menu-client-item menu-client--devis">
 							<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/vos-devis/"><i class="fa fa-lock" aria-hidden="true"></i></a></span>
 							<span class="menu-client-label">Espace client</span>
@@ -78,6 +75,8 @@
 							<?php
 
 								session_start();
+
+								$logstatus = '<i class="fa fa-unlock-alt" aria-hidden="true"></i> Vous n\'êtes pas connecté';
 
 								$login = $_POST['loginname'];
 								$pass = $_POST['loginpass'];
@@ -91,10 +90,14 @@
 									<a href="'.get_bloginfo('url').'/inscription/" class="bt_compte">Mon compte</a> | <a href="'.get_bloginfo('url').'/vos-devis/" class="bt_compte">Mes commandes</a>
 									<a href="'.get_bloginfo('url').'/?logout=true" class="bt_deconnect">Se déconnecter </a>';
 
+									$logstatus = '<i class="fa fa-lock" aria-hidden="true"></i> Bonjour '.stripslashes($name->f_name).' | Vous êtes connecté';
+
 								}else if (($_POST['logme']=='logme')) {
 									$acclient = '<p class="bonjour">Bienvenue '.$login.' !</p>
 									<a href="'.get_bloginfo('url').'/inscription/" class="bt_compte">Mon compte</a> | <a href="'.get_bloginfo('url').'/vos-devis/" class="bt_compte">Mes commandes</a>
 									<a href="'.get_bloginfo('url').'/?logout=true" class="bt_deconnect">Se déconnecter </a>';
+
+									$logstatus = '<i class="fa fa-lock" aria-hidden="true"></i> Bonjour '.$login.' | Vous êtes connecté';
 
 								}else{
 									$acclient = '<form id="loginform" name="loginform" method="post" action="'.get_bloginfo('url').'/vos-devis/">
@@ -114,7 +117,6 @@
 
 						</li>
 
-						<!--panier----------------------------------------------------------->
 						<li class="menu-client-item menu-client--panier" id="menuPanier">
 							<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><span class="cartCount"><?php echo getCartCount(); ?></span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
 							<span class="menu-client-label">Panier</span>
@@ -128,20 +130,27 @@
 								$panier .= '';
 								$licznik = 0;
 								$totalHT = 0;
+
+
 								foreach ( $products as $products => $item ) {
 									$licznik++;
+									$pict = '';
+									if(!empty($item['image'])) {
+										$pict = '<img src="'.$item['image'].'" alt="image produit" class="prodpicCart" />';
+									}
 									$panier .= '
 									<div class="ct_item">
-										<span class="ct_itname">'.$item[rodzaj].'</span>
-										<span class="ct_qte">'.$item[ilosc].'</span>
-										<span class="ct_total">'.$item[total].'</span>
-										<form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item[rodzaj].'" /><input type="hidden" name="opis" value="'.$item[opis].'" /><input type="hidden" name="ilosc" value="'.$item[ilosc].'" /><input type="hidden" name="licznik" value="'.$licznik.'" />
+
+										<span class="ct_itname">'.$pict.$item['rodzaj'].'</span>
+										<span class="ct_qte">'.$item['ilosc'].'</span>
+										<span class="ct_total">'.$item['total'].'</span>
+										<form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item['rodzaj'].'" /><input type="hidden" name="opis" value="'.$item['opis'].'" /><input type="hidden" name="ilosc" value="'.$item['ilosc'].'" /><input type="hidden" name="licznik" value="'.$licznik.'" />
 										<button id="delcart" type="submit">DEL</button>
 										</form>
 									</div>';
-									$totalItems = str_replace(',', '.', $item[total]);
+									$totalItems = str_replace(',', '.', $item['total']);
 									$totalHT = $totalHT + $totalItems;
-									$fraisPort = $fraisPort + $item[transport];
+									$fraisPort = $fraisPort + $item['transport'];
 								}
 								$totalHT = $totalHT + $fraisPort;
 
@@ -158,13 +167,11 @@
 						</li>
 					</ul>
 
-					<!-- MENU GLOBAL ------------------------------------------------------>
-					<!--------------------------------------------------------------------->
 					<ul id="menu_top">
 					<!--<a href="<?php bloginfo('url'); ?>/index.php"><img class="logoSmall" src="https://www.france-banderole.com/wp-content/themes/fb/images/logoSmall.png" alt="logo france banderole" /></a>-->
 
 						<!--<li onmouseover="tipShow('band_sub');" onmouseout="tipHide('band_sub');"><a href="<?php bloginfo('url'); ?>/index.php">Banderoles & bâches</a>-->
-						<li><a href="<?php bloginfo('url'); ?>/banderoles/" <?php if(is_page('banderoles')) echo ' id=active'; ?>>Banderoles & bâches</a>
+						<li><a href="<?php bloginfo('url'); ?>/banderoles/" <?php if(is_page('banderoles')) echo ' id=active'; ?>>Banderoles<br /> & bâches</a>
 							<!--<ul id="band_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/banderoles/" class="menu_sub"<?php if(is_page('banderoles')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-banderole.png" alt="banderoles">banderole</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/choisir-sa-bache/" class="menu_sub"<?php if(is_page('choisir-sa-bache')) echo ' id=active_sub'; ?>>choisir sa bâche</a></li>
@@ -187,7 +194,7 @@
 							</ul>
 						</li>
 
-						<li onmouseover="tipShow('ext_sub');" onmouseout="tipHide('ext_sub');"><a href="<?php bloginfo('url'); ?>/signaletique-exterieur" <?php if(is_page('signaletique-exterieur') || is_page('oriflammes') || is_page('tente-publicitaire-barnum') || is_page('panneaux-forex-dibond') || is_page('panneaux-akilux') || is_page('plv-exterieur') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-dibond') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns')) echo ' id="active"'; ?>>Signalétique extérieur</a>
+						<li onmouseover="tipShow('ext_sub');" onmouseout="tipHide('ext_sub');"><a href="<?php bloginfo('url'); ?>/signaletique-exterieur" <?php if(is_page('signaletique-exterieur') || is_page('oriflammes') || is_page('tente-publicitaire-barnum') || is_page('panneaux-alu-dibond') || is_page('panneaux-akilux') || is_page('plv-exterieur') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-alu-dibond') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns')) echo ' id="active"'; ?>>Signalétique extérieur</a>
 
 							<ul id="ext_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/oriflammes/" class="menu_sub"<?php if(is_page('oriflammes')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-oriflamme.png" alt="oriflammes, beachflags, windflags">oriflamme</a>
@@ -196,11 +203,12 @@
 								<li><a href="<?php bloginfo('url'); ?>/tente-publicitaire-barnum/" class="menu_sub" <?php if(is_page('tente-publicitaire-barnum')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-tentes.png" alt="tentes publicitaires barnum">tente publicitaire Barnum</a>
 								</li>
 
-								<li><a href="<?php bloginfo('url'); ?>/panneaux-forex-dibond/" class="menu_sub"<?php if(is_page('panneaux-forex-dibond')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="panneau forex dibond">enseigne</a>
+								<li><a href="<?php bloginfo('url'); ?>/panneaux-alu-dibond/" class="menu_sub"<?php if(is_page('panneaux-alu-dibond')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="panneau forex dibond">enseigne</a>
 									<div class="menu-details">
 										<a href="<?php bloginfo('url'); ?>/panneaux-forex-3mm/">Forex 3mm</a>
 										<a href="<?php bloginfo('url'); ?>/panneaux-forex-5mm/">Forex 5mm</a>
-										<a href="<?php bloginfo('url'); ?>/panneaux-dibond/">Dibond</a>
+										<a href="<?php bloginfo('url'); ?>/panneaux-alu-dibond/">Dibond</a>
+										<a href="<?php bloginfo('url'); ?>/panneaux-komadur/">Kömadur</a>
 									</div>
 								</li>
 
@@ -228,13 +236,16 @@
 							</ul>
 						</li>
 
-						<li onmouseover="tipShow('pap_sub');" onmouseout="tipHide('pap_sub');"><a href="<?php bloginfo('url'); ?>/imprimerie-papier"<?php if(is_page('imprimerie-papier') || is_page('affiches') || is_page('cartes') || is_page('flyers')) echo ' id="active"'; ?>>Imprimerie<br /> papier & affiches</a>
+						<li onmouseover="tipShow('pap_sub');" onmouseout="tipHide('pap_sub');"><a href="<?php bloginfo('url'); ?>/imprimerie-papier"<?php if(is_page('imprimerie-papier') || is_page('affiches') || is_page('cartes') || is_page('flyers')) echo ' id="active"'; ?>>Imprimerie<br /> papier <span class="dn960">& affiches</span></a>
 
 							<ul id="pap_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/affiches/" class="menu_sub"<?php if(is_page('affiches')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-affiche.png" alt="affiches">affiche</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/cartes/" class="menu_sub"<?php if(is_page('cartes')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-carte.png" alt="cartes de visite">carte de visite</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/flyers/" class="menu_sub"<?php if(is_page('flyers')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-flyer.png" alt="flyers">flyer - dépliant</a></li>
 							</ul>
+						</li>
+
+						<li><a href="<?php bloginfo('url'); ?>/contact/" <?php if(is_page('contact')) echo ' id=active'; ?>>Nous <br /> Contacter</a>
 						</li>
 
 						<?php if (is_cart_not_empty()) {
@@ -249,42 +260,44 @@
 				</nav>
 			</ul>
 
-			<!--fin menu global------------------------------------------------------->
-
 			<!-- Button trigger modal
 			<a href="#test-popup" class="open-popup-link">Show inline popup</a>-->
-
-			<!--modal confirmation ajout au panier------------------------------------>
 
 			<div id="cartConfirm" class="white-popup mfp-hide">
 				<div class="modalContent">
 					<?php
 					$products = $_SESSION['fbcart'];
-					$lastit = array_values(array_slice($products, -1))[0];
-					if ($lastit[ilosc] == 1) $qtit = '';
-					else $qtit = ' (<span class="small">x</span>'.$lastit[ilosc].') ';
-					$confirm = 'Votre '.$lastit[rodzaj].$qtit.' a bien été ajouté(e) au panier.';
+					$lastit = array_values(array_slice($products, '-1'))[0];
+					$pic = '';
+					if(!empty($lastit['image'])) {
+						$pic = '<img class="prodpicModal" src="'.$lastit['image'].'" alt="image produit" /><br />';
+					}
+					if ($lastit['ilosc'] == 1) $qtit = '';
+					else $qtit = ' (<span class="small">x</span>'.$lastit['ilosc'].') ';
+					$confirm = 	$pic.'Votre '.$lastit['rodzaj'].$qtit.' a bien été ajouté(e) au panier.';
+
 
 					//-----------------------------------------------définition catégories
-					if(is_page('roll-up')) $cat='Roll';             if(is_page('banderoles')) $cat='Banderole';       if(is_page('nappes-publicitaires')) $cat='Nappe';
+					if(is_page('roll-up') || is_page('test-roll-up') ) $cat='Roll';             if(is_page('banderoles')) $cat='Banderole';       if(is_page('nappes-publicitaires')) $cat='Nappe';
 					if(is_page('stand-parapluie')) $cat='Stand';    if(is_page('totem')) $cat='Totem';                if(is_page('oriflammes')) $cat='Oriflamme';
-					if(is_page('affiches')) $cat='Affiche';         if(is_page('panneaux-dibond')) $cat='Dibond';     if(is_page('tente-publicitaire-barnum')) $cat='Tente';
+					if(is_page('affiches')) $cat='Affiche';         if(is_page('panneaux-alu-dibond')) $cat='Dibond';     if(is_page('panneaux-komadur')) $cat='Komadur';   if(is_page('tente-publicitaire-barnum')) $cat='Tente';
+					if(is_page('flyers')) $cat='Flyer';             if (is_page('depliants')) $cat='Depliant';        if(is_page('cartes')) $cat='Cartes';
+					if(is_page('cadre-tissu')) $cat='Cadre';        if (is_page('enseigne-suspendue-textile')) $cat='Enseigne';
 					if(is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm')) $cat='Forex';                  if(is_page('pvc-300-microns')) $cat='PVC';
-					if(is_page('flyers') || is_page('depliants') || is_page('cartes')) $cat='Papier';
 					if(is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm')) $cat='Akilux';
 					if(is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) $cat='Sticker';
 
 					//---------------------------------------------------------temp popups
-					if(is_page('promotions') || is_page('nappes-publicitaires') || is_page('totem') || is_page('plv-interieur')) {
+					if(is_page('promotions') || is_page('nappes-publicitaires') || is_page('totem') || is_page('plv-interieur') || is_page('cadre-tissu') || is_page('enseigne-suspendue-textile')) {
 						$view = '
 						<div class="box_info">Pour la communication et publicités sur lieu de vente en intérieur, salons, expositions, retrouvez tous nos produits dans les rubriques:</div>
 						<ul class="modalMore">
 							<li><a href="'.get_bloginfo('url').'/roll-up/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-roll-up.png" alt="roll-up"><br />roll-up</a></li>
 							<li><a href="'.get_bloginfo('url').'/totem/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-totem.png" alt="roll-up"><br />totem</a></li>
-							<li><a href="'.get_bloginfo('url').'/stand-parapluie/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-stand.png" alt="roll-up"><br />stand</a></li>
 							<li><a href="'.get_bloginfo('url').'/nappes-publicitaires/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-nappes.png" alt="banderoles"><br />Nappe</a></li>
+							<li><a href="'.get_bloginfo('url').'/stand-exposition-plv-interieur/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-merge-int.png" alt="roll-up"><br />stand expo & plv</a></li>
 						</ul>';
-					}else if(is_page('banderoles') || is_page('tente-publicitaire-barnum') || is_page('oriflammes') || is_page('plv-exterieur')) {
+					}else if(is_page('banderoles') || is_page('oriflammes') || is_page('plv-exterieur')) {
 						$view = '
             <div class="box_info">Pour vos évènements et communication en extérieur retrouvez tous nos produits dans les rubriques:</div>
 						<ul class="modalMore">
@@ -294,7 +307,7 @@
 							<li><a href="'.get_bloginfo('url').'/plv-exterieur/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-PLV-ext.png" alt="banderoles"><br />PLV</a></li>
 						</ul>';
 					}else	if(is_page('flyers') || is_page('depliants') || is_page('cartes') || is_page('affiches')) {
-						$confirm = 'Vos '.$lastit[rodzaj].' ont bien été ajouté(<span class="small">e</span>)s au panier.';
+						$confirm = 'Vos '.$lastit['rodzaj'].' ont bien été ajouté(<span class="small">e</span>)s au panier.';
 						$view = '
             <div class="box_info">Retrouvez toute notre gamme impression papier dans les rubriques:</div>
 						<ul class="modalMore">
@@ -303,12 +316,12 @@
 							<li><a href="'.get_bloginfo('url').'/cartes/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-carte.png" alt="roll-up"><br />cartes</a></li>
 							<li><a href="'.get_bloginfo('url').'/affiches/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-affiche.png" alt="banderoles"><br />affiche</a></li>
 						</ul>';
-					}else if(is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-dibond') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) {
+					}else if(is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-alu-dibond')  || is_page('panneaux-komadur') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) {
 						$view = '
            <div class="box_info">Dévouvrez tous nos supports de signalisation muraux, vitraux, extérieur et intérieur dans les rubriques:</div>
 						<ul class="modalMore">
 							<li><a href="'.get_bloginfo('url').'/panneaux-akilux/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-panneau.png" alt="roll-up"><br />Akilux</a></li>
-							<li><a href="'.get_bloginfo('url').'/panneaux-forex-dibond/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="roll-up"><br />Enseignes</a></li>
+							<li><a href="'.get_bloginfo('url').'/panneaux-alu-dibond/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="roll-up"><br />Enseignes</a></li>
 							<li><a href="'.get_bloginfo('url').'/stickers/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-stickers.png" alt="roll-up"><br />stickers</a></li>
 							<li><a href="'.get_bloginfo('url').'/banderoles/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-banderole.png" alt="roll-up"><br />banderoles</a></li>
 						</ul>';
@@ -319,6 +332,7 @@
 					}
 
 					?>
+
 
 					<h3 id="nomp" class="popTitle"><?php echo $confirm ?></h3>
 					<div class="btBar">
@@ -348,19 +362,20 @@
 				else if ($exco->sign == 1 && $exco->coli == 0) $rev = 'revendeurRS';
 				else if ($exco->sign == 0 && $exco->coli == 1) $rev = 'revendeurRC';
 				else if ($exco->sign == 1 && $exco->coli == 1) $rev = 'revendeur';
-				echo '<div class="log_info"><span class="bonjour">Bonjour '.$id.'</span> <span class="bonjourMsg">vous êtes connecté en tant que <span id="'.$rev.'">revendeur</span></span></div>';
+				$logstatus = '<i class="fa fa-lock" aria-hidden="true"></i> Bonjour '.$id.' | vous êtes connecté en tant que <span id="'.$rev.'">revendeur</span>';
 			}
 			else {
-				echo '<div class="log_info"><span class="bonjour">Bonjour '.$id.'</span> <span class="bonjourMsg">vous êtes connecté</span></div>';
+				$logstatus = '<i class="fa fa-lock" aria-hidden="true"></i> Bonjour '.$id.' | vous êtes connecté';
 			}
 		} else {
-			//echo '<div class="log_info"><span class="bonjourMsg">vous n\'êtes pas connecté</span></div>';
+
 		}
+
+		echo '<div class="log_info">'.$logstatus.'<div>';
 
 		?>
 
 		</header>
-		<!--fin header------------------------------------------------------------->
+
 
 		<!--<div class="box_warn noprint"><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><p><span class="pink">Chers clients, veuillez prendre en compte nos congés d'hiver :<br /></span>  Nous serons fermés<strong> du 25/12 au 02/01 inclus</strong>. Vos commandes express ou demandes urgentes seront traitées par notre service commercial online si besoin. <br />Toute l'équipe de france banderole vous souhaite de joyeuses fêtes de fin d'année</p></div>-->
-		<!--V MAIN CONTENT V------------------------------------------------------->

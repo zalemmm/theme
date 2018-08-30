@@ -109,8 +109,6 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		$filenames = array();
 		foreach ($post_data as $key => $value) {
 
-
-
 			if(!empty($value) && $value != null){
 
 				$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
@@ -143,16 +141,33 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		$result = array();
 		$filenames = array();
 		$value = $_POST['object'];
-
+		$value = preg_replace('/\\\r\\\n|\\\r|\\\n\\\r|\\\n/m', ' | ', $value);
+		$value = preg_replace('/\'/m', 'apquote', $value);
 
 		//-------------------------------------------------------------insertion bdd
-		$maquette = $wpdb->get_row("SELECT * FROM `$fb_tablename_maquette` WHERE item = '$saveref'");
+		/*$maquette = $wpdb->get_row("SELECT * FROM `$fb_tablename_maquette` WHERE item = '$saveref'");
 		if(!$maquette){
 			$wpdb->query("INSERT INTO `$fb_tablename_maquette` VALUES ('','$nbcom','$saveref','$value')");
 		}else{
 			$wpdb->query("DELETE FROM `$fb_tablename_maquette` WHERE item='$saveref'");
 			$wpdb->query("INSERT INTO `$fb_tablename_maquette` VALUES ('','$nbcom','$saveref','$value')");
+		}*/
+
+		//-------------------------------------------------------------- create file
+		//foreach ($post_data as $key => $value) {
+		$json_data = json_encode($value);
+
+		$destination = (__DIR__).'/../../../../../uploaded/'.$nbcom.'/';
+
+		if (!is_dir($destination)) {
+				mkdir($destination, 0777, true);
 		}
+
+		$filename = $saveref.'.json';
+
+		file_put_contents($destination.$filename, $value);
+		$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
+		//}
 
 		//--------------------------------------------------------------------------
 

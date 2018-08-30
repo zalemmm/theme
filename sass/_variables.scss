@@ -8,10 +8,10 @@ $font-input: 'Source Sans Pro', 'sans-serif';
 
 $white: #fff;
 $black: #000;
-$text: #555a61;
+$text: #4f4f4f;
 $light-grey: lighten($text,15%);
-$bloc-base: #f9f9f9;
-$border: darken($bloc-base,5%);
+$bloc-base: #fefefe;
+$border: darken($bloc-base,10%);
 $borderdark: darken($border, 5%);
 $cyan: #26a7d9;
 $cyan-bloc: #2ea0cd;
@@ -21,6 +21,7 @@ $jaune: rgba(249, 182, 16, 1);
 $alert: #f00;
 $bt-gerer: #C21A4A;
 $green: #44b564;
+$altg: #44b564; //#68b405
 $fr: #5c97fc;
 
 $color_2: #656567;
@@ -48,7 +49,6 @@ $color_25: #db0073;
 $color_26: #ea2a6a;
 $color_27: #272727;
 $color_28: #fc2666;
-$color_29: #74c012;
 $color_30: #ff5d17;
 $color_31: #9600ff;
 $color_32: #fd0;

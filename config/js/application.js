@@ -53,6 +53,11 @@ angular.module('productApp', [
         $scope.enter_drawing_status = false;
         $scope.FabricConstants = FabricConstants;
 
+        //var siteurl = 'http://localhost:8000/wordpress';
+        var siteurl = 'https://www.france-banderole.com';
+        var orderid = angular.element($('#number')).text();
+        var orderurl = siteurl + '/vos-devis/?detail=' + orderid;
+
         $scope.changeColorScheme = function () {
             $http({
                 method: 'post',
@@ -187,7 +192,13 @@ angular.module('productApp', [
 
         $scope.onFileSelect = function(file) {
             if(file !== null) {
+
                 if ($scope.fabric.checkBackgroundImage()) {
+                    ngProgressLite.start();
+                    $scope.loader = true;
+
+                    _this.showNotification('votre image est en cours d\'importation...', true);
+
                     var URL = window.URL || window.webkitURL;
                     var srcTmp = URL.createObjectURL(file);
                     //------------------------------------
@@ -196,12 +207,19 @@ angular.module('productApp', [
                     }else{
                       $scope.fabric.addImage(srcTmp);
                     }
+                    setTimeout(function() {
+                      ngProgressLite.done();
+                      $scope.loader = false;
+
+                    }, 500);
                     //------------------------------------
                     $scope.objectLayers = [];
                     $scope.objectLayers = $scope.fabric.canvasLayers();
+
                 } else {
                     _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
                 }
+
             }
         };
 
@@ -248,12 +266,56 @@ angular.module('productApp', [
             });
         };
 
+        $scope.retour = function () {
+            var confirm = $mdDialog.confirm()
+                .title('')
+                .content('Ceci va rétablir votre sauvegarde si vous avez enregisté des modifications, sinon rétablir le gabarit vierge.')
+                .ariaLabel('Confirm')
+                .ok('Ok')
+                .cancel('Annuler');
+            $mdDialog.show(confirm).then(function() {
+                $scope.clearCanvas();
+                $scope.fabric.gabaritResize();
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+            });
+        };
+
+        $scope.reinitialize = function () {
+
+            $('#rset').text('oui');
+
+            var confirm = $mdDialog.confirm()
+                .title('')
+                .content('Ceci va effacer vos modifications et rétablir un gabarit vierge.')
+                .ariaLabel('Confirm')
+                .ok('Ok')
+                .cancel('Annuler');
+            $mdDialog.show(confirm).then(function() {
+                $scope.clearCanvas();
+                $scope.fabric.gabaritResize();
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+            });
+        };
+
         $scope.deactivateAll = function () {
             $scope.fabric.deactivateAll();
             $scope.exitDrawing();
             $scope.objectLayers = [];
             $scope.objectLayers = $scope.fabric.canvasLayers();
             $scope.$broadcast('rebuild:me');
+        };
+
+        $scope.globalAlign = function () {
+            if($scope.fabric.checkBackgroundImage()){
+                $scope.fabric.center();
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+            }else{
+                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
+            }
+
         };
 
         $scope.verticalAlign = function () {
@@ -473,7 +535,7 @@ angular.module('productApp', [
         };
 
 
-        $scope.saveObjectAllFormat = function () {
+        /*$scope.saveObjectAllFormat = function () {
 
             if($scope.fabric.checkBackgroundImage()){
 
@@ -537,10 +599,10 @@ angular.module('productApp', [
             }else{
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
-        };
+        };*/
 
 
-        $scope.saveObjectAsSvg = function () {
+        /*$scope.saveObjectAsSvg = function () {
 
             //ngProgressLite.start();
             //$scope.loader = true;
@@ -572,7 +634,7 @@ angular.module('productApp', [
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
                                 .title('Maquette enregistrée.')
-                                .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
+                                .htmlContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez <a href="'+orderurl+'">retourner sur votre commande</a> ou fermer cette fenêtre.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
                         );
@@ -591,63 +653,9 @@ angular.module('productApp', [
             }else{
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
-        };
+        };*/
 
-        $scope.saveObjectAsJSON = function () {
-
-            //ngProgressLite.start();
-            $scope.loader = true;
-
-            //$scope.$apply();
-            if($scope.fabric.checkBackgroundImage()){
-
-                $scope.beforeSave();
-
-                var objects = $scope.fabric.designedSVGObjects;
-                var json = $scope.fabric.sauvegarder()
-                $http({
-                    method: 'post',
-                    url:$scope.REQUEST_URL.SAVE_DESIGN,
-                    data: {
-                        type: 'json',
-                        object: $scope.fabric.sauvegarder()
-                    },
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    transformRequest: _this.transformRequest
-
-                }).success(function (data, status, headers, config) {
-
-                    //ngProgressLite.done();
-                    $scope.loader = false;
-
-                    if(data.status){
-                        $mdDialog.show(
-                            $mdDialog.alert()
-                                .parent(angular.element(document.querySelector('#popupContainer')))
-                                .clickOutsideToClose(true)
-                                .title('Maquette sauvegardée.')
-                                .textContent('Vous pouvez quitter l\'application et revenir dans votre espace client reprendre votre travail quand vous le souhaitez.')
-                                .ariaLabel('Success')
-                                .ok('OK!')
-                        );
-                    }
-
-                }).error(function (data, status, headers, config) {
-
-                    //ngProgressLite.done();
-                    $scope.loader = false;
-
-                    $scope.$broadcast("AjaxCallHappened",false);
-                });
-
-                $scope.objectLayers = [];
-                $scope.objectLayers = $scope.fabric.canvasLayers();
-            }else{
-                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
-            }
-        };
-
-        $scope.saveObjectAsPng = function () {
+        /*$scope.saveObjectAsPng = function () {
 
             //ngProgressLite.start();
             //$scope.loader = true;
@@ -667,7 +675,7 @@ angular.module('productApp', [
                     transformRequest: _this.transformRequest
                 }).success(function (data, status, headers, config) {
 
-                    ngProgressLite.done();
+                    //ngProgressLite.done();
                     $scope.loader = false;
 
                     if(data.status){
@@ -676,7 +684,7 @@ angular.module('productApp', [
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(true)
                                 .title('Nous avons bien reçu votre maquette.')
-                                .textContent('Votre maquette est bien enregistrée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
+                                .htmlContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez <a href="'+orderurl+'">retourner sur votre commande</a> ou fermer cette fenêtre.')
                                 .ariaLabel('Success')
                                 .ok('OK!')
                         );
@@ -694,16 +702,16 @@ angular.module('productApp', [
             }else{
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
-        };
-
-        $scope.saveObjectAsJpg = function () {
-
-          ngProgressLite.start();
-          $scope.loader = true;
-
+        };*/
+        $scope.quicksaveJSON = function () {
+        //----------------------------------------------- sauvegarde JSON rapide
+            ngProgressLite.start();
+            $scope.loader = true;
+            $scope.saving = true;
+            //$scope.$apply();
             if($scope.fabric.checkBackgroundImage()){
 
-                $scope.beforeSave();
+                //$scope.beforeSave();
                 var objects = $scope.fabric.designedSVGObjects;
                 var json = $scope.fabric.sauvegarder()
                 $http({
@@ -717,11 +725,128 @@ angular.module('productApp', [
                     transformRequest: _this.transformRequest
 
                 }).success(function (data, status, headers, config) {
+                    ngProgressLite.done();
+                    $scope.loader = false;
+                    $scope.saving = false;
+                    $("#saved").text('oui');
+                    $("#json").text(json);
+
+                }).error(function (data, status, headers, config) {
+                    ngProgressLite.done();
+                    $scope.loader = false;
+                    $scope.saving = false;
+                    $scope.$broadcast("AjaxCallHappened",false);
+                });
+
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+            }else{
+                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
+            }
+        };
+
+
+        $scope.saveObjectAsJSON = function () {
+        //------------------------------------------------------ sauvegarde JSON
+            //ngProgressLite.start();
+            $scope.loader = true;
+            _this.showNotification('Sauvegarde en cours...', false);
+            //$scope.$apply();
+            if($scope.fabric.checkBackgroundImage()){
+
+                //$scope.beforeSave();
+                var objects = $scope.fabric.designedSVGObjects;
+                var json = $scope.fabric.sauvegarder()
+
+                $http({
+                    method: 'post',
+                    url:$scope.REQUEST_URL.SAVE_DESIGN,
+                    data: {
+                        type: 'json',
+                        object: $scope.fabric.sauvegarder()
+                    },
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    transformRequest: _this.transformRequest
+
+                }).success(function (data, status, headers, config) {
+                    //ngProgressLite.done();
+                    $scope.loader = false;
+
+                    $("#saved").text('oui');
+                    $("#json").text(json);
+
+                    if(data.status){
+                        $mdDialog.show(
+                            $mdDialog.alert()
+                                .parent(angular.element(document.querySelector('#popupContainer')))
+                                .clickOutsideToClose(true)
+                                .title('Maquette sauvegardée.')
+                                .htmlContent('Vous pouvez quitter l\'application et revenir dans votre espace client reprendre votre travail quand vous le souhaitez. <a href="'+orderurl+'" class="dialret">retour à votre commande</a>')
+                                .ariaLabel('Success')
+                        );
+                    }
+
+                }).error(function (data, status, headers, config) {
+
+                    //ngProgressLite.done();
+                    $scope.loader = false;
+                    $scope.saving = false;
+                    $scope.$broadcast("AjaxCallHappened",false);
+                });
+
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+            }else{
+                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
+            }
+        };
+
+
+
+        $scope.saveObjectAsJpg = function () {
+          //--------------------------------------------démarrage sauvgarde JPEG
+          var confirm = $mdDialog.confirm()
+              .title('Avant d\'envoyer vérifiez bien votre maquette :')
+              .htmlContent('Assurez vous que qu\'elle soit entièrement visible à l\'écran et qu\'il n\'y ait pas d\'erreurs, de fautes d\'orthographe  etc. :<br /> Il n\'est pas conseillé de faire des modifications sur votre maquette après son envoi, mais elle sera automatiquement sauvegardée<br /> et vous pourrez si nécessaire encore la corriger ou la compléter en suivant les instructions dans "Astuces/FAQ".')
+              .ariaLabel('Confirm')
+              .ok('envoyer')
+              .cancel('vérifier');
+          $mdDialog.show(confirm).then(function() {
+            //ngProgressLite.start();
+            $scope.loader = true;
+            _this.showNotification('Envoi en cours...', false);
+
+            $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(false)
+                .htmlContent('<br /><br /><br /><br /><i class="fa fa-spinner fa-pulse fa-fw"></i> Votre maquette est en cours d\'envoi et de sauvegarde sur nos serveurs, veuillez patienter jusqu\'au message de confirmation de réception.')
+                .ariaLabel('Success')
+                .ok('OK')
+            );
+
+              if($scope.fabric.checkBackgroundImage()){
+                //-------------------------------------------------sauvegarde json
+                var objects = $scope.fabric.designedSVGObjects;
+                var json = $scope.fabric.sauvegarder()
+                $http({
+                    method: 'post',
+                    url:$scope.REQUEST_URL.SAVE_DESIGN,
+                    data: {
+                        type: 'json',
+                        object: $scope.fabric.sauvegarder()
+                    },
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    transformRequest: _this.transformRequest
+
+                }).success(function (data, status, headers, config) {
+                    $("#saved").text('oui');
+                    $("#json").text(json);
 
                 }).error(function (data, status, headers, config) {
                     $scope.$broadcast("AjaxCallHappened",false);
                 });
-
+                //------------------------------------------------ sauvegarde JPEG
                 $scope.beforeSave();
                 var objects = $scope.fabric.designedJPGObjects;
                 $http({
@@ -733,38 +858,40 @@ angular.module('productApp', [
                     },
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     transformRequest: _this.transformRequest
+
                 }).success(function (data, status, headers, config) {
 
-                    ngProgressLite.done();
                     $scope.loader = false;
 
                     if(data.status){
+                      //setTimeout(function(){
                         $mdDialog.show(
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
-                                .clickOutsideToClose(true)
+                                .clickOutsideToClose(false)
                                 .title('Nous avons bien reçu votre maquette.')
-                                .textContent('Votre maquette est bien sauvegardée dans votre devis/commande. Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client. Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. Vous pouvez fermer la fenêtre en cours.')
+                                .htmlContent('Votre maquette est bien sauvegardée dans votre devis/commande.<br /> Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client.<br /> Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. <a href="'+orderurl+'" class="dialret">retour à votre commande</a>')
                                 .ariaLabel('Success')
-                                .ok('OK!')
+                                //.ok('OK')
                         );
+                      //}, 2000);
                     }
-                }).error(function (data, status, headers, config) {
+                  }).error(function (data, status, headers, config) {
 
-                    ngProgressLite.done();
-                    $scope.loader = false;
+                      $scope.loader = false;
+                      $scope.sending = false;
+                      $scope.$broadcast("AjaxCallHappened",false);
+                  });
 
-                    $scope.$broadcast("AjaxCallHappened",false);
-                });
+                  $scope.objectLayers = [];
+                  $scope.objectLayers = $scope.fabric.canvasLayers();
+              }else{
+                  _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
+              }
+            });
+          };
 
-                $scope.objectLayers = [];
-                $scope.objectLayers = $scope.fabric.canvasLayers();
-            }else{
-                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
-            }
-        };
-
-        $scope.downloadObject = function () {
+        /*$scope.downloadObject = function () {
 
             if($scope.fabric.checkBackgroundImage()){
                 $scope.fabric.downloadCanvasObject();
@@ -794,7 +921,7 @@ angular.module('productApp', [
             }else{
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
-        };
+        };*/
 
         $scope.undo = function () {
             if($scope.fabric.checkBackgroundImage()){
@@ -843,6 +970,26 @@ angular.module('productApp', [
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
         };
+
+        // --------------------------------------------------inactif zoom canvas
+        /*$scope.zoomCanvas = function (action) {
+
+
+                if(action == 'zoomin') {
+                    $scope.fabric.glzoomIn();
+                    _this.showNotification($scope.NOTIFICATION_MESSAGES.ZOOMPLUS, true);
+                }else if(action == 'zoomout'){
+                    $scope.fabric.glzoomOut();
+                    _this.showNotification($scope.NOTIFICATION_MESSAGES.ZOOMMOINS, true);
+                }else if(action == 'zoomreset') {
+                    $scope.fabric.glresetZoom();
+                    _this.showNotification($scope.NOTIFICATION_MESSAGES.ZOOMCENT, true);
+                }
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+
+        };*/
+
 
         $scope.curveText = function(){
             if($scope.fabric.checkBackgroundImage()){
@@ -910,9 +1057,9 @@ angular.module('productApp', [
 
         $scope.$on('AjaxCallHappened', function (event, data) {
             if (data.status == true) {
-                _this.showNotification(data.message, false);
+                //_this.showNotification('Prêt à démarrer!', false);
             }  else {
-                _this.showNotification($scope.NOTIFICATION_MESSAGES.GENERAL_ERROR, false);
+                //_this.showNotification('test non', false);
             }
         });
 
@@ -936,7 +1083,6 @@ angular.module('productApp', [
 
         $scope.fillColor  = function (value) {
             $scope.fabric.selectedObject.fill = value;
-
         };
 
         $scope.fillTint = function (value){
@@ -1003,7 +1149,7 @@ angular.module('productApp', [
             $scope.data.selectedIndex = Math.max($scope.data.selectedIndex - 1, 0);
         };
 
-        $scope.updatePage = function(){
+        /*$scope.updatePage = function(){
             $mdDialog.show(
                 $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#popupContainer')))
@@ -1013,7 +1159,7 @@ angular.module('productApp', [
                     .ariaLabel('Alert Dialog')
                     .ok('Got it!')
             );
-        };
+        };*/
 
         $scope.setImageFilter = function (checked, value){
            (checked == true) ? checked = false: checked = true;
@@ -1255,7 +1401,7 @@ angular.module('productApp', [
                 $mdToast.simple()
                     .content(message)
                     .position($scope.getToastPosition())
-                    .hideDelay(3000)
+                    .hideDelay(1000)
             );
             if(scroll) {
                 $('html, body').animate({scrollTop: $(document).height()}, 1500);
@@ -1426,7 +1572,7 @@ angular.module('productApp', [
                 $scope.initFBUi();
 
             jQuery(window).load(function(){
-                 jQuery(".editor_section").height(jQuery(".canvas_section").height());
+                 //jQuery(".editor_section").height(jQuery(".canvas_section").height());
                 // jQuery(".index_02 .tab-pane").height(jQuery(".canvas_section").height());
             });
 

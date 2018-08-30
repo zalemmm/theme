@@ -78,15 +78,28 @@ if($url_test == "/index.php" || $url_test == "/"){
 }
 
 if (!is_admin() && $home == false) {
-function modify_jquery() {
-	if (!is_admin()) {
-		// comment out the next two lines to load the local copy of jQuery
-		wp_deregister_script('jquery');
-		wp_register_script('jquery', get_bloginfo("template_url").'/js/jquery-3.1.1.min.js', false, '3.1.1'); // en cas de probleme revenir à jquery.191.min.js
-		wp_enqueue_script('jquery');
+	function modify_jquery() {
+		if (!is_admin()) {
+			// comment out the next two lines to load the local copy of jQuery
+			wp_deregister_script('jquery');
+			wp_register_script('jquery', get_bloginfo("template_url").'/js/jquery-3.1.1.min.js', false, '3.1.1'); // en cas de probleme revenir à jquery.191.min.js
+			wp_enqueue_script('jquery');
+		}
 	}
+	add_action('init', 'modify_jquery');
 }
-add_action('init', 'modify_jquery');
+
+function show_favicon() {
+	if( $_GET['page'] == 'ari-adminer-run-adminer' )
+	echo '<link href="'.get_bloginfo("stylesheet_directory").'/images/datab.png" rel="icon" type="image/png">';
+	else if( strpos( $_GET['page'], 'fb' ) !== false  )
+	echo '<link href="'.get_bloginfo("stylesheet_directory").'/images/fbshop.png" rel="icon" type="image/png">';
+	else if( $_GET['action'] == 'edit' )
+	echo '<link href="'.get_bloginfo("stylesheet_directory").'/images/pencil.png" rel="icon" type="image/png">';
+	else
+  echo '<link href="'.get_bloginfo("stylesheet_directory").'/images/favadm.png" rel="icon" type="image/png">';
 }
+add_action('admin_head', 'show_favicon');
+
 
 ?>

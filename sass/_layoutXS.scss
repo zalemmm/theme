@@ -6,72 +6,6 @@
   .disno480{
     display: none;
   }
-  //----------------------------------------------------------------------------
-  //                                 HEADER
-  //----------------------------------------------------------------------------
-
-  header {
-    height:220px;
-  }
-
-  // logo ----------------------------------------------------------------------
-
-  a#logo {
-    top: 50px;
-    left: 10px;
-    width: 22%;
-    height: 90px;
-  }
-
-  // titre site ----------------------------------------------------------------
-
-  .site-head{
-    top: 77px;
-    left: 24%;
-    .site-title{
-      font-size: 1.6rem;
-      line-height: 1.6rem;
-    }
-    .site-subtitle{
-      font-size: .7rem;
-      line-height: .75rem;
-    }
-  }
-
-  // menu accès client ---------------------------------------------------------
-
-  ul.menu-client{
-    font-size: .6rem;
-    line-height: .8rem;
-    top:107px;
-    height:50px;
-    li{
-      height: 50px;
-    }
-   .menu-client-icon {
-      display: block;
-      font-size: 2.1rem;
-      color: $cyan;
-    }
-    .menu-client-icon.phone {
-      padding-right: 10px;
-      padding-top: 10px;
-    }
-    .menu-client-phone{
-      padding-left: 10px;
-    }
-    .tel1{
-      font-size: .78rem;
-    }
-    .tel2 {
-      font-size: 1.05rem;
-    }
-    .tel3 {
-      font-size: .6rem;
-      text-align: right;
-    }
-  }
-
 
   ul#tarifs {
     li {
@@ -83,13 +17,7 @@
       }
     }
   }
-  .cartCount {
-    top: 0;
-    right: 20px;
-    width: 14px;
-    height: 14px;
-    font-size: 10px;
-  }
+
   .cards {
     .card {
       width: 100%;
@@ -101,11 +29,11 @@
 
   #top_info {
     .front img{
-      @include span(4);
+      @include span(2);
       max-height: 100px;
     }
     #top_info_info {
-      @include span(8);
+      @include span(10);
     }
   }
 
@@ -208,8 +136,22 @@
     }
   }
 
+  #fileupload .acces_tab_name2 {
+    font-size: .8rem;
+  }
+  .fuselect.ui-button,
+  .fustart.ui-button,
+  .fucancel.ui-button,
+  .fudelete.ui-button {
+    position: relative;
+    i {
+      display: inline-block;
+      position: absolute;
+      top: 7px;
+      left: 10px;
+    }
 
-
+  }
   // adaptation recaptcha responsive
 
   #rc-imageselect,

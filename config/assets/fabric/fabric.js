@@ -16,10 +16,10 @@ angular.module('common.fabric', [
 		var JSONObject;
 		var self = angular.extend({
 			canvasBackgroundColor: '#ffffff',
-			canvasWidth: 836,
-			canvasHeight: 540,
-			canvasOriginalHeight: 540,
-			canvasOriginalWidth: 836,
+			canvasWidth: 840,
+			canvasHeight: 580,
+			canvasOriginalHeight: 580,
+			canvasOriginalWidth: 840,
 			maxContinuousRenderLoops: 25,
 			continuousRenderTimeDelay: 500,
 			editable: true,
@@ -32,7 +32,9 @@ angular.module('common.fabric', [
 			imageDefaults: {},
 			textDefaults: {},
       curvedTextDefaults: {},
-			shapeDefaults: {},
+			shapeDefaults: {
+				globalCompositeOperation : 'source-atop'
+			},
 			windowDefaults: {
                 rotatingPointOffset: 20,
                 padding: 10,
@@ -48,7 +50,12 @@ angular.module('common.fabric', [
 			}
 		}, options);
 
-
+		var winWidth = $(window).width();
+		var winHeight = $(window).height();
+		var xsmall = winWidth < 1366 && winHeight < 768;
+		var small = winWidth < 1440 && winHeight < 900;
+		var medium = winWidth >= 1440  && winHeight >= 900;
+		var large = winWidth >= 1600 && winHeight >= 900;
 
 		function capitalize(string) {
 			if (typeof string !== 'string') {
@@ -221,7 +228,7 @@ angular.module('common.fabric', [
 
         var filters = [
             new fabric.Image.filters.Grayscale(),       // grayscale    0
-            new fabric.Image.filters.Sepia2(),          // sepia        1
+            new fabric.Image.filters.Sepia2(),          // sepia        1 // v2 mod
             new fabric.Image.filters.Invert(),          // invert       2
             new fabric.Image.filters.Convolute({        // emboss       3
                 matrix: [ 1, 1, 1,
@@ -326,6 +333,102 @@ angular.module('common.fabric', [
 			self.render();
 		};
 
+		//---------------------------------------- rechercher un objet par propriété
+
+		self.findObject = function(canvas, propertyName, propertyValue) {
+			var condition = {};
+			condition[propertyName] = propertyValue;
+			return _(canvas.getObjects()).filter( condition ).first()
+		}
+
+
+
+		//--------------------------------------------------------mode avancé toggle
+
+		self.switch = function() {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+			var gabarit = self.findObject(canvas, 'id', 'gabarit');
+			var rolltop = self.findObject(canvas, 'id', 'rolltop');
+			var rollbot = self.findObject(canvas, 'id', 'rollbot');
+			var rollfoot1 = self.findObject(canvas, 'id', 'rollfoot1');
+			var rollfoot2 = self.findObject(canvas, 'id', 'rollfoot2');
+
+			// lier les mouvements des calques gabarit : récup des coordonnées au déplacement
+			function rectMouseMove(option){
+				gabarit.left = recbg.gabaritLeft+ recbg.left - recbg.mousesDownLeft ;
+				gabarit.top = recbg.gabaritTop+ recbg.top- recbg.mousesDownTop;
+
+				if(rolltop)  {
+					rolltop.left = recbg.rolltopLeft+ recbg.left - recbg.mousesDownLeft ;
+					rolltop.top = recbg.rolltopTop+ recbg.top- recbg.mousesDownTop;
+					rollbot.left = recbg.rollbotLeft+ recbg.left - recbg.mousesDownLeft ;
+					rollbot.top = recbg.rollbotTop+ recbg.top- recbg.mousesDownTop;
+					rollfoot1.left = recbg.rollfoot1Left+ recbg.left - recbg.mousesDownLeft ;
+					rollfoot1.top = recbg.rollfoot1Top+ recbg.top- recbg.mousesDownTop;
+					rollfoot2.left = recbg.rollfoot2Left+ recbg.left - recbg.mousesDownLeft ;
+					rollfoot2.top = recbg.rollfoot2Top+ recbg.top- recbg.mousesDownTop;
+
+					rolltop.setCoords();
+					rollbot.setCoords();
+					rollfoot1.setCoords();
+					rollfoot2.setCoords();
+				}
+				gabarit.setCoords();
+			}
+
+			// lier les mouvements des calques gabarit : application des coordonnées au relachement clic
+			function rectMouseDown(option){
+				recbg.mousesDownLeft = recbg.left;
+				recbg.mousesDownTop = recbg.top;
+				recbg.gabaritLeft = gabarit.left;
+				recbg.gabaritTop = gabarit.top;
+
+				if(rolltop)  {
+					recbg.rollbotLeft = rollbot.left;
+					recbg.rollbotTop = rollbot.top;
+					recbg.rolltopLeft = rolltop.left;
+					recbg.rolltopTop = rolltop.top;
+
+					recbg.rollfoot1Left = rollfoot1.left;
+					recbg.rollfoot1Top = rollfoot1.top;
+					recbg.rollfoot2Left = rollfoot2.left;
+					recbg.rollfoot2Top = rollfoot2.top;
+				}
+			}
+
+/*			// au chargement les calques gabarit sont bloqués
+			recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+			gabarit.set({evented: false, hasControls: false});
+
+			rolltop.set({evented: false, hasControls: false});
+			rollbot.set({evented: false, hasControls: false});
+			rollfoot1.set({evented: false, hasControls: false});
+			rollfoot2.set({evented: false, hasControls: false});*/
+
+
+			// display et action du bouton utilisateur avancé
+			$('.advToggle').css('display','inline-block');
+
+			$(".checkbox").change(function() {
+				if(this.checked) {
+					$(".zoomButtons, .unredo").removeClass('disno');
+					$('.onoff').text('on').css('color', '#26a7d9');
+					recbg.set({lockMovementY:false, lockMovementX: false, hasControls: false});
+					// action au déplacement des calques
+
+				}else{
+					$(".zoomButtons, .unredo").addClass('disno');
+					$('.onoff').text('off').css('color', '#ea2a6a');
+					recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+				}
+			});
+
+			recbg.on('moving',rectMouseMove);
+			recbg.on('mousedown',rectMouseDown);
+
+		}
+
+
 		//
 		// Creating Objects
 		// ==============================================================
@@ -347,21 +450,49 @@ angular.module('common.fabric', [
 			);
 			object.bringForward();
 
-			function findObjectWithPropertyValue(canvas, propertyName, propertyValue) {
-        var condition = {};
-        condition[propertyName] = propertyValue;
-        return _(canvas.getObjects()).filter( condition ).first()
-			}
-			var gaba = findObjectWithPropertyValue(canvas, 'id', 'gabarit');
+			var gaba = self.findObject(canvas, 'id', 'gabarit');
 			canvas.bringToFront(gaba);
+			gaba.set({hasControls: false, evented: false});
 
 			self.render();
 		};
 
+		// Séparation lignes multiples à l'imput text
+		// ==============================================================
+		self.addMultilineText = function(object, lines) {
 
-    // ========================================================================================================================================================
-    // 																																																																		Générer les gabarits
-    // ========================================================================================================================================================
+			object.originalScaleX = object.scaleX;
+			object.originalScaleY = object.scaleY;
+			object.originalLeft = object.left;
+			object.originalTop = object.top;
+
+			canvas.add(object);
+
+			if (lines == 1) {
+				var topp = 0;
+			}else{
+				var topp = object.getHeight()*(lines-1);
+			}
+
+			self.setObjectZoom(object);
+			canvas.setActiveObject(object.set({
+		        left: canvas.width/2,
+		        top: canvas.height/2.5+topp,
+						originX: 'center',
+						originY: 'center'
+		    })
+			);
+			object.bringForward();
+
+			var gaba = self.findObject(canvas, 'id', 'gabarit');
+			canvas.bringToFront(gaba);
+			gaba.set({hasControls: false, evented: false});
+
+			self.render();
+		};
+    // =========================================================================
+		//														Générer les gabarits
+    // =========================================================================
 
 		// Canvas Background
 		// =========================================================================
@@ -376,7 +507,7 @@ angular.module('common.fabric', [
 				canvas.setBackgroundImage(src, canvas.renderAll.bind(canvas), {
 					scaleX:1,
 					scaleY:1,
-					top: 10,
+					top: 25,
 					left: center.left,
 					originX: 'center',
 					originY: 'top',
@@ -395,10 +526,10 @@ angular.module('common.fabric', [
 		// Resize Canvas Background
 		// =========================================================================
 
-    self.gabaritResize = function(gabarit, rect, gabarit2, rect2) {
+    self.gabaritResize = function() {
 			 // variables taille et positionnement -----------------------------------
-        var MAX_HEIGHT = canvas.height-20;
-				var MAX_WIDTH = canvas.width-20;
+        var MAX_HEIGHT = canvas.height-50;
+				var MAX_WIDTH = canvas.width-50;
         var w;
         var h;
 				var center = canvas.getCenter();
@@ -406,1019 +537,1376 @@ angular.module('common.fabric', [
 
 				//var image = new Image();
 				//image.src = src;
+				var recbg     = self.findObject(canvas, 'id', 'recbg');
+				var gabarit   = self.findObject(canvas, 'id', 'gabarit');
+				var rolltop   = self.findObject(canvas, 'id', 'rolltop');
+				var rollbot   = self.findObject(canvas, 'id', 'rollbot');
+				var rollfoot1 = self.findObject(canvas, 'id', 'rollfoot1');
+				var rollfoot2 = self.findObject(canvas, 'id', 'rollfoot2');
+				var line      = self.findObject(canvas, 'id', 'line');
+				var line1     = self.findObject(canvas, 'id', 'line1');
+				var line2     = self.findObject(canvas, 'id', 'line2');
 
 				// récupération des données produits -----------------------------------
-				var produit = $('#produit').text();
-				var hauteur = parseInt($('#hauteur').text(), 10);
-				var largeur = parseInt($('#largeur').text(), 10);
+				var produit    = $('#produit').text();
+				var hauteur    = parseInt($('#hauteur').text(), 10);
+				var largeur    = parseInt($('#largeur').text(), 10);
+				var realhaut   = parseInt($('#hauteur').text(), 10);
+				var reallarg   = parseInt($('#largeur').text(), 10);
 				var rectoVerso = $('#desc').text().indexOf('recto-verso') > -1;
 
 				console.log(produit+' - '+hauteur+' x '+largeur);
 
 				// variables stand tissu -----------------------------------------------
 				var standTissu = $('#desc').text().indexOf('Tissu') > -1;
-				var trois1 = $('#desc').text().indexOf(' 3x1 ') > -1;
-				var trois2 = $('#desc').text().indexOf(' 3x2 ') > -1;
-				var trois3 = $('#desc').text().indexOf(' 3x3 ') > -1;
-				var trois4 = $('#desc').text().indexOf(' 3x4 ') > -1;
-				var trois5 = $('#desc').text().indexOf(' 3x5 ') > -1;
-				var trois6 = $('#desc').text().indexOf(' 3x6 ') > -1;
-				var trois7 = $('#desc').text().indexOf(' 3x7 ') > -1;
-				var trois8 = $('#desc').text().indexOf(' 3x8 ') > -1;
-				var comptoir = $('#desc').text().indexOf('Comptoir') > -1;
-				var valise = $('#desc').text().indexOf('Valise') > -1;
+				/*var trois1     = $('#desc').text().indexOf(' 3x1 ') > -1;
+				var trois2     = $('#desc').text().indexOf(' 3x2 ') > -1;
+				var trois3     = $('#desc').text().indexOf(' 3x3 ') > -1;
+				var trois4     = $('#desc').text().indexOf(' 3x4 ') > -1;
+				var trois5     = $('#desc').text().indexOf(' 3x5 ') > -1;
+				var trois6     = $('#desc').text().indexOf(' 3x6 ') > -1;
+				var trois7     = $('#desc').text().indexOf(' 3x7 ') > -1;
+				var trois8     = $('#desc').text().indexOf(' 3x8 ') > -1;*/
+				var comptoir   = $('#desc').text().indexOf('Comptoir') > -1;
+				var valise     = $('#desc').text().indexOf('Valise') > -1;
+				var totem      = $('#desc').text().indexOf('Totem Tissu') > -1;
+				var rond       = $('#desc').text().indexOf('ronde') > -1;
 
-				var rond = $('#desc').text().indexOf('forme ronde') > -1;
+				// variables rollup ----------------------------------------------------
+				var firstline = $('#desc').text().indexOf('firstline') > -1;
+				var bestline  = $('#desc').text().indexOf('bestline') > -1;
+				var luxline   = $('#desc').text().indexOf('luxline') > -1;
+				var double    = $('#desc').text().indexOf('double') > -1;
+				var mistral   = $('#desc').text().indexOf('mistral') > -1;
+				var mini      = $('#desc').text().indexOf('mini') > -1;
+				var visuel    = $('#desc').text().indexOf('visuel') > -1;
 
 				// variables orfilammes ------------------------------------------------
-				var aile1 = $('#desc').text().indexOf('aile d’avion 54x240') > -1;
-				var aile2 = $('#desc').text().indexOf('aile d’avion 85x308') > -1;
-				var aile3 = $('#desc').text().indexOf('aile d’avion 85x351') > -1;
-				var aile4 = $('#desc').text().indexOf('aile d’avion 85x465') > -1;
+				var aile1   = $('#desc').text().indexOf('aile d’avion 54x240') > -1;
+				var aile2   = $('#desc').text().indexOf('aile d’avion 85x308') > -1;
+				var aile3   = $('#desc').text().indexOf('aile d’avion 85x351') > -1;
+				var aile4   = $('#desc').text().indexOf('aile d’avion 85x465') > -1;
 				var goutte1 = $('#desc').text().indexOf('goutte d’eau 72x203') > -1;
 				var goutte2 = $('#desc').text().indexOf('goutte d’eau 75x254') > -1;
 				var goutte3 = $('#desc').text().indexOf('goutte d’eau 106x323') > -1;
 				var goutte4 = $('#desc').text().indexOf('goutte d’eau 125x460') > -1;
-				var verso = $('#rectvers').text();
+				var verso   = $('#rectvers').text();
+
+				// banderoles fourreaux-------------------------------------------------
+				var fourgd  = $('#desc').text().indexOf('fourreaux gauche/droite') > -1;
+				var fourhb  = $('#desc').text().indexOf('fourreaux haut/bas') > -1;
+
+				// dépliants------------------------------------------------------------
+				var depliant = produit.indexOf('Depliants') > -1;
+				var volets   = $('#desc').text().indexOf('3 volets') > -1;
+
+				// nappes---------------------------------------------------------------
+
+				var ret20  = $('#desc').text().indexOf('20 cm de retombée') > -1;
+				var ret30  = $('#desc').text().indexOf('30 cm de retombée') > -1;
+				var ret50  = $('#desc').text().indexOf('50 cm de retombée') > -1;
+				var ret60  = $('#desc').text().indexOf('60 cm de retombée') > -1;
+				var ret70  = $('#desc').text().indexOf('70 cm de retombée') > -1;
+				var ret40  = $('#desc').text().indexOf('40 cm de retombée') > -1;
+				var ret80  = $('#desc').text().indexOf('80 cm de retombée') > -1;
+
+				var retomb = 0;
+				if (ret20) retomb = 20;
+				if (ret30) retomb = 30;
+				if (ret40) retomb = 40;
+				if (ret50) retomb = 50;
+				if (ret60) retomb = 60;
+				if (ret70) retomb = 70;
+				if (ret80) retomb = 80;
 
 				//-------------------- s'il existe une sauvegarde, récupérer les données
 				var sauvegarde = $('#saved').text();
-				var jsondata = $('#json').text();
-				if (sauvegarde == 'oui'){
+				var reset      = $('#rset').text();
+				var jsondata   = $('#json').text();
+
+				jsondata = jsondata.replace(/ \| /g, '\\n');
+				jsondata = jsondata.replace(/apquote/g, '\'');
+
+				if (sauvegarde == 'oui' && reset == 'non'){
+
 					canvas.loadFromJSON(jsondata, canvas.renderAll.bind(canvas), function(o, object) {
 						console.log(o, object);
 					});
+
+					self.render();
+
+					canvas.deactivateAll();
+					var objs = canvas.getObjects().map(function(o) {
+						return o.set('active', true);
+					});
+					center = canvas.getCenter();
+					var group = new fabric.Group(objs, {
+						top: center.top,
+						left: center.left,
+						originX: 'center',
+						originY: 'center'
+					});
+					canvas.setActiveGroup(group.setCoords()).deactivateAll().renderAll();
+
+					var gaba = self.findObject(canvas, 'id', 'gabarit');
+					canvas.sendToBack(gaba);
 				}
 
-				////////////////////////////// ratio gabarit/canvas suivant le format //
+				//------------------------------- ratio gabarit/canvas suivant le format
+
 				// portrait ------------------------------------------------------------
 				if(hauteur > largeur) {
-						ratio = hauteur/largeur;
-						hauteur = MAX_HEIGHT;
-						largeur = MAX_HEIGHT/ratio;
-						w = largeur;
-						h = hauteur;
+					ratio = hauteur/largeur;
+					hauteur = MAX_HEIGHT;
+					largeur = MAX_HEIGHT/ratio;
+					w = largeur;
+					h = hauteur;
 
 				// paysage -------------------------------------------------------------
 				}else if(largeur > hauteur) {
-						ratio = largeur/hauteur;
-						largeur = MAX_WIDTH;
-						hauteur = MAX_WIDTH/ratio;
-						w = largeur;
-						h = hauteur;
-						// cas particulier où la hauteur = presque la largeur et dépasse MAX_HEIGHT
-						if (h >= canvas.height) {
-							largeur = MAX_HEIGHT;
-							hauteur = MAX_HEIGHT/ratio;
-						}
+					ratio = largeur/hauteur;
+					largeur = MAX_WIDTH;
+					hauteur = MAX_WIDTH/ratio;
+					w = largeur;
+					h = hauteur;
+					// cas particulier où la hauteur = presque la largeur et dépasse MAX_HEIGHT
+					if (h >= canvas.height) {
+						largeur = MAX_HEIGHT;
+						hauteur = MAX_HEIGHT/ratio;
+					}
 
 				// carré ---------------------------------------------------------------
 				}else if(largeur == hauteur) {
-						largeur = MAX_HEIGHT;
-						hauteur = MAX_HEIGHT;
-						w = largeur;
-						h = hauteur;
+					largeur = MAX_HEIGHT;
+					hauteur = MAX_HEIGHT;
+					w = largeur;
+					h = hauteur;
 				}
 
+				// ratio retours stands ------------------------------------------------
+				var sratio  = reallarg/35;
+				var retour  = largeur/sratio;
 
-				//if (sauvegarde == 'non'){
-					/////////////////////// tous les gabarits rectangulaires hors formats spéciaux oriflammes //
-					if (!aile1 && !aile2 && !aile3 && !aile4 && !goutte1 && !goutte2 && !goutte3 && !goutte4 && !rond){
+				// ratio retour nappes rect --------------------------------------------
+				var nratiol = reallarg/retomb;
+				var nratioh = realhaut/retomb;
 
-						//////////////////////////////////////////////////////////// STANDS //
-						if (trois1) {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 54*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-							//------------------------------------------------------------------
-						}else if (trois2) {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 68*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-						//--------------------------------------------------------------------
-						}else if (trois3) {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 76*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-						//--------------------------------------------------------------------
-						}else if (trois5) {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 84*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-						//--------------------------------------------------------------------
-						}else if (trois6) {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 85*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-						//--------------------------------------------------------------------
-						}else if (trois7) {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 88*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-						//--------------------------------------------------------------------
-						}else if (trois8) {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 90*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-						//--------------------------------------------------------------------
-						}else if (produit == 'Valise') {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 36*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-						//--------------------------------------------------------------------
-						}else if (produit == 'Comptoir') {
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: 58*largeur/100,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
+				var retgd = largeur/nratiol;
+				var rethb = hauteur/nratioh;
 
-						/////////////////////////////////////////////////////// NORMAL RECT //
-						}else{
-							var gabarit = new fabric.Rect({
-								id: 'gabarit',
-								originX: 'center',
-								originY: 'center',
-								top: center.top,
-								left: center.left,
-								fill: 'rgba(0,0,0,0)',
-								stroke: '#ccc',
-								strokeWidth: 2,
-								strokeDashArray: [10, 5],
-								width: largeur-12,
-								height: hauteur-12,
-								hasControls: false,
-								evented:false
-							});
-						}
+				// ratio fourreaux -----------------------------------------------------
+				var fratiol = reallarg/10;
+				var fratioh = realhaut/10;
 
-						//////////////////////////////////////////////////////// BACKGROUND //
-						var rect = new fabric.Rect({
-							id: 'recbg',
+				var fgd = largeur/fratiol;
+				var fhb = hauteur/fratioh;
+
+				//------------------------------------- tous les gabarits rectangulaires
+				if (!aile1 && !aile2 && !aile3 && !aile4 && !goutte1 && !goutte2 && !goutte3 && !goutte4 && !rond){
+
+					//------------------------------------------------------- FOURREAUX GD
+					if (fourgd) {
+						gabarit = new fabric.Rect({
+							id: 'gabarit',
 							originX: 'center',
 							originY: 'center',
 							top: center.top,
 							left: center.left,
-							fill: '#fff',
-							width: largeur,
-							height: hauteur,
-							hasControls: false
+							fill: 'rgba(0,0,0,0)',
+							stroke: '#ccc',
+							strokeWidth: 1,
+							strokeDashArray: [10, 5],
+							width: largeur-fgd*2,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
 						});
-						if (sauvegarde == 'non'){
-							canvas.add(rect);
-						}
-						canvas.add(gabarit);
 
-						// lier les calques rect & gabarit -----------------------------------
-						function rectMouseMove(option){
-						  gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
-						  gabarit.top = rect.gabaritTop+ rect.top- rect.mousesDownTop;
-						  gabarit.setCoords();
-						}
+					//--------------------------------------------------------FOURREAUX HB
+					}	else if (fourhb) {
+						gabarit = new fabric.Rect({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: 'rgba(0,0,0,0)',
+							stroke: '#ccc',
+							strokeWidth: 1,
+							strokeDashArray: [10, 5],
+							width: largeur-12,
+							height: hauteur-fhb*2,
+							hasControls: false,
+							evented:false
+						});
 
-						function rectMouseDown(option){
-						  rect.mousesDownLeft = rect.left;
-						  rect.mousesDownTop = rect.top;
-						  rect.gabaritLeft = gabarit.left;
-						  rect.gabaritTop = gabarit.top;
-						}
+					//------------------------------------------------------------- STANDS
+			  	}else if (produit == 'Stand Tissu' || produit == 'Comptoir') {
+						gabarit = new fabric.Rect({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: 'rgba(0,0,0,0)',
+							stroke: '#ccc',
+							strokeWidth: 1,
+							strokeDashArray: [10, 5],
+							width: largeur-retour*2,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
 
-						register();
-						function register(){
-						  rect.on('moving',rectMouseMove);
-						  rect.on('mousedown',rectMouseDown);
-						}
+					//--------------------------------------------------------------------
+					}else if (produit == 'Valise') {
+						gabarit = new fabric.Rect({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: 'rgba(0,0,0,0)',
+							stroke: '#ccc',
+							strokeWidth: 1,
+							strokeDashArray: [10, 5],
+							width: 36*largeur/100,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
+					//--------------------------------------------------------------------
+					}else if (totem) {
+						gabarit = new fabric.Rect({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: 'rgba(0,0,0,0)',
+							stroke: '#ccc',
+							strokeWidth: 1,
+							strokeDashArray: [10, 5],
+							width: largeur-12,
+							height: hauteur-12,
+							hasControls: false,
+							ry: 30,
+							rx: 30,
+							evented:false
+						});
 
-						// ------------------------------------------------ mode simple / avancé
-						canvas.item(0).set({lockMovementY:true, lockMovementX: true});
+					//--------------------------------------------------------------------
+		  		}else if (produit == 'Nappe' && retomb !== 0) {
+						gabarit = new fabric.Rect({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: 'rgba(0,0,0,0)',
+							stroke: '#ccc',
+							strokeWidth: 1,
+							strokeDashArray: [10, 5],
+							width: largeur-retgd*2,
+							height: hauteur-rethb*2,
+							hasControls: false,
+							evented:false
+						});
 
-						$(".checkbox").change(function() {
-							if(this.checked) {
-								$(".zoomButtons, .unredo").removeClass('disno');
-								$('.advanced').css({
-									color: '#26A7D9',
-									fontSize: '12px'
+			  	}else{
+						// ----------------------------------------------calques sup Roll-up
+						if(produit == 'Roll-up' || produit == 'Rollup') {
+
+							if(luxline) {
+								rollbot= new fabric.Rect({
+									id: 'rollbot',
+									originX: 'center',
+									originY: 'top',
+									top: canvas.height-55,
+									left: center.left,
+									fill: '#aab2b7',
+									shadow: 'rgba(0,0,0,0.4) 0px 0px 2px',
+									width: largeur+14,
+									height: 45,
+									lockMovementX: true,
+									lockMovementY: true,
+									hasControls: false,
+									evented:false
 								});
-								$('.advanced').text('mode avancé');
-								console.log($('.advanced').text());
-								canvas.item(0).set({lockMovementY:false, lockMovementX: false});
-							}else{
-								$(".zoomButtons, .unredo").addClass('disno');
-								$('.advanced').css({
-									color: '#a6a6a6',
-									fontSize: '12px'
+
+							}else if(double){
+								rollbot= new fabric.Rect({
+									id: 'rollbot',
+									originX: 'center',
+									originY: 'top',
+									top: canvas.height-45,
+									left: center.left,
+									fill: '#aab2b7',
+									shadow: 'rgba(0,0,0,0.4) 0px 0px 2px',
+									width: largeur+14,
+									height: 35,
+									lockMovementX: true,
+									lockMovementY: true,
+									hasControls: false,
+									evented:false
 								});
-								$('.advanced').text('mode simple');
-								console.log($('.advanced').text());
-								canvas.item(0).set({lockMovementY:true, lockMovementX: true});
+
+								fabric.loadSVGFromURL('svg/rollfoot.svg', function(objects, options) {
+									rollfoot1 = fabric.util.groupSVGElements(objects, options);
+									rollfoot1.set({
+										id: 'rollfoot1',
+										originX: 'center',
+										originY: 'center',
+										top: canvas.height-5,
+										left: center.left,
+										fill: '#aab2b7',
+										width: 22,
+										height: 12,
+										lockMovementX: true,
+										lockMovementY: true,
+										hasControls: false,
+										evented:false
+									});
+
+									if (sauvegarde == 'non' || reset == 'oui'){
+										canvas.add(rollfoot1);
+										canvas.sendToBack(rollfoot1);
+									}
+								});
+
+							}else if(mistral || mini){
+								rollbot= new fabric.Rect({
+									id: 'rollbot',
+									originX: 'center',
+									originY: 'top',
+									top: canvas.height-45,
+									left: center.left,
+									fill: '#aab2b7',
+									shadow: 'rgba(0,0,0,0.4) 0px 0px 2px',
+									width: largeur+14,
+									height: 35,
+									lockMovementX: true,
+									lockMovementY: true,
+									hasControls: false,
+									evented:false
+								});
+
+							}else if(bestline || firstline || visuel) {
+								rollbot= new fabric.Rect({
+									id: 'rollbot',
+									originX: 'center',
+									originY: 'top',
+									top: canvas.height-40,
+									left: center.left,
+									fill: '#aab2b7',
+									shadow: 'rgba(0,0,0,0.4) 0px 0px 2px',
+									width: largeur+14,
+									height: 28,
+									lockMovementX: true,
+									lockMovementY: true,
+									hasControls: false,
+									evented:false
+								});
+
+								fabric.loadSVGFromURL('svg/rollfoot.svg', function(objects, options) {
+									rollfoot1 = fabric.util.groupSVGElements(objects, options);
+									rollfoot1.set({
+										id: 'rollfoot1',
+										originX: 'center',
+										originY: 'center',
+										top: canvas.height-7,
+										left: (center.left)-largeur/2+45,
+										fill: '#aab2b7',
+										width: 22,
+										height: 12,
+										lockMovementX: true,
+										lockMovementY: true,
+										hasControls: false,
+										evented:false
+									});
+
+									rollfoot2 = fabric.util.groupSVGElements(objects, options);
+									rollfoot2.set({
+										id: 'rollfoot2',
+										originX: 'center',
+										originY: 'center',
+										top: canvas.height-7,
+										left: (center.left)+largeur/2-45,
+										fill: '#aab2b7',
+										width: 22,
+										height: 12,
+										lockMovementX: true,
+										lockMovementY: true,
+										hasControls: false,
+										evented:false
+									});
+
+									if (sauvegarde == 'non' || reset == 'oui'){
+										canvas.add(rollfoot1);
+										canvas.add(rollfoot2);
+									}
+
+								});
 							}
 
-				  	});
+							rolltop = new fabric.Rect({
+								id: 'rolltop',
+								originX: 'center',
+								originY: 'top',
+								top: 18,
+								left: center.left,
+								fill: '#ccc',
+								shadow: 'rgba(0,0,0,0.4) 0px 0px 2px',
+								width: largeur+4,
+								height: 7,
+								lockMovementX: true,
+								lockMovementY: true,
+								hasControls: false,
+								evented:false
+							});
 
-				////////////////////////////////////////////////////////////////// ROND //
-				}else if(rond){
-					var gabarit = new fabric.Circle({
-						id: 'gabarit',
-						originX: 'center',
-						originY: 'center',
-						top: center.top,
-						left: center.left,
-						fill: 'rgba(0,0,0,0)',
-						stroke: '#ccc',
-						strokeWidth: 2,
-						strokeDashArray: [10, 5],
-						radius: canvas.height/2-20-10,
-						hasControls: false,
-						evented:false
-					});
+							rollbot.setGradient('fill', {
+								x1: 0,
+								y1: 0,
+								x2: 0,
+								y2: rollbot.height,
+								colorStops: {
+									0: '#444',
+									0.9: "#ccc",
+									1: '#111'
+								}
+							});
 
-					var rect = new fabric.Circle({
+							if (sauvegarde == 'non' || reset == 'oui'){
+								canvas.add(rolltop);
+								canvas.add(rollbot);
+
+							}else{
+								rolltop = self.findObject(canvas, 'id', 'rolltop');
+								rollbot = self.findObject(canvas, 'id', 'rollbot');
+								rollfoot1 = self.findObject(canvas, 'id', 'rollfoot1');
+								rollfoot2 = self.findObject(canvas, 'id', 'rollfoot2');
+								rolltop.set({evented: false, hasControls: false});
+								rollbot.set({evented: false, hasControls: false});
+								rollfoot1.set({evented: false, hasControls: false});
+								rollfoot2.set({evented: false, hasControls: false});
+							}
+
+						} // fin calques rollup
+
+						//------------------------------------------- calques plis depliants
+						line = new fabric.Rect({
+							id: 'line',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#ccc',
+							width: 1,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
+
+						line1 = new fabric.Rect({
+							id: 'line1',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: (center.left)-(largeur/3)/2,
+							fill: '#ccc',
+							width: 1,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
+
+						line2 = new fabric.Rect({
+							id: 'line2',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: (center.left)+(largeur/3)/2,
+							fill: '#ccc',
+							width: 1,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
+
+						//---------------------------- RECTANGLE POINTILLES GABARITS NORMAUX
+						gabarit = new fabric.Rect({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: 'rgba(0,0,0,0)',
+							stroke: '#ccc',
+							strokeWidth: 1,
+							strokeDashArray: [10, 5],
+							width: largeur-12,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
+
+					} // fin gabarits rectangulaires normaux
+
+					//---------------------------------------------------- RECTANGLE BLANC
+					recbg = new fabric.Rect({
 						id: 'recbg',
 						originX: 'center',
 						originY: 'center',
 						top: center.top,
 						left: center.left,
 						fill: '#fff',
-						radius: canvas.height/2-20,
+						shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+						width: largeur,
+						height: hauteur,
+						lockMovementX: true,
+						lockMovementY: true,
 						hasControls: false
 					});
 
-					if (sauvegarde == 'non'){
-						canvas.add(rect);
+					//--------------------------------------------------------------------
+					if (sauvegarde == 'non' || reset == 'oui'){
+						canvas.add(recbg);
+						canvas.add(gabarit);
+
+						if(depliant) {
+							if(volets) {
+								canvas.add(line1);
+								canvas.add(line2);
+							}else {
+								canvas.add(line);
+							}
+						}
+
+					}else{
+
+						recbg = self.findObject(canvas, 'id', 'recbg');
+						gabarit = self.findObject(canvas, 'id', 'gabarit');
+						recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+						gabarit.set({evented: false, hasControls: false});
+						self.switch();
+
+						if(depliant) {
+							line  = self.findObject(canvas, 'id', 'line');
+							line1 = self.findObject(canvas, 'id', 'line1');
+							line2 = self.findObject(canvas, 'id', 'line2');
+							line.set({evented: false, hasControls: false});
+							line1.set({evented: false, hasControls: false});
+							line2.set({evented: false, hasControls: false});
+						}
+
 					}
+
+
+
+			//----------------------------------------------------------- GABARIT ROND
+	  	}else if(rond){
+
+				var rayontotal   = realhaut/2;                        // vrai rayon total
+				var rayonplateau = realhaut/2-retomb;                 // vrai rayon moins retombée
+				var pourcentage  = rayontotal/100*rayonplateau;       // calcul % rayon sans retombée
+				var rayontotalecran  = canvas.height/2-20;  // rayon total à l'écran
+				var rayonplateautecran;
+
+				if (retomb !== 0) rayonplateautecran  = rayontotalecran-(rayontotalecran*pourcentage/100);
+				else rayonplateautecran  = rayontotalecran-12;
+
+				/*console.log(rayontotal);
+				console.log(rayonplateau);
+				console.log(pourcentage);*/
+
+
+				//------------------------------------------------------ ROND POINTILLES
+				gabarit = new fabric.Circle({
+					id: 'gabarit',
+					originX: 'center',
+					originY: 'center',
+					top: center.top,
+					left: center.left,
+					fill: 'rgba(0,0,0,0)',
+					stroke: '#ccc',
+					strokeWidth: 1,
+					strokeDashArray: [10, 5],
+					radius: rayonplateautecran,
+					hasControls: false,
+					evented:false
+				});
+
+				//------------------------------------------------------------ROND BLANC
+				recbg = new fabric.Circle({
+					id: 'recbg',
+					originX: 'center',
+					originY: 'center',
+					top: center.top,
+					left: center.left,
+					fill: '#fff',
+					shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+					radius: rayontotalecran,
+					lockMovementX: true,
+					lockMovementY: true,
+					hasControls: false
+				});
+
+				if (sauvegarde == 'non' || reset == 'oui'){
+
+					canvas.add(recbg);
 					canvas.add(gabarit);
 
-					// lier les calques rect & gabarit -----------------------------------
-					function rectMouseMove(option){
-						gabarit.left = rect.gabaritLeft+ rect.left - rect.mousesDownLeft ;
-						gabarit.top = rect.gabaritTop+ rect.top- rect.mousesDownTop;
-						gabarit.setCoords();
-					}
-
-					function rectMouseDown(option){
-						rect.mousesDownLeft = rect.left;
-						rect.mousesDownTop = rect.top;
-						rect.gabaritLeft = gabarit.left;
-						rect.gabaritTop = gabarit.top;
-					}
-
-					register();
-					function register(){
-						rect.on('moving',rectMouseMove);
-						rect.on('mousedown',rectMouseDown);
-					}
-
-					// ------------------------------------------------ mode simple / avancé
-					canvas.item(0).set({lockMovementY:true, lockMovementX: true});
-
-					$(".checkbox").change(function() {
-						if(this.checked) {
-							$(".zoomButtons, .unredo").removeClass('disno');
-							$('.advanced').css({
-								color: '#26A7D9',
-								fontSize: '12px'
-							});
-							$('.advanced').text('mode avancé');
-
-							console.log($('.advanced').text());
-							canvas.item(0).set({lockMovementY:false, lockMovementX: false});
-						}else{
-							$(".zoomButtons, .unredo").addClass('disno');
-							$('.advanced').css({
-								color: '#a6a6a6',
-								fontSize: '12px'
-							});
-							$('.advanced').text('mode simple');
-							console.log($('.advanced').text());
-							canvas.item(0).set({lockMovementY:true, lockMovementX: true});
-						}
-
-			  	});
-				//////////////////////////////////////////////////////////// ORIFLAMMES //
 				}else{
-						///////////////////////////////////////////////////// ailes d'avion //
-						//--------------------------------------------------------------------
-						if ((aile1) && (verso != 'Verso')) {
-							fabric.loadSVGFromURL('svg/aile54x240cm.svg', function(objects, options) {
-						    var recbg = fabric.util.groupSVGElements(objects, options);
-						    recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-						    canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
 
-							fabric.loadSVGFromURL('svg/aile54x240cmDashed.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					recbg = self.findObject(canvas, 'id', 'recbg');
+					gabarit = self.findObject(canvas, 'id', 'gabarit');
+					recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+					gabarit.set({evented: false, hasControls: false});
 
+					self.switch();
+				}
+
+
+			//------------------------------------------------------------- ORIFLAMMES
+			}else{
+				//-------------------------------------------------------- ailes d'avion
+
+				if ((aile1) && (verso != 'Verso')) {
+					fabric.loadSVGFromURL('svg/aile54x240cm.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
-						//--------------------------------------------------------------------
-						if ((aile1) && (verso == 'Verso')) {
-							fabric.loadSVGFromURL('svg/aile54x240cmVerso.svg', function(objects, options) {
-						    var recbg = fabric.util.groupSVGElements(objects, options);
-						    recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-						    canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/aile54x240cmVersoD.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					fabric.loadSVGFromURL('svg/aile54x240cmDashed.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
 						}
-						//--------------------------------------------------------------------
-						if ((aile2) && (verso != 'Verso')){
-							fabric.loadSVGFromURL('svg/aile85x308cm.svg', function(objects, options) {
-						    var recbg = fabric.util.groupSVGElements(objects, options);
-						    recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-						    canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/aile85x308cmDashed.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+				}
+				//--------------------------------------------------------------------
+				if ((aile1) && (verso == 'Verso')) {
+					fabric.loadSVGFromURL('svg/aile54x240cmVerso.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
-						//--------------------------------------------------------------------
-						if ((aile2) && (verso == 'Verso')) {
-							fabric.loadSVGFromURL('svg/aile85x308cmVerso.svg', function(objects, options) {
-						    var recbg = fabric.util.groupSVGElements(objects, options);
-						    recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-						    canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/aile85x308cmVersoD.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					fabric.loadSVGFromURL('svg/aile54x240cmVersoD.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
 						}
-						//--------------------------------------------------------------------
-						if ((aile3) && (verso != 'Verso')) {
-							fabric.loadSVGFromURL('svg/aile85x351cm.svg', function(objects, options) {
-						    var recbg = fabric.util.groupSVGElements(objects, options);
-						    recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-						    canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
+				}
 
-							fabric.loadSVGFromURL('svg/aile85x351cmDashed.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+				//--------------------------------------------------------------------
+				if ((aile2) && (verso != 'Verso')){
+					fabric.loadSVGFromURL('svg/aile85x308cm.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
-						//--------------------------------------------------------------------
-						if ((aile3) && (verso == 'Verso')) {
-							fabric.loadSVGFromURL('svg/aile85x351cmVerso.svg', function(objects, options) {
-						    var recbg = fabric.util.groupSVGElements(objects, options);
-						    recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-						    canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/aile85x351cmVersoD.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					fabric.loadSVGFromURL('svg/aile85x308cmDashed.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
 						}
-						//--------------------------------------------------------------------
-						if ((aile4) && (verso != 'Verso')) {
-							fabric.loadSVGFromURL('svg/aile85x465cm.svg', function(objects, options) {
-						    var recbg = fabric.util.groupSVGElements(objects, options);
-						    recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-						    canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
+				}
 
-							fabric.loadSVGFromURL('svg/aile85x465cmDashed.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+				//--------------------------------------------------------------------
+				if ((aile2) && (verso == 'Verso')) {
+					fabric.loadSVGFromURL('svg/aile85x308cmVerso.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
-						//--------------------------------------------------------------------
-						if ((aile4) && (verso == 'Verso')) {
-							fabric.loadSVGFromURL('svg/aile85x465cmVerso.svg', function(objects, options) {
-						    var recbg = fabric.util.groupSVGElements(objects, options);
-						    recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-						    canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/aile85x465cmVersoD.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					fabric.loadSVGFromURL('svg/aile85x308cmVersoD.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
 						}
+					});
+				}
 
-						///////////////////////////////////////////////////// gouttes d'eau //
-						//--------------------------------------------------------------------
-						if ((goutte1) && (verso != 'Verso')) {
-							fabric.loadSVGFromURL('svg/goutte72x203cm.svg', function(objects, options) {
-								var recbg = fabric.util.groupSVGElements(objects, options);
-								recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-								canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+				//--------------------------------------------------------------------
+				if ((aile3) && (verso != 'Verso')) {
+					fabric.loadSVGFromURL('svg/aile85x351cm.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
 
-							fabric.loadSVGFromURL('svg/goutte72x203cmDashed.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
-						//--------------------------------------------------------------------
-						if ((goutte1) && (verso == 'Verso')) {
-							fabric.loadSVGFromURL('svg/goutte72x203cmVerso.svg', function(objects, options) {
-								var recbg = fabric.util.groupSVGElements(objects, options);
-								recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-								canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/goutte72x203cmVersoD.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					fabric.loadSVGFromURL('svg/aile85x351cmDashed.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
 						}
-						//--------------------------------------------------------------------
-						if ((goutte2) && (verso != 'Verso')) {
-							fabric.loadSVGFromURL('svg/goutte75x254cm.svg', function(objects, options) {
-								var recbg = fabric.util.groupSVGElements(objects, options);
-								recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-								canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
+				}
 
-							fabric.loadSVGFromURL('svg/goutte75x254cmDashed.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+				//--------------------------------------------------------------------
+				if ((aile3) && (verso == 'Verso')) {
+					fabric.loadSVGFromURL('svg/aile85x351cmVerso.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
-						//--------------------------------------------------------------------
-						if ((goutte2) && (verso == 'Verso')) {
-							fabric.loadSVGFromURL('svg/goutte75x254cmVerso.svg', function(objects, options) {
-								var recbg = fabric.util.groupSVGElements(objects, options);
-								recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-								canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/goutte75x254cmVersoD.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					fabric.loadSVGFromURL('svg/aile85x351cmVersoD.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
 						}
-						//--------------------------------------------------------------------
-						if ((goutte3) && (verso != 'Verso')) {
-							fabric.loadSVGFromURL('svg/goutte106x323cm.svg', function(objects, options) {
-								var recbg = fabric.util.groupSVGElements(objects, options);
-								recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-								canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
+				}
 
-							fabric.loadSVGFromURL('svg/goutte106x323cmDashed.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+				//--------------------------------------------------------------------
+				if ((aile4) && (verso != 'Verso')) {
+					fabric.loadSVGFromURL('svg/aile85x465cm.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
-						//--------------------------------------------------------------------
-						if ((goutte3) && (verso == 'Verso')) {
-							fabric.loadSVGFromURL('svg/goutte106x323cmVerso.svg', function(objects, options) {
-								var recbg = fabric.util.groupSVGElements(objects, options);
-								recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-								canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/goutte106x323cmVersoD.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					fabric.loadSVGFromURL('svg/aile85x465cmDashed.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
 						}
-						//--------------------------------------------------------------------
-						if ((goutte4) && (verso != 'Verso')) {
-							fabric.loadSVGFromURL('svg/goutte125x460cm.svg', function(objects, options) {
-								var recbg = fabric.util.groupSVGElements(objects, options);
-								recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-								canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
+				}
 
-							fabric.loadSVGFromURL('svg/goutte125x460cmDashed.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+				//--------------------------------------------------------------------
+				if ((aile4) && (verso == 'Verso')) {
+					fabric.loadSVGFromURL('svg/aile85x465cmVerso.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
-						//--------------------------------------------------------------------
-						if ((goutte4) && (verso == 'Verso')) {
-							fabric.loadSVGFromURL('svg/goutte125x460cmVerso.svg', function(objects, options) {
-								var recbg = fabric.util.groupSVGElements(objects, options);
-								recbg.set({
-										id: 'recbg',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										fill: '#fff',
-										lockMovementX: true,
-										lockMovementY: true,
-										hasControls: false
-									});
-								canvas.add(recbg);
-								recbg.scaleToHeight(canvas.height);
-								recbg.sendToBack();
-							});
+					});
 
-							fabric.loadSVGFromURL('svg/goutte125x460cmVersoD.svg', function(objects, options) {
-								var gabarit = fabric.util.groupSVGElements(objects, options);
-								gabarit.set({
-										id: 'gabarit',
-										originX: 'center',
-										originY: 'center',
-										top: center.top,
-										left: center.left,
-										hasControls: false,
-										lockMovementX: true,
-										lockMovementY: true,
-										evented:false
-									});
-								canvas.add(gabarit);
-								gabarit.scaleToHeight(canvas.height);
-								gabarit.bringToFront();
-							});
+					fabric.loadSVGFromURL('svg/aile85x465cmVersoD.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
+						};
+					});
+				}
+
+				//-------------------------------------------------------- gouttes d'eau
+
+				if ((goutte1) && (verso != 'Verso')) {
+					fabric.loadSVGFromURL('svg/goutte72x203cm.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						}
+					});
 
+					fabric.loadSVGFromURL('svg/goutte72x203cmDashed.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
+						}
+					});
+				}
+
+				//--------------------------------------------------------------------
+				if ((goutte1) && (verso == 'Verso')) {
+					fabric.loadSVGFromURL('svg/goutte72x203cmVerso.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+						}
+					});
+
+					fabric.loadSVGFromURL('svg/goutte72x203cmVersoD.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
+						}
+					});
+				}
+
+				//--------------------------------------------------------------------
+				if ((goutte2) && (verso != 'Verso')) {
+					fabric.loadSVGFromURL('svg/goutte75x254cm.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+						}
+					});
+
+					fabric.loadSVGFromURL('svg/goutte75x254cmDashed.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false,
+							evented:false
+						});
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
+						}
+					});
+				}
+
+				//--------------------------------------------------------------------
+				if ((goutte2) && (verso == 'Verso')) {
+					fabric.loadSVGFromURL('svg/goutte75x254cmVerso.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+						}
+					});
+
+					fabric.loadSVGFromURL('svg/goutte75x254cmVersoD.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
+						}
+					});
+				}
+
+				//--------------------------------------------------------------------
+				if ((goutte3) && (verso != 'Verso')) {
+					fabric.loadSVGFromURL('svg/goutte106x323cm.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+						}
+					});
+
+					fabric.loadSVGFromURL('svg/goutte106x323cmDashed.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
+						}
+					});
+				}
+
+				//--------------------------------------------------------------------
+				if ((goutte3) && (verso == 'Verso')) {
+					fabric.loadSVGFromURL('svg/goutte106x323cmVerso.svg', function(objects, options) {
+					  recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+						}
+					});
+
+					fabric.loadSVGFromURL('svg/goutte106x323cmVersoD.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
+						}
+					});
+				}
+
+				//--------------------------------------------------------------------
+				if ((goutte4) && (verso != 'Verso')) {
+					fabric.loadSVGFromURL('svg/goutte125x460cm.svg', function(objects, options) {
+						recbg = fabric.util.groupSVGElements(objects, options);
+						recbg.set({
+							id: 'recbg',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#fff',
+							shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+							lockMovementX: true,
+							lockMovementY: true,
+							hasControls: false
+						});
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(recbg);
+							recbg.scaleToHeight(canvas.height);
+							//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+						}
+					});
+
+					fabric.loadSVGFromURL('svg/goutte125x460cmDashed.svg', function(objects, options) {
+						gabarit = fabric.util.groupSVGElements(objects, options);
+						gabarit.set({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							hasControls: false,
+							lockMovementX: true,
+							lockMovementY: true,
+							evented:false
+						});
+						if (sauvegarde == 'non' || reset == 'oui'){
+							canvas.add(gabarit);
+							gabarit.scaleToHeight(canvas.height);
+							gabarit.bringToFront();
+						}
+					});
+				}
+				//--------------------------------------------------------------------
+				if ((goutte4) && (verso == 'Verso')) {
+						fabric.loadSVGFromURL('svg/goutte125x460cmVerso.svg', function(objects, options) {
+							recbg = fabric.util.groupSVGElements(objects, options);
+							recbg.set({
+									id: 'recbg',
+									originX: 'center',
+									originY: 'center',
+									top: center.top,
+									left: center.left,
+									fill: '#fff',
+									shadow: 'rgba(0,0,0,0.4) 0px 0px 5px',
+									lockMovementX: true,
+									lockMovementY: true,
+									hasControls: false
+								});
+								if (sauvegarde == 'non' || reset == 'oui'){
+									canvas.add(recbg);
+									recbg.scaleToHeight(canvas.height);
+									//recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
+								}
+						});
+
+						fabric.loadSVGFromURL('svg/goutte125x460cmVersoD.svg', function(objects, options) {
+							gabarit = fabric.util.groupSVGElements(objects, options);
+							gabarit.set({
+									id: 'gabarit',
+									originX: 'center',
+									originY: 'center',
+									top: center.top,
+									left: center.left,
+									hasControls: false,
+									lockMovementX: true,
+									lockMovementY: true,
+									evented:false
+								});
+
+								if (sauvegarde == 'non' || reset == 'oui'){
+									canvas.add(gabarit);
+									gabarit.scaleToHeight(canvas.height);
+									gabarit.bringToFront();
+								}
+						});
 					}
 
-			//}
+					//self.bgMove();
+					//self.switch();
 
+				} // fin oriflammes
+			//------------------------------------------------------------------------
       return {width:w,height:h};
     };
 
@@ -1431,7 +1919,7 @@ angular.module('common.fabric', [
         h = img.height;
         w = img.width;
 
-        return {width:w,height:h}
+        return {width:w,height:h};
     };
 
     // ========================================================================= CHECK BG
@@ -1452,7 +1940,7 @@ angular.module('common.fabric', [
 
 		self.selectA = function (){
 				canvas.deactivateAll();
-				//canvas.item(0).set({lockMovementY:false, lockMovementX: false});
+
 				var objs = canvas.getObjects().map(function(o) {
 					return o.set('active', true);
 				});
@@ -1467,7 +1955,7 @@ angular.module('common.fabric', [
 		}
 
 		self.relock = function () {
-			canvas.item(0).set({lockMovementY:true, lockMovementX: true});
+			self.findObject(canvas, 'id', 'recbg').set({lockMovementY:true, lockMovementX: true});
 		}
 
     // ========================================================================= CALQUES
@@ -1476,7 +1964,11 @@ angular.module('common.fabric', [
       var layers = [];
 
       $.each(canvas.getObjects(), function (index,value) {
-					layers.push({"id": "Layer "+(index+1), "src":self.convertToSVG(value), "object":value});
+					layers.push({
+						"id": "calque "+(index+1),
+						"src":self.convertToSVG(value),
+						"object":value
+					});
       });
 
       return layers.reverse();
@@ -1484,7 +1976,10 @@ angular.module('common.fabric', [
     };
 
     self.convertToSVG = function (value){
-      return value.toDataURL();
+      return value.toDataURL({
+				format: 'jpg',
+				multiplier: .5
+			});
     };
 
 
@@ -1524,6 +2019,12 @@ angular.module('common.fabric', [
 							height: h
 					})
 				);
+				object.bringForward();
+
+				var gaba = self.findObject(canvas, 'id', 'gabarit');
+				canvas.bringToFront(gaba);
+				gaba.set({evented: false});
+				self.render();
 			});
 		}
 
@@ -1553,85 +2054,88 @@ angular.module('common.fabric', [
 				var dep = produit.indexOf('Depliants') > -1;
 				var cat = produit.indexOf('Cartes') > -1;
 				var sti = produit.indexOf('Sticker') > -1;
-				console.log(produit);
 
 				//---------------------------------------------------------------------- grand formats
 				if (!min && !fly && !dep && !cat && !sti) {
-					//------------ Afficher les images proportionnellement à leur résolution
-					if ((object.width >= canvas.width) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width-60);
-					}
-					if ((object.height >= canvas.height) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height-60);
-					}
-					//----------------------------------------------------scale horizontal
-					if ((object.width <= 3500) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/1.2);
-					}
-					if ((object.width <= 3000) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/1.4);
-					}
-					if ((object.width <= 2500) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/1.8);
-					}
-					if ((object.width <= 2000) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/2);
-					}
-					if ((object.width <= 1600) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/3);
-					}
-					if ((object.width <= 800) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/6);
-					}
-					if ((object.width <= 400) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/15);
-					}
-					if ((object.width <= 200) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/20);
-					}
-					if ((object.width <= 100) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/30);
-					}
-					if ((object.width <= 50) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/50);
-					}
-					if ((object.width <= 25) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/100);
-					}
-					//------------------------------------------------------scale vertical
-					if ((object.height <= 3500) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/1.2);
-					}
-					if ((object.height <= 3000) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/1.4);
-					}
-					if ((object.height <= 2500) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/1.8);					}
+					// si la largeur est inférieure à 1.5 x hauteur, on cale l'img sur la hauteur du canvas
+					if (object.width <= object.height*1.5){
 
-					if ((object.height <= 2400) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/2);
+						object.scaleToHeight(canvas.height-50);
+
+						//------------------------------------------------------scale vertical
+						if (object.height <= 3500) {
+							object.scaleToHeight(canvas.height/1.2);
+						}
+						if (object.height <= 3000) {
+							object.scaleToHeight(canvas.height/1.4);
+						}
+						if (object.height <= 2500) {
+							object.scaleToHeight(canvas.height/1.8);					}
+
+						if (object.height <= 2400) {
+							object.scaleToHeight(canvas.height/2);
+						}
+						if (object.height <= 1600) {
+							object.scaleToHeight(canvas.height/3);
+						}
+						if (object.height <= 800) {
+							object.scaleToHeight(canvas.height/6);
+						}
+						if (object.height <= 400) {
+							object.scaleToHeight(canvas.height/15);
+						}
+						if (object.height <= 200) {
+							object.scaleToHeight(canvas.height/20);
+						}
+						if (object.height <= 100) {
+							object.scaleToHeight(canvas.height/30);
+						}
+						if (object.height <= 50) {
+							object.scaleToHeight(canvas.height/50);
+						}
+						if (object.height <= 25) {
+							object.scaleToHeight(canvas.height/100);
+						}
+
+					}else { // si largeur + gde, img calée sur la largeur du canvas
+						object.scaleToWidth(canvas.width-50);
+
+						//----------------------------------------------------scale horizontal
+						if (object.width <= 3500) {
+							object.scaleToWidth(canvas.width/1.2);
+						}
+						if (object.width <= 3000) {
+							object.scaleToWidth(canvas.width/1.4);
+						}
+						if (object.width <= 2500) {
+							object.scaleToWidth(canvas.width/1.8);
+						}
+						if (object.width <= 2000) {
+							object.scaleToWidth(canvas.width/2);
+						}
+						if (object.width <= 1600) {
+							object.scaleToWidth(canvas.width/3);
+						}
+						if (object.width <= 800) {
+							object.scaleToWidth(canvas.width/6);
+						}
+						if (object.width <= 400) {
+							object.scaleToWidth(canvas.width/15);
+						}
+						if (object.width <= 200) {
+							object.scaleToWidth(canvas.width/20);
+						}
+						if (object.width <= 100) {
+							object.scaleToWidth(canvas.width/30);
+						}
+						if (object.width <= 50) {
+							object.scaleToWidth(canvas.width/50);
+						}
+						if (object.width <= 25) {
+							object.scaleToWidth(canvas.width/100);
+						}
 					}
-					if ((object.height <= 1600) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/3);
-					}
-					if ((object.height <= 800) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/6);
-					}
-					if ((object.height <= 400) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/15);
-					}
-					if ((object.height <= 200) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/20);
-					}
-					if ((object.height <= 100) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/30);
-					}
-					if ((object.height <= 50) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/50);
-					}
-					if ((object.height <= 25) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/100);
-					}
+
 					//--------------------------- si résolution trop petite, avertissement
 					if((object.width <= 800) || (object.height <= 800)){
 							if (!confirm('l\'image que vous avez sélectionné semble être de trop petite pour une impression grand format. Etes-vous sur de vouloir continuer ?')) {
@@ -1646,62 +2150,79 @@ angular.module('common.fabric', [
 
 				//---------------------------------------------------------------------- Petits formats
 				}else{
-					//---------- Afficher les images proportionnellement à leur résolution
-					if ((object.width >= canvas.width) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width-60);
-					}
-					if ((object.height >= canvas.height) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height-60);
-					}
-					//----------------------------------------------------scale horizontal
-					if ((object.width <= 1600) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/1.5);
-					}
-					if ((object.width <= 800) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/2);
-					}
-					if ((object.width <= 400) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/4);
-					}
-					if ((object.width <= 200) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/8);
-					}
-					if ((object.width <= 100) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/16);
-					}
-					if ((object.width <= 50) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/32);
-					}
-					if ((object.width <= 25) && (object.width >= object.height)) {
-						object.scaleToWidth(canvas.width/64);
-					}
-					//------------------------------------------------------scale vertical
-					if ((object.height <= 1600) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/1.5);
-					}
-					if ((object.height <= 800) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/2);
-					}
-					if ((object.height <= 400) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/4);
-					}
-					if ((object.height <= 200) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/8);
-					}
-					if ((object.height <= 100) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/16);
-					}
-					if ((object.height <= 50) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/32);
-					}
-					if ((object.height <= 25) && (object.height > object.width)) {
-						object.scaleToHeight(canvas.height/64);
+					// si la largeur est inférieure à 1.5 x hauteur, on cale l'img sur la hauteur du canvas
+					if (object.width <= object.height*1.5){
+						object.scaleToHeight(canvas.height-50);
+
+						//------------------------------------------------------scale vertical
+						if (object.height <= 1600) {
+							object.scaleToHeight(canvas.height/1.5);
+						}
+						if (object.height <= 800) {
+							object.scaleToHeight(canvas.height/2);
+						}
+						if (object.height <= 400) {
+							object.scaleToHeight(canvas.height/4);
+						}
+						if (object.height <= 200) {
+							object.scaleToHeight(canvas.height/8);
+						}
+						if (object.height <= 100) {
+							object.scaleToHeight(canvas.height/16);
+						}
+						if (object.height <= 50) {
+							object.scaleToHeight(canvas.height/32);
+						}
+						if (object.height <= 25) {
+							object.scaleToHeight(canvas.height/64);
+						}
+					}else { // si largeur + gde, img calée sur la largeur du canvas
+						object.scaleToWidth(canvas.width-50);
+
+						//----------------------------------------------------scale horizontal
+						if (object.width <= 1600) {
+							object.scaleToWidth(canvas.width/1.5);
+						}
+						if (object.width <= 800) {
+							object.scaleToWidth(canvas.width/2);
+						}
+						if (object.width <= 400) {
+							object.scaleToWidth(canvas.width/4);
+						}
+						if (object.width <= 200) {
+							object.scaleToWidth(canvas.width/8);
+						}
+						if (object.width <= 100) {
+							object.scaleToWidth(canvas.width/16);
+						}
+						if (object.width <= 50) {
+							object.scaleToWidth(canvas.width/32);
+						}
+						if (object.width <= 25) {
+							object.scaleToWidth(canvas.width/64);
+						}
 					}
 
 					self.addObjectToCanvas(object);
 				}
 				//canvas.deactivateAll().renderAll();
+
+
 				var br = object.getBoundingRect();
+				var mult = 10;
+
+				if (xsmall) {
+					mult = 12;
+				}
+				if (small) {
+					mult = 11;
+				}
+				if (medium) {
+					mult = 10;
+				}
+				if (large) {
+					mult = 8;
+				}
 
 				var newimg = canvas.getActiveObject().toDataURL({
 					format: 'jpeg',
@@ -1710,7 +2231,7 @@ angular.module('common.fabric', [
 					top: 11,
 					width: br.width-22,
 					height: br.height-22,
-					multiplier: 12
+					multiplier: mult
 				});
 
 				canvas.remove(object);
@@ -1750,12 +2271,14 @@ angular.module('common.fabric', [
 			fabric.loadSVGFromURL(svgURL, function (objects, options) {
 				var newOptions = self.merge_options(options,self.shapeDefaults);
 				var object = fabric.util.groupSVGElements(objects, newOptions);
+
 				object.id = self.createId();
+
 
 				for (var p in self.shapeDefaults) {
 					object[p] = self.shapeDefaults[p];
 				}
-
+				object.scaleToHeight(canvas.height/3.5);
 				/*if (object.isSameColor && object.isSameColor() || !object.paths) {
 					object.setFill('#000000');
 				} else if (object.paths) {
@@ -1763,7 +2286,6 @@ angular.module('common.fabric', [
 						object.paths[i].setFill(object.paths[i].fill);
 					}
 				}*/
-				object.globalCompositeOperation = 'source-atop';
 				self.addObjectToCanvas(object);
 
 			});
@@ -1867,38 +2389,55 @@ angular.module('common.fabric', [
 		// Text
 		// ========================================================================= TEXT
 		self.addText = function(str) {
-			str = str || 'New Text';
-
+			str = str || 'Votre Texte...';
+			str = str.replace(/^"/g, "«").replace(/"$/g, "»");
+			str = str.replace(/ "/g, " «").replace(/" /g, "» ");
 			var object = new FabricWindow.Text(str, self.textDefaults);
-			object.id = self.createId();
+      object.id = self.createId();
 			object.globalCompositeOperation = 'source-atop';
-			self.addObjectToCanvas(object);
+      self.addObjectToCanvas(object);
+
+			/*let strArr = str.split('\n');
+			var n = 0;
+				strArr.forEach(s => {
+						n++;
+				    let object = new FabricWindow.Text(s, self.textDefaults);
+				    object.id = self.createId(); //you should probably start using es6 arrow syntax to avoid having to use self
+						object.globalCompositeOperation = 'source-atop';
+				    self.addObjectToCanvas(object, n);
+			})*/
 
 		};
 
     // ========================================================================= Curved Text
     self.addCurvedText = function(str) {
-        str = str || 'Curved Text';
-
-        var CurvedText = new FabricWindow.CurvedText(str, self.textDefaults);
-        CurvedText.id = self.createId();
-        self.addObjectToCanvas(CurvedText);
+      str = str || 'Texte incurvé';
+			str = str.replace(/^"/, "«").replace(/"$/, "»");
+			str = str.replace(/ "/g, " «").replace(/" /g, "» ");
+			str = str.replace(/\n"/g, '\n«').replace(/"\n/g, "»\n");
+      var CurvedText = new FabricWindow.CurvedText(str, self.textDefaults);
+      CurvedText.id = self.createId();
+			CurvedText.globalCompositeOperation = 'source-atop';
+      self.addObjectToCanvas(CurvedText);
     };
 
 		self.getText = function() {
-                return getActiveProp('text');
-        };
+        return getActiveProp('text');
+    };
 
 		self.setText = function(value) {
-            var obj = canvas.getActiveObject();
-            if(obj != null) {
-                if (/text/.test(obj.type)) {
-                    setActiveProp('text', value);
-                } else {
-                    obj.setText(value);
-                    canvas.renderAll();
-                }
-            }
+			value = value.replace(/^"/, "«").replace(/"$/, "»");
+			value = value.replace(/ "/g, " «").replace(/" /g, "» ");
+			value = value.replace(/\n"/g, '\n«').replace(/"\n/g, "»\n");
+      var obj = canvas.getActiveObject();
+      if(obj != null) {
+          if (/text/.test(obj.type)) {
+              setActiveProp('text', value);
+          } else {
+              obj.setText(value);
+              canvas.renderAll();
+          }
+      }
 		};
 
     self.merge_options = function (obj1,obj2){
@@ -2181,7 +2720,12 @@ angular.module('common.fabric', [
 		// ========================================================================= Align Active Object
 		self.center = function() {
 			var activeObject = canvas.getActiveObject();
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+			var gabarit = self.findObject(canvas, 'id', 'gabarit');
 			if (activeObject) {
+				if (activeObject == recbg) {	// si l'objet sélectionnné est le gabarit, centrer avec le calque en pointillés
+					gabarit.center();
+				}
 				activeObject.center();
 				self.updateActiveObjectOriginals();
 				self.render();
@@ -2190,7 +2734,12 @@ angular.module('common.fabric', [
 
 		self.centerH = function() {
 			var activeObject = canvas.getActiveObject();
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+			var gabarit = self.findObject(canvas, 'id', 'gabarit');
 			if (activeObject) {
+				if (activeObject == recbg) {	// si l'objet sélectionnné est le gabarit, centrer avec le calque en pointillé
+					gabarit.centerH();
+				}
 				activeObject.centerH();
 				self.updateActiveObjectOriginals();
 				self.render();
@@ -2199,7 +2748,12 @@ angular.module('common.fabric', [
 
 		self.centerV = function() {
 			var activeObject = canvas.getActiveObject();
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+			var gabarit = self.findObject(canvas, 'id', 'gabarit');
 			if (activeObject) {
+				if (activeObject == recbg) {	// si l'objet sélectionnné est le gabarit, centrer avec le calque en pointillé
+					gabarit.centerV();
+				}
 				activeObject.centerV();
 				self.updateActiveObjectOriginals();
 				self.render();
@@ -2209,7 +2763,9 @@ angular.module('common.fabric', [
 		// =========================================================================  Active Object Layer Position
 		self.sendBackwards = function() {
 			var activeObject = canvas.getActiveObject();
-			if (activeObject) {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+
+			if (activeObject != recbg) {
 				canvas.sendBackwards(activeObject);
 				self.render();
 			}
@@ -2217,15 +2773,29 @@ angular.module('common.fabric', [
 
     // ========================================================================= Object Layer Position
     self.objectSendBackwards = function(activeObj) {
-        if (activeObj != canvas.item(0)) {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+
+			if (activeObj != recbg) {
             canvas.sendBackwards(activeObj);
+            self.render();
+        }
+    };
+
+		self.objectBringForward = function(activeObj) {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+
+			if (activeObj != recbg) {
+            canvas.bringForward(activeObj);
             self.render();
         }
     };
 
 		self.sendToBack = function() {
 			var activeObject = canvas.getActiveObject();
-			if (activeObject != canvas.item(0)) {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+
+			if (activeObject != recbg) {
+				canvas.bringForward(activeObject);
 				canvas.sendToBack(activeObject);
 				self.render();
 			}
@@ -2233,22 +2803,19 @@ angular.module('common.fabric', [
 
 		self.bringForward = function() {
 			var activeObject = canvas.getActiveObject();
-			if (activeObject != canvas.item(0)) {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+
+			if (activeObject != recbg) {
 				canvas.bringForward(activeObject);
 				self.render();
 			}
 		};
 
-    self.objectBringForward = function(activeObj) {
-        if (activeObj != canvas.item(0)) {
-            canvas.bringForward(activeObj);
-            self.render();
-        }
-    };
-
 		self.bringToFront = function() {
 			var activeObject = canvas.getActiveObject();
-			if (activeObject != canvas.item(0)) {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+
+			if (activeObject != recbg) {
 				canvas.bringToFront(activeObject);
 				self.render();
 			}
@@ -2373,7 +2940,7 @@ angular.module('common.fabric', [
 				scaleY: y*SCALE_FACTOR,
 				scaleX: x*SCALE_FACTOR
 			})
-			canvas.setActiveGroup(group.setCoords()).renderAll();
+			canvas.setActiveGroup(group.setCoords()).deactivateAll().renderAll();
     };
 
     // Zoom Out
@@ -2397,7 +2964,7 @@ angular.module('common.fabric', [
 				scaleY: y/SCALE_FACTOR,
 				scaleX: x/SCALE_FACTOR
 			})
-			canvas.setActiveGroup(group.setCoords()).renderAll();
+			canvas.setActiveGroup(group.setCoords()).deactivateAll().renderAll();
 
     };
 
@@ -2447,8 +3014,32 @@ angular.module('common.fabric', [
 				originX: 'center',
 				originY: 'center'
 			});
-			canvas.setActiveGroup(group.setCoords()).renderAll();
+			canvas.setActiveGroup(group.setCoords()).deactivateAll().renderAll();
 		};
+
+		// Zoom global -------------------------------------------------------------
+
+		self.glzoomIn = function() {
+			if (canvas.getWidth() < 1024) {
+				canvas.setHeight(canvas.getHeight() * 1.1);
+				canvas.setWidth(canvas.getWidth() * 1.1);
+
+			}
+
+			canvas.renderAll();
+		}
+		self.glzoomOut = function() {
+			canvas.setHeight(canvas.getHeight() * 0.9);
+			canvas.setWidth(canvas.getWidth() * 0.9);
+
+			canvas.renderAll();
+		}
+		self.glresetZoom = function() {
+			self.canvasScale = 1;
+			self.setZoom(1.0);
+			canvas.renderAll();
+		}
+
 
 		// Canvas Zoom
 		// =========================================================================
@@ -2642,7 +3233,10 @@ angular.module('common.fabric', [
 		self.deleteActiveObject = function() {
 			var activeObject = canvas.getActiveObject();
 			// permettre de supprimer l'objet si l'objet n'est pas le gabarit :
-			if (activeObject != canvas.item(0)) {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+			var gabarit = self.findObject(canvas, 'id', 'gabarit');
+
+			if (activeObject !== recbg && activeObject !== gabarit) {
 				canvas.remove(activeObject);
 			}
 			self.render();
@@ -2653,7 +3247,10 @@ angular.module('common.fabric', [
 		// ============================================================
 
 		self.deleteObject = function(activeObj) {
-			if (activeObj != canvas.item(0)) {
+			var recbg = self.findObject(canvas, 'id', 'recbg');
+			var gabarit = self.findObject(canvas, 'id', 'gabarit');
+
+			if (activeObj !== recbg && activeObj !== gabarit) {
 				canvas.remove(activeObj);
 			}
 		    self.render();
@@ -2688,40 +3285,61 @@ angular.module('common.fabric', [
 
 
 
-		// =======================================================================================================================================================
-		//                                                                                                                                                  EXPORT
-		// =======================================================================================================================================================
+		//==========================================================================                                                            //          										  EXPORT
+		//==========================================================================
 		self.prepSave = function() {
 			canvas.deactivateAll().renderAll();
-			// ==================================== enlever le gabarit en pointillés
+			// ==================================== enlever les elements gabarit inutiles au print
 
-			function findObjectWithPropertyValue(canvas, propertyName, propertyValue) {
-				var condition = {};
-				condition[propertyName] = propertyValue;
-				return _(canvas.getObjects()).filter( condition ).first()
-			}
-			var gaba = findObjectWithPropertyValue(canvas, 'id', 'gabarit');
-			canvas.remove(gaba);
+			var gabarit   = self.findObject(canvas, 'id', 'gabarit');
+			var rolltop   = self.findObject(canvas, 'id', 'rolltop');
+			var rollbot   = self.findObject(canvas, 'id', 'rollbot');
+			var rollfoot1 = self.findObject(canvas, 'id', 'rollfoot1');
+			var rollfoot2 = self.findObject(canvas, 'id', 'rollfoot2');
+			var line      = self.findObject(canvas, 'id', 'line');
+			var line1     = self.findObject(canvas, 'id', 'line1');
+			var line2     = self.findObject(canvas, 'id', 'line2');
+
+			canvas.remove(gabarit);
+			canvas.remove(rolltop);
+			canvas.remove(rollbot);
+			canvas.remove(rollfoot1);
+			canvas.remove(rollfoot2);
+			canvas.remove(line);
+			canvas.remove(line1);
+			canvas.remove(line2);
 
 			// ====================================== récupérer la taille de l'objet
 
-			var obj = canvas.item(0);
+			var obj = self.findObject(canvas, 'id', 'recbg');
 			var hauteur = obj.height;
 			var largeur = obj.width;
 			var br = obj.getBoundingRect();
 
-			if( br.width > canvas.width+40 || br.height > canvas.height+40) {
-				alert('Votre maquette déborde de l\'espace de travail. Elle va être repositionnée automatiquement, mais pour éviter tout éventuel décalage il est conseillé de faire un reset zoom avant d\'enregistrer. ');
+			/*if( br.width > canvas.width || br.height > canvas.height || br.height < canvas.height - 50)  {
 				self.resetZoooom();
-			}else if(br.top - obj.cornerSize  <  0 - 40 || br.left - obj.cornerSize  < 0 - 40 || br.top+br.height + obj.cornerSize > obj.canvas.height + 40 || br.left+br.width + obj.cornerSize > obj.canvas.width + 40) {
-				alert('Votre maquette déborde de l\'espace de travail. Elle va être repositionnée automatiquement, mais pour éviter tout éventuel décalage il est conseillé de veiller à ce que votre maquette soit entièrement visible dans l\'espace de travail avant d\'enregistrer. ');
+			}*/
+
+			/*if(br.top - obj.cornerSize  <  0 || br.left - obj.cornerSize  < 0 || br.top+br.height + obj.cornerSize > obj.canvas.height || br.left+br.width + obj.cornerSize > obj.canvas.width) {
 				self.resetZoooom();
-			}
+			}*/
+
+			//canvas.deactivateAll().renderAll();
 		}
 
 
 		// ========================================================================= JSON
 		self.sauvegarder = function() {
+			var obj = self.findObject(canvas, 'id', 'recbg');
+			var hauteur = obj.height;
+			var largeur = obj.width;
+			var br = obj.getBoundingRect();
+
+			if( br.width > canvas.width || br.height > canvas.height) {
+				self.resetZoooom();
+			}
+
+			self.setDirty(false);
 			return JSON.stringify(canvas.toJSON(self.JSONExportProperties));
 		};
 
@@ -2783,7 +3401,7 @@ angular.module('common.fabric', [
 		    window.open(svg);
 		};
 
-		// ========================================================================= SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG SVG
+		// ========================================================================= SVG
 
 		self.saveCanvasObjectAsSvg = function() {
 				//canvas.width = largeur;
@@ -2832,11 +3450,24 @@ angular.module('common.fabric', [
 
 		// ========================================================================= JPG
 		self.saveCanvasObjectAsJpg = function() {
-
 				self.prepSave();
-				var obj = canvas.item(0);
+				self.setDirty(false);
+				var obj = self.findObject(canvas, 'id', 'recbg');
 				var br = obj.getBoundingRect();
-				// if object is too big ignore
+				var mult = 14;
+
+				// si le canvas dépasse 840x580 max:13 pour ffx et 14 pour chrome
+				if (canvas.height < 580 && canvas.width < 840) {
+					mult = 16;
+				}
+				if (navigator.userAgent.indexOf("Firefox") != -1)  {
+					mult = 13;
+					// max 10 pour firefox en écran large
+					if (canvas.height > 609 && canvas.width > 1129) {
+						mult = 10;
+					}
+				}
+				//----------------------------------------------------------------------
 
 		    var jpeg = canvas.toDataURL({
 		      format: 'jpeg',
@@ -2845,15 +3476,15 @@ angular.module('common.fabric', [
 					top: br.top+11,
 					width: br.width-22,
 					height: br.height-22,
-					multiplier: 16
+					multiplier: mult
 		    });
 
 		    return jpeg;
 		};
 
-		// =====================================================================================================================================================
-		// 																																																																							DOWNLOAD
-		// =====================================================================================================================================================
+		// =========================================================================
+		//                     		DOWNLOAD
+		//==========================================================================
 
 		// ========================================================================= PNG
 		self.downloadCanvasObject = function() {
@@ -3084,6 +3715,15 @@ angular.module('common.fabric', [
 
 			canvas.on('object:selected', function() {
 				self.stopContinuousRendering();
+
+				//----------- correction bug gabarit pointillé actif qd il y a une image
+				var gaba = self.findObject(canvas, 'id', 'gabarit');
+				var recbg = self.findObject(canvas, 'id', 'recbg');
+				canvas.bringToFront(gaba);
+				gaba.set({hasControls: false, evented: false});
+				recbg.set({hasControls: false});
+				//----------------------------------------------------------------------
+
 				$timeout(function() {
 					self.selectActiveObject();
 					self.setDirty(true);
@@ -3290,19 +3930,23 @@ angular.module('common.fabric', [
 		// Constructor
 		// ==============================================================
 		self.init = function() {
-      var winWidth = $(window).width();
 			canvas = FabricCanvas.getCanvas();
-      var canvasW = 836;
-			var canvasH = 540;
+      var canvasW = winWidth/1.36;
+			var canvasH = winHeight-130;
+			console.log('window:' +winWidth+ 'x' +winHeight);
+			console.log('canvas:' +canvasW+ 'x' +canvasH);
+			//------------------------------------------------------------------------
+
+
+			//------------------------------------------------------------------------
+
 			self.canvasId = FabricCanvas.getCanvasId();
 			canvas.clear();
-            if(winWidth < 400) {
-							var canvasW = 380;
-							var canvasH = 380;
-            }else if(winWidth < 600){
-							var canvasW = 580;
-							var canvasH = 580;
-            }
+
+			if(winWidth < 990){
+				var canvasW = winWidth-20;
+				var canvasH = 580;
+      }
 
 			// For easily accessing the json
 			JSONObject = angular.fromJson(self.json);

@@ -13,6 +13,10 @@
 }
 // ------------------------------------------------------------------------960px
 @media(max-width: 960px) {
+  .disno960 {
+    display: none;
+  }
+
   ul#tarifs, ul#tarifs2 {
     li {
       .micro a {
@@ -75,10 +79,6 @@
   }
   // ---------------------------------------------------------------------------
 
-  #banners {
-    margin-top: 0;
-  }
-
   .disno960{
     display: none;
   }
@@ -90,7 +90,8 @@
   // invisible -----------------------------------------------------------------
 
   .disno760,
-  .textHide{
+  .textHide,
+  .otip {
     display: none;
   }
   .blocPromo {
@@ -110,95 +111,6 @@
     }
   }
 
-
-  //----------------------------------------------------------------------------
-  //                             HEADER
-  //----------------------------------------------------------------------------
-
-  header {
-    height:300px;
-    background-image: url('../images/mobile480.png');
-    background-size: cover;
-  }
-
-  // logo ----------------------------------------------------------------------
-
-  a#logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 25%;
-    height: 280px;
-    vertical-align: bottom;
-  }
-
-  //  titre site ---------------------------------------------------------------
-
-  .site-head{
-    width: 68%;
-    top: 100px;
-    left: 27%;
-    letter-spacing: 1px;
-    .site-title{
-      font-size: 2.6rem;
-      line-height: 2.8rem;
-    }
-    .site-subtitle{
-      padding: 0 5px;
-      font-size: 1.2rem;
-      line-height: 1.4rem;
-      margin: 2px 0 0 -2px;
-    }
-  }
-
-  // log info ------------------------------------------------------------------
-
-  .log_info {
-    display: block;
-    position: absolute;
-    width: auto;
-    margin-top: 0;
-    padding: 0 1rem;
-    padding-right: 2.5rem;
-    margin-bottom: 0;
-    top: 0;
-    left: -1rem ;
-
-  }
-
-  // menu accès client ---------------------------------------------------------
-
-  ul.menu-client{
-    @include container (90%);
-    font-size: .8rem;
-    line-height: 1.4rem;
-    top:140px;
-    left:0;
-    height:80px;
-    li{
-      height: 60px;
-    }
-   .menu-client-icon {
-      font-size: 3rem;
-    }
-    .menu-client-icon.phone {
-      padding-right: 10px;
-      padding-top: 10px;
-    }
-    .menu-client-phone{
-      padding-left: 10px;
-    }
-    .tel1{
-      font-size: 1rem;
-    }
-    .tel2 {
-      font-size: 1.3rem;
-    }
-    .tel3 {
-      font-size: .7rem;
-      text-align: right;
-    }
-  }
 
   //----------------------------------------------------------------------------
   //                            PAGE ACCUEIL
@@ -559,12 +471,11 @@
     margin-top: 0;
     margin-bottom: 20px;
     .banner1 {
-      width: 69%;
-      float: left;
+      width: 100%;
     }
     .banner2 {
-      width: 29%;
-      float: right;
+      margin-top: 15px;
+      width: 100%;
     }
   }
 

@@ -7,9 +7,6 @@
     display: none;
   }
 
-  a#logo {
-    top: 40px;
-  }
   .jotform-form .label-highlight {
     padding-left: .3rem;
   }
@@ -36,10 +33,7 @@
       width: 100%;
       float: none;
     }
-    .banner2 {
-      width: 60%;
-      float: none;
-    }
+
   }
 
   #buying{
@@ -74,6 +68,7 @@
         border: 0;
       }
       &.tddesc {
+        padding-top: 5px;
         text-align: center;
 
       }
@@ -112,6 +107,8 @@
   .votre_tab_active,
   .votre_tab_inactive {
     border-bottom: 0;
+    font-size: .78rem;
+    height: 55px;
   }
 
   //----------------------------------------------------------------------------
@@ -179,32 +176,24 @@
   }
 
   // grille --------------------------------------------------------------------
+  #wycena, #estimationTitre, .delivery-date{
+    margin-top: 15px;
+  }
 
   #buying,
-  #wycena_nag,
-  #wycena_suma,
+  #wycena_nag, #estimationTitre,
+  #wycena_suma, #estimationPrix
   #dodaj_koszyk {
     @include span(12);
     padding-left: 0;
     padding-right: 0;
   }
-  #wycena,
+  #wycena, #estimation,
   .dateLivraison {
     float: none;
     width: 100%;
+    border: none;
   }
-
-  header {
-    height:300px;
-    background-image: url('../images/mobile480b.png');
-    width: 100%;
-    background-size: contain;
-  }
-
-
-  //----------------------------------------------------------------------------
-  //                             HEADER
-  //----------------------------------------------------------------------------
 
 
   button#responsive-menu-button {
@@ -213,65 +202,11 @@
     margin: 0;
   }
 
-  // logo ----------------------------------------------------------------------
 
-  a#logo {
-    top: 80px;
-    left: 10px;
-    width: 22%;
-    height: 200px;
-  }
 
-  //  titre site ---------------------------------------------------------------
-
-  .site-head{
-    top: 120px;
-    left: 24%;
-    width: 71%;
-    .site-title{
-      font-size: 2.2rem;
-      line-height: 2.2rem;
-    }
-    .site-subtitle{
-      padding: 0 4px;
-      font-size: .8rem;
-      line-height: .85rem;
-    }
-  }
 
   // menu accès client ---------------------------------------------------------
 
-  ul.menu-client{
-    font-size: .7rem;
-    line-height: 1.1rem;
-    top:150px;
-    height:80px;
-    li{
-      height: 60px;
-    }
-   .menu-client-icon {
-      display: block;
-      font-size: 3rem;
-      color: $cyan;
-    }
-    .menu-client-icon.phone {
-      padding-right: 10px;
-      padding-top: 10px;
-    }
-    .menu-client-phone{
-      padding-left: 10px;
-    }
-    .tel1{
-      font-size: 1rem;
-    }
-    .tel2 {
-      font-size: 1.3rem;
-    }
-    .tel3 {
-      font-size: .7rem;
-      text-align: right;
-    }
-  }
 
   //----------------------------------------------------------------------------
   //                           PAGES PRODUITS

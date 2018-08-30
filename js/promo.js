@@ -8,8 +8,8 @@ jQuery(document).ready(function ($) {
   imageLeft[3] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/promoKakemono2.png" title="kakemono tissu, totem plv" alt="kakemono tissu pas cher" />';
   imageLeft[4] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/nappeLeft.png" title="nappe publicitaire" alt="nappe tissu pas cher" />';
   imageLeft[5] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/promoAile.png" title="oriflamme aile d\'avion" alt="oriflamme aile d\'avion pas cher" />';
-  /*imageLeft[4] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/promoLeftstand.png" title="Stand Expo Bag Promo" alt="Stand Promotion" />';
-  imageLeft[5] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/affichefluoLeft.png" title="Affiche fluo Promo" alt="Affiche 120gr Fluo" />';
+
+  /*imageLeft[5] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/affichefluoLeft.png" title="Affiche fluo Promo" alt="Affiche 120gr Fluo" />';
   imageLeft[6] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/affichequadriLeft.png" title="Affiche quadri" alt="Affiche 120gr dos bleu" />';*/
 
   var linkLeft = new Array ();
@@ -19,8 +19,8 @@ jQuery(document).ready(function ($) {
   linkLeft[3] = '<a href="https://www.france-banderole.com/totem" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
   linkLeft[4] = '<a href="https://www.france-banderole.com/nappes-publicitaires" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
   linkLeft[5] = '<a href="https://www.france-banderole.com/oriflammes" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
-  /*linkLeft[4] = '<a href="https://www.france-banderole.com/plv-interieur" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
-  linkLeft[5] = '<a href="https://www.france-banderole.com/promotions" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
+
+  /*linkLeft[5] = '<a href="https://www.france-banderole.com/promotions" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
   linkLeft[6] = '<a href="https://www.france-banderole.com/promotions" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';*/
 
   //--------------------------------------------------------------------- droite
@@ -30,10 +30,7 @@ jQuery(document).ready(function ($) {
   imageRight[1] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/promoTente.png" title="meilleur prix tentes publicitaires : 347€ !" alt="tente publicitaire pas cher" />';
   imageRight[2] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/promoKakemono.png" title="kakemono tissu, totem plv" alt="kakemono tissu pas cher" />';
   imageRight[3] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/nappeRight.png" title="nappe personnalisée" alt="nappe tissu pas cher" />';
-  imageRight[4] = '<img class="iz1" src="https://www.france-banderole.com/wp-content/themes/fb/images/promoSusp.png" title="nappe personnalisée" alt="enseignes suspendues textile pas cher" />';
-  /*imageRight[4] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/promoRightstand.png" title="Stand Expo Bag Promo" alt="Stand Promotion" />';
-  imageRight[5] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/affichefluoRight.png" title="Affiche fluo Promo" alt="Affiche 120gr Fluo" />';
-  imageRight[6] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/affichequadriRight.png" title="Affiche quadri" alt="Affiche 120gr dos bleu" />';*/
+  imageRight[4] = '<img class="iz1"  src="https://www.france-banderole.com/wp-content/themes/fb/images/promoCadre.png" title="Cadre tissu lumineux" alt="cadre tissu imprimé led rétro éclairé" />';
 
   var linkRight = new Array ();
   //linkRight[0] = '<a href="https://www.france-banderole.com/panneaux-akilux/ " class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
@@ -41,11 +38,8 @@ jQuery(document).ready(function ($) {
   linkRight[1] = '<a href="https://www.france-banderole.com/tente-publicitaire-barnum" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
   linkRight[2] = '<a href="https://www.france-banderole.com/totem" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
   linkRight[3] = '<a href="https://www.france-banderole.com/nappes-publicitaires" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
-  linkRight[4] = '<a href="https://www.france-banderole.com/enseigne-suspendue-textile" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
-  /*linkRight[4] = '<a href="https://www.france-banderole.com/plv-interieur" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
-  linkRight[5] = '<a href="https://www.france-banderole.com/promotions" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
-  linkRight[6] = '<a href="https://www.france-banderole.com/promotions" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
-  */
+  linkRight[4] = '<a href="https://www.france-banderole.com/cadre-tissu" class="metaButton promo">Voir <i class="fa fa-caret-right"></i></a>';
+
   //------------------------------------------------------------------ randomize
   var sizeL = imageLeft.length;
   var sizeR = imageRight.length;

@@ -1,0 +1,31 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="23px" y="2px" width="48px" height="96px" viewBox="23 2 48 96" enable-background="23 2 48 96" xml:space="preserve"><desc>Copyright Opto 22</desc> <desc>Created with Snap</desc><defs/><g id="linear" xmlns="http://www.w3.org/2000/svg">
+	<linearGradient class="linear" id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="49.0108" y1="71.0074" x2="49.0108" y2="22.5388">
+		<stop offset="0" style="stop-color:#ED1C24"></stop>
+		<stop offset="1" style="stop-color:#FCEE21"></stop>
+	</linearGradient>
+	<path class="linear" fill="url(#SVGID_1_)" d="M36.194,71.007c0,0,9.694-15.51,1.939-38.775c9.694,17.449,17.449,3.877,19.387-9.694
+		c0,0,9.694,23.265,0,48.469"></path>
+	<linearGradient class="linear" id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="58.6234" y1="96.2112" x2="58.6234" y2="37.0794">
+		<stop offset="0" style="stop-color:#ED1C24"></stop>
+		<stop offset="1" style="stop-color:#FCEE21"></stop>
+	</linearGradient>
+	<path class="linear" fill="url(#SVGID_2_)" d="M45.887,81.671C42.01,58.406,64.305,37.079,64.305,37.079c-5.816,21.326,14.541,43.622,4.847,47.499
+		c-9.694,3.877-10.663,11.632-10.663,11.632"></path>
+	<linearGradient class="linear" id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="35.1625" y1="96.2112" x2="35.1625" y2="34.1713">
+		<stop offset="0" style="stop-color:#ED1C24"></stop>
+		<stop offset="1" style="stop-color:#FCEE21"></stop>
+	</linearGradient>
+	<path class="linear" fill="url(#SVGID_3_)" d="M40.071,96.211c0,0-25.204-5.816-13.571-29.081s3.877-32.959,3.877-32.959s21.326,31.02,15.51,46.53
+		"></path>
+	<linearGradient class="linear" id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="45.2711" y1="98.1499" x2="45.2711" y2="26.4163">
+		<stop offset="0" style="stop-color:#ED1C24"></stop>
+		<stop offset="1" style="stop-color:#FCEE21"></stop>
+	</linearGradient>
+	<path class="linear" fill="url(#SVGID_4_)" d="M47.826,98.15c0,0,18.903-11.632,11.148-36.836S45.887,26.416,45.887,26.416
+		s3.877,48.469-11.632,60.101S47.826,98.15,47.826,98.15z"></path>
+	<linearGradient class="linear" id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="46.372" y1="31.2631" x2="46.372" y2="2.1819">
+		<stop offset="0" style="stop-color:#ED1C24"></stop>
+		<stop offset="1" style="stop-color:#FCEE21"></stop>
+	</linearGradient>
+	<path class="linear" fill="url(#SVGID_5_)" d="M39.102,3.636C49.28,16.723,53.642,2.182,53.642,2.182s-7.27,11.632,0,29.081"></path>
+</g></svg>

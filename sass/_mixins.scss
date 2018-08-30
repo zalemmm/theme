@@ -6,6 +6,89 @@
   }
 }
 
+//-------------------------------------------------------------hacks navigateurs
+@mixin hackChrome {
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    @content;
+  }
+}
+
+@mixin hackSafari {
+  _::-webkit-full-page-media, _:future, :root .safari_only {
+    @content;
+  }
+}
+
+@mixin hackEdge {
+  @supports (-ms-ime-align:auto) {
+    @content;
+  }
+}
+
+@mixin hackFirefox {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}
+
+@mixin hackIE {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+
+// ------------------------------------------------------------------ responsive
+@mixin x1366 {
+  @media (min-width: 1368px) {
+    @content;
+  }
+}
+@mixin s1600 {
+  @media (max-width: 1600px) {
+    @content;
+  }
+}
+@mixin s1366 {
+  @media (max-width: 1367px) {
+    @content;
+  }
+}
+@mixin s1280 {
+  @media (max-width: 1280px) {
+    @content;
+  }
+}
+@mixin s1024 {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin s960 {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+@mixin s860 {
+  @media (max-width: 860px) {
+    @content;
+  }
+}
+@mixin s740 {
+  @media (max-width: 740px) {
+    @content;
+  }
+}
+@mixin s540 {
+  @media (max-width: 540px) {
+    @content;
+  }
+}
+@mixin s480 {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
 // BOUTONS ---------------------------------------------------------------------
 
 // bouton de base
@@ -19,9 +102,10 @@
   display: inline-block;
   float: none;
   cursor: pointer;
-  box-shadow: 1px 2px 2px 0px rgba(0,0,0,0.20);
+  //box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.20);
   background: $bgcolor;
-  border: 1px solid darken($bgcolor, 7%);
+  border: 0;
+  //border: 1px solid darken($bgcolor, 7%);
   border-radius: 3px;
   color: #fff;
   font-family: $font-global;
@@ -36,7 +120,7 @@
   &:hover {
     background-image: none;
     background-color: $magenta;
-    border:1px solid darken($magenta, 7%);
+    //border:1px solid darken($magenta, 7%);
     transition: .2s;
   }
   &.deactive {
@@ -44,7 +128,48 @@
     &.active,
     &:hover {
       background: $bgcolor;
-      border:1px solid darken($bgcolor, 7%);
+      //border:1px solid darken($bgcolor, 7%);
+    }
+  }
+}
+
+@mixin buttonLine($bgcolor: $white, $largeur: 150px) {
+  position: relative;
+  width: $largeur;
+  height: 40px;
+  margin: 0 0 10px 0;
+  padding: .7rem .5rem .5rem;
+  display: inline-block;
+  float: none;
+  cursor: pointer;
+  //box-shadow: 2px 2px 8px 0px rgba(0,0,0,0.20);
+  background: $bgcolor;
+  border: 0;
+  border: 1px solid $text;
+  border-radius: 20px;
+  color: $text;
+  font-family: $font-global;
+  font-size: .9rem;
+  line-height: .9rem;
+  font-weight: normal;
+  text-align: center;
+  text-indent: 0;
+  vertical-align: middle;
+  &.active,
+  &:hover {
+    background-image: none;
+    border: none;
+    color: $white;
+    background-color: $magenta;
+    //border:1px solid darken($magenta, 7%);
+    transition: .2s;
+  }
+  &.deactive {
+    cursor: default;
+    &.active,
+    &:hover {
+      background: $bgcolor;
+      //border:1px solid darken($bgcolor, 7%);
     }
   }
 }
@@ -105,54 +230,5 @@
   line-height: .8rem;
   &:hover {
     background: $hover;
-  }
-}
-
-//-------------------------------------------------------------------hack chrome
-@mixin hackChrome {
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
-    @content;
-  }
-}
-
-// ------------------------------------------------------------------ responsive
-@mixin s1600 {
-  @media (max-width: 1600px) {
-    @content;
-  }
-}
-@mixin s1366 {
-  @media (max-width: 1366px) {
-    @content;
-  }
-}
-@mixin s1200 {
-  @media (max-width: 1200px) {
-    @content;
-  }
-}
-@mixin s1024 {
-  @media (max-width: 1024px) {
-    @content;
-  }
-}
-@mixin s960 {
-  @media (max-width: 960px) {
-    @content;
-  }
-}
-@mixin s760 {
-  @media (max-width: 760px) {
-    @content;
-  }
-}
-@mixin s540 {
-  @media (max-width: 540px) {
-    @content;
-  }
-}
-@mixin s480 {
-  @media (max-width: 480px) {
-    @content;
   }
 }

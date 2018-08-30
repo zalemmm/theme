@@ -35,9 +35,12 @@
       "drawing_line_shadow" : 0,
       "primaryColor" : "#26a7d9",
       "secondaryColor" : "#ffffff",
-      "graphicsCategory": "Shapes",
+      "graphicsCategory": "Formes",
       "graphicsCategories":{
-        "Shapes": "Shapes"
+        "Formes": "Formes",
+        "Silhouettes": "Silhouettes",
+        "Icones": "Icones",
+        "Drapeaux": "Drapeaux"
       },
       "productCategories":{
         "All" : "All",

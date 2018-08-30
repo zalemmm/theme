@@ -177,7 +177,7 @@
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/totem/">Kakemono Totem</a> | </span>
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/stand-parapluie/">Stand parapluie</a> | </span>
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/oriflammes/">Oriflammes</a> | </span>
-        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/panneaux-forex-dibond/">panneaux forex dibond</a> |</span>
+        <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/panneaux-alu-dibond/">panneaux forex dibond</a> |</span>
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/panneaux-akilux/">panneaux akilux PVC</a> </span> <br />
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/tente-publicitaire-barnum/">Tentes publicitaires barnum</a> |</span>
         <span class="split"><a href="<?php echo get_bloginfo("url"); ?>/plv-intérieur/">PLV intérieur</a> | </span>
