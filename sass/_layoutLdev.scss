@@ -253,6 +253,7 @@ ul.menu-client{
     @include span(3);
     text-align: center;
     height: 65px;
+
   }
 
   .menu-client-item.item1{
@@ -716,11 +717,11 @@ form select {
   font-size: .8rem;
 }
 
-input[type="submit"]{
+/*input[type="submit"]{
   @include buttonLog($cyan, 150px);
   height: 40px;
   margin-top: 9px;
-}
+}*/
 
 input:focus {
   border: 1px solid $cyan-bloc;
@@ -3151,11 +3152,11 @@ a.textLink{
   z-index: 500;
   width: 190px;
   background: $bloc-base;
-  color: lighten($magenta, 15%);
+  color: $text;
   padding: .5rem .5rem;
   .closeTip {
     display: block;
-    @include close(lighten($magenta, 15%), 2rem, -5px, 5px);
+    @include close($text, 2rem, -5px, 5px);
   }
   .exclam{
     float: left;
@@ -4176,7 +4177,7 @@ tbody {
   }
 }
 .codePromo {
-  @include buttonLog($cyan, 39%);
+  @include buttonLine($white, 39%);
   display: inline-block;
   margin-top: 5px;
   margin-left: 5px;
@@ -4192,7 +4193,7 @@ tbody {
 }
 
 button#copy {
-  @include buttonLog($jaune, 39%);
+  @include buttonLine($white, 39%);
   display: inline-block;
   margin-top: 5px;
   margin-left: 5px;
@@ -4229,7 +4230,7 @@ button#copy {
       background: $bloc-base;
       text-align: left;
       text-transform: uppercase;
-      color: $cyan;
+      color: $text;
       padding: .7rem;
       width: 100%;
       height: auto;
@@ -4753,14 +4754,14 @@ button#copy {
   padding: 12px .5rem;
   height: auto;
   line-height: 1rem;
-  background: $border;
+  background: $green;
   font-size: .9rem;
   float: left;
   display: inline;
   margin: 25px auto 0;
   text-decoration: none;
   text-align: center;
-  color: $text;
+  color: $white;
   border-bottom: 1px solid $bloc-base;
   border-right: 1px solid $bloc-base;
 
@@ -4779,8 +4780,8 @@ button#copy {
   font-weight: 900;
 }
 .votre_tab_inactive {
-  background: url(../images/stripe_cancelled.png);
-  color: lighten($text, 30%);
+  background: $border;
+  color: $text;
   text-transform: uppercase;
   font-weight: 900;
 }
@@ -4872,7 +4873,7 @@ button#copy {
   padding: .7rem;
   height: 40px;
   line-height: erem;
-  background: $magenta;
+  background: $green;
   color: $white;
   //font-weight: bold;
   margin: 0;
@@ -5390,6 +5391,11 @@ p.checklab{
   border: 1px solid $border;
   margin: 0 0 10px;
   span {}
+}
+
+.rating_element2 {
+
+  background: $border;
 }
 
 #raele1,
@@ -6347,13 +6353,13 @@ h1.helpPageTitle {
   padding: .8rem .8rem .2rem .8rem;
   height: auto;
   line-height: 1rem;
-  background: $bloc-base;
+  background: $border;
   font-size: .9rem;
   display: flex;
   display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border: 1px solid $border;
+  //border: 1px solid $border;
 }
 
 #fbcart_buttons3 {
@@ -6363,19 +6369,42 @@ h1.helpPageTitle {
 
 // boutons géréer mon compte ---------------------------------------------------
 
-a#votre_mod {
-  @include buttonLine($white, 49%);
+.votre_compte {
+  width: 100%;
+  padding: 12px 0 4px;
+  height: 65px;
+  line-height: 1rem;
+  background: $border;
+  border: 1px solid $border;
+  color: $text;
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  float: none;
+  display: block;
+}
+.votreCompte {
+  display: inline-block;
+  width: 50%;
+  @include s740 {
+    display: none;
+  }
 }
 
-a#votre_dec {
-  @include buttonLine($white, 49%);
+a#votre_mod, a#votre_dec {
+  @include buttonLine($white, 23%);
+
+  margin-right: 1%;
+  @include s740 {
+    width: 45%;
+  }
 }
 
 // conteneur (form) des boutons validation formulaire -- c'est eux qui déterminent la taille des boutons, fixer les boutons correspondants à 100%
 #validerdevis,
 form#delfromvosdevis,
 #paye {
-  width: 24%;
+  width: 24% !important;
   height: auto;
   display: inline-block;
   float: 0;
@@ -6387,7 +6416,7 @@ form#delfromvosdevis,
 // bouton gérer la commande ----------------------------------------------------
 
 .but_details {
-  @include buttonLog($magenta, auto);
+  @include buttonLog($green, auto);
   margin: 0 auto;
   height: 28px;
   border-radius: 14px;
@@ -6448,18 +6477,19 @@ form#delfromvosdevis,
 }
 
 #but_continuer {
-  @include buttonLog($cyan,24%);
+  @include buttonLine($white, 24%);
 }
 #but_ajouter {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 #but_supprimer {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 #but_validerdevis {
-  @include buttonLog($magenta, 100%);
+  @include buttonLine($magenta, 100%);
   padding-top: .5rem;
-
+  color: $white;
+  border: none;
   &.active,
   &:hover {
     background-color: $cyan;
@@ -6469,7 +6499,9 @@ form#delfromvosdevis,
 // boutons gestion des commandes -----------------------------------------------
 
 #but_payer {
-  @include buttonLog($magenta, 100%);
+  @include buttonLine($magenta, 100%);
+  color: $white;
+  border: none;
   padding-top: .3rem;
   &.active,
   &:hover {
@@ -6478,15 +6510,20 @@ form#delfromvosdevis,
   }
 }
 
+#but_payed {
+  @include buttonLine($white, 100%);
+  padding-top: .3rem;
+}
+
 #but_payer.deactive {
-  @include buttonLog($text, 100%);
+  @include buttonLine($white, 100%);
   padding-top: .3rem;
 }
 #but_retour {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 #but_retour2 {
-  @include buttonLog($text, 49%);
+  @include buttonLine($white, 49%);
 }
 #but_save2 {
   @include buttonLog($cyan, 49%);
@@ -6499,32 +6536,32 @@ form#delfromvosdevis,
   width: 100%;
 }
 #but_annuler{
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 ;
 }
 #but_annulercommande {
-  @include buttonLog($text, 100%);
+  @include buttonLine($white, 100%);
   padding-top: .5rem;
 }
 #but_annulercommande.deactive{
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 #but_imprimer,
 #but_exporter {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 #but_imprimerfacture {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 #but_comment {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 
 #but_suivre {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 #but_rating {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 #suivant_reg {
   background: $magenta;
@@ -6559,10 +6596,17 @@ form#delfromvosdevis,
 }
 a#but_imprimerbon,
 #but_imprimer_rib {
-  @include buttonLog($text, 24%);
+  @include buttonLine($magenta, 24%);
+  color: $white;
+  border:none;
   top: 0;
   left: 0;
   right: 0;
+
+  &:hover {
+    background: $cyan;
+    transition: .2s;
+  }
 }
 
 
@@ -6618,14 +6662,14 @@ a#but_imprimerbon,
 
 // boutons écrire un commentaire -----------------------------------------------
 a.but_espace {
-  @include buttonLog($text, 49%);
+  @include buttonLine($white, 49%);
   margin: 20px 2% 0 0;
   text-align: center;
   padding: .7rem .5rem .5rem;
 }
 
 .but_envoyer {
-  @include buttonLog($cyan, 49%);
+  @include buttonLine($white, 49%);
   width: 49% !important;
   margin: 20px 0 0 auto!important;
   padding: .5rem !important;
@@ -6633,8 +6677,9 @@ a.but_espace {
 
 // bouton donner votre avis
 .but_ratingsubmit {
-  @include buttonLog($text, 150px);
+  @include buttonLine($white, 180px);
   float: right;
+  padding-top: .3rem;
 }
 
 
@@ -6663,7 +6708,9 @@ a.post-edit-link{
 }
 
 a.but_voiremaquette {
-  @include buttonLog($magenta, 24%);
+  @include buttonLine($magenta, 24%);
+  color: $white;
+  border: none;
   &.active,
   &:hover {
     background-image: none;
@@ -6671,17 +6718,25 @@ a.but_voiremaquette {
   }
 }
 
+#but_modifier {
+  @include buttonLine($white, 24%);
+}
 a.but_vumaquette {
-  @include buttonLog($text, 24%);
+  @include buttonLine($white, 24%);
 }
 
 #but_imprimer_form {
-  @include buttonLog($text, 24%);
+  @include buttonLine($magenta, 24%);
+  color: $white;
+  border: none;
+  &.active,
+  &:hover {
+    background-image: none;
+    background-color: $cyan;
+  }
 }
 
-#but_modifier {
-    @include buttonLog($text, 24%);
-}
+
 
 #but_suivant {
   position: absolute;
@@ -6830,7 +6885,7 @@ td.lefttd4 .statusChecked .fa {
 }
 
 .statusChecked .fa-check-circle{
-  color: #6aba20;
+  color: $green;
 
 }
 .statusChecked .fa-exclamation-circle{
@@ -9381,4 +9436,18 @@ h5.delaisTitle {
   padding-top: calc(50vh - 50px);
   background-color: rgba(255,255,255,0.5);
   color: $cyan;
+}
+
+.attente {
+  display: inline-block;
+  padding: 0 5px;
+  color: $green !important;
+  background: $white;
+  border-radius: 20px;
+  margin-left: 5px;
+
+  &:hover {
+    background: #ccc;
+    transition: .2s;
+  }
 }

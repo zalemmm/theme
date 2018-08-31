@@ -28,7 +28,6 @@
 		<?php if (is_page('vos-devis')){
 			echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/jquery-ui.min.css">';
 		}
-
 		?>
 		<?php wp_head(); ?>
 
@@ -73,14 +72,10 @@
 
 							<ul id="acclient_sub" class="menu_hover">
 							<?php
-
 								session_start();
-
 								$logstatus = '<i class="fa fa-unlock-alt" aria-hidden="true"></i> Vous n\'êtes pas connecté';
-
 								$login = $_POST['loginname'];
 								$pass = $_POST['loginpass'];
-
 								$user = $wpdb->get_row("SELECT * FROM `$fb_tablename_users` WHERE login='$login' AND pass='$pass'");
 								$name = $_SESSION['loggeduser'];
 								//echo 'user -> ' .$_COOKIE['user'];
@@ -92,7 +87,7 @@
 
 									$logstatus = '<i class="fa fa-lock" aria-hidden="true"></i> Bonjour '.stripslashes($name->f_name).' | Vous êtes connecté';
 
-								}else if (($_POST['logme']=='logme')) {
+								}else if ($_POST['logme']=='logme') {
 									$acclient = '<p class="bonjour">Bienvenue '.$login.' !</p>
 									<a href="'.get_bloginfo('url').'/inscription/" class="bt_compte">Mon compte</a> | <a href="'.get_bloginfo('url').'/vos-devis/" class="bt_compte">Mes commandes</a>
 									<a href="'.get_bloginfo('url').'/?logout=true" class="bt_deconnect">Se déconnecter </a>';
@@ -118,29 +113,23 @@
 						</li>
 
 						<li class="menu-client-item menu-client--panier" id="menuPanier">
-							<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><span class="cartCount"><?php echo getCartCount(); ?></span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span>
-							<span class="menu-client-label">Panier</span>
+							<span class="menu-client-icon"><a href="<?php bloginfo('url'); ?>/votre-panier/"><span class="cartCount"><?php echo getCartCount(); ?></span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></span><span class="menu-client-label">Panier</span>
 
 							<ul id="panier_sub" class="menu_hover">
 							<?php
-
 							if (is_cart_not_empty()) {
 								$products = $_SESSION['fbcart'];
 								$user = $_SESSION['loggeduser'];
 								$panier .= '';
 								$licznik = 0;
 								$totalHT = 0;
-
-
 								foreach ( $products as $products => $item ) {
 									$licznik++;
 									$pict = '';
 									if(!empty($item['image'])) {
 										$pict = '<img src="'.$item['image'].'" alt="image produit" class="prodpicCart" />';
 									}
-									$panier .= '
-									<div class="ct_item">
-
+									$panier .= '<div class="ct_item">
 										<span class="ct_itname">'.$pict.$item['rodzaj'].'</span>
 										<span class="ct_qte">'.$item['ilosc'].'</span>
 										<span class="ct_total">'.$item['total'].'</span>
@@ -153,9 +142,7 @@
 									$fraisPort = $fraisPort + $item['transport'];
 								}
 								$totalHT = $totalHT + $fraisPort;
-
-								$panier .='
-									<span class="ct_totalt">Total HT: '.$totalHT.' &euro;</span>
+								$panier .='<span class="ct_totalt">Total HT: '.$totalHT.' &euro;</span>
 									<a href="'.get_bloginfo('url').'/votre-panier/" class="bt_deconnect">Voir mon panier </a>
 								';
 							} else {
@@ -269,9 +256,7 @@
 					$products = $_SESSION['fbcart'];
 					$lastit = array_values(array_slice($products, '-1'))[0];
 					$pic = '';
-					if(!empty($lastit['image'])) {
-						$pic = '<img class="prodpicModal" src="'.$lastit['image'].'" alt="image produit" /><br />';
-					}
+					if(!empty($lastit['image'])) $pic = '<img class="prodpicModal" src="'.$lastit['image'].'" alt="image produit" /><br />';
 					if ($lastit['ilosc'] == 1) $qtit = '';
 					else $qtit = ' (<span class="small">x</span>'.$lastit['ilosc'].') ';
 					$confirm = 	$pic.'Votre '.$lastit['rodzaj'].$qtit.' a bien été ajouté(e) au panier.';
