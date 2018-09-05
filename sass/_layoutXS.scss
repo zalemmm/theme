@@ -63,7 +63,6 @@
   .box_info,
   .box_warning {
     font-size: .8rem;
-    line-height: .9rem;
     img{
       max-width: 50px;
     }
@@ -74,9 +73,7 @@
   .comment_new {
     padding-top: 5px;
   }
-  .stat6 {
-    padding-top: .8rem;
-  }
+
 
 
 
@@ -109,6 +106,20 @@
     }
   }
 
+  #but_suivre,
+  #but_comment,
+  #but_annulercommande,
+  #but_annulercommande.deactive,
+  #but_rating,
+  a#votre_mod {
+    padding-top: .3rem;
+  }
+
+  span.comm_title {
+    font-size: .8rem;
+    line-height: .9rem;
+    padding-top: 5px;
+  }
   // tableau file upload -------------------------------------------------------
 
   #fbcart_fileupload3 {

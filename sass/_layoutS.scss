@@ -52,25 +52,24 @@
   // tableau commandes ---------------------------------------------------------
 
   #fbcart_votre{
-    table, tbody {
-      display: block;
-    }
-    .kontener{
-      display: none;
-    }
+
     td {
+      text-align: left;
+
       &.lefttd {
         display: block;
         position: absolute;
         float: right;
         right: 30px;
-        top: 5px;
         border: 0;
+        background: transparent;
       }
       &.tddesc {
-        padding-top: 5px;
-        text-align: center;
-
+        background: $border;
+        height: 30px;
+        font-weight: bold;
+        text-transform: uppercase;
+        vertical-align: middle;
       }
     }
     tr {
@@ -88,27 +87,35 @@
     }
     td, th {
       display: table-row;
-
     }
   }
 
   .but_details {
+    position: absolute;
+    right: -25px;
+    top: 40px;
     width: auto;
     min-width:70px;
   }
-  .stat, .stat6 {
+
+  .stat {
     background-image: none;
-    background: $border;
-    &:hover {
-      background-image: none;
-      background: $border;
-    }
+    background: transparent;
+    margin: 0;
+    margin-top: 10px;
+    width: 35%;
+    float: right;
   }
+
   .votre_tab_active,
   .votre_tab_inactive {
     border-bottom: 0;
     font-size: .78rem;
     height: 55px;
+  }
+
+  .statusChecked {
+    margin-top: -5px;
   }
 
   //----------------------------------------------------------------------------
@@ -240,27 +247,36 @@
   // tableau produit commandé détail -------------------------------------------
 
   .disMob0 {
-    display: inline;
+    display: inline-block;
+    position: absolute;
+    left: 5px;
     font-weight: bold;
+    font-size: .75rem;
     text-transform: uppercase;
-    color: $cyan-bloc;
+  }
+
+  #delcart {
+    position: absolute;
+    right: 0;
+    top: -255px;
   }
 
   // tableau devis -------------------------------------------------------------
 
   #fbcart_cart {
     position: relative;
-    float: left;
-    display: inline-block;
-    @include container(100%);
+    background-color: transparent;
+
     width: 100%;
+
     span {
       &.therest {
-        display: none;
+        //display: none;
       }
     }
 
     th {
+      width: 100%;
       display: none;
     }
 
@@ -269,12 +285,18 @@
       width: 100%;
       padding: .5rem;
       background-image: none;
+      background: $border;
+      text-align: right;
+      border: 0;
+      padding: 2px 5px;
 
       &.lefttd {
         width: 100%;
+        border: 1px solid $border;
+        padding: 5px 0;
       }
       &.noprint{
-        width: 5%;
+        width: 100%;
       }
       &.tdtotal{
 
@@ -292,6 +314,8 @@
   }
 
 
-
+  .prodpic {
+    margin-left: 0;
+  }
 
 }

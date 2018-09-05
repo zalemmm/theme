@@ -3052,6 +3052,7 @@ a.textLink{
   margin-bottom: 16px;
   background-color: $green;
   color: $white;
+  line-height: 1.2rem;
   a {
     color: $white;
     font-weight: bold;
@@ -3465,22 +3466,60 @@ span.pay_carte_info {
 ////////////////////////////////////////////////////////////////////////////////
 
 .acces_tab_name_devis {
+  position: relative;
+
   .etat {
     float: right;
-    width: 200px;
+    width: 250px;
     text-align: right;
     margin: -4px -8px 0 0;
+    font-size: .7rem;
+    font-weight: normal;
+    @include s480 {
+      width: 70%;
+    }
 
-    span {
+    .curstatus {
       float: right;
-      width: 50%;
+      width: 40%;
       text-align: center;
-      margin: 0 5px 5px;
-      padding:5px 0 0;
+      margin: 4px 5px;
       height: 25px;
       font-size: .7rem;
       line-height: .7rem;
       vertical-align: middle;
+      font-weight: bold;
+
+    }
+    .statt {
+      vertical-align: middle;
+      margin-top: 5px;
+    }
+    .point1, .point2, .point3 {
+      margin-top: 2px;
+      float: none;
+      display: inline-block;
+      margin-left: 5px;
+      margin-right: 5px;
+      background: $white;
+      border-radius: 20px;
+      vertical-align: middle;
+
+    }
+
+    .point1 {
+      width: 10px;
+      height: 10px;
+    }
+
+    .point2 {
+      height: 15px;
+      width: 15px;
+    }
+
+    .point3 {
+      height: 20px;
+      width: 20px;
     }
   }
 }
@@ -3709,6 +3748,13 @@ SPAN {
   width: 69%;
 }
 
+.deactive {
+  border: 1px solid lighten($text, 40%) !important;
+  color: lighten($text, 40%) !important;
+  &:hover {
+    color: lighten($text, 40%) !important;
+  }
+}
 
 // boutons maquette ------------------------------------------------------------
 a.maquette,
@@ -4089,6 +4135,7 @@ tbody {
   margin-right: 10px;
   margin-left: -5px;
   float: left;
+  height: 160px;
   @include hackEdge {
     display: none;
   }
@@ -4868,7 +4915,7 @@ button#copy {
 .acces_tab_name2,
 .acces_tab_name3,
 .acces_tab_name_devis {
-  z-index: 100;
+  z-index: 5;
   width: 100%;
   padding: .7rem;
   height: 40px;
@@ -6404,7 +6451,7 @@ a#votre_mod, a#votre_dec {
 #validerdevis,
 form#delfromvosdevis,
 #paye {
-  width: 24% !important;
+  width: 24%;
   height: auto;
   display: inline-block;
   float: 0;
@@ -6792,53 +6839,48 @@ span.print_button a{
   }
 }
 .stat {
-  @include buttonStatusBase(transparent);
+  position: relative;
+  text-transform: uppercase;
   color:$text;
   font-weight: 900;
   text-align: left;
   cursor: default;
   height: auto;
-  min-height: 40px;
+  min-height: 30px;
   font-size: .77rem;
   line-height: .77rem;
-  padding-top: 15px;
+  margin-top: 15px;
+  margin-left: 15px;
+
   &:hover{
     background: transparent;
   }
+
+
 }
 .stat0 {
-  @include buttonStatusBase($altg);
+  @include buttonStatusBase();
 }
 .stat1 {
-  @include buttonStatusBase($color_30);
+  @include buttonStatusBase();
 }
 .stat2 {
-  @include buttonStatusBase($cyan);
+  @include buttonStatusBase();
 }
 .stat3 {
-  @include buttonStatusBase($color_31);
+  @include buttonStatusBase();
 }
 .stat4 {
-  @include buttonStatusBase($color_32);
+  @include buttonStatusBase();
 }
 .stat5 {
-  @include buttonStatusBase($color_8);
+  @include buttonStatusBase();
 }
 .stat6 {
-  @include buttonStatusBase(transparent);
-  background: url(../images/stripe_cancelled.png);
-  color: $text;
-  font-weight: 900;
-  padding-top: .7rem;
-  cursor: default;
-  font-size: .75rem;
-  &.active,
-  &:hover {
-    background: url(../images/stripe_cancelled.png) transparent;
-  }
+  @include buttonStatusBase();
 }
 .stat7 {
-  @include buttonStatusBase($light-grey);
+  @include buttonStatusBase();
 }
 
 .acces_tab_name_devis {
@@ -6856,6 +6898,7 @@ span.print_button a{
     padding-top: 7px;
     &:hover{
       cursor: default;
+      background: $white;
     }
   }
   .stat7 {
@@ -6865,8 +6908,9 @@ span.print_button a{
 }
 
 .statusChecked {
-  display: block;
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 5px;
   z-index: 10;
   font-weight: normal;
   margin-top: -5px;
@@ -6897,11 +6941,15 @@ td.lefttd4 .statusChecked .fa {
 }
 
 .comment_new {
-  @include buttonStatusBase($magenta);
+  background: $magenta;
+  width: 100%;
+  color: $white;
+  border:0;
   z-index: 5;
   height: auto;
-  margin-top: 4px;
+  margin-top: 6px;
   font-size: .7rem;
+  cursor: pointer;
   &:hover {
     background: $cyan;
     transition: .2s;

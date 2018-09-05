@@ -427,18 +427,12 @@
   a#but_imprimerbon,
   #but_imprimer_rib,
   form#delfromvosdevis,
-  #paye {
+  #paye,
+  #but_annulercommande.deactive {
     width: 49%;
   }
 
-  // adaptation taille pour bouton input dans conteneur
 
-  #but_payer.deactive {
-    @include buttonLog($magenta, 49%);
-  }
-  #but_annulercommande.deactive{
-    @include buttonLog($text, 49%);
-  }
 
   // réduction hauteur des boutons annuler/effacer du module upload
 

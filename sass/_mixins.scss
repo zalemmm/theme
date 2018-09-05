@@ -79,6 +79,11 @@
     @content;
   }
 }
+@mixin s650 {
+  @media (max-width: 650px) {
+    @content;
+  }
+}
 @mixin s540 {
   @media (max-width: 540px) {
     @content;
@@ -191,26 +196,22 @@
 
 // boutons status devis
 
-@mixin buttonStatusBase($bgcolor){
+@mixin buttonStatusBase($color: $green){
   font-family: $font-global;
   width: 100%;
-  background: $bgcolor;
+  background: $white;
   height: 40px;
-  padding: 5px;
+  padding-top:-3px;
   margin: 0;
   display: inline-block;
-  color: $white;
+  color: $color;
   text-transform: uppercase;
   border: none;
   cursor: pointer;
   font-size: .7rem;
+  line-height: .75rem;
   vertical-align: middle;
-  &.active,
-  &:hover {
-    background-image: none;
-    background-color: $magenta;
-    transition: .2s;
-  }
+  border-radius: 20px;
 }
 
 // boutons arrondis

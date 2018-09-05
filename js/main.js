@@ -45,7 +45,6 @@ jQuery(document).ready(function ($) {
 
   $('.btn').removeClass('.ui-button');
 
-  $(".deactive").css("opacity", 0.5);
 
 	//------------------------------ quantité+- ----------------------------------
   $("#spinner").spinner();
