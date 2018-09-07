@@ -205,7 +205,7 @@
                                                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                                                   <h4 class="alert alert-info"><i class="fa fa-question-circle"></i> Astuces / FAQ</h4>
                                                     <p class="alert alert-warning">
-                                                        <i class="fa fa-warning"></i> <strong>attention si vous importez vos images dans cette application:</strong> Les images que vous importez doivent être d'assez haute résolution pour une impression de bonne qualité. Cependant pour des raisons de charge serveur et pour garantir la sauvegarde de votre maquette il est important de ne pas surcharger cette application: il est donc conseillé de ne pas en importer plus de 2/3 idéalement (5 max suivant les résolutions) et de privilégier au maximum les ressources intégrées à l'application (textes, formes, icones etc). Vous pouvez par contre importer sans limite des ressources au format 'svg': ce type d'image est redimentionnable sans souci de charge serveur et de résolution. Si votre composition requier d'importer beaucoup d'images de type 'jpeg' ou 'png', il est vivement conseillé de passer par une solution logicielle type Photoshop.
+                                                        <i class="fa fa-warning"></i> <strong>attention si vous importez vos images dans cette application:</strong> Les images que vous importez doivent être de bonne résolution pour une impression de qualité, mais trop nombreuses ou trop lourdes elles peuvent ralentir beaucoup cette application:  il est donc conseillé de privilégier au maximum les ressources intégrées (textes, formes, icones etc) et les images au format 'svg' (ce type d'image est redimentionnable sans souci de charge serveur et de résolution). Si votre composition requier d'importer beaucoup d'images de type jpeg ou png, il est vivement conseillé de passer par une solution logicielle type Photoshop.
                                                     </p>
 
                                                     <p  class="alert alert-info">
@@ -263,7 +263,7 @@
                                 <div>
                                     <a class="" href="#upload_own" aria-controls="upload_own" role="tab" data-toggle="tab" ng-click="exitDrawing()">
                                         <i class="fa fa-cloud-upload"></i>
-                                        <span>Importer une image</span>
+                                        <span>Vos images</span>
                                     </a>
                                 </div>
                             </li>
@@ -320,14 +320,12 @@
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="upload_own">
                                 <div class="thumb_listing">
-                                    <div class="well" >
+                                    <div class="well">
                                         <form name="myForm">
                                             <div class="fileUpload btn btn-primary">
-                                                <span><i class="fa fa-plus"></i>&nbsp;&nbsp;Sélectionner une image</span>
+                                                <span><i class="fa fa-plus"></i>&nbsp;&nbsp;Importer une image</span>
                                                 <input id="upfile" type="file" ngf-select="onFileSelect(picFile);" ng-model="picFile" name="file" accept="image/*" ngf-max-size="30MB" class="upload">
                                             </div>
-
-
 
                                             <input id="uploadFile" placeholdFile NameName disabled="disabled" />
                                             <span class="has-error" ng-show="myForm.file.$error.maxSize">File too large {{picFile.size / 1000000|number:1}}MB: max 30M</span>
@@ -339,9 +337,37 @@
                                             <span class="has-error" ng-show="uploadErrorMsg">{{uploadErrorMsg}}</span>
                                         </form>
 
-                                        <div class="alert alert-warning" style="margin-left:-10px;margin-top: 5px;width:95%;">
-                                            <i class="fa fa-warning"></i> <strong>attention:</strong> Les images que vous importez doivent être d'assez haute résolution pour une impression de bonne qualité. Cependant pour des raisons de charge serveur et pour garantir la sauvegarde de votre maquette il est important de ne pas surcharger cette application: il est donc conseillé de ne pas en importer plus de 2/3 idéalement (5 max suivant les résolutions) et de privilégier au maximum les ressources intégrées à l'application (textes, formes, icones etc). Vous pouvez par contre importer sans limite des ressources au format 'svg': ce type d'image est redimentionnable sans souci de charge serveur et de résolution. Si votre composition requier d'importer beaucoup d'images de type 'jpeg' ou 'png', il est vivement conseillé de passer par une solution logicielle type Photoshop.
+                                        <?php
+                                          $source = (__DIR__).'/../../../../uploaded/'.$nbcom.'/ressources/';
+                                          $repertoire = '../../../../uploaded/'.$nbcom.'/ressources/';
+
+                                        	$fichiers = '';
+                                        	if(file_exists($source)) {
+                                            if ($dir = @opendir($source)) {
+
+                                          		$filetype = pathinfo($file, PATHINFO_EXTENSION);
+                                          		$exclude = array('json','csv');
+
+                                          	  while(($file = readdir($dir))) {
+                                          			if(!is_dir($file) && !in_array($file, array(".","..")) && !in_array(strtolower($filetype), $exclude)) {
+                                          				$fichiers .= '<span ng-click="useUpimg(\''.$file.'\');"><img class="vosimg" src="'.$repertoire.$file.'" alt="'.$file.'" /></span>';
+                                          			}
+                                              }
+                                          	  closedir($dir);
+                                            }
+                                          }
+                                        ?>
+
+                                        <h5>vos images importées :</h5>
+                                        <div class="vosimgCont" id="uploaded">
+                                        <?php echo $fichiers ?>
                                         </div>
+
+
+                                        <!--<div class="alert alert-warning" style="margin-left:-10px;margin-top: 5px;width:95%;">
+                                            <i class="fa fa-warning"></i> <strong>attention:</strong> Les images que vous importez doivent être de bonne résolution pour une impression de qualité, mais trop nombreuses elles peuvent ralentir beaucoup cette application: il est donc conseillé de privilégier au maximum les ressources intégrées (textes, formes, icones etc.) ainsi que les images au format 'svg'.
+                                        </div>-->
+
                                     </div>
 
                                 </div>
@@ -927,15 +953,23 @@
 <script src="js/w3color.js"></script>
 
 <script>
-window.paceOptions = {
+paceOptions = {
   ajax: {
       trackMethods: ["GET", "POST"],
       trackWebSockets: false
   },
-  document: false,
-  restartOnPushState: false
+  easeFactor: 0.1,
+  maxProgressPerFrame: 2,
+  restartOnPushState: false,
 };
+/*paceOptions = {
+    initialRate:0.7,
+    minTime:1750,
+    maxProgressPerFrame:1,
+    ghostTime: 120000
+}*/
 </script>
+
 <script src="js/pace.min.js"></script>
 <script src="assets/fabric/fabric.min.js"></script>
 <!--<script src="assets/fabric/fabricExtensions.js"></script>-->

@@ -81,6 +81,12 @@ h1 {
   transition: all 0.5s ease-out;
 }
 
+h5 {
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-left: -10px;
+}
+
 label {
   font-weight: normal;
   color: #ccc !important;
@@ -370,26 +376,6 @@ c .loadMore {
 
 .ul_layer_canvas > li:last-child {
   border-bottom: 1px solid #515151;
-}
-
-.ul_layer_canvas .imgbg {
-  display: inline-block;
-  position: relative;
-  top: -5px;
-  height: 60px;
-  width: 60px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 2px;
-  vertical-align: middle;
-  -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
-          box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
-}
-
-.ul_layer_canvas .imgbg img {
-  display: inline-block;
-  max-height: 100%;
-  max-width: 100%;
 }
 
 .ul_layer_canvas span {
@@ -2488,6 +2474,11 @@ input:checked + .slider:before {
   border-radius: 0;
 }
 
+.alert-info .nb,
+.alert-danger .nb {
+  color: #ea2a6a;
+}
+
 .alert-warning {
   background: #ea2a6a;
   color: #fff;
@@ -2499,9 +2490,72 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 
-.alert-info .nb,
-.alert-danger .nb {
-  color: #ea2a6a;
+.vosimgCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-left: -10px;
+}
+
+.vosimgCont span {
+  display: inline-block;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.vosimgCont span:hover {
+  opacity: .5;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.vosimgCont span .vosimg {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+          box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+}
+
+.ul_layer_canvas .imgbg {
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  height: 60px;
+  width: 60px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2px;
+  vertical-align: middle;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+          box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+}
+
+.ul_layer_canvas .imgbg img {
+  max-height: 98%;
+  max-width: 98%;
+  height: auto;
+  width: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 h4.alert {

@@ -6,6 +6,8 @@ angular.module('common.fabric', [
 	'common.fabric.dirtyStatus'
 ])
 
+//================================================================== FABRIC INIT
+
 .factory('Fabric', [
 	'FabricWindow', '$timeout', '$window', 'FabricCanvas', 'FabricDirtyStatus',
 	function(FabricWindow, $timeout, $window, FabricCanvas, FabricDirtyStatus) {
@@ -132,127 +134,128 @@ angular.module('common.fabric', [
 			return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/gi.test(str);
 		}
 
-		//
-		// Canvas
-		// ==============================================================
+
+		//                                                                    Canvas
+		// =========================================================================
+
 		self.renderCount = 0;
-        var isRedoing = false;
-        var h = [];
-        var copiedObject;
-        var copiedObjects = new Array();
-        self.designedObjects = {};
-        self.designedSVGObjects = {};
-        self.designedPNGObjects = {};
-        self.designedJPGObjects = {};
+    var isRedoing = false;
+    var h = [];
+    var copiedObject;
+    var copiedObjects = new Array();
+    self.designedObjects = {};
+    self.designedSVGObjects = {};
+    self.designedPNGObjects = {};
+    self.designedJPGObjects = {};
 
-        /***************** for corner icons  ****************/
+    /***************** for corner icons  ****************/
 
-        fabric.Object.prototype.setControlsVisibility( {
-/*          ml: false,
-            mr: false,
-            mb: false,
-            mt: false*/
-						mtr: false
-        } );
+    fabric.Object.prototype.setControlsVisibility( {
+/*      ml: false,
+        mr: false,
+        mb: false,
+        mt: false*/
+				mtr: false
+    } );
 
-        fabric.Canvas.prototype.customiseControls( {
-            tl: {
-                action: 'rotate',
-                cursor: 'grab'
-            },
-            tr: {
-                action: 'scale'
-            },
-            bl: {
-                action: 'remove',
-                cursor: 'pointer'
-            },
-            br: {
-                action: 'scale',
-                cursor: 'nwse-resize'
-            },
-            mb: {
-                action: 'scaleY',
-                cursor: 'ns-resize'
-            },
-            mt: {
-                action: 'scaleY',
-                cursor: 'ns-resize'
-            },
-            ml: {
-                action: 'scaleX',
-                cursor: 'ew-resize'
-            },
-            mr: {
-                action: 'scaleX',
-                cursor: 'ew-resize'
-            }
-        } );
+    fabric.Canvas.prototype.customiseControls( {
+        tl: {
+            action: 'rotate',
+            cursor: 'grab'
+        },
+        tr: {
+            action: 'scale'
+        },
+        bl: {
+            action: 'remove',
+            cursor: 'pointer'
+        },
+        br: {
+            action: 'scale',
+            cursor: 'nwse-resize'
+        },
+        mb: {
+            action: 'scaleY',
+            cursor: 'ns-resize'
+        },
+        mt: {
+            action: 'scaleY',
+            cursor: 'ns-resize'
+        },
+        ml: {
+            action: 'scaleX',
+            cursor: 'ew-resize'
+        },
+        mr: {
+            action: 'scaleX',
+            cursor: 'ew-resize'
+        }
+    } );
 
-        // basic settings
-        fabric.Object.prototype.customiseCornerIcons( {
-            settings: {
-                borderColor: 'red',
-                cornerSize: 24,
-                cornerBackgroundColor: 'white',
-                cornerShape: 'circle',
-                cornerPadding: 8
-            },
-            tl: {
-                icon: 'images/icons/rotate.jpg'
-            },
-            tr: {
-                icon: 'images/icons/resize.png'
-            },
-            bl: {
-                icon: 'images/icons/delete.png'
-            },
-            br: {
-                icon: 'images/icons/resize2.png'
-            },
-            mb: {
-                icon: 'images/icons/moveY.png'
-            },
-            mt: {
-                icon: 'images/icons/moveY.png'
-            },
-            ml: {
-                icon: 'images/icons/moveX.png'
-            },
-            mr: {
-                icon: 'images/icons/moveX.png'
-            }
-        } );
+    // basic settings
+    fabric.Object.prototype.customiseCornerIcons( {
+        settings: {
+            borderColor: 'red',
+            cornerSize: 24,
+            cornerBackgroundColor: 'white',
+            cornerShape: 'circle',
+            cornerPadding: 8
+        },
+        tl: {
+            icon: 'images/icons/rotate.jpg'
+        },
+        tr: {
+            icon: 'images/icons/resize.png'
+        },
+        bl: {
+            icon: 'images/icons/delete.png'
+        },
+        br: {
+            icon: 'images/icons/resize2.png'
+        },
+        mb: {
+            icon: 'images/icons/moveY.png'
+        },
+        mt: {
+            icon: 'images/icons/moveY.png'
+        },
+        ml: {
+            icon: 'images/icons/moveX.png'
+        },
+        mr: {
+            icon: 'images/icons/moveX.png'
+        }
+    } );
 
-       /***************** for corner icons  ****************/
+   /***************** for corner icons  ****************/
 
-        var filters = [
-            new fabric.Image.filters.Grayscale(),       // grayscale    0
-            new fabric.Image.filters.Sepia2(),          // sepia        1 // v2 mod
-            new fabric.Image.filters.Invert(),          // invert       2
-            new fabric.Image.filters.Convolute({        // emboss       3
-                matrix: [ 1, 1, 1,
-                    1, 0.7, -1,
-                    -1, -1, -1 ]
-            }),
-            new fabric.Image.filters.Convolute({        // sharpen      4
-                matrix: [  0, -1, 0,
-                    -1, 5, -1,
-                    0, -1, 0 ]
-            })
-        ];
+    var filters = [
+        new fabric.Image.filters.Grayscale(),       // grayscale    0
+        new fabric.Image.filters.Sepia2(),          // sepia        1 // v2 mod
+        new fabric.Image.filters.Invert(),          // invert       2
+        new fabric.Image.filters.Convolute({        // emboss       3
+            matrix: [ 1, 1, 1,
+                1, 0.7, -1,
+                -1, -1, -1 ]
+        }),
+        new fabric.Image.filters.Convolute({        // sharpen      4
+            matrix: [  0, -1, 0,
+                -1, 5, -1,
+                0, -1, 0 ]
+        })
+    ];
 
-        /*self.addQRCode = function(text){
+    /*self.addQRCode = function(text){
 
-        };*/
+    };*/
 
-        self.applyImageFilter = function (isChecked, filter){
-            var obj = canvas.getActiveObject();
-            obj.filters[filter] = isChecked ? filters[filter] : null;
-            obj.applyFilters(function () {
-                canvas.renderAll();
-            });
-        };
+    self.applyImageFilter = function (isChecked, filter){
+        var obj = canvas.getActiveObject();
+        obj.filters[filter] = isChecked ? filters[filter] : null;
+        obj.applyFilters(function () {
+            canvas.renderAll();
+        });
+    };
 
 		self.render = function() {
 			var objects = canvas.getObjects();
@@ -559,7 +562,7 @@ angular.module('common.fabric', [
 
 				// variables stand tissu -----------------------------------------------
 				var standTissu = $('#desc').text().indexOf('Tissu') > -1;
-				/*var trois1     = $('#desc').text().indexOf(' 3x1 ') > -1;
+				/*var trois1   = $('#desc').text().indexOf(' 3x1 ') > -1;
 				var trois2     = $('#desc').text().indexOf(' 3x2 ') > -1;
 				var trois3     = $('#desc').text().indexOf(' 3x3 ') > -1;
 				var trois4     = $('#desc').text().indexOf(' 3x4 ') > -1;
@@ -624,6 +627,7 @@ angular.module('common.fabric', [
 				var reset      = $('#rset').text();
 				var jsondata   = $('#json').text();
 
+				// correction des retours à la ligne
 				jsondata = jsondata.replace(/ \| /g, '\\n');
 				jsondata = jsondata.replace(/apquote/g, '\'');
 
@@ -639,6 +643,7 @@ angular.module('common.fabric', [
 					var objs = canvas.getObjects().map(function(o) {
 						return o.set('active', true);
 					});
+
 					center = canvas.getCenter();
 					var group = new fabric.Group(objs, {
 						top: center.top,
@@ -2205,10 +2210,10 @@ angular.module('common.fabric', [
 
 					self.addObjectToCanvas(object);
 				}
-				//canvas.deactivateAll().renderAll();
+				canvas.deactivateAll().renderAll();
 
-
-				var br = object.getBoundingRect();
+				//---------------------------------------------- conversion image base64
+				/*var br = object.getBoundingRect();
 				var mult = 10;
 
 				if (xsmall) {
@@ -2235,7 +2240,7 @@ angular.module('common.fabric', [
 				});
 
 				canvas.remove(object);
-				self.adb64(newimg, br.width-22, br.height-22);
+				self.adb64(newimg, br.width-22, br.height-22);*/
 
 			}, self.imageDefaults);
 

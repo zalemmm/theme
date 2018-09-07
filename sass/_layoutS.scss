@@ -183,24 +183,7 @@
   }
 
   // grille --------------------------------------------------------------------
-  #wycena, #estimationTitre, .delivery-date{
-    margin-top: 15px;
-  }
 
-  #buying,
-  #wycena_nag, #estimationTitre,
-  #wycena_suma, #estimationPrix
-  #dodaj_koszyk {
-    @include span(12);
-    padding-left: 0;
-    padding-right: 0;
-  }
-  #wycena, #estimation,
-  .dateLivraison {
-    float: none;
-    width: 100%;
-    border: none;
-  }
 
 
   button#responsive-menu-button {

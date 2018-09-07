@@ -16,7 +16,8 @@
       "LOAD_PRODUCT_SUB_IMAGES": "dummy_data/products/",
       "LOAD_GRAPHICS": "dummy_data/graphics/",
       "LOAD_COLOR_SCHEME": "inc/theme.php",
-      "SAVE_DESIGN": "inc/save_design.php"
+      "SAVE_DESIGN": "inc/save_design.php",
+      "UPLOAD_IMG": "inc/upload_img.php"
     },
     "general_settings": {
       "loadMore":true,

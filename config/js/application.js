@@ -24,8 +24,9 @@ angular.module('productApp', [
     'Upload',
     '$interval',
     'ngProgressLite',
+    '$compile',
 
-    function ($scope, Fabric, FabricConstants, Keypress, $http, $timeout, $mdDialog, $mdToast, Upload, $interval, ngProgressLite) {
+    function ($scope, Fabric, FabricConstants, Keypress, $http, $timeout, $mdDialog, $mdToast, Upload, $interval, ngProgressLite, $compile) {
         $scope.fabric = {};
         $scope.status = '  ';
 
@@ -54,7 +55,13 @@ angular.module('productApp', [
         $scope.FabricConstants = FabricConstants;
 
         //var siteurl = 'http://localhost:8000/wordpress';
-        var siteurl = 'https://www.france-banderole.com';
+
+        var siteurl;
+        var sitebase = window.location.protocol + '//' + window.location.hostname;
+        if (sitebase.indexOf('127.0.0.1') !== -1 || sitebase.indexOf('localhost') !== -1)
+          siteurl = sitebase + '/wordpress';
+        else siteurl = sitebase;
+
         var orderid = angular.element($('#number')).text();
         var orderurl = siteurl + '/vos-devis/?detail=' + orderid;
 
@@ -190,37 +197,95 @@ angular.module('productApp', [
             }
         };
 
+        //=========================================================== UPLOAD IMG
         $scope.onFileSelect = function(file) {
             if(file !== null) {
+                // barre de progression
+                ngProgressLite.start();
+                $scope.loader = true;
+                _this.showNotification('votre image est en cours d\'importation...', true);
 
-                if ($scope.fabric.checkBackgroundImage()) {
-                    ngProgressLite.start();
-                    $scope.loader = true;
+                // uploader l'image sur le serveur
+                var form_data = new FormData();
+                form_data.append('file', file);
+                $.ajax({
+                  type: 'POST',
+                  url:$scope.REQUEST_URL.UPLOAD_IMG,
+                  contentType: false,
+                  processData: false,
+                  data: form_data,
+                  success:function() {
 
-                    _this.showNotification('votre image est en cours d\'importation...', true);
+                    if ($scope.fabric.checkBackgroundImage()) {
 
-                    var URL = window.URL || window.webkitURL;
-                    var srcTmp = URL.createObjectURL(file);
-                    //------------------------------------
-                    if (file.type.match(/svg/) != null) {
-                      $scope.fabric.addShape(srcTmp);
-                    }else{
-                      $scope.fabric.addImage(srcTmp);
+                        var URL = window.URL || window.webkitURL;
+                        var filename = document.getElementById('upfile').files[0].name;
+                        var srcTmp = URL.createObjectURL(file);
+                        var srcImg = siteurl + '/uploaded/' + orderid + '/ressources/' + filename;
+
+                        // intégrer l'image au menu images importées
+                        var html='<span ng-click="useUpimg(\''+filename+'\');" role="button" tabindex="0"><img class="vosimg" src="'+srcImg+'" /></span>',
+                        el = document.getElementById('uploaded');
+                        angular.element(el).append($compile(html)($scope) );
+
+                        // intégrer l'image au canvas
+                        //console.log('url fichier : ' +srcImg);
+                        //------------------------------------
+                        if (file.type.match(/svg/) != null) {
+                          $scope.fabric.addShape(srcTmp);
+                        }else{
+                          $scope.fabric.addImage(srcImg);
+                        }
+
+                        // fin barre de progression
+                        //setTimeout(function() {
+                          ngProgressLite.done();
+                          $scope.loader = false;
+                        //}, 500);
+                        //------------------------------------
+                        $scope.objectLayers = [];
+                        $scope.objectLayers = $scope.fabric.canvasLayers();
+
+                    } else {
+                        _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
                     }
-                    setTimeout(function() {
-                      ngProgressLite.done();
-                      $scope.loader = false;
+                  },
+                  error:function() {
+                    alert('une erreur s\'est produite, veuillez réessayer')
+                  }
+                });
+            }
+        };
 
-                    }, 500);
-                    //------------------------------------
-                    $scope.objectLayers = [];
-                    $scope.objectLayers = $scope.fabric.canvasLayers();
+        //=========================================================== UPLOAD IMG
+        $scope.useUpimg = function(file) {
 
-                } else {
-                    _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
+            // intégrer l'image au canvas
+            if ($scope.fabric.checkBackgroundImage()) {
+
+                var srcImg = siteurl + '/uploaded/' + orderid + '/ressources/' + file;
+
+                console.log('fichier : ' +file);
+                //------------------------------------
+                if (file.indexOf(".svg") != -1) {
+                  $scope.fabric.addShape(srcImg);
+                }else{
+                  $scope.fabric.addImage(srcImg);
                 }
 
+                // fin barre de progression
+                //setTimeout(function() {
+                  ngProgressLite.done();
+                  $scope.loader = false;
+                //}, 500);
+                //------------------------------------
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+
+            } else {
+                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
+
         };
 
         $scope.clearAll = function () {
@@ -748,7 +813,7 @@ angular.module('productApp', [
 
         $scope.saveObjectAsJSON = function () {
         //------------------------------------------------------ sauvegarde JSON
-            //ngProgressLite.start();
+            ngProgressLite.start();
             $scope.loader = true;
             _this.showNotification('Sauvegarde en cours...', false);
             //$scope.$apply();
@@ -769,7 +834,7 @@ angular.module('productApp', [
                     transformRequest: _this.transformRequest
 
                 }).success(function (data, status, headers, config) {
-                    //ngProgressLite.done();
+                    ngProgressLite.done();
                     $scope.loader = false;
 
                     $("#saved").text('oui');
@@ -788,7 +853,7 @@ angular.module('productApp', [
 
                 }).error(function (data, status, headers, config) {
 
-                    //ngProgressLite.done();
+                    ngProgressLite.done();
                     $scope.loader = false;
                     $scope.saving = false;
                     $scope.$broadcast("AjaxCallHappened",false);
@@ -812,7 +877,7 @@ angular.module('productApp', [
               .ok('envoyer')
               .cancel('vérifier');
           $mdDialog.show(confirm).then(function() {
-            //ngProgressLite.start();
+            ngProgressLite.start();
             $scope.loader = true;
             _this.showNotification('Envoi en cours...', false);
 
@@ -820,7 +885,7 @@ angular.module('productApp', [
               $mdDialog.alert()
                 .parent(angular.element(document.querySelector('#popupContainer')))
                 .clickOutsideToClose(false)
-                .htmlContent('<br /><br /><br /><br /><i class="fa fa-spinner fa-pulse fa-fw"></i> Votre maquette est en cours d\'envoi et de sauvegarde sur nos serveurs, veuillez patienter jusqu\'au message de confirmation de réception.')
+                .htmlContent('<br /><br /><br /><br /><br /><i class="fa fa-spinner fa-pulse fa-fw"></i> Votre maquette est en cours d\'envoi et de sauvegarde sur nos serveurs,<br /> veuillez ne pas fermer cet onglet avant le message de confirmation de réception.')
                 .ariaLabel('Success')
                 .ok('OK')
             );
@@ -860,7 +925,7 @@ angular.module('productApp', [
                     transformRequest: _this.transformRequest
 
                 }).success(function (data, status, headers, config) {
-
+                    ngProgressLite.done();
                     $scope.loader = false;
 
                     if(data.status){
@@ -877,7 +942,7 @@ angular.module('productApp', [
                       //}, 2000);
                     }
                   }).error(function (data, status, headers, config) {
-
+                      ngProgressLite.done();
                       $scope.loader = false;
                       $scope.sending = false;
                       $scope.$broadcast("AjaxCallHappened",false);
