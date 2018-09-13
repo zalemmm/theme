@@ -8341,9 +8341,9 @@ a.open-popup-auto {
 
 .column {
 
-  @include s860{
+  //@include s860{
     width: 49% !important;
-  }
+  //}
 
   @include s740 {
     width: 100% !important;
@@ -8930,8 +8930,8 @@ h5.delaisTitle {
       width: 100%;
       height: auto;
     }
-
   }
+
   .preview_imag2 {
     z-index: 20;
   }

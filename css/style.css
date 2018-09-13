@@ -12398,11 +12398,9 @@ a.open-popup-auto {
   }
 }
 
-@media (max-width: 860px) {
-  /* line 8342, sass/_layoutBase.scss */
-  .column {
-    width: 49% !important;
-  }
+/* line 8342, sass/_layoutBase.scss */
+.column {
+  width: 49% !important;
 }
 
 @media (max-width: 740px) {
