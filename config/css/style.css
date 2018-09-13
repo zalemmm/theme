@@ -11,6 +11,32 @@ Primary use:	Tshirt Design
 -------------------------------------------------------------------*/
 /*colors*/
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700i,900");
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?iyz6f5");
+  src: url("../fonts/icomoon.eot?iyz6f5#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?iyz6f5") format("truetype"), url("../fonts/icomoon.woff?iyz6f5") format("woff"), url("../fonts/icomoon.svg?iyz6f5#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-56:before {
+  content: "\e900";
+}
+
 #content {
   background: #444;
   min-height: 100vh;
@@ -85,6 +111,19 @@ h5 {
   text-transform: uppercase;
   font-size: 12px;
   margin-left: -10px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+h5.psm {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  font-size: 9px;
+}
+
+h5.commande {
+  margin-bottom: 10px;
+  margin-left: 0;
 }
 
 label {
@@ -117,7 +156,7 @@ c .loadMore {
 
 .tabing .nav-tabs > li > a {
   border: none;
-  background: #373737;
+  background: #3f3f3f;
   border-radius: 0;
   color: #ccc;
   padding: 40px 10px 10px;
@@ -125,33 +164,27 @@ c .loadMore {
   font-size: 14px;
   line-height: 14px;
   position: relative;
-  margin-right: 1px !important;
+  margin: 0;
+  border-right: 1px solid #444;
+  height: 66px;
 }
 
 .tabing .nav-tabs > li > a:hover {
-  background: #515151;
+  background: #26a7d9;
+  color: #fff !important;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
-.tabing .nav-tabs > li > a:after {
-  position: absolute;
-  content: "";
-  width: 26px;
-  height: 32px;
-  background-size: 26px auto;
-  left: 0;
-  right: 0;
-  top: 5px;
-  margin: auto;
-}
-
 .tabing ul#tabs {
   background: #444 none repeat scroll 0 0;
+  margin: 0;
 }
 
 .tabing ul#tabs li {
-  width: 24.9%;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 65px;
 }
 
 .action_tabs {
@@ -278,30 +311,25 @@ c .loadMore {
   background: #444;
 }
 
+.canvas_options ul span li a {
+  color: #ccc !important;
+}
+
 .canvas_options li {
   cursor: pointer;
   display: block;
   float: left;
-  height: 65px;
+  height: 66px;
   margin: auto;
   padding: 10px 12.5px 0;
   text-align: center;
-}
-
-.canvas_options li:hover {
-  background: #515151 !important;
 }
 
 .canvas_options li a {
   color: #fff !important;
 }
 
-.canvas_options span li a {
-  color: #ccc !important;
-}
-
-.canvas_options li a:hover,
-.canvas_options span li a:hover {
+.canvas_options li aa:hover {
   text-decoration: none;
   color: #fff;
 }
@@ -315,8 +343,17 @@ c .loadMore {
   padding-top: 5px;
 }
 
-.canvas_options li span.nope {
-  padding-top: 2px;
+.canvas_options li.highlight {
+  background: #373737;
+  color: #fff !important;
+}
+
+.canvas_options li.highlight span {
+  color: #fff;
+}
+
+.canvas_options li:hover {
+  background: #515151 !important;
 }
 
 .canvas_details {
@@ -376,6 +413,11 @@ c .loadMore {
 
 .ul_layer_canvas > li:last-child {
   border-bottom: 1px solid #515151;
+}
+
+.ul_layer_canvas {
+  max-height: 85vh;
+  overflow-y: scroll;
 }
 
 .ul_layer_canvas span {
@@ -448,6 +490,8 @@ c .loadMore {
   right: 0;
   margin: 0;
   padding: 0;
+  max-width: 300px;
+  height: 40px;
   font-size: 20px;
   cursor: pointer;
   opacity: 0;
@@ -486,10 +530,6 @@ md-tabs.md-default-theme md-ink-bar {
 
 md-tab-content {
   height: 90%;
-}
-
-.well {
-  overflow: hidden;
 }
 
 .customizer {
@@ -569,7 +609,6 @@ md-tab-content {
 
 .color_section .color_selector li {
   border: 2px solid transparent;
-  /*Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)*/
   -webkit-box-shadow: 0 0 2px #c7c7c7;
   box-shadow: 0 0 2px #c7c7c7;
   cursor: pointer;
@@ -676,7 +715,7 @@ md-tab-content {
     max-width: 31.9%;
   }
   .thumb_listing ul li img {
-    max-width: 35px;
+    width: 100%;
   }
   .canvas_options li {
     margin: auto 12px;
@@ -947,6 +986,7 @@ body {
   width: 100%;
   height: 100% !important;
   min-height: 100% !important;
+  overflow-x: hidden;
 }
 
 .encart {
@@ -1010,7 +1050,7 @@ body {
 }
 
 .dashed {
-  margin-top: 20px;
+  margin-top: 50px;
   border: 2px dashed #ccc;
   padding: 5px 10px;
   font-size: 10px;
@@ -1353,17 +1393,6 @@ canvas {
 
 .ulChildMenu {
   display: none;
-}
-
-.well {
-  background: #444 none repeat scroll 0 0 !important;
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  margin-bottom: 0;
-  border-radius: 0;
-  min-height: 70vh;
-  margin-top: 10px;
 }
 
 .open .dropdown-menu {
@@ -1756,17 +1785,21 @@ md-select-value:hover {
 }
 
 .graphic_options span {
-  display: block;
+  display: inline-block;
   font-size: 13px;
   line-height: 16px;
   text-align: center;
-  margin-top: 5px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .graphic_options i {
-  display: block;
+  display: inline-block;
+  width: 100%;
   font-size: 24px;
-  margin: 5px 0 6px;
+  margin: 0;
+  padding: 5px 0 0;
 }
 
 .graphic_options ul li {
@@ -1778,13 +1811,23 @@ md-select-value:hover {
 .graphic_options ul li > div {
   background: #373737 none repeat scroll 0 0;
   padding: 5px 0;
-  height: 70px;
+  height: 60px;
   margin-right: 1px;
   color: #ccc !important;
 }
 
+.graphic_options ul li > div a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
 .graphic_options ul li > div:hover {
   background: #515151;
+}
+
+.disabled {
+  color: #515151;
 }
 
 .graphic_options ul li > div a {
@@ -2072,7 +2115,7 @@ ng\:form {
 
 .btnTopright ul li .fa {
   font-size: 20px;
-  margin-top: -2px;
+  margin-top: 2px;
   color: #ccc;
 }
 
@@ -2238,18 +2281,31 @@ md-radio-group md-radio-button {
   border-radius: 0;
 }
 
-.editor_section .activeControlsElem > div.well {
+.well {
+  position: relative;
   background: #444 none repeat scroll 0 0 !important;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  margin-bottom: 0;
+  border-radius: 0;
+  max-height: 80vh;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.well .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.editor_section .activeControlsElem > div.well {
   margin: -5px auto 0;
   color: #ccc !important;
   width: 100%;
   padding: 25px;
-  min-height: 70vh;
-}
-
-.editor_section .activeControlsElem > div.well .row {
-  margin-left: 0;
-  margin-right: 0;
+  min-height: 85vh;
+  max-height: 85vh;
 }
 
 .editor_section .activeControlsElem > div.well .row.row-margin {
@@ -2272,9 +2328,10 @@ md-radio-group md-radio-button {
   position: relative;
 }
 
-.thumb_listing ul li.ng-scope.selected {
-  -webkit-box-shadow: 0 0 3px #696969;
-  box-shadow: 0 0 3px #696969;
+.thumb_listing ul li.ng-scope:hover {
+  background: #ea2a6a;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 /*==============================================================================
@@ -2419,6 +2476,19 @@ input:checked + .slider:before {
           box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
+.tooltip-small + .tooltip > .tooltip-inner {
+  max-width: 100%;
+  width: 140px;
+  font-size: 10px;
+  text-align: center;
+  background: #26a7d9;
+  border-radius: 0;
+  padding: 10px;
+  text-transform: none;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
 .tooltip.in {
   opacity: 1 !important;
 }
@@ -2491,6 +2561,8 @@ input:checked + .slider:before {
 }
 
 .vosimgCont {
+  position: relative;
+  overflow-y: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2500,13 +2572,14 @@ input:checked + .slider:before {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-left: -10px;
+  max-height: 400px;
 }
 
 .vosimgCont span {
   display: inline-block;
   position: relative;
-  width: 90px;
-  height: 90px;
+  width: 93px;
+  height: 93px;
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -2530,6 +2603,29 @@ input:checked + .slider:before {
           transform: translate(-50%, -50%);
   -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
           box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+}
+
+.emptyImg {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #515151;
+  text-align: center;
+  font-size: 11px;
+  padding: 10px;
+  width: 92%;
+  margin-bottom: 10px;
+}
+
+.astuce {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #fff;
+  color: #444;
+  text-align: left !important;
+  font-size: 12px;
+  line-height: 13px !important;
+  padding: 7px 10px;
+  width: 100%;
 }
 
 .ul_layer_canvas .imgbg {
@@ -2657,7 +2753,7 @@ h4.alert {
     width: 8.33333%;
   }
   .w3-col.m2 {
-    width: 16.66666%;
+    width: 15%;
   }
   .w3-col.m3, .w3-quarter {
     width: 24.99999%;
@@ -2675,7 +2771,7 @@ h4.alert {
     width: 58.33333%;
   }
   .w3-col.m8, .w3-twothird {
-    width: 180px;
+    width: 220px;
     margin-bottom: 5px;
   }
   .w3-col.m9, .w3-threequarter {
@@ -2837,7 +2933,6 @@ h4.alert {
 }
 
 .w3-container, .w3-panel {
-  max-width: 300px;
   margin-top: -10px;
   margin-bottom: 15px;
   margin-left: -5px;
@@ -2856,8 +2951,7 @@ h4.alert {
   height: 25px;
   margin-bottom: 10px;
   display: block;
-  border: 1px solid #ccc;
-  width: 180px;
+  width: 220px;
   text-align: center;
   font-size: 1.4rem;
   color: #3B3B3B;
@@ -2867,11 +2961,44 @@ h4.alert {
 
 #result01 {
   display: inline-block;
-  height: 70px;
-  width: 70px;
-  border: 1px solid #ccc;
-  text-indent: -80px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
+  height: 93px;
+  width: 93px;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+          box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+  text-align: center;
   cursor: pointer;
+  font-family: Consolas, 'courier new';
+  padding: 10px;
+  font-size: 11px;
+}
+
+.adjust {
+  position: relative;
+  background: #fff;
+  padding: 5px;
+  width: 322px;
+  margin-left: 5px;
+  margin-top: 10px;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+          box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
+}
+
+.adjust:after {
+  bottom: 100%;
+  left: 16%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: transparent;
+  border-bottom-color: #ffff;
+  border-width: 10px;
+  margin-left: -10px;
 }
 
 .w3-large {
@@ -2881,7 +3008,7 @@ h4.alert {
 }
 
 .colorinput {
-  width: 65px;
+  width: 70px;
   padding: 5px 0 5px 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -2894,6 +3021,7 @@ h4.alert {
 .cmjnLetter {
   width: 15px;
   float: right;
+  color: #444;
 }
 
 .cInput {
@@ -2904,12 +3032,13 @@ h4.alert {
   font-size: 1.1rem;
   vertical-align: top;
   color: #444;
+  margin-left: 3px;
 }
 
 .colorslider {
   padding: 5px 0 5px 0px;
   height: 24px;
-  width: 195px;
+  width: 240px;
 }
 
 .colorSample {
@@ -2950,10 +3079,11 @@ h4.alert {
 }
 
 .swatch-selector .swatch {
-  width: 20px;
-  height: 20px;
+  width: 19px;
+  height: 19px;
   float: left;
   border: 0;
+  margin: 0 .5px .5px;
 }
 
 footer {
@@ -2993,8 +3123,11 @@ footer .logofb span {
 
 footer .txta {
   display: inline-block;
-  width: 54.5%;
-  padding-top: 7px;
+  width: 72.5%;
+  padding-top: 10px;
+  text-align: right;
+  margin-right: 1%;
+  font-size: 12px;
 }
 
 footer .txta .bienv {
@@ -3537,6 +3670,37 @@ md-toast {
 
 .md-dialog-container {
   z-index: 999 !important;
+}
+
+.graphCont {
+  width: calc(100% + 15px);
+  margin-left: -15px !important;
+  margin-top: 1px !important;
+  margin-bottom: 20px !important;
+  background: #515151;
+}
+
+.graphCats {
+  border: 0;
+  border-right: 1px solid #444;
+  background: #515151;
+  text-align: center;
+  padding: 10px 0;
+  color: #ccc;
+  font-size: 13px;
+}
+
+.graphCats img {
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+  fill: #fff;
+}
+
+.graphCats:active, .graphCats:focus, .graphCats:hover, .graphCats.active {
+  background: #373737;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 /*# sourceMappingURL=maps/style.css.map */

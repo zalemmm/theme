@@ -227,6 +227,7 @@ angular.module('productApp', [
                         var html='<span ng-click="useUpimg(\''+filename+'\');" role="button" tabindex="0"><img class="vosimg" src="'+srcImg+'" /></span>',
                         el = document.getElementById('uploaded');
                         angular.element(el).append($compile(html)($scope) );
+                        //$scope.$broadcast('rebuild:me');
 
                         // intégrer l'image au canvas
                         //console.log('url fichier : ' +srcImg);
@@ -273,11 +274,6 @@ angular.module('productApp', [
                   $scope.fabric.addImage(srcImg);
                 }
 
-                // fin barre de progression
-                //setTimeout(function() {
-                  ngProgressLite.done();
-                  $scope.loader = false;
-                //}, 500);
                 //------------------------------------
                 $scope.objectLayers = [];
                 $scope.objectLayers = $scope.fabric.canvasLayers();
@@ -285,7 +281,6 @@ angular.module('productApp', [
             } else {
                 _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
             }
-
         };
 
         $scope.clearAll = function () {
@@ -334,7 +329,7 @@ angular.module('productApp', [
         $scope.retour = function () {
             var confirm = $mdDialog.confirm()
                 .title('')
-                .content('Ceci va rétablir votre sauvegarde si vous avez enregisté des modifications, sinon rétablir le gabarit vierge.')
+                .htmlContent('Ceci va rétablir votre sauvegarde si vous avez enregisté des modifications.<br /> Vous pouvez aussi retrouver votre sauvegarde en actualisant la page.')
                 .ariaLabel('Confirm')
                 .ok('Ok')
                 .cancel('Annuler');
@@ -457,11 +452,11 @@ angular.module('productApp', [
 
                 $scope.deactivateAll();
 
-                var activeTab;
+                /*var activeTab;
                 activeTab = $('#tabs').find('li.active');
                 $("#my-tab-content > div.active").removeClass('active');
                 $(activeTab).removeClass('active');
-                $('#Layers').addClass('active');
+                $('#Layers').addClass('active');*/
 
                 $scope.objectLayers = [];
                 $scope.objectLayers = $scope.fabric.canvasLayers();
@@ -580,6 +575,16 @@ angular.module('productApp', [
         $scope.flipObject = function () {
             if($scope.fabric.checkBackgroundImage()){
                 $scope.fabric.toggleFlipX();
+                $scope.objectLayers = [];
+                $scope.objectLayers = $scope.fabric.canvasLayers();
+            }else{
+                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
+            }
+        };
+
+        $scope.flipObjectY = function () {
+            if($scope.fabric.checkBackgroundImage()){
+                $scope.fabric.toggleFlipY();
                 $scope.objectLayers = [];
                 $scope.objectLayers = $scope.fabric.canvasLayers();
             }else{
@@ -795,6 +800,7 @@ angular.module('productApp', [
                     $scope.saving = false;
                     $("#saved").text('oui');
                     $("#json").text(json);
+                    //location.href = orderurl;
 
                 }).error(function (data, status, headers, config) {
                     ngProgressLite.done();
@@ -836,11 +842,11 @@ angular.module('productApp', [
                 }).success(function (data, status, headers, config) {
                     ngProgressLite.done();
                     $scope.loader = false;
-
                     $("#saved").text('oui');
                     $("#json").text(json);
+                    location.href = orderurl;
 
-                    if(data.status){
+                    /*if(data.status){
                         $mdDialog.show(
                             $mdDialog.alert()
                                 .parent(angular.element(document.querySelector('#popupContainer')))
@@ -849,7 +855,7 @@ angular.module('productApp', [
                                 .htmlContent('Vous pouvez quitter l\'application et revenir dans votre espace client reprendre votre travail quand vous le souhaitez. <a href="'+orderurl+'" class="dialret">retour à votre commande</a>')
                                 .ariaLabel('Success')
                         );
-                    }
+                    }*/
 
                 }).error(function (data, status, headers, config) {
 
@@ -988,25 +994,13 @@ angular.module('productApp', [
             }
         };*/
 
-        $scope.undo = function () {
-            if($scope.fabric.checkBackgroundImage()){
-                $scope.fabric.undo();
-                $scope.objectLayers = [];
-                $scope.objectLayers = $scope.fabric.canvasLayers();
-            }else{
-                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
-            }
-        };
+      $scope.undo = function () {
+          $scope.fabric.undo();
+      };
 
-        $scope.redo = function () {
-            if($scope.fabric.checkBackgroundImage()){
-                $scope.fabric.redo();
-                $scope.objectLayers = [];
-                $scope.objectLayers = $scope.fabric.canvasLayers();
-            }else{
-                _this.showNotification($scope.NOTIFICATION_MESSAGES.CANVAS_EMPTY, true);
-            }
-        };
+      $scope.redo = function () {
+          $scope.fabric.redo();
+      };
 
       $scope.selectA = function () {
             if($scope.fabric.checkBackgroundImage()){
@@ -1149,6 +1143,7 @@ angular.module('productApp', [
         $scope.fillColor  = function (value) {
             $scope.fabric.selectedObject.fill = value;
         };
+
 
         $scope.fillTint = function (value){
             $scope.fabric.selectedObject.tint = value;
@@ -1300,6 +1295,7 @@ angular.module('productApp', [
         };
 
         $scope.loadProduct = function (title, image, id, price, currency, indexKey = null) {
+          $('#Formes').addClass('active');
             $scope.counter = 1;
             if(indexKey != null){
                 $scope.fabric.designedObjects[$scope.activeDesignObject]  = $scope.fabric.exportCanvasObjectAsJson();
@@ -1474,6 +1470,7 @@ angular.module('productApp', [
         };
 
         this.initProducts = function () {
+
             $scope.productCategory = "all";
             $http({
                 method: 'get',
@@ -1492,10 +1489,12 @@ angular.module('productApp', [
         };
 
         $scope.loadByGraphicsCat = function (val){
+            $('.graphCats').removeClass('active');
+            $('#'+val).addClass('active');
             $scope.graphicsCategory = val;
             $scope.graphicsPage = 1;
             _this.initGraphics();
-            $scope.graphic_icons = true;
+            //$scope.graphic_icons = true;
         };
 
         $scope.ShowGraphicIcons = function (){
@@ -1519,7 +1518,6 @@ angular.module('productApp', [
                 dataType : 'json',
                 headers: {'Content-Type': 'application/json'}
             }).success(function (data, status, headers, config) {
-
                 if(data.loadMore){
                     $scope.loadMore = true;
                 }else{
@@ -1636,10 +1634,10 @@ angular.module('productApp', [
 
                 $scope.initFBUi();
 
-            jQuery(window).load(function(){
+            //jQuery(window).load(function(){
                  //jQuery(".editor_section").height(jQuery(".canvas_section").height());
                 // jQuery(".index_02 .tab-pane").height(jQuery(".canvas_section").height());
-            });
+            //});
 
             $scope.fabric = new Fabric({
                 JSONExportProperties: FabricConstants.JSONExportProperties,

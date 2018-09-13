@@ -23,6 +23,12 @@ a#corner_button_cart,
   display: none;
 }
 
+.dn960 {
+  @include s960 {
+    display: none;
+  }
+}
+
 #chat-application {
   margin-bottom: 0;
 }
@@ -38,40 +44,6 @@ iframe#sb-player {
 
 .modal-wrapper {
   z-index: 9999;
-}
-
-// extends ---------------------------------------------------------------------
-
-%buttonBase{
-  background-image: none;
-  background-color: $cyan;
-  background-repeat: no-repeat;
-  font-family: $font-global;
-  vertical-align: top;
-  width: 32%;
-  height: 40px;
-  margin-right: .5%;
-  border-radius: 3px;
-  color: #fff;
-  font-size: .8rem;
-  font-weight: normal;
-  text-transform: uppercase;
-  cursor: pointer;
-  border: 0;
-  //box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.3);
-  &.active,
-  &:hover {
-    border: 0;
-    background-image: none;
-    background-color: $magenta;
-    transition: .2s;
-  }
-}
-
-%buttonBaseAfter{
-  color: $white;
-  text-transform: uppercase;
-  padding: 10px 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -2462,24 +2434,7 @@ ul {
   height: auto;
 }
 
-.delivery-date,
-#estdate_7,
-#estdate_16 {
-  display: block;
-  color: $magenta;
-  text-transform: uppercase;
-  text-align: right;
-  font-weight: bold;
-  font-size: 1rem;
-  border: 1px solid $magenta;
-  text-align: center;
-  padding: .7rem;
-  animation: fadein 1s;
-  &:empty {
-    display: none;
-    border: none;
-  }
-}
+
 
 a.linkUppercase {
   display: inline-block;
@@ -5043,10 +4998,7 @@ a.pleaseregister {
     text-align: center;
     padding: 10px 0;
     border-radius:26px;
-    &:after{
-      @extend %buttonBaseAfter;
-      content: '';
-    }
+
 
 }
 
@@ -6327,62 +6279,6 @@ h1.helpPageTitle {
 #delivery {
   margin-top: 10px;
 }
-
-
-
-#p1 {
-  @extend %buttonBase;
-  &:after{
-    @extend %buttonBaseAfter;
-    content: 'Normal - 4/5 jours';
-  }
-}
-
-#p2 {
-  @extend %buttonBase;
-  &:after{
-    @extend %buttonBaseAfter;
-    content: 'Rapide - 2/3 jours';
-  }
-}
-
-#p3 {
-  @extend %buttonBase;
-  margin-right: 0;
-  &:after{
-    @extend %buttonBaseAfter;
-    content: 'Express - 1 jour';
-  }
-}
-
-#l1 {
-  @extend %buttonBase;
-  &:after{
-    @extend %buttonBaseAfter;
-    content: 'Normal - 3/4 jours';
-  }
-}
-
-#l2 {
-  @extend %buttonBase;
-  &:after{
-    @extend %buttonBaseAfter;
-    content: 'Rapide - 2/3 jours';
-  }
-}
-
-#l3 {
-  @extend %buttonBase;
-  margin-right: 0;
-  &:after{
-    @extend %buttonBaseAfter;
-    content: 'Express - 1 jour';
-  }
-}
-
-
-
-
 
 
 // containers pour accès clients -----------------------------------------------
@@ -9104,7 +9000,7 @@ h5.delaisTitle {
 
 #estimation {
 
-  z-index: 110;
+  z-index: 90;
   position: absolute;
   right: 0;
   bottom: 0;

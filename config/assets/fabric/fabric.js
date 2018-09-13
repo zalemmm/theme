@@ -38,14 +38,14 @@ angular.module('common.fabric', [
 				globalCompositeOperation : 'source-atop'
 			},
 			windowDefaults: {
-                rotatingPointOffset: 20,
-                padding: 10,
-                borderColor: 'EEF6FC',
-                cornerColor: '#FFC23F',
-                cornerSize: 10,
-                transparentCorners: false,
-                hasRotatingPoint: true,
-                centerTransform: true
+        rotatingPointOffset: 20,
+        padding: 10,
+        borderColor: 'EEF6FC',
+        cornerColor: '#FFC23F',
+        cornerSize: 10,
+        transparentCorners: false,
+        hasRotatingPoint: true,
+        centerTransform: true
 			},
 			canvasDefaults: {
 				selection: true
@@ -58,6 +58,36 @@ angular.module('common.fabric', [
 		var small = winWidth < 1440 && winHeight < 900;
 		var medium = winWidth >= 1440  && winHeight >= 900;
 		var large = winWidth >= 1600 && winHeight >= 900;
+
+		/*var _config = {
+				canvasState             : [],
+				currentStateIndex       : -1,
+				undoStatus              : false,
+				redoStatus              : false,
+				undoFinishedStatus      : 1,
+				redoFinishedStatus      : 1,
+		    undoButton              : document.getElementById('undo'),
+				redoButton              : document.getElementById('redo'),
+		};
+
+		self.updateCanvasState = function() {
+			if((_config.undoStatus == false && _config.redoStatus == false)){
+				var jsonData          = canvas.toJSON();
+				var canvasAsJson      = JSON.stringify(jsonData);
+				if(_config.currentStateIndex < _config.canvasState.length-1){
+					var indexToBeInserted                  = _config.currentStateIndex+1;
+					_config.canvasState[indexToBeInserted] = canvasAsJson;
+					var numberOfElementsToRetain           = indexToBeInserted+1;
+					_config.canvasState                    = _config.canvasState.splice(0,numberOfElementsToRetain);
+				}else{
+					_config.canvasState.push(canvasAsJson);
+				}
+				_config.currentStateIndex = _config.canvasState.length-1;
+				if((_config.currentStateIndex == _config.canvasState.length-1) && _config.currentStateIndex != -1){
+					_config.redoButton.disabled= "disabled";
+				}
+			}
+		}*/
 
 		function capitalize(string) {
 			if (typeof string !== 'string') {
@@ -655,6 +685,8 @@ angular.module('common.fabric', [
 
 					var gaba = self.findObject(canvas, 'id', 'gabarit');
 					canvas.sendToBack(gaba);
+					/*gaba.set({evented:false});
+					self.render();*/
 				}
 
 				//------------------------------- ratio gabarit/canvas suivant le format
@@ -1094,7 +1126,7 @@ angular.module('common.fabric', [
 						gabarit = self.findObject(canvas, 'id', 'gabarit');
 						recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 						gabarit.set({evented: false, hasControls: false});
-						self.switch();
+						//self.switch();
 
 						if(depliant) {
 							line  = self.findObject(canvas, 'id', 'line');
@@ -1169,7 +1201,7 @@ angular.module('common.fabric', [
 					recbg.set({lockMovementY:true, lockMovementX: true, hasControls: false});
 					gabarit.set({evented: false, hasControls: false});
 
-					self.switch();
+					//self.switch();
 				}
 
 
@@ -1945,9 +1977,19 @@ angular.module('common.fabric', [
 
 		self.selectA = function (){
 				canvas.deactivateAll();
-
-				var objs = canvas.getObjects().map(function(o) {
-					return o.set('active', true);
+				// on filtre par id tous les calques prédéfinis pour ne sélectionner que les calques créés par l'utilisateur
+				var objs = canvas.getObjects().filter(function(o) {
+					if (o.get('id') !== 'gabarit' &&
+					    o.get('id') !== 'recbg' &&
+							o.get('id') !== 'rolltop' &&
+							o.get('id') !== 'rollbot' &&
+							o.get('id') !== 'rollfoot1' &&
+							o.get('id') !== 'rollfoot2' &&
+							o.get('id') !== 'line'  &&
+							o.get('id') !== 'line1'  &&
+							o.get('id') !== 'line2' ) {
+            return o.set('active', true);
+        	}
 				});
 				var center = canvas.getCenter();
 				var group = new fabric.Group(objs, {
@@ -1968,7 +2010,19 @@ angular.module('common.fabric', [
     self.canvasLayers = function (){
       var layers = [];
 
-      $.each(canvas.getObjects(), function (index,value) {
+      $.each(canvas.getObjects().filter(function(o) {
+				if (o.get('id') !== 'gabarit' &&
+						o.get('id') !== 'recbg' &&
+						o.get('id') !== 'rolltop' &&
+						o.get('id') !== 'rollbot' &&
+						o.get('id') !== 'rollfoot1' &&
+						o.get('id') !== 'rollfoot2' &&
+						o.get('id') !== 'line'  &&
+						o.get('id') !== 'line1'  &&
+						o.get('id') !== 'line2' ) {
+					return o;
+				}
+			}), function (index,value) {
 					layers.push({
 						"id": "calque "+(index+1),
 						"src":self.convertToSVG(value),
@@ -2371,7 +2425,67 @@ angular.module('common.fabric', [
 
 		// ========================================================================= UNDO REDO
 
-    //Undo
+		/*self.undo = function() {
+			if(_config.undoFinishedStatus){
+				if(_config.currentStateIndex == -1){
+					_config.undoStatus = false;
+				}else{
+					if (_config.canvasState.length >= 1) {
+						_config.undoFinishedStatus = 0;
+						if(_config.currentStateIndex != 0){
+							_config.undoStatus = true;
+							canvas.loadFromJSON(_config.canvasState[_config.currentStateIndex-1],function(){
+								var jsonData = JSON.parse(_config.canvasState[_config.currentStateIndex-1]);
+								canvas.renderAll();
+								_config.undoStatus = false;
+								_config.currentStateIndex -= 1;
+								_config.undoButton.removeAttribute("disabled");
+								if(_config.currentStateIndex !== _config.canvasState.length-1){
+									_config.redoButton.removeAttribute('disabled');
+								}
+								_config.undoFinishedStatus = 1;
+							});
+						}else if(_config.currentStateIndex == 0){
+							canvas.clear();
+							_config.undoFinishedStatus = 1;
+							_config.undoButton.disabled= "disabled";
+							_config.redoButton.removeAttribute('disabled');
+							_config.currentStateIndex -= 1;
+						}
+					}
+				}
+			}
+			canvas.renderAll();
+		}
+
+		self.redo = function() {
+			if(_config.redoFinishedStatus){
+				if((_config.currentStateIndex == _config.canvasState.length-1) && _config.currentStateIndex != -1){
+					_config.redoButton.disabled= "disabled";
+				}else{
+					if (_config.canvasState.length > _config.currentStateIndex && _config.canvasState.length != 0){
+						_config.redoFinishedStatus = 0;
+						_config.redoStatus = true;
+						canvas.loadFromJSON(_config.canvasState[_config.currentStateIndex+1],function(){
+							var jsonData = JSON.parse(_config.canvasState[_config.currentStateIndex+1]);
+							canvas.renderAll();
+							_config.redoStatus = false;
+							_config.currentStateIndex += 1;
+							if(_config.currentStateIndex != -1){
+								_config.undoButton.removeAttribute('disabled');
+							}
+							_config.redoFinishedStatus = 1;
+							if((_config.currentStateIndex == _config.canvasState.length-1) && _config.currentStateIndex != -1){
+								_config.redoButton.disabled= "disabled";
+							}
+						});
+					}
+				}
+			}
+			canvas.renderAll();
+		}*/
+
+		/*//Undo
 
     self.undo = function() {
 			// lenght>1 pour ne pas effacer le 1er object soit le gabarit en revenant en arrière
@@ -2388,8 +2502,7 @@ angular.module('common.fabric', [
             isRedoing = true;
             canvas.add(h.pop());
         }
-    };
-
+    };*/
 		//
 		// Text
 		// ========================================================================= TEXT
@@ -2722,6 +2835,21 @@ angular.module('common.fabric', [
 			self.render();
 		};
 
+		// ========================================================================= FlipY
+		self.getFlipY = function() {
+			return getActiveProp('flipY');
+		};
+
+		self.setFlipY = function(value) {
+			setActiveProp('flipY', value);
+		};
+
+		self.toggleFlipY = function() {
+			var value = self.getFlipY() ? false : true;
+			self.setFlipY(value);
+			self.render();
+		};
+
 		// ========================================================================= Align Active Object
 		self.center = function() {
 			var activeObject = canvas.getActiveObject();
@@ -2765,7 +2893,7 @@ angular.module('common.fabric', [
 			}
 		};
 
-		// =========================================================================  Active Object Layer Position
+		// ========================================================================= Active Object Layer Position
 		self.sendBackwards = function() {
 			var activeObject = canvas.getActiveObject();
 			var recbg = self.findObject(canvas, 'id', 'recbg');
@@ -3045,7 +3173,6 @@ angular.module('common.fabric', [
 			canvas.renderAll();
 		}
 
-
 		// Canvas Zoom
 		// =========================================================================
 		self.setZoom = function() {
@@ -3190,9 +3317,7 @@ angular.module('common.fabric', [
 			self.selectedObject.fontFamily = self.getFontFamily();
 			self.selectedObject.fill = self.getFill();
 			self.selectedObject.tint = self.getTint();
-
 		};
-
 
 		self.getRandomArbitrary = function (){
 		    var min = 13;
@@ -3288,8 +3413,6 @@ angular.module('common.fabric', [
 			return self.initialized;
 		};
 
-
-
 		//==========================================================================                                                            //          										  EXPORT
 		//==========================================================================
 		self.prepSave = function() {
@@ -3331,7 +3454,6 @@ angular.module('common.fabric', [
 
 			//canvas.deactivateAll().renderAll();
 		}
-
 
 		// ========================================================================= JSON
 		self.sauvegarder = function() {
@@ -3380,7 +3502,6 @@ angular.module('common.fabric', [
 		    canvas.deactivateAll().renderAll();
 		    return canvas.toJSON();
 		};
-
 
 		// ========================================================================= saveCanvasObject
 		self.saveCanvasObject = function() {
@@ -3717,22 +3838,14 @@ angular.module('common.fabric', [
 			  }
 			});*/
 
+			canvas.on('mouse:over', function() {
+				//----------------- correction bug calques statiques qd il y a une image
+				var recbg     = self.findObject(canvas, 'id', 'recbg');
+				var gabarit   = self.findObject(canvas, 'id', 'gabarit');
 
-			canvas.on('object:selected', function() {
-				self.stopContinuousRendering();
-
-				//----------- correction bug gabarit pointillé actif qd il y a une image
-				var gaba = self.findObject(canvas, 'id', 'gabarit');
-				var recbg = self.findObject(canvas, 'id', 'recbg');
-				canvas.bringToFront(gaba);
-				gaba.set({hasControls: false, evented: false});
+				canvas.bringToFront(gabarit);
+				gabarit.set({hasControls: false, evented: false});
 				recbg.set({hasControls: false});
-				//----------------------------------------------------------------------
-
-				$timeout(function() {
-					self.selectActiveObject();
-					self.setDirty(true);
-				});
 			});
 
 			canvas.on('selection:created', function() {
@@ -3750,8 +3863,17 @@ angular.module('common.fabric', [
 				canvas.calcOffset();
 			});
 
+			canvas.on('object:selected', function() {
+				self.stopContinuousRendering();
+				$timeout(function() {
+					self.selectActiveObject();
+					self.setDirty(true);
+				});
+			});
+
 			canvas.on('object:modified', function() {
 				self.stopContinuousRendering();
+				//self.updateCanvasState();
 				$timeout(function() {
 					self.updateActiveObjectOriginals();
 					self.setDirty(true);
@@ -3759,17 +3881,13 @@ angular.module('common.fabric', [
 			});
 
 			canvas.on('object:added', function() {
-
+				self.stopContinuousRendering();
+				//self.updateCanvasState();
 			});
-
-
 		};
 
 
-
-
-
-	// drawing mode //////////////////////////////////////////////////////////////
+  	// drawing mode ////////////////////////////////////////////////////////////
 
     self.toggleDrawing = function (){
         canvas.isDrawingMode = !canvas.isDrawingMode;
@@ -3779,17 +3897,14 @@ angular.module('common.fabric', [
         else {
             return 'Enter';
         }
-
     };
 
     self.enterDrawing = function (){
         canvas.isDrawingMode = true;
-
     };
 
     self.exitDrawing = function (){
         canvas.isDrawingMode = false;
-
     };
 
     self.changeDrawingMode = function (mode, color, width, shadow){
@@ -3868,9 +3983,6 @@ angular.module('common.fabric', [
 
                 return patternCanvas;
             };
-
-
-
         }
 
         if (mode === 'hline') {
@@ -3901,7 +4013,6 @@ angular.module('common.fabric', [
     };
 
     self.resetBrush = function (mode, color, width, shadow){
-
         canvas.freeDrawingBrush = new fabric[mode + 'Brush'](canvas);
         canvas.freeDrawingBrush.color = color;
         canvas.freeDrawingBrush.width = parseInt(width, 10) || 1;
@@ -3941,7 +4052,6 @@ angular.module('common.fabric', [
 			console.log('window:' +winWidth+ 'x' +winHeight);
 			console.log('canvas:' +canvasW+ 'x' +canvasH);
 			//------------------------------------------------------------------------
-
 
 			//------------------------------------------------------------------------
 
