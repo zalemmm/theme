@@ -870,21 +870,6 @@ md-tab-content {
   margin: auto;
 }
 
-.canvas_sub_image ul {
-  text-align: center;
-}
-
-.canvas_sub_image ul li {
-  display: inline-block;
-  cursor: pointer;
-}
-
-.pricing span {
-  display: inline-block;
-  text-align: center;
-  line-height: 17px;
-}
-
 .shape_selector a {
   /*Instead of the line below you could use @include border-radius($radius, $vertical-radius)*/
   border-radius: 50%;
@@ -1900,10 +1885,6 @@ md-select-value:hover {
   top: -3px;
 }
 
-.pricing {
-  margin-top: 10px;
-}
-
 .btn-group-two {
   right: auto;
   left: 25px;
@@ -2089,46 +2070,46 @@ ng\:form {
   margin-left: 65px;
 }
 
-.btnTopright {
+ul.btnTopright {
   position: absolute;
   right: 0;
   top: 0;
   z-index: 900;
 }
 
-.btnTopright ul li {
+ul.btnTopright li {
   width: 90px;
   font-size: 12px;
   line-height: 14px;
 }
 
-.btnTopright ul li.saveObject {
+ul.btnTopright li.saveObject {
   background: #ea2a6a;
 }
 
-.btnTopright ul li:hover, .btnTopright ul li:active, .btnTopright ul li:visited, .btnTopright ul li:focus {
+ul.btnTopright li:hover, ul.btnTopright li:active, ul.btnTopright li:visited, ul.btnTopright li:focus {
   background: #26a7d9 !important;
   -webkit-transition: .2s;
   transition: .2s;
   text-decoration: none !important;
 }
 
-.btnTopright ul li .fa {
+ul.btnTopright li .fa {
   font-size: 20px;
   margin-top: 2px;
   color: #ccc;
 }
 
-.btnTopright ul li a {
+ul.btnTopright li a {
   display: block;
   width: 100%;
 }
 
-.btnTopright ul li a:hover, .btnTopright ul li a:active, .btnTopright ul li a:visited, .btnTopright ul li a:focus {
+ul.btnTopright li a:hover, ul.btnTopright li a:active, ul.btnTopright li a:visited, ul.btnTopright li a:focus {
   text-decoration: none !important;
 }
 
-.btnTopright ul li.saveObject a span, .btnTopright ul li.saveObject a .fa {
+ul.btnTopright li.saveObject a span, ul.btnTopright li.saveObject a .fa {
   color: #fff;
 }
 
@@ -2572,14 +2553,15 @@ input:checked + .slider:before {
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin-left: -10px;
+  width: 330px;
   max-height: 400px;
 }
 
 .vosimgCont span {
   display: inline-block;
   position: relative;
-  width: 93px;
-  height: 93px;
+  width: 90px;
+  height: 90px;
   cursor: pointer;
   margin-right: 10px;
   margin-bottom: 10px;

@@ -238,11 +238,10 @@ angular.module('productApp', [
                           $scope.fabric.addImage(srcImg);
                         }
 
-                        // fin barre de progression
-                        //setTimeout(function() {
-                          ngProgressLite.done();
-                          $scope.loader = false;
-                        //}, 500);
+                        ngProgressLite.done();
+                        $scope.loader = false;
+                        _this.showNotification('votre image est importée!', true);
+
                         //------------------------------------
                         $scope.objectLayers = [];
                         $scope.objectLayers = $scope.fabric.canvasLayers();
@@ -475,7 +474,7 @@ angular.module('productApp', [
         $scope.copyItem =  function () {
             if($scope.fabric.checkBackgroundImage()){
                 if($scope.fabric.copyItem() == 'DONE') {
-                    _this.showNotification('Object Copied!', false);
+                    _this.showNotification('Objet copié!', false);
                     $scope.objectLayers = [];
                     $scope.objectLayers = $scope.fabric.canvasLayers();
                 }
@@ -487,7 +486,7 @@ angular.module('productApp', [
         $scope.pasteItem =  function () {
             if($scope.fabric.checkBackgroundImage()){
                 if($scope.fabric.pasteItem() == 'DONE') {
-                    _this.showNotification('Object Paste!', false);
+                    _this.showNotification('Objet collé!', false);
                     $scope.objectLayers = [];
                     $scope.objectLayers = $scope.fabric.canvasLayers();
                 }
@@ -778,6 +777,7 @@ angular.module('productApp', [
             ngProgressLite.start();
             $scope.loader = true;
             $scope.saving = true;
+            _this.showNotification('Sauvegarde en cours...', false);
             //$scope.$apply();
             if($scope.fabric.checkBackgroundImage()){
 
@@ -798,6 +798,7 @@ angular.module('productApp', [
                     ngProgressLite.done();
                     $scope.loader = false;
                     $scope.saving = false;
+                    _this.showNotification('Sauvegarde OK!', false);
                     $("#saved").text('oui');
                     $("#json").text(json);
                     //location.href = orderurl;

@@ -53,7 +53,6 @@ $w: #fff;
   content: "\e900";
 }
 
-
 //-------------------------------------------------------------------hack chrome
 @mixin hackChrome {
   @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -934,20 +933,6 @@ md-tab-content {
   margin: auto;
 }
 
-.canvas_sub_image ul {
-  text-align: center;
-}
-
-.canvas_sub_image ul li {
-  display: inline-block;
-  cursor: pointer;
-}
-
-.pricing span {
-  display: inline-block;
-  text-align: center;
-  line-height: 17px;
-}
 
 .shape_selector a {
   /*Instead of the line below you could use @include border-radius($radius, $vertical-radius)*/
@@ -1953,10 +1938,6 @@ md-select-value {
   top: -3px;
 }
 
-.pricing {
-  margin-top: 10px;
-}
-
 .btn-group-two {
   right: auto;
   left: 25px;
@@ -2141,61 +2122,53 @@ ng\:form {
 
 //------------------------------------------------------------------------------
 
-.btnTopright {
+ul.btnTopright {
   position: absolute;
   right: 0;
   top: 0;
 
   z-index: 900;
+  li {
+    width: 90px;
+    font-size: 12px;
+    line-height: 14px;
+    &.saveObject {
+      background: $mag;
+    }
 
-  ul {
-
-    li {
-      width: 90px;
-      font-size: 12px;
-      line-height: 14px;
-      &.saveObject {
-        background: $mag;
-      }
+    &:hover,
+    &:active,
+    &:visited,
+    &:focus {
+      background: $cyan !important;
+      transition: .2s ;
+      text-decoration: none !important;
+    }
+    .fa {
+      font-size: 20px;
+      margin-top: 2px;
+      color: $txt;
+    }
+    a {
+      display: block;
+      width: 100%;
 
       &:hover,
       &:active,
       &:visited,
       &:focus {
-        background: $cyan !important;
-        transition: .2s ;
         text-decoration: none !important;
       }
-      .fa {
-        font-size: 20px;
-        margin-top: 2px;
-        color: $txt;
-      }
-      a {
-        display: block;
-        width: 100%;
-
-        &:hover,
-        &:active,
-        &:visited,
-        &:focus {
-          text-decoration: none !important;
-        }
-      }
-      &.saveObject a{
-        span, .fa {
-         color: $w;
-       }
-      }
+    }
+    &.saveObject a{
+      span, .fa {
+       color: $w;
+     }
     }
   }
 }
 
-
-
 //------------------------------------------------------------------------------
-
-
 
 md-checkbox .md-icon {
   border-color: $txt !important;
@@ -2614,13 +2587,14 @@ input:checked + .slider:before {
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-left: -10px;
+  width: 330px;
   max-height: 400px;
 
   span {
     display: inline-block;
     position: relative;
-    width: 93px;
-    height: 93px;
+    width: 90px;
+    height: 90px;
     cursor: pointer;
     margin-right: 10px;
     margin-bottom: 10px;
