@@ -20,7 +20,7 @@ gulp.task( 'watch', ['sass'], function() {
         proxy: "http://127.0.0.1/wordpress",
         port: 8000
     });
-    gulp.watch( './sass/**/*.scss', ['sass']);
+    gulp.watch( './sass/*.scss', ['sass']).on( 'change', browserSync.reload );
     gulp.watch( '*.html' ).on( 'change', browserSync.reload );
 });
 
@@ -30,7 +30,7 @@ gulp.task( 'sass', function() {
         .pipe( sass({
             includePaths: [susy, bourbon],
             sourceComments: true,
-            outputStyle: 'expanded'
+            outputStyle: 'compressed'
         }).on( 'error', sass.logError ) )
         .pipe( autoprefixer(  ) )
         .pipe( sourcemaps.write( './maps' ) )
