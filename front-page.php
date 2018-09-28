@@ -9,9 +9,64 @@ get_header();
 <div id="content">
   <div id="content_bg_top">
     <div id="content_zawartosc">
+
       <?php
         echo do_shortcode("[metaslider id=4082]");
       ?>
+
+      <ul id="tarifs">
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="banderole - banderole publicitaire - impression banderoles - impression bache - bâche publicitaire - bâches grand format - baches imprimées - bâches personnalisées - impression bâche grand format" href="banderoles/"><img itemprop="image" class="home-buttons"  alt="banderole bâche banderoles baches calicot" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-banderole.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="banderole - banderole publicitaire - impression banderoles - impression bache - bâche publicitaire - bâches grand format - baches imprimées - bâches personnalisées - impression bâche grand format" href="banderoles/">banderole <span class="micro-s">&amp; bâches publicitaires</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="roll-up - enrouleur - kakemonos - rollup - enrouleurs - impression kakemono tendu - kakemono grand format" href="roll-up/"><img itemprop="image" class="home-buttons" alt="kakemonos &amp; roll-up" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-roll-up.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="kakemono - roll-up - enrouleur - kakemonos - rollup - enrouleurs - impression kakemono tendu - kakemono grand format" href="roll-up/">kakemono roll-up <span class="micro-s">enrouleur</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="kakemono - Totem - kakemonos - blizzard- x-screen - impression kakemono tendu - kakemono grand format" href="totem/"><img itemprop="image" class="home-buttons"  alt="kakemonos &amp; Totem" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-totem.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="kakemono - totem - blizzard - kakemonos - x-screen - clip'it - impression kakemono tendu - kakemono grand format" href="totem/">Totem publicitaire  PLV<span class="micro-s">interieur & exterieur</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="stand-parapluie - stand pliable - stand tissu - bank d'accueil" href="stand-parapluie/"><img itemprop="image" class="home-buttons" alt="stands parapluie stand tissu" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-stand.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="stand-parapluie - stand pliable - stand tissu - bank d'accueil" href="stand-parapluie/">Stand-parapluie <span class="micro-s">Stand tissu & comptoir d'accueil</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="oriflammes - oriflamme - beachflag pas cher - Beach Flag - Windflag - flying banner - voile imprimée - voiles - flag - drapeaux - drapeau voile publicitaire personnalisé" href="oriflammes/"><img itemprop="image" class="home-buttons" alt="oriflammes oriflamme flying banner flag drapeaux" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-oriflamme.png" /></a>
+        <div itemprop="name" class="micro" align="center" ><a title="oriflammes - oriflamme - flying banner - voile - voiles - flag - drapeaux" href="oriflammes/">Oriflamme <span class="micro-s">BeachFlag Voiles &amp; Drapeaux</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="impression panneaux forex - panneaux dibond - panneau alu dibond - enseignes alu dibond" href="panneaux-forex-dibond/"><img itemprop="image" class="home-buttons" alt="impression enseignes Dibond - panneaux Forex - panneaux akilux - panneau alvéolaire - panneaux de chantier" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-enseigne.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="impression enseignes Dibond - panneaux Forex - panneaux akilux - panneau alvéolaire - panneaux de chantier - impression numérique grand format recto verso" href="panneaux-forex-dibond/">Enseigne publicitaire <span class="micro-s">panneaux Forex - Alu Dibond</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="impression panneaux akilux pas cher - panneaux akylux - panneau alvéolaire - panneaux de chantier - panneaux akilux agence immobiliere " href="panneaux-akilux/"><img itemprop="image" class="home-buttons" alt="Panneaux Akilux" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-panneau.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="impression panneaux akilux pas cher - panneaux akylux - panneau alvéolaire - panneaux de chantier - panneaux akilux agence immobiliere" href="panneaux-akilux/">Panneau Akilux <span class="micro-s">panneau Immo - chantier</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="tente publicitaire d'exposition pliante - barnum personnalisé - chapiteau publicitaire" href="tente-publicitaire-barnum"><img itemprop="image" class="home-buttons"  alt="tentes d'exposition" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-tentes.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="tente d'exposition pliante - barnum" href="tente-pliante-exposition">Tente publicitaire <span class="micro-s">chapiteau & Barnum</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="Habillage pour stand d'exposition - PLV interieur - porte affiche - porte document - accessoires pose - mur d'image - photocall " href="stand-exposition-plv-interieur/"><img itemprop="image" class="home-buttons"  alt="Habillage pour stand d'exposition - PLV interieur - porte affiche - porte document - accessoires pose - mur d'image - cadre aluminium - photocall" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-habillage-stand.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="Habillage pour stand d'exposition" href="stand-exposition-plv-interieur/">Habillage stand<span class="micro-s">et PLV intérieur</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="Impression de nappes publicitaires pour salon, séminaire, showroom, mariage - forme ronde, carrée ou rectangulaire" href="nappes-publicitaires/"><img itemprop="image" class="home-buttons"  alt="Nappe imprimée" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-nappes.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="" href="nappes-publicitaires/">Nappe publictaire<span class="micro-s">personnalisée</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="PLV exterieur - interieur - porte affiche - porte document - accessoires pose - mur d'image - cadre aluminium - photocall - stand autoportant extérieur" href="plv-exterieur/"><img itemprop="image" class="home-buttons"  alt="PLV exterieur - interieur - porte affiche - porte document - accessoires pose - mur d'image - cadre aluminium - photocall - stand autoportant extérieur" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-PLV-ext.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="PLV exterieur - interieur - porte affiche - porte document - accessoires pose - mur d'image - cadre aluminium - photocall - stand autoportant extérieur" href="plv-exterieur/">PLV exterieur</a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="vinyles adhésifs - Stickers - Autocollants - magnets - Covering - habillage voiture camion - Vitrophanie - film micro perforée imprimé et magnétiques repositionnable" href="stickers/"><img itemprop="image" class="home-buttons"  alt="vinyles adhésifs - Stickers - Autocollants - magnets - Covering - habillage voiture camion - Vitrophanie - film micro perforée imprimé et magnétiques repositionnable" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-stickers.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="vinyles adhésifs - Stickers - Autocollants - magnets - Covering - habillage voiture camion - Vitrophanie - film micro perforée imprimé et magnétiques repositionnable" href="stickers/">Autocollant <span class="micro-s">&amp; Stickers Lettrage adhésif</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="Affiche - affiches grand petit format - affiche à l'unité - poster xxl - Posters" href="affiches"><img itemprop="image" class="home-buttons"  alt="impression affiche et poster grand format" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-affiche.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="Affiche - affiches grand petit format - affiche à l'unité - poster xxl - Posters - poster grand format" href="affiches">Affiche <span class="micro-s">&amp; Posters XXL</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="impression carte de visite - Cartes de visites - cartes postales - carte postale personnalisée" href="cartes"><img itemprop="image" class="home-buttons"  alt="impression carte de visite carte postale personnalisée" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-carte.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="impression carte de visite - Cartes de visites - cartes postales - carte postale personnalisée" href="cartes">Carte de visite <span class="micro-s">&amp; postales</span></a></div></li>
+
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="Flyer - flyers pas cher - flyer rapide - Prospectus" href="flyers"><img itemprop="image" class="home-buttons" lt="flyer prospectus" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-flyer.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="Flyer - flyers pas cher - flyer rapide - Prospectus" href="flyers">Flyer / Dépliant<span class="micro-s">&amp; Prospectus</span></a></div></li>
+
+        <li itemscope="" itemtype="http://schema.org/Product"><a itemprop="url" title="promotions banderoles pas cher - baches imprimées - bâches évènementielles - bâche publicitaire discount" href="promotions/"><img itemprop="image" class="home-buttons"  alt="promotion banderoles pas cher - baches imprimées - bâches évènementielles - bâche publicitaire discount" src="//www.france-banderole.com/wp-content/themes/fb/images/bt/bt-promo.png" /></a>
+        <div itemprop="name" class="micro" align="center"><a title="promotions banderoles pas cher - baches imprimées - bâches évènementielles - bâche publicitaire discount" href="promotions/">Promotions</a></div></li>
+
+      </ul>
+
       <div class="storycontent">
 
         <?php echo getPageContent(2); ?>

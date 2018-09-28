@@ -481,12 +481,15 @@ p.checklab{
   font-size: .9rem;
   float: left;
   display: inline;
-  margin: 25px auto 0;
+
   text-decoration: none;
   text-align: center;
   color: $white;
   border-bottom: 1px solid $bloc-base;
   border-right: 1px solid $bloc-base;
+  &:last-of-type {
+    border-right: 0;
+  }
 
   @include s650 {
     border-bottom: 0;
@@ -917,11 +920,15 @@ a.textLink{
   background-color: $green;
   color: $white;
   line-height: 1.2rem;
+  &.center {
+    text-align: center;
+  }
+
   @include s480 {
     font-size: .8rem;
   }
 
-  a {
+  a, h2 {
     color: $white;
     font-weight: bold;
   }
@@ -1823,7 +1830,7 @@ a.gabarit {
   position: absolute;
   bottom: 10px;
   right: 0;
-  @include s540{
+  @include s760{
     display: none;
   }
 }
@@ -2125,13 +2132,18 @@ span.pay_carte_info {
 
 #fbcart_cart {
   position: relative;
-  float: left;
   display: inline-block;
   width: 100%;
-  background: darken($bloc-base,2%);
   font-size: .85rem;
   line-height: .9rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  border-top: 1px solid $border;
+  border-left: 1px solid $border;
+  border-right: 1px solid $border;
+
+  @include s760{
+    border: 0;
+  }
 
   span {
     &.name {
@@ -2144,11 +2156,11 @@ span.pay_carte_info {
     &.therest {
       font-size: .75rem;
     }
+
     &.reference {
       //display: none;
       font-size: 10px;
     }
-
   }
 
   th {
@@ -2161,10 +2173,11 @@ span.pay_carte_info {
     padding: 1rem;
     font-size: .8rem;
 
-    @include s540{
+    @include s760{
       width: 100%;
       display: none;
     }
+
     &.leftth {
       text-align: left;
       width: 50%;
@@ -2195,7 +2208,7 @@ span.pay_carte_info {
     border-bottom: 1px solid $border;
     position: relative;
 
-    @include s540 {
+    @include s760 {
       display: inline-block;
       width: 100%;
       padding: .5rem;
@@ -2209,23 +2222,21 @@ span.pay_carte_info {
     &.lefttd {
       background: $bloc-base;
       text-align: left;
-      padding: 13px 20px 21px;
+      padding: 15px 15px 21px;
 
-      @include s540 {
+      @include s760 {
         width: 100%;
         border: 1px solid $border;
         padding: 5px 0;
       }
     }
+
     &.noprint{
       width: 5%;
-      @include s540 {
+      @include s760 {
         width: 100%;
       }
     }
-  }
-  tr {
-
   }
 }
 
@@ -2233,16 +2244,16 @@ span.pay_carte_info {
   margin-right: 10px;
   margin-left: -5px;
   float: left;
-  height: 160px;
+  height: 170px;
   @include hackEdge {
     display: none;
   }
-  @include s540 {
+  @include s760 {
     margin-left: 0;
   }
   img {
     margin-top: -5px;
-    width: 160px;
+    width: 170px;
     height: auto;
     @include s1024{
       width: 80px;
@@ -2258,6 +2269,7 @@ span.pay_carte_info {
     display: none;
   }
 }
+
 .prodpicCart {
   width: 50px;
   height: 50px;
@@ -2269,6 +2281,7 @@ span.pay_carte_info {
     display: none;
   }
 }
+
 #delcart {
   width: 16px;
   height: 16px;
@@ -2280,10 +2293,10 @@ span.pay_carte_info {
   margin: 0 5px 0;
   display: block;
 
-  @include s540 {
+  @include s760 {
     position: absolute;
     right: 0;
-    top: -255px;
+    top: -275px;
   }
 }
 
@@ -2318,7 +2331,11 @@ span.pay_carte_info {
 
 .blocPromo {
   width: 59%;
+  @include s760 {
+    width: 100%;
+  }
 }
+
 .promoInput{
   display: inline-block;
   width: 59%;
@@ -3080,5 +3097,116 @@ button#copy {
     &:hover {
       width: 60px;
     }
+  }
+}
+
+.ifcont {
+  position: relative;
+  height: 800px;
+}
+
+iframe#scellius {
+  display: block;
+  overflow: hidden !important;
+  height: 100%;
+}
+
+
+.cartes {
+  margin-top: -5px;
+  margin-right: 15px;
+  display: inline-block;
+  vertical-align: middle;
+
+  @include s1024 {
+    margin-top: 0;
+  }
+}
+
+//==============================================================================
+//                        page paiement effectué
+//==============================================================================
+
+#top {
+  position: relative;
+  background: $white;
+  width: 100%;
+  height: 100vh;
+
+  .box_info,
+  .box_warning {
+    height: auto;
+    text-align: center;
+    h2 {
+      color: $white !important;
+    }
+    span {
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+a.btnRet {
+  @include buttonLine($white, 200px);
+  color: $text !important;
+  font-weight: normal !important;
+  margin-top: 15px;
+
+  &:hover {
+    color: $white !important;
+  }
+}
+
+h2.recTitle {
+  width: auto;
+  background: $text;
+  color: $white;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 0;
+  position: relative;
+  height: 50px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding-top: 15px;
+
+  .printr {
+    @include buttonLine($white, 150px);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 30px;
+    padding-top: .4rem;
+    text-transform: capitalize;
+  }
+}
+
+#receipt {
+  margin: auto;
+  width: 99.9%;
+  border: 1px solid $text;
+  padding: 10px;
+  p {
+    margin-bottom: 5px;
+    .rtt  {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    .rlabel,
+    .rdata {
+      display: inline-block;
+      width: 49%;
+      font-weight: normal;
+      font-size: .8rem;
+    }
+  }
+
+  p.rmail {
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
   }
 }

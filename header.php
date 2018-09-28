@@ -343,8 +343,8 @@
 		//------------------------------------------ check user connecté / revendeur
 		if ($user) {
 			if ($revendeur) {
-				if      ($exco->sign == 0 && $exco->coli == 0) $rev = 'noremise';
-				else if ($exco->sign == 1 && $exco->coli == 0) $rev = 'revendeurRS';
+				$rev = 'rev';
+				if      ($exco->sign == 1 && $exco->coli == 0) $rev = 'revendeurRS';
 				else if ($exco->sign == 0 && $exco->coli == 1) $rev = 'revendeurRC';
 				else if ($exco->sign == 1 && $exco->coli == 1) $rev = 'revendeur';
 				$logstatus = '<i class="fa fa-lock" aria-hidden="true"></i> Bonjour '.$id.' | vous êtes connecté en tant que <span id="'.$rev.'">revendeur</span>';

@@ -1,19 +1,7 @@
 //                                                               STYLES  BOUTONS
 //==============================================================================
 
-// boutons délais de production/livraison --------------------------------------
-
-#production,
-#delivery {
-  display: block;
-  width: 100%;
-}
-#delivery {
-  margin-top: 10px;
-}
-
-
-// containers pour accès clients -----------------------------------------------
+//------------------------------------------------ containers pour accès clients
 .fbcart_buttons,
 #fbcart_buttons,
 #fbcart_buttons3,
@@ -42,21 +30,22 @@
 }
 
 
-// boutons géréer mon compte ---------------------------------------------------
+//---------------------------------------------------- boutons géréer mon compte
 
 .votre_compte {
   width: 100%;
-  padding: 12px 0 4px;
   height: 65px;
   line-height: 1rem;
-  background: $border;
-  border: 1px solid $border;
   color: $text;
   margin: 0;
   font-size: 1rem;
-  text-align: center;
+  text-align: left;
   float: none;
   display: block;
+  padding: .7rem 0 0 .7rem;
+  background: $border;
+  border-bottom: 1px solid $bloc-base;
+  letter-spacing: 1px;
 }
 .votreCompte {
   display: inline-block;
@@ -68,8 +57,7 @@
 
 a#votre_mod, a#votre_dec {
   @include buttonLine($white, 23%);
-
-  margin-right: 1%;
+  margin-left: 1%;
   @include s760 {
     width: 45%;
   }
@@ -430,8 +418,6 @@ a.but_vumaquette {
   }
 }
 
-
-
 #but_suivant {
   position: absolute;
   top: 15px;
@@ -459,17 +445,6 @@ a.but_vumaquette {
   cursor: pointer;
   margin-right: 30px;
 }
-
-/*span.print_button {
-  position: relative;
-  float: left;
-  display: inline;
-  width: auto;
-  height: 33px;
-  padding-top: 14px;
-  background: $bloc-base;
-  text-align: center;
-}*/
 
 span.print_button a{
   @include buttonLog($cyan, 150px);
@@ -524,7 +499,6 @@ form#delfromvosdevis,
     padding: 0;
   }
 }
-
 
 #but_suivre,
 #but_comment,

@@ -45,24 +45,22 @@ jQuery(document).ready(function ($) {
 
   $('.btn').removeClass('.ui-button');
 
-
 	//------------------------------ quantité+- ----------------------------------
   $("#spinner").spinner();
 
-  //------------------ bouton close messages d'erreur --------------------------
-  //----------------------------------------------------------------------------
+  //--------------------------------------------- bouton close messages d'erreur
+
   $(document).on('click', '.closeTip', function() {
     $(this).parent().fadeOut();
   });
 
+  // bouton close tooltips
   $(document).on('click', '.closeButton', function() {
     $('.closeButton').parent().fadeOut();
     $('.box_info').fadeOut();
     $('.box_warning').fadeOut();
   });
 
-  // bouton close tooltips
-  $('.helpText').append('<button class="closeB"><i class="ion-ios-close-empty" aria-hidden="true"></i></button>');
   $(document).on('click', '.closeB', function() {
     $('.closeB').parent().fadeOut();
   });
@@ -79,13 +77,21 @@ jQuery(document).ready(function ($) {
     $('.ftip, .mtip').toggle( "slide" );
   }, 4000);
 
-  //---------------- ajout icone info dans pages devis -------------------------
-  //----------------------------------------------------------------------------
+  //-----------------------------------------------------------helptext tooltips
 
-  $('#buying h3').append('<a class="aideDevis modal-link" href="//www.france-banderole.com/un-devis/" title="Aide pour le devis en ligne" target="_blank"><i class="fa fa-info" aria-hidden="true"></i></a>');
+  $('.helpButton').mouseover(function(){
+    $('.helpText').css('visibility', 'hidden');
+    var thishelper = $(this).find('.helpText');
+    thishelper.css('visibility', 'visible').fadeIn();
+  });
 
-  //---------------- SlidesJS (slider carré des pages produits) ----------------
-  //----------------------------------------------------------------------------
+  $('.helpButton').mouseout(function(){
+    $('.helpText').css('visibility', 'hidden');
+    var thishelper = $(this).find('.helpText');
+    thishelper.css('visibility', 'hidden').fadeOut();
+  });
+
+  //--------------------------------- SlidesJS (slider carré des pages produits)
 
   $('#slides').slidesjs({
     width: 400,
@@ -103,30 +109,14 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  //----------------------- toggle (texte déroulant) ---------------------------
-  //----------------------------------------------------------------------------
+  //--------------------------------------------------- toggle (texte déroulant)
 
   $('.toggle-button').click(function() {
     $('.toggle-block').slideToggle('slow');
   });
 
-  //-------------------------- home buttons hover ------------------------------
-  //----------------------------------------------------------------------------
-  $('#tarifs li, #tarifs2 li').mouseover(function() {
-    $(this).find('.micro a, micro2 a').css({
-      background: '#EA2A6A',
-      color: '#fff'
-    });
-  });
-  $('#tarifs li, #tarifs2 li').mouseout(function() {
-    $(this).find('.micro a').css({
-      background: '#fefefe',
-      color: '#555a61'
-    });
-  });
 
-  //-----------------------top icons menu hover --------------------------------
-  //----------------------------------------------------------------------------
+  //------------------------------------------------------- top icons menu hover
 
   $('.menu-client-icon.phone a, .tel2 a').mouseover(function() {
     $('.menu-client-icon.phone a, .tel2 a').css({
@@ -149,6 +139,8 @@ jQuery(document).ready(function ($) {
     });
   });
 
+  //------------------------------------------------------ boutons module upload
+
   $('.fileinput-button').click(function() {
     $('.fustart, .fucancel, .fudelete').css({
       opacity: '1',
@@ -156,9 +148,16 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  //-------------------------smooth scroll -------------------------------------
-  //----------------------------------------------------------------------------
+  //---------------------------------------------------------------- drag & drop
+  $('.dropin').on('dragenter', function() {
+    $(this).css({'background-color' : 'rgba(0,0,0,0.1)'});
+  });
 
+  $('.dropin').on('dragleave', function() {
+    $(this).css({'background-color' : ''});
+  });
+
+  //-------------------------------------------------------------- smooth scroll
   // Select all links with hashes
   $('a[href*="#"]')
   // Remove links that don't actually link to anything
@@ -193,8 +192,8 @@ jQuery(document).ready(function ($) {
   });
 
 
-  //-------------------------------- Magnific Lightbox -------------------------
-  //----------------------------------------------------------------------------
+  //---------------------------------------------------------- Magnific Lightbox
+
   $('.gallery-item a').magnificPopup({
     type:'image',
     image: {
@@ -217,6 +216,7 @@ jQuery(document).ready(function ($) {
   });
 
   //----------------------------- initialisation popup confirmation ajout panier
+
   $('.open-popup-link').magnificPopup({
     type:'inline',
     midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
@@ -225,27 +225,6 @@ jQuery(document).ready(function ($) {
   $('.btContinue').click(function(){
     $.magnificPopup.close();
   });
-
-  //-------------------------warning configurateur lity ------------------------
-  //----------------------------------------------------------------------------
-
-  /*if (window.location.href.indexOf("vos-devis") != -1) {
-
-    var currentUrl = window.location.href;
-    $(document).on('lity:open', function(event, instance) {
-
-      instance.element().addClass('lity-iframe')
-      .off('click', '[data-lity-close]')
-      .on('click', '[data-lity-close]', function(e) {
-          if (e.target === this) {
-            if (!confirm('ATTENTION: êtes-vous sûr de vouloir fermer cette fenêtre ?')) {
-              return;
-            }
-            instance.close();
-          }
-      });
-    });
-  }*/
 
 
   //------------------------------------------------------------ toggle adresses
@@ -261,49 +240,7 @@ jQuery(document).ready(function ($) {
     $('#adresseCheck').submit();
   });
 
-  /*var check = $('#adresseCheck');
-  check.submit(function (e) {
-    e.preventDefault();
-
-    $.ajax({
-      type: check.attr('method'),
-      url: check.attr('action'),
-      data: check.serialize(),
-      success: function (data) {
-
-      },
-      complete: function(data) {
-          window.location.href = check.attr('action');
-      },
-      error: function (data) {
-        alert('une erreur s\'est produite, veuillez réessayer.');
-      },
-    });
-  });*/
-
-  /*var addressForms = $('#addressForm1, #addressForm2, #addressForm3, #addressForm4, #addressForm5, #addressForm6, #addressForm7, #addressForm8, #addressForm9, #addressForm10, #addressForm11, #addressForm1, #addressForm12, #addressForm13, #addressForm14, #addressForm15, #addressForm16, #addressForm17, #addressForm18, #addressForm19, #addressForm20');
-
-  addressForms.submit(function (e) {
-    e.preventDefault();
-
-    $.ajax({
-      type: addressForms.attr('method'),
-      url: addressForms.attr('action'),
-      data: addressForms.serialize(),
-      success: function (data) {
-
-      },
-      complete: function(data) {
-        window.location.href = window.location.href;
-      },
-      error: function (data) {
-
-      },
-    });
-  });*/
-
-  //-------------------------------- export devis ------------------------------
-  //----------------------------------------------------------------------------
+  //--------------------------------------------------------------- export devis
 
   var expfrm = $('#marge');
   expfrm.submit(function (e) {
@@ -349,7 +286,6 @@ jQuery(document).ready(function ($) {
         alert('une erreur s\'est produite, veuillez réessayer.');
       }
     });
-
   });
 
   //-----------------------------------modes de paiement: affichage bouton payer
@@ -398,20 +334,6 @@ jQuery(document).ready(function ($) {
     });
   });
 
-  //-----------------------------------------------------------helptext tooltips
-
-  $('.helpButton').mouseover(function(){
-    $('.helpText').css('visibility', 'hidden');
-    var thishelper = $(this).find('.helpText');
-    thishelper.css('visibility', 'visible').fadeIn();
-    $(document).click(function(event) {
-      if(!$(event.target).closest(thishelper).length) {
-          if($(thishelper).is(":visible")) {
-              $(thishelper).css('visibility', 'hidden');
-          }
-      }
-    });
-  });
 
   //------------------------------------------------------------tooltip paiement
   $('.paiements_right_con').mouseover(function(){
@@ -423,213 +345,7 @@ jQuery(document).ready(function ($) {
 
   $('.radiod').prop("disabled", true);
 
-  //---------------------- affichage conditionnel desktop ----------------------
-  //----------------------------------------------------------------------------
-
-  var isDesktop = window.matchMedia("only screen and (min-width: 1024px)");
-
-  if (isDesktop.matches) {
-    //---------------------------------------------------------helptext tooltips
-    $('li.form-line.select').focusin(function(){
-      $(this).find('.helpText').css('visibility', 'visible').fadeIn();
-    });
-    $('li.form-line.select').change(function() {
-      $(this).find('.helpText').css('visibility', 'hidden').fadeOut();
-    });
-    $('li.form-line.select').focusout(function(){
-      $(this).find('.helpText').css('visibility', 'hidden').fadeOut();
-    });
-
-    //-------------------- hover accès client: affichage du module de connection
-
-    $('.menu-client--devis').mouseover(function() {
-      $('#acclient_sub').show();
-    });
-    $('.menu-client--panier').mouseover(function() {
-      $('#panier_sub').show();
-    });
-    $('.menu-client--panier, #content_bg_top').mouseover(function() {
-      $('#acclient_sub').hide();
-    });
-    $('#content_bg_top, .menu-client--devis').mouseover(function() {
-      $('#panier_sub').hide();
-    });
-
-    // disparition au clic outside
-    $(document).mouseup(function(e) {
-      var container = $("#acclient_sub");
-      // if the target of the click isn't the container nor a descendant of the container
-      if (!container.is(e.target) && container.has(e.target).length === 0)  {
-          container.fadeOut();
-      }
-    });
-
-		//-------------------------------------------------------------- sticky menu
-
-		$(window).scroll(function() {
-	    if ($(window).scrollTop() > 150) {
-	      $("nav").addClass('fixed');
-				$('.navContainer').addClass('fixed');
-				$('.izoneLeft, .izoneRight').css('top','50px');
-        $('.log_info').css('display','none');
-	    } else {
-	      $("nav").removeClass('fixed');
-				$('.navContainer').removeClass('fixed');
-				$('.izoneLeft, .izoneRight').css('top','0');
-        $('.log_info').css('display','block');
-	    }
-		});
-
-    //---------------------------------------------------------demande de rappel
-    function explode(){
-      var curdate = new Date();
-      var curhour = curdate.getHours();
-      if(curdate.getDay() != 6 && curdate.getDay() != 0) { // si ce n'est pas le week end
-        if ((curhour >= 9 && curhour < 12) || (curhour >= 14 && curhour < 18) ) { // et si on est dans les horaires bureau
-          $('#butrappel').toggle( "slide" ); // affiche le bouton demande rappel
-        }
-      }
-    }
-    setTimeout(explode, 10000); // apparait au bout de 20 secondes
-    // cacher au click en dehors du div
-    /*$(document).click(function(event) {
-      if(!$(event.target).closest('#butrappel').length) {
-          if($('#butrappel').is(":visible")) {
-              $('#butrappel').hide();
-          }
-      }
-    });*/
-
-    var rappel = jQuery('#subrappel');
-    rappel.submit(function(e) {
-      e.preventDefault();
-       jQuery.ajax({
-         type: rappel.attr('method'),
-         url: rappel.attr('action'),
-         data: rappel.serialize(),
-         success: function (data) {
-           $("#rappel .modalContent").html("<div class='successmsg'>Merci, un conseiller va vous rappeler!<div>");
-           $("#butrappel").fadeOut();
-         },
-         complete: function(data) {
-         },
-         error: function (data) {
-           alert('une erreur s\'est produite, veuillez réessayer.');
-         },
-       });
-    });
-
-		//---------------------------------------------------------------- addtocart
-		var frm = jQuery('#cart_form');
-		frm.submit(function (e) {
-			e.preventDefault();
-      $('.loader').show();
-
-			jQuery.ajax({
-				type: frm.attr('method'),
-				url: frm.attr('action'),
-				data: frm.serialize(),
-				success: function (data) {
-					//Select item image and pass to the function
-					/*var itemImg = jQuery('#preview');
-          flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));*/
-
-          $("#nomp").load("index.php #nomp");
-          $("#menuPanier").load("index.php #menuPanier");
-				},
-				complete: function(data) {
-
-          $('.loader').hide();
-
-          setTimeout(function(){
-            $.magnificPopup.open({
-                  items: {
-                      src: '#cartConfirm',
-                  },
-                  type: 'inline'
-            });
-          }, 0);
-
-				},
-				error: function (data) {
-					alert('une erreur s\'est produite, veuillez réessayer.');
-				},
-			});
-		});
-
-    //-------------------------------------------------addtocart modèle page PLV
-    $("[data-cartform]").submit(function(e) {
-        var frm2 = $(this);
-        var itemImg = $('.imgtd');
-        e.preventDefault();
-
-       jQuery.ajax({
-         type: frm2.attr('method'),
-         url: frm2.attr('action'),
-         data: frm2.serialize(),
-         success: function (data) {
-           $("#nomp").load("index.php #nomp");
-           flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
-           $("#menuPanier").load("index.php #menuPanier");
-         },
-         complete: function(data) {
-           setTimeout(function(){
-             $.magnificPopup.open({
-                   items: {
-                       src: '#cartConfirm',
-                   },
-                   type: 'inline'
-             });
-           }, 700);
- 				},
-         error: function (data) {
-           alert('une erreur s\'est produite, veuillez réessayer.');
-         },
-       });
-    });
-
-
-  //---------------------- affichage conditionnel mobile -----------------------
-  //----------------------------------------------------------------------------
-  }else{
-		var frm = jQuery('#cart_form');
-		frm.submit(function (e) {
-			e.preventDefault();
-
-			jQuery.ajax({
-				type: frm.attr('method'),
-				url: frm.attr('action'),
-				data: frm.serialize(),
-				success: function (data) {
-        	jQuery('html, body').animate({
-						'scrollTop' : jQuery(".menu-client--panier").position().top
-					});
-					//Select item image and pass to the function
-					var itemImg = jQuery('#preview');
-          $("#nomp").load("index.php #nomp");
-					flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
-          $("#menuPanier").load("index.php #menuPanier");
-				},
-        complete: function(data) {
-          setTimeout(function(){
-            $.magnificPopup.open({
-                  items: {
-                      src: '#cartConfirm',
-                  },
-                  type: 'inline'
-            });
-          }, 700);
-				},
-				error: function (data) {
-					alert('une erreur s\'est produite, veuillez réessayer.');
-				},
-			});
-		});
-	}
-  //------------------------------------------------------------------fin mobile
-
-  //--------------------------script fly to cart--------------------------------
-  //----------------------------------------------------------------------------
+  //----------------------------------------------------------script fly to cart
   function flyToElement(flyer, flyingTo) {
     var $func = jQuery(this);
     var divider = 3;
@@ -659,8 +375,7 @@ jQuery(document).ready(function ($) {
     });
   }
 
-  //----------------désactiver boutons maquette sous IE et ecran moins de 1280px
-
+  //---------------------------------------------------------------- détecter IE
   function GetIEVersion() {
     var sAgent = window.navigator.userAgent;
     var Idx = sAgent.indexOf("MSIE");
@@ -676,24 +391,147 @@ jQuery(document).ready(function ($) {
     else
     return 0; //It is not IE
   }
+  //---------------------------------------- désactiver boutons maquette sous IE
+
+  if (GetIEVersion() > 0) { //
+    $('.maquette').addClass('deactive');
+    $('.mtip').addClass('mtipIE');
+  }
+
+  //============================================== affichage conditionnel mobile
 
   var isnotDesktop = window.matchMedia("only screen and (max-width: 1279px)");
 
-  if (isnotDesktop.matches) { //------------------------- écrans moins de 1280px
+  //----------------------------------------- désactiver boutons maquette mobile
+  if (isnotDesktop.matches) { // écrans moins de 1280px
     $('.maquette').addClass('deactive');
     $('.mtip').addClass('mtipSm');
     $('.mtip').html('<i class="fa fa-exclamation-triangle exclam" aria-hidden="true"></i><span class="alertText">Pour créer votre maquette en ligne il vous faut être sur un ordinateur avec un écran de minimum 1280 pixels de large.<span class="closeTip"><i class="ion-ios-close-empty" aria-hidden="true"></i></span>');
   }
 
-  if (GetIEVersion() > 0) { // --------------------------------------------if IE
-    $('.maquette').addClass('deactive');
-    $('.mtip').addClass('mtipIE');
-  }
+  //============================================= affichage conditionnel desktop
+
+  var isDesktop = window.matchMedia("only screen and (min-width: 1024px)");
+
+  if (isDesktop.matches) {
+
+    //---------------------------------------------------------helptext tooltips
+    $('li.form-line.select').focusin(function(){
+      $(this).find('.helpText').css('visibility', 'visible').fadeIn();
+    });
+    $('li.form-line.select').change(function() {
+      $(this).find('.helpText').css('visibility', 'hidden').fadeOut();
+    });
+    $('li.form-line.select').focusout(function(){
+      $(this).find('.helpText').css('visibility', 'hidden').fadeOut();
+    });
+
+    //-------------------- hover accès client: affichage du module de connection
+
+    $('.menu-client--devis').mouseover(function() {
+      $('#acclient_sub').show();
+    });
+    $('.menu-client--panier').mouseover(function() {
+      $('#panier_sub').show();
+    });
+    $('.menu-client--panier, #content_bg_top').mouseover(function() {
+      $('#acclient_sub').hide();
+    });
+    $('#content_bg_top, .menu-client--devis').mouseover(function() {
+      $('#panier_sub').hide();
+    });
+
+    //---------------------------------------------- disparition au clic outside
+    $(document).mouseup(function(e) {
+      var container = $("#acclient_sub");
+      // if the target of the click isn't the container nor a descendant of the container
+      if (!container.is(e.target) && container.has(e.target).length === 0)  {
+          container.fadeOut();
+      }
+    });
+
+		//-------------------------------------------------------------- sticky menu
+
+		$(window).scroll(function() {
+	    if ($(window).scrollTop() > 150) {
+	      $("nav").addClass('fixed');
+				$('.navContainer').addClass('fixed');
+				$('.izoneLeft, .izoneRight').css('top','50px');
+        $('.log_info').css('display','none');
+	    } else {
+	      $("nav").removeClass('fixed');
+				$('.navContainer').removeClass('fixed');
+				$('.izoneLeft, .izoneRight').css('top','0');
+        $('.log_info').css('display','block');
+	    }
+		});
+
+    //---------------------------------------------------------demande de rappel
+
+    function explode(){
+      var curdate = new Date();
+      var curhour = curdate.getHours();
+      if(curdate.getDay() != 6 && curdate.getDay() != 0) { // si ce n'est pas le week end
+        if ((curhour >= 9 && curhour < 12) || (curhour >= 14 && curhour < 18) ) { // et si on est dans les horaires bureau
+          $('#butrappel').toggle( "slide" ); // affiche le bouton demande rappel
+        }
+      }
+    }
+    setTimeout(explode, 10000); // apparait au bout de 20 secondes
+
+    var rappel = jQuery('#subrappel');
+    rappel.submit(function(e) {
+      e.preventDefault();
+       jQuery.ajax({
+         type: rappel.attr('method'),
+         url: rappel.attr('action'),
+         data: rappel.serialize(),
+         success: function (data) {
+           $("#rappel .modalContent").html("<div class='successmsg'>Merci, un conseiller va vous rappeler!<div>");
+           $("#butrappel").fadeOut();
+         },
+         complete: function(data) {
+         },
+         error: function (data) {
+           alert('une erreur s\'est produite, veuillez réessayer.');
+         },
+       });
+    });
+
+    //-------------------------------------------------addtocart modèle page PLV
+    $("[data-cartform]").submit(function(e) {
+        var frm2 = $(this);
+        var itemImg = $('.imgtd');
+        e.preventDefault();
+
+       jQuery.ajax({
+         type: frm2.attr('method'),
+         url: frm2.attr('action'),
+         data: frm2.serialize(),
+         success: function (data) {
+           $("#nomp").load("index.php #nomp");
+           flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
+           $("#menuPanier").load("index.php #menuPanier");
+         },
+         complete: function(data) {
+           setTimeout(function(){
+             $.magnificPopup.open({
+                   items: {
+                       src: '#cartConfirm',
+                   },
+                   type: 'inline'
+             });
+           }, 700);
+        },
+         error: function (data) {
+           alert('une erreur s\'est produite, veuillez réessayer.');
+         },
+       });
+    });
+  } // fin affichage conditionnel desktop
 
 
-
-  //-------------------------- print -------------------------------------------
-  //----------------------------------------------------------------------------
+  //---------------------------------------------------------------------- print
   function print(selector) {
     //$('#cgv').addClass('noprint');
     var $print = $(selector)
@@ -707,55 +545,6 @@ jQuery(document).ready(function ($) {
     //Remove div once printed
     $print.remove();
   }
-
-  //-------------------------------------------------------------- export pdf //
-/*  var doc = new jsPDF('portrait', 'mm', 'a4');
-
-  $('#but_imprimer').click(function () {
-
-    doc.addHTML($('#fbcart_cart')[0], 15, 15, {
-    }, function() {
-      doc.save('devis.pdf');
-    });
-
-  });*/
-
-  /*var doc = new jsPDF('portrait', 'mm', 'a4');
-
-  $('#cmd').click(function () {
-    $('#order_inscription, #cmd, #print, #curseurWrapper').hide();
-    $('#modalDevis').css({
-      margin: '20px auto 0',
-      background: '#fff',
-      border: 'none'
-    });
-    $('#modalDevis table').css({
-      width: '90%',
-      background: '#fff'
-    });
-    $('#modalDevis table#fbcart_check').css({
-      width: '45%',
-      marginRight: '10%',
-      background: '#fff'
-    });
-    $('#modalDevis table td').css({
-      background: '#fff'
-    });
-    doc.addHTML($('#modalDevis')[0], 15, 15, {
-    }, function() {
-      doc.save('devis.pdf');
-    });
-    $('#order_inscription, #cmd, #print, #curseurWrapper').show();
-  });*/
-
-  //---------------------------------------------------------------- drag & drop
-  $('.dropin').on('dragenter', function() {
-    $(this).css({'background-color' : 'rgba(0,0,0,0.1)'});
-  });
-
-  $('.dropin').on('dragleave', function() {
-    $(this).css({'background-color' : ''});
-  });
 
   // ------------------------------------------------------------------------FIN
 });

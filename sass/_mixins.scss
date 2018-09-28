@@ -94,6 +94,11 @@
     @content;
   }
 }
+@mixin s330 {
+  @media (max-width: 330px) {
+    @content;
+  }
+}
 // BOUTONS ---------------------------------------------------------------------
 
 // bouton de base

@@ -14,8 +14,8 @@
 }
 @import 'variables';
 @import 'mixins';
-@import 'layoutBase';         // base 1024px
+@import 'layoutBase';         // Template global : header, menus, pages statiques, footer
 @import 'layoutButtons';      // styles boutons
-@import 'layoutModals';       // fenêtres modales
-@import 'layoutProdpages';    // pages produits
-@import 'layoutEspaceclient'; // espace client
+@import 'layoutModals';       // styles fenêtres modales
+@import 'layoutProdpages';    // styles pages produits
+@import 'layoutEspaceclient'; // styles espace client

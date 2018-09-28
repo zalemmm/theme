@@ -396,6 +396,7 @@ iframe,
 #chat-application {
   @include s1024 {
     display: none;
+
   }
 }
 
@@ -430,11 +431,12 @@ iframe,
 iframe#sb-player {
   display: block;
   iframe,
-  #main2
-   {
+  #main2   {
     display: none;
   }
 }
+
+
 
 .hide {
   visibility: hidden;
@@ -444,7 +446,7 @@ iframe#sb-player {
 .disMob0 {
   display: none;
 
-  @include s540 {
+  @include s760 {
     display: inline-block;
     position: absolute;
     left: 5px;
@@ -519,7 +521,7 @@ body {
   z-index: 9;
   width: 1024px;
   background-color: $bloc-base;
-  //overflow-x: hidden;
+  overflow-x: hidden;
   @include s1024 {
     max-width: 100%;
   }
@@ -643,21 +645,25 @@ a#logo {
       font-size: 1.6rem;
       line-height: 1.8rem;
     }
+    @include s330 {
+      font-size: 1.4rem;
+      line-height: 1.6rem;
+    }
 
     a {
       color: $text;
     }
     &:after{
       content: '';
-      background: url('../images/ligne-titre.png') top left repeat-y;
+      background: url('../images/ligne-titre.png') 40% top repeat-y;
       display: block;
       width: 107%;
       height: 5px;
       margin: 0 0 0 2px;
 
       @include s760 {
-        width: 110%;
-        display: none;
+        width: 120%;
+        height: 2px;
       }
     }
   }
@@ -844,6 +850,130 @@ a .fa-lock{
   padding: 0;
 }
 
+// submenu client --------------------------------------------------------------
+
+#acclient_sub,
+#panier_sub {
+  z-index: 999;
+  position: relative;
+  display: none;
+  width: 255px;
+  height: auto;
+  padding: 1rem 1rem .8rem;
+  a {
+    color: $text;
+    font-weight: normal;
+  }
+  &.menu_hover {
+    margin-top: 9px;
+    @include hackChrome {
+      margin-top: 8px;
+    }
+  }
+  &.menu_hover:after,
+  &.menu_hover:before {
+    left: 19%;
+  }
+  .closeB {
+    @include close($text, 1rem, 1px, 6px);
+  }
+
+  // boutons menu espace client --------------------------------------------------
+
+  .bt_connect,
+  a.bt_deconnect {
+    @include buttonLog($text, 60%);
+    height: 25px;
+    padding-top: 6px;
+    border-radius:14px;
+    color: $white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: .7rem;
+    &:hover {
+      color: $white !important;
+    }
+  }
+
+  .bt_compte {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: $font-global;
+    font-size: .7rem;
+    &:hover {
+      color: $cyan;
+    }
+  }
+
+  .bt_bottom {
+    display: inline-block;
+    margin-top: 5px;
+    &:hover {
+      color: $cyan;
+    }
+  }
+}
+
+#panier_sub {
+  width: 300px;
+
+  .ct_item {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 51px;
+    border-bottom:1px solid $border;
+    vertical-align: middle;
+    margin-bottom: 5px;
+  }
+
+  .ct_total {
+    display: inline-block;
+    width: 25%;
+  }
+  .ct_itname{
+    isplay: inline-block;
+    width: 50%;
+    text-align: left;
+    text-transform: capitalize;
+    line-height: .8rem;
+    clear: both;
+    text-transform: uppercase;
+
+  }
+  .ct_qte{
+    width: 15%;
+    text-align: center;
+  }
+  .ct_total {
+    text-align: right;
+  }
+  .ct_totalt {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    width: 100%;
+  }
+  form#delcart_form {
+    display: inline-block;
+    width: 5%;
+  }
+  .emptyCart {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  &.menu_hover:after,
+  &.menu_hover:before {
+    left: 15%;
+  }
+}
+
 //==============================================================================
 //                                 MENUS
 //==============================================================================
@@ -905,107 +1035,6 @@ a .fa-lock{
 /* Je vire outline car juste au-dessus je définis un style :focus */
 .header-nav a:focus {
 	outline: none;
-}
-
-//------------------------------------------------------------------- menu fixed
-
-.navContainer.fixed {
-  position: fixed;
-  top: 0;
-  height: 50px;
-  width: 100%;
-  left: 50%;
-  margin-left: -50%;
-  z-index: 999;
-  background: $bloc-base;
-  box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.2);
-
-}
-
-.fixed {
-  position: fixed;
-  top: 0;
-  margin: 0 auto;
-  width: 1024px;
-  left: 50%;
-  margin-left: -512px;
-  height: 40px;
-
-  .menu_hover#panier_sub  {
-    margin-top: -11px;
-    margin-left: -20px;
-  }
-  .menu_hover#acclient_sub {
-    margin-top: -31px;
-    margin-left: -23px;
-  }
-  // hack chrome
-  @include hackChrome {
-    .menu_hover#panier_sub  {
-      margin-top: -11px;
-    }
-    .menu_hover#acclient_sub {
-      margin-top: -30px;
-    }
-  }
-  ul.menu-client {
-    top: 10px;
-    height:40px;
-
-
-    .menu-client-item {
-      margin-top: 0px;
-      height: 40px;
-      width: 60px;
-      right: 0;
-    }
-
-    .menu-client-item.item1,
-    .menu-client-label{
-      visibility: hidden;
-    }
-
-    .menu-client-icon {
-      font-size: 1.7rem;
-    }
-
-    .menu-client--devis,
-    .menu-client--panier {
-      &::before{
-        display: none;
-      }
-    }
-  }
-
-  #menu_top {
-    left: 0;
-    &::after {
-      display: none;
-    }
-
-    li {
-      display: inline-block;
-      margin-top: 0;
-      ul li{
-        width: auto;
-      }
-      a {
-        color: $white;
-        padding-bottom: 1rem;
-      }
-    }
-  }
-
-  .cartCount {
-    top: 0px;
-    right: 10px;
-  }
-}
-
-// menu génénéral --------------------------------------------------------------
-
-#responsive-menu-container li.responsive-menu-item a{
-  text-transform: uppercase;
 }
 
 ul {
@@ -1203,122 +1232,111 @@ ul#menu_top ul#pap_sub{
   }
 }
 
+//------------------------------------------------------------------- menu fixed
+
+.navContainer.fixed {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  left: 50%;
+  margin-left: -50%;
+  z-index: 999;
+  background: $bloc-base;
+  box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.2);
+
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  margin: 0 auto;
+  width: 1024px;
+  left: 50%;
+  margin-left: -512px;
+  height: 40px;
+
+  .menu_hover#panier_sub  {
+    margin-top: -11px;
+    margin-left: -20px;
+  }
+  .menu_hover#acclient_sub {
+    margin-top: -31px;
+    margin-left: -23px;
+  }
+  // hack chrome
+  @include hackChrome {
+    .menu_hover#panier_sub  {
+      margin-top: -11px;
+    }
+    .menu_hover#acclient_sub {
+      margin-top: -30px;
+    }
+  }
+  ul.menu-client {
+    top: 10px;
+    height:40px;
+
+
+    .menu-client-item {
+      margin-top: 0px;
+      height: 40px;
+      width: 60px;
+      right: 0;
+    }
+
+    .menu-client-item.item1,
+    .menu-client-label{
+      visibility: hidden;
+    }
+
+    .menu-client-icon {
+      font-size: 1.7rem;
+    }
+
+    .menu-client--devis,
+    .menu-client--panier {
+      &::before{
+        display: none;
+      }
+    }
+  }
+
+  #menu_top {
+    left: 0;
+    &::after {
+      display: none;
+    }
+
+    li {
+      display: inline-block;
+      margin-top: 0;
+      ul li{
+        width: auto;
+      }
+      a {
+        color: $white;
+        padding-bottom: 1rem;
+      }
+    }
+  }
+
+  .cartCount {
+    top: 0px;
+    right: 10px;
+  }
+}
+
+
 .bonjour {
   text-transform: capitalize;
 }
 
-#acclient_sub,
-#panier_sub {
-  z-index: 999;
-  position: relative;
-  display: none;
-  width: 255px;
-  height: auto;
-  padding: 1rem 1rem .8rem;
-  a {
-    color: $text;
-    font-weight: normal;
-  }
-  &.menu_hover {
-    margin-top: 9px;
-    @include hackChrome {
-      margin-top: 8px;
-    }
-  }
-  &.menu_hover:after,
-  &.menu_hover:before {
-    left: 19%;
-  }
-  .closeB {
-    @include close($text, 1rem, 1px, 6px);
-  }
 
-  // boutons menu espace client --------------------------------------------------
+// menu mobile -----------------------------------------------------------------
 
-  .bt_connect,
-  a.bt_deconnect {
-    @include buttonLog($text, 60%);
-    height: 25px;
-    padding-top: 6px;
-    border-radius:14px;
-    color: $white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: .7rem;
-    &:hover {
-      color: $white !important;
-    }
-  }
-
-  .bt_compte {
-    display: inline-block;
-    margin-right: 5px;
-    margin-left: 5px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-family: $font-global;
-    font-size: .7rem;
-    &:hover {
-      color: $cyan;
-    }
-  }
-
-  .bt_bottom {
-    display: inline-block;
-    margin-top: 5px;
-    &:hover {
-      color: $cyan;
-    }
-  }
-}
-
-#panier_sub {
-  .ct_item {
-    display: -webkit-flex;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    height: 51px;
-    border-bottom:1px solid $border;
-    vertical-align: middle;
-    margin-bottom: 5px;
-  }
-
-  .ct_total {
-    display: inline-block;
-    width: 25%;
-  }
-  .ct_itname{
-    isplay: inline-block;
-    width: 50%;
-    text-align: left;
-    text-transform: capitalize;
-
-    clear: both;
-
-  }
-  .ct_qte{
-    width: 15%;
-    text-align: center;
-  }
-  .ct_total {
-    text-align: right;
-  }
-  .ct_totalt {
-    display: block;
-    text-align: right;
-    margin-top: 10px;
-    width: 100%;
-  }
-  form#delcart_form {
-    display: inline-block;
-    width: 5%;
-  }
-  .emptyCart {
-    margin-top: 10px;
-    margin-bottom: 20px;
-  }
+#responsive-menu-container li.responsive-menu-item a{
+  text-transform: uppercase;
 }
 
 //==============================================================================
@@ -1606,6 +1624,7 @@ ul#tarifs3 {
   a{display:block}
 
   li {
+    position: relative;
     width: 24%; //120
     height: auto; //160
     margin-bottom: 0;
@@ -1614,6 +1633,17 @@ ul#tarifs3 {
     border: 1px solid $border;
     margin-top: 15px;
 
+    &:hover {
+      //background: url('../images/bt/btbghover.png');
+      background-size: contain;
+      background: $magenta;
+      transition: .5s;
+
+      .micro a {
+        color: $white !important;
+      }
+    }
+
     @include s760 {
       width: 32%;
     }
@@ -1621,16 +1651,16 @@ ul#tarifs3 {
       width: 48%;
     }
 
-    &:hover {
-      //background: url('../images/bt/btbghover.png');
-      background-size: contain;
-      background: $magenta;
-      transition: .1s;
-    }
-
     .home-buttons{
       width: 100%;
       height: auto;
+
+      &.inactive {
+        filter: grayscale(100%);
+      }
+      &.active {
+        filter: none;
+      }
     }
 
     &.separator_con {
@@ -1638,11 +1668,12 @@ ul#tarifs3 {
     }
 
 
+
     .micro a {
       display: block;
       box-sizing: border-box;
       width: 100%;
-      background: $bloc-base;
+      background: transparent;
       font-size: .85rem;
       line-height: .87rem;
       letter-spacing: 1px;
@@ -1655,6 +1686,7 @@ ul#tarifs3 {
       padding: 14px 2px 0;
       height: 45px;
       vertical-align: middle;
+
       @include s960 {
         font-size: .7rem;
       }
@@ -1672,19 +1704,13 @@ ul#tarifs3 {
           display: none;
         }
       }
-
-      &:hover {
-        background: $magenta;
-        color: $white;
-        transition: .1s;
-      }
     }
 
     .micro2 a{
       display: block;
       box-sizing: border-box;
       width: 100%;
-      background: $cyan;
+      background: transparent;
       font-size: .85rem;
       line-height: .87rem;
       letter-spacing: 0;
@@ -1702,18 +1728,107 @@ ul#tarifs3 {
         font-size: .65rem;
         font-family: $font-global;
       }
-      &:hover {
-        background: $magenta;
-        color: $white;
-        transition: .1s;
+    }
+
+    .more {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: calc(100% + 15px);
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      background: $white;
+      border: 1px solid $magenta;
+      border-left: 0;
+      padding: 1rem;
+      z-index: 100;
+
+      //box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.2);
+
+      @include s1280 {
+        top: 100%;
+        left: -2px;
+        width: 102%;
+        height: calc(100% + 18px);
+      }
+
+      &:after {
+        right: 100%;
+      	top: 50%;
+      	border: solid transparent;
+      	content: " ";
+      	height: 0;
+      	width: 0;
+      	position: absolute;
+      	pointer-events: none;
+      	border-color: rgba(229, 229, 229, 0);
+      	border-right-color: $white;
+      	border-width: 15px;
+      	margin-top: -15px;
+
+        @include s1280 {
+          top: -28px;
+        	left: 50%;
+        	border: solid transparent;
+        	content: " ";
+        	height: 0;
+        	width: 0;
+        	position: absolute;
+        	pointer-events: none;
+        	border-color: rgba(255, 255, 255, 0);
+        	border-bottom-color: #fff;
+        	border-width: 15px;
+        	margin-left: -15px;
+          margin-top: auto;
+        }
+      }
+
+
+      a {
+        position: relative;
+        display: block;
+        text-align: left;
+        width: 100%;
+        height: 35px;
+        padding: 10px 0 0 50px;
+        color: $text;
+        margin-bottom: 1%;
+        text-transform: uppercase;
+        font-weight: normal;
+        vertical-align: middle;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 2px;
+          height: 100%;
+        }
+
+        &:hover {
+          background: $text;
+          color: $white;
+          transition: .2s;
+        }
       }
     }
   }
+
+
 }
 
 ul#tarifs2 {
   li {
     width: 19%;
+    @include s760 {
+      width: 32%;
+    }
+    @include s540 {
+      width: 48%;
+    }
   }
 }
 ul#tarifs3 {
@@ -1941,10 +2056,11 @@ img.toggle-button {
 
 .helpText, .helpPay {
   position: absolute;
+  font-family: $font-global;
   left: 100%;
-  top: -10px;
+  top: -40px;
   padding-left: 10px;
-  width: 330px;
+  width: 250px;
   color: darken($text, 10%);
   padding: 1rem;
   z-index: 999;
@@ -2008,7 +2124,7 @@ img.toggle-button {
 
 .helpText:after, .helpText:before, .helpPay:after, .helpPay:before {
 	right: 100%;
-	top: 28px;
+	top: 46px;
 	border: solid transparent;
 	content: " ";
 	height: 0;
@@ -3744,6 +3860,25 @@ span#footer_links2 {
   padding-top: calc(50vh - 50px);
   background-color: rgba(255,255,255,0.5);
   color: $cyan;
+}
+
+#ifLoad {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background: #fff;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    color: $cyan;
+    text-align: center;
+    padding-top: 100px;
+
+    .loadingMessage {
+      padding-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
 }
 
 .attente {
