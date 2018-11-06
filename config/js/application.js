@@ -942,7 +942,7 @@ angular.module('productApp', [
                                 .parent(angular.element(document.querySelector('#popupContainer')))
                                 .clickOutsideToClose(false)
                                 .title('Nous avons bien reçu votre maquette.')
-                                .htmlContent('Votre maquette est bien sauvegardée dans votre devis/commande.<br /> Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client.<br /> Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production. <a href="'+orderurl+'" class="dialret">retour à votre commande</a>')
+                                .htmlContent('Votre maquette est bien sauvegardée dans votre devis/commande.<br /> Notre service d\'infographie va vérifier votre création et vous aurez rapidement un BAT à valider dans votre accès client.<br /> Vous serez averti par mail de sa disponibilité pour vous reconnecter, valider le BAT et payer votre commande pour en lancer la production.<br /> <span class="coloradv">ATTENTION, dû aux conversions entre les couleurs écran (RVB) et les couleurs d\'impression (CMJN), vérifiez bien le résultat des couleurs sur votre BAT</span>. <a href="'+orderurl+'" class="dialret">retour à votre commande</a>')
                                 .ariaLabel('Success')
                                 //.ok('OK')
                         );

@@ -18,12 +18,9 @@
 
 		<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
-		<style type="text/css" media="screen">@import url( <?php echo bloginfo("template_url") ?>/css/style.css?v=2.92 );</style> <!--feuille de style globale-->
-
 		<link rel="icon" type="image/png" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.png" />
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/lity.min.css"> <!-- lightbox pour les iframes, pdf, etc.-->
-		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/magnific-popup.css"> <!-- lightbox pour les images -->
-		<link rel="stylesheet" type="text/css" media="print" href="<?php bloginfo('stylesheet_directory'); ?>/css/print.css" /> <!--feuille de style pour le print-->
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/style.css?v=2.97"> <!-- css global -->
+
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		<?php if (is_page('vos-devis')){
 			echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/jquery-ui.min.css">';
@@ -89,10 +86,9 @@
 
 								}else if ($_POST['logme']=='logme') {
 									$acclient = '<p class="bonjour">Bienvenue '.$login.' !</p>
-									<a href="'.get_bloginfo('url').'/inscription/" class="bt_compte">Mon compte</a> | <a href="'.get_bloginfo('url').'/vos-devis/" class="bt_compte">Mes commandes</a>
-									<a href="'.get_bloginfo('url').'/?logout=true" class="bt_deconnect">Se déconnecter </a>';
+									<a href="'.get_bloginfo('url').'/inscription/" class="bt_compte">Mon compte</a> | <a href="'.get_bloginfo('url').'/vos-devis/" class="bt_compte">Mes commandes</a>';
 
-									$logstatus = '<i class="fa fa-lock" aria-hidden="true"></i> Bonjour '.$login.' | Vous êtes connecté';
+									$logstatus = '';
 
 								}else{
 									$acclient = '<form id="loginform" name="loginform" method="post" action="'.get_bloginfo('url').'/vos-devis/">
@@ -133,8 +129,8 @@
 										<span class="ct_itname">'.$pict.$item['rodzaj'].'</span>
 										<span class="ct_qte">'.$item['ilosc'].'</span>
 										<span class="ct_total">'.$item['total'].'</span>
-										<form name="delcart_form" id="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item['rodzaj'].'" /><input type="hidden" name="opis" value="'.$item['opis'].'" /><input type="hidden" name="ilosc" value="'.$item['ilosc'].'" /><input type="hidden" name="licznik" value="'.$licznik.'" />
-										<button id="delcart" type="submit">DEL</button>
+										<form name="delcart_form" class="delcart_form" action="'.get_bloginfo('url').'/votre-panier/" method="post"><input type="hidden" name="delfromcart" value="delfromcart" /><input type="hidden" name="rodzaj" value="'.$item['rodzaj'].'" /><input type="hidden" name="opis" value="'.$item['opis'].'" /><input type="hidden" name="ilosc" value="'.$item['ilosc'].'" /><input type="hidden" name="licznik" value="'.$licznik.'" />
+										<button class="delcart" type="submit">DEL</button>
 										</form>
 									</div>';
 									$totalItems = str_replace(',', '.', $item['total']);
@@ -165,23 +161,21 @@
 							</ul>-->
 						</li>
 
-						<li onmouseover="tipShow('plv_sub');" onmouseout="tipHide('plv_sub');"><a href="<?php bloginfo('url'); ?>/stand-exposition-plv-interieur/" <?php if(is_page('stand-exposition-plv-interieur') || is_page('roll-up') || is_page('totem') || is_page('stand-parapluie') || is_page('nappes-publicitaires') || is_page('plv-interieur') || is_page('cadre-tissu') || is_page('enseigne-suspendue-textile')) echo ' id="active"'; ?>>Stand Expo <br />& PLV</a>
+						<li onmouseover="tipShow('plv_sub');" onmouseout="tipHide('plv_sub');"><a class="b" href="<?php bloginfo('url'); ?>/stand-exposition-plv-interieur/" <?php if(is_page('stand-exposition-plv-interieur') || is_page('roll-up') || is_page('totem') || is_page('stand-parapluie') || is_page('nappes-publicitaires') || is_page('plv-interieur') || is_page('cadre-tissu') || is_page('enseigne-suspendue-textile')) echo ' id="active"'; ?>>Stand Expo <br />& PLV</a>
 
 							<ul id="plv_sub" class="menu_hover">
-
-								<li><a href="<?php bloginfo('url'); ?>/cadre-tissu/" class="menu_sub"<?php if(is_page('cadre-tissu')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-cadre.png" alt="cadre textile plv pas cher">Cadre textile</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/enseigne-suspendue-textile/" class="menu_sub"<?php if(is_page('enseigne-suspendue-textile')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-susp.png" alt="enseignes suspendues pas cher">Enseigne suspendue textile</a></li>
-
+								<li><a href="<?php bloginfo('url'); ?>/habillage-cloison-de-stand/" class="menu_sub"<?php if(is_page('habillage-cloison-de-stand')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-cloison.png" alt="cloison stand">Habillage cloison de stand</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/stand-parapluie/" class="menu_sub"<?php if(is_page('stand-parapluie')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-stand.png" alt="stand expo parapluie">stand parapluie</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/roll-up/" class="menu_sub"<?php if(is_page('roll-up')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-roll-up.png" alt="kakemono roll-up">roll-up</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/totem/" class="menu_sub"<?php if(is_page('totem')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-totem.png" alt="kakemono totem">totem</a></li>
-
-								<li><a href="<?php bloginfo('url'); ?>/stand-parapluie/" class="menu_sub"<?php if(is_page('stand-parapluie')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-stand.png" alt="stand expo parapluie">stand parapluie</a></li>
-								<li><a href="<?php bloginfo('url'); ?>/nappes-publicitaires/" class="menu_sub"<?php if(is_page('nappes-publicitaires')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-nappes.png" alt="dépliants">nappe publicitaire</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/enseigne-suspendue-textile/" class="menu_sub"<?php if(is_page('enseigne-suspendue-textile')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-susp.png" alt="enseignes suspendues pas cher">Enseigne suspendue textile</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/cadre-tissu/" class="menu_sub"<?php if(is_page('cadre-tissu')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-cadre.png" alt="cadre textile plv pas cher">Cadre textile</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/nappes-publicitaires/" class="menu_sub"<?php if(is_page('nappes-publicitaires')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-nappes.png" alt="nappes publicitaires">nappe publicitaire</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/plv-interieur/" class="menu_sub"<?php if(is_page('plv-interieur')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-PLV-int.png" alt="plv intérieur">plv intérieur</a></li>
 							</ul>
 						</li>
 
-						<li onmouseover="tipShow('ext_sub');" onmouseout="tipHide('ext_sub');"><a href="<?php bloginfo('url'); ?>/signaletique-exterieur" <?php if(is_page('signaletique-exterieur') || is_page('oriflammes') || is_page('tente-publicitaire-barnum') || is_page('panneaux-alu-dibond') || is_page('panneaux-akilux') || is_page('plv-exterieur') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-alu-dibond') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns')) echo ' id="active"'; ?>>Signalétique extérieur</a>
+						<li onmouseover="tipShow('ext_sub');" onmouseout="tipHide('ext_sub');"><a class="b" href="<?php bloginfo('url'); ?>/signaletique-exterieur" <?php if(is_page('signaletique-exterieur') || is_page('oriflammes') || is_page('tente-publicitaire-barnum') || is_page('panneaux-alu-dibond') || is_page('panneaux-akilux') || is_page('plv-exterieur') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-alu-dibond') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns')) echo ' id="active"'; ?>>Signalétique extérieur</a>
 
 							<ul id="ext_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/oriflammes/" class="menu_sub"<?php if(is_page('oriflammes')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-oriflamme.png" alt="oriflammes, beachflags, windflags">oriflamme</a>
@@ -190,7 +184,7 @@
 								<li><a href="<?php bloginfo('url'); ?>/tente-publicitaire-barnum/" class="menu_sub" <?php if(is_page('tente-publicitaire-barnum')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-tentes.png" alt="tentes publicitaires barnum">tente publicitaire Barnum</a>
 								</li>
 
-								<li><a href="<?php bloginfo('url'); ?>/panneaux-alu-dibond/" class="menu_sub"<?php if(is_page('panneaux-alu-dibond')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="panneau forex dibond">enseigne</a>
+								<li><a href="<?php bloginfo('url'); ?>/panneaux-forex-dibond/" class="menu_sub"<?php if(is_page('panneaux-forex-dibond')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-enseigne.png" alt="panneau forex dibond">enseigne</a>
 									<div class="menu-details">
 										<a href="<?php bloginfo('url'); ?>/panneaux-forex-3mm/">Forex 3mm</a>
 										<a href="<?php bloginfo('url'); ?>/panneaux-forex-5mm/">Forex 5mm</a>
@@ -212,7 +206,7 @@
 							</ul>
 						</li>
 
-						<li onmouseover="tipShow('sti_sub');" onmouseout="tipHide('sti_sub');"><a href="<?php bloginfo('url'); ?>/stickers/" <?php if(is_page('stickers') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) echo ' id=active'; ?>>Stickers & autocollants</a>
+						<li onmouseover="tipShow('sti_sub');" onmouseout="tipHide('sti_sub');"><a class="b" href="<?php bloginfo('url'); ?>/stickers/" <?php if(is_page('stickers') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) echo ' id=active'; ?>>Stickers & autocollants</a>
 
 							<ul id="sti_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/autocollant/" class="menu_sub"<?php if(is_page('autocollant')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-autocollant.png" alt="stickers, autocollants, vitrophanie">autocollant</a></li>
@@ -223,7 +217,7 @@
 							</ul>
 						</li>
 
-						<li onmouseover="tipShow('pap_sub');" onmouseout="tipHide('pap_sub');"><a href="<?php bloginfo('url'); ?>/imprimerie-papier"<?php if(is_page('imprimerie-papier') || is_page('affiches') || is_page('cartes') || is_page('flyers')) echo ' id="active"'; ?>>Imprimerie<br /> papier <span class="dn960">& affiches</span></a>
+						<li onmouseover="tipShow('pap_sub');" onmouseout="tipHide('pap_sub');"><a class="b" href="<?php bloginfo('url'); ?>/imprimerie-papier"<?php if(is_page('imprimerie-papier') || is_page('affiches') || is_page('cartes') || is_page('flyers')) echo ' id="active"'; ?>>Imprimerie<br /> papier <span class="disno1280">& affiches</span></a>
 
 							<ul id="pap_sub" class="menu_hover">
 								<li><a href="<?php bloginfo('url'); ?>/affiches/" class="menu_sub"<?php if(is_page('affiches')) echo ' id=active_sub'; ?>><img src="<?php bloginfo('url'); ?>/wp-content/themes/fb/images/btm/bt-affiche.png" alt="affiches">affiche</a></li>
@@ -232,7 +226,7 @@
 							</ul>
 						</li>
 
-						<li><a href="<?php bloginfo('url'); ?>/contact/" <?php if(is_page('contact')) echo ' id=active'; ?>>Nous <br /> Contacter</a>
+						<li><a class="b" href="<?php bloginfo('url'); ?>/contact/" <?php if(is_page('contact')) echo ' id=active'; ?>>Nous <br /> Contacter</a>
 						</li>
 
 						<?php if (is_cart_not_empty()) {
@@ -245,7 +239,7 @@
 						<!--<li><a href="<?php bloginfo('url'); ?>/contact/"<?php if(is_page('contact')) echo ' id="active"'; ?>>CONTACT</a></li>-->
 					</ul>
 				</nav>
-			</ul>
+			</div>
 
 			<!-- Button trigger modal
 			<a href="#test-popup" class="open-popup-link">Show inline popup</a>-->
@@ -282,6 +276,7 @@
 							<li><a href="'.get_bloginfo('url').'/nappes-publicitaires/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-nappes.png" alt="banderoles"><br />Nappe</a></li>
 							<li><a href="'.get_bloginfo('url').'/stand-exposition-plv-interieur/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-merge-int.png" alt="roll-up"><br />stand expo & plv</a></li>
 						</ul>';
+
 					}else if(is_page('banderoles') || is_page('oriflammes') || is_page('plv-exterieur')) {
 						$view = '
             <div class="box_info">Pour vos évènements et communication en extérieur retrouvez tous nos produits dans les rubriques:</div>
@@ -291,6 +286,7 @@
 							<li><a href="'.get_bloginfo('url').'/oriflammes/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-oriflamme.png" alt="roll-up"><br />oriflamme</a></li>
 							<li><a href="'.get_bloginfo('url').'/plv-exterieur/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-PLV-ext.png" alt="banderoles"><br />PLV</a></li>
 						</ul>';
+
 					}else	if(is_page('flyers') || is_page('depliants') || is_page('cartes') || is_page('affiches')) {
 						$confirm = 'Vos '.$lastit['rodzaj'].' ont bien été ajouté(<span class="small">e</span>)s au panier.';
 						$view = '
@@ -301,8 +297,9 @@
 							<li><a href="'.get_bloginfo('url').'/cartes/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-carte.png" alt="roll-up"><br />cartes</a></li>
 							<li><a href="'.get_bloginfo('url').'/affiches/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-affiche.png" alt="banderoles"><br />affiche</a></li>
 						</ul>';
+
 					}else if(is_page('panneaux-akilux-3mm') || is_page('panneaux-akilux-3_5mm') || is_page('panneaux-akilux-5mm') || is_page('pvc-300-microns') || is_page('panneaux-forex-3mm') || is_page('panneaux-forex-5mm') || is_page('panneaux-alu-dibond')  || is_page('panneaux-komadur') || is_page('autocollant') || is_page('sticker-predecoupe') || is_page('sticker-lettrage-predecoupe') || is_page('vitrophanie') || is_page('sticker-mural')) {
-						$view = '
+						$view = '<img src="https://www.france-banderole.com/wp-content/uploads/2015/10/thumbnail.png" alt="" width="100%" height="auto" />
            <div class="box_info">Dévouvrez tous nos supports de signalisation muraux, vitraux, extérieur et intérieur dans les rubriques:</div>
 						<ul class="modalMore">
 							<li><a href="'.get_bloginfo('url').'/panneaux-akilux/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-panneau.png" alt="roll-up"><br />Akilux</a></li>
@@ -310,12 +307,12 @@
 							<li><a href="'.get_bloginfo('url').'/stickers/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-stickers.png" alt="roll-up"><br />stickers</a></li>
 							<li><a href="'.get_bloginfo('url').'/banderoles/" class="modalSub"><img src="'.get_bloginfo('url').'/wp-content/themes/fb/images/btm/bt-banderole.png" alt="roll-up"><br />banderoles</a></li>
 						</ul>';
+
 					//---------------------------------------------popup produits connexes
 					}else{
 						$view = '<div class="box_info">Avec ce produit, nos clients ont également choisi en complément :</div>
 						<ul class="modalMore">'.get_accessoires($cat).'</ul>';
 					}
-
 					?>
 
 

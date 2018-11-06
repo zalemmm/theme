@@ -61,42 +61,42 @@ $w: #fff;
 }
 
 // ------------------------------------------------------------------ responsive
-@mixin s1600 {
+@mixin screenXXL {
   @media (max-width: 1600px) {
     @content;
   }
 }
-@mixin s1366 {
-  @media (max-width: 1366px) {
+@mixin screenXL {
+  @media (max-width: 1400px) {
     @content;
   }
 }
-@mixin s1200 {
+@mixin screenL {
   @media (max-width: 1200px) {
     @content;
   }
 }
-@mixin s1024 {
+@mixin screenML {
   @media (max-width: 1024px) {
     @content;
   }
 }
-@mixin s990 {
+@mixin screenMS {
   @media (max-width: 990px) {
     @content;
   }
 }
-@mixin s760 {
+@mixin screenS {
   @media (max-width: 760px) {
     @content;
   }
 }
-@mixin s540 {
+@mixin screenXS {
   @media (max-width: 540px) {
     @content;
   }
 }
-@mixin s480 {
+@mixin screenXXS {
   @media (max-width: 480px) {
     @content;
   }
@@ -135,6 +135,9 @@ h1{
 
 .tab-content {
   padding: 0 0 0 15px;
+  @include screenL {
+    padding: 0 0 0 10px;
+  }
 }
 
 /*original selectors*/
@@ -228,7 +231,7 @@ c .loadMore {
   color: $txt;
   padding: 40px 10px 10px;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 14px;
   position: relative;
   margin: 0;
@@ -391,6 +394,11 @@ c .loadMore {
   margin: auto;
   padding: 10px 12.5px 0;
   text-align: center;
+
+  @include screenL {
+    padding: 10px 7px 0;
+  }
+
   a {
     color: $w !important;
     &a:hover {
@@ -398,13 +406,20 @@ c .loadMore {
       color: $w;
     }
   }
+
   span {
     color: $txt;
     display: block;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 300;
-    line-height: 13px;
-    padding-top: 5px;
+    line-height: 11px;
+    padding-top: 10px;
+
+    @include screenL {
+      font-size: 10px;
+      overflow-x: hidden;
+    }
+
   }
 
   &.highlight {
@@ -760,9 +775,6 @@ md-tab-content {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  .canvas_options li {
-    margin: 0 8.5px;
-  }
   #Products .thumb_listing span {
     font-size: 10px;
   }
@@ -781,16 +793,8 @@ md-tab-content {
   .thumb_listing ul li img {
     width: 100%;
   }
-  .canvas_options li {
-    margin: auto 12px;
-  }
 }
 
-@media (min-width: 640px) and (max-width: 767px) {
-  .canvas_options li {
-    margin: auto 8.5px;
-  }
-}
 
 @media (max-width: 767px) {
   .cart_icon {
@@ -842,20 +846,12 @@ md-tab-content {
   #Graphics.tab-pane {
     height: auto !important;
   }
-  .canvas_options li {
-    margin: auto;
-    width: 20%;
-  }
 }
 
 @media (max-width: 479px) {
   .thumb_listing ul li {
     margin: auto auto 15px;
     max-width: 100%;
-  }
-  .canvas_options li {
-    margin: auto;
-    width: 25%;
   }
 }
 
@@ -930,9 +926,17 @@ md-tab-content {
 
 .thumb_listing ul li img {
   display: block;
-  max-width: 35px;
+  max-width: 30px;
   height: 35px;
   margin: auto;
+  @include screenXL {
+    max-width: 25px;
+    height: 30px;
+  }
+  @include screenL {
+    max-width: 15px;
+    height: 20px;
+  }
 }
 
 
@@ -1073,7 +1077,7 @@ body {
   position: absolute;
   right: -34.5px;
   top: 0;
-  @include s990 {
+  @include screenMS {
     display: none;
   }
 }
@@ -1312,7 +1316,7 @@ body {
   max-height: 100%;
   border: 1px dashed lighten($bg, 10%);
 
-  @include s990 {
+  @include screenMS {
     max-height: 540px;
   }
 }
@@ -1827,7 +1831,7 @@ md-select-value {
 
 .graphic_options span {
   display: inline-block;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 16px;
   text-align: center;
   width: 100%;
@@ -2332,6 +2336,10 @@ md-radio-group md-radio-button {
   margin-top: 10px;
   overflow: hidden;
 
+  @include screenL {
+    padding: 10px;
+  }
+
   .row {
     margin-left: 0;
     margin-right: 0;
@@ -2718,7 +2726,7 @@ h4.alert{
 .w3-col.s5{width:41.66666%}.w3-col.s6{width:49.99999%}.w3-col.s7{width:58.33333%}.w3-col.s8{width:66.66666%}
 .w3-col.s9{width:74.99999%}.w3-col.s10{width:83.33333%}.w3-col.s11{width:91.66666%}.w3-col.s12{width:99.99999%}
 @media (min-width:601px){.w3-col.m1{width:8.33333%}.w3-col.m2{width:15%}.w3-col.m3,.w3-quarter{width:24.99999%}.w3-col.m4,.w3-third{width:33.33333%}
-.w3-col.m5{width:41.66666%}.w3-col.m6,.w3-half{width:49.99999%}.w3-col.m7{width:58.33333%}.w3-col.m8,.w3-twothird{width:220px;margin-bottom: 5px;}
+.w3-col.m5{width:41.66666%}.w3-col.m6,.w3-half{width:49.99999%}.w3-col.m7{width:58.33333%}.w3-col.m8,.w3-twothird{width:70%;max-width: 220px;margin-bottom: 5px;}
 .w3-col.m9,.w3-threequarter{width:74.99999%}.w3-col.m10{width:83.33333%}.w3-col.m11{width:91.66666%}.w3-col.m12{width:99.99999%}}
 @media (min-width:993px){.w3-col.l1{width:8.33333%}.w3-col.l2{width:16.66666%}.w3-col.l3{width:24.99999%}.w3-col.l4{width:33.33333%}
 .w3-col.l5{width:41.66666%}.w3-col.l6{width:49.99999%}.w3-col.l7{width:58.33333%}.w3-col.l8{width:66.66666%}
@@ -2753,7 +2761,8 @@ h4.alert{
   height: 25px;
   margin-bottom: 10px;
   display: block;
-  width: 220px;
+  width: 100%;
+  max-width: 220px;
   text-align: center;
   font-size: 1.4rem;
   color: #3B3B3B;
@@ -2768,20 +2777,25 @@ h4.alert{
   box-sizing: border-box;
   border: 0;
   height: 93px;
-  width: 93px;
+  width: 25%;
+  padding-bottom: 25%;
+  max-width: 93px;
   box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
   text-align: center;
   cursor: pointer;
   font-family:Consolas, 'courier new';
   padding: 10px;
   font-size: 11px;
+
+
 }
 
 .adjust {
   position: relative;
   background: $w;
   padding: 5px;
-  width: 322px;
+  width: 100%;
+  max-width: 318px;
   margin-left: 5px;
   margin-top: 10px;
   box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.33);
@@ -2804,12 +2818,13 @@ h4.alert{
 
 
 .w3-large{
+  width: 100%;
   display: inline-block;
   font-size: 1rem;
   line-height: 1.4rem;
 }
 .colorinput {
-    width:70px;
+    width:25%;
     padding:5px 0 5px 0;
     box-sizing: border-box;
     height: 20px;
@@ -2825,7 +2840,7 @@ h4.alert{
 .cInput {
   padding-left:6px;
   border: 1px solid #ccc;
-  width:45px;
+  width: 60%;
   height: 18px;
   font-size: 1.1rem;
   vertical-align: top;
@@ -2835,7 +2850,7 @@ h4.alert{
 .colorslider {
     padding:5px 0 5px 0px;
     height: 24px;
-    width: 240px;
+    width: 75%;
 }
 
 .colorSample{
@@ -2872,6 +2887,12 @@ h4.alert{
     float: left;
     border: 0;
     margin: 0 .5px .5px;
+
+    @include screenXL {
+      width: 8.5%;
+      height: auto;
+      padding-bottom: 8.5%;
+    }
 }
 
 footer {
@@ -3163,7 +3184,11 @@ md-toast{
   text-align: center;
   padding: 10px 0;
   color: $txt;
-  font-size: 13px;
+  font-size: 12px;
+
+  @include screenL{
+    font-size: 10px;
+  }
 
   img {
     display: inline-block;
@@ -3179,4 +3204,9 @@ md-toast{
     background: $btd;
     transition: .2s;
   }
+}
+
+span.coloradv {
+  color: $mag;
+  font-weight: bold;
 }

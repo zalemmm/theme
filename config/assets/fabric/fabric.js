@@ -629,7 +629,9 @@ angular.module('common.fabric', [
 				var fourgd  = $('#desc').text().indexOf('fourreaux gauche/droite') > -1;
 				var fourhb  = $('#desc').text().indexOf('fourreaux haut/bas') > -1;
 
-				// dépliants------------------------------------------------------------
+				// Papier --------------------------------------------------------------
+				var carte    = produit.indexOf('Cartes') > -1;
+				var flyer    = produit.indexOf('Flyers') > -1;
 				var depliant = produit.indexOf('Depliants') > -1;
 				var volets   = $('#desc').text().indexOf('3 volets') > -1;
 
@@ -737,6 +739,15 @@ angular.module('common.fabric', [
 
 				var fgd = largeur/fratiol;
 				var fhb = hauteur/fratioh;
+
+				// ratio fond perdus 2mmm papier ---------------------------------------
+
+				var pratiol = reallarg/0.2;
+				var pratioh = realhaut/0.2;
+
+				var pL = largeur/pratiol;
+				var pH = hauteur/pratioh;
+
 
 				//------------------------------------- tous les gabarits rectangulaires
 				if (!aile1 && !aile2 && !aile3 && !aile4 && !goutte1 && !goutte2 && !goutte3 && !goutte4 && !rond){
@@ -846,6 +857,65 @@ angular.module('common.fabric', [
 							strokeDashArray: [10, 5],
 							width: largeur-retgd*2,
 							height: hauteur-rethb*2,
+							hasControls: false,
+							evented:false
+						});
+
+					//---------------------------------------------- FOND PERDU PAPIER 2mm
+					} else	if (carte || flyer || depliant ) {
+
+						//------------------------------------------- calques plis depliants
+						line = new fabric.Rect({
+							id: 'line',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: '#ccc',
+							width: 1,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
+
+						line1 = new fabric.Rect({
+							id: 'line1',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: (center.left)-(largeur/3)/2,
+							fill: '#ccc',
+							width: 1,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
+
+						line2 = new fabric.Rect({
+							id: 'line2',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: (center.left)+(largeur/3)/2,
+							fill: '#ccc',
+							width: 1,
+							height: hauteur-12,
+							hasControls: false,
+							evented:false
+						});
+
+						gabarit = new fabric.Rect({
+							id: 'gabarit',
+							originX: 'center',
+							originY: 'center',
+							top: center.top,
+							left: center.left,
+							fill: 'rgba(0,0,0,0)',
+							stroke: '#ccc',
+							strokeWidth: 1,
+							strokeDashArray: [10, 5],
+							width: largeur,
+							height: hauteur,
 							hasControls: false,
 							evented:false
 						});
@@ -1031,45 +1101,7 @@ angular.module('common.fabric', [
 
 						} // fin calques rollup
 
-						//------------------------------------------- calques plis depliants
-						line = new fabric.Rect({
-							id: 'line',
-							originX: 'center',
-							originY: 'center',
-							top: center.top,
-							left: center.left,
-							fill: '#ccc',
-							width: 1,
-							height: hauteur-12,
-							hasControls: false,
-							evented:false
-						});
 
-						line1 = new fabric.Rect({
-							id: 'line1',
-							originX: 'center',
-							originY: 'center',
-							top: center.top,
-							left: (center.left)-(largeur/3)/2,
-							fill: '#ccc',
-							width: 1,
-							height: hauteur-12,
-							hasControls: false,
-							evented:false
-						});
-
-						line2 = new fabric.Rect({
-							id: 'line2',
-							originX: 'center',
-							originY: 'center',
-							top: center.top,
-							left: (center.left)+(largeur/3)/2,
-							fill: '#ccc',
-							width: 1,
-							height: hauteur-12,
-							hasControls: false,
-							evented:false
-						});
 
 						//---------------------------- RECTANGLE POINTILLES GABARITS NORMAUX
 						gabarit = new fabric.Rect({
@@ -1089,6 +1121,11 @@ angular.module('common.fabric', [
 						});
 
 					} // fin gabarits rectangulaires normaux
+
+					if(depliant || flyer || carte) {
+						largeur = largeur+pL*2,
+						hauteur = hauteur+pH*2;
+					}
 
 					//---------------------------------------------------- RECTANGLE BLANC
 					recbg = new fabric.Rect({

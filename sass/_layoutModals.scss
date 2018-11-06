@@ -56,19 +56,17 @@
 
 .modal .close-modal {
   @include close($text, 60px, 0, 20px);
+  //top: 20px !important;
 }
+
 .modal .close-modal:hover {
   color: #ea2a6a;
 }
 
 .btn-fermer {
-  @include buttonLog($magenta, 150px);
+  @include buttonLine($white, 150px);
   margin: 15px 0 10px 0;
   padding-top: .5rem;
-  border-radius:20px;
-  &:hover {
-    background-color: $cyan;
-  }
   i {
     font-size: 1.5rem;
     margin-left: 5px;

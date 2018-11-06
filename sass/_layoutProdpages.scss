@@ -264,6 +264,7 @@
       right: -30px;
       height: 60px;
       width: 60px;
+      border:0;
       background: $green;
       transform: rotate(45deg);
       color: $white;
@@ -345,6 +346,15 @@
       transition: all .2s;
       span{
         color: $white;
+      }
+      i {
+        &.fared {
+          color: $white;
+        }
+      }
+      .cornfire {
+        color: $magenta;
+        background: $white;
       }
     }
 
@@ -564,6 +574,15 @@ h5.delaisTitle {
         color: $magenta;
       }
     }
+
+    &.high {
+      color: $magenta;
+      font-weight: bold;
+      .opHelp {
+        color: $magenta;
+      }
+    }
+
   }
 }
 
@@ -657,6 +676,10 @@ h5.delaisTitle {
   display: inline-block;
   padding-top: 100%;
 
+  @include s760 {
+
+  }
+
   #slides,
   .preview_imag,
   .preview_imag0,
@@ -686,7 +709,8 @@ h5.delaisTitle {
     top: -100%;
 
     @include s760 {
-      top: -88%;
+      top: 0;
+      visibility: hidden;
     }
 
     li {
@@ -732,15 +756,15 @@ h5.delaisTitle {
   }
   .preview_imagH {
     z-index: 100;
+    background-size: contain;
 
-    ackground-size: contain;
     p {
       background: rgba(0,0,0,.8);
       display: table;
       position: absolute;
       width: 60%;
       height: 80px;
-      top: calc(50% - 40px);
+      bottom: 40px;
       left: calc(50% - 30%);
       padding: 0 10px;
 
@@ -763,13 +787,23 @@ h5.delaisTitle {
   width: 10%;
   position: absolute;
   right: 5px;
-  top: 5px;
+  top: 45px;
   z-index: 200;
 
   img {
+    display: inline-block;
     width: 100%;
     margin-bottom: 5px;
     border: 2px solid rgba(255,255,255,.5);
+  }
+
+  i {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 5px;
+    color: $white;
+    font-size: 2rem;
+    text-shadow: 2px 2px $text;
   }
 }
 
@@ -926,12 +960,13 @@ a.linkUppercase {
 .helpMenu {
   width: 100%;
   position: absolute;
-  bottom: -40px;
+  top: 5px;
   left: 10px;
   z-index: 999;
+  height: 30px !important;
 
   @include hackIE {
-   bottom: 10px;
+    top: 5px;
   }
 
   @include s760 {
@@ -1243,4 +1278,47 @@ a.linkUppercase {
     line-height: .8rem;
     font-size: .75rem;
   }
+}
+
+.zoomIn {
+  transform: scale(2);
+  transition: .2s;
+}
+
+.zoomOut {
+  transform: scale(1);
+  transition: .2s;
+}
+
+.letter3d {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+
+  span {
+    display: inline-block;
+    width: 100%;
+    margin-top:  100px;
+    word-break: break-all;
+    font-size: 4rem;
+    line-height: 5rem;
+    vertical-align: middle;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+    font-weight: 900;
+    font-family: $font-global;
+    letter-spacing: 5px;
+    text-shadow:  1px 1px #ccc,
+                  2px 2px #ccc,
+                  3px 3px #ccc,
+                  4px 4px #ccc,
+                  5px 5px #ccc,
+                  4px 4px 18px #ccc;
+  }
+
 }

@@ -8,9 +8,8 @@
 #fbcart_buttons2 {
   position: relative;
   float: none;
-  margin: 0 auto 15px;
+  margin: 0 auto;
   background: none;
-  padding: 0;
   text-align: center;
   width: 100%;
   padding: .8rem .8rem .2rem .8rem;
@@ -22,7 +21,6 @@
   display:-webkit-flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  //border: 1px solid $border;
 }
 
 #fbcart_buttons3 {
@@ -47,6 +45,7 @@
   border-bottom: 1px solid $bloc-base;
   letter-spacing: 1px;
 }
+
 .votreCompte {
   display: inline-block;
   width: 50%;
@@ -55,7 +54,7 @@
   }
 }
 
-a#votre_mod, a#votre_dec {
+a.acBtn {
   @include buttonLine($white, 23%);
   margin-left: 1%;
   @include s760 {
@@ -78,6 +77,7 @@ form#delfromvosdevis,
 
 // bouton gérer la commande ----------------------------------------------------
 
+
 .but_details {
   @include buttonLog($green, auto);
   margin: 0 auto;
@@ -99,39 +99,7 @@ form#delfromvosdevis,
   }
 }
 
-// boutons payer/valider bat situé dans le bloc information jaune --------------
-#payeTop {
-  width: 100%;
-  height: auto;
-  display: inline-block;
-  float: 0;
-  margin-bottom: 0;
-  margin-right: 0;
-  #but_payerTop {
-    @include buttonLog($magenta, 100%);
-    padding-top: .5rem;
-    width: 100%;
-    border-radius:20px;
-    cursor: pointer;
-    &.active,
-    &:hover {
-      background-image: none;
-      background-color: $cyan;
-    }
-  }
-}
 
-#but_voir_bat {
-  @include buttonLog($altg, 100%);
-  padding-top: .7rem;
-  border-radius:20px;
-}
-
-// bouton valider BAT (dans shadowbox fichier val_bat) pour l'instant en inline
-.but_val_bat{
-  @include buttonLog($altg, 200px);
-  padding-top: .5rem;
-}
 
 // boutons panier --------------------------------------------------------------
 
@@ -169,70 +137,29 @@ form#delfromvosdevis,
 
 // boutons gestion des commandes -----------------------------------------------
 
-#but_payer {
-  @include buttonLine($magenta, 100%);
-  color: $white;
-  border: none;
-  padding-top: .3rem;
-  &.active,
-  &:hover {
-    background-image: none;
-    background-color: $cyan;
-  }
-}
-
-#but_payed {
-  @include buttonLine($white, 100%);
-  padding-top: .3rem;
-}
-
-#but_payer.deactive {
-  @include buttonLine($white, 100%);
-  padding-top: .3rem;
-}
-#but_retour {
+.comBtn,
+a.comBtn,
+#but_retour,
+#but_annuler {
   @include buttonLine($white, 24%);
 }
-#but_retour2 {
+
+
+/*#but_retour2 {
   @include buttonLine($white, 49%);
 }
 #but_save2 {
   @include buttonLog($cyan, 49%);
-}
+}*/
 #but_retourCarnet {
-  @include buttonLine($white, 100%);
+  width: 100%;
   display: block;
   clear: both;
   margin: 5px auto -10px;
 }
-#but_annuler{
-  @include buttonLine($white, 24%);
-;
-}
-#but_annulercommande {
-  @include buttonLine($white, 100%);
-  padding-top: .5rem;
-}
-#but_annulercommande.deactive{
-  @include buttonLine($white, 24%);
-}
-#but_imprimer,
-#but_exporter {
-  @include buttonLine($white, 24%);
-}
-#but_imprimerfacture {
-  @include buttonLine($white, 24%);
-}
-#but_comment {
-  @include buttonLine($white, 24%);
-}
 
-#but_suivre {
-  @include buttonLine($white, 24%);
-}
-#but_rating {
-  @include buttonLine($white, 24%);
-}
+
+
 
 #suivant_reg {
   background: $magenta;
@@ -367,21 +294,50 @@ a.but_espace {
 
 
 a.post-edit-link{
-  @include buttonLog($text, 100px);
+  @include buttonLine($white, 100px);
   height: 20px;
-  padding-top: 0.2rem;
+  padding-top: 0.1rem;
   font-size: .7em;
   float: right;
   position: absolute;
-  bottom: -5px;
+  bottom: 30px;
   right: 10px;
+}
+
+// bontons payer----------------------------------------------------------------
+#but_payer {
+  @include buttonLine($magenta, 100%);
+  padding-top: .3rem;
+  border: 0;
+  color: $white;
+  &:hover {
+    background-image: none;
+    background-color: $cyan;
+  }
+
+  &.deactive {
+    background: $white;
+    color: $text;
+
+    &:hover {
+      background: $white;
+      color: $text;
+    }
+  }
+}
+
+#but_payed {
+  width: 100%;
+  padding-top: .3rem;
 }
 
 // Boutons BAT------------------------------------------------------------------
 
 #but_bat {
-  @include buttonLog($magenta, 100%);
+  @include buttonLine($magenta, 100%);
   padding-top: .5rem;
+  border: 0;
+  color: $white;
   &.active,
   &:hover {
     background-image: none;
@@ -391,8 +347,9 @@ a.post-edit-link{
 
 a.but_voiremaquette {
   @include buttonLine($magenta, 24%);
+  padding-top: .7rem;
+  border: 0;
   color: $white;
-  border: none;
   &.active,
   &:hover {
     background-image: none;
@@ -403,9 +360,7 @@ a.but_voiremaquette {
 #but_modifier {
   @include buttonLine($white, 24%);
 }
-a.but_vumaquette {
-  @include buttonLine($white, 24%);
-}
+
 
 #but_imprimer_form {
   @include buttonLine($magenta, 24%);
@@ -431,6 +386,18 @@ a.but_vumaquette {
   cursor: pointer;
 }
 
+#but_annulercommande {
+  padding-top: .3rem;
+  width: 100%;
+}
+#but_annulercommande.deactive {
+  padding-top: .7rem;
+  width: 24%;
+}
+
+#but_imprimer {
+  @include buttonLine($white,24%);
+}
 .but_telecharger {
   margin-left: 4px;
   width: 106px;
@@ -447,7 +414,7 @@ a.but_vumaquette {
 }
 
 span.print_button a{
-  @include buttonLog($cyan, 150px);
+  @include buttonLine($white, 150px);
   margin: 0 auto;
 }
 
@@ -455,6 +422,13 @@ button#responsive-menu-button {
   top: 10px;
   right: 10px;
   margin: 0;
+}
+
+a.smallBtn {
+  @include buttonLine($white, 100%);
+  display: inline-block;
+  height: 25px;
+  padding: .2rem;
 }
 
 //==============================================================================

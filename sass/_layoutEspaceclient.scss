@@ -481,7 +481,6 @@ p.checklab{
   font-size: .9rem;
   float: left;
   display: inline;
-
   text-decoration: none;
   text-align: center;
   color: $white;
@@ -497,12 +496,15 @@ p.checklab{
     height: 55px;
   }
 
+  &.current {
+    border-right: 1px solid $bloc-base;
+  }
+
   &:hover {
     cursor: pointer;
     background: $cyan;
     color: $bloc-base;
-    border-left: 1px solid $bloc-base;
-    border-right: 1px solid $bloc-base;
+    transition: .2s;
   }
 }
 
@@ -610,13 +612,18 @@ tbody {
   th {
     background: $border;
     text-align: center;
-    padding: .2rem;
+    padding: .7rem;
     border-bottom: 1px solid $border;
+    border-right: 1px solid $white;
     text-transform: uppercase;
     //color: $cyan;
     width: 15%;
     line-height: 1rem;
     font-size: .8rem;
+
+    &:last-of-type {
+      border-right: 0;
+    }
 
     @include s650 {
       display: table-row;
@@ -694,6 +701,30 @@ tbody {
 
 //                                                               status commande
 //==============================================================================
+a.retourCom {
+  position: absolute;
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  background: $cyan;
+
+  color: $white;
+  top: 0;
+  left: 0;
+  border-right: 1px solid $white;
+  border-bottom: 1px solid $white;
+  padding: 3px 0 0 7px;
+
+  &:hover {
+    background: $border;
+    transition: .2s;
+  }
+  i {
+    font-size: 2rem;
+  }
+
+
+}
 
 .stat {
   position: relative;
@@ -725,28 +756,28 @@ tbody {
 
 }
 .stat0 {
-  @include buttonStatusBase();
+  font-weight: 900;
 }
 .stat1 {
-  @include buttonStatusBase();
+  font-weight: 900;
 }
 .stat2 {
-  @include buttonStatusBase();
+  font-weight: 900;
 }
 .stat3 {
-  @include buttonStatusBase();
+  font-weight: 900;
 }
 .stat4 {
-  @include buttonStatusBase();
+  font-weight: 900;
 }
 .stat5 {
-  @include buttonStatusBase();
+  font-weight: 900;
 }
 .stat6 {
-  @include buttonStatusBase();
+  font-weight: 900;
 }
 .stat7 {
-  @include buttonStatusBase();
+  font-weight: 900;
 }
 
 .acces_tab_name_devis {
@@ -775,11 +806,10 @@ tbody {
 
 .statusChecked {
   position: absolute;
-  top: 0;
-  right: 5px;
+  top: -5px;
+  right: 10px;
   z-index: 10;
   font-weight: normal;
-  margin-top: -5px;
 
   .fa {
     font-size: 22px;
@@ -787,9 +817,16 @@ tbody {
   }
 }
 
-td.lefttd4 .statusChecked .fa {
-  font-size: 44px;
-  margin-right: 10px;
+td.lefttd4 .statusChecked {
+  top: -50px;
+  right: -5px;
+
+  @include s760 {
+
+  }
+  .fa {
+    font-size: 35px;
+  }
 
 }
 
@@ -830,30 +867,30 @@ td.lefttd4 .statusChecked .fa {
 
 .acces_tab_name_devis {
   position: relative;
+  background: $green;
+  padding-left: 40px;
+  border-bottom: 1px solid $white;
 
   .etat {
-    float: right;
-    width: 250px;
-    text-align: right;
-    margin: -4px -8px 0 0;
-    font-size: .7rem;
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    background: $border;
+    color: $text;
+    height: 40px;
+    width: 20%;
+    text-align: center;
+    font-size: .85rem;
+    padding-top: 12px;
     font-weight: normal;
-    @include s480 {
-      width: 70%;
-    }
-
-    .curstatus {
-      float: right;
+    border-left: 1px solid $white;
+    border-bottom: 1px solid $white;
+    line-height: 10px;
+    @include s760 {
       width: 40%;
-      text-align: center;
-      margin: 4px 5px;
-      height: 25px;
-      font-size: .7rem;
-      line-height: .7rem;
-      vertical-align: middle;
-      font-weight: bold;
-
     }
+
     .statt {
       vertical-align: middle;
       margin-top: 5px;
@@ -916,10 +953,10 @@ a.textLink{
   position: relative;
   width: auto;
   padding: 1rem;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
   background-color: $green;
   color: $white;
-  line-height: 1.2rem;
+  line-height: 1rem;
   &.center {
     text-align: center;
   }
@@ -927,10 +964,19 @@ a.textLink{
   @include s480 {
     font-size: .8rem;
   }
-
-  a, h2 {
+  a {
     color: $white;
     font-weight: bold;
+  }
+  h2 {
+    color: $white;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+    i {
+      font-weight: normal;
+    }
   }
 
   .closeButton {
@@ -1024,7 +1070,7 @@ a.textLink{
   position: absolute;
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.2);
   z-index: 500;
-  width: 190px;
+  width: 220px;
   background: $bloc-base;
   color: $text;
   padding: .5rem .5rem;
@@ -1077,7 +1123,7 @@ a.textLink{
 }
 
 .mtip {
-  top: 100px;
+  top: 150px;
   right: 20px;
   &.mtipIE {
     top: 60px;
@@ -1389,7 +1435,7 @@ DIV.ProgressBar {
   float: left;
   width: 100px;
   padding: 0;
-  border: 1px solid $black;
+  border: 0;
   margin-right: 1em;
   height: 12px;
   margin-left: 1em;
@@ -1401,7 +1447,7 @@ DIV.ProgressBar {
   DIV {
     float: left;
     display: inline;
-    background-color: $color_16;
+    background-color: $cyan;
     font-size: 11px;
     height: 100%;
   }
@@ -1464,6 +1510,8 @@ SPAN {
 
 .files .progress {
   width: 100%;
+  background: $border;
+  border: 0;
 }
 
 .files .progress,
@@ -1473,7 +1521,7 @@ SPAN {
 
 .files .ui-progressbar-value,
 .fileupload-buttonbar .ui-progressbar-value {
-  background: url(../img/progressbar2.gif);
+  background: $cyan;
 }
 
 .fileupload-buttonbar .fade,
@@ -1486,7 +1534,7 @@ SPAN {
   left: 50%;
   width: 128px;
   height: 128px;
-  background: url(../img/loading.gif) center no-repeat;
+  background: $cyan;
   display: none;
 }
 
@@ -1549,6 +1597,9 @@ SPAN {
   font-size: 1em;
 }
 
+.template-download .toggle {
+  height: 15px;
+}
 
 // barre de boutons file upload ----------------------------------------------
 
@@ -1593,25 +1644,26 @@ SPAN {
   text-align: center;
   padding-top: 0.4rem;
   height: 28px;
-  border-radius: 14px;
+  border-radius: 15px;
 }
 
 .fustart.ui-button {
-  @include buttonLog($altg, 24%);
+  @include buttonLog($green, 24%);
   opacity: .2;
   padding-top: 0.4rem;
   height: 28px;
-  border-radius: 14px;
+  border-radius: 15px;
 }
 
 .fucancel.ui-button,
 .fudelete.ui-button {
-  @include buttonLog($text, 20%);
+  @include buttonLog($text, 24%);
   opacity: .2;
   cursor: not-allowed;
   padding-top: 0.4rem;
   height: 28px;
-  border-radius: 14px;
+  text-align: center;
+  border-radius: 15px;
 }
 
 .tdstart .fustart {
@@ -1642,9 +1694,30 @@ SPAN {
   position: relative;
   display: table-cell;
   width: 83%;
-  border-bottom: 15px solid #fff;
-  background: darken($bloc-base, 2%);
+  border-bottom: 1px solid $border;
+  border-top: 1px solid $border;
+  border-right: 1px solid $border;
+  background: $bloc-title;
   vertical-align: top;
+
+  &.filesent {
+    width: 100%;
+    min-width: 942px;
+    border-left: 1px solid $border;
+    @include s1024 {
+      width: 100%;
+      min-width: 100% !important;
+    }
+  }
+
+  @include s760 {
+    display: inline-block;
+    width: 100%;
+    max-width: 100% !important;
+    border-left: 1px solid $border;
+  }
+
+
   .acces_tab_name2 {
     background: none;
     height: 20px;
@@ -1662,13 +1735,20 @@ SPAN {
 #dropZone {
   display: table-cell;
   width: 17%;
-  background: darken($bloc-base, 2%);
-  padding: 4px;
-  border-bottom: 15px solid #fff;
+  background: $bloc-title;
+  padding: 6px;
+  border-bottom: 1px solid $border;
+  border-top: 1px solid $border;
+  border-left: 1px solid $border;
+
+  @include s760 {
+    display: none;
+  }
+
   .dropin{
-    border: 4px dashed #ccc;
+    border: 4px dashed darken($border,15%);
     width: 100%;
-    color: darken(#ccc, 5%);
+    color: darken($border,15%);
     background: $white;
     font-weight: 900;
     font-size: .8rem;
@@ -1707,6 +1787,9 @@ SPAN {
   border-top: 1px solid $border;
   margin-bottom: 20px;
   font-size: .8rem;
+  white-space: nowrap;
+  max-width: 100% !important;
+
   th {
     text-transform: uppercase;
     padding: .2rem;
@@ -1764,10 +1847,10 @@ SPAN {
     padding: .7rem;
     vertical-align: top;
     &.lefttd_none {
-      width: 30px;
+      width: 10%;
     }
     &.lefttd {
-      width: 30px;
+      width: 10%;
     }
   }
 }
@@ -1809,32 +1892,300 @@ SPAN {
 
 //                                                              boutons maquette
 //==============================================================================
-
-a.maquette,
-a.gabarit {
-  @include buttonLog($text, 150px);
-  margin-bottom: 10px;
-  padding-top: .4rem;
-  height: 28px;
-  border-radius: 14px;
-  display: inline-block;
-  &.deactive {
-    background-color: $color_5;
-    border:none;
-    pointer-events: none;
-  }
-}
-
-.maquetteRV,
-.gabaritRV{
+.prodAction {
+  z-index: 99;
   position: absolute;
   bottom: 10px;
-  right: 0;
-  @include s760{
+  right: -20px;
+
+  @include s540{
     display: none;
+  }
+
+  .freeUp {
+    display: none;
+    position: relative;
+    width: 200px;
+    height: auto;
+    overflow: hidden;
+    padding: 5px;
+    text-align: left;
+    background: darken($bloc-base,5%);
+    border: 1px solid darken($border,5%);
+    margin-top: 5px;
+
+    .freeSubmit {
+      @include buttonLine($green, 100%);
+      padding-top: .3rem;
+      margin: 5px 0 0;
+      color: $white !important;
+      border:none !important;
+      height: 25px;
+      cursor: pointer;
+      &:hover {
+        background: $magenta;
+        color: $white;
+        border: none;
+      }
+      &.deactive {
+        color: $white;
+        background: $border;
+        cursor: text;
+        pointer-events: none !important;
+        &:hover {
+          color: $white;
+          background: $border;
+
+        }
+      }
+      &.wait {
+        background: transparent;
+        border: 0;
+        color: $text !important;
+        border-radius:0;
+        cursor: text;
+        pointer-events: none !important;
+      }
+      &.done {
+        background: $green;
+        border: 0;
+        border-radius:0;
+        cursor: text;
+        pointer-events: none !important;
+      }
+      &.deactwarn {
+        color: $white;
+        background: $magenta;
+        cursor: text;
+        pointer-events: none !important;
+        border-radius: 0;
+        &:hover {
+          color: $white;
+          background: $border;
+
+        }
+      }
+
+    }
+    .inputfile {
+      width: 100%;
+      height: 60px;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      opacity:0;
+      cursor: pointer;
+    }
+
+    .inputfile + label {
+      display: inline-block;
+      width: 100%;
+      border: 1px dashed darken($border,15%);
+      height: 60px;
+
+      text-align: center;
+      vertical-align: middle;
+      color: $text;
+      font-weight: bold;
+      padding: 5px;
+      padding-top: 8px;
+      cursor: pointer;
+      small {
+        font-weight: normal;
+        font-size: .7rem;
+        line-height: .8rem;
+        display: inline-block;
+      }
+    }
+
+    .inputfile + label:hover {
+        background-color: $magenta;
+        color: $white;
+    }
+  }
+
+  .freeUploaded {
+    position: absolute;
+    right: 210px;
+    bottom: 0;
+    width: 250px;
+    height: 60px;
+    overflow: hidden;
+
+    .capt {
+      float: right;
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      padding: 2px;
+      margin: 0 5px 5px 0;
+
+      img {
+        max-height: 100%;
+        max-width: 100%;
+        height: auto;
+        width: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        //box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.33);
+        z-index: 1;
+      }
+
+      .delmaq {
+        display: none;
+        color: rgba(239, 47, 47,.9);
+        background: transparent;
+        width: 100%;
+        height: 20px;
+        text-align: center;
+        font-size: 18px;
+        border: 0;
+        border-radius: 0px;
+        position: absolute;
+        right: 0;
+        bottom: -20px;
+        z-index: 40;
+        padding: 0;
+        cursor: pointer;
+
+        &:hover {
+          transform: rotate(20deg);
+          transition:.2s;
+        }
+      }
+      .viewmaq {
+        display: none;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        text-align: center;
+        color: $white;
+        border: 0;
+        background: rgba(0,0,0,.9);
+        padding-top: 5px;
+        i {
+          vertical-align: middle;
+          font-size: 20px;
+          font-weight: normal;
+        }
+        .legend {
+          display: inline-block;
+          color: $white;
+          overflow: hidden;
+          text-align: left;
+          width: 100%;
+          font-size: .58rem;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  a.gabarit,
+  a.maquette,
+  .maqupload {
+    @include buttonLine($cyan,200px);
+    border: 0 !important;
+    color: $white !important;
+    height: 30px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-top: .5rem;
+    &:hover {
+      background: $magenta;
+      color: $white;
+      transition: .2s;
+    }
+  }
+  a.maquette {
+    background: $text;
+  }
+  .maqupload {
+    background: $green;
   }
 }
 
+.multup {
+  display: none;
+  position: absolute;
+  width: 320px;
+  bottom:0px;
+  right: 210px;
+  background: darken($bloc-base,10%);
+  padding: 5px;
+  font-size: .7rem;
+  line-height: .75rem;
+  z-index: 5;
+  text-align: left;
+
+  span {
+    display: inline-block;
+    width: 90%;
+  }
+
+  i {
+    width: 9%;
+    display: inline-block;
+    font-size: 1.4rem;
+    vertical-align: top;
+  }
+
+  .formats {
+    margin-top: 3px;
+    width: 100%;
+    padding-top: 3px;
+    border-top: 1px solid darken($border,10%);
+  }
+
+  &:after {
+  	left: 100%;
+  	top: 50%;
+  	border: solid transparent;
+  	content: " ";
+  	height: 0;
+  	width: 0;
+  	position: absolute;
+  	pointer-events: none;
+  	border-color: rgba(204, 204, 204, 0);
+  	border-left-color:  darken($bloc-base,10%);
+  	border-width: 6px;
+  	margin-top: -6px;
+  }
+}
+
+.progress.prodprog {
+  display: none;
+  background: $border;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+.progress-bar {
+  text-align: center;
+  height: 1rem;
+  color: #fff;
+  background-color: $cyan;
+  border-radius: 2px;
+}
+.progress-bar-animated {
+  -webkit-animation: progress-bar 1s linear infinite;
+          animation: progress-bar 1s linear infinite;
+}
+@keyframes progress-bar {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
 //==============================================================================
 //                            Page écrire un commentaire
 //==============================================================================
@@ -1994,19 +2345,26 @@ span.comm_title3 {
 #paiements_right_tit,
 .cheque_tab_name,
 .paydiff_tab_name {
+  position: relative;
   width: 100%;
   padding: 12px 0 4px;
   height: 40px;
-  line-height: 1rem;
+  font-size: .9rem;
   background: $cyan;
   color: $white;
   margin: 0;
-  font-size: 1rem;
   text-align: center;
   color: $white;
   float: none;
   display: block;
   text-transform: uppercase;
+  @include s760 {
+    font-size: .8rem;
+    padding-top: 4px;
+  }
+  &.marginBottom {
+    margin-bottom: 15px;
+  }
 }
 
 #paiements_left_con{
@@ -2108,6 +2466,16 @@ span.pay_carte_info {
   text-align: center;
 }
 
+.warning {
+  display: block;
+  font-size: .8rem;
+  background: $magenta;
+  padding: 10px;
+  color: $white;
+  font-weight: bold;
+  text-align: center;
+}
+
 .downloadFiles{
   border: 1px solid $text;
   padding: 1rem;
@@ -2131,6 +2499,7 @@ span.pay_carte_info {
 //==============================================================================
 
 #fbcart_cart {
+  margin-top: 15px;
   position: relative;
   display: inline-block;
   width: 100%;
@@ -2141,7 +2510,7 @@ span.pay_carte_info {
   border-left: 1px solid $border;
   border-right: 1px solid $border;
 
-  @include s760{
+  @include s540{
     border: 0;
   }
 
@@ -2154,6 +2523,7 @@ span.pay_carte_info {
     }
 
     &.therest {
+      position: relative;
       font-size: .75rem;
     }
 
@@ -2164,7 +2534,7 @@ span.pay_carte_info {
   }
 
   th {
-    background: darken($bloc-base,2%);
+    background: $bloc-title;
     text-align: center;
     padding: 3px 20px;
     border-bottom: 1px solid $border;
@@ -2173,7 +2543,7 @@ span.pay_carte_info {
     padding: 1rem;
     font-size: .8rem;
 
-    @include s760{
+    @include s540{
       width: 100%;
       display: none;
     }
@@ -2207,10 +2577,12 @@ span.pay_carte_info {
     vertical-align: top;
     border-bottom: 1px solid $border;
     position: relative;
+    height:210px;
 
-    @include s760 {
+    @include s540 {
       display: inline-block;
       width: 100%;
+      height: auto;
       padding: .5rem;
       background-image: none;
       background: $border;
@@ -2224,7 +2596,7 @@ span.pay_carte_info {
       text-align: left;
       padding: 15px 15px 21px;
 
-      @include s760 {
+      @include s540 {
         width: 100%;
         border: 1px solid $border;
         padding: 5px 0;
@@ -2233,10 +2605,11 @@ span.pay_carte_info {
 
     &.noprint{
       width: 5%;
-      @include s760 {
+      @include s540 {
         width: 100%;
       }
     }
+
   }
 }
 
@@ -2248,9 +2621,7 @@ span.pay_carte_info {
   @include hackEdge {
     display: none;
   }
-  @include s760 {
-    margin-left: 0;
-  }
+
   img {
     margin-top: -5px;
     width: 170px;
@@ -2258,6 +2629,17 @@ span.pay_carte_info {
     @include s1024{
       width: 80px;
       height: auto;
+    }
+    @include s760 {
+      width: 40px;
+    }
+    @include s650 {
+      display: none;
+    }
+    @include s540 {
+      display: block;
+      margin-left: 5px;
+      width: 80px;
     }
   }
 }
@@ -2282,7 +2664,7 @@ span.pay_carte_info {
   }
 }
 
-#delcart {
+.delcart {
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -2293,14 +2675,14 @@ span.pay_carte_info {
   margin: 0 5px 0;
   display: block;
 
-  @include s760 {
+  @include s540 {
     position: absolute;
     right: 0;
-    top: -275px;
+    top: -267px;
   }
 }
 
-#adcart {
+.adcart {
   @include buttonLog($text, 100px);
   position: absolute;
   font-size: .7rem;
@@ -2418,7 +2800,7 @@ button#copy {
       font-size: .85rem;
       line-height: .85rem;
       &.total{
-        background: darken($bloc-base,2%);
+        background: $bloc-title;
         font-weight: bold;
         border-top: 1px solid $border;
       }
@@ -2437,7 +2819,7 @@ button#copy {
       font-size: .85rem;
       line-height: .85rem;
       &.total{
-        background: darken($bloc-base,2%);
+        background: $bloc-title;
         font-weight: bold;
         border-top: 1px solid $border;
       }
@@ -2512,7 +2894,10 @@ button#copy {
   width: 100%;
   max-width: 100%;
   border: 0;
-  margin-bottom: 15px;
+  border-left: 1px solid $border;
+  border-right: 1px solid $border;
+  //border-top: 1px solid $border;
+  margin-bottom: 0;
 
   th {
     background:  darken($bloc-base, 2%);
@@ -3102,13 +3487,13 @@ button#copy {
 
 .ifcont {
   position: relative;
-  height: 800px;
+  height: 1000px;
 }
 
 iframe#scellius {
   display: block;
   overflow: hidden !important;
-  height: 100%;
+  height: 700px;
 }
 
 

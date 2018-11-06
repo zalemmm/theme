@@ -291,10 +291,8 @@
 
 <?php
 }
-?>
 
-<?php
-include('nom_du_fichier_de_conf.php');
+//include('nom_du_fichier_de_conf.php');
 ?>
 
 <?php wp_footer(); ?>
@@ -303,10 +301,7 @@ include('nom_du_fichier_de_conf.php');
 
     <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.slides.min.js"></script> <!-- sliders pages produits -->
     <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.magnific-popup.min.js"></script> <!-- lightbox images -->
-    <script src="<?php bloginfo('stylesheet_directory'); ?>/js/lity.min.js"></script> <!-- ouvre les iframes dans une lightbox -->
-
-    <!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/html2canvas.min.js"></script>-->
-    <!--<script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/fabric.min.js"></script>-->
+    <script src="<?php bloginfo('stylesheet_directory'); ?>/js/lity.min.js"></script> <!-- modals -->
 
     <script type="text/javascript">
     if(!document.documentMode ){ // ne pas charger ce script sous IE (8-11)
@@ -317,8 +312,8 @@ include('nom_du_fichier_de_conf.php');
     <!--<![endif]-->
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.spinner.js"></script>
     <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/promo.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/help.js"></script>
-    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/main.js"></script> <!-- js global -->
+
+    <script type="text/javascript" src="<?php bloginfo('stylesheet_directory'); ?>/js/main.js?v=2.97"></script> <!-- js global -->
 
     <!-- jquery ui seulement sur pages spécifiques ---------------------------->
     <?php if (is_page('vos-devis')){

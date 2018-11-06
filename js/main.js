@@ -37,6 +37,32 @@ btnCopy.addEventListener( 'click', function(){
   return false;
 });
 
+
+// UPLOAD PAR PRODUITS
+//------------------------------------------ affichage des fichiers sélectionnés
+
+var inputs = document.querySelectorAll( '.inputfile' );
+Array.prototype.forEach.call( inputs, function( input ) {
+	var label	 = input.nextElementSibling,
+		labelVal = label.innerHTML;
+  var button = label.nextElementSibling;
+
+	input.addEventListener( 'change', function( e )	{
+		var fileName = '';
+		if( this.files && this.files.length > 1 )
+			fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+		else
+			fileName = e.target.value.split( '\\' ).pop();
+
+		if( fileName ){
+			label.querySelector( 'span' ).innerHTML = fileName;
+      button.classList.remove('deactive');}
+		else
+			label.innerHTML = labelVal;
+	});
+});
+
+
 //------------------------------------------------------------------------------
 //                                                                        JQUERY
 //------------------------------------------------------------------------------
@@ -64,18 +90,6 @@ jQuery(document).ready(function ($) {
   $(document).on('click', '.closeB', function() {
     $('.closeB').parent().fadeOut();
   });
-
-  setTimeout(function(){
-    $('.ptip').toggle( "slide" );
-  }, 2000);
-
-  setTimeout(function(){
-    $('.btip').toggle( "slide" );
-  }, 3000);
-
-  setTimeout(function(){
-    $('.ftip, .mtip').toggle( "slide" );
-  }, 4000);
 
   //-----------------------------------------------------------helptext tooltips
 
@@ -240,6 +254,120 @@ jQuery(document).ready(function ($) {
     $('#adresseCheck').submit();
   });
 
+  //--------------------------------------------------------- variables commande
+
+  var siteurl;
+  var sitebase = window.location.protocol + '//' + window.location.hostname;
+  if (sitebase.indexOf('127.0.0.1') !== -1 || sitebase.indexOf('localhost') !== -1)
+    siteurl = sitebase + '/wordpress';
+  else siteurl = sitebase;
+
+  var orderid = $('#number').text();
+  var orderurl = siteurl + '/vos-devis/?detail=' + orderid;
+
+  // UPLOAD PAR PRODUITS
+  //------------------------------------------------------------ upload fichiers
+
+  $("[data-upload]").submit(function(e) {
+    var frm = $(this);
+    var form = $(this)[0];
+    var progress = frm.find(".progress");
+		// Create an FormData object
+        var data = new FormData(form);
+
+		// If you want to add an extra field for the FormData
+    data.append("CustomField", "This is some extra data, testing");
+
+    e.preventDefault();
+
+    $.ajax({
+      type		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+      url	   	: frm.attr('action'), // the url where we want to POST
+      data		: data, // our data object
+      cache: false,
+      contentType: false,
+      processData: false,
+
+      // this part is progress bar
+      xhr: function () {
+          var xhr = new window.XMLHttpRequest();
+          xhr.upload.addEventListener("progress", function (evt) {
+              if (evt.lengthComputable) {
+                  var percentComplete = evt.loaded / evt.total;
+                  percentComplete = parseInt(percentComplete * 100);
+                  $('.myprogress').text(percentComplete + '%');
+                  $('.myprogress').css('width', percentComplete + '%');
+              }
+          }, false);
+          return xhr;
+      },
+
+      beforeSend: function(){
+        frm.find('.progress.prodprog').css('display','block');
+        frm.find('.freeSubmit').html('<i class="fa fa-spinner fa-pulse"></i> Veuillez patienter...').addClass('wait');
+      },
+
+      success: function (data) {
+
+        frm.find('.freeSubmit').html('<i class="fa fa-check" aria-hidden="true"></i>  Fichier envoyé !').removeClass('wait').addClass('done');
+        $(document).ajaxStop(function(){
+            window.location = window.location.href;
+        });
+      },
+
+      error: function (e) {
+
+      }
+    });
+  });
+
+  $('.inputfile').on('change', function() {
+    //xhr.abort();
+
+    var fsize = $(this)[0].files[0].size,
+    ftype = $(this)[0].files[0].type,
+    fname = $(this)[0].files[0].name,
+    fextension = fname.substring(fname.lastIndexOf('.')+1).toLowerCase();
+    validExtensions = ['pdf','jpg','jpeg','png','svg','eps','ai','psd'];
+
+    if ($.inArray(fextension, validExtensions) == -1){
+      $(this).nextAll('.freeSubmit').addClass('deactwarn').html('<i class="fa fa-warning fa-pulse"></i> Format non accepté!');
+      return false;
+
+    }else{
+      if(fsize > 125829120){/*1048576-1MB(You can change the size as you want)*/
+        $(this).nextAll('.freeSubmit').addClass('deactwarn').html('<i class="fa fa-warning fa-pulse"></i> Taille maximale 120MB!');
+        return false;
+      }
+
+      $(this).nextAll('.freeSubmit').removeClass('deactwarn').removeClass('deactwarn').html('<i class="fa fa-check"></i> Envoyer');
+      return true;
+    }
+  });
+
+  $('.upCont').mouseover(function(){
+    $(this).find('.multup').css('display','block');
+  }).mouseout(function(){
+    $(this).find('.multup').css('display','none');
+  });
+
+  $('.upCont').click(function(){
+    $(this).find('.maqupload').css('display','none');
+    $(this).find('.freeUp').css('display','block');
+  });
+
+  $('.capt').mouseover(function(){
+    $(this).find('.viewmaq, .delmaq').css('display','block');
+  }).mouseout(function(){
+    $('.viewmaq, .delmaq').css('display','none');
+  });
+
+  /*$('.cancelup').click(function(){
+    $(this).parent('.freeSubmit').html('<i class="fa fa-check"></i>  Envoyer').removeClass('wait').nextAll('.progress').css('display','none');;
+    xhr.abort();
+  });*/
+
+
   //--------------------------------------------------------------- export devis
 
   var expfrm = $('#marge');
@@ -345,35 +473,6 @@ jQuery(document).ready(function ($) {
 
   $('.radiod').prop("disabled", true);
 
-  //----------------------------------------------------------script fly to cart
-  function flyToElement(flyer, flyingTo) {
-    var $func = jQuery(this);
-    var divider = 3;
-    var flyerClone = jQuery(flyer).clone();
-    var startpoint = '#submit_cart';
-
-    jQuery(flyerClone).css({position: 'absolute', top: jQuery(flyer).offset().top + "px", left: jQuery(flyer).offset().left + "px", opacity: 1, 'z-index': 1000});
-    jQuery('body').append(jQuery(flyerClone));
-    var gotoX = jQuery(flyingTo).offset().left + (jQuery(flyingTo).width() / 2) - (jQuery(flyer).width()/divider)/2;
-    var gotoY = jQuery(flyingTo).offset().top + (jQuery(flyingTo).height() / 2) - (jQuery(flyer).height()/divider)/2;
-
-    jQuery(flyerClone).animate({
-        opacity: 0.4,
-        left: gotoX,
-        top: gotoY,
-        width: jQuery(flyer).width()/divider,
-        height: jQuery(flyer).height()/divider
-    }, 700,
-    function () {
-        jQuery(flyingTo).fadeOut('fast', function () {
-            jQuery(flyingTo).fadeIn('fast', function () {
-                jQuery(flyerClone).fadeOut('fast', function () {
-                    jQuery(flyerClone).remove();
-                });
-            });
-        });
-    });
-  }
 
   //---------------------------------------------------------------- détecter IE
   function GetIEVersion() {
@@ -414,6 +513,10 @@ jQuery(document).ready(function ($) {
   var isDesktop = window.matchMedia("only screen and (min-width: 1024px)");
 
   if (isDesktop.matches) {
+    //------------------------------------------------------- tips espace client
+    setTimeout(function(){
+      $('.otip').toggle( "slide" );
+    }, 2000);
 
     //---------------------------------------------------------helptext tooltips
     $('li.form-line.select').focusin(function(){
@@ -500,33 +603,40 @@ jQuery(document).ready(function ($) {
 
     //-------------------------------------------------addtocart modèle page PLV
     $("[data-cartform]").submit(function(e) {
-        var frm2 = $(this);
-        var itemImg = $('.imgtd');
-        e.preventDefault();
+      var frm2 = $(this);
+      var itemImg = $('.imgtd');
+      e.preventDefault();
+      $.magnificPopup.close();
+      $('.loader').show();
 
-       jQuery.ajax({
-         type: frm2.attr('method'),
-         url: frm2.attr('action'),
-         data: frm2.serialize(),
-         success: function (data) {
-           $("#nomp").load("index.php #nomp");
-           flyToElement(jQuery(itemImg), jQuery('.menu-client--panier'));
-           $("#menuPanier").load("index.php #menuPanier");
-         },
-         complete: function(data) {
-           setTimeout(function(){
-             $.magnificPopup.open({
-                   items: {
-                       src: '#cartConfirm',
-                   },
-                   type: 'inline'
-             });
-           }, 700);
+      //------------------------------------------------------------- update dom
+      $("#nomp").load("index.php #nomp");
+      $("#menuPanier").load("index.php #menuPanier");
+
+      jQuery.ajax({
+        type: frm2.attr('method'),
+        url: frm2.attr('action'),
+        data: frm2.serialize(),
+
+        success: function (data) {
+
         },
-         error: function (data) {
-           alert('une erreur s\'est produite, veuillez réessayer.');
-         },
-       });
+
+        complete: function(data) {
+          $('.loader').hide();
+          // --------------------------------- afficher la popup de confrimation
+          $.magnificPopup.open({
+            items: {
+              src: '#cartConfirm',
+            },
+            type: 'inline'
+          });
+        },
+
+        error: function (data) {
+          alert('une erreur s\'est produite, veuillez réessayer.');
+        },
+      });
     });
   } // fin affichage conditionnel desktop
 

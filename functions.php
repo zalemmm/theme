@@ -48,25 +48,6 @@ add_filter( 'wp_head', 'remove_wp_widget_recent_comments_style', 1 );
 
 add_image_size('thumb2', 238, 145, true);
 
-function get_another_images($id) {
-	$return = '';
-	$c = get_post_meta($id, 'Photos', false);
-	if ($c) {
-		$return = '<div class="tab_container">';
-		$x=0;
-		foreach($c as $pic) {
-			$x++;
-			$img_mini = wp_get_attachment_image_src($pic, $size='thumb2');
-			$img_full = wp_get_attachment_image_src($pic, $size='full');
-			$return .= '<div id="tab'.$x.'" class="tab_content"><img src="'.$img_mini[0].'" alt="'.get_the_title().'" /></div>';
-		}
-		$count = $x+1;
-	$return .= '</div>';
-	$return .= '<script type="text/javascript">jQuery(document).ready(function() { var newsinterval = 0; var interid = 1; var ncurid = 1; var curid = 1; var activeTab = jQuery("#tab1"); jQuery(".tab_content").hide(); jQuery(".tab_content:first").show(); function productpageSlideshow() { window.clearInterval(newsinterval); interid = ncurid+1; if (interid < '.$count.') { newsinterval = window.setInterval(function(){changeSlide(interid);},3000); } } function changeSlide(id) { jQuery("#tab"+ncurid).fadeOut(300); jQuery("#tab"+ncurid).hide(); jQuery("#tab"+id).fadeIn(); ncurid = id; productpageSlideshow(); } productpageSlideshow(); });</script>';
-	}
-	return $return;
-}
-
 function get_opis_wartosc($id, $p) {
 	return get_post_meta($id, $p, true);
 }

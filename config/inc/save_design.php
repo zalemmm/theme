@@ -21,6 +21,7 @@ $nbcom = $_SESSION['nbcom'];
 $nbname = $_SESSION['nbname'];
 $nbh = $_SESSION['nbh'];
 $nbl = $_SESSION['nbl'];
+$ref = $_SESSION['ref'];
 $saveref = $_SESSION['saveref'];
 
 //------------------------------------------------------------------- format SVG
@@ -39,14 +40,13 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 				    mkdir($destination, 0777, true);
 				}
 
-				$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.svg';
+				$filename = 'prod'.$ref.'-'.$nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.svg';
 
 				$contant = file_get_contents($value);
 
 				file_put_contents($destination.$filename, $contant);
 				//chmod($filename, 0664);
 				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
-
 
 
 			}
@@ -117,13 +117,24 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 						mkdir($destination, 0777, true);
 				}
 
-				$filename = $nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.jpg';
+				$filename = 'prod'.$ref.'-'.$nbname.'-'.$nbh.'x'.$nbl.'_'.date("Y-m-d_H-i").'.jpg';
 
 				$contant = file_get_contents($value);
 
 				file_put_contents($destination.$filename, $contant);
 				//chmod($filename, 0664);
 				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
+
+
+				/*$image = new Imagick();
+				$image->readImage($destination.$filename);
+				$image->setImageColorSpace(Imagick::COLORSPACE_CMYK);
+				$image->profileImage('icc', file_get_contents('/path/CoatedFOGRA27.icc'));
+				$image->negateImage(FALSE, imagick::COLOR_CYAN);
+				$image->negateImage(FALSE, imagick::COLOR_MAGENTA);
+				$image->negateImage(FALSE, imagick::COLOR_YELLOW);
+				$image->negateImage(FALSE, imagick::COLOR_BLACK);
+				$image->writeImage($destination.'test.jpg');*/
 
 			}
 		}

@@ -8,20 +8,21 @@ $prefix = $wpdb->prefix;
 $fb_tablename_maquette = $prefix."fbs_maquette";
 
 //-------------------------------------------------------------------variables
-$path = $_SERVER['DOCUMENT_ROOT'];
-$nbcom = $_GET['number'];
+$path   = $_SERVER['DOCUMENT_ROOT'];
+$nbcom  = $_GET['number'];
 $nbname = $_GET['name'];
 $nbdesc = $_GET['desc'];
-$nbh = $_GET['hauteur'];
-$nbl = $_GET['largeur'];
-$verso = $_GET['verso'];
-$ref = $_GET['ref'];
-$_SESSION['nbcom'] = $nbcom;
-$_SESSION['nbname'] = $nbname;
-$_SESSION['nbdesc'] = $nbdesc;
-$_SESSION['nbh'] = $nbh;
-$_SESSION['nbl'] = $nbl;
-$_SESSION['ref'] = $ref;
+$nbh    = $_GET['hauteur'];
+$nbl    = $_GET['largeur'];
+$verso  = $_GET['verso'];
+$ref    = $_GET['ref'];
+
+$_SESSION['nbcom']             = $nbcom;
+$_SESSION['nbname']            = $nbname;
+$_SESSION['nbdesc']            = $nbdesc;
+$_SESSION['nbh']               = $nbh;
+$_SESSION['nbl']               = $nbl;
+$_SESSION['ref']               = $ref;
 
 // cas particuliers
 
@@ -46,7 +47,7 @@ $fgd = preg_match_all($find5, $nbdesc, $resultat5);
 $fgd = count($resultat5[0]);
 
 //---------------------création d'un numéro unique maquette pour la sauvegarde
-$saveref = $nbcom.'-'.$nbname.$nbh.'x'.$nbl.'-'.$verso.$ref;
+$saveref = 'prod'.$ref.'-'.$nbcom.'-'.$nbname.$nbh.'x'.$nbl.'-'.$verso.$ref;
 $_SESSION['saveref'] = $saveref;
 
 //------------------------- vérifier s'il existe une sauvegarde de la maquette
@@ -803,6 +804,7 @@ paceOptions = {
     // charger la modal faq au démarrage
     /*$(window).on('load',function(){$('#faq').modal('show');});*/
   });
+
   //------------------------------------------------------------------------CMJN
   function setColor(elmnt) {
     var ele, col, c, m, y, k, rgb;
@@ -814,8 +816,7 @@ paceOptions = {
     if (parseInt(elmnt.value) < 0) {elmnt.value = "0";}
     if (parseInt(elmnt.value) > 100) {elmnt.value = "100";}
     rgb = w3color("cmyk(" + c.value + "%, " + m.value + "%, " + y.value + "%, " + k.value + "%)");
-    //document.getElementById("cmyk01").style.backgroundColor = rgb.toHexString();
-    //document.getElementById("cmyk01").value = rgb.toHexString();
+
     document.getElementById("cmyk01").value = rgb.toHexString();
     document.getElementById('cmyk01').dispatchEvent(new Event('change'));
     document.getElementById("rgb01").innerHTML = rgb.toRgbString();
@@ -831,7 +832,6 @@ paceOptions = {
     document.getElementById("magentapointer" + m.value).style.display = "inline";
     document.getElementById("yellowpointer" + y.value).style.display = "inline";
     document.getElementById("blackpointer" + k.value).style.display = "inline";
-    //document.getElementById("linktocp").innerHTML = "<hr style='border-color:#dfdfdf'><p><a href='colors_picker.asp?colorhex=" + rgb.toHexString().substr(1) + "'>Use this color in our Color Picker</a></p>";
   }
 
   function setFullColor() {
@@ -843,9 +843,7 @@ paceOptions = {
     document.getElementById("k01").value = (cmyk.k * 100).toFixed(0);
     setColor(document.getElementById("c01"));
   }
-  /*color = w3color(document.getElementById("cmyk01").value);
-  document.getElementById("cmyk01").value = color.toCmykString();
-  setFullColor();*/
+
 </script>
 
 <div id="qrcode"></div>

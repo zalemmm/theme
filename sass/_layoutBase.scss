@@ -412,6 +412,12 @@ iframe,
   }
 }
 
+.disno760 {
+  @include s760 {
+    display: none;
+  }
+}
+
 .noDisXS {
   @include s860 {
     display: none;
@@ -446,7 +452,7 @@ iframe#sb-player {
 .disMob0 {
   display: none;
 
-  @include s760 {
+  @include s540 {
     display: inline-block;
     position: absolute;
     left: 5px;
@@ -508,7 +514,8 @@ html { box-sizing: border-box; }
 @include border-box-sizing;
 
 body {
-  max-width: 1180px;
+  max-width: 1024px;
+  width: 1024px;
   //width: 1180px !important;
   margin: 0 auto;
   font-family: $font-global;
@@ -519,7 +526,6 @@ body {
   line-height: 1.2em;
   font-size: .9rem;
   z-index: 9;
-  width: 1024px;
   background-color: $bloc-base;
   overflow-x: hidden;
   @include s1024 {
@@ -570,7 +576,7 @@ body {
 header {
   @include container (100%);
   width: 100%;
-  height: 220px;
+  height: 190px;
   position: relative;
   margin: 0 auto;
   text-align: left;
@@ -582,7 +588,7 @@ header {
   background-size: 358px 100px;
 
   @include s1024 {
-    height: 220px;
+    height: 190px;
   }
 
   @include s760 {
@@ -596,7 +602,7 @@ header {
 
 a#logo {
   position: absolute;
-  top: 70px;
+  top: 55px;
   left: 5px;
   width: 20%;
   height: 140px;
@@ -606,7 +612,7 @@ a#logo {
   background-size: contain;
 
   @include s760 {
-    top: 10px;
+    top: 5px;
     left: 0;
     width: 15%;
   }
@@ -616,7 +622,7 @@ a#logo {
 
 .site-head{
   width: 81.7%;
-  top: 100px;
+  top: 85px;
   left: 12.5%;
   position: relative;
   font-family: $font-special;
@@ -688,7 +694,7 @@ a#logo {
 ul.menu-client{
   @include container (35%);
   position: absolute;
-  top: 85px;
+  top: 70px;
   right: .7%;
   font-size: .7rem;
   line-height: 1.2rem;
@@ -959,7 +965,7 @@ a .fa-lock{
     margin-top: 10px;
     width: 100%;
   }
-  form#delcart_form {
+  form.delcart_form {
     display: inline-block;
     width: 5%;
   }
@@ -1080,16 +1086,23 @@ ul {
           height: 40px;
           padding-top: .7rem;
           padding-left: .7rem;
-          border-left: 1px solid $border;
           vertical-align: baseline;
           font-weight: 900;
-        }
+          &#active,
+          &:hover {
+            color:$jaune;
+            transition: .2s;
 
-        &#active,
-        &:hover {
-          color:$jaune;
-          transition: .2s;
-          border-left: 1px solid $jaune;
+          }
+          &.b {
+            border-left: 1px solid $border;
+            &#active,
+            &:hover {
+              color:$jaune;
+              transition: .2s;
+              border-left: 1px solid $jaune;
+            }
+          }
         }
       }
     }
@@ -1115,14 +1128,17 @@ ul {
           position: absolute;
           top: 40px;
           left: 61px;
-
           text-align:left;
+
           a:link {
             display: inline;
             font-size: .61rem;
             line-height: .8rem;
             color: lighten($text,10%) !important;
             border: none;
+          }
+          a:hover {
+            color: $jaune !important;
           }
         }
       }
@@ -1145,7 +1161,7 @@ ul {
 
         &:hover {
           background-color: lighten($jaune, 10%);
-          color: $white;
+          color: $white !important;
           transition: .2s;
         }
       }
@@ -1374,7 +1390,7 @@ ul#menu_top ul#pap_sub{
   margin-bottom: 0;
   text-align: right;
   font-size: .72rem;
-  top: 152px;
+  top: 137px;
   right: 1%;
 
   @include s760 {
@@ -3477,21 +3493,15 @@ ul#introBlocs {
 //-------------------------------------------------boutons link aide modal pages
 
 a.noticeFooter {
-  display: block;
+  @include buttonLine($white, auto);
   float: left;
-  border: 1px solid $text;
   margin: 10px 10px 0 0;
   min-width: 30px;
-  min-height: 25px;
-  border-radius: 20px;
-  padding: 5px 10px;
-  text-align: center;
-  text-transform: uppercase;
-  color: $text;
-  letter-spacing: 1px;
-  font-size: .8rem;
+  height: 25px;
+  text-transform: capitalize;
+  padding: 5px 15px;
+
   .textHide{
-    font-size: .75rem;
     @include s760 {
       display: none;
     }
@@ -3853,7 +3863,7 @@ span#footer_links2 {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 99999;
   width: 100%;
   height: 100%;
   text-align: center;
