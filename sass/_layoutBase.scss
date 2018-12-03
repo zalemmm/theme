@@ -424,6 +424,12 @@ iframe,
   }
 }
 
+.disno1280 {
+  @include s1280 {
+    display: none;
+  }
+}
+
 .prezHide {
   @include s650 {
     display: none;
@@ -519,14 +525,13 @@ body {
   //width: 1180px !important;
   margin: 0 auto;
   font-family: $font-global;
-  background-color: $white;
+  //background-color: $black;
   background-image: url('../img/cream_pixels.png');
   color: $text;
   font-size: 1em;
   line-height: 1.2em;
   font-size: .9rem;
   z-index: 9;
-  background-color: $bloc-base;
   overflow-x: hidden;
   @include s1024 {
     max-width: 100%;
@@ -1372,7 +1377,7 @@ ul#menu_top ul#pap_sub{
   @include container (100%);
   width: 100%;
   height: auto;
-  padding: 10px 4% 0;
+  padding: 10px 4% 25px;
   background: $white;
 }
 
@@ -1415,6 +1420,10 @@ a.upp {
   text-align: justify;
   ul li {
     margin-bottom: 10px;
+  }
+  img {
+    max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -1913,136 +1922,6 @@ hr.hr-separator {
   width: 50%;
   background: transparent;
   margin: 10px auto;
-}
-
-// éléments cachés déroulants --------------------------------------------------
-
-.toggle-button {
-  position: relative;
-  clear: both;
-  display: block;
-  margin: 40px auto 0 -4.5%;
-  cursor: pointer;
-  text-align: center;
-  border: 1px solid $text;
-  border-left: none;
-  border-right: none;
-  background-color: transparent;
-  background: white;
-  width: calc(100% + 9%);
-  color: $text;
-  font-weight: 700;
-  font-family: $font-global;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: .8rem;
-  line-height: .9rem;
-  height: 30px;
-  z-index: 10;
-
-  i {
-    display: block;
-    position: absolute;
-    width: 40px;
-    height: 20px;
-    top: 28px;
-    left: calc(50% - 20px);
-    background: white;
-    z-index: 20;
-    border-radius:0 0 20px 20px;
-    border: 1px solid $text;
-    border-top: none;
-  }
-
-  &:before{
-    display: table;
-    clear:both;
-  }
-}
-
-.toggle-block {
-  clear: both;
-  display: none;
-  padding: 5% 5% 20px 4.5%;
-  font-family: $font-global;
-  font-size: .85rem;
-  line-height: 1rem;
-  font-weight: normal;
-  margin-top: -20px;
-  margin-left: -4.5%;
-  //background: darken($bloc-base,3%);
-  border-bottom: 1px solid $text;
-  width: calc(100% + 9%);
-  h4 {
-    color: $text;
-  }
-  h3 {
-    text-transform: uppercase;
-    font-size: 1rem;
-    text-align: center;
-    font-weight: 900;
-  }
-  strong {
-    text-transform: uppercase;
-    color: #ccc;
-  }
-}
-
-img.toggle-button {
-  margin: 20px auto 0;
-  text-align: center;
-  background: 0;
-  width: 10px;
-  height: 10px;
-}
-
-// youtube/iframes responsive --------------------------------------------------
-
-.video-container {
-	position: relative;
-	padding-bottom: 56.25%;
-	padding-top: 30px;
-	height: 0;
-	overflow: hidden;
-  border: 0;
-  margin-top: 20px;
-}
-
-.pic-container {
-	position: relative;
-  display: -webkit-flex;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  p {
-    display: inline;
-  }
-  a {
-    display: inline-block;
-    width: 30%;
-    float: none;
-    margin-top: 20px;
-
-  }
-  img{
-    width: 100%;
-    height: auto;
-    max-height: 135px;
-  }
-}
-.freepic{
-  margin-top: 20px;
-}
-.video-container iframe,
-.video-container object,
-.video-container embed {
-  display: block;
-	position: absolute;
-  border: 0;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
 }
 
 
@@ -2549,7 +2428,7 @@ a.comVoir  {
   background: $text;
   color: $white;
   display: block;
-  margin: 190px 0 0 0;
+  margin: 170px 0 0 0;
   top: 0;
   right: 0;
   padding-top: .5rem;
@@ -3341,7 +3220,7 @@ a:hover {
 //==============================================================================
 
 ul#introBlocs {
-  background: transparent;
+  //background: transparent;
   clear: both;
   float: none;
   display: flex;
@@ -3350,9 +3229,10 @@ ul#introBlocs {
   justify-content: space-between;
   list-style-type: none;
   margin: 0;
-  margin-top: -15px;
-  background-image: url('../img/cream_pixels.png');
+  margin-top: 0;
+  background-image: url('../img/cream_pixels.png') !important;
   padding: 2rem 1rem;
+  border-top: 1px solid $text;
 
   li {
     text-align: center;
@@ -3490,6 +3370,10 @@ ul#introBlocs {
 
 }
 
+.textHide {
+  display: none;
+}
+
 //-------------------------------------------------boutons link aide modal pages
 
 a.noticeFooter {
@@ -3502,6 +3386,7 @@ a.noticeFooter {
   padding: 5px 15px;
 
   .textHide{
+     display: block;
     @include s760 {
       display: none;
     }
@@ -3725,7 +3610,7 @@ h4.clients_reviews_titre a{
 
 }
 .gorea {
-  top: -62px;
+  top: -37px;
   background: $white;
   color: $text;
   padding-top: 10px;
@@ -3733,8 +3618,12 @@ h4.clients_reviews_titre a{
   border-bottom: none;
 
   i {
-    font-size: 40px;
+    font-size: 35px;
     color: $text;
+    &:hover {
+      color: $magenta;
+      transition: .2s;
+    }
   }
 }
 .exrea{
@@ -3743,6 +3632,7 @@ h4.clients_reviews_titre a{
   text-transform: uppercase;
   font-size: .7rem;
   letter-spacing: 1px;
+  padding-top: 10px;
 }
 
 .ribbon {
@@ -3922,3 +3812,45 @@ span#footer_links2 {
     transform-origin:0 0;
   }
 }
+
+/* Generated by http://css.spritegen.com CSS Sprite Generator */
+
+.sprite {
+  display: inline-block;
+  background: url('../images/btm/sprite.png') no-repeat;
+  overflow: hidden;
+  text-indent: -9999px;
+  text-align: left;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.sprite-bt-plv-ext { background-position: -5px -0px; width: 61px; height: 50px; }
+.sprite-bt-plv-int { background-position: -71px -0px; width: 61px; height: 50px; }
+.sprite-bt-affiche { background-position: -137px -0px; width: 61px; height: 50px; }
+.sprite-bt-autocollant { background-position: -203px -0px; width: 61px; height: 50px; }
+.sprite-bt-banderole { background-position: -269px -0px; width: 61px; height: 50px; }
+.sprite-bt-cadre { background-position: -5px -55px; width: 61px; height: 50px; }
+.sprite-bt-carte { background-position: -71px -55px; width: 61px; height: 50px; }
+.sprite-bt-cloison { background-position: -137px -55px; width: 61px; height: 50px; }
+.sprite-bt-depliant { background-position: -203px -55px; width: 61px; height: 50px; }
+.sprite-bt-enseigne { background-position: -269px -55px; width: 61px; height: 50px; }
+.sprite-bt-flyer { background-position: -5px -110px; width: 61px; height: 50px; }
+.sprite-bt-merge-ext { background-position: -71px -110px; width: 61px; height: 50px; }
+.sprite-bt-merge-int { background-position: -137px -110px; width: 61px; height: 50px; }
+.sprite-bt-merge-papier { background-position: -203px -110px; width: 61px; height: 50px; }
+.sprite-bt-nappes { background-position: -269px -110px; width: 61px; height: 50px; }
+.sprite-bt-oriflamme { background-position: -5px -165px; width: 61px; height: 50px; }
+.sprite-bt-panneau { background-position: -71px -165px; width: 61px; height: 50px; }
+.sprite-bt-promo { background-position: -137px -165px; width: 61px; height: 50px; }
+.sprite-bt-roll-up { background-position: -203px -165px; width: 61px; height: 50px; }
+.sprite-bt-stand { background-position: -269px -165px; width: 61px; height: 50px; }
+.sprite-bt-stickers-lettrage-predec { background-position: -5px -220px; width: 61px; height: 50px; }
+.sprite-bt-stickers-mur { background-position: -71px -220px; width: 61px; height: 50px; }
+.sprite-bt-stickers-predecoupe { background-position: -137px -220px; width: 61px; height: 50px; }
+.sprite-bt-stickers { background-position: -203px -220px; width: 61px; height: 50px; }
+.sprite-bt-susp { background-position: -269px -220px; width: 61px; height: 50px; }
+.sprite-bt-tentes { background-position: -5px -275px; width: 61px; height: 50px; }
+.sprite-bt-totem { background-position: -71px -275px; width: 61px; height: 50px; }
+.sprite-bt-vitrophanie { background-position: -137px -275px; width: 61px; height: 50px; }
+.sprite-f4b { background-position: -203px -275px; width: 61px; height: 50px; }

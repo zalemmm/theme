@@ -82,5 +82,30 @@ function show_favicon() {
 }
 add_action('admin_head', 'show_favicon');
 
+//add_action('admin_init', 'filter_the_plugins');
+function filter_the_plugins() {
+    global $current_user;
+    if ($current_user->display_name == '3') {
+			activate_plugins(
+        array(
+          '/html-editor-syntax-highlighter/html-editor-syntax-highlighter.php',
+					'/wp-emmet/wp-emmet.php'
+        ),
+        '', // redirect url, does not matter (default is '')
+        false, // network wise
+        true // silent mode (no activation hooks fired)
+      );
+    } else { // activate for those than can use it
+			deactivate_plugins( // deactivate for media_manager
+				array(
+					'/html-editor-syntax-highlighter/html-editor-syntax-highlighter.php',
+					'/wp-emmet/wp-emmet.php'
+				),
+				true, // silent mode (no deactivation hooks fired)
+				false // network wide
+			);
+    }
+}
+
 
 ?>

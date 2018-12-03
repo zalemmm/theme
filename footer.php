@@ -68,89 +68,37 @@
     }
 
     echo '<div id="butrappel" style="background: url('.get_bloginfo('stylesheet_directory').'/images/'.$selectedBg.'") no-repeat;><button class="closeButton"><i class="ion-ios-close-empty" aria-hidden="true"></i></button><a href="#rappel" class="open-popup-link">
-    <h3>'.$selectedQt.'</h3>Un conseiller France-Banderole<br/> vous rappelle gratuitement</a></div>
-    <div id="rappel" class="white-popup mfp-hide">
-      <div class="modalContent">
-
-        <h3>Un conseiller vous rappelle quand vous le souhaitez :</h3>
-        <p>Entrez votre numéro de téléphone</p>
-        <form action="" method="post" name="rappel" id="subrappel">
-          <input type="text" name="tel" placeholder="téléphone" />
-          <select name="heure" id="">
-            <option value="dès que possible">Dès que possible</option>
-            <option value="dans 10min">dans 10min</option>
-            <option value="dans 30min">dans 30min</option>
-            <option value="dans 1h">dans 1h</option>
-          </select>
-          <button name="subrappel" type="submit">Envoyer</button>
-          <p><i class="fa fa-info-circle"></i> Nos conseillers sont là pour vous aider du lundi au vendredi de <strong>9 à 12h</strong> et de <strong>14 à 18h</strong><br />
-          <small>- Votre n° de téléphone ne sera ni conservé, ni utilisé à des fin marketing -</small></p>
-        </form>
-      </div>
-    </div>';
+    <h3>'.$selectedQt.'</h3>Un conseiller France-Banderole<br/> vous rappelle gratuitement</a></div>';
     //'.do_shortcode(' 	[ninja_form id=2] ').'
-
   }
 
   ?>
+
+  <div id="rappel" class="white-popup mfp-hide">
+    <div class="modalContent">
+
+      <h3>Un conseiller vous rappelle quand vous le souhaitez :</h3>
+      <p>Entrez votre numéro de téléphone</p>
+      <form action="" method="post" name="rappel" id="subrappel">
+        <input type="text" name="tel" placeholder="téléphone" />
+        <select name="heure" id="">
+          <option value="dès que possible">Dès que possible</option>
+          <option value="dans 10min">dans 10min</option>
+          <option value="dans 30min">dans 30min</option>
+          <option value="dans 1h">dans 1h</option>
+        </select>
+        <button name="subrappel" type="submit">Envoyer</button>
+        <p><i class="fa fa-info-circle"></i> Nos conseillers sont là pour vous aider du lundi au vendredi de <strong>9 à 12h</strong> et de <strong>14 à 18h</strong><br />
+        <small>- Votre n° de téléphone ne sera ni conservé, ni utilisé à des fin marketing -</small></p>
+      </form>
+    </div>
+  </div>
+
   <div id="footer2">
 
-    <!--Lien réalisations-->
-    <div class="lightboxGallery">
-      <a class="gorea" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-17.jpg" title="kakemono 120x200cm"><i class="ion-images"></i></a><br />
-      <!--galerie réalisations-->
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-04.jpg" title="banderole PVC géante 1000x160cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-06.jpg" title="kakemono "></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-05.jpg" title="banderole 400x80cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-07.jpg" title="impression bâche 600x250cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-08.jpg" title="calicot 350x90cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-18.jpg" title="kakemono 150x200cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-09.jpg" title="bâche imprimée 1000x100cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-10.jpg" title="banderole communication 300x80cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-11.jpg" title="banderolle 200x80cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-07.jpg" title="kakemonos"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-08.jpg" title="totems publicitaires"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-09.jpg" title="rollup"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-12.jpg" title="banderole publicité 150x100cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-13.jpg" title="banderoles PVC 400x80cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-01.jpg" title="kakemono roll-up"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-14.jpg" title="banderoles 700x60cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-15.jpg" title="kakemono hall d'entrée"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-16.jpg" title="kakemono salon exposition"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-17.jpg" title="kakemono 120x200cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-15.jpg" title="banderole de marché"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-16.jpg" title="banderole de foire"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-13.jpg" title="KAKEMONO"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-17.jpg" title="impression sur bache 16m x 1m"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-18.jpg" title="banderole intissée 400x80cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-19.jpg" title="banderole personnalisée"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-20.jpg" title="banderole PVC 500x50cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-21.jpg" title="impression sur bache 650x250cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-22.jpg" title="banderole exterieur PVC"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-23.jpg" title="bâches publicitaires"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-24.jpg" title="banderoles publicitaires"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-25.jpg" title="bache imprimée PVC 4mx1m"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-02.jpg" title="kakemono enrouleur"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-03.jpg" title="kakemonos publicitaires"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-04.jpg" title="totem 85x200cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-05.jpg" title="kakemono imprimé 80x200cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-10.jpg" title="roll-up"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-11.jpg" title="kakemonos enrouleurs"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-12.jpg" title="kakemono stand"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-14.jpg" title="KAKEMONOS"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-19.jpg" title="kakemono 100x200cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-20.jpg" title="kakemono écologique"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-21.jpg" title="impression kakemono"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-22.jpg" title="kakemono toile PVC"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-23.jpg" title="kakemono anti-feu"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-24.jpg" title="totem roll-up"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/kakemono-25.jpg" title="roll-up imprimés"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-06.jpg" title="banderoles fete fin d année"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-02.jpg" title="banderole de noel 400x100cm"></a>
-      <a class="dis0" href="<?php bloginfo('url'); ?>/wp-content/uploads/2010/04/banderole-03.jpg" title="banderole publicitaire 250x103cm"></a>
-    </div>
+    <a href="#rappel" title="" class="open-popup-link gorea"><i class="fa fa-question"></i></a>
 
-    <p class="exrea">Exemples de réalisations</p>
+    <p class="exrea">Une question ? un conseiller vous rapelle !</p>
     <hr class="bottom_hr" />
 
     <div id="banners">

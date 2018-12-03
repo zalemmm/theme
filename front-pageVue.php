@@ -562,6 +562,6 @@ get_header();
 
 <script src="<?php bloginfo('url'); ?>/wp-content/plugins/fbshop/js/vue.min.js"></script>
 <script src="<?php bloginfo('url'); ?>/wp-content/plugins/fbshop/js/vue.v-tooltip.min.js"></script>
-<script src="<?php bloginfo('url'); ?>/wp-content/plugins/fbshop/prod_pages/vue.accueil.js?v=2.4"></script>
+<script src="<?php bloginfo('url'); ?>/wp-content/plugins/fbshop/prod_pages/vue.accueil.js?v=3.0"></script>
 
 <?php get_footer(); ?>

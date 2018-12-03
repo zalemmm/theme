@@ -9,6 +9,13 @@ require( '../../../../../wp-load.php' );
 global $wpdb;
 $prefix = $wpdb->prefix;
 $fb_tablename_maquette = $prefix."fbs_maquette";
+$fb_tablename_order = $prefix."fbs_order";
+$fb_tablename_prods = $prefix."fbs_prods";
+$fb_tablename_comments = $prefix."fbs_comments";
+$fb_tablename_comments_new = $prefix."fbs_comments_new";
+$fb_tablename_users = $prefix."fbs_users";
+$fb_tablename_mails = $prefix."fbs_mails";
+$fb_tablename_cf = $prefix."fbs_cf";
 
 //------------------------------------------------------------------------------
 $site_url = $_SERVER['HTTP_REFERER'];
@@ -125,11 +132,13 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 				//chmod($filename, 0664);
 				$filenames[] = $site_url.'/uploaded/'.$nbcom.'/'.$filename;
 
+				$path = (__DIR__).'/../../../../../icc/CMYK/';
 
+				// fb profiles: cmjn: fogra27(iso12647-2004) / rgb: sRGBiec61966-2.1
 				/*$image = new Imagick();
 				$image->readImage($destination.$filename);
 				$image->setImageColorSpace(Imagick::COLORSPACE_CMYK);
-				$image->profileImage('icc', file_get_contents('/path/CoatedFOGRA27.icc'));
+				$image->profileImage('icc', file_get_contents($path.'/CoatedFOGRA27.icc'));
 				$image->negateImage(FALSE, imagick::COLOR_CYAN);
 				$image->negateImage(FALSE, imagick::COLOR_MAGENTA);
 				$image->negateImage(FALSE, imagick::COLOR_YELLOW);
@@ -142,6 +151,10 @@ if(isset($_POST['type']) && !empty($_POST['type']) && $_POST['type'] == 'svg'){
 		$result['status'] = true;
 		$result['filename'] = $filenames;
 		$result['message'] = 'Your designed object has been saved.';
+
+		// si fichier uploadé, passer au nouveau statut 8 'fichier en traitement'
+		/*$nowadata = date('Y-m-d H:i:s');
+		$upstat = $wpdb->update($fb_tablename_order, array ( 'status' => '8', 'date_modify' => $nowadata), array ( 'unique_id' => $nbcom ) );*/
 
 		echo json_encode($result);
 
